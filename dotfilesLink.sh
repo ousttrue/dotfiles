@@ -1,10 +1,13 @@
 #!/bin/sh
 set -x
 
-ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/.bashrc ~/.bashrc
+DOTFILES=~/dotfiles
+
+ln -sf $DOTFILES/.bash_profile ~/.bash_profile
+ln -sf $DOTFILES/.bashrc ~/.bashrc
+ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 
 mkdir -p ~/.config/nvim
-ln -sf ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
-ln -sf ~/dotfiles/config/nvim/dein.toml ~/.config/nvim/dein.toml
+ln -sf $DOTFILES/config/nvim/init.vim ~/.config/nvim/init.vim
+ln -sf $DOTFILES/config/nvim/dein.toml ~/.config/nvim/dein.toml
 
