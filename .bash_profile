@@ -11,5 +11,6 @@ if [ -d $HOME/.pyenv ];then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+[[ $- != *i* ]] && return
 [ -f ~/.bashrc ] && . ~/.bashrc
 
