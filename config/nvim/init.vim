@@ -26,7 +26,7 @@ if dein#load_state(s:dein_dir)
 endif
 " 不足プラグインの自動インストール
 if has('vim_starting') && dein#check_install()
-    call dein#install()
+   call dein#install()
 endif
 " }}}
 
