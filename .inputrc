@@ -1,0 +1,3 @@
+set bell-style none
+"\C-n":history-search-forward
+"\C-p":history-search-backward

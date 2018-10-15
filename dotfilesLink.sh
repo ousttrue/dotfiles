@@ -6,6 +6,7 @@ DOTFILES=~/dotfiles
 ln -sf $DOTFILES/.bash_profile ~/
 ln -sf $DOTFILES/.bashrc ~/
 ln -sf $DOTFILES/.tmux.conf ~/
+ln -sf $DOTFILES/.inputrc ~/
 
 mkdir -p ~/.config/nvim
 ln -sf $DOTFILES/config/nvim/init.vim ~/.config/nvim/
