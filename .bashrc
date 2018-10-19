@@ -11,6 +11,8 @@
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
 alias la='ls --color=auto -a'
+alias gs='git status'
+alias gl='git lga'
 
 #
 # nvim
