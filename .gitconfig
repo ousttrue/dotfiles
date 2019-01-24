@@ -1,0 +1,5 @@
+[core]
+	pager = less -cm
+[user]
+	email = ousttrue@gmail.com
+	name = ousttrue

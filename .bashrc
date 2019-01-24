@@ -17,16 +17,18 @@ alias gl='git lga'
 #
 # nvim
 #
+if `which nvim 2>/dev/null`; then
 alias vi='nvim'
 alias vim='nvim'
 export EDITOR='nvim'
+fi
 
 #
 # git
 #
 if [ -f ~/.git-completion.bash ];then
-    source ~/git-completion.bash
-    source ~/git-prompt.sh
+    source ~/.git-completion.bash
+    source ~/.git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWUPSTREAM=1
     GIT_PS1_SHOWUNTRACKEDFILES=
@@ -63,10 +65,9 @@ export HISTSIZE=9999
 # \[ 表示させない文字列の開始
 # \] 表示させない文字列の終了
 # \$ $
-if [ -f ~/.git-completion.bash ];then
+#if [ -f ~/.git-completion.bash ];then
+if [ -f ~/.bash-git-prompt/gitprompt.sh ];then
     export PS1='\[\033[1;32m\]\u\[\033[00m\]:\[\033[1;34m\]\w\[\033[1;31m\]$(__git_ps1)\[\033[00m\] \$ '
-else
-    #export PS1=''
     GIT_PROMPT_ONLY_IN_REPO=1
     source ~/.bash-git-prompt/gitprompt.sh
 fi
