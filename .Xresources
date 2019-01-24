@@ -10,8 +10,9 @@ XTerm*saveLines:           2000
 !XTerm.faceName: Noto Sans Mono CJK JP:size=10
 !xterm*faceName:           Oxygen Mono:size=10
 !XTerm*faceNameDoublesize: Yu Gothic:size=10
-xterm*faceName: Monoid:style=Regular:size=11
-xterm*faceNameDoublesize: Yu Gothic:size=11
+xterm*faceName: Monoid:style=Regular:size=10
+!xterm*faceNameDoublesize: Yu Gothic:size=10
+xterm*faceNameDoublesize: MingLiU:style=Regular:size=10
 
 !XTerm*faceName: 游ゴシック
 
