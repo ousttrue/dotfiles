@@ -74,3 +74,19 @@ else
     export PS1='[\u:\W]\$ '
 fi
 
+
+if [ -d $HOME/.cargo/bin ];then
+    export PATH=$HOME/.cargo/bin:$PATH
+fi
+
+if [ -d $HOME/.pyenv ];then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
+if `which xrdb > /dev/null 2>&1`; then
+    export DISPLAY=localhost:0
+    xrdb ~/.Xresources
+fi
+
