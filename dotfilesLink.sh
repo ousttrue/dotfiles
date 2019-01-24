@@ -3,6 +3,7 @@ set -x
 
 DOTFILES=~/dotfiles
 
+ln -sf $DOTFILES/.XResources ~/
 ln -sf $DOTFILES/.gitconfig ~/
 ln -sf $DOTFILES/.bash_profile ~/
 ln -sf $DOTFILES/.bashrc ~/
