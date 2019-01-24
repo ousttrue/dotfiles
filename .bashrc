@@ -70,5 +70,7 @@ if [ -f ~/.bash-git-prompt/gitprompt.sh ];then
     export PS1='\[\033[1;32m\]\u\[\033[00m\]:\[\033[1;34m\]\w\[\033[1;31m\]$(__git_ps1)\[\033[00m\] \$ '
     GIT_PROMPT_ONLY_IN_REPO=1
     source ~/.bash-git-prompt/gitprompt.sh
+else
+    export PS1='[\u:\W]\$ '
 fi
 
