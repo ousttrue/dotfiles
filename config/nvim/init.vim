@@ -36,6 +36,9 @@ set ts=4 sw=4 sts=4 expandtab
 set hidden
 set list
 set listchars=tab:>-,trail:-,eol:$
+set belloff=all
+set vb t_vb=
+set noerrorbells
 
 nnoremap <silent> ;; :Vaffle<CR>
 nnoremap <silent> <F5> :QuickRun -mode n<CR>

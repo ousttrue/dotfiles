@@ -17,40 +17,42 @@ alias gl='git lga'
 #
 # nvim
 #
-if `which nvim 2>/dev/null`; then
-alias vi='nvim'
-alias vim='nvim'
-export EDITOR='nvim'
+if [ `which nvim 2>/dev/null` != "" ]; then
+    alias vi='nvim'
+    alias vim='nvim'
+    export EDITOR='nvim'
 fi
 
 #
 # git
 #
 if [ -f ~/.git-completion.bash ];then
-    source ~/.git-completion.bash
-    source ~/.git-prompt.sh
-    GIT_PS1_SHOWDIRTYSTATE=1
-    GIT_PS1_SHOWUPSTREAM=1
-    GIT_PS1_SHOWUNTRACKEDFILES=
-    GIT_PS1_SHOWSTASHSTATE=1
+    if [ -f !/.git-prompt.sh ];then
+        source ~/.git-completion.bash
+        source ~/.git-prompt.sh
+        GIT_PS1_SHOWDIRTYSTATE=1
+        GIT_PS1_SHOWUPSTREAM=1
+        GIT_PS1_SHOWUNTRACKEDFILES=
+        GIT_PS1_SHOWSTASHSTATE=1
+    fi
 fi
 
 #
 # nvm
 #
-if [ -d $HOME/.nvim ];then
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
+#if [ -d $HOME/.nvim ];then
+#    export NVM_DIR="$HOME/.nvm"
+#    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#fi
 
 #
 # bash
 #
 function share_history {
-	history -a
-	history -c
-	history -r
+    history -a
+    history -c
+    history -r
 }
 PROMPT_COMMAND='share_history'
 shopt -u histappend
@@ -66,13 +68,14 @@ export HISTSIZE=9999
 # \] 表示させない文字列の終了
 # \$ $
 #if [ -f ~/.git-completion.bash ];then
-if [ -f ~/.bash-git-prompt/gitprompt.sh ];then
-    export PS1='\[\033[1;32m\]\u\[\033[00m\]:\[\033[1;34m\]\w\[\033[1;31m\]$(__git_ps1)\[\033[00m\] \$ '
-    GIT_PROMPT_ONLY_IN_REPO=1
-    source ~/.bash-git-prompt/gitprompt.sh
-else
+#if [ -f ~/.bash-git-prompt/gitprompt.sh ];then
+#    export PS1='\[\033[1;32m\]\u\[\033[00m\]:\[\033[1;34m\]\w\[\033[1;31m\]$(__git_ps1)\[\033[00m\] \$ '
+#    GIT_PROMPT_ONLY_IN_REPO=1
+#    source ~/.bash-git-prompt/gitprompt.sh
+##else
     export PS1='[\u:\W]\$ '
-fi
+#fi
+export PS1='[\u:\W]\$ '
 
 
 if [ -d $HOME/.cargo/bin ];then
