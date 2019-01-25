@@ -1,5 +1,11 @@
 # dotfiles
 
+## Setup
+
+# ln -s /mnt/c/Windows/Fonts /usr/share/fonts/Windows
+
+
+
 ## Addfile
 
 ```
