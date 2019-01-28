@@ -17,7 +17,7 @@ alias gl='git lga'
 #
 # nvim
 #
-if [ `which nvim 2>/dev/null` != "" ]; then
+if `which nvim >/dev/null 2>&1`; then
     alias vi='nvim'
     alias vim='nvim'
     export EDITOR='nvim'
