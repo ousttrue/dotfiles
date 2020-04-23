@@ -16,45 +16,13 @@ repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
 [[plugins]]
-repo = 'Shougo/defx.nvim'
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'cocopon/vaffle.vim'
 
 [[plugins]]
-repo = 'rust-lang/rust.vim'
-
-[[plugins]]
-repo = 'racer-rust/vim-racer'
-
-[[plugins]]
-repo = 'felixhummel/setcolors.vim'
-
-[[plugins]]
 repo = 'vim-scripts/VimIM'
-
-#
-# ColorSchemas
-#
-
-[[plugins]]
-repo = 'flazz/vim-colorschemes'
-
-#[[plugins]] # カラースキーマ
-#repo = 'tomasr/molokai'
-
-#[[plugins]] # カラースキーマ
-#repo = 'w0ng/vim-hybrid'
-
-#hook_add = '''
-#set background=dark
-#" colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-#" 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
-#au MyAutoCmd VimEnter * nested colorscheme elflord
-#'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'

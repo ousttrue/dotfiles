@@ -73,7 +73,7 @@ export HISTSIZE=9999
 #    GIT_PROMPT_ONLY_IN_REPO=1
 #    source ~/.bash-git-prompt/gitprompt.sh
 ##else
-    export PS1='[\u:\W]\$ '
+export PS1='[\u:\W]\$ '
 #fi
 export PS1='[\u:\W]\$ '
 
@@ -88,7 +88,7 @@ if [ -d $HOME/.pyenv ];then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-if `which xrdb > /dev/null 2>&1`; then
+if [ -x  xrdb ]; then
     export DISPLAY=localhost:0
     xrdb ~/.Xresources
 fi

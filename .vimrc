@@ -1,3 +1,6 @@
-"ビープ音すべてを無効にする
-set visualbell t_vb=
-set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
+set encoding=utf8
+let s:nvim_init = expand('~/.config/nvim/init.vim')
+if filereadable(s:nvim_init)
+    execute 'source ' . s:nvim_init
+endif
+
