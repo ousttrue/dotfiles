@@ -24,6 +24,6 @@ ln -sf $DOTFILES/config/openbox/rc.xml ~/.config/openbox/
 mkdir -p ~/.config/fontconfig
 ln -sf $DOTFILES/config/fontconfig/fonts.conf ~/.config/fontconfig/
 
-wget https://github.com/git/git/raw/master/contrib/completion/git-completion.bash
-wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+#wget https://github.com/git/git/raw/master/contrib/completion/git-completion.bash
+#wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 

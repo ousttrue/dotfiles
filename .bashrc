@@ -26,8 +26,8 @@ fi
 #
 # git
 #
-source ~/dotfiles/git-completion.bash
-source ~/dotfiles/git-prompt.sh
+#source ~/dotfiles/git-completion.bash
+#source ~/dotfiles/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1
 GIT_PS1_SHOWUNTRACKEDFILES=
