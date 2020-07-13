@@ -5,7 +5,11 @@
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 export EDITOR=vim
-export PATH=$HOME/local/bin:/usr/local/bin:/usr/bin:/bin
+PATH=$HOME/local/bin:/usr/local/bin:/usr/bin:/bin
+if [ -d $HOME/local/go ];then
+    PATH=$PATH:/usr/local/go/bin
+fi
+export PATH
 
 if [ -x xrdb ];then
     export DISPLAY=localhost:0
