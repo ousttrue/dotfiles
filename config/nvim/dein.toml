@@ -20,6 +20,9 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'cocopon/vaffle.vim'
+hook_add = '''
+let g:vaffle_auto_cd = 1
+'''
 
 [[plugins]]
 repo = 'vim-scripts/VimIM'
@@ -38,4 +41,24 @@ au MyAutoCmd VimEnter * nested colorscheme molokai
 
 [[plugins]]
 repo = 'preservim/nerdtree'
+hook_add='''
+let g:NERDTreeChDirMode=2
+let g:NERDTreeShowBookmarks=1
+let g:NERDTreeHijackNetrw = 0
+let g:NERDTreeMapActivateNode="l"
+let g:NERDTreeMapCloseDir="h"
+let g:NERDTreeMapToggleHidden="."
+'''
+
+[[plugins]]
+repo = 'vim-scripts/tComment'
+hook_add = '''
+let g:tcommentMapLeader1 = '<C-/>'
+'''
+
+[[plugins]]
+repo = 'vim-scripts/a.vim'
+
+[[plugins]]
+repo = 'dag/vim-fish'
 
