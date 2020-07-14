@@ -6,9 +6,15 @@ export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 export EDITOR=vim
 PATH=$HOME/local/bin:/usr/local/bin:/usr/bin:/bin
+
+#
+# go lang
+#
 if [ -d $HOME/local/go ];then
-    PATH=$PATH:/usr/local/go/bin
+    PATH=$PATH:$HOME/local/go/bin
 fi
+export GOPATH=$HOME/.go
+PATH=$PATH:$GOPATH/bin
 export PATH
 
 if [ -x xrdb ];then
