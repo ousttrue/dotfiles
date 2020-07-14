@@ -1,29 +1,31 @@
-#!/bin/sh
-set -x
+#!/bin/bash
+#set -x
 
 DOTFILES=~/dotfiles
+pushd $DOTFILES
 
-ln -sf $DOTFILES/.Xresources ~/
-ln -sf $DOTFILES/.gitconfig ~/
-ln -sf $DOTFILES/.bash_profile ~/
-ln -sf $DOTFILES/.bashrc ~/
-ln -sf $DOTFILES/.tmux.conf ~/
-ln -sf $DOTFILES/.inputrc ~/
-ln -sf $DOTFILES/.vimrc ~/
+for f in .??*
+do
+    [[ "$f" == ".git" ]] && continue
+    [[ "$f" == ".config" ]] && continue
+    ln -sf $DOTFILES/$f ~/
+done
 
-mkdir -p ~/.config/nvim
-ln -sf $DOTFILES/config/nvim/init.vim ~/.config/nvim/
-ln -sf $DOTFILES/config/nvim/dein.toml ~/.config/nvim/
+mkdir -p $/.config/nvim
+for f in .config/nvim/*
+do
+    ln -sf $DOTFILES/$f ~/
+done
 
-mkdir -p ~/.config/openbox
-ln -sf $DOTFILES/config/openbox/autostart ~/.config/openbox/
-ln -sf $DOTFILES/config/openbox/environment ~/.config/openbox/
-ln -sf $DOTFILES/config/openbox/menu.xml ~/.config/openbox/
-ln -sf $DOTFILES/config/openbox/rc.xml ~/.config/openbox/
+mkdir -p $/.config/openbox
+for f in .config/openbox/*
+do
+    ln -sf $DOTFILES/$f ~/
+done
 
-mkdir -p ~/.config/fontconfig
-ln -sf $DOTFILES/config/fontconfig/fonts.conf ~/.config/fontconfig/
-
-#wget https://github.com/git/git/raw/master/contrib/completion/git-completion.bash
-#wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+mkdir -p $/.config/fontconfig
+for f in .config/fontconfig/*
+do
+    ln -sf $DOTFILES/$f ~/
+done
 

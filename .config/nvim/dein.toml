@@ -52,9 +52,9 @@ let g:NERDTreeMapToggleHidden="."
 
 [[plugins]]
 repo = 'vim-scripts/tComment'
-hook_add = '''
-let g:tcommentMapLeader1 = '<C-/>'
-'''
+# hook_add = '''
+# let g:tcommentMapLeader1 = '<C-/>'
+# '''
 
 [[plugins]]
 repo = 'vim-scripts/a.vim'

@@ -5,7 +5,7 @@ umask 022
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 export EDITOR=vim
-PATH=$HOME/local/bin:/usr/local/bin:/usr/bin:/bin
+PATH=$HOME/local/bin:/usr/local/bin:/usr/bin:/bin:/mnt/c/Windows/System32
 
 #
 # go lang
