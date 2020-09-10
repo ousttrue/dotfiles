@@ -17,8 +17,8 @@ export GOPATH=$HOME/.go
 PATH=$PATH:$GOPATH/bin
 export PATH
 
-if [ -x xrdb ];then
-    export DISPLAY=localhost:0
+if which xrdb > /dev/null;then
+    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
     xrdb -merge ~/.Xresources
     export DefaultImModule=fcitx
     export GTK_IM_MODULE=fcitx
