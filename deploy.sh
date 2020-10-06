@@ -7,25 +7,7 @@ pushd $DOTFILES
 for f in .??*
 do
     [[ "$f" == ".git" ]] && continue
-    [[ "$f" == ".config" ]] && continue
-    ln -sf $DOTFILES/$f ~/$f
-done
-
-mkdir -p ~/.config/nvim
-for f in .config/nvim/*
-do
-    ln -sf $DOTFILES/$f ~/$f
-done
-
-mkdir -p ~/.config/openbox
-for f in .config/openbox/*
-do
-    ln -sf $DOTFILES/$f ~/$f
-done
-
-mkdir -p ~/.config/fontconfig
-for f in .config/fontconfig/*
-do
+    echo $f
     ln -sf $DOTFILES/$f ~/$f
 done
 
