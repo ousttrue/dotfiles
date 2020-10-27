@@ -41,6 +41,7 @@ set vb t_vb=
 set noerrorbells
 set laststatus=2
 set nobackup noswapfile noundofile
+set background=dark
 
 nnoremap <silent> ;; :Vaffle<CR>
 nnoremap <silent> <F5> :QuickRun -mode n<CR>
