@@ -63,11 +63,4 @@ repo = 'vim-scripts/tComment'
 # '''
 
 [[plugins]]
-repo = 'vim-scripts/a.vim'
-
-[[plugins]]
 repo = 'dag/vim-fish'
-
-[[plugins]]
-repo = 'vim-scripts/VimIM'
-
