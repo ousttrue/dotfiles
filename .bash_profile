@@ -13,7 +13,11 @@ PATH=$HOME/local/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/mnt/c/Window
 if [ -d $HOME/local/go ];then
     PATH=$PATH:$HOME/local/go/bin
 fi
-export GOPATH=$HOME/.go
+if [ -d $HOME/go ];then
+    export GOPATH=$HOME/go
+elif [ -d $HOME/.go ];then
+    export GOPATH=$HOME/.go
+fi
 PATH=$PATH:$GOPATH/bin
 export PATH
 
