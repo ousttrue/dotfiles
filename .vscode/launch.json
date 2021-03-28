@@ -5,10 +5,23 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "apply",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/deploy.py",
+            "args": [
+                "apply"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "deploy",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/deploy.py",
+            "args": [
+                "deploy"
+            ],
             "console": "integratedTerminal"
         }
     ]

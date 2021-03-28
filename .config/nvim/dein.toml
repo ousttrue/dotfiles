@@ -28,6 +28,8 @@ let g:vaffle_auto_cd = 1
 repo = 'ZSaberLv0/ZFVimIM'
 [[plugins]]
 repo = 'ZSaberLv0/ZFVimIM_pinyin'
+[[plugins]]
+repo = 'ZSaberLv0/ZFVimJob'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
