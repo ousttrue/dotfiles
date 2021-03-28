@@ -38,7 +38,8 @@ def deploy_nt(src: pathlib.Path, dst: pathlib.Path):
             # same contents
             return
         else:
-            print(f'exists: {dst}')
+            print(f'overwrite: {dst}')
+            shutil.copy(src, dst)
             return
     else:
         print(f'copy: {src} => {dst}')
