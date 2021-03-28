@@ -43,7 +43,7 @@ set laststatus=2
 set nobackup noswapfile noundofile
 set background=dark
 
-nnoremap <silent> ;; :Vaffle<CR>
+"nnoremap <silent> ;; :Vaffle<CR>
 nnoremap <silent> <F5> :QuickRun -mode n<CR>
 vnoremap <silent> <F5> :QuickRun -mode v<CR>
 noremap! <S-Insert> <C-R>+
@@ -64,3 +64,17 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+
+function! s:myLocalDb()
+	let db = ZFVimIM_dbInit({
+				\   'name' : 'YourDb',
+				\ })
+	call ZFVimIM_cloudRegister({
+				\   'mode' : 'local',
+				\   'dbId' : db['dbId'],
+				\   'repoPath' : '~/.cache/dein/repos/github.com/ZSaberLv0/ZFVimIM_pinyin',
+				\   'dbFile' : '/misc/pinyin.txt',
+				\   'dbCountFile' : '/misc/pinyin_count.txt',
+				\ })
+endfunction
+autocmd User ZFVimIM_event_OnDbInit call s:myLocalDb()

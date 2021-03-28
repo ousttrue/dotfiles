@@ -25,7 +25,9 @@ let g:vaffle_auto_cd = 1
 '''
 
 [[plugins]]
-repo = 'vim-scripts/VimIM'
+repo = 'ZSaberLv0/ZFVimIM'
+[[plugins]]
+repo = 'ZSaberLv0/ZFVimIM_pinyin'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
