@@ -1,4 +1,4 @@
-#!env python3
+#!/usr/bin/env python3
 import pathlib
 from typing import Optional
 import os
@@ -80,7 +80,7 @@ class Deploy:
 
     def deploy_file(self, src: pathlib.Path, dst: pathlib.Path):
         if not dst.parent.exists():
-            dst.parent.mkdir()
+            dst.parent.mkdir(parents=True)
 
         if os.name == 'nt':
             if self.mode == Mode.deploy:
@@ -126,6 +126,9 @@ class Deploy:
 
 
 if __name__ == '__main__':
-    mode = getattr(Mode, sys.argv[1])
+    mode = Mode.deploy
+    if len(sys.argv)>1:
+        mode = getattr(Mode, sys.argv[1])
     deploy = Deploy(get_home(), mode)
     deploy.deploy_dir(DOTFILES)
+
