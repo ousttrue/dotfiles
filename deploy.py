@@ -14,9 +14,13 @@ EXCLUDE = [
 ]
 EXCLUDE_NAMES = ['.git', '.vscode']
 
+def is_windows():
+    import platform
+    return platform.system() == 'Windows'
+
 
 def get_home() -> pathlib.Path:
-    if os.name == 'nt':
+    if is_windows():
         user_profile = os.environ['USERPROFILE']
         if user_profile:
             return pathlib.Path(user_profile)
@@ -82,7 +86,7 @@ class Deploy:
         if not dst.parent.exists():
             dst.parent.mkdir(parents=True)
 
-        if os.name == 'nt':
+        if is_windows():
             if self.mode == Mode.deploy:
                 self.deploy_nt(src, dst)
             elif self.mode == Mode.apply:
