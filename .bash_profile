@@ -21,6 +21,16 @@ fi
 PATH=$PATH:$GOPATH/bin
 export PATH
 
+#
+# rust
+#
+if [ -f ~/.cargo ]; then
+    . "$HOME/.cargo/env"
+fi
+
+#
+# x11
+#
 if which xrdb > /dev/null;then
     export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
     xrdb -merge ~/.Xresources
