@@ -12,3 +12,5 @@ alias lt et
 alias eta 'exa -T -a -I "node_modules|.git|.cache" --color=always --icons | less -r'
 alias lta eta
 
+# starship init fish | source
+
