@@ -83,6 +83,9 @@ class Deploy:
             dst.symlink_to(src)
 
     def deploy_file(self, src: pathlib.Path, dst: pathlib.Path):
+        if src.suffix == '.swp':
+            return
+
         if not dst.parent.exists():
             dst.parent.mkdir(parents=True)
 

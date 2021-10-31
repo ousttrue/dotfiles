@@ -1,6 +1,4 @@
-set encoding=utf8
-let s:nvim_init = expand('~/.config/nvim/init.vim')
-if filereadable(s:nvim_init)
-    execute 'source ' . s:nvim_init
-endif
+set ts=4 sts=4 sw=4 expandtab
+set statusline=2
+set belloff=all
 

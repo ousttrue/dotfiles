@@ -52,3 +52,4 @@ if [ -x  xrdb ]; then
     xrdb ~/.Xresources
 fi
 
+. "$HOME/.cargo/env"

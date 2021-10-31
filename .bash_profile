@@ -5,7 +5,7 @@ umask 022
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 export EDITOR=vim
-PATH=$HOME/local/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/mnt/c/Windows/System32
+PATH=$HOME/local/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin
 
 #
 # go lang
@@ -24,20 +24,8 @@ export PATH
 #
 # rust
 #
-if [ -f ~/.cargo ]; then
+if [ -d ~/.cargo ]; then
     . "$HOME/.cargo/env"
-fi
-
-#
-# x11
-#
-if which xrdb > /dev/null;then
-    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-    xrdb -merge ~/.Xresources
-    export DefaultImModule=fcitx
-    export GTK_IM_MODULE=fcitx
-    export QT_IM_MODULE=fcitx
-    export XMODIFIERS="@im=fcitx"
 fi
 
 [[ $- != *i* ]] && return
