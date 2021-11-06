@@ -51,6 +51,7 @@ APT = [
     'python3-pip',
     'ninja-build',
     'clangd',
+    'peco',
     ]
 
 PIP = [
@@ -220,7 +221,9 @@ class Deploy:
 
 
 if __name__ == '__main__':
-    if not HAS_COLOR:
+
+    is_force = '-f' in (sys.argv[1:])
+    if is_force or not HAS_COLOR:
         # apt
         run_command('sudo', 'apt', 'update')
         run_command('sudo', 'apt',  'install', '-y', *APT)
@@ -238,11 +241,11 @@ if __name__ == '__main__':
         if not MY_NVIM.exists():
             run_command('git', 'clone', 'git@github.com:ousttrue/my_nvim.git', str(MY_NVIM))
 
-    else:
+    if HAS_COLOR:
         # copy 
         mode = Mode.deploy
-        if len(sys.argv)>1:
-            mode = getattr(Mode, sys.argv[1])
+        if 'apply' in sys.argv[1:]:
+            mode = Mode.apply
         deploy = Deploy(get_home(), mode)
         deploy.deploy_dir(DOTFILES)
 

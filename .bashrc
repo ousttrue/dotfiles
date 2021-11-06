@@ -52,6 +52,10 @@ if [ -x  xrdb ]; then
     xrdb ~/.Xresources
 fi
 
+function repos {
+  cd "$( ghq list --full-path | peco)"
+}
+
 #
 # rust
 #
