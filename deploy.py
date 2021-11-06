@@ -49,7 +49,6 @@ APT = [
     'libtool-bin',
     'cmake',
     'python3',
-    'python3-pip',
     'ninja-build',
     'clangd',
     'peco',
@@ -58,8 +57,15 @@ APT = [
 ]
 
 PIP = [
-    'colorlog', 'doit', 'invoke', 'yapf', 'pynvim', 'neovim-remote', 'yapf',
-    'debugpy'
+    'colorlog',
+    'doit',
+    'invoke',
+    'yapf',
+    'pynvim',
+    'neovim-remote',
+    'yapf',
+    'debugpy',
+    'GitPython',
 ]
 
 CARGO = [
@@ -234,8 +240,8 @@ if __name__ == '__main__':
         run_command('pip', 'install', *PIP)
 
         # rust
-        CARGO = get_home() / '.cargo'
-        if not CARGO.exists():
+        cargo_dir = get_home() / '.cargo'
+        if not cargo_dir.exists():
             subprocess.check_output(
                 "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y",
                 shell=True)
