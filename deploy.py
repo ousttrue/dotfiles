@@ -42,18 +42,25 @@ APT = [
     'python3-pip',
     'tmux',
     'w3m',
+    'cmake',
+    'curl',
 ]
 
 PIP = [
     'colorlog',
     'doit',
+    'invoke',
+    'yapf',
 ]
 
 
 
-def run_command(*cmd) -> Tuple[int, List[str]]:
+def run_command(*cmd, **kw) -> Tuple[int, List[str]]:
     logger.info(f'# {" ".join(cmd)}')
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if kw.get('shell'):
+        cmd = cmd[0][0]
+        logger.debug('shell', cmd)
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, **kw)
     if not p.stdout:
         raise Exception("fail to popen")
     lines = []
@@ -64,7 +71,7 @@ def run_command(*cmd) -> Tuple[int, List[str]]:
         except Exception:
             encoding = 'utf-8'
             line = line_bytes.decode(encoding)
-        logger.debug(line)
+        logger.debug(line.rstrip())
         lines.append(line)
     returncode = p.wait()
     if returncode != 0:
@@ -193,6 +200,11 @@ if __name__ == '__main__':
 
     # pip
     run_command('pip', 'install', *PIP)
+
+    # rust
+    CARGO = get_home() / '.cargo'
+    if not CARGO.exists():
+        subprocess.check_output("curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y", shell=True)
 
     # copy 
     mode = Mode.deploy
