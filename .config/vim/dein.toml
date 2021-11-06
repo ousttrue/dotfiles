@@ -8,6 +8,9 @@ repo = 'Shougo/dein.vim'
 # Minimum
 #
 [[plugins]]
+repo = 'cespare/vim-toml'
+
+[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
@@ -15,5 +18,15 @@ repo = 'tpope/vim-commentary'
 hook_add='''
 nmap <C-_> :Commentary<CR>
 vmap <C-_> :Commentary<CR>
+'''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+ 
+[[plugins]]
+repo = 'Chiel92/vim-autoformat'
+hook_add='''
+nmap <S-f> :Autoformat<CR>
+vmap <S-f> :Autoformat<CR>
 '''
 

@@ -8,6 +8,16 @@
 * git
 * ssh
 
+## nvim
+
+* packer
+* lsp
+* dap
+
+## vim
+
+* dein
+
 ## env
 
 * WSL on Windows
@@ -15,16 +25,15 @@
 
 ## sudo apt install
 
-### build tool
-
 * gcc
+* cmake
 
-### go
+## go
 
 * ghq
 * peco
 
-### rust
+## rust
 
 * exa
 

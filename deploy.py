@@ -2,6 +2,7 @@
 from logging import getLogger
 logger = getLogger(__name__)
 
+HAS_COLOR = False
 try:
     import colorlog
     handler = colorlog.StreamHandler()
@@ -10,7 +11,7 @@ try:
     root_logger = colorlog.getLogger()
     root_logger.addHandler(handler)
     root_logger.setLevel('DEBUG')
-
+    HAS_COLOR = True
 except Exception as ex:
     from logging import basicConfig, DEBUG
     basicConfig(
@@ -44,15 +45,40 @@ APT = [
     'w3m',
     'cmake',
     'curl',
-]
+    'libtool-bin',
+    'cmake',
+    'python3',
+    'python3-pip',
+    'ninja-build',
+    'clangd',
+    ]
 
 PIP = [
     'colorlog',
     'doit',
     'invoke',
     'yapf',
+    'pynvim', 'neovim-remote', 'yapf', 'debugpy'
 ]
 
+CARGO = [
+        'bat',
+        'exa',
+        'stylua',
+        'ripgrep',
+        ]
+
+# latest npm
+# 'nodejs', 'npm',
+#     $ sudo apt install -y nodejs npm
+#     $ sudo npm install n -g
+#     $ sudo n stable
+#     $ sudo apt purge -y nodejs npm
+#     $ node -v
+# v14.17.3
+
+# $ curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/bin/rust-analyzer
+# $ chmod +x ~/bin/rust-analyzer
 
 
 def run_command(*cmd, **kw) -> Tuple[int, List[str]]:
@@ -194,27 +220,29 @@ class Deploy:
 
 
 if __name__ == '__main__':
-    # apt
-    run_command('sudo', 'apt', 'update')
-    run_command('sudo', 'apt',  'install', '-y', *APT)
+    if not HAS_COLOR:
+        # apt
+        run_command('sudo', 'apt', 'update')
+        run_command('sudo', 'apt',  'install', '-y', *APT)
 
-    # pip
-    run_command('pip', 'install', *PIP)
+        # pip
+        run_command('pip', 'install', *PIP)
 
-    # rust
-    CARGO = get_home() / '.cargo'
-    if not CARGO.exists():
-        subprocess.check_output("curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y", shell=True)
+        # rust
+        CARGO = get_home() / '.cargo'
+        if not CARGO.exists():
+            subprocess.check_output("curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y", shell=True)
 
-    # copy 
-    mode = Mode.deploy
-    if len(sys.argv)>1:
-        mode = getattr(Mode, sys.argv[1])
-    deploy = Deploy(get_home(), mode)
-    deploy.deploy_dir(DOTFILES)
+        # clone
+        MY_NVIM = get_home() / 'my_nvim'
+        if not MY_NVIM.exists():
+            run_command('git', 'clone', 'git@github.com:ousttrue/my_nvim.git', str(MY_NVIM))
 
-    # clone
-    MY_NVIM = get_home() / 'my_nvim'
-    if not MY_NVIM.exists():
-        run_command('git', 'clone', 'git@github.com:ousttrue/my_nvim.git', str(MY_NVIM))
+    else:
+        # copy 
+        mode = Mode.deploy
+        if len(sys.argv)>1:
+            mode = getattr(Mode, sys.argv[1])
+        deploy = Deploy(get_home(), mode)
+        deploy.deploy_dir(DOTFILES)
 
