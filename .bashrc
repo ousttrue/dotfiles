@@ -8,20 +8,17 @@
 #
 # ls
 #
-alias ls='ls --color=auto'
-alias ll='ls --color=auto -l'
-alias la='ls --color=auto -a'
+if [ -x exa ]; then
+    alias ls='exa --color --icons'
+    alias ll='exa --color --icons -l'
+    alias la='exa --color --icons -a'
+else
+    alias ls='ls --color=auto'
+    alias ll='ls --color=auto -l'
+    alias la='ls --color=auto -a'
+fi
 alias gs='git status'
 alias gl='git lga'
-
-#
-# nvim
-#
-if `which nvim >/dev/null 2>&1`; then
-    alias vi='nvim'
-    alias vim='nvim'
-    export EDITOR='nvim'
-fi
 
 #
 # git

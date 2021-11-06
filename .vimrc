@@ -39,5 +39,6 @@ set laststatus=2
 set belloff=all
 set noswapfile noundofile nobackup
 
-autocmd BufEnter * silent! lcd %:p:h
-
+" ex mode を無効に
+nnoremap Q <Nop>
+nnoremap q :close<CR>

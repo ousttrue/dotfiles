@@ -248,6 +248,8 @@ if __name__ == '__main__':
             run_command('git', 'clone', 'git@github.com:ousttrue/my_nvim.git', str(MY_NVIM))
 
     if HAS_COLOR:
+        run_command('cargo', 'install', *CARGO)
+
         # copy 
         mode = Mode.deploy
         if 'apply' in sys.argv[1:]:

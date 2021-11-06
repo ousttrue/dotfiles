@@ -5,3 +5,5 @@
 	name = ousttrue
 [credential]
 	helper = manager
+[pull]
+	ff = only

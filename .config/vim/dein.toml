@@ -30,3 +30,13 @@ nmap <S-f> :Autoformat<CR>
 vmap <S-f> :Autoformat<CR>
 '''
 
+[[plugins]]
+repo = 'preservim/nerdtree'
+hook_add='''
+nmap ,, :NERDTreeFocus<CR>
+'''
+
+# https://sy-base.com/myrobotics/vim/neovim-neoterm/
+[[plugins]]
+repo = 'kassio/neoterm'
+
