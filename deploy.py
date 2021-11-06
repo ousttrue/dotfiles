@@ -52,6 +52,8 @@ APT = [
     'ninja-build',
     'clangd',
     'peco',
+    'golang-go',
+    'nodejs',
     ]
 
 PIP = [
@@ -235,6 +237,10 @@ if __name__ == '__main__':
         CARGO = get_home() / '.cargo'
         if not CARGO.exists():
             subprocess.check_output("curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y", shell=True)
+
+        # ghq
+        # run_command('go', 'install', 'github.com/x-motemen/ghq@latest')
+        run_command('go', 'get', 'github.com/x-motemen/ghq')
 
         # clone
         MY_NVIM = get_home() / 'my_nvim'
