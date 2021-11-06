@@ -7,12 +7,20 @@ try:
     handler = colorlog.StreamHandler()
     handler.setFormatter(colorlog.ColoredFormatter(
         '%(log_color)s%(levelname)s:%(name)s:%(message)s'))
-    logger.addHandler(handler)
-except:
-    pass
+    root_logger = colorlog.getLogger()
+    root_logger.addHandler(handler)
+    root_logger.setLevel('DEBUG')
+
+except Exception as ex:
+    from logging import basicConfig, DEBUG
+    basicConfig(
+     level=DEBUG,
+     datefmt='%H:%M:%S',
+     format='%(asctime)s[%(levelname)s][%(name)s.%(funcName)s] %(message)s'
+    )
 
 import pathlib
-from typing import Optional
+from typing import Optional, Tuple, List
 import os
 import sys
 import shutil
@@ -39,6 +47,29 @@ PIP = [
     'colorlog',
     'doit',
 ]
+
+
+
+def run_command(*cmd) -> Tuple[int, List[str]]:
+    logger.info(f'# {" ".join(cmd)}')
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if not p.stdout:
+        raise Exception("fail to popen")
+    lines = []
+    for line_bytes in iter(p.stdout.readline, b''):
+        line_bytes = line_bytes.rstrip()
+        try:
+            line = line_bytes.decode(encoding)
+        except Exception:
+            encoding = 'utf-8'
+            line = line_bytes.decode(encoding)
+        logger.debug(line)
+        lines.append(line)
+    p.wait()
+    if p.returncode != 0:
+        raise Exception(f'returncode: {p.returncode}')
+    return p.returncode, lines
+
 
 
 def get_home() -> pathlib.Path:
@@ -156,11 +187,11 @@ class Deploy:
 
 if __name__ == '__main__':
     # apt
-    subprocess.check_output(['sudo', 'apt', 'update'])
-    subprocess.check_output(['sudo', 'apt',  'install', '-y'] + APT)
+    run_command('sudo', 'apt', 'update')
+    run_command('sudo', 'apt',  'install', '-y', *APT)
 
     # pip
-    subprocess.check_output(['pip', 'install'] + PIP)
+    run_command('pip', 'install', *PIP)
 
     # copy 
     mode = Mode.deploy
@@ -170,4 +201,7 @@ if __name__ == '__main__':
     deploy.deploy_dir(DOTFILES)
 
     # clone
-    
+    MY_NVIM = pathlib.Path('~/my_nvim')
+    if not MY_NVIM.exists():
+        run_command('git', 'clone', 'git@github.com:ousttrue/my_nvim.git', '~/my_nvim')
+
