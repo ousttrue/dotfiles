@@ -249,6 +249,7 @@ if __name__ == '__main__':
         if not MY_NVIM.exists():
             run_command('git', 'clone', 'git@github.com:ousttrue/my_nvim.git',
                         str(MY_NVIM))
+            run_command('git', 'submodule', 'update', '--init', cwd=MY_NVIM)
 
     if HAS_COLOR:
         run_command('cargo', 'install', *CARGO)
