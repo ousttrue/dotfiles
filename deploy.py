@@ -1,10 +1,24 @@
 #!/usr/bin/env python3
+from logging import getLogger
+logger = getLogger(__name__)
+
+try:
+    import colorlog
+    handler = colorlog.StreamHandler()
+    handler.setFormatter(colorlog.ColoredFormatter(
+        '%(log_color)s%(levelname)s:%(name)s:%(message)s'))
+    logger.addHandler(handler)
+except:
+    pass
+
 import pathlib
 from typing import Optional
 import os
 import sys
 import shutil
+import platform
 from enum import Enum, auto
+import subprocess
 
 SELF = pathlib.Path(__file__).absolute()
 DOTFILES = SELF.parent
@@ -14,13 +28,21 @@ EXCLUDE = [
 ]
 EXCLUDE_NAMES = ['.git', '.vscode']
 
-def is_windows():
-    import platform
-    return platform.system() == 'Windows'
+IS_WINDOWS = platform.system() == 'Windows'
+
+APT = [
+    'python3-pip',
+    'tmux',
+]
+
+PIP = [
+    'colorlog',
+    'doit',
+]
 
 
 def get_home() -> pathlib.Path:
-    if is_windows():
+    if IS_WINDOWS:
         user_profile = os.environ['USERPROFILE']
         if user_profile:
             return pathlib.Path(user_profile)
@@ -51,11 +73,11 @@ class Deploy:
                 # same contents
                 return
             else:
-                print(f'overwrite: {dst}')
+                logger.info(f'overwrite: {dst}')
                 shutil.copy(src, dst)
                 return
         else:
-            print(f'copy: {src} => {dst}')
+            logger.info(f'copy: {src} => {dst}')
             shutil.copy(src, dst)
 
     def apply_nt(self, src: pathlib.Path, dst: pathlib.Path):
@@ -64,11 +86,11 @@ class Deploy:
                 # same contents
                 return
             else:
-                print(f'apply: {dst}')
+                logger.info(f'apply: {dst}')
                 shutil.copy(dst, src)
                 return
         else:
-            print(f'copy: {src} => {dst}')
+            logger.info(f'copy: {src} => {dst}')
             shutil.copy(src, dst)
 
     def deploy_posix(self, src: pathlib.Path, dst: pathlib.Path):
@@ -76,10 +98,10 @@ class Deploy:
             if dst.is_symlink():
                 return
             else:
-                print(f'exists: {dst}')
+                logger.warning(f'exists: {dst}')
                 return
         else:
-            print(f'link: {src} => {dst}')
+            logger.info(f'link: {src} => {dst}')
             dst.symlink_to(src)
 
     def deploy_file(self, src: pathlib.Path, dst: pathlib.Path):
@@ -89,7 +111,7 @@ class Deploy:
         if not dst.parent.exists():
             dst.parent.mkdir(parents=True)
 
-        if is_windows():
+        if IS_WINDOWS:
             if self.mode == Mode.deploy:
                 self.deploy_nt(src, dst)
             elif self.mode == Mode.apply:
@@ -115,10 +137,10 @@ class Deploy:
         children = []
         for child in current.iterdir():
             if any(exclude for exclude in EXCLUDE if exclude == child):
-                # print(f'skip: {child}')
+                # logger.warning(f'skip: {child}')
                 continue
             if child.name in EXCLUDE_NAMES:
-                # print(f'skip: {child}')
+                # logger.warning(f'skip: {child}')
                 continue
 
             if child.is_dir():
@@ -133,9 +155,19 @@ class Deploy:
 
 
 if __name__ == '__main__':
+    # apt
+    subprocess.check_output(['sudo', 'apt', 'update'])
+    subprocess.check_output(['sudo', 'apt',  'install', '-y'] + APT)
+
+    # pip
+    subprocess.check_output(['pip', 'install'] + PIP)
+
+    # copy 
     mode = Mode.deploy
     if len(sys.argv)>1:
         mode = getattr(Mode, sys.argv[1])
     deploy = Deploy(get_home(), mode)
     deploy.deploy_dir(DOTFILES)
 
+    # clone
+    
