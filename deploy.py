@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 from logging import getLogger
+
 logger = getLogger(__name__)
 
 HAS_COLOR = False
 try:
     import colorlog
     handler = colorlog.StreamHandler()
-    handler.setFormatter(colorlog.ColoredFormatter(
-        '%(log_color)s%(levelname)s:%(name)s:%(message)s'))
+    handler.setFormatter(
+        colorlog.ColoredFormatter(
+            '%(log_color)s%(levelname)s:%(name)s:%(message)s'))
     root_logger = colorlog.getLogger()
     root_logger.addHandler(handler)
     root_logger.setLevel('DEBUG')
@@ -15,10 +17,9 @@ try:
 except Exception as ex:
     from logging import basicConfig, DEBUG
     basicConfig(
-     level=DEBUG,
-     datefmt='%H:%M:%S',
-     format='%(asctime)s[%(levelname)s][%(name)s.%(funcName)s] %(message)s'
-    )
+        level=DEBUG,
+        datefmt='%H:%M:%S',
+        format='%(asctime)s[%(levelname)s][%(name)s.%(funcName)s] %(message)s')
 
 import pathlib
 from typing import Optional, Tuple, List
@@ -54,22 +55,19 @@ APT = [
     'peco',
     'golang-go',
     'nodejs',
-    ]
+]
 
 PIP = [
-    'colorlog',
-    'doit',
-    'invoke',
-    'yapf',
-    'pynvim', 'neovim-remote', 'yapf', 'debugpy'
+    'colorlog', 'doit', 'invoke', 'yapf', 'pynvim', 'neovim-remote', 'yapf',
+    'debugpy'
 ]
 
 CARGO = [
-        'bat',
-        'exa',
-        'stylua',
-        'ripgrep',
-        ]
+    'bat',
+    'exa',
+    'stylua',
+    'ripgrep',
+]
 
 # latest npm
 # 'nodejs', 'npm',
@@ -89,7 +87,10 @@ def run_command(*cmd, **kw) -> Tuple[int, List[str]]:
     if kw.get('shell'):
         cmd = cmd[0][0]
         logger.debug('shell', cmd)
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, **kw)
+    p = subprocess.Popen(cmd,
+                         stdout=subprocess.PIPE,
+                         stderr=subprocess.PIPE,
+                         **kw)
     if not p.stdout:
         raise Exception("fail to popen")
     lines = []
@@ -106,7 +107,6 @@ def run_command(*cmd, **kw) -> Tuple[int, List[str]]:
     if returncode != 0:
         raise Exception(f'returncode: {returncode}')
     return p.returncode, lines
-
 
 
 def get_home() -> pathlib.Path:
@@ -228,7 +228,7 @@ if __name__ == '__main__':
     if is_force or not HAS_COLOR:
         # apt
         run_command('sudo', 'apt', 'update')
-        run_command('sudo', 'apt',  'install', '-y', *APT)
+        run_command('sudo', 'apt', 'install', '-y', *APT)
 
         # pip
         run_command('pip', 'install', *PIP)
@@ -236,7 +236,9 @@ if __name__ == '__main__':
         # rust
         CARGO = get_home() / '.cargo'
         if not CARGO.exists():
-            subprocess.check_output("curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y", shell=True)
+            subprocess.check_output(
+                "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y",
+                shell=True)
 
         # ghq
         # run_command('go', 'install', 'github.com/x-motemen/ghq@latest')
@@ -245,15 +247,15 @@ if __name__ == '__main__':
         # clone
         MY_NVIM = get_home() / 'my_nvim'
         if not MY_NVIM.exists():
-            run_command('git', 'clone', 'git@github.com:ousttrue/my_nvim.git', str(MY_NVIM))
+            run_command('git', 'clone', 'git@github.com:ousttrue/my_nvim.git',
+                        str(MY_NVIM))
 
     if HAS_COLOR:
         run_command('cargo', 'install', *CARGO)
 
-        # copy 
+        # copy
         mode = Mode.deploy
         if 'apply' in sys.argv[1:]:
             mode = Mode.apply
         deploy = Deploy(get_home(), mode)
         deploy.deploy_dir(DOTFILES)
-
