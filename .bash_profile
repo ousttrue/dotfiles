@@ -21,13 +21,6 @@ fi
 PATH=$PATH:$GOPATH/bin
 export PATH
 
-#
-# rust
-#
-if [ -d ~/.cargo ]; then
-    . "$HOME/.cargo/env"
-fi
-
 [[ $- != *i* ]] && return
 
 #

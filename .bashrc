@@ -52,4 +52,10 @@ if [ -x  xrdb ]; then
     xrdb ~/.Xresources
 fi
 
-. "$HOME/.cargo/env"
+#
+# rust
+#
+if [ -d ~/.cargo ]; then
+    . "$HOME/.cargo/env"
+fi
+
