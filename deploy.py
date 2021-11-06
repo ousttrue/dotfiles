@@ -41,6 +41,7 @@ IS_WINDOWS = platform.system() == 'Windows'
 APT = [
     'python3-pip',
     'tmux',
+    'w3m',
 ]
 
 PIP = [
@@ -65,9 +66,9 @@ def run_command(*cmd) -> Tuple[int, List[str]]:
             line = line_bytes.decode(encoding)
         logger.debug(line)
         lines.append(line)
-    p.wait()
-    if p.returncode != 0:
-        raise Exception(f'returncode: {p.returncode}')
+    returncode = p.wait()
+    if returncode != 0:
+        raise Exception(f'returncode: {returncode}')
     return p.returncode, lines
 
 
@@ -201,7 +202,7 @@ if __name__ == '__main__':
     deploy.deploy_dir(DOTFILES)
 
     # clone
-    MY_NVIM = pathlib.Path('~/my_nvim')
+    MY_NVIM = get_home() / 'my_nvim'
     if not MY_NVIM.exists():
-        run_command('git', 'clone', 'git@github.com:ousttrue/my_nvim.git', '~/my_nvim')
+        run_command('git', 'clone', 'git@github.com:ousttrue/my_nvim.git', str(MY_NVIM))
 
