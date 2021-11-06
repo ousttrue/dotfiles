@@ -6,21 +6,6 @@
 [[ $- != *i* ]] && return
 
 #
-# ls
-#
-if [ -x exa ]; then
-    alias ls='exa --color --icons'
-    alias ll='exa --color --icons -l'
-    alias la='exa --color --icons -a'
-else
-    alias ls='ls --color=auto'
-    alias ll='ls --color=auto -l'
-    alias la='ls --color=auto -a'
-fi
-alias gs='git status'
-alias gl='git lga'
-
-#
 # git
 #
 #source ~/dotfiles/git-completion.bash
@@ -44,7 +29,7 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 export HISTSIZE=9999
 
-if [ -x  xrdb ]; then
+if [ `which xrdb` ]; then
     export DISPLAY=localhost:0
     xrdb ~/.Xresources
 fi
@@ -73,4 +58,19 @@ elif [ -d $HOME/.go ];then
 fi
 PATH=$PATH:$GOPATH/bin
 export PATH
+
+#
+# alias
+#
+if [ `which exa` ]; then
+    alias ls='exa --color=auto --icons'
+    alias ll='exa --color=auto --icons -l'
+    alias la='exa --color=auto --icons -a'
+else
+    alias ls='ls --color=auto'
+    alias ll='ls --color=auto -l'
+    alias la='ls --color=auto -a'
+fi
+alias gs='git status'
+alias gl='git lga'
 

@@ -7,8 +7,6 @@ export LESSCHARSET=utf-8
 export EDITOR=vim
 PATH=$HOME/local/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin
 
-[[ $- != *i* ]] && return
-
 #
 # term
 #
@@ -16,4 +14,3 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-. "$HOME/.cargo/env"

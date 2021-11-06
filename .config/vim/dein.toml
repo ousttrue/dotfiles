@@ -39,4 +39,6 @@ nmap ,, :NERDTreeFocus<CR>
 # https://sy-base.com/myrobotics/vim/neovim-neoterm/
 [[plugins]]
 repo = 'kassio/neoterm'
+hook_add='''
+'''
 
