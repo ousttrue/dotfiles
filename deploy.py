@@ -53,7 +53,6 @@ APT = [
     'clangd',
     'peco',
     'golang-go',
-    'nodejs',
 ]
 
 PIP = [
@@ -75,14 +74,10 @@ CARGO = [
     'ripgrep',
 ]
 
-# latest npm
-# 'nodejs', 'npm',
-#     $ sudo apt install -y nodejs npm
-#     $ sudo npm install n -g
-#     $ sudo n stable
-#     $ sudo apt purge -y nodejs npm
-#     $ node -v
-# v14.17.3
+NPM = [
+    'pyright',
+    'remark-cli',
+]
 
 # $ curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/bin/rust-analyzer
 # $ chmod +x ~/bin/rust-analyzer
@@ -236,8 +231,14 @@ if __name__ == '__main__':
         run_command('sudo', 'apt', 'update')
         run_command('sudo', 'apt', 'install', '-y', *APT)
 
-        # pip
-        run_command('pip', 'install', *PIP)
+        # latest npm
+        if not pathlib.Path('/usr/local/bin/npm').exists():
+            run_command('sudo', 'apt', 'install', '-y', 'nodejs', 'npm')
+            run_command('sudo', 'npm', 'install', 'n', '-g')
+            run_command('sudo', 'n', 'stable')
+            run_command('sudo', 'apt', 'purge', '-y', 'nodejs', 'npm')
+            run_command('node', '-v')
+            run_command('npm', 'config', 'set', 'prefix', '~/.local/')
 
         # rust
         cargo_dir = get_home() / '.cargo'
@@ -258,7 +259,9 @@ if __name__ == '__main__':
             run_command('git', 'submodule', 'update', '--init', cwd=MY_NVIM)
 
     if HAS_COLOR:
+        run_command('pip', 'install', *PIP)
         run_command('cargo', 'install', *CARGO)
+        run_command('npm', 'install', '-g', *NPM)
 
         # copy
         mode = Mode.deploy
