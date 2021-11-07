@@ -29,10 +29,13 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 export HISTSIZE=9999
 
-if [ `which xrdb` ]; then
-    export DISPLAY=localhost:0
-    xrdb ~/.Xresources
-fi
+#
+# x11
+#
+# if [ `which xrdb` ]; then
+#     export DISPLAY=localhost:0
+#     xrdb ~/.Xresources
+# fi
 
 function repos {
   cd "$( ghq list --full-path | peco)"
@@ -73,4 +76,5 @@ else
 fi
 alias gs='git status'
 alias gl='git lga'
+alias gr='cd $(git rev-parse --show-toplevel)'
 
