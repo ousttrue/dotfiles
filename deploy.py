@@ -231,14 +231,17 @@ if __name__ == '__main__':
         run_command('sudo', 'apt', 'update')
         run_command('sudo', 'apt', 'install', '-y', *APT)
 
+        # pip
+        run_command('pip', 'install', *PIP)
+
         # latest npm
         if not pathlib.Path('/usr/local/bin/npm').exists():
             run_command('sudo', 'apt', 'install', '-y', 'nodejs', 'npm')
-            run_command('sudo', 'npm', 'install', 'n', '-g')
+            run_command('sudo', '/usr/bin/npm', 'install', 'n', '-g')
             run_command('sudo', 'n', 'stable')
             run_command('sudo', 'apt', 'purge', '-y', 'nodejs', 'npm')
             run_command('node', '-v')
-            run_command('npm', 'config', 'set', 'prefix', '~/.local/')
+            run_command('/usr/local/bin/npm', 'config', 'set', 'prefix', '~/.local/')
 
         # rust
         cargo_dir = get_home() / '.cargo'
@@ -261,7 +264,7 @@ if __name__ == '__main__':
     if HAS_COLOR:
         run_command('pip', 'install', *PIP)
         run_command('cargo', 'install', *CARGO)
-        run_command('npm', 'install', '-g', *NPM)
+        run_command('/usr/local/bin/npm', 'install', '-g', *NPM)
 
         # copy
         mode = Mode.deploy
