@@ -77,8 +77,8 @@ CARGO = [
 
 NPM = [
     'pyright',
-    # 'remark-cli',
-    'prettier',
+    'remark-cli',
+    # 'prettier',
 ]
 
 # $ curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/bin/rust-analyzer
