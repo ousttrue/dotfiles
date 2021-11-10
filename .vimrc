@@ -45,6 +45,8 @@ set hlsearch
 nnoremap Q <Nop>
 nnoremap q :close<CR>
 tnoremap <silent> <ESC> <C-\><C-n>
+nnoremap <C-l> :nohlsearch<CR><C-l>
+
 
 " python
 nnoremap <F5> :T python3 %<CR>

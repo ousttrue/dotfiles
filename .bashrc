@@ -36,6 +36,10 @@ export HISTSIZE=9999
 #     export DISPLAY=localhost:0
 #     xrdb ~/.Xresources
 # fi
+if [ `which setxkbmap` ]; then
+    setxkbmap -layout us
+fi
+
 
 function repos {
   cd "$( ghq list --full-path | peco)"
