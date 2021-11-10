@@ -41,6 +41,7 @@ EXCLUDE_NAMES = ['.git', '.vscode']
 IS_WINDOWS = platform.system() == 'Windows'
 
 APT = [
+    'python3',
     'python3-pip',
     'tmux',
     'w3m',
@@ -48,7 +49,6 @@ APT = [
     'curl',
     'libtool-bin',
     'cmake',
-    'python3',
     'ninja-build',
     'clangd',
     'peco',
@@ -72,6 +72,7 @@ CARGO = [
     'exa',
     'stylua',
     'ripgrep',
+    'fd-find',
 ]
 
 NPM = [
