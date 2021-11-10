@@ -32,6 +32,7 @@ import subprocess
 
 SELF = pathlib.Path(__file__).absolute()
 DOTFILES = SELF.parent
+HOME = pathlib.Path(os.environ['HOME'])
 
 EXCLUDE = [
     SELF, DOTFILES / 'README.md', DOTFILES / 'deploy.sh', DOTFILES / 'scripts'
@@ -88,8 +89,9 @@ NPM = [
 def run_command(*cmd, **kw) -> Tuple[int, List[str]]:
     logger.info(f'# {" ".join(cmd)}')
     if kw.get('shell'):
-        cmd = cmd[0][0]
-        logger.debug('shell', cmd)
+        while isinstance(cmd, list) or isinstance(cmd, tuple):
+            cmd = cmd[0]
+        logger.debug(f'shell: {cmd}')
     p = subprocess.Popen(cmd,
                          stdout=subprocess.PIPE,
                          stderr=subprocess.PIPE,
@@ -243,7 +245,8 @@ if __name__ == '__main__':
             run_command('sudo', 'n', 'stable')
             run_command('sudo', 'apt', 'purge', '-y', 'nodejs', 'npm')
             run_command('node', '-v')
-            run_command('/usr/local/bin/npm', 'config', 'set', 'prefix', '~/.local/')
+            run_command('/usr/local/bin/npm', 'config', 'set', 'prefix',
+                        '~/.local/')
 
         # rust
         cargo_dir = get_home() / '.cargo'
@@ -274,3 +277,10 @@ if __name__ == '__main__':
             mode = Mode.apply
         deploy = Deploy(get_home(), mode)
         deploy.deploy_dir(DOTFILES)
+
+        SKK_JISYO = HOME / ('.eskk/SKK-JISYO.L')
+        if not SKK_JISYO.exists():
+            SKK_JISYO.parent.mkdir(parents=True, exist_ok=True)
+            run_command(
+                f'curl -sSf http://openlab.jp/skk/dic/SKK-JISYO.L.gz | gzip -dc > {SKK_JISYO}',
+                shell=True)
