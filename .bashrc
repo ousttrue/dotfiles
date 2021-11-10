@@ -67,12 +67,12 @@ export PATH
 #
 if [ `which exa` ]; then
     alias ls='exa --color=auto --icons'
-    alias ll='exa --color=auto --icons -l'
     alias la='exa --color=auto --icons -a'
+    alias ll='exa --color=auto --icons -al'
 else
     alias ls='ls --color=auto'
-    alias ll='ls --color=auto -l'
     alias la='ls --color=auto -a'
+    alias ll='ls --color=auto -al'
 fi
 alias gs='git status'
 alias gl='git lga'
