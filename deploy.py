@@ -278,7 +278,14 @@ if __name__ == '__main__':
         deploy = Deploy(get_home(), mode)
         deploy.deploy_dir(DOTFILES)
 
-        SKK_JISYO = HOME / ('.eskk/SKK-JISYO.L')
+        GIT_PROMPT = HOME / '.git-prompt.sh'
+        if not GIT_PROMPT.exists():
+            # https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+            run_command(
+                f'curl -sSf https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > {GIT_PROMPT}',
+                shell=True)
+
+        SKK_JISYO = HOME / '.eskk/SKK-JISYO.L'
         if not SKK_JISYO.exists():
             SKK_JISYO.parent.mkdir(parents=True, exist_ok=True)
             run_command(
