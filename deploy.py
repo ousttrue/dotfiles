@@ -30,6 +30,7 @@ import platform
 from enum import Enum, auto
 import subprocess
 
+MSYSTEM = os.environ['MSYSTEM']
 SELF = pathlib.Path(__file__).absolute()
 DOTFILES = SELF.parent
 HOME = pathlib.Path(os.environ['HOME'])
@@ -39,7 +40,16 @@ EXCLUDE = [
 ]
 EXCLUDE_NAMES = ['.git', '.vscode']
 
-IS_WINDOWS = platform.system() == 'Windows'
+
+def is_windows():
+    if platform.system() == 'Windows':
+        return True
+    if platform.system().startswith('MINGW64_NT-'):
+        return True
+    return False
+
+
+IS_WINDOWS = is_windows()
 
 APT = [
     'python3',
@@ -61,9 +71,8 @@ PIP = [
     'doit',
     'invoke',
     'yapf',
-    'pynvim',
-    'neovim-remote',
-    'yapf',
+    # 'pynvim',
+    # 'neovim-remote',
     'debugpy',
     'GitPython',
 ]
@@ -81,9 +90,6 @@ NPM = [
     'remark-cli',
     # 'prettier',
 ]
-
-# $ curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/bin/rust-analyzer
-# $ chmod +x ~/bin/rust-analyzer
 
 
 def run_command(*cmd, **kw) -> Tuple[int, List[str]]:
@@ -231,33 +237,35 @@ if __name__ == '__main__':
 
     is_force = '-f' in (sys.argv[1:])
     if is_force or not HAS_COLOR:
-        # apt
-        run_command('sudo', 'apt', 'update')
-        run_command('sudo', 'apt', 'install', '-y', *APT)
+        if MSYSTEM:
+            # pacman
+            run_command('pacman', '-Sy')
+            # command('pacman', '-S')
+        else:
+            # apt
+            run_command('sudo', 'apt', 'update')
+            run_command('sudo', 'apt', 'install', '-y', *APT)
 
-        # pip
-        run_command('pip', 'install', *PIP)
+            # latest npm
+            if not pathlib.Path('/usr/local/bin/npm').exists():
+                run_command('sudo', 'apt', 'install', '-y', 'nodejs', 'npm')
+                run_command('sudo', '/usr/bin/npm', 'install', 'n', '-g')
+                run_command('sudo', 'n', 'stable')
+                run_command('sudo', 'apt', 'purge', '-y', 'nodejs', 'npm')
+                run_command('node', '-v')
+                run_command('/usr/local/bin/npm', 'config', 'set', 'prefix',
+                            '~/.local/')
 
-        # latest npm
-        if not pathlib.Path('/usr/local/bin/npm').exists():
-            run_command('sudo', 'apt', 'install', '-y', 'nodejs', 'npm')
-            run_command('sudo', '/usr/bin/npm', 'install', 'n', '-g')
-            run_command('sudo', 'n', 'stable')
-            run_command('sudo', 'apt', 'purge', '-y', 'nodejs', 'npm')
-            run_command('node', '-v')
-            run_command('/usr/local/bin/npm', 'config', 'set', 'prefix',
-                        '~/.local/')
+            # rust
+            cargo_dir = get_home() / '.cargo'
+            if not cargo_dir.exists():
+                subprocess.check_output(
+                    "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y",
+                    shell=True)
 
-        # rust
-        cargo_dir = get_home() / '.cargo'
-        if not cargo_dir.exists():
-            subprocess.check_output(
-                "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y",
-                shell=True)
-
-        # ghq
-        # run_command('go', 'install', 'github.com/x-motemen/ghq@latest')
-        run_command('go', 'get', 'github.com/x-motemen/ghq')
+            # ghq
+            # run_command('go', 'install', 'github.com/x-motemen/ghq@latest')
+            run_command('go', 'get', 'github.com/x-motemen/ghq')
 
         # clone
         MY_NVIM = get_home() / 'my_nvim'
@@ -266,10 +274,17 @@ if __name__ == '__main__':
                         str(MY_NVIM))
             run_command('git', 'submodule', 'update', '--init', cwd=MY_NVIM)
 
+        # pip
+        run_command('pip', 'install', *PIP)
+
     if HAS_COLOR:
         run_command('pip', 'install', *PIP)
-        run_command('cargo', 'install', *CARGO)
-        run_command('/usr/local/bin/npm', 'install', '-g', *NPM)
+
+        if MSYSTEM:
+            pass
+        else:
+            run_command('cargo', 'install', *CARGO)
+            run_command('/usr/local/bin/npm', 'install', '-g', *NPM)
 
         # copy
         mode = Mode.deploy
