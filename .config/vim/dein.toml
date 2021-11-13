@@ -9,6 +9,10 @@ repo = 'Shougo/dein.vim'
 #
 [[plugins]]
 repo = 'cespare/vim-toml'
+[[plugins]]
+repo = "Shougo/context_filetype.vim"
+[[plugins]]
+repo = "osyo-manga/vim-precious"
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -22,7 +26,7 @@ vmap <C-_> :Commentary<CR>
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
- 
+
 [[plugins]]
 repo = 'Chiel92/vim-autoformat'
 hook_add='''
@@ -33,6 +37,6 @@ vmap <S-f> :Autoformat<CR>
 [[plugins]]
 repo = 'preservim/nerdtree'
 hook_add='''
-nmap ,, :NERDTreeFind<CR>
+nmap <Space><Space> :NERDTreeVCS<CR>
 '''
 
