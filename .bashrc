@@ -13,7 +13,7 @@ if [ -f "$HOME/.git-prompt.sh" ]; then
     GIT_PS1_SHOWUNTRACKEDFILES=
     GIT_PS1_SHOWSTASHSTATE=1
     # export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
-    export PS1='\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+    export PS1='\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$${MSYSTEM} '
 fi
 
 #
@@ -73,9 +73,9 @@ if [ `which exa` ]; then
     alias la='exa --color=auto --icons -a'
     alias ll='exa --color=auto --icons -al'
 else
-    alias ls='ls --color=auto'
-    alias la='ls --color=auto -a'
-    alias ll='ls --color=auto -al'
+    alias ls='ls -I "NTUSER.DAT*" --color=auto'
+    alias la='ls -I "NTUSER.DAT*" --color=auto -a'
+    alias ll='ls -I "NTUSER.DAT*" --color=auto -al'
 fi
 alias gs='git status'
 alias gl='git lga'
