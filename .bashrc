@@ -31,11 +31,11 @@ export HISTSIZE=9999
 #
 # x11
 #
-# if [ `which xrdb` ]; then
+# if [ `which xrdb > /dev/null` ]; then
 #     export DISPLAY=localhost:0
 #     xrdb ~/.Xresources
 # fi
-if [ `which setxkbmap` ]; then
+if [ `which setxkbmap > /dev/null 2>&1` ]; then
     setxkbmap -layout us
 fi
 
@@ -68,7 +68,7 @@ export PATH
 #
 # alias
 #
-if [ `which exa` ]; then
+if [ `which exa > /dev/null 2>&1` ]; then
     alias ls='exa --color=auto --icons'
     alias la='exa --color=auto --icons -a'
     alias ll='exa --color=auto --icons -al'
