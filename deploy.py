@@ -20,6 +20,7 @@ except Exception as ex:
         level=DEBUG,
         datefmt='%H:%M:%S',
         format='%(asctime)s[%(levelname)s][%(name)s.%(funcName)s] %(message)s')
+logger.debug(f'HAS_COLOR: {HAS_COLOR}')
 
 import pathlib
 from typing import Optional, Tuple, List
@@ -30,10 +31,16 @@ import platform
 from enum import Enum, auto
 import subprocess
 
-MSYSTEM = os.environ['MSYSTEM']
+MSYSTEM = os.environ.get('MSYSTEM')
 SELF = pathlib.Path(__file__).absolute()
 DOTFILES = SELF.parent
-HOME = pathlib.Path(os.environ['HOME'])
+def get_home()->pathlib.Path:
+    home = os.environ.get('HOME')
+    if home:
+        return pathlib.Path(home)
+    home = os.environ.get('USERPROFILE')
+    return pathlib.Path(home)
+HOME = get_home()
 
 EXCLUDE = [
     SELF, DOTFILES / 'README.md', DOTFILES / 'deploy.sh', DOTFILES / 'scripts'
@@ -50,6 +57,7 @@ def is_windows():
 
 
 IS_WINDOWS = is_windows()
+logger.debug(f'IS_WINDOWS: {IS_WINDOWS}')
 
 APT = [
     'python3',
@@ -79,11 +87,14 @@ PIP = [
 
 CARGO = [
     'bat',
-    'exa',
     'stylua',
     'ripgrep',
     'fd-find',
 ]
+if not IS_WINDOWS:
+    CARGO += [
+            'exa'
+            ]
 
 NPM = [
     'pyright',
@@ -237,7 +248,9 @@ if __name__ == '__main__':
 
     is_force = '-f' in (sys.argv[1:])
     if is_force or not HAS_COLOR:
-        if MSYSTEM:
+        if IS_WINDOWS:
+            pass
+        elif MSYSTEM:
             # pacman
             run_command('pacman', '-Sy')
             # command('pacman', '-S')
@@ -275,12 +288,14 @@ if __name__ == '__main__':
             run_command('git', 'submodule', 'update', '--init', cwd=MY_NVIM)
 
         # pip
-        run_command('pip', 'install', *PIP)
+        run_command(sys.executable, '-m', 'pip', 'install', *PIP)
 
     if HAS_COLOR:
-        run_command('pip', 'install', *PIP)
+        run_command(sys.executable, '-m', 'pip', 'install', *PIP)
 
-        if MSYSTEM:
+        if IS_WINDOWS:
+            pass
+        elif MSYSTEM:
             pass
         else:
             run_command('cargo', 'install', *CARGO)
