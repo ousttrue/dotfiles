@@ -33,7 +33,7 @@ import subprocess
 
 MSYSTEM = os.environ.get('MSYSTEM')
 SELF = pathlib.Path(__file__).absolute()
-DOTFILES = SELF.parent
+HERE = SELF.parent
 def get_home()->pathlib.Path:
     home = os.environ.get('HOME')
     if home:
@@ -43,9 +43,9 @@ def get_home()->pathlib.Path:
 HOME = get_home()
 
 EXCLUDE = [
-    SELF, DOTFILES / 'README.md', DOTFILES / 'deploy.sh', DOTFILES / 'scripts'
+    SELF, HERE / 'README.md', HERE / 'deploy.sh', HERE / 'scripts',
 ]
-EXCLUDE_NAMES = ['.git', '.vscode']
+EXCLUDE_NAMES = ['.git', '.vscode', '.venv', '_build', 'docs',]
 
 
 def is_windows():
@@ -306,7 +306,7 @@ if __name__ == '__main__':
         if 'apply' in sys.argv[1:]:
             mode = Mode.apply
         deploy = Deploy(get_home(), mode)
-        deploy.deploy_dir(DOTFILES)
+        deploy.deploy_dir(HERE)
 
         GIT_PROMPT = HOME / '.git-prompt.sh'
         if not GIT_PROMPT.exists():
