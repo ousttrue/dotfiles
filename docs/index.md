@@ -1,5 +1,5 @@
 # shell note
 
 ```{toctree}
-shell
+xonsh
 ```

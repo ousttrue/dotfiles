@@ -20,6 +20,12 @@ xontrib load powerline2
 
 <https://pypi.org/project/xontrib-powerline2/>
 
+### vim
+
+```vim
+au BufNewFile,BufRead .xonshrc setf python
+```
+
 ## prompt
 
 <https://xon.sh/tutorial.html#customizing-the-prompt>
