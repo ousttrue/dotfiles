@@ -1,0 +1,39 @@
+$VI_MODE = True
+$XONSH_COLOR_STYLE = 'native'
+$XONSH_SHOW_TRACEBACK = True
+
+$COLOR_INPUT = True
+$COLOR_RESULTS = True
+$INDENT = "    "
+
+# xontrib load powerline2
+# xontrib load apt_tabcomplete
+# xontrib load z
+
+$PROMPT = (
+    "{BOLD_BLUE}{cwd}{RESET} {gitstatus}\n"
+    "{env_name}{prompt_end} "
+)
+
+from time import strftime
+$RIGHT_PROMPT = lambda: strftime('[ %H:%M:%S ]')
+
+#if [ `which exa > /dev/null 2>&1` ]; then
+aliases['ls']='exa --color=auto --icons'
+aliases['la']='exa --color=auto --icons -a'
+aliases['ll']='exa --color=auto --icons -al'
+#else
+#    alias['ls']='ls -I "NTUSER.DAT*" --color=auto'
+#    alias['la']='ls -I "NTUSER.DAT*" --color=auto -a'
+#    alias['ll']='ls -I "NTUSER.DAT*" --color=auto -al'
+#fi
+
+
+def _change_repository(event):
+    repository = $(ghq list -p | peco).strip()
+    if repository:
+        cd @(repository)
+        event.current_buffer.validate_and_handle()
+
+aliases['repos'] = _change_repository
+
