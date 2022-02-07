@@ -1,4 +1,4 @@
-$VI_MODE = True
+$VI_MODE = False
 $XONSH_COLOR_STYLE = 'native'
 $XONSH_SHOW_TRACEBACK = True
 $LANG = 'ja_JP.UTF-8'
@@ -32,9 +32,9 @@ if platform.system() == 'Windows':
     $PATH.append('~\\ghq\\github.com\\ousttrue\\my_nvim\\install\\bin')
     $PATH.append('~\\my_nvim\\install\\bin')
     $PATH.append('C:\\Program Files\\Git\\usr\\bin')
-    aliases['ls']=['lsd.exe', '-I', '"NTUSER.DAT*"']
-    aliases['la']=['lsd.exe', '-I', '"NTUSER.DAT*"', '-a']
-    aliases['ll']=['lsd.exe', '-I', '"NTUSER.DAT*"', '-al']
+    aliases['ls']=['lsd.exe']
+    aliases['la']=['lsd.exe', '-a']
+    aliases['ll']=['lsd.exe', '-al']
 else:
     aliases['ls']='exa --color=auto --icons'
     aliases['la']='exa --color=auto --icons -a'
@@ -46,4 +46,3 @@ def _repos():
     if repository:
         cd @(repository)
 aliases['repos'] = _repos
-

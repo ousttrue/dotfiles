@@ -1,0 +1,3 @@
+ignore-globs:
+  - .git
+  - NTUSER.DAT*

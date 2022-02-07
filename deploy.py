@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+import subprocess
+from enum import Enum, auto
+import platform
+import shutil
+import sys
+import os
+from typing import Optional, Tuple, List
+import pathlib
 from logging import getLogger
 
 logger = getLogger(__name__)
@@ -22,30 +30,34 @@ except Exception as ex:
         format='%(asctime)s[%(levelname)s][%(name)s.%(funcName)s] %(message)s')
 logger.debug(f'HAS_COLOR: {HAS_COLOR}')
 
-import pathlib
-from typing import Optional, Tuple, List
-import os
-import sys
-import shutil
-import platform
-from enum import Enum, auto
-import subprocess
 
 MSYSTEM = os.environ.get('MSYSTEM')
 SELF = pathlib.Path(__file__).absolute()
 HERE = SELF.parent
-def get_home()->pathlib.Path:
-    home = os.environ.get('HOME')
-    if home:
-        return pathlib.Path(home)
-    home = os.environ.get('USERPROFILE')
-    return pathlib.Path(home)
+
+
+def get_home() -> pathlib.Path:
+    if IS_WINDOWS:
+        user_profile = os.environ['USERPROFILE']
+        if user_profile:
+            return pathlib.Path(user_profile)
+        else:
+            raise Exception('no USER_PROFILE')
+
+    else:
+        home = os.environ['HOME']
+        if home:
+            return pathlib.Path(home)
+        else:
+            raise Exception('no HOME')
+
+
 HOME = get_home()
 
 EXCLUDE = [
     SELF, HERE / 'README.md', HERE / 'deploy.sh', HERE / 'scripts',
 ]
-EXCLUDE_NAMES = ['.git', '.vscode', '.venv', '_build', 'docs',]
+EXCLUDE_NAMES = ['.git', '.vscode', '.venv', '_build', 'docs', '.github']
 
 
 def is_windows():
@@ -93,8 +105,8 @@ CARGO = [
 ]
 if not IS_WINDOWS:
     CARGO += [
-            'exa'
-            ]
+        'exa'
+    ]
 
 NPM = [
     'pyright',
@@ -129,22 +141,6 @@ def run_command(*cmd, **kw) -> Tuple[int, List[str]]:
     if returncode != 0:
         raise Exception(f'returncode: {returncode}')
     return p.returncode, lines
-
-
-def get_home() -> pathlib.Path:
-    if IS_WINDOWS:
-        user_profile = os.environ['USERPROFILE']
-        if user_profile:
-            return pathlib.Path(user_profile)
-        else:
-            raise Exception('no USER_PROFILE')
-
-    else:
-        home = os.environ['HOME']
-        if home:
-            return pathlib.Path(home)
-        else:
-            raise Exception('no HOME')
 
 
 class Mode(Enum):
