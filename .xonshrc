@@ -30,9 +30,9 @@ if platform.system() == 'Windows':
     $PATH.append('~\\ghq\\github.com\\ousttrue\\my_nvim\\install\\bin')
     $PATH.append('~\\ghq\\github.com\\ousttrue\\my_nvim\\install\\bin')
     $PATH.append('C:\\Program Files\\Git\\usr\\bin')
-    aliases['ls']='ls -I "NTUSER.DAT*" --color=auto'
-    aliases['la']='ls -I "NTUSER.DAT*" --color=auto -a'
-    aliases['ll']='ls -I "NTUSER.DAT*" --color=auto -al'
+    aliases['ls']='ls.exe -I "NTUSER.DAT*" --color=auto'
+    aliases['la']='ls.exe -I "NTUSER.DAT*" --color=auto -a'
+    aliases['ll']='ls.exe -I "NTUSER.DAT*" --color=auto -al'
 else:
     aliases['ls']='exa --color=auto --icons'
     aliases['la']='exa --color=auto --icons -a'
