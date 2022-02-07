@@ -1,0 +1,5 @@
+# shell note
+
+```{toctree}
+shell
+```
