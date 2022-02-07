@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="genindex.html" /><link rel="search" title="検索" href="search.html" /><link rel="prev" title="shell note" href="index.html" />
+<link rel="index" title="索引" href="genindex.html" /><link rel="search" title="検索" href="search.html" /><link rel="next" title="prompt-toolkit" href="prompt-toolkit.html" /><link rel="prev" title="shell note" href="index.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>shell - shell note ドキュメント</title>
+        <title>xonsh - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=fade93df149f7c5fedb3ff897f799dc7d283b420" />
@@ -155,7 +155,12 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">shell</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">xonsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prompt-toolkit.html">prompt-toolkit</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">external</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ousttrue/dotfiles">github</a></li>
 </ul>
 
 </div>
@@ -182,8 +187,8 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="shell">
-<h1>shell<a class="headerlink" href="#shell" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <section class="tex2jax_ignore mathjax_ignore" id="xonsh">
+<h1>xonsh<a class="headerlink" href="#xonsh" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">v0.11.0</span></code></p>
 <p><a class="reference external" href="https://xon.sh/">https://xon.sh/</a></p>
 <p>`pip install xonsh[full]'</p>
@@ -213,6 +218,36 @@ xontrib load powerline2
 <h2>git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://xon.sh/envvars.html#xonsh-gitstatus">https://xon.sh/envvars.html#xonsh-gitstatus</a></p>
 </section>
+<section id="vscode">
+<h2>vscode<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">settings.json</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">"terminal.integrated.defaultProfile.windows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PowerShell"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"terminal.integrated.profiles.windows"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">"PowerShell"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PowerShell"</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terminal-powershell"</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">"Command Prompt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">"${env:windir}\\Sysnative\\cmd.exe"</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">"${env:windir}\\System32\\cmd.exe"</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">"/k"</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">"chcp"</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">"65001"</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terminal-cmd"</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">"xonsh"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">"C:/Python310/Scripts/xonsh.exe"</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -220,7 +255,15 @@ xontrib load powerline2
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="prompt-toolkit.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">prompt-toolkit</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
           <a class="prev-page" href="index.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
@@ -258,13 +301,14 @@ xontrib load powerline2
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">shell</a><ul>
+<li><a class="reference internal" href="#">xonsh</a><ul>
 <li><a class="reference internal" href="#id1">設定</a><ul>
 <li><a class="reference internal" href="#vim">vim</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#prompt">prompt</a></li>
 <li><a class="reference internal" href="#git">git</a></li>
+<li><a class="reference internal" href="#vscode">vscode</a></li>
 </ul>
 </li>
 </ul>
