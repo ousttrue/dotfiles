@@ -23,6 +23,14 @@
                 "deploy"
             ],
             "console": "integratedTerminal"
+        },
+        {
+            "name": "hello",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/samples/hello.py",
+            "args": [],
+            "console": "externalTerminal"
         }
     ]
 }

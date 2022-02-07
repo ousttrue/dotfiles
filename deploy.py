@@ -57,7 +57,7 @@ HOME = get_home()
 EXCLUDE = [
     SELF, HERE / 'README.md', HERE / 'deploy.sh', HERE / 'scripts',
 ]
-EXCLUDE_NAMES = ['.git', '.vscode', '.venv', '_build', 'docs', '.github']
+EXCLUDE_NAMES = ['.git', '.vscode', '.venv', '_build', 'docs', '.github', 'samples']
 
 
 def is_windows():

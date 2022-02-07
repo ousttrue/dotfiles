@@ -1,4 +1,4 @@
-# shell
+# xonsh
 
 `v0.11.0`
 
@@ -34,3 +34,35 @@ au BufNewFile,BufRead .xonshrc setf python
 ## git
 
 <https://xon.sh/envvars.html#xonsh-gitstatus>
+
+
+## vscode
+
+`settings.json`
+
+```json
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [
+                "/k",
+                "chcp",
+                "65001"
+            ],
+            "icon": "terminal-cmd"
+        },
+        "xonsh": {
+            "path": [
+                "C:/Python310/Scripts/xonsh.exe",
+            ],
+        }
+    }
+```
