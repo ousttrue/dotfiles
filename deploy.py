@@ -36,6 +36,18 @@ SELF = pathlib.Path(__file__).absolute()
 HERE = SELF.parent
 
 
+def is_windows():
+    if platform.system() == 'Windows':
+        return True
+    if platform.system().startswith('MINGW64_NT-'):
+        return True
+    return False
+
+
+IS_WINDOWS = is_windows()
+logger.debug(f'IS_WINDOWS: {IS_WINDOWS}')
+
+
 def get_home() -> pathlib.Path:
     if IS_WINDOWS:
         user_profile = os.environ['USERPROFILE']
@@ -59,17 +71,6 @@ EXCLUDE = [
 ]
 EXCLUDE_NAMES = ['.git', '.vscode', '.venv', '_build', 'docs', '.github', 'samples']
 
-
-def is_windows():
-    if platform.system() == 'Windows':
-        return True
-    if platform.system().startswith('MINGW64_NT-'):
-        return True
-    return False
-
-
-IS_WINDOWS = is_windows()
-logger.debug(f'IS_WINDOWS: {IS_WINDOWS}')
 
 APT = [
     'python3',

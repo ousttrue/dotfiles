@@ -27,15 +27,18 @@ import platform
 if platform.system() == 'Windows':
     $PATH.append('C:\\Python310\\Scripts')
     $PATH.append('~\\tools')
-    $PATH.append('~\\.cargo\\bin')
     $PATH.append('~\\go\\bin')
     $PATH.append('~\\ghq\\github.com\\ousttrue\\my_nvim\\install\\bin')
     $PATH.append('~\\my_nvim\\install\\bin')
     $PATH.append('C:\\Program Files\\Git\\usr\\bin')
+    $PATH.append('~\\.cargo\\bin')
     aliases['ls']=['lsd.exe']
     aliases['la']=['lsd.exe', '-a']
     aliases['ll']=['lsd.exe', '-al']
 else:
+    $PATH.append('~/.cargo/bin')
+    $PATH.append('~/.local/bin')
+    $PATH.append('~/my_nvim/install/bin')
     aliases['ls']='exa --color=auto --icons'
     aliases['la']='exa --color=auto --icons -a'
     aliases['ll']='exa --color=auto --icons -al'
