@@ -28,7 +28,6 @@ if platform.system() == 'Windows':
     $PATH.append('C:\\Python310\\Scripts')
     $PATH.append('~\\tools')
     $PATH.append('~\\go\\bin')
-    $PATH.append('~\\ghq\\github.com\\ousttrue\\my_nvim\\install\\bin')
     $PATH.append('~\\my_nvim\\install\\bin')
     $PATH.append('C:\\Program Files\\Git\\usr\\bin')
     $PATH.append('~\\.cargo\\bin')
