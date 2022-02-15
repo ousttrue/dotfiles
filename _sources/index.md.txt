@@ -2,8 +2,9 @@
 
 ```{toctree}
 :maxdepth: 1
+doit
 xonsh
-prompt-toolkit
+prompt-toolkit/index
 ```
 
 ```{toctree}
