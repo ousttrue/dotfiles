@@ -48,7 +48,8 @@ def task_python310_download():
         'uptodate': [True],
     }
 
-def run_or_raise(*args: str):
+
+def run_or_raise(*args: str | pathlib.Path):
     if subprocess.run(args).returncode != 0:
         raise RuntimeError(f'{args}')
 
@@ -58,13 +59,15 @@ def task_python310_build():
         with push_dir(PYTHON310_ARCHIVE.parent):
             run_or_raise('tar', 'xf', PYTHON310_ARCHIVE.name)
         with push_dir(PYTHON310_ARCHIVE_EXTRACT):
-            run_or_raise('./configure', '--prefix', LOCAL_DIR, '--enable-optimizations')
+            run_or_raise('./configure', '--prefix',
+                         LOCAL_DIR, '--enable-optimizations')
             run_or_raise('make', '-j', '4')
             run_or_raise('make', 'install')
         with push_dir(LOCAL_DIR / 'bin'):
             run_or_raise('ln' '-s', 'python3.10', 'python')
             run_or_raise('ln' '-s', 'pip3', 'pip')
-            run_or_raise(LOCAL_DIR / 'bin/python3.10', '-m', 'pip', 'install', '--upgrade', 'pip')
+            run_or_raise(LOCAL_DIR / 'bin/python3.10', '-m',
+                         'pip', 'install', '--upgrade', 'pip')
     #
     # depends libssl-dev
     #
@@ -74,6 +77,7 @@ def task_python310_build():
         'file_dep': [PYTHON310_ARCHIVE],
     }
 
+
 def task_xonsh():
     def install():
         run_or_raise('pip', 'install', 'xonsh[full]')
@@ -82,4 +86,3 @@ def task_xonsh():
         'targets': [LOCAL_DIR / 'bin/xonsh'],
         'file_dep': [LOCAL_DIR / 'bin/python'],
     }
-
