@@ -27,6 +27,7 @@ def get_home():
 
 
 HOME_DIR = get_home()
+LOCAL_DIR = HOME_DIR / 'local'
 HERE = pathlib.Path(__file__).absolute().parent
 PYTHON310_ARCHIVE_URL = 'https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tar.xz'
 PYTHON310_ARCHIVE = HOME_DIR / 'local/src/Python-3.10.2.tar.xz'
@@ -47,21 +48,28 @@ def task_python310_download():
         'uptodate': [True],
     }
 
+def run_or_raise(*args: str):
+    if subprocess.run(args).returncode != 0:
+        raise RuntimeError(f'{args}')
+
 
 def task_python310_build():
     def build():
         with push_dir(PYTHON310_ARCHIVE.parent):
-            if subprocess.run(['tar', 'xf', PYTHON310_ARCHIVE.name]).returncode != 0:
-                raise RuntimeError()
-            with push_dir(PYTHON310_ARCHIVE_EXTRACT):
-                if subprocess.run(['./configure', '--prefix', HOME_DIR / 'local']).returncode != 0:
-                    raise RuntimeError()
-                if subprocess.run(['make']).returncode != 0:
-                    raise RuntimeError()
-                if subprocess.run(['make', 'install']).returncode != 0:
-                    raise RuntimeError()
+            run_or_raise('tar', 'xf', PYTHON310_ARCHIVE.name)
+        with push_dir(PYTHON310_ARCHIVE_EXTRACT):
+            run_or_raise('./configure', '--prefix', LOCAL_DIR, '--enable-optimizations')
+            run_or_rais e('make', '-j', '4')
+            run_or_raise('make', 'install')
+        with push_dir(LOCAL_DIR / 'bin'):
+            run_or_raise('ln' '-s', 'python3.10', 'python')
+            run_or_raise('ln' '-s', 'pip3', 'pip')
+    #
+    # depends libssl-dev
+    #
     return {
         'actions': [build],
         'targets': [PYTHON310_BIN],
         'file_dep': [PYTHON310_ARCHIVE],
     }
+

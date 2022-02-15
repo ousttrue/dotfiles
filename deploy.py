@@ -69,7 +69,7 @@ HOME = get_home()
 EXCLUDE = [
     SELF, HERE / 'README.md', HERE / 'deploy.sh', HERE / 'scripts',
 ]
-EXCLUDE_NAMES = ['.git', '.vscode', '.venv', '_build', 'docs', '.github', 'samples']
+EXCLUDE_NAMES = ['.git', '.vscode', '.venv', '_build', 'docs', '.github', 'samples', '.gitignore', 'dodo.py']
 
 
 APT = [
