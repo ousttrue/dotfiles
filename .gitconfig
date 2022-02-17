@@ -6,4 +6,4 @@
 [credential]
 	helper = manager
 [pull]
-	ff = only
+    
