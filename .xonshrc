@@ -66,6 +66,12 @@ aliases['start'] = _start
 
 def _dotpush(args):
     with xonsh_py.pushdir(HOME_DIR / 'dotfiles'):
-        subprocess.run(['git.exe', 'commit', '-av'])
-        subprocess.run(['git.exe', 'push'])
+        subprocess.run(['git', 'commit', '-av'])
+        subprocess.run(['git', 'push'])
 aliases['dotpush'] = _dotpush
+
+def _dotpull(args):
+    with xonsh_py.pushdir(HOME_DIR / 'dotfiles'):
+        subprocess.run(['git', 'pull'])
+aliases['dotpull'] = _dotpull
+
