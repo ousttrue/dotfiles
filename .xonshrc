@@ -1,3 +1,19 @@
+import subprocess
+import pathlib
+import sys
+import os
+import platform
+
+def get_home()->pathlib.Path:
+    home = os.environ.get('HOME')
+    if home:
+        return pathlib.Path(home)
+    return pathlib.Path(os.environ['USERPROFILE'])
+
+HOME_DIR = get_home()
+sys.path.append(str((HOME_DIR / 'dotfiles').absolute()))
+import xonsh_py
+
 $VI_MODE = False
 $XONSH_COLOR_STYLE = 'native'
 $XONSH_SHOW_TRACEBACK = True
@@ -16,14 +32,8 @@ $PROMPT = (
     "{env_name}{prompt_end} "
 )
 
-from time import strftime
-$RIGHT_PROMPT = lambda: strftime('[ %H:%M:%S ]')
+$RIGHT_PROMPT = xonsh_py._datetime
 
-#if [ `which exa > /dev/null 2>&1` ]; then
-#else
-#fi
-
-import platform
 if platform.system() == 'Windows':
     $PATH.append('C:\\Python310\\Scripts')
     $PATH.append('~\\tools')
@@ -48,3 +58,14 @@ def _repos():
     if repository:
         cd @(repository)
 aliases['repos'] = _repos
+
+def _start(args, stdin=None, stdout=None, stderr=None, spec=None):
+    cmd = ['cmd.exe', '/c', 'start'] + args
+    subprocess.run(cmd, stdin=stdin, stdout=stdout, stderr=stderr)
+aliases['start'] = _start
+
+def _dotpush(args):
+    with xonsh_py.pushdir(HOME_DIR / 'dotfiles'):
+        subprocess.run(['git.exe', 'commit', '-av'])
+        subprocess.run(['git.exe', 'push'])
+aliases['dotpush'] = _dotpush

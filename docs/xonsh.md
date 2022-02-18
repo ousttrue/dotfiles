@@ -6,6 +6,16 @@
 
 `pip install xonsh[full]'
 
+* <https://opensourcelibs.com/lib/xonsh-cheatsheet>
+* (2020)[【Xonsh】Python製シェルが尖りまくってて神](https://qiita.com/akoji/items/4935480f9c53c980ffe0)
+* (2019)[xonshの導入と使い方のメモ](https://qiita.com/souhei-etou/items/9a485df72b26b5a5148a)
+* (2019)[xonshが超カッコイイ話](https://qiita.com/ihcamonoihS/items/659278e6fa7a4a130e1a)
+* (2018)<https://qiita.com/advent-calendar/2018/xonsh>
+* (2018)[xonshのPROMPTにdatetimeを表示する](https://vaaaaaanquish.hatenablog.com/entry/2018/03/18/014419)
+* (2018)[Python製シェルxonshを半年使った所感や環境設定のまとめ](https://vaaaaaanquish.hatenablog.com/entry/2018/06/22/194227)
+* (2018)[2018年のxonshrc](https://vaaaaaanquish.hatenablog.com/entry/2018/12/21/230441)
+* (2017)<https://qiita.com/advent-calendar/2017/xonsh>
+ 
 ## 設定
 
 `~/.config/xonsh/rc.xsh` `~/.xonshrc`
@@ -66,3 +76,7 @@ au BufNewFile,BufRead .xonshrc setf python
         }
     }
 ```
+
+## callable alias
+
+* (2017)[Xonshでコマンドを作る](https://qiita.com/riktor/items/2f18db475dc5b2c8d829)
