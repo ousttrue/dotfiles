@@ -1,3 +1,4 @@
+from typing import Union
 import pathlib
 import platform
 import os
@@ -49,7 +50,7 @@ def task_python310_download():
     }
 
 
-def run_or_raise(*args: str | pathlib.Path):
+def run_or_raise(*args: Union[str, pathlib.Path]):
     if subprocess.run(args).returncode != 0:
         raise RuntimeError(f'{args}')
 
@@ -64,8 +65,8 @@ def task_python310_build():
             run_or_raise('make', '-j', '4')
             run_or_raise('make', 'install')
         with push_dir(LOCAL_DIR / 'bin'):
-            run_or_raise('ln' '-s', 'python3.10', 'python')
-            run_or_raise('ln' '-s', 'pip3', 'pip')
+            run_or_raise('ln', '-s', 'python3.10', 'python')
+            run_or_raise('ln', '-s', 'pip3', 'pip')
             run_or_raise(LOCAL_DIR / 'bin/python3.10', '-m',
                          'pip', 'install', '--upgrade', 'pip')
     #
