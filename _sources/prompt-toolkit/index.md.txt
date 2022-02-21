@@ -4,6 +4,7 @@
     * <https://python-prompt-toolkit.readthedocs.io/en/master/pages/getting_started.html>
 
 * <https://github.com/prompt-toolkit>
+* <https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/PROJECTS.rst>
 
 ```{toctree}
 examples
@@ -11,7 +12,6 @@ pyvim
 ```
 
 * <http://ayageman.blogspot.com/search/label/prompt-toolkit>
-
 ## formatted text
 
 * <https://python-prompt-toolkit.readthedocs.io/en/master/pages/printing_text.html>
@@ -37,3 +37,5 @@ https://python-prompt-toolkit.readthedocs.io/en/master/pages/full_screen_apps.ht
 * <https://github.com/TuuuNya/prompt_toolkit_demo>
 * <https://github.com/DivineSoftware/Pygy>
 * <https://github.com/vaaaaanquish-xx/select-command-using-ptk>
+* <https://gitlab.com/lisael/ptfm>
+* <https://github.com/prompt-toolkit/pypager>
