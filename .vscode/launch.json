@@ -25,12 +25,12 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "hello",
+            "name": "py",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/samples/hello.py",
+            "program": "${file}",
             "args": [],
-            "console": "externalTerminal"
+            "console": "externalTerminal",
         }
     ]
 }
