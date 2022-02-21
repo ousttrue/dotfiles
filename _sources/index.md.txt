@@ -6,6 +6,7 @@ doit
 xonsh
 prompt-toolkit/index
 wt
+font
 ```
 
 ```{toctree}
