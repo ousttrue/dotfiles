@@ -5,13 +5,12 @@
 
 * <https://github.com/prompt-toolkit>
 
-## examples
-
-<https://github.com/prompt-toolkit/python-prompt-toolkit/tree/master/examples>
-
 ```{toctree}
+examples
 pyvim
 ```
+
+* <http://ayageman.blogspot.com/search/label/prompt-toolkit>
 
 ## formatted text
 
@@ -32,4 +31,9 @@ https://python-prompt-toolkit.readthedocs.io/en/master/pages/full_screen_apps.ht
 ## tools
 
 * ptterm
+  * <https://github.com/selectel/pyte>
 * pymux
+* <https://github.com/lyz-code/prompt-toolkit-table>
+* <https://github.com/TuuuNya/prompt_toolkit_demo>
+* <https://github.com/DivineSoftware/Pygy>
+* <https://github.com/vaaaaanquish-xx/select-command-using-ptk>
