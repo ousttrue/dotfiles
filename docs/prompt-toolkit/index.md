@@ -28,6 +28,14 @@ pyvim
 
 https://python-prompt-toolkit.readthedocs.io/en/master/pages/full_screen_apps.html
 
+
+## layout
+
+```{inheritance-diagram} prompt_toolkit.layout.containers.HSplit prompt_toolkit.layout.containers.VSplit
+:private-bases:
+:parts: 1
+```
+
 ## tools
 
 * ptterm
