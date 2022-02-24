@@ -4,3 +4,7 @@
 
 # articles
 * (2022)[Obsidianは最高のマークダウン『メモ』アプリである](https://pouhon.net/obsidian-introduction/5666/)
+* (2022)[Obsidianというアプリをより良く知るための外部リンク集](https://pouhon.net/obsidian-articles/6396/)
+* (2022)[Notion vs Obsidian (あるいはアスカ vs 綾波)](https://pouhon.net/notion-vs-obsidian/6141/)
+* <https://qiita.com/tags/obsidian>
+* (2020)[ObsidianのVimモードで<C-d>問題をなんとかしようとおもっていろいろやってみた](https://qiita.com/hann-solo/items/e62da5102e8edafb3cb9)
