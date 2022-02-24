@@ -7,6 +7,7 @@ xonsh
 prompt-toolkit/index
 wt
 font
+dotfiles
 ```
 
 ```{toctree}
