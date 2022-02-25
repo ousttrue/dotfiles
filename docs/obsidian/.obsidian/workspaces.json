@@ -1,0 +1,127 @@
+{
+  "workspaces": {
+    "workspace": {
+      "main": {
+        "id": "e22e95a981576943",
+        "type": "split",
+        "children": [
+          {
+            "id": "4c8b2cc867544846",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "plugins.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "5530a725592297af",
+        "type": "split",
+        "children": [
+          {
+            "id": "f76f36ca3624a497",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "6e055c253dcfc78f",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {}
+                }
+              },
+              {
+                "id": "8d454e7f8b316214",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 182
+      },
+      "right": {
+        "id": "95babd044b7f2368",
+        "type": "split",
+        "children": [
+          {
+            "id": "d8457c390a9cd2d0",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "06039514044e2922",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "plugins.md",
+                    "options": {
+                      "collapse-filter": false,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": true,
+                      "showTags": true,
+                      "showAttachments": true,
+                      "hideUnresolved": true,
+                      "collapse-color-groups": true,
+                      "colorGroups": [],
+                      "collapse-display": true,
+                      "showArrow": false,
+                      "textFadeMultiplier": 0,
+                      "nodeSizeMultiplier": 1,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.518713248970312,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 250,
+                      "scale": 1,
+                      "close": false
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "5d5b8e3b27067b0f",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "afc091be5b0586e1",
+                "type": "leaf",
+                "state": {
+                  "type": "graph",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 730
+      },
+      "active": "4c8b2cc867544846"
+    }
+  },
+  "active": "workspace"
+}

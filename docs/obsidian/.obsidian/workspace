@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "39d467e146063285",
+        "id": "4c8b2cc867544846",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -60,40 +60,42 @@
     "type": "split",
     "children": [
       {
-        "id": "397391722be58b7d",
+        "id": "d8457c390a9cd2d0",
         "type": "tabs",
-        "dimension": 25.132625994694962,
         "children": [
           {
-            "id": "d57fa6691ec02af1",
+            "id": "06039514044e2922",
             "type": "leaf",
             "state": {
-              "type": "backlink",
+              "type": "localgraph",
               "state": {
                 "file": "plugins.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
+                "options": {
+                  "collapse-filter": false,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": true,
+                  "showTags": true,
+                  "showAttachments": true,
+                  "hideUnresolved": true,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 1,
+                  "close": false
+                }
               }
-            }
-          }
-        ]
-      },
-      {
-        "id": "9875285ac4f6e2eb",
-        "type": "tabs",
-        "dimension": 25.132625994694962,
-        "children": [
-          {
-            "id": "96e2aff5d8cf39b6",
-            "type": "leaf",
-            "state": {
-              "type": "calendar",
-              "state": {}
             }
           }
         ]
@@ -101,7 +103,6 @@
       {
         "id": "5d5b8e3b27067b0f",
         "type": "tabs",
-        "dimension": 49.73474801061008,
         "children": [
           {
             "id": "afc091be5b0586e1",
@@ -115,14 +116,14 @@
       }
     ],
     "direction": "horizontal",
-    "width": 308
+    "width": 818
   },
-  "active": "39d467e146063285",
+  "active": "4c8b2cc867544846",
   "lastOpenFiles": [
     "plugins.md",
-    "tags.md",
     "index.md",
     "articles.md",
+    "tags.md",
     "YAML front matter.md"
   ]
 }

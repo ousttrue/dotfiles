@@ -24,4 +24,3 @@ def pushdir(dst):
         yield
     finally:
         os.chdir(cwd)
-
