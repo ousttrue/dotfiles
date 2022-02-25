@@ -21,7 +21,6 @@ HOME_DIR = get_home()
 def mklink(dependencies, targets):
     src = pathlib.Path(dependencies[0])
     dst = pathlib.Path(targets[0])
-    print(src, dst)
     if dst.exists():
         print(f'rm {dst}')
         dst.unlink()
@@ -34,17 +33,28 @@ def check_link(src: pathlib.Path, dst: pathlib.Path):
     return dst.is_symlink() and dst.resolve() == src
 
 
+def traverse(d: pathlib.Path):
+    for f in d.iterdir():
+        if f.is_dir():
+            for x in traverse(f):
+                yield x
+        else:
+            yield f
+
+
 def task_create_link():
     '''
     create symbol link for config files
     '''
-    target = '.xonshrc'
-    src = SYNC_HOME_DIR / target
-    dst = HOME_DIR / target
-    return {
-        'file_dep': [src],
-        'targets': [dst],
-        'actions': [(mklink)],
-        'uptodate': [(check_link, (src, dst))],
-        'verbosity': 2,
-    }
+    for src in traverse(SYNC_HOME_DIR):
+        # print(f.relative_to(SYNC_HOME_DIR))
+        target = src.relative_to(SYNC_HOME_DIR)
+        dst = HOME_DIR / target
+        yield {
+            'name': target,
+            'file_dep': [src],
+            'targets': [dst],
+            'actions': [(mklink)],
+            'uptodate': [(check_link, (src, dst))],
+            'verbosity': 2,
+        }
