@@ -8,8 +8,3 @@
 * (2022)[Notion vs Obsidian (あるいはアスカ vs 綾波)](https://pouhon.net/notion-vs-obsidian/6141/)
 * <https://qiita.com/tags/obsidian>
 * (2020)[ObsidianのVimモードで<C-d>問題をなんとかしようとおもっていろいろやってみた](https://qiita.com/hann-solo/items/e62da5102e8edafb3cb9)
-
-* <https://goryugo.com/20201120/obsidian-graph/>
-* <https://knowledgestuck.substack.com/p/obsidiangraph-9b3?utm_source=url>
-* <https://knowledgestuck.substack.com/p/obsidiangraph?utm_source=url>
-* <https://goryugo.com/20210522/obsidian-graph-2/>
