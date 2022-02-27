@@ -1,0 +1,1 @@
+[Blender Python script for converting a mesh to GLB with Draco compression · GitHub](https://gist.github.com/ryanfb/f7caff4f08b1afa2960a40f63b39434b)

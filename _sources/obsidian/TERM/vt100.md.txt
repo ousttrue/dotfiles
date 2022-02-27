@@ -1,0 +1,9 @@
+#term  #pty
+
+ECMA-48
+ANSI escape code
+
+https://en.wikipedia.org/wiki/ANSI_escape_code
+
+https://vt100.net/emu/dec_ansi_parser
+

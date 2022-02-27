@@ -8,6 +8,9 @@
 
 ```{toctree}
 examples
+src/index
+src/layout
+src/application
 pyvim
 ```
 
@@ -21,20 +24,6 @@ pyvim
 ## input
 
 * <https://python-prompt-toolkit.readthedocs.io/en/master/pages/asking_for_input.html#asking-for-input>
-
-## Application
-
-* [python prompt toolkitの紹介と動作を理解するメモ](https://vaaaaaanquish.hatenablog.com/entry/2019/07/06/213909#Application)
-
-https://python-prompt-toolkit.readthedocs.io/en/master/pages/full_screen_apps.html
-
-
-## layout
-
-```{inheritance-diagram} prompt_toolkit.layout.containers.HSplit prompt_toolkit.layout.containers.VSplit
-:private-bases:
-:parts: 1
-```
 
 ## tools
 
