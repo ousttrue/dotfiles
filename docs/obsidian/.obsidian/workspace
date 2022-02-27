@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "4c8b2cc867544846",
+        "id": "6ae2d6c9d1cc552c",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "plugins.md",
+            "file": "python_prompt_toolkit.md",
             "mode": "source",
             "source": false
           }
@@ -53,7 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 182
+    "width": 327
   },
   "right": {
     "id": "95babd044b7f2368",
@@ -69,11 +69,11 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "plugins.md",
+                "file": "python_prompt_toolkit.md",
                 "options": {
-                  "collapse-filter": false,
+                  "collapse-filter": true,
                   "search": "",
-                  "localJumps": 1,
+                  "localJumps": 3,
                   "localBacklinks": true,
                   "localForelinks": true,
                   "localInterlinks": true,
@@ -83,7 +83,7 @@
                   "collapse-color-groups": true,
                   "colorGroups": [],
                   "collapse-display": true,
-                  "showArrow": false,
+                  "showArrow": true,
                   "textFadeMultiplier": 0,
                   "nodeSizeMultiplier": 1,
                   "lineSizeMultiplier": 1,
@@ -95,6 +95,31 @@
                   "scale": 1,
                   "close": false
                 }
+              }
+            }
+          },
+          {
+            "id": "811cd7c912ba326c",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "c472a4a0dcef669f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "python_prompt_toolkit.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
               }
             }
           }
@@ -116,14 +141,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 818
+    "width": 933
   },
-  "active": "4c8b2cc867544846",
+  "active": "6ae2d6c9d1cc552c",
   "lastOpenFiles": [
-    "plugins.md",
-    "index.md",
-    "articles.md",
-    "tags.md",
-    "YAML front matter.md"
+    "python_prompt_toolkit.md",
+    "TERM/CUI.md",
+    "TERM/notcurses.md",
+    "TERM/alacritty.md",
+    "TERM/pdcurses.md",
+    "python/python_curses.md",
+    "conhost.md",
+    "TERM/windows_terminal.md",
+    "TERM/font.md",
+    "TERM/curses.md"
   ]
 }

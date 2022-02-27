@@ -8,7 +8,6 @@ prompt-toolkit/index
 wt
 font
 dotfiles
-curses
 ```
 
 ```{toctree}
