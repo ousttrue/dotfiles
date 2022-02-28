@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" /><link rel="next" title="pyvim" href="../pyvim.html" /><link rel="prev" title="Application" href="application.html" />
+<link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" /><link rel="next" title="draw" href="draw.html" /><link rel="prev" title="output" href="output.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>layout - shell note ドキュメント</title>
+        <title>Layout - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -162,12 +162,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples.html">examples</a></li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Source読む</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="input.html">input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="application.html">Application</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="output.html">output</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="draw.html">draw</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">layout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="application.html">Application</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pyvim.html">pyvim</a></li>
 </ul>
 </li>
@@ -208,9 +208,7 @@
         </div>
         <article role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="layout">
-<h1>layout<a class="headerlink" href="#layout" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>Layout<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h1>Layout<a class="headerlink" href="#layout" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">prompt_toolkit/layout/layout.py</span></code></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Layout</span><span class="p">:</span>
     <span class="sd">"""</span>
@@ -230,6 +228,11 @@
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </pre></div>
 </div>
+<section id="container">
+<h2>Container<a class="headerlink" href="#container" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="widgets">
+<h2>Widgets<a class="headerlink" href="#widgets" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
 
@@ -238,23 +241,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../pyvim.html">
+          <a class="next-page" href="draw.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">pyvim</div>
+                <div class="title">draw</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="application.html">
+          <a class="prev-page" href="output.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Application</div>
+                <div class="title">output</div>
                 
               </div>
             </a>
@@ -284,8 +287,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">layout</a><ul>
-<li><a class="reference internal" href="#id1">Layout</a></li>
+<li><a class="reference internal" href="#">Layout</a><ul>
+<li><a class="reference internal" href="#container">Container</a></li>
+<li><a class="reference internal" href="#widgets">Widgets</a></li>
 </ul>
 </li>
 </ul>

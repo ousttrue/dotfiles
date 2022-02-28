@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
+<link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" /><link rel="next" title="Layout" href="layout.html" /><link rel="prev" title="input" href="input.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>output - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -155,26 +155,26 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul>
+  <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../doit.html">doit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../xonsh.html">xonsh</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../prompt-toolkit/index.html">prompt-toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../prompt-toolkit/examples.html">examples</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../prompt-toolkit/src/index.html">Source読む</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/src/input.html">input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/src/output.html">output</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/src/layout.html">Layout</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/src/draw.html">draw</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">prompt-toolkit</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../examples.html">examples</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Source読む</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="input.html">input</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layout.html">Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="draw.html">draw</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../prompt-toolkit/src/layout.html">Layout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../prompt-toolkit/pyvim.html">pyvim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="layout.html">Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyvim.html">pyvim</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../wt.html">WindowsTerminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../font.html">font</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dotfiles.html">dotfiles</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Index</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../obsidian/index.html">Index</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -207,36 +207,56 @@
           </label>
         </div>
         <article role="main">
-          <p>wintab
-http://wdnet.jp/library/windows/wintab
-http://wdnet.jp/library/windows/wacomwindevfaq</p>
-<p>https://herm.azurewebsites.net/Localize/WinTab/</p>
-<p>[* サンプル]
-https://gist.github.com/t-mat/54f05cfdccca07bcf99a0f2afbc5d466</p>
-<p>code:CMakeLists.txt
-project(sample)
-cmake_minimum_required(VERSION 3.13.0)</p>
-<p>add_executable(sample WIN32
-WintabTest.cpp
-)</p>
-<p>[* articles]
-[wintabから傾きを取得するコード https://waura.github.io/201012241293217750.html]
-[タブレットからペンの入力を受信する https://kondoumh.com/pgtips/wintab.html]</p>
+          <section class="tex2jax_ignore mathjax_ignore" id="output">
+<h1>output<a class="headerlink" href="#output" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">prompt_toolkit.output.defaults.py</span></code></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>        <span class="k">if</span> <span class="n">is_win_vt100_enabled</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">cast</span><span class="p">(</span>
+                <span class="n">Output</span><span class="p">,</span>
+                <span class="n">Windows10_Output</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">default_color_depth</span><span class="o">=</span><span class="n">color_depth_from_env</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_conemu_ansi</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">cast</span><span class="p">(</span>
+                <span class="n">Output</span><span class="p">,</span> <span class="n">ConEmuOutput</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">default_color_depth</span><span class="o">=</span><span class="n">color_depth_from_env</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Win32Output</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">default_color_depth</span><span class="o">=</span><span class="n">color_depth_from_env</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="layout.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Layout</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="input.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">input</div>
+                
+              </div>
+            </a>
         </div>
 
         <div class="related-information">
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/CG/wintab.md.txt"
+            | <a class="muted-link" href="../../_sources/prompt-toolkit/src/output.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
