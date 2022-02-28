@@ -1,4 +1,6 @@
-[[articles]]
-[[tags]]
-[[plugins]]
-[[YAML front matter]]
+# Index
+
+```{toctree}
+:glob:
+*
+```

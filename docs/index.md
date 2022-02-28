@@ -8,6 +8,7 @@ prompt-toolkit/index
 wt
 font
 dotfiles
+obsidian/index
 ```
 
 ```{toctree}

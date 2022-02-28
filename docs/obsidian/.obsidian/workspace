@@ -7,12 +7,8 @@
         "id": "6ae2d6c9d1cc552c",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "python_prompt_toolkit.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -69,7 +65,6 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "python_prompt_toolkit.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -112,7 +107,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "python_prompt_toolkit.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -145,15 +139,15 @@
   },
   "active": "6ae2d6c9d1cc552c",
   "lastOpenFiles": [
-    "python_prompt_toolkit.md",
-    "TERM/CUI.md",
-    "TERM/notcurses.md",
-    "TERM/alacritty.md",
-    "TERM/pdcurses.md",
-    "python/python_curses.md",
-    "conhost.md",
-    "TERM/windows_terminal.md",
-    "TERM/font.md",
-    "TERM/curses.md"
+    "Untitled.md",
+    "programming/LFS.md",
+    "CG/ptex.md",
+    "CG/dust3d.md",
+    "blender/bpy.md",
+    "blender/blender_rna.md",
+    "blender/bpy_material.md",
+    "blender/bpy_node.md",
+    "blender/bpy_types_panel.md",
+    "blender/bpy_template_list.md"
   ]
 }

@@ -15,3 +15,5 @@ https://hackmd.io/@geopythonjp/HkZOmNpqL/%2FhfZTkl5FQGy8YHrgzc7ohQ
 
 [* fbx]
 https://zenn.dev/fumo/articles/7cad6c25dd99b7
+
+[空中写真 オープンデータ](http://ecom-plat.jp/19640616-niigata-eq/index.php?gid=10032)

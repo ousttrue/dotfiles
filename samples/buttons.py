@@ -9,9 +9,11 @@ from prompt_toolkit.key_binding.bindings.focus import focus_next, focus_previous
 from prompt_toolkit.layout import HSplit, Layout, VSplit
 from prompt_toolkit.styles import Style
 from prompt_toolkit.widgets import Box, Button, Frame, Label, TextArea
-
+import asyncio
 
 # Event handlers for all the buttons.
+
+
 def button1_clicked():
     text_area.text = "Button 1 clicked"
 
@@ -87,7 +89,11 @@ application = Application(layout=layout, key_bindings=kb,
 
 
 def main():
-    application.run()
+    # application.run()
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(
+        application.run_async()
+    )
 
 
 if __name__ == "__main__":
