@@ -174,6 +174,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../wt.html">WindowsTerminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../font.html">font</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dotfiles.html">dotfiles</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../obsidian/index.html">Index</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">external</span></p>
 <ul>
@@ -207,154 +210,14 @@
           <section class="tex2jax_ignore mathjax_ignore" id="input">
 <h1>input<a class="headerlink" href="#input" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>input により loop を駆動しているぽい。重要。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Application</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
-
-        <span class="c1"># I/O.</span>
-        <span class="n">session</span> <span class="o">=</span> <span class="n">get_app_session</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">output</span> <span class="ow">or</span> <span class="n">session</span><span class="o">.</span><span class="n">output</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">input</span> <span class="o">=</span> <span class="nb">input</span> <span class="ow">or</span> <span class="n">session</span><span class="o">.</span><span class="n">input</span>
-
-</pre></div>
-</div>
-<section id="appsession">
-<h2>AppSession<a class="headerlink" href="#appsession" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Terminal の入出力との接続を表す。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AppSession</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    An AppSession is an interactive session, usually connected to one terminal.</span>
-<span class="sd">    Within one such session, interaction with many applications can happen, one</span>
-<span class="sd">    after the other.</span>
-
-<span class="sd">    The input/output device is not supposed to change during one session.</span>
-
-<span class="sd">    Warning: Always use the `create_app_session` function to create an</span>
-<span class="sd">    instance, so that it gets activated correctly.</span>
-
-<span class="sd">    :param input: Use this as a default input for all applications</span>
-<span class="sd">        running in this session, unless an input is passed to the `Application`</span>
-<span class="sd">        explicitely.</span>
-<span class="sd">    :param output: Use this as a default output.</span>
-<span class="sd">    """</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">"Input"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">output</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">"Output"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_input</span> <span class="o">=</span> <span class="nb">input</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_output</span> <span class="o">=</span> <span class="n">output</span>
-
-        <span class="c1"># The application will be set dynamically by the `set_app` context</span>
-        <span class="c1"># manager. This is called in the application itself.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">"Application[Any]"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">"AppSession(app=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="si">!r}</span><span class="s2">)"</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">input</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Input"</span><span class="p">:</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="kn">from</span> <span class="nn">prompt_toolkit.input.defaults</span> <span class="kn">import</span> <span class="n">create_input</span>
-
-            <span class="bp">self</span><span class="o">.</span><span class="n">_input</span> <span class="o">=</span> <span class="n">create_input</span><span class="p">()</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Output"</span><span class="p">:</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_output</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="kn">from</span> <span class="nn">prompt_toolkit.output.defaults</span> <span class="kn">import</span> <span class="n">create_output</span>
-
-            <span class="bp">self</span><span class="o">.</span><span class="n">_output</span> <span class="o">=</span> <span class="n">create_output</span><span class="p">()</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_output</span>
-</pre></div>
-</div>
-</section>
-<section id="create-input">
-<h2>create_input<a class="headerlink" href="#create-input" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_input</span><span class="p">(</span>
-    <span class="n">stdin</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TextIO</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">always_prefer_tty</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Input</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Create the appropriate `Input` object for the current os/environment.</span>
-
-<span class="sd">    :param always_prefer_tty: When set, if `sys.stdin` is connected to a Unix</span>
-<span class="sd">        `pipe`, check whether `sys.stdout` or `sys.stderr` are connected to a</span>
-<span class="sd">        pseudo terminal. If so, open the tty for reading instead of reading for</span>
-<span class="sd">        `sys.stdin`. (We can open `stdout` or `stderr` for reading, this is how</span>
-<span class="sd">        a `$PAGER` works.)</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">is_windows</span><span class="p">():</span>
-        <span class="kn">from</span> <span class="nn">.win32</span> <span class="kn">import</span> <span class="n">Win32Input</span>
-
-        <span class="c1"># If `stdin` was assigned `None` (which happens with pythonw.exe), use</span>
-        <span class="c1"># a `DummyInput`. This triggers `EOFError` in the application code.</span>
-        <span class="k">if</span> <span class="n">stdin</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">DummyInput</span><span class="p">()</span>
-
-        <span class="k">return</span> <span class="n">Win32Input</span><span class="p">(</span><span class="n">stdin</span> <span class="ow">or</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="kn">from</span> <span class="nn">.vt100</span> <span class="kn">import</span> <span class="n">Vt100Input</span>
-
-        <span class="c1"># If no input TextIO is given, use stdin/stdout.</span>
-        <span class="k">if</span> <span class="n">stdin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">stdin</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span>
-
-            <span class="k">if</span> <span class="n">always_prefer_tty</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">io</span> <span class="ow">in</span> <span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">]:</span>
-                    <span class="k">if</span> <span class="n">io</span><span class="o">.</span><span class="n">isatty</span><span class="p">():</span>
-                        <span class="n">stdin</span> <span class="o">=</span> <span class="n">io</span>
-                        <span class="k">break</span>
-
-        <span class="k">return</span> <span class="n">Vt100Input</span><span class="p">(</span><span class="n">stdin</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="win32input">
-<h2>Win32Input<a class="headerlink" href="#win32input" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">prompt_toolkit/input/win32.py</span></code></p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">_Win32Handles</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Utility to keep track of which handles are connectod to which callbacks.</span>
-
-<span class="sd">    `add_win32_handle` starts a tiny event loop in another thread which waits</span>
-<span class="sd">    for the Win32 handle to become ready. When this happens, the callback will</span>
-<span class="sd">    be called in the current asyncio event loop using `call_soon_threadsafe`.</span>
-
-<span class="sd">    `remove_win32_handle` will stop this tiny event loop.</span>
-
-<span class="sd">    NOTE: We use this technique, so that we don't have to use the</span>
-<span class="sd">          `ProactorEventLoop` on Windows and we can wait for things like stdin</span>
-<span class="sd">          in a `SelectorEventLoop`. This is important, because our inputhook</span>
-<span class="sd">          mechanism (used by IPython), only works with the `SelectorEventLoop`.</span>
-<span class="sd">    """</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_handle_callbacks</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="kc">None</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
-
-        <span class="c1"># Windows Events that are triggered when we have to stop watching this</span>
-        <span class="c1"># handle.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_remove_events</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">HANDLE</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">def</span> <span class="nf">add_win32_handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="p">:</span> <span class="n">HANDLE</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="kc">None</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">"""</span>
-<span class="sd">        Add a Win32 handle to the event loop.</span>
-<span class="sd">        """</span>
-        <span class="n">handle_value</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">value</span>
-
-        <span class="k">if</span> <span class="n">handle_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Invalid handle."</span><span class="p">)</span>
-
-        <span class="c1"># Make sure to remove a previous registered handler first.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">remove_win32_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
-
-        <span class="n">loop</span> <span class="o">=</span> <span class="n">get_event_loop</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_handle_callbacks</span><span class="p">[</span><span class="n">handle_value</span><span class="p">]</span> <span class="o">=</span> <span class="n">callback</span>
-
-        <span class="c1"># Create remove event.</span>
-        <span class="n">remove_event</span> <span class="o">=</span> <span class="n">create_win32_event</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_remove_events</span><span class="p">[</span><span class="n">handle_value</span><span class="p">]</span> <span class="o">=</span> <span class="n">remove_event</span>
-
-        <span class="c1"># Add reader.</span>
+digraph input {
+Application -&gt; run_async;
+run_async -&gt; Application_input_attach[label="input_ready_callback"];
+Application_input_attach -&gt; wait_for_handles;
+wait_for_handles -&gt; Application;
+}<section id="wait-for-handles-in-blocking-thread">
+<h2>wait_for_handles in blocking thread<a class="headerlink" href="#wait-for-handles-in-blocking-thread" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># Add reader.</span>
         <span class="k">def</span> <span class="nf">ready</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
             <span class="c1"># Tell the callback that input's ready.</span>
             <span class="k">try</span><span class="p">:</span>
@@ -377,115 +240,15 @@
                 <span class="n">loop</span><span class="o">.</span><span class="n">call_soon_threadsafe</span><span class="p">(</span><span class="n">ready</span><span class="p">)</span>
 
         <span class="n">run_in_executor_with_context</span><span class="p">(</span><span class="n">wait</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="n">loop</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">remove_win32_handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="p">:</span> <span class="n">HANDLE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[],</span> <span class="kc">None</span><span class="p">]]:</span>
-        <span class="sd">"""</span>
-<span class="sd">        Remove a Win32 handle from the event loop.</span>
-<span class="sd">        Return either the registered handler or `None`.</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="n">handle</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># Ignore.</span>
-
-        <span class="c1"># Trigger remove events, so that the reader knows to stop.</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">event</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_remove_events</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">handle</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-            <span class="k">pass</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">SetEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_callbacks</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">handle</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
-
-
-<span class="nd">@contextmanager</span>
-<span class="k">def</span> <span class="nf">attach_win32_input</span><span class="p">(</span>
-    <span class="nb">input</span><span class="p">:</span> <span class="n">_Win32InputBase</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="kc">None</span><span class="p">]</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Context manager that makes this input active in the current event loop.</span>
-
-<span class="sd">    :param input: :class:`~prompt_toolkit.input.Input` object.</span>
-<span class="sd">    :param input_ready_callback: Called when the input is ready to read.</span>
-<span class="sd">    """</span>
-    <span class="n">win32_handles</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">win32_handles</span>
-    <span class="n">handle</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">handle</span>
-
-    <span class="k">if</span> <span class="n">handle</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Invalid handle."</span><span class="p">)</span>
-
-    <span class="c1"># Add reader.</span>
-    <span class="n">previous_callback</span> <span class="o">=</span> <span class="n">win32_handles</span><span class="o">.</span><span class="n">remove_win32_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
-    <span class="n">win32_handles</span><span class="o">.</span><span class="n">add_win32_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
-
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">yield</span>
-    <span class="k">finally</span><span class="p">:</span>
-        <span class="n">win32_handles</span><span class="o">.</span><span class="n">remove_win32_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">previous_callback</span><span class="p">:</span>
-            <span class="n">win32_handles</span><span class="o">.</span><span class="n">add_win32_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">previous_callback</span><span class="p">)</span>
-
-
-<span class="k">class</span> <span class="nc">Win32Input</span><span class="p">(</span><span class="n">_Win32InputBase</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    `Input` class that reads from the Windows console.</span>
-<span class="sd">    """</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stdin</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TextIO</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">console_input_reader</span> <span class="o">=</span> <span class="n">ConsoleInputReader</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_ready_callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="kc">None</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">ContextManager</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
-        <span class="sd">"""</span>
-<span class="sd">        Return a context manager that makes this input active in the current</span>
-<span class="sd">        event loop.</span>
-<span class="sd">        """</span>
-        <span class="k">return</span> <span class="n">attach_win32_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_ready_callback</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ContextManager</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
-        <span class="sd">"""</span>
-<span class="sd">        Return a context manager that makes sure that this input is not active</span>
-<span class="sd">        in the current event loop.</span>
-<span class="sd">        """</span>
-        <span class="k">return</span> <span class="n">detach_win32_input</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">read_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">KeyPress</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">console_input_reader</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-
-    <span class="k">def</span> <span class="nf">flush</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">pass</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">closed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="k">def</span> <span class="nf">raw_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ContextManager</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="n">raw_mode</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">cooked_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ContextManager</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="n">cooked_mode</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">fileno</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="c1"># The windows console doesn't depend on the file handle, so</span>
-        <span class="c1"># this is not used for the event loop (which uses the</span>
-        <span class="c1"># handle instead). But it's used in `Application.run_system_command`</span>
-        <span class="c1"># which opens a subprocess with a given stdin/stdout.</span>
-        <span class="k">return</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">fileno</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">typeahead_hash</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"win32-input"</span>
-
-    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">console_input_reader</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HANDLE</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">console_input_reader</span><span class="o">.</span><span class="n">handle</span>
 </pre></div>
 </div>
+</section>
+<section id="blocking-windll-kernel32-waitformultipleobjects">
+<h2>blocking <code class="docutils literal notranslate"><span class="pre">windll.kernel32.WaitForMultipleObjects</span></code><a class="headerlink" href="#blocking-windll-kernel32-waitformultipleobjects" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="run-in-thread">
+<h2>run in thread<a class="headerlink" href="#run-in-thread" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.run_in_executor">https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.run_in_executor</a></p>
 </section>
 </section>
 
@@ -541,9 +304,9 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">input</a><ul>
-<li><a class="reference internal" href="#appsession">AppSession</a></li>
-<li><a class="reference internal" href="#create-input">create_input</a></li>
-<li><a class="reference internal" href="#win32input">Win32Input</a></li>
+<li><a class="reference internal" href="#wait-for-handles-in-blocking-thread">wait_for_handles in blocking thread</a></li>
+<li><a class="reference internal" href="#blocking-windll-kernel32-waitformultipleobjects">blocking <code class="docutils literal notranslate"><span class="pre">windll.kernel32.WaitForMultipleObjects</span></code></a></li>
+<li><a class="reference internal" href="#run-in-thread">run in thread</a></li>
 </ul>
 </li>
 </ul>

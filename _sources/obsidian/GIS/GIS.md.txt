@@ -1,13 +1,70 @@
-GIS data
-#GIS
+# Format
+[[geojson]]
+[[CityJSON]]
+[[CityGML]]
 
-	[1964年新潟地震オープンデータ特設サイト > 空中写真 オープンデータ http://ecom-plat.jp/19640616-niigata-eq/index.php?gid=10032] CC BY (GeoTIFF)
+## [[Python]]
+[[folium]]
+[Introduction - GeoDjangoではじめる地理空間情報](https://homata.gitbook.io/geodjango/)
+[GeoDjango - Qiita](https://qiita.com/tags/geodjango)
 
-	[国土数値情報　ダウンロードサービス http://nlftp.mlit.go.jp/ksj/]
 
-	http://www.naturalearthdata.com/downloads/ public domain
+# Data
+[[plateau]]
 
-	https://github.com/opencitymodel/opencitymodel
+## 国土地理院
+[https://nlftp.mlit.go.jp/ksj/](http://nlftp.mlit.go.jp/ksj/)
+[床井研究室 - 地理院地図 3D を Oculus Rift で見てみる](https://marina.sys.wakayama-u.ac.jp/~tokoi/?date=20140907)
 
-[* 渋谷]
-https://3dcel.com/
+## 渋谷
+[3D City Experience Lab.](https://3dcel.com/)
+
+## US
+[GitHub - opencitymodel/opencitymodel: Open citygml data for the United States](https://github.com/opencitymodel/opencitymodel)
+[Natural Earth » Downloads - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales](http://www.naturalearthdata.com/downloads/)
+
+GIS
+[WindowsにBlenderとBlender GISをインストールする https://qiita.com/warenashi/items/61fce7baf2af13d09420]
+
+https://minna.mieruka.city/halfarea-mesh/
+
+osmnx
+
+VCPKG
+$ vcpkg install gdal:x64-windows geos:x64-window
+
+
+pyproj
+https://ikatakos.com/pot/programming/python/packages/pyproj
+http://pyproj4.github.io/pyproj/stable/
+https://github.com/pyproj4/pyproj
+$ pip install pyproj==1.9.6
+
+PROJ_DIR
+https://github.com/OSGeo/proj-datumgrid
+https://github.com/OSGeo/PROJ
+
+https://trac.osgeo.org/osgeo4w/wiki/OSGeo4W_jp
+
+[* libspatialindex]
+https://libspatialindex.org/index.html#windows-builds
+
+[ここ最近のWeb地図周辺の動向をまとめてみた https://shimz.me/blog/map/4268]
+https://shimz.me/blog/googleearthengine/6232
+
+
+[Web 地図用 Javascript ライブラリ https://qiita.com/kkdd/items/b9435b6770d7a19d9f27]
+
+https://leafletjs.com/
+
+https://openstreetmap.jp/
+
+政府
+	http://cyberjapandata.gsi.go.jp/3d/index.html
+			http://marina.sys.wakayama-u.ac.jp/~tokoi/?date=20140907
+
+	https://www.e-stat.go.jp/gis
+
+http://kartograph.org/
+	[e-StatのshapefileからSVG画像を作成しDomoのカスタムチャート作成 https://qiita.com/Mitztj/items/825d73e7dbb91db3c325]
+	[都道府県の画像アセットを全自動生成しよう。 http://www.zopfco.de/entry/2016/12/22/002947]

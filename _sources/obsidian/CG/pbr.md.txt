@@ -3,6 +3,7 @@
 [[brdf]]
 [[fresnel]]
 [[IBL]]
+[[ArmorPaint]]
 	
 #cg
 #renderer
