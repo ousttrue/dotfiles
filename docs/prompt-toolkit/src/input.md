@@ -1,5 +1,7 @@
 # input
 
+<https://python-prompt-toolkit.readthedocs.io/en/latest/pages/advanced_topics/rendering_pipeline.html>
+
 input により loop を駆動しているぽい。重要。
 
 ```{graphviz}

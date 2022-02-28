@@ -1,17 +1,11 @@
-# layout
+# Layout
 
-```{inheritance-diagram} prompt_toolkit.layout.containers.HSplit prompt_toolkit.layout.containers.VSplit
-:private-bases:
-:parts: 1
-```
 
 ```{automodule} prompt_toolkit.layout.layout
 :members:
 :undoc-members:
 :show-inheritance:
 ```
-
-## Layout
 
 `prompt_toolkit/layout/layout.py`
 
@@ -32,4 +26,18 @@ class Layout:
         container: AnyContainer,
         focused_element: Optional[FocusableElement] = None,
     ) -> None:
+```
+
+## Container
+
+```{inheritance-diagram} prompt_toolkit.layout.containers.HSplit prompt_toolkit.layout.containers.VSplit prompt_toolkit.layout.containers.Window
+:private-bases:
+:parts: 1
+```
+
+## Widgets
+
+```{eval-rst}
+.. automodule:: prompt_toolkit.widgets
+    :members:
 ```
