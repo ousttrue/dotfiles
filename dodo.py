@@ -21,7 +21,7 @@ HOME_DIR = get_home()
 def mklink(dependencies, targets):
     src = pathlib.Path(dependencies[0])
     dst = pathlib.Path(targets[0])
-    if dst.exists():
+    if dst.exists() or dst.is_symlink():
         print(f'rm {dst}')
         dst.unlink()
     dst.parent.mkdir(exist_ok=True, parents=True)
