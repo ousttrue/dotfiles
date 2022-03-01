@@ -1,0 +1,10 @@
+JISX0213
+#charset
+
+#JISX0208 を包含する。これ使ってけばよさげ
+
+http://x0213.org/
+https://ja.wikipedia.org/wiki/JIS_X_0213
+
+[* 異字体]
+http://kanji-database.sourceforge.net/

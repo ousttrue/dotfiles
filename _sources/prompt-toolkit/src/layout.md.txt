@@ -28,14 +28,25 @@ class Layout:
     ) -> None:
 ```
 
-## Container
+## prompt_toolkit.layout.containers
 
-```{inheritance-diagram} prompt_toolkit.layout.containers.HSplit prompt_toolkit.layout.containers.VSplit prompt_toolkit.layout.containers.Window
+`Node`
+
+```{inheritance-diagram} prompt_toolkit.layout.containers.HSplit prompt_toolkit.layout.containers.VSplit prompt_toolkit.layout.containers.Window prompt_toolkit.layout.containers.Window
 :private-bases:
 :parts: 1
 ```
 
-## Widgets
+## prompt_toolkit.layout.UIControl
+
+`Leaf`
+
+> `Window` is a special kind of container that can contain a `UIControl`
+
+- `BufferControl`
+- `FormattedTextControl`
+
+## prompt_toolkit.widgets
 
 ```{eval-rst}
 .. automodule:: prompt_toolkit.widgets
