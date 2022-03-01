@@ -2,39 +2,13 @@
 """
 A simple example of a Notepad-like text editor.
 """
+from typing import List
 import datetime
 import asyncio
 import pathlib
-
-from prompt_toolkit.application import Application
-from prompt_toolkit.application.current import get_app
-from prompt_toolkit.completion import PathCompleter
-from prompt_toolkit.filters import Condition
-from prompt_toolkit.key_binding import KeyBindings
-from prompt_toolkit.layout.containers import (
-    ConditionalContainer,
-    Float,
-    HSplit,
-    VSplit,
-    Window,
-    WindowAlign,
-)
-from prompt_toolkit.layout.controls import FormattedTextControl
 from prompt_toolkit.layout.dimension import D
-from prompt_toolkit.layout.layout import Layout
-from prompt_toolkit.layout.menus import CompletionsMenu
-from prompt_toolkit.lexers import DynamicLexer, PygmentsLexer
-from prompt_toolkit.search import start_search
-from prompt_toolkit.styles import Style
-from prompt_toolkit.widgets import (
-    Button,
-    Dialog,
-    Label,
-    MenuContainer,
-    MenuItem,
-    SearchToolbar,
-    TextArea,
-)
+import prompt_toolkit.widgets
+
 
 FILE = pathlib.Path(__file__).absolute()
 
@@ -44,7 +18,8 @@ class TextInputDialog:
         self.future = asyncio.Future()
 
         def accept_text(buf):
-            get_app().layout.focus(ok_button)
+            import prompt_toolkit.application
+            prompt_toolkit.application.current.get_app().layout.focus(ok_button)
             buf.complete_state = None
             return True
 
@@ -54,19 +29,23 @@ class TextInputDialog:
         def cancel():
             self.future.set_result(None)
 
-        self.text_area = TextArea(
+        import prompt_toolkit.widgets
+        self.text_area = prompt_toolkit.widgets.TextArea(
             completer=completer,
             multiline=False,
             width=D(preferred=40),
             accept_handler=accept_text,
         )
 
-        ok_button = Button(text="OK", handler=accept)
-        cancel_button = Button(text="Cancel", handler=cancel)
+        ok_button = prompt_toolkit.widgets.Button(text="OK", handler=accept)
+        cancel_button = prompt_toolkit.widgets.Button(
+            text="Cancel", handler=cancel)
 
-        self.dialog = Dialog(
+        import prompt_toolkit.layout.containers
+        self.dialog = prompt_toolkit.widgets.Dialog(
             title=title,
-            body=HSplit([Label(text=label_text), self.text_area]),
+            body=prompt_toolkit.layout.containers.HSplit(
+                [prompt_toolkit.widgets.Label(text=label_text), self.text_area]),
             buttons=[ok_button, cancel_button],
             width=D(preferred=80),
             modal=True,
@@ -83,11 +62,15 @@ class MessageDialog:
         def set_done():
             self.future.set_result(None)
 
-        ok_button = Button(text="OK", handler=(lambda: set_done()))
+        import prompt_toolkit.widgets
+        ok_button = prompt_toolkit.widgets.Button(
+            text="OK", handler=(lambda: set_done()))
 
-        self.dialog = Dialog(
+        import prompt_toolkit.layout.containers
+        self.dialog = prompt_toolkit.widgets.Dialog(
             title=title,
-            body=HSplit([Label(text=text)]),
+            body=prompt_toolkit.layout.containers.HSplit(
+                [prompt_toolkit.widgets.Label(text=text)]),
             buttons=[ok_button],
             width=D(preferred=80),
             modal=True,
@@ -108,6 +91,7 @@ class App:
         self.show_status_bar = True
         self.current_path = None
 
+        from prompt_toolkit.styles import Style
         style = Style.from_dict(
             {
                 "status": "reverse",
@@ -124,8 +108,10 @@ class App:
                 self.text_field.document.cursor_position_col + 1,
             )
 
-        search_toolbar = SearchToolbar()
-        self.text_field = TextArea(
+        import prompt_toolkit.widgets
+        from prompt_toolkit.lexers import DynamicLexer, PygmentsLexer
+        search_toolbar = prompt_toolkit.widgets.SearchToolbar()
+        self.text_field = prompt_toolkit.widgets.TextArea(
             lexer=DynamicLexer(
                 lambda: PygmentsLexer.from_filename(
                     self.current_path or ".txt", sync_from_start=False
@@ -136,79 +122,49 @@ class App:
             search_field=search_toolbar,
         )
 
-        body = HSplit(
+        import prompt_toolkit.layout.controls
+        import prompt_toolkit.layout.containers
+        import prompt_toolkit.filters
+        body = prompt_toolkit.layout.containers.HSplit(
             [
                 self.text_field,
                 search_toolbar,
-                ConditionalContainer(
-                    content=VSplit(
+                prompt_toolkit.layout.containers.ConditionalContainer(
+                    content=prompt_toolkit.layout.containers.VSplit(
                         [
-                            Window(
-                                FormattedTextControl(get_statusbar_text), style="class:status"
+                            prompt_toolkit.layout.containers.Window(
+                                prompt_toolkit.layout.controls.FormattedTextControl(get_statusbar_text), style="class:status"
                             ),
-                            Window(
-                                FormattedTextControl(get_statusbar_right_text),
+                            prompt_toolkit.layout.containers.Window(
+                                prompt_toolkit.layout.controls.FormattedTextControl(
+                                    get_statusbar_right_text),
                                 style="class:status.right",
                                 width=9,
-                                align=WindowAlign.RIGHT,
+                                align=prompt_toolkit.layout.containers.WindowAlign.RIGHT,
                             ),
                         ],
                         height=1,
                     ),
-                    filter=Condition(lambda: self.show_status_bar),
+                    filter=prompt_toolkit.filters.Condition(
+                        lambda: self.show_status_bar),
                 ),
             ]
         )
 
         # Global key bindings.
-        bindings = KeyBindings()
+        import prompt_toolkit.key_binding
+        bindings = prompt_toolkit.key_binding.KeyBindings()
 
-        self.root_container = MenuContainer(
+        import prompt_toolkit.layout.menus
+        self.root_container = prompt_toolkit.widgets.MenuContainer(
             body=body,
-            menu_items=[
-                MenuItem(
-                    "File",
-                    children=[
-                        MenuItem("New...", handler=self.do_new_file),
-                        MenuItem("Open...", handler=self.do_open_file),
-                        MenuItem("Save"),
-                        MenuItem("Save as..."),
-                        MenuItem("-", disabled=True),
-                        MenuItem("Exit", handler=self.do_exit),
-                    ],
-                ),
-                MenuItem(
-                    "Edit",
-                    children=[
-                        MenuItem("Undo", handler=self.do_undo),
-                        MenuItem("Cut", handler=self.do_cut),
-                        MenuItem("Copy", handler=self.do_copy),
-                        MenuItem("Paste", handler=self.do_paste),
-                        MenuItem("Delete", handler=self.do_delete),
-                        MenuItem("-", disabled=True),
-                        MenuItem("Find", handler=self.do_find),
-                        MenuItem("Find next", handler=self.do_find_next),
-                        MenuItem("Replace"),
-                        MenuItem("Go To", handler=self.do_go_to),
-                        MenuItem("Select All", handler=self.do_select_all),
-                        MenuItem("Time/Date", handler=self.do_time_date),
-                    ],
-                ),
-                MenuItem(
-                    "View",
-                    children=[
-                        MenuItem("Status Bar", handler=self.do_status_bar)],
-                ),
-                MenuItem(
-                    "Info",
-                    children=[MenuItem("About", handler=self.do_about)],
-                ),
-            ],
+            menu_items=self._create_menu_items(),
             floats=[
-                Float(
+                prompt_toolkit.layout.containers.Float(
                     xcursor=True,
                     ycursor=True,
-                    content=CompletionsMenu(max_height=16, scroll_offset=1),
+                    content=prompt_toolkit.layout.menus.CompletionsMenu(
+                        max_height=16, scroll_offset=1),
                 ),
             ],
             key_bindings=bindings,
@@ -219,9 +175,12 @@ class App:
             "Focus menu."
             event.app.layout.focus(self.root_container.window)
 
-        layout = Layout(self.root_container, focused_element=self.text_field)
+        import prompt_toolkit.layout.layout
+        layout = prompt_toolkit.layout.layout.Layout(
+            self.root_container, focused_element=self.text_field)
 
-        self.application = Application(
+        import prompt_toolkit.application
+        self.application = prompt_toolkit.application.Application(
             layout=layout,
             enable_page_navigation_bindings=True,
             style=style,
@@ -229,12 +188,69 @@ class App:
             full_screen=True,
         )
 
+    def _create_menu_items(self) -> List[prompt_toolkit.widgets.MenuItem]:
+        return [
+            prompt_toolkit.widgets.MenuItem(
+                "File",
+                children=[
+                    prompt_toolkit.widgets.MenuItem(
+                        "New...", handler=self.do_new_file),
+                    prompt_toolkit.widgets.MenuItem(
+                        "Open...", handler=self.do_open_file),
+                    prompt_toolkit.widgets.MenuItem("Save"),
+                    prompt_toolkit.widgets.MenuItem("Save as..."),
+                    prompt_toolkit.widgets.MenuItem("-", disabled=True),
+                    prompt_toolkit.widgets.MenuItem(
+                        "Exit", handler=self.do_exit),
+                ],
+            ),
+            prompt_toolkit.widgets.MenuItem(
+                "Edit",
+                children=[
+                    prompt_toolkit.widgets.MenuItem(
+                        "Undo", handler=self.do_undo),
+                    prompt_toolkit.widgets.MenuItem(
+                        "Cut", handler=self.do_cut),
+                    prompt_toolkit.widgets.MenuItem(
+                        "Copy", handler=self.do_copy),
+                    prompt_toolkit.widgets.MenuItem(
+                        "Paste", handler=self.do_paste),
+                    prompt_toolkit.widgets.MenuItem(
+                        "Delete", handler=self.do_delete),
+                    prompt_toolkit.widgets.MenuItem("-", disabled=True),
+                    prompt_toolkit.widgets.MenuItem(
+                        "Find", handler=self.do_find),
+                    prompt_toolkit.widgets.MenuItem(
+                        "Find next", handler=self.do_find_next),
+                    prompt_toolkit.widgets.MenuItem("Replace"),
+                    prompt_toolkit.widgets.MenuItem(
+                        "Go To", handler=self.do_go_to),
+                    prompt_toolkit.widgets.MenuItem(
+                        "Select All", handler=self.do_select_all),
+                    prompt_toolkit.widgets.MenuItem(
+                        "Time/Date", handler=self.do_time_date),
+                ],
+            ),
+            prompt_toolkit.widgets.MenuItem(
+                "View",
+                children=[
+                    prompt_toolkit.widgets.MenuItem("Status Bar", handler=self.do_status_bar)],
+            ),
+            prompt_toolkit.widgets.MenuItem(
+                "Info",
+                children=[prompt_toolkit.widgets.MenuItem(
+                    "About", handler=self.do_about)],
+            ),
+        ]
+
     def do_open_file(self):
+        import prompt_toolkit.completion
+
         async def coroutine():
             open_dialog = TextInputDialog(
                 title="Open file",
                 label_text="Enter the path of a file:",
-                completer=PathCompleter(),
+                completer=prompt_toolkit.completion.PathCompleter(),
             )
 
             path = await self.show_dialog_as_float(open_dialog)
@@ -269,10 +285,11 @@ class App:
     async def show_dialog_as_float(self, dialog):
         "Coroutine."
         assert(isinstance(self.root_container.floats, list))
-        float_ = Float(content=dialog)
+        import prompt_toolkit.layout.containers
+        float_ = prompt_toolkit.layout.containers.Float(content=dialog)
         self.root_container.floats.insert(0, float_)
 
-        app = get_app()
+        app = self.application
 
         focused_before = app.layout.current_window
         app.layout.focus(dialog)
@@ -288,7 +305,7 @@ class App:
         self.text_field.text = ""
 
     def do_exit(self):
-        get_app().exit()
+        self.application.exit()
 
     def do_time_date(self):
         text = datetime.datetime.now().isoformat()
@@ -319,20 +336,21 @@ class App:
 
     def do_cut(self):
         data = self.text_field.buffer.cut_selection()
-        get_app().clipboard.set_data(data)
+        self.application.clipboard.set_data(data)
 
     def do_copy(self):
         data = self.text_field.buffer.copy_selection()
-        get_app().clipboard.set_data(data)
+        self.application.clipboard.set_data(data)
 
     def do_delete(self):
         self.text_field.buffer.cut_selection()
 
     def do_find(self):
+        from prompt_toolkit.search import start_search
         start_search(self.text_field.control)
 
     def do_find_next(self):
-        search_state = get_app().current_search_state
+        search_state = self.application.current_search_state
 
         cursor_position = self.text_field.buffer.get_search_position(
             search_state, include_current_position=False
@@ -341,7 +359,7 @@ class App:
 
     def do_paste(self):
         self.text_field.buffer.paste_clipboard_data(
-            get_app().clipboard.get_data())
+            self.application.clipboard.get_data())
 
     def do_select_all(self):
         self.text_field.buffer.cursor_position = 0

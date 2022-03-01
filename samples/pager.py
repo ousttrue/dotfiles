@@ -2,8 +2,9 @@
 """
 A simple application that shows a Pager application.
 """
+from typing import List
 import pathlib
-
+import asyncio
 import prompt_toolkit.enums
 import prompt_toolkit.key_binding
 from pygments.lexers.python import PythonLexer
@@ -14,10 +15,52 @@ from prompt_toolkit.layout.dimension import LayoutDimension as D
 from prompt_toolkit.layout.layout import Layout
 from prompt_toolkit.lexers import PygmentsLexer
 from prompt_toolkit.styles import Style
-from prompt_toolkit.widgets import SearchToolbar, TextArea
+import prompt_toolkit.widgets
 
 # Create one text buffer for the main content.
 FILE = pathlib.Path(__file__).absolute()
+
+
+class TextInputDialog:
+    def __init__(self, title="", label_text="", completer=None):
+        self.future = asyncio.Future()
+
+        def accept_text(buf):
+            import prompt_toolkit.application
+            prompt_toolkit.application.current.get_app().layout.focus(ok_button)
+            buf.complete_state = None
+            return True
+
+        def accept():
+            self.future.set_result(self.text_area.text)
+
+        def cancel():
+            self.future.set_result(None)
+
+        import prompt_toolkit.widgets
+        self.text_area = prompt_toolkit.widgets.TextArea(
+            completer=completer,
+            multiline=False,
+            width=D(preferred=40),
+            accept_handler=accept_text,
+        )
+
+        ok_button = prompt_toolkit.widgets.Button(text="OK", handler=accept)
+        cancel_button = prompt_toolkit.widgets.Button(
+            text="Cancel", handler=cancel)
+
+        import prompt_toolkit.layout.containers
+        self.dialog = prompt_toolkit.widgets.Dialog(
+            title=title,
+            body=prompt_toolkit.layout.containers.HSplit(
+                [prompt_toolkit.widgets.Label(text=label_text), self.text_area]),
+            buttons=[ok_button, cancel_button],
+            width=D(preferred=80),
+            modal=True,
+        )
+
+    def __pt_container__(self):
+        return self.dialog
 
 
 class App:
@@ -51,12 +94,12 @@ class App:
         )
 
     def _layout(self) -> Layout:
-        search_field = SearchToolbar(
+        search_field = prompt_toolkit.widgets.SearchToolbar(
             text_if_not_searching=[
                 ("class:not-searching", "Press '/' to start searching.")]
         )
 
-        text_area = TextArea(
+        self.text_area = prompt_toolkit.widgets.TextArea(
             text=FILE.read_text(),
             read_only=True,
             scrollbar=True,
@@ -71,8 +114,8 @@ class App:
                 (
                     "class:status.position",
                     "{}:{}".format(
-                        text_area.document.cursor_position_row + 1,
-                        text_area.document.cursor_position_col + 1,
+                        self.text_area.document.cursor_position_row + 1,
+                        self.text_area.document.cursor_position_col + 1,
                     ),
                 ),
                 ("class:status", " - Press "),
@@ -82,19 +125,86 @@ class App:
                 ("class:status", " for searching."),
             ]
 
+        mc = prompt_toolkit.widgets.MenuContainer(
+            body=self.text_area,
+            menu_items=self._create_menu_items(),
+            # key_bindings=bindings,
+        )
+
+        status_bar = Window(
+            content=FormattedTextControl(get_statusbar_text),
+            height=D.exact(1),
+            style="class:status",
+        )
+
         root_container = HSplit(
             [
                 # The main content.
-                text_area,
-                Window(
-                    content=FormattedTextControl(get_statusbar_text),
-                    height=D.exact(1),
-                    style="class:status",
-                ),
+                mc,
+                status_bar,
                 search_field,
             ]
         )
-        return Layout(root_container, focused_element=text_area)
+        return Layout(root_container, focused_element=self.text_area)
+
+    def _create_menu_items(self) -> List[prompt_toolkit.widgets.MenuItem]:
+        return [
+            prompt_toolkit.widgets.MenuItem(
+                "File",
+                children=[
+                    prompt_toolkit.widgets.MenuItem(
+                        "Open...", handler=self.do_open_file),
+                ],
+            ),
+        ]
+
+    def do_open_file(self):
+        import prompt_toolkit.completion
+
+        async def coroutine():
+            open_dialog = TextInputDialog(
+                title="Open file",
+                label_text="Enter the path of a file:",
+                completer=prompt_toolkit.completion.PathCompleter(),
+            )
+
+            # path = await self.show_dialog_as_float(open_dialog)
+            # self.current_path = path
+
+            self.open('')
+
+        asyncio.ensure_future(coroutine())
+
+    # async def show_dialog_as_float(self, dialog):
+    #     "Coroutine."
+    #     assert(isinstance(self.root_container.floats, list))
+    #     import prompt_toolkit.layout.containers
+    #     float_ = prompt_toolkit.layout.containers.Float(content=dialog)
+    #     self.root_container.floats.insert(0, float_)
+
+    #     app = self.application
+
+    #     focused_before = app.layout.current_window
+    #     app.layout.focus(dialog)
+    #     result = await dialog.future
+    #     app.layout.focus(focused_before)
+
+    #     if float_ in self.root_container.floats:
+    #         self.root_container.floats.remove(float_)
+
+    #     return result
+
+    def open(self, path: str | pathlib.Path):
+        match path:
+            case str():
+                try:
+                    with open(path, "rb") as f:
+                        self.text_area.text = f.read().decode("utf-8", errors="ignore")
+                except OSError as e:
+                    # self.show_message("Error", f"{e}")
+                    pass
+            case pathlib.Path():
+                self.text_area.text = path.read_text()
 
 
 def run():

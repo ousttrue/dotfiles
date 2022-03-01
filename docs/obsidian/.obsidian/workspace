@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "python/python.md",
+            "file": "pipx.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "python/python.md",
+                "file": "pipx.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -112,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "python/python.md",
+                "file": "pipx.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -145,15 +145,15 @@
   },
   "active": "6ae2d6c9d1cc552c",
   "lastOpenFiles": [
+    "pipx.md",
+    "python/python_euporie.md",
+    "TERM/sixel 1.md",
+    "TERM/ttygif.md",
     "python/python.md",
-    "turbo_vision.md",
+    "TERM/turbo_vision.md",
     "TERM/CUI.md",
     "c++/vcpkg.md",
     "CG/dxgi.md",
-    "blender/blender_plugins.md",
-    "CG/sky.md",
-    "CG/d3d_function_linking_graph.md",
-    "TERM/wcwidth.md",
-    "TERM/escape_sequence.md"
+    "blender/blender_plugins.md"
   ]
 }
