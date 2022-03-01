@@ -7,8 +7,12 @@
         "id": "6ae2d6c9d1cc552c",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "python/python.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +69,7 @@
             "state": {
               "type": "localgraph",
               "state": {
+                "file": "python/python.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -107,6 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "python/python.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,15 +145,15 @@
   },
   "active": "6ae2d6c9d1cc552c",
   "lastOpenFiles": [
-    "Untitled.md",
-    "programming/LFS.md",
-    "CG/ptex.md",
-    "CG/dust3d.md",
-    "blender/bpy.md",
-    "blender/blender_rna.md",
-    "blender/bpy_material.md",
-    "blender/bpy_node.md",
-    "blender/bpy_types_panel.md",
-    "blender/bpy_template_list.md"
+    "python/python.md",
+    "turbo_vision.md",
+    "TERM/CUI.md",
+    "c++/vcpkg.md",
+    "CG/dxgi.md",
+    "blender/blender_plugins.md",
+    "CG/sky.md",
+    "CG/d3d_function_linking_graph.md",
+    "TERM/wcwidth.md",
+    "TERM/escape_sequence.md"
   ]
 }

@@ -3,6 +3,7 @@
 [[notcurses]]
 [[font]]
 [[python_prompt_toolkit]]
+[[turbo_vision]]
 
 
 [* mtm]

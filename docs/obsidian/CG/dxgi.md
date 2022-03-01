@@ -1,0 +1,1 @@
+- [For best performance, use DXGI flip model - Win32 apps | Microsoft Docs](https://docs.microsoft.com/en-us/windows/win32/direct3ddxgi/for-best-performance--use-dxgi-flip-model)
