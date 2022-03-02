@@ -228,66 +228,87 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<section id="pyvim-run-pyvim-py-run">
-<h2>pyvim/run_pyvim.py:run\<a class="headerlink" href="#pyvim-run-pyvim-py-run" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="pyvim-editor-py-editor">
-<h2>pyvim/editor.py:Editor<a class="headerlink" href="#pyvim-editor-py-editor" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="init">
-<h3><strong>init</strong><a class="headerlink" href="#init" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">key_bindings</span> <span class="o">=</span> <span class="n">create_key_bindings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">editor_layout</span> <span class="o">=</span> <span class="n">EditorLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_arrangement</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">application</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_application</span><span class="p">()</span>
+<section id="layout">
+<h2>layout<a class="headerlink" href="#layout" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">HSplit</span><span class="p">([</span>
+    <span class="n">TabsToolbar</span><span class="p">(</span><span class="n">editor</span><span class="p">),</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_fc</span><span class="p">,</span>
+    <span class="n">CommandLine</span><span class="p">(</span><span class="n">editor</span><span class="p">),</span>
+    <span class="n">ReportMessageToolbar</span><span class="p">(</span><span class="n">editor</span><span class="p">),</span>
+    <span class="n">SystemToolbar</span><span class="p">(),</span>
+    <span class="n">search_toolbar</span><span class="p">,</span>
+<span class="p">]),</span>
 </pre></div>
 </div>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">_create_application</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
-<span class="sd">        Create CommandLineInterface instance.</span>
-<span class="sd">        """</span>
-        <span class="c1"># Create Application.</span>
-        <span class="n">application</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span>
-            <span class="nb">input</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">input</span><span class="p">,</span>
-            <span class="n">output</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">,</span>
-            <span class="n">editing_mode</span><span class="o">=</span><span class="n">EditingMode</span><span class="o">.</span><span class="n">VI</span><span class="p">,</span>
-            <span class="n">layout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">editor_layout</span><span class="o">.</span><span class="n">layout</span><span class="p">,</span>
-            <span class="n">key_bindings</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key_bindings</span><span class="p">,</span>
-<span class="c1">#            get_title=lambda: get_terminal_title(self),</span>
-            <span class="n">style</span><span class="o">=</span><span class="n">DynamicStyle</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_style</span><span class="p">),</span>
-            <span class="n">paste_mode</span><span class="o">=</span><span class="n">Condition</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">paste_mode</span><span class="p">),</span>
-<span class="c1">#            ignore_case=Condition(lambda: self.ignore_case),  # TODO</span>
-            <span class="n">include_default_pygments_style</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-            <span class="n">mouse_support</span><span class="o">=</span><span class="n">Condition</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">enable_mouse_support</span><span class="p">),</span>
-            <span class="n">full_screen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">enable_page_navigation_bindings</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-        <span class="c1"># Handle command line previews.</span>
-        <span class="c1"># (e.g. when typing ':colorscheme blue', it should already show the</span>
-        <span class="c1"># preview before pressing enter.)</span>
-        <span class="k">def</span> <span class="nf">preview</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">has_focus</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command_buffer</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">previewer</span><span class="o">.</span><span class="n">preview</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command_buffer</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">command_buffer</span><span class="o">.</span><span class="n">on_text_changed</span> <span class="o">+=</span> <span class="n">preview</span>
-
-        <span class="k">return</span> <span class="n">application</span>
+<section id="tabstoolbar">
+<h3>TabsToolbar<a class="headerlink" href="#tabstoolbar" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TabsToolbar</span><span class="p">(</span><span class="n">ConditionalContainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">editor</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TabsToolbar</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">Window</span><span class="p">(</span><span class="n">TabsControl</span><span class="p">(</span><span class="n">editor</span><span class="p">),</span> <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="nb">filter</span><span class="o">=</span><span class="n">Condition</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">editor</span><span class="o">.</span><span class="n">window_arrangement</span><span class="o">.</span><span class="n">tab_pages</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </section>
-<section id="run">
-<h3>run<a class="headerlink" href="#run" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
-<span class="sd">        Run the event loop for the interface.</span>
-<span class="sd">        This starts the interaction.</span>
-<span class="sd">        """</span>
-        <span class="c1"># Make sure everything is in sync, before starting.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sync_with_prompt_toolkit</span><span class="p">()</span>
+<section id="self-fc">
+<h3>self._fc<a class="headerlink" href="#self-fc" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_fc</span> <span class="o">=</span> <span class="n">FloatContainer</span><span class="p">(</span>
+            <span class="n">content</span><span class="o">=</span><span class="n">VSplit</span><span class="p">([</span>
+                <span class="n">Window</span><span class="p">(</span><span class="n">BufferControl</span><span class="p">())</span>  <span class="c1"># Dummy window</span>
+            <span class="p">]),</span>
+            <span class="n">floats</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">Float</span><span class="p">(</span><span class="n">xcursor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ycursor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">content</span><span class="o">=</span><span class="n">CompletionsMenu</span><span class="p">(</span><span class="n">max_height</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                                              <span class="n">scroll_offset</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                              <span class="n">extra_filter</span><span class="o">=~</span><span class="n">has_focus</span><span class="p">(</span><span class="n">editor</span><span class="o">.</span><span class="n">command_buffer</span><span class="p">))),</span>
+                <span class="n">Float</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">BufferListOverlay</span><span class="p">(</span><span class="n">editor</span><span class="p">),</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                <span class="n">Float</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">content</span><span class="o">=</span><span class="n">ConditionalContainer</span><span class="p">(</span>
+                          <span class="n">CompletionsToolbar</span><span class="p">(),</span>
+                          <span class="nb">filter</span><span class="o">=</span><span class="n">has_focus</span><span class="p">(</span><span class="n">editor</span><span class="o">.</span><span class="n">command_buffer</span><span class="p">)</span> <span class="o">&amp;</span>
+                                       <span class="o">~</span><span class="n">_bufferlist_overlay_visible</span><span class="p">(</span><span class="n">editor</span><span class="p">)</span> <span class="o">&amp;</span>
+                                       <span class="n">Condition</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">editor</span><span class="o">.</span><span class="n">show_wildmenu</span><span class="p">))),</span>
+                <span class="n">Float</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">content</span><span class="o">=</span><span class="n">ValidationToolbar</span><span class="p">()),</span>
+                <span class="n">Float</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">content</span><span class="o">=</span><span class="n">MessageToolbarBar</span><span class="p">(</span><span class="n">editor</span><span class="p">)),</span>
+                <span class="n">Float</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">WelcomeMessageWindow</span><span class="p">(</span><span class="n">editor</span><span class="p">),</span>
+                      <span class="n">height</span><span class="o">=</span><span class="n">WELCOME_MESSAGE_HEIGHT</span><span class="p">,</span>
+                      <span class="n">width</span><span class="o">=</span><span class="n">WELCOME_MESSAGE_WIDTH</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="windowarrangement">
+<h3>WindowArrangement<a class="headerlink" href="#windowarrangement" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>木構造。(split されうる)</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>        <span class="k">def</span> <span class="nf">create_layout_from_node</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">window_arrangement</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+                <span class="c1"># Create frame for Window, or reuse it, if we had one already.</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">editor_buffer</span><span class="p">)</span>
+                <span class="n">frame</span> <span class="o">=</span> <span class="n">existing_frames</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">frame</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">frame</span><span class="p">,</span> <span class="n">pt_window</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_window_frame</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">editor_buffer</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">pre_run</span><span class="p">():</span>
-            <span class="c1"># Start in navigation mode.</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">vi_state</span><span class="o">.</span><span class="n">input_mode</span> <span class="o">=</span> <span class="n">InputMode</span><span class="o">.</span><span class="n">NAVIGATION</span>
+                    <span class="c1"># Link layout Window to arrangement.</span>
+                    <span class="n">node</span><span class="o">.</span><span class="n">pt_window</span> <span class="o">=</span> <span class="n">pt_window</span>
 
-        <span class="c1"># Run eventloop of prompt_toolkit.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">pre_run</span><span class="o">=</span><span class="n">pre_run</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_frames</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span>
+                <span class="k">return</span> <span class="n">frame</span>
+
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">window_arrangement</span><span class="o">.</span><span class="n">VSplit</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">VSplit</span><span class="p">(</span>
+                    <span class="p">[</span><span class="n">create_layout_from_node</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">node</span><span class="p">],</span>
+                    <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="n">padding_char</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_vertical_border_char</span><span class="p">(),</span>
+                    <span class="n">padding_style</span><span class="o">=</span><span class="s1">'class:frameborder'</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">window_arrangement</span><span class="o">.</span><span class="n">HSplit</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">HSplit</span><span class="p">([</span><span class="n">create_layout_from_node</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">node</span><span class="p">])</span>
+
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">create_layout_from_node</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window_arrangement</span><span class="o">.</span><span class="n">active_tab</span><span class="o">.</span><span class="n">root</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fc</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">layout</span>
 </pre></div>
 </div>
 </section>
@@ -346,10 +367,10 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">pyvim</a><ul>
-<li><a class="reference internal" href="#pyvim-run-pyvim-py-run">pyvim/run_pyvim.py:run\</a></li>
-<li><a class="reference internal" href="#pyvim-editor-py-editor">pyvim/editor.py:Editor</a><ul>
-<li><a class="reference internal" href="#init"><strong>init</strong></a></li>
-<li><a class="reference internal" href="#run">run</a></li>
+<li><a class="reference internal" href="#layout">layout</a><ul>
+<li><a class="reference internal" href="#tabstoolbar">TabsToolbar</a></li>
+<li><a class="reference internal" href="#self-fc">self._fc</a></li>
+<li><a class="reference internal" href="#windowarrangement">WindowArrangement</a></li>
 </ul>
 </li>
 </ul>

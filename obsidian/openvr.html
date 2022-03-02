@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="&lt;no title&gt;" href="A-Frame.html" /><link rel="prev" title="dotfiles" href="../dotfiles.html" />
+<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="&lt;no title&gt;" href="openvr_inputemulator.html" /><link rel="prev" title="&lt;no title&gt;" href="opencv.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Index - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -155,7 +155,7 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
+  <ul>
 <li class="toctree-l1"><a class="reference internal" href="../doit.html">doit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../xonsh.html">xonsh</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../prompt-toolkit/index.html">prompt-toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -174,7 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../wt.html">WindowsTerminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../font.html">font</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotfiles.html">dotfiles</a></li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Index</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Index</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -207,18 +207,79 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="index">
-<h1>Index<a class="headerlink" href="#index" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="toctree-wrapper compound">
+          <p>[[streamvr]]</p>
+<p>openvr
+#steamvr</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`1.11.11` https://github.com/ValveSoftware/openvr/releases/tag/v1.11.11
+`1.9.16` https://github.com/ValveSoftware/openvr/commit/39205f6b281a6131d1373d0217c1ab9ed19735ea
+`0.9.16` https://github.com/ValveSoftware/openvr/commit/c174bafe1e3d150ff44d23209f89e312bda93189
+
+https://github.com/ValveSoftware/openvr
+</pre></div>
 </div>
-</section>
+<p>https://github.com/ValveSoftware/openvr/wiki/API-Documentation</p>
+<p>https://github.com/OpenVR-Advanced-Settings/OpenVR-AdvancedSettings</p>
+<p>https://github.com/gpsnmeajp/EasyOpenVRUtil/wiki/接続デバイス管理</p>
+<p>[* openvr.h]</p>
+<p>INIT
+vrserver.exe(SteamVR) に接続する。
+無ければ起動する。
+Shutdownはvrserver.exeの停止でアプリはやらなくてよい</p>
+<p>code:.cpp
+/** enum values to pass in to VR_Init to identify whether the application will</p>
+<ul>
+<li><p>draw a 3D scene. */
+enum EVRApplicationType
+{
+VRApplication_Other = 0,		// Some other kind of application that isn't covered by the other entries
+VRApplication_Scene	= 1,		// Application will submit 3D frames
+VRApplication_Overlay = 2,		// Application only interacts with overlays
+VRApplication_Background = 3,	// Application should not start SteamVR if it's not already running, and should not
+// keep it running if everything else quits.
+VRApplication_Utility = 4,		// Init should not try to load any drivers. The application needs access to utility
+// interfaces (like IVRSettings and IVRApplications) but not hardware.
+VRApplication_VRMonitor = 5,	// Reserved for vrmonitor
+VRApplication_SteamWatchdog = 6,// Reserved for Steam
+VRApplication_Bootstrapper = 7, // rese	rved for vrstartup
+VRApplication_WebHelper = 8,	// reserved for vrwebhelper</p>
+<p>VRApplication_Max
+};</p>
+<p>// Loading the SteamVR Runtime
+vr::EVRInitError eError = vr::VRInitError_None;	
+auto vr = vr::VR_Init(&amp;eError, vr::VRApplication_Scene);</p>
+<p>VRApplication_Scene
+ApplicationType_Overlay: overlays or the dashboard.
+VRApplication_Background. 既存のServerに接続する。起動しない</p>
+</li>
+</ul>
+<p>[** openvr_api.cs]
+https://qiita.com/gpsnmeajp/items/923c7210a5967a27a5f4</p>
+<p>[* CVRSystem]
+https://github.com/ValveSoftware/openvr/wiki/IVRSystem_Overview
+[HTC Vive向けにアプリケーションを開発する〜コントローラでインタラクション編〜 http://vr-lab.voyagegroup.com/entry/2016/10/13/003204]</p>
+<p>[* GetDeviceToAbsoluteTrackingPose]
+http://shop-0761.hatenablog.com/entry/2018/01/08/034418</p>
+<p>[* Overlay]
+[ダッシュボードオーバーレイ（OpenVR overlay）を作りimguiとDirectXで描いてみる https://qiita.com/ondorela/items/bf4bebf747f90ebf52d8]</p>
+<p>[* IVRVirtualDisplay]
+https://github.com/ValveSoftware/virtual_display</p>
+<p>HMDの最終画像を得る。Wirelessヘッドセットへの転送など</p>
+<p>openvr mirrorwindow
+#openvr</p>
+<p><code class="docutils literal notranslate"><span class="pre">vr::IVRCompositor::ShowMirrorWindow</span></code>
+<code class="docutils literal notranslate"><span class="pre">vr::IVRCompositor::CloseMirrorWindow</span></code></p>
+<p>code:.cpp
+/** Opens a shared D3D11 texture with the undistorted composited image for each eye.  Use ReleaseMirrorTextureD3D11 when finished
+* instead of calling Release on the resource itself. */
+virtual vr::EVRCompositorError GetMirrorTextureD3D11( vr::EVREye eEye, void *pD3D11DeviceOrResource, void **ppD3D11ShaderResourceView ) = 0;
+virtual void ReleaseMirrorTextureD3D11( void *pD3D11ShaderResourceView ) = 0;</p>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="A-Frame.html">
+          <a class="next-page" href="openvr_inputemulator.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
@@ -227,14 +288,14 @@
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../dotfiles.html">
+          <a class="prev-page" href="opencv.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">dotfiles</div>
+                <div class="title">&lt;no title&gt;</div>
                 
               </div>
             </a>
@@ -244,7 +305,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/index.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/openvr.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>

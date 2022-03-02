@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="&lt;no title&gt;" href="A-Frame.html" /><link rel="prev" title="dotfiles" href="../dotfiles.html" />
+<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="&lt;no title&gt;" href="quaternion.html" /><link rel="prev" title="&lt;no title&gt;" href="profiler.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Index - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -155,7 +155,7 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
+  <ul>
 <li class="toctree-l1"><a class="reference internal" href="../doit.html">doit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../xonsh.html">xonsh</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../prompt-toolkit/index.html">prompt-toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -174,7 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../wt.html">WindowsTerminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../font.html">font</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotfiles.html">dotfiles</a></li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Index</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Index</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -207,18 +207,91 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="index">
-<h1>Index<a class="headerlink" href="#index" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="toctree-wrapper compound">
+          <p>PyBullet
+#python #bulletphysics #URDF</p>
+<p>https://pybullet.org/
+https://pybullet.org/Bullet/BulletFull/</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>forward dynamics simulation
+</pre></div>
 </div>
-</section>
+<p>inverse dynamics computation
+forward and inverse kinematics</p>
+<p>https://github.com/erwincoumans/pybullet_robots</p>
+<p>[* build]
+$ .\premake4.exe vs2010
+CMakeの方は全部入りではない。</p>
+<p>[* python module]</p>
+<blockquote>
+<div><p>pip install pybullet</p>
+</div></blockquote>
+<p>code:.py
+import pybullet as p
+physicsClient = p.connect(p.GUI)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DIRECT: local
+GUI: local with GUI
+SHARED_MEMORY
+</pre></div>
+</div>
+<p>[* sample]
+<code class="docutils literal notranslate"><span class="pre">bullet3/examples/pybullet/examples</span></code></p>
+<p>[* GUI, GUI_SERVER]
+b3CreateInProcessPhysicsServerAndConnect</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>class PhysicsClient
+</pre></div>
+</div>
+<p>[* SHARED_MEMORY]
+server
+App_SharedMemoryPhysics
+App_SharedMemoryPhysics_GUI</p>
+<p>client
+App_SharedMemoryPhysics_VR</p>
+<p>[* UDP]
+enet library
+App_PhysicsServerUDP
+App_PhysicsServerSharedMemoryBridgeUDP</p>
+<p>[* TCP]
+clsocket
+App_PhysicsServerTCP
+<code class="docutils literal notranslate"><span class="pre">Starting</span> <span class="pre">TCP</span> <span class="pre">server</span> <span class="pre">using</span> <span class="pre">port</span> <span class="pre">6667</span></code>
+App_PhysicsServerSharedMemoryBridgeTCP</p>
+<p>[* GRPC ]</p>
+<p>[pybulletをインストールする https://qiita.com/saketosakana/items/6fc4e9400034cea5b81d]
+[pybulletインストールメモ https://demura.net/misc/15615.html]
+[Pybulletでマルチシミュレーションを行う https://gokids.hatenablog.com/entry/2018/10/18/184419]</p>
+<p>[* vrbullet]
+https://docs.google.com/document/d/1I4m0Letbkw4je5uIBxuCfhBcllnwKojJAyYSTjHbrH8/edit#
+<code class="docutils literal notranslate"><span class="pre">build_visual_studio_vr_pybullet_double.bat</span></code></p>
+<p>[* impl]
+<code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">PhysicsServerExample</span></code>　
+SharedMemoryCommon <code class="docutils literal notranslate"><span class="pre">SHARED_MEMORY</span></code> isConnected, wantsTermination setSharedMemoryKey
+CommonExampleInterface</p>
+<p>code:empty_server.cpp
+// GUIの無い空のサーバー
+{
+DummyGUIHelper noGfx;
+CommonExampleOptions options(&amp;noGfx);
+auto example =
+(SharedMemoryCommon *)PhysicsServerCreateFuncBullet2(options); // internal class PhysicsServerExample
+example-&gt;initPhysics();
+while (example-&gt;isConnected()) {
+if (example-&gt;wantsTermination()) {
+break;
+}
+example-&gt;stepSimulation(1.f / 60.f);
+}
+example-&gt;exitPhysics();
+delete example;
+}</p>
+<p>createCollisionShape/createVisualShape</p>
+<p>humanoidMotionCapture.py</p>
+<p>PhysicsServerSharedMemory</p>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="A-Frame.html">
+          <a class="next-page" href="quaternion.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
@@ -227,14 +300,14 @@
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../dotfiles.html">
+          <a class="prev-page" href="profiler.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">dotfiles</div>
+                <div class="title">&lt;no title&gt;</div>
                 
               </div>
             </a>
@@ -244,7 +317,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/index.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/pybullet.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>

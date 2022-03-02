@@ -22,65 +22,88 @@
 }
 ```
 
-## pyvim/run_pyvim.py:run\
-
-## pyvim/editor.py:Editor
-
-### __init__
+## layout
 
 ```py
-        self.key_bindings = create_key_bindings(self)
-        self.editor_layout = EditorLayout(self, self.window_arrangement)
-        self.application = self._create_application()
+HSplit([
+    TabsToolbar(editor),
+    self._fc,
+    CommandLine(editor),
+    ReportMessageToolbar(editor),
+    SystemToolbar(),
+    search_toolbar,
+]),
 ```
 
+### TabsToolbar
+
 ```py
-    def _create_application(self):
-        """
-        Create CommandLineInterface instance.
-        """
-        # Create Application.
-        application = Application(
-            input=self.input,
-            output=self.output,
-            editing_mode=EditingMode.VI,
-            layout=self.editor_layout.layout,
-            key_bindings=self.key_bindings,
-#            get_title=lambda: get_terminal_title(self),
-            style=DynamicStyle(lambda: self.current_style),
-            paste_mode=Condition(lambda: self.paste_mode),
-#            ignore_case=Condition(lambda: self.ignore_case),  # TODO
-            include_default_pygments_style=False,
-            mouse_support=Condition(lambda: self.enable_mouse_support),
-            full_screen=True,
-            enable_page_navigation_bindings=True)
-
-        # Handle command line previews.
-        # (e.g. when typing ':colorscheme blue', it should already show the
-        # preview before pressing enter.)
-        def preview(_):
-            if self.application.layout.has_focus(self.command_buffer):
-                self.previewer.preview(self.command_buffer.text)
-        self.command_buffer.on_text_changed += preview
-
-        return application
+class TabsToolbar(ConditionalContainer):
+    def __init__(self, editor):
+        super(TabsToolbar, self).__init__(
+            Window(TabsControl(editor), height=1),
+            filter=Condition(lambda: len(editor.window_arrangement.tab_pages) > 1))
 ```
 
-### run
+### self._fc
 
 ```py
-    def run(self):
-        """
-        Run the event loop for the interface.
-        This starts the interaction.
-        """
-        # Make sure everything is in sync, before starting.
-        self.sync_with_prompt_toolkit()
+        self._fc = FloatContainer(
+            content=VSplit([
+                Window(BufferControl())  # Dummy window
+            ]),
+            floats=[
+                Float(xcursor=True, ycursor=True,
+                      content=CompletionsMenu(max_height=12,
+                                              scroll_offset=2,
+                                              extra_filter=~has_focus(editor.command_buffer))),
+                Float(content=BufferListOverlay(editor), bottom=1, left=0),
+                Float(bottom=1, left=0, right=0, height=1,
+                      content=ConditionalContainer(
+                          CompletionsToolbar(),
+                          filter=has_focus(editor.command_buffer) &
+                                       ~_bufferlist_overlay_visible(editor) &
+                                       Condition(lambda: editor.show_wildmenu))),
+                Float(bottom=1, left=0, right=0, height=1,
+                      content=ValidationToolbar()),
+                Float(bottom=1, left=0, right=0, height=1,
+                      content=MessageToolbarBar(editor)),
+                Float(content=WelcomeMessageWindow(editor),
+                      height=WELCOME_MESSAGE_HEIGHT,
+                      width=WELCOME_MESSAGE_WIDTH),
+            ]
+        )
+```
 
-        def pre_run():
-            # Start in navigation mode.
-            self.application.vi_state.input_mode = InputMode.NAVIGATION
+### WindowArrangement
 
-        # Run eventloop of prompt_toolkit.
-        self.application.run(pre_run=pre_run)
+木構造。(split されうる)
+
+```py
+        def create_layout_from_node(node):
+            if isinstance(node, window_arrangement.Window):
+                # Create frame for Window, or reuse it, if we had one already.
+                key = (node, node.editor_buffer)
+                frame = existing_frames.get(key)
+                if frame is None:
+                    frame, pt_window = self._create_window_frame(node.editor_buffer)
+
+                    # Link layout Window to arrangement.
+                    node.pt_window = pt_window
+
+                self._frames[key] = frame
+                return frame
+
+            elif isinstance(node, window_arrangement.VSplit):
+                return VSplit(
+                    [create_layout_from_node(n) for n in node],
+                    padding=1,
+                    padding_char=self.get_vertical_border_char(),
+                    padding_style='class:frameborder')
+
+            if isinstance(node, window_arrangement.HSplit):
+                return HSplit([create_layout_from_node(n) for n in node])
+
+        layout = create_layout_from_node(self.window_arrangement.active_tab.root)
+        self._fc.content = layout
 ```

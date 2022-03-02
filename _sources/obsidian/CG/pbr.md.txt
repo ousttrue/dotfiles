@@ -4,6 +4,7 @@
 [[fresnel]]
 [[IBL]]
 [[ArmorPaint]]
+[[radiometry]]
 	
 #cg
 #renderer
