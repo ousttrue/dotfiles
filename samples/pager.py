@@ -2,11 +2,13 @@
 """
 A simple application that shows a Pager application.
 """
-from typing import List
+from typing import List, Union, Callable, cast, TypeVar
 import pathlib
 import asyncio
 import prompt_toolkit.enums
 import prompt_toolkit.key_binding
+import prompt_toolkit.keys
+import prompt_toolkit.filters
 from pygments.lexers.python import PythonLexer
 from prompt_toolkit.application import Application
 from prompt_toolkit.layout.containers import HSplit, Window
@@ -63,16 +65,38 @@ class TextInputDialog:
         return self.dialog
 
 
+def bind(binding: prompt_toolkit.key_binding.KeyBindings, func: prompt_toolkit.key_binding.key_bindings.KeyHandlerCallable, *keys: Union[prompt_toolkit.keys.Keys, str],
+         filter: prompt_toolkit.filters.FilterOrBool = True,
+         eager: prompt_toolkit.filters.FilterOrBool = False,
+         is_global: prompt_toolkit.filters.FilterOrBool = False,
+         save_before: Callable[[prompt_toolkit.key_binding.KeyPressEvent], bool] = (
+             lambda e: True),
+         record_in_macro: prompt_toolkit.filters.FilterOrBool = True):
+    assert keys
+
+    keys = tuple(prompt_toolkit.key_binding.key_bindings._parse_key(k)
+                 for k in keys)
+    binding.bindings.append(
+        prompt_toolkit.key_binding.key_bindings.Binding(
+            keys,
+            func,
+            filter=filter,
+            eager=eager,
+            is_global=is_global,
+            save_before=save_before,
+            record_in_macro=record_in_macro,
+        )
+    )
+    binding._clear_cache()
+
+
 class App:
     def __init__(self) -> None:
         # Key bindings.
         bindings = prompt_toolkit.key_binding.KeyBindings()
 
-        @bindings.add("c-c")
-        @bindings.add("q")
-        def _(event):
-            "Quit."
-            event.app.exit()
+        bind(bindings, self.quit, "c-c")
+        bind(bindings, self.quit, "q")
 
         style = Style.from_dict(
             {
@@ -92,6 +116,10 @@ class App:
             style=style,
             full_screen=True,
         )
+
+    def quit(self, event: prompt_toolkit.key_binding.KeyPressEvent):
+        "Quit."
+        event.app.exit()
 
     def _layout(self) -> Layout:
         search_field = prompt_toolkit.widgets.SearchToolbar(
