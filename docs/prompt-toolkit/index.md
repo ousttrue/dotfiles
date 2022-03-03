@@ -3,6 +3,7 @@
 * <https://python-prompt-toolkit.readthedocs.io/en/master/>
     * <https://python-prompt-toolkit.readthedocs.io/en/master/pages/getting_started.html>
 
+* <https://pyup.io/changelogs/prompt-toolkit/>
 * {fa}`github` <https://github.com/prompt-toolkit>
 * <https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/PROJECTS.rst>
 

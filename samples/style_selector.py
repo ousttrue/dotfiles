@@ -66,10 +66,19 @@ class Selector(Generic[T]):
     def selected(self) -> T:
         return self.selection[self.selected_index]
 
-    def get_style(self) -> prompt_toolkit.styles.Style:
+    def get_style(self) -> prompt_toolkit.styles.BaseStyle:
         pygment_style = pygments.styles.get_style_by_name(self.selected())
-        return prompt_toolkit.styles.pygments.style_from_pygments_cls(
+        style = prompt_toolkit.styles.pygments.style_from_pygments_cls(
             pygment_style)  # type: ignore
+        fg = next(iter(s[1] for s in style.style_rules if s[0] == 'pygments'))
+        bg_style = {
+            '': f'{fg} bg:{pygment_style.background_color}',
+        }
+
+        return prompt_toolkit.styles.merge_styles([
+            style,
+            # prompt_toolkit.styles.Style.from_dict(bg_style)
+        ])
 
 
 class HighlightText:
@@ -107,8 +116,8 @@ def run():
 
     application = prompt_toolkit.Application(
         layout=layout, full_screen=True,
-        color_depth=prompt_toolkit.output.color_depth.ColorDepth.ANSI_COLORS_ONLY,
-        style=prompt_toolkit.styles.DynamicStyle(selector.get_style)
+        color_depth=prompt_toolkit.output.color_depth.ColorDepth.TRUE_COLOR,
+        style=prompt_toolkit.styles.DynamicStyle(selector.get_style),
     )
     application.run()
 
