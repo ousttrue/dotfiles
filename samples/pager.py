@@ -96,7 +96,7 @@ class App:
         bindings = prompt_toolkit.key_binding.KeyBindings()
 
         bind(bindings, self.quit, "c-c")
-        bind(bindings, self.quit, "q")
+        bind(bindings, self.quit, "q", eager=True)
 
         style = Style.from_dict(
             {

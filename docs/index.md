@@ -5,6 +5,7 @@
 doit
 xonsh
 prompt-toolkit/index
+pygments
 wt
 font
 dotfiles

@@ -1,8 +1,19 @@
 # examples
+## tools
+
+* ptterm
+  * <https://github.com/selectel/pyte>
+* pymux
+* <https://github.com/lyz-code/prompt-toolkit-table>
+* <https://github.com/TuuuNya/prompt_toolkit_demo>
+* <https://github.com/DivineSoftware/Pygy>
+* <https://github.com/vaaaaanquish-xx/select-command-using-ptk>
+* <https://gitlab.com/lisael/ptfm>
+* <https://github.com/prompt-toolkit/pypager>
+
+## examples
 
 <https://github.com/prompt-toolkit/python-prompt-toolkit/tree/master/examples>
-
-## full-screen
 
 ### buttons.py
 
