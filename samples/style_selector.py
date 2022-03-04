@@ -72,12 +72,12 @@ class Selector(Generic[T]):
             pygment_style)  # type: ignore
         fg = next(iter(s[1] for s in style.style_rules if s[0] == 'pygments'))
         bg_style = {
-            '': f'{fg} bg:{pygment_style.background_color}',
+            '': f'bg:{pygment_style.background_color}',
         }
 
         return prompt_toolkit.styles.merge_styles([
             style,
-            # prompt_toolkit.styles.Style.from_dict(bg_style)
+            prompt_toolkit.styles.Style.from_dict(bg_style)
         ])
 
 
@@ -91,7 +91,7 @@ class HighlightText:
             prompt_toolkit.formatted_text.PygmentsTokens(tokens)
         )
 
-        self.window = prompt_toolkit.layout.containers.Window(
+        self.container = prompt_toolkit.layout.containers.Window(
             content=self.control,
             dont_extend_height=True,
         )
@@ -103,12 +103,30 @@ def run():
 
     text = HighlightText(FILE.read_text())
 
-    root = prompt_toolkit.layout.containers.VSplit(
-        [
-            prompt_toolkit.layout.containers.Window(selector.control),
-            prompt_toolkit.layout.containers.Window(width=1, char="|"),
-            prompt_toolkit.layout.containers.Window(text.control),
-        ]
+    root = prompt_toolkit.layout.containers.FloatContainer(
+        content=prompt_toolkit.layout.containers.Window(
+            char=' ',
+            ignore_content_width=True,
+            ignore_content_height=True,
+        ),
+        floats=[
+            prompt_toolkit.layout.containers.Float(
+                prompt_toolkit.layout.containers.VSplit(
+                    [
+                        prompt_toolkit.layout.containers.Window(
+                            selector.control),
+                        prompt_toolkit.layout.containers.Window(
+                            width=1, char="|"),
+                        text.container,
+                    ]
+                ),
+                transparent=True,
+                left=0,
+                right=0,
+                top=0,
+                bottom=0
+            ),
+        ],
     )
 
     layout = prompt_toolkit.layout.Layout(
@@ -116,7 +134,7 @@ def run():
 
     application = prompt_toolkit.Application(
         layout=layout, full_screen=True,
-        color_depth=prompt_toolkit.output.color_depth.ColorDepth.TRUE_COLOR,
+        color_depth=prompt_toolkit.output.color_depth.ColorDepth.DEPTH_8_BIT,
         style=prompt_toolkit.styles.DynamicStyle(selector.get_style),
     )
     application.run()
