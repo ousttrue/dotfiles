@@ -7,12 +7,8 @@
         "id": "6ae2d6c9d1cc552c",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "blender_texture_paint.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -69,7 +65,6 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "blender_texture_paint.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -112,7 +107,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "blender_texture_paint.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -141,19 +135,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 933
+    "width": 495
   },
   "active": "6ae2d6c9d1cc552c",
   "lastOpenFiles": [
-    "blender_texture_paint.md",
-    "cpp_readallbytes.md",
-    "blacklist.md",
-    "bake.md",
-    "amazon_linux.md",
-    "wsl.md",
-    "wsl_filesystem.md",
-    "ffmpeg.md",
-    "virtual_moon.md",
-    "cs_com.md"
+    "Untitled.md",
+    "CG/unity_editor.md",
+    "CG/radiometry.md",
+    "CG/k4abt.md",
+    "web/json.md",
+    "index.md",
+    "c++/building_tool.md",
+    "web/blacklist.md",
+    "Linux/amazon_linux.md",
+    "web/css.md"
   ]
 }

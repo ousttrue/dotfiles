@@ -91,3 +91,14 @@ humanoidMotionCapture.py
 
 PhysicsServerSharedMemory
 
+
+physics
+#PyBullet
+
+https://book.impress.co.jp/books/3282
+
+
+http://www.natural-science.or.jp/article/20130922210408.php
+
+[* mujoco]
+https://github.com/openai/mujoco-py
