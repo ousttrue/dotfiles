@@ -51,3 +51,5 @@ nnoremap <C-l> :nohlsearch<CR><C-l>
 " python
 nnoremap <F5> :T python3 %<CR>
 
+au BufNewFile,BufRead *.xsh setf python
+

@@ -2,7 +2,7 @@
 [[curses]]
 [[notcurses]]
 [[font]]
-[[python_prompt_toolkit]]
+[[prompt_toolkit]]
 [[turbo_vision]]
 
 

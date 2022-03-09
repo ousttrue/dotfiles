@@ -9,4 +9,7 @@ input
 output
 layout
 draw
+buffer
+keybinding
+application
 ```

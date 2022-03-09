@@ -7,8 +7,12 @@
         "id": "6ae2d6c9d1cc552c",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "xonsh.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -65,8 +69,9 @@
             "state": {
               "type": "localgraph",
               "state": {
+                "file": "xonsh.md",
                 "options": {
-                  "collapse-filter": true,
+                  "collapse-filter": false,
                   "search": "",
                   "localJumps": 3,
                   "localBacklinks": true,
@@ -107,6 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "xonsh.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,15 +145,15 @@
   },
   "active": "6ae2d6c9d1cc552c",
   "lastOpenFiles": [
-    "Untitled.md",
+    "xonsh.md",
+    "TERM/prompt_toolkit.md",
+    "ime.md",
     "CG/unity_editor.md",
     "CG/radiometry.md",
     "CG/k4abt.md",
     "web/json.md",
     "index.md",
     "c++/building_tool.md",
-    "web/blacklist.md",
-    "Linux/amazon_linux.md",
-    "web/css.md"
+    "web/blacklist.md"
   ]
 }
