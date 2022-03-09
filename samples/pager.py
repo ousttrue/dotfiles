@@ -90,14 +90,16 @@ def bind(binding: prompt_toolkit.key_binding.KeyBindings, func: prompt_toolkit.k
     binding._clear_cache()
 
 
+def quit(event: prompt_toolkit.key_binding.KeyPressEvent):
+    "Quit."
+    event.app.exit()
+
+
 class App:
     def __init__(self) -> None:
-        # Key bindings.
         bindings = prompt_toolkit.key_binding.KeyBindings()
-
-        bind(bindings, self.quit, "c-c")
-        bind(bindings, self.quit, "q", eager=True)
-
+        bind(bindings, quit, "c-c")
+        bind(bindings, quit, "q", eager=True)
         style = Style.from_dict(
             {
                 "status": "reverse",
@@ -116,10 +118,6 @@ class App:
             style=style,
             full_screen=True,
         )
-
-    def quit(self, event: prompt_toolkit.key_binding.KeyPressEvent):
-        "Quit."
-        event.app.exit()
 
     def _layout(self) -> Layout:
         search_field = prompt_toolkit.widgets.SearchToolbar(

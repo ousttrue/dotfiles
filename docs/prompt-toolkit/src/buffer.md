@@ -1,10 +1,15 @@
-# Buffer
-
-`Window`, `BufferControl`, `Buffer` の組み合わせ。
+# Buffer < BufferControl < Window
 
 ## Buffer
 
-Document
+### Document
+
+### Cursor
+        
+```py
+Buffer.__working_index = 0
+Buffer.__cursor_position = 0
+```
 
 ## prompt_toolkit.layout.controls.BufferControl: UIControl
 

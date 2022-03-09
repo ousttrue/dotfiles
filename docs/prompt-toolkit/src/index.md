@@ -12,4 +12,5 @@ draw
 buffer
 keybinding
 application
+search
 ```
