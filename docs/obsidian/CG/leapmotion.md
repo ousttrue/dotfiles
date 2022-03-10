@@ -1,4 +1,5 @@
-leapmotion
+[[hand]]
+[[motion]]
 
 https://leapmotion.github.io/UnityModules/
 

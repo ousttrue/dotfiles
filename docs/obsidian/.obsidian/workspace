@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "xonsh.md",
+            "file": "CG/mediapipe.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "xonsh.md",
+                "file": "CG/mediapipe.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -92,8 +92,8 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 1,
-                  "close": false
+                  "scale": 0.9999999999999994,
+                  "close": true
                 }
               }
             }
@@ -112,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "xonsh.md",
+                "file": "CG/mediapipe.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -141,19 +141,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 495
+    "width": 483.3333435058594
   },
   "active": "6ae2d6c9d1cc552c",
   "lastOpenFiles": [
-    "xonsh.md",
+    "CG/mediapipe.md",
+    "CG/HandPose.md",
+    "CG/HumanPoseEstimation.md",
+    "CG/human-pose.md",
+    "CG/motion.md",
+    "CG/leapmotion.md",
+    "CG/sokol.md",
+    "python/xonsh.md",
     "TERM/prompt_toolkit.md",
-    "ime.md",
-    "CG/unity_editor.md",
-    "CG/radiometry.md",
-    "CG/k4abt.md",
-    "web/json.md",
-    "index.md",
-    "c++/building_tool.md",
-    "web/blacklist.md"
+    "TERM/ime.md"
   ]
 }
