@@ -40,7 +40,7 @@ $SUPPRESS_BRANCH_TIMEOUT_MESSAGE = True
 # キー入力即評価（サイコー）
 $UPDATE_COMPLETIONS_ON_KEYPRESS = True
 # プロンプトの表記
-$PROMPT = "{INTENSE_RED}{user}{INTENSE_GREEN}@{INTENSE_BLUE}{hostname}{INTENSE_YELLOW} [ {cwd} ] {GREEN}$ "
+$PROMPT = "{INTENSE_RED}{user}{INTENSE_GREEN}@{INTENSE_BLUE}{hostname}{INTENSE_YELLOW} [{cwd}] {gitstatus}\n{GREEN}{prompt_end} "
 # lsコマンドの結果の見た目
 $LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30"
 

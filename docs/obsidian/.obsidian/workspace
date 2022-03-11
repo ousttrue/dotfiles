@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "CG/mediapipe.md",
+            "file": "TinyVG.md",
             "mode": "source",
             "source": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "zig",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -49,7 +49,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -69,7 +70,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "CG/mediapipe.md",
+                "file": "TinyVG.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -112,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CG/mediapipe.md",
+                "file": "TinyVG.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -145,15 +146,15 @@
   },
   "active": "6ae2d6c9d1cc552c",
   "lastOpenFiles": [
-    "CG/mediapipe.md",
-    "CG/HandPose.md",
-    "CG/HumanPoseEstimation.md",
-    "CG/human-pose.md",
-    "CG/motion.md",
-    "CG/leapmotion.md",
+    "TinyVG.md",
+    "hlsl.md",
+    "zig.md",
     "CG/sokol.md",
-    "python/xonsh.md",
-    "TERM/prompt_toolkit.md",
-    "TERM/ime.md"
+    "fips.md",
+    "svg.md",
+    "2JCIE-BU01.md",
+    "vp9.md",
+    "av1.md",
+    "CG/mediapipe.md"
   ]
 }
