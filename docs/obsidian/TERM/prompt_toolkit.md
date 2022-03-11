@@ -9,3 +9,10 @@ aliases: [ptk]
 # print_formatted_text
 
 # Application
+
+## completion
+- [【Python】prompt-toolkitでfuzzy complete(あいまいな補完)を実装する - Qiita](https://qiita.com/tamago324/items/965b7d129500037c845d)
+
+## editor
+- [【Python】prompt-toolkitのtext_before_cursorとget_word_before_cursorの違い(おまけでWORD引数についての説明も) - Qiita](https://qiita.com/tamago324/items/f3d3db0819834a5dd596)
+

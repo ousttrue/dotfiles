@@ -23,3 +23,11 @@
 - [GNU Unifont Glyphs](http://unifoundry.com/unifont/index.html)
 - [Windows Terminal Cascadia Code | Microsoft Docs](https://docs.microsoft.com/en-us/windows/terminal/cascadia-code)
 - [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/)
+
+## Nerd Fonts
+
+- [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/)
+	- [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/font-downloads)
+- (2019)[Source Han Monoフォントをnerd font化して使ってみる - おのかちお's blog](https://blog.katio.net/page/onokatio-adc2019-day7-sourcehan-nerdfont)
+- (2018)[Nerd Fontsの導入 | vwrs’ page](https://vwrs.github.io/font/2018/09/26/nerd-fonts/)
+- (2017)[ターミナルでアイコンフォントを使う理由 | IIJ Engineers Blog](https://eng-blog.iij.ad.jp/archives/421)

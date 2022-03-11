@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "TinyVG.md",
+            "file": "python_build.md",
             "mode": "source",
             "source": false
           }
@@ -70,7 +70,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "TinyVG.md",
+                "file": "python_build.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -113,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TinyVG.md",
+                "file": "python_build.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -142,19 +142,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 483.3333435058594
+    "width": 704
   },
   "active": "6ae2d6c9d1cc552c",
   "lastOpenFiles": [
+    "python_build.md",
+    "editor/skk.md",
+    "TERM/prompt_toolkit.md",
+    "programming/lsp.md",
+    "programming/LSIF.md",
+    "TERM/font.md",
+    "neovim_frontend.md",
     "TinyVG.md",
     "hlsl.md",
-    "zig.md",
-    "CG/sokol.md",
-    "fips.md",
-    "svg.md",
-    "2JCIE-BU01.md",
-    "vp9.md",
-    "av1.md",
-    "CG/mediapipe.md"
+    "zig.md"
   ]
 }

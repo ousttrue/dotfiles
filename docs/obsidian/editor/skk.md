@@ -35,3 +35,7 @@ code:.vim
 		https://lurdan.hatenablog.com/entry/20101215/1292426956
 
 	https://github.com/nathancorvussolis/pcrvskkserv
+
+
+- [新しいVim用日本語入力プラグインを作った](https://zenn.dev/kuu/articles/vac2021-skkeleton)
+
