@@ -14,6 +14,7 @@ HOME_DIR = get_home()
 sys.path.append(str((HOME_DIR / 'dotfiles').absolute()))
 import xonsh_py
 
+$XONSH_SHOW_TRACEBACK = True
 # エディタ
 #$EDITOR = '/usr/local/bin/vim'
 #$VISUAL = '/usr/local/bin/vim'
