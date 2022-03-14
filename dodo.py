@@ -14,6 +14,9 @@ def get_home() -> pathlib.Path:
         return pathlib.Path(home)
     raise RuntimeError()
 
+def is_windows():
+    import platform
+    return platform.system() == 'Windows'
 
 HOME_DIR = get_home()
 
@@ -58,3 +61,7 @@ def task_create_link():
             'uptodate': [(check_link, (src, dst))],
             'verbosity': 2,
         }
+
+if not is_windows():
+    from build_python310 import task_python310_build
+
