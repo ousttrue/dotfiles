@@ -30,7 +30,9 @@ def get_home():
 
 
 HOME_DIR = get_home()
-LOCAL_DIR = HOME_DIR / 'local'
+USR_LOCAL = pathlib.Path('/usr/local')
+#LOCAL_DIR = HOME_DIR / 'local'
+LOCAL_DIR = USR_LOCAL
 LOCAL_BIN = LOCAL_DIR / 'bin'
 HERE = pathlib.Path(__file__).absolute().parent
 PYTHON310_ARCHIVE_URL = 'https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tar.xz'
@@ -71,15 +73,17 @@ def task_python310_build():
         with push_dir(PYTHON310_ARCHIVE.parent):
             run_or_raise('tar', 'xf', PYTHON310_ARCHIVE.name)
         with push_dir(PYTHON310_ARCHIVE_EXTRACT):
+            #if (PYTHON310_ARCHIVE_EXTRACT / 'Makefile'):
+            #   run_or_raise('make', 'distclean')
             run_or_raise('./configure', '--prefix',
                     LOCAL_DIR, '--enable-optimizations')
             run_or_raise('make', '-j', '4')
-            run_or_raise('make', 'install')
+            run_or_raise('sudo', 'make', 'install')
         with push_dir(LOCAL_DIR / 'bin'):
             if not (LOCAL_BIN / 'python').exists():
-                run_or_raise('ln', '-s', 'python3.10', 'python')
+                run_or_raise('sudo', 'ln', '-s', 'python3.10', 'python')
             if not (LOCAL_BIN / 'pip').exists():
-                run_or_raise('ln', '-s', 'pip3', 'pip')
+                run_or_raise('sudo', 'ln', '-s', 'pip3', 'pip')
             run_or_raise(LOCAL_DIR / 'bin/python3.10', '-m',
                     'pip', 'install', '--upgrade', 'pip')
             #
