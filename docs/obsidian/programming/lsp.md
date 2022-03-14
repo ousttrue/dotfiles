@@ -1,4 +1,7 @@
-LSP
+---
+aliases: [LanguageServerProtocol]
+---
+
 [[vscode]]
 [[LSIF]]
 
@@ -31,8 +34,7 @@ LSP
 - [Building cquery · jacobdufault/cquery Wiki · GitHub](https://github.com/cquery-project/cquery/wiki/Building-cquery)
 
 ## python
-- [Pythonのパス解決問題を解消し、pyls(Python Language Server)を導入した on NeoVim - Qiita](https://qiita.com/lighttiger2505/items/29fecc9df0fddc80927a)
-`pip install python-language-server`
+[[python_lsp]]
 
 ## c#
 - [GitHub - OmniSharp/csharp-language-server-protocol: Language Server Protocol in C#](https://github.com/OmniSharp/csharp-language-server-protocol)

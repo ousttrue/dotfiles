@@ -10,3 +10,4 @@
 [[python_curses]]
 [[doit]]
 [[python_asyncio]]
+[[python_lsp]]
