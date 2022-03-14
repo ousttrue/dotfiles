@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "python_build.md",
+            "file": "python_asyncio.md",
             "mode": "source",
             "source": false
           }
@@ -49,12 +49,11 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 327
+    "width": 208
   },
   "right": {
     "id": "95babd044b7f2368",
@@ -70,7 +69,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "python_build.md",
+                "file": "python_asyncio.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -93,7 +92,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.9999999999999994,
+                  "scale": 0.6024013357398962,
                   "close": true
                 }
               }
@@ -113,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "python_build.md",
+                "file": "python_asyncio.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,36 +124,22 @@
             }
           }
         ]
-      },
-      {
-        "id": "5d5b8e3b27067b0f",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "afc091be5b0586e1",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
-            }
-          }
-        ]
       }
     ],
     "direction": "horizontal",
-    "width": 704
+    "width": 502
   },
   "active": "6ae2d6c9d1cc552c",
   "lastOpenFiles": [
+    "python_asyncio.md",
+    "python/python.md",
+    "python/python 1.md",
+    "python/doit.md",
+    "python_subprocess.md",
     "python_build.md",
     "editor/skk.md",
     "TERM/prompt_toolkit.md",
     "programming/lsp.md",
-    "programming/LSIF.md",
-    "TERM/font.md",
-    "neovim_frontend.md",
-    "TinyVG.md",
-    "hlsl.md",
-    "zig.md"
+    "programming/LSIF.md"
   ]
 }
