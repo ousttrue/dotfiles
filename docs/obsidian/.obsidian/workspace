@@ -133,13 +133,13 @@
   "lastOpenFiles": [
     "python/python_lsp.md",
     "programming/lsp.md",
-    "python/python.md",
-    "python/python_asyncio.md",
-    "python/python 1.md",
-    "python/doit.md",
-    "python/python_subprocess.md",
-    "python/python_build.md",
-    "editor/skk.md",
-    "TERM/prompt_toolkit.md"
+    "DirectWrite.md",
+    "python_windows.md",
+    "vim.md",
+    "cmd.md",
+    "powershell.md",
+    "fontconfig.md",
+    "yuv.md",
+    "d2d.md"
   ]
 }
