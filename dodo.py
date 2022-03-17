@@ -3,22 +3,20 @@ import os
 HERE = pathlib.Path(__file__).absolute().parent
 SYNC_DIR = HERE / 'sync'
 SYNC_HOME_DIR = SYNC_DIR / 'HOME'
-
-
-def get_home() -> pathlib.Path:
-    userprofile = os.environ.get('USERPROFILE')
-    if userprofile:
-        return pathlib.Path(userprofile)
-    home = os.environ.get('HOME')
-    if home:
-        return pathlib.Path(home)
-    raise RuntimeError()
+SYNC_APPDATA_DIR = SYNC_DIR / 'APPDATA'
 
 def is_windows():
     import platform
     return platform.system() == 'Windows'
 
-HOME_DIR = get_home()
+IS_WINDOWS = is_windows()
+
+if IS_WINDOWS:
+    HOME_DIR = pathlib.Path(os.environ['USERPROFILE'])
+    APPDATA_DIR = pathlib.Path(os.environ['APPDATA'])
+else:
+    HOME_DIR = pathlib.Path(os.environ['HOME'])
+    from build_python310 import task_python310_build
 
 
 def mklink(dependencies, targets):
@@ -50,7 +48,6 @@ def task_create_link():
     create symbol link for config files
     '''
     for src in traverse(SYNC_HOME_DIR):
-        # print(f.relative_to(SYNC_HOME_DIR))
         target = src.relative_to(SYNC_HOME_DIR)
         dst = HOME_DIR / target
         yield {
@@ -61,7 +58,17 @@ def task_create_link():
             'uptodate': [(check_link, (src, dst))],
             'verbosity': 2,
         }
-
-if not is_windows():
-    from build_python310 import task_python310_build
+    
+    if IS_WINDOWS:
+        for src in traverse(SYNC_APPDATA_DIR):
+            target = src.relative_to(SYNC_APPDATA_DIR)
+            dst = APPDATA_DIR / target
+            yield {
+                'name': target,
+                'file_dep': [src],
+                'targets': [dst],
+                'actions': [(mklink)],
+                'uptodate': [(check_link, (src, dst))],
+                'verbosity': 2,
+            }
 
