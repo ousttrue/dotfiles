@@ -7,7 +7,7 @@ xonsh
 prompt-toolkit/index
 pygments
 wt
-font
+font/index
 dotfiles
 obsidian/index
 ```

@@ -10,6 +10,15 @@ def get_home()->pathlib.Path:
         return pathlib.Path(home)
     return pathlib.Path(os.environ['USERPROFILE'])
 
+def get_os_icon():
+    import nerdfonts as nf
+    if platform.system()=='Windows':
+        return nf.icons['fa_windows'] + ' '
+    else:
+        return nf.icons['fa_linux'] + ' '
+
+OS_ICON = get_os_icon()
+
 HOME_DIR = get_home()
 sys.path.append(str((HOME_DIR / 'dotfiles').absolute()))
 import xonsh_py
@@ -41,7 +50,7 @@ $SUPPRESS_BRANCH_TIMEOUT_MESSAGE = True
 # キー入力即評価（サイコー）
 $UPDATE_COMPLETIONS_ON_KEYPRESS = True
 # プロンプトの表記
-$PROMPT = "{INTENSE_RED}{user}{INTENSE_GREEN}@{INTENSE_BLUE}{hostname}{INTENSE_YELLOW} [{cwd}] {gitstatus}\n{GREEN}{prompt_end} "
+$PROMPT = "{INTENSE_RED}{user}{INTENSE_GREEN}"+OS_ICON+"{INTENSE_BLUE}{hostname}{INTENSE_YELLOW} [{cwd}] {gitstatus}\n{GREEN}{prompt_end} "
 # lsコマンドの結果の見た目
 $LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30"
 

@@ -16,7 +16,7 @@ import os
 if os.name == 'nt':
     # windows で dot.exe にパスを通してやる例
     os.environ['PATH'] = f"{os.environ['PATH']};C:\\Program Files\\Graphviz\\bin"
-
+import sphinx_fontawesome
 
 # -- Project information -----------------------------------------------------
 
@@ -70,6 +70,6 @@ html_theme = 'furo'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_theme_options = {
-    'cssfiles': ["http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"]
-}
+html_css_files = [
+    "http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+]
