@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "font/font.md",
+            "file": "python/xonsh.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "font/font.md",
+                "file": "python/xonsh.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -112,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "font/font.md",
+                "file": "python/xonsh.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,6 +131,7 @@
   },
   "active": "5e4f59d208bc755b",
   "lastOpenFiles": [
+    "python/xonsh.md",
     "font/font.md",
     "font/mplus.md",
     "myrica.md",
@@ -139,7 +140,6 @@
     "cica.md",
     "migu.md",
     "ricty.md",
-    "hackgen.md",
-    "font/nerd_font.md"
+    "hackgen.md"
   ]
 }

@@ -1,3 +1,6 @@
+#
+# @2019 [xonsh 始めました + xonshrc 弄って oh-my-fish/yimmy inspired な見た目にする](https://blog.atusy.net/2019/04/14/xonsh-debut/)
+#
 import subprocess
 import pathlib
 import sys
@@ -17,13 +20,13 @@ def get_os_icon():
     else:
         return nf.icons['fa_linux'] + ' '
 
-OS_ICON = get_os_icon()
+$PROMPT_FIELDS['os_icon'] = get_os_icon()
 
 HOME_DIR = get_home()
 sys.path.append(str((HOME_DIR / 'dotfiles').absolute()))
 import xonsh_py
+$PROMPT_FIELDS['custom_date'] = xonsh_py._datetime
 
-$XONSH_SHOW_TRACEBACK = True
 # エディタ
 #$EDITOR = '/usr/local/bin/vim'
 #$VISUAL = '/usr/local/bin/vim'
@@ -49,8 +52,7 @@ $XONSH_SHOW_TRACEBACK = True
 $SUPPRESS_BRANCH_TIMEOUT_MESSAGE = True
 # キー入力即評価（サイコー）
 $UPDATE_COMPLETIONS_ON_KEYPRESS = True
-# プロンプトの表記
-$PROMPT = "{INTENSE_RED}{user}{INTENSE_GREEN}"+OS_ICON+"{INTENSE_BLUE}{hostname}{INTENSE_YELLOW} [{cwd}] {gitstatus}\n{GREEN}{prompt_end} "
+
 # lsコマンドの結果の見た目
 $LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30"
 
@@ -64,12 +66,21 @@ $COLOR_RESULTS = True
 # xontrib load apt_tabcomplete
 # xontrib load z
 
+#
+# プロンプトの表記
+#
+# Look & Feel inspired by oh-my-fish/theme-yimmy
+# http://xon.sh/tutorial.html#customizing-the-prompt
+
 # $PROMPT = (
 #     "{BOLD_BLUE}{cwd}{RESET} {gitstatus}\n"
 #     "{env_name}{prompt_end} "
 # )
 
-$RIGHT_PROMPT = xonsh_py._datetime
+$PROMPT = "{RED}┌{INTENSE_GREEN}[ {cwd} ] {gitstatus}\n{RED}└{INTENSE_GREEN}{prompt_end} "
+$RIGHT_PROMPT = "{user}{os_icon}{hostname}"
+$BOTTOM_TOOLBAR = "{custom_date}"
+$XONSH_APPEND_NEWLINE = True
 
 if platform.system() == 'Windows':
     $PATH.append('C:\\Python310\\Scripts')
@@ -89,6 +100,9 @@ else:
     aliases['la']='exa --color=auto --icons -a'
     aliases['ll']='exa --color=auto --icons -al'
 
+aliases["cd.dotfiles"] = "cd ~/dotfiles"
+aliases["gs"] = "git status"
+aliases["gl"] = "git log"
 
 def _repos():
     repository = $(ghq list -p | peco).strip()
@@ -112,21 +126,29 @@ def _dotpull(args):
         subprocess.run(['git', 'pull'])
 aliases['dotpull'] = _dotpull
 
+
+# gc
+def _gc(args, stdin=None):
+    import gc
+    gc.collect()
+aliases['gc'] = _gc
+
+
 # ライブラリの実行時import
 # https://vaaaaaanquish.hatenablog.com/entry/2017/12/26/190153
 # xonsh上で使うときがありそうなライブラリはlazyasdで補完時、実行時に読み込み
 from xonsh.lazyasd import lazyobject
 import importlib
 lazy_module_dict = {
-    'sys': 'sys',
-    'random': 'random',
-    'shutil': 'shutil',
-    'pd': 'pandas',
-    'np': 'numpy',
-    'requests': 'requests',
-    'os': 'os',
-    'plt': 'matplotlib.pyplot',
-    'Path': 'pathlib.Path',
+        'sys': 'sys',
+        'random': 'random',
+        'shutil': 'shutil',
+        'pd': 'pandas',
+        'np': 'numpy',
+        'requests': 'requests',
+        'os': 'os',
+        'plt': 'matplotlib.pyplot',
+        'Path': 'pathlib.Path',
         }
 for k,v in lazy_module_dict.items():
     t = "@lazyobject\ndef {}():\n    return importlib.import_module('{}')".format(k, v)
