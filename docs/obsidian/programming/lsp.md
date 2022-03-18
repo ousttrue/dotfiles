@@ -12,10 +12,17 @@ aliases: [LanguageServerProtocol]
 - [Official page for Language Server Protocol](https://microsoft.github.io/language-server-protocol/)
 	- [Language Servers](https://microsoft.github.io/language-server-protocol/implementors/servers/)
 
+## sequence
+
+initialize
+didOpen
+
 ## articles
+- [言語サーバープロトコルの概要 - Visual Studio (Windows) | Microsoft Docs](https://docs.microsoft.com/ja-jp/visualstudio/extensibility/language-server-protocol?view=vs-2022)
 - [LSP - Qiita](https://qiita.com/tags/lsp)
 - [lspの記事一覧 | Zenn](https://zenn.dev/topics/lsp)
-- (2021)[SATySFi Language Server を作って快適に執筆してみた話](https://zenn.dev/monaqa/articles/2021-12-10-satysfi-language-server)
+@2021 [SATySFi Language Server を作って快適に執筆してみた話](https://zenn.dev/monaqa/articles/2021-12-10-satysfi-language-server)
+@2021 [LSP のクライアントを実装してみたい - MemoBook](https://scrapbox.io/tamago324vim/LSP_%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F%E3%81%84)
 - (2020)[LSP 実装メモ (Text Document Synchronization `textDocument/didChange` 編) - あれ](https://tennashi.hatenablog.com/entry/2020/08/01/201225)
 - (2020)[VSCode: LSPの調査 – Torimemo](https://torimemoblog.wordpress.com/2020/05/05/vscode-lspの調査/)
 - (2020)[VSCode LSP Extension 指南](https://waltyou.github.io/Language-Server-Extension-Guide/)

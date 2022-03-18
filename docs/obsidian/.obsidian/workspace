@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "python/xonsh.md",
+            "file": "programming/lsp.md",
             "mode": "source",
             "source": false
           }
@@ -53,7 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 470
+    "width": 329
   },
   "right": {
     "id": "95babd044b7f2368",
@@ -69,7 +69,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "python/xonsh.md",
+                "file": "programming/lsp.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -112,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "python/xonsh.md",
+                "file": "programming/lsp.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,6 +131,7 @@
   },
   "active": "5e4f59d208bc755b",
   "lastOpenFiles": [
+    "programming/lsp.md",
     "python/xonsh.md",
     "font/font.md",
     "font/mplus.md",
@@ -139,7 +140,6 @@
     "source_han_sans.md",
     "cica.md",
     "migu.md",
-    "ricty.md",
-    "hackgen.md"
+    "ricty.md"
   ]
 }
