@@ -16,7 +16,7 @@ if IS_WINDOWS:
     APPDATA_DIR = pathlib.Path(os.environ['APPDATA'])
 else:
     HOME_DIR = pathlib.Path(os.environ['HOME'])
-    from build_python310 import task_python310_build
+    from build_python310 import task_python310_build, task_python310_download
 
 
 def mklink(dependencies, targets):

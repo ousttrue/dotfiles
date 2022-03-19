@@ -14,6 +14,7 @@ def push_dir(dir: pathlib.Path):
     current = pathlib.Path(os.getcwd())
     try:
         print(f'chdir {dir}')
+        dir.mkdir(parents=True, exist_ok=True)
         os.chdir(dir)
         yield
     finally:
@@ -68,17 +69,36 @@ def run_or_raise(*args: Union[str, pathlib.Path]):
         raise subprocess.CalledProcessError(return_code, cmd)
 
 
+PYTHON_DEP_APTS = [
+        "build-essential",
+        "libbz2-dev",
+        "libdb-dev",
+        "libreadline-dev",
+        "libffi-dev",
+        "libgdbm-dev",
+        "liblzma-dev",
+        "libncursesw5-dev",
+        "libsqlite3-dev",
+        "libssl-dev",
+        "zlib1g-dev",
+        "uuid-dev",
+        "tk-dev",
+        ]
+
 def task_python310_build():
     def build():
+        # extract
         with push_dir(PYTHON310_ARCHIVE.parent):
             run_or_raise('tar', 'xf', PYTHON310_ARCHIVE.name)
+        # apt
+        run_or_raise('sudo', 'apt-get', 'install', '-y', *PYTHON_DEP_APTS)
+        # make
         with push_dir(PYTHON310_ARCHIVE_EXTRACT):
-            #if (PYTHON310_ARCHIVE_EXTRACT / 'Makefile'):
-            #   run_or_raise('make', 'distclean')
             run_or_raise('./configure', '--prefix',
                     LOCAL_DIR, '--enable-optimizations')
             run_or_raise('make', '-j', '4')
             run_or_raise('sudo', 'make', 'install')
+        # ln
         with push_dir(LOCAL_DIR / 'bin'):
             if not (LOCAL_BIN / 'python').exists():
                 run_or_raise('sudo', 'ln', '-s', 'python3.10', 'python')
@@ -93,14 +113,16 @@ def task_python310_build():
             'actions': [build],
             'targets': [PYTHON310_BIN],
             'file_dep': [PYTHON310_ARCHIVE],
+            'verbosity': 2,
             }
 
 
-    def task_xonsh():
-        def install():
+def task_xonsh():
+    def install():
             run_or_raise('pip', 'install', 'xonsh[full]')
     return {
             'actions': [install],
             'targets': [LOCAL_DIR / 'bin/xonsh'],
             'file_dep': [LOCAL_DIR / 'bin/python'],
             }
+
