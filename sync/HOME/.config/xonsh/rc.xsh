@@ -80,8 +80,8 @@ $COLOR_RESULTS = True
 #     "{env_name}{prompt_end} "
 # )
 
-$PROMPT = "{RED}┌{INTENSE_GREEN}[ {cwd} ] {gitstatus}\n{RED}└{INTENSE_GREEN}{prompt_end} "
-$RIGHT_PROMPT = "{user}{os_icon}{hostname}"
+$PROMPT = "{RED}┌{INTENSE_GREEN}{os_icon} [ {cwd} ] {gitstatus}\n{RED}└{INTENSE_GREEN}{prompt_end} "
+# $RIGHT_PROMPT = "{user}{os_icon}{hostname}"
 $BOTTOM_TOOLBAR = "{custom_date}"
 $XONSH_APPEND_NEWLINE = True
 
