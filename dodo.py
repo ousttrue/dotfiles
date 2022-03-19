@@ -91,29 +91,34 @@ def task_create_link():
                     'verbosity': 2,
                     }
 
-
-HACKGEN_ZIP = HOME_DIR / 'local/src/HackGenNerd_v2.6.0.zip'
-
-
-def task_font_hackgen_downlaod():
-    url = 'https://github.com/yuru7/HackGen/releases/download/v2.6.0/HackGenNerd_v2.6.0.zip'
-    return {
-            'uptodate': [True],
-            'targets': [HACKGEN_ZIP],
-            'actions': [f'curl {url} -L -o %(targets)s'],
-            }
+if IS_WINDOWS:
+    pass
+else:
+    HACKGEN_ZIP = HOME_DIR / 'local/src/HackGenNerd_v2.6.0.zip'
 
 
-def task_font_hackgen():
-    return {
-            'file_dep': [HACKGEN_ZIP],
-            'targets': [HOME_DIR / '.fonts/HackGenNerdConsole-Regular.ttf'],
-            'actions': [
-                'mkdir -p ~/.fonts',
-                'unzip -o -p %(dependencies)s HackGenNerd_v2.6.0/HackGenNerdConsole-Regular.ttf | cat > %(targets)s',
-                'fc-cache -fv',
-                ],
-            }
+    def task_font_hackgen_downlaod():
+        url = 'https://github.com/yuru7/HackGen/releases/download/v2.6.0/HackGenNerd_v2.6.0.zip'
+        return {
+                'uptodate': [True],
+                'targets': [HACKGEN_ZIP],
+                'actions': [
+                    f'mkdir -p ~/local/src',
+                    f'curl {url} -L -o %(targets)s',
+                    ],
+                }
+
+
+    def task_font_hackgen():
+        return {
+                'file_dep': [HACKGEN_ZIP],
+                'targets': [HOME_DIR / '.fonts/HackGenNerdConsole-Regular.ttf'],
+                'actions': [
+                    'mkdir -p ~/.fonts',
+                    'unzip -o -p %(dependencies)s HackGenNerd_v2.6.0/HackGenNerdConsole-Regular.ttf | cat > %(targets)s',
+                    'fc-cache -fv',
+                    ],
+                }
 
 
 if PYTHON_BIN.exists():
