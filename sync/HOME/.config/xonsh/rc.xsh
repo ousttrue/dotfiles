@@ -20,6 +20,9 @@ def get_os_icon():
     else:
         return nf.icons['fa_linux'] + ' '
 
+def which(cmd: str)->bool:
+    return subprocess.run(f'which {cmd}', shell=True).returncode == 0
+
 $PROMPT_FIELDS['os_icon'] = get_os_icon()
 
 HOME_DIR = get_home()
@@ -96,9 +99,14 @@ else:
     $PATH.append('~/.cargo/bin')
     $PATH.append('~/.local/bin')
     $PATH.append('~/my_nvim/install/bin')
-    aliases['ls']='exa --color=auto --icons'
-    aliases['la']='exa --color=auto --icons -a'
-    aliases['ll']='exa --color=auto --icons -al'
+    if which('exa'):
+        aliases['ls']='exa --color=auto --icons'
+        aliases['la']='exa --color=auto --icons -a'
+        aliases['ll']='exa --color=auto --icons -al'
+    else:
+        aliases['ls']='ls --color=auto'
+        aliases['la']='ls --color=auto -a'
+        aliases['ll']='ls --color=auto -al'
 
 aliases["cd.dotfiles"] = "cd ~/dotfiles"
 aliases["gs"] = "git status"

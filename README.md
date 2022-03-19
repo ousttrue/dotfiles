@@ -20,6 +20,7 @@
 
 ## env
 
+* Windows10
 * WSL on Windows
 * Ubuntu
 

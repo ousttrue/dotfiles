@@ -1,13 +1,16 @@
 import pathlib
 import os
+
 HERE = pathlib.Path(__file__).absolute().parent
 SYNC_DIR = HERE / 'sync'
 SYNC_HOME_DIR = SYNC_DIR / 'HOME'
 SYNC_APPDATA_DIR = SYNC_DIR / 'APPDATA'
 
+
 def is_windows():
     import platform
     return platform.system() == 'Windows'
+
 
 IS_WINDOWS = is_windows()
 
@@ -16,7 +19,7 @@ if IS_WINDOWS:
     APPDATA_DIR = pathlib.Path(os.environ['APPDATA'])
 else:
     HOME_DIR = pathlib.Path(os.environ['HOME'])
-    from build_python310 import task_python310_build, task_python310_download
+    from linux_tasks import task_python310_build, task_python310_download
 
 
 def mklink(dependencies, targets):
@@ -26,7 +29,7 @@ def mklink(dependencies, targets):
         print(f'rm {dst}')
         dst.unlink()
     dst.parent.mkdir(exist_ok=True, parents=True)
-    assert(src.is_file())
+    assert (src.is_file())
     dst.symlink_to(src, target_is_directory=False)
 
 
@@ -58,7 +61,7 @@ def task_create_link():
             'uptodate': [(check_link, (src, dst))],
             'verbosity': 2,
         }
-    
+
     if IS_WINDOWS:
         for src in traverse(SYNC_APPDATA_DIR):
             target = src.relative_to(SYNC_APPDATA_DIR)
@@ -72,3 +75,26 @@ def task_create_link():
                 'verbosity': 2,
             }
 
+
+HACKGEN_ZIP = HOME_DIR / 'local/src/HackGenNerd_v2.6.0.zip'
+
+
+def task_font_hackgen_downlaod():
+    url = 'https://github.com/yuru7/HackGen/releases/download/v2.6.0/HackGenNerd_v2.6.0.zip'
+    return {
+        'uptodate': [True],
+        'targets': [HACKGEN_ZIP],
+        'actions': [f'curl {url} -L -o %(targets)s'],
+    }
+
+
+def task_font_hackgen():
+    return {
+        'file_dep': [HACKGEN_ZIP],
+        'targets': [HOME_DIR / '.fonts/HackGenNerdConsole-Regular.ttf'],
+        'actions': [
+            'mkdir -p ~/.fonts',
+            'unzip -o -p %(dependencies)s HackGenNerd_v2.6.0/HackGenNerdConsole-Regular.ttf | cat > %(targets)s',
+            'fc-cache -fv',
+        ],
+    }
