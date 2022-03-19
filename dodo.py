@@ -19,7 +19,7 @@ if IS_WINDOWS:
     APPDATA_DIR = pathlib.Path(os.environ['APPDATA'])
 else:
     HOME_DIR = pathlib.Path(os.environ['HOME'])
-    from linux_tasks import task_python310_build, task_python310_download
+    from linux_tasks import *
 
 
 def mklink(dependencies, targets):
@@ -98,3 +98,4 @@ def task_font_hackgen():
             'fc-cache -fv',
         ],
     }
+

@@ -6,7 +6,15 @@ import urllib.request
 import contextlib
 import subprocess
 import logging
+
 logger = logging.getLogger(__name__)
+
+__all__ = [
+    'task_python310_download',
+    'task_python310_build',
+    'task_rustup',
+    'task_cargo_exa',
+]
 
 
 @contextlib.contextmanager
@@ -50,15 +58,17 @@ def task_python310_download():
         PYTHON310_ARCHIVE.write_bytes(data)
 
     return {
-            'actions': [download],
-            'targets': [PYTHON310_ARCHIVE],
-            'uptodate': [True],
-            }
+        'actions': [download],
+        'targets': [PYTHON310_ARCHIVE],
+        'uptodate': [True],
+    }
 
 
 def run_or_raise(*args: Union[str, pathlib.Path]):
     print(f'{args}')
-    with subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT) as p:
+    with subprocess.Popen(args,
+                          stdout=subprocess.PIPE,
+                          stderr=subprocess.STDOUT) as p:
         while p.poll() is None:
             l = p.stdout.readline()
             if b"The necessary bits to build these optional modules were not found:" in l:
@@ -70,20 +80,21 @@ def run_or_raise(*args: Union[str, pathlib.Path]):
 
 
 PYTHON_DEP_APTS = [
-        "build-essential",
-        "libbz2-dev",
-        "libdb-dev",
-        "libreadline-dev",
-        "libffi-dev",
-        "libgdbm-dev",
-        "liblzma-dev",
-        "libncursesw5-dev",
-        "libsqlite3-dev",
-        "libssl-dev",
-        "zlib1g-dev",
-        "uuid-dev",
-        "tk-dev",
-        ]
+    "build-essential",
+    "libbz2-dev",
+    "libdb-dev",
+    "libreadline-dev",
+    "libffi-dev",
+    "libgdbm-dev",
+    "liblzma-dev",
+    "libncursesw5-dev",
+    "libsqlite3-dev",
+    "libssl-dev",
+    "zlib1g-dev",
+    "uuid-dev",
+    "tk-dev",
+]
+
 
 def task_python310_build():
     def build():
@@ -94,8 +105,8 @@ def task_python310_build():
         run_or_raise('sudo', 'apt-get', 'install', '-y', *PYTHON_DEP_APTS)
         # make
         with push_dir(PYTHON310_ARCHIVE_EXTRACT):
-            run_or_raise('./configure', '--prefix',
-                    LOCAL_DIR, '--enable-optimizations')
+            run_or_raise('./configure', '--prefix', LOCAL_DIR,
+                         '--enable-optimizations')
             run_or_raise('make', '-j', '4')
             run_or_raise('sudo', 'make', 'install')
         # ln
@@ -104,25 +115,32 @@ def task_python310_build():
                 run_or_raise('sudo', 'ln', '-s', 'python3.10', 'python')
             if not (LOCAL_BIN / 'pip').exists():
                 run_or_raise('sudo', 'ln', '-s', 'pip3', 'pip')
-            run_or_raise(LOCAL_DIR / 'bin/python3.10', '-m',
-                    'pip', 'install', '--upgrade', 'pip')
+            run_or_raise(LOCAL_DIR / 'bin/python3.10', '-m', 'pip', 'install',
+                         '--upgrade', 'pip')
             #
+
     # depends libssl-dev
     #
     return {
-            'actions': [build],
-            'targets': [PYTHON310_BIN],
-            'file_dep': [PYTHON310_ARCHIVE],
-            'verbosity': 2,
-            }
+        'actions': [build],
+        'targets': [PYTHON310_BIN],
+        'file_dep': [PYTHON310_ARCHIVE],
+        'verbosity': 2,
+    }
 
 
-def task_xonsh():
-    def install():
-            run_or_raise('pip', 'install', 'xonsh[full]')
+def task_rustup():
     return {
-            'actions': [install],
-            'targets': [LOCAL_DIR / 'bin/xonsh'],
-            'file_dep': [LOCAL_DIR / 'bin/python'],
-            }
+        'actions':
+        ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"],
+        'uptodate': ['which rustup'],
+        'targets': [HOME_DIR / '.cargo/bin/rustup'],
+    }
 
+
+def task_cargo_exa():
+    return {
+        'actions': ["cargo install exa"],
+        'uptodate': ['which exa'],
+        'targets': [HOME_DIR / '.cargo/bin/exa'],
+    }
