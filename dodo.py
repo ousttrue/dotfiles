@@ -129,11 +129,12 @@ if PYTHON_BIN.exists():
                 'uptodate': [HAS_PIP_API],
                 }
 
-    def task_pip():
-        for k, v in PIP_MODULES.items():
-            yield {
-                    'name': k,
-                    'uptodate': [lambda: k in pip_api.installed_distributions()],
-                    'actions': [f'{PYTHON_BIN} -m pip install "{v}"'],
-                    }
+    if HAS_PIP_API:
+        def task_pip():
+            for k, v in PIP_MODULES.items():
+                yield {
+                        'name': k,
+                        'uptodate': [lambda: k in pip_api.installed_distributions()],
+                        'actions': [f'{PYTHON_BIN} -m pip install "{v}"'],
+                        }
 
