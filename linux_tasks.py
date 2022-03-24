@@ -13,7 +13,7 @@ __all__ = [
     'task_python310_download',
     'task_python310_build',
     'task_rustup',
-    'task_cargo_exa',
+    'task_cargo',
 ]
 
 
@@ -137,10 +137,21 @@ def task_rustup():
         'targets': [HOME_DIR / '.cargo/bin/rustup'],
     }
 
+CARGO_INSTALLS={
+        'exa': 'exa',
+        'ripgrep': 'rg',
+        'bat': 'bat',
+        # 'delta': 'delta',
+        'gitui': 'gitui',
+        'skim': 'sk',
+        }
 
-def task_cargo_exa():
-    return {
-        'actions': ["cargo install exa"],
-        'uptodate': ['which exa'],
-        'targets': [HOME_DIR / '.cargo/bin/exa'],
-    }
+def task_cargo():
+    for k, v in CARGO_INSTALLS.items():
+        yield {
+            'name': k,
+            'actions': [f"cargo install {k}"],
+            'uptodate': [f'which {v}'],
+            'targets': [HOME_DIR / f'.cargo/bin/{v}'],
+        }
+

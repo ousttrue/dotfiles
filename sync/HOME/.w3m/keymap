@@ -1,0 +1,16 @@
+keymap q CLOSE_TAB
+keymap Q QUIT
+keymap ? HELP
+keymap : COMMAND
+keymap , PREV_TAB
+keymap . NEXT_TAB
+keymap M TAB_LINK
+keymap 0 LINE_BEGIN
+keymap < DOWN
+keymap > UP
+keymap H NEXT_LEFT
+keymap J NEXT_DOWN
+keymap K NEXT_UP
+keymap L NEXT_RIGHT
+keymap I DISPLAY_IMAGE
+

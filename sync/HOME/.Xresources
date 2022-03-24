@@ -2,6 +2,7 @@ XTerm*termName:            xterm-256color
 XTerm*locale:              true
 XTerm*selectToClipboard:   true
 XTerm*saveLines:           2000
+XTerm*metaSendsEscape: true
 
 !xterm*faceName:           Oxygen Mono
 !term*faceNameDoublesize: MigMix 2M
@@ -10,9 +11,12 @@ XTerm*saveLines:           2000
 !XTerm.faceName: Noto Sans Mono CJK JP:size=10
 !xterm*faceName:           Oxygen Mono:size=10
 !XTerm*faceNameDoublesize: Yu Gothic:size=10
-xterm*faceName: Monoid:style=Regular:size=10
+xterm*faceName: HackGenNerd Console:style=Regular
 !xterm*faceNameDoublesize: Yu Gothic:size=10
-xterm*faceNameDoublesize: MingLiU:style=Regular:size=10
+/* xterm*faceNameDoublesize: MingLiU:style=Regular:size=10 */
+XTerm*faceNameDoublesize: HackGenNerd Console:style=Regular
+XTerm*faceSize:           13
+XTerm*geometry: 92x48
 
 !XTerm*faceName: 游ゴシック
 
@@ -24,7 +28,8 @@ xterm*faceNameDoublesize: MingLiU:style=Regular:size=10
 *xterm*color1: #960050
 *xterm*color2: #66aa11
 *xterm*color3: #c47f2c
-*xterm*color4: #30309b
+/* *xterm*color4: #30309b */
+*xterm*color4: #5555ee
 *xterm*color5: #7e40a5
 *xterm*color6: #3579a8
 *xterm*color7: #9999aa
@@ -32,8 +37,7 @@ xterm*faceNameDoublesize: MingLiU:style=Regular:size=10
 *xterm*color9: #ff0090
 *xterm*color10: #80ff00
 *xterm*color11: #ffba68
-*xterm*color12: #5f5fee
+*xterm*color12: #6666ff
 *xterm*color13: #bb88dd
 *xterm*color14: #4eb4fa
 *xterm*color15: #d0d0d0
-
