@@ -39,6 +39,7 @@ set laststatus=2
 set belloff=all
 set noswapfile noundofile nobackup
 set hlsearch
+set hidden
 
 
 " ex mode を無効に
