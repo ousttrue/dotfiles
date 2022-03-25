@@ -10,17 +10,20 @@ keymap 0 LINE_BEGIN
 
 keymap B PREV
 keymap F NEXT
+#keymap b PREV_WORD
 
-keymap SPC UP
-keymap b DOWN
+keymap > UP
+keymap < DOWN
 
-keymap c-f NEXT_PAGE
-keymap c-b PREV_PAGE
+keymap SPC NEXT_PAGE
+keymap b PREV_PAGE
 
+keymap j MOVE_DOWN1
+keymap k MOVE_UP1
 keymap H NEXT_LEFT
 keymap J NEXT_DOWN
 keymap K NEXT_UP
 keymap L NEXT_RIGHT
 
 # custom
-keymap z HEAD_V
+keymap u HEAD_V

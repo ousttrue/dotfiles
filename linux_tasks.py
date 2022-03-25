@@ -181,7 +181,7 @@ def task_w3m_get():
     return {
         'actions': [
             'ghq get tats/w3m',
-            f'cd {W3M.SOURCE.parent} && patch p1 < ~/.dotfiles/w3m.patch',
+            f'cd {W3M.SOURCE.parent} && patch -p1 < ~/.dotfiles/w3m.patch',
         ],
         'uptodate': [True],
         'targets': [W3M.SOURCE],
