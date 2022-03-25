@@ -1,7 +1,8 @@
 from typing import Union
 import pathlib
 import platform
-import os, sys
+import os
+import sys
 import urllib.request
 import contextlib
 import subprocess
@@ -14,6 +15,8 @@ __all__ = [
     'task_python310_build',
     'task_rustup',
     'task_cargo',
+    'task_w3m_get',
+    'task_w3m_build',
 ]
 
 
@@ -39,27 +42,59 @@ def get_home():
 
 
 HOME_DIR = get_home()
+GHQ_DIR = HOME_DIR / 'ghq'
 USR_LOCAL = pathlib.Path('/usr/local')
 #LOCAL_DIR = HOME_DIR / 'local'
 LOCAL_DIR = USR_LOCAL
 LOCAL_BIN = LOCAL_DIR / 'bin'
 HERE = pathlib.Path(__file__).absolute().parent
-PYTHON310_ARCHIVE_URL = 'https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tar.xz'
-PYTHON310_ARCHIVE = HOME_DIR / 'local/src/Python-3.10.2.tar.xz'
-PYTHON310_ARCHIVE_EXTRACT = HOME_DIR / 'local/src/Python-3.10.2'
-PYTHON310_BIN = LOCAL_BIN / 'python'
+
+
+class PYTHON310:
+    ARCHIVE_URL = 'https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tar.xz'
+    ARCHIVE = HOME_DIR / 'local/src/Python-3.10.2.tar.xz'
+    ARCHIVE_EXTRACT = HOME_DIR / 'local/src/Python-3.10.2'
+    BIN = LOCAL_BIN / 'python'
+    DEP_APTS = [
+        "build-essential",
+        "libbz2-dev",
+        "libdb-dev",
+        "libreadline-dev",
+        "libffi-dev",
+        "libgdbm-dev",
+        "liblzma-dev",
+        "libncursesw5-dev",
+        "libsqlite3-dev",
+        "libssl-dev",
+        "zlib1g-dev",
+        "uuid-dev",
+        "tk-dev",
+    ]
+
+
+class W3M:
+    GITHUB = 'tats/w3m'
+    SOURCE = GHQ_DIR / 'github.com/tats/w3m/main.c'
+    BIN = HOME_DIR / 'local/bin/w3m'
+    DEP_APTS = [
+        'libgc-dev',
+    ]
+
+    @classmethod
+    def has_source(cls):
+        return cls.SOURCE.is_dir()
 
 
 def task_python310_download():
     def download():
-        PYTHON310_ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
-        response = urllib.request.urlopen(PYTHON310_ARCHIVE_URL)
+        PYTHON310.ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
+        response = urllib.request.urlopen(PYTHON310.ARCHIVE_URL)
         data = response.read()
-        PYTHON310_ARCHIVE.write_bytes(data)
+        PYTHON310.ARCHIVE.write_bytes(data)
 
     return {
         'actions': [download],
-        'targets': [PYTHON310_ARCHIVE],
+        'targets': [PYTHON310.ARCHIVE],
         'uptodate': [True],
     }
 
@@ -79,32 +114,15 @@ def run_or_raise(*args: Union[str, pathlib.Path]):
         raise subprocess.CalledProcessError(return_code, cmd)
 
 
-PYTHON_DEP_APTS = [
-    "build-essential",
-    "libbz2-dev",
-    "libdb-dev",
-    "libreadline-dev",
-    "libffi-dev",
-    "libgdbm-dev",
-    "liblzma-dev",
-    "libncursesw5-dev",
-    "libsqlite3-dev",
-    "libssl-dev",
-    "zlib1g-dev",
-    "uuid-dev",
-    "tk-dev",
-]
-
-
 def task_python310_build():
     def build():
         # extract
-        with push_dir(PYTHON310_ARCHIVE.parent):
-            run_or_raise('tar', 'xf', PYTHON310_ARCHIVE.name)
+        with push_dir(PYTHON310.ARCHIVE.parent):
+            run_or_raise('tar', 'xf', PYTHON310.ARCHIVE.name)
         # apt
-        run_or_raise('sudo', 'apt-get', 'install', '-y', *PYTHON_DEP_APTS)
+        run_or_raise('sudo', 'apt-get', 'install', '-y', *DEP_APTS)
         # make
-        with push_dir(PYTHON310_ARCHIVE_EXTRACT):
+        with push_dir(PYTHON310.ARCHIVE_EXTRACT):
             run_or_raise('./configure', '--prefix', LOCAL_DIR,
                          '--enable-optimizations')
             run_or_raise('make', '-j', '4')
@@ -123,8 +141,8 @@ def task_python310_build():
     #
     return {
         'actions': [build],
-        'targets': [PYTHON310_BIN],
-        'file_dep': [PYTHON310_ARCHIVE],
+        'targets': [PYTHON310.BIN],
+        'file_dep': [PYTHON310.ARCHIVE],
         'verbosity': 2,
     }
 
@@ -132,19 +150,21 @@ def task_python310_build():
 def task_rustup():
     return {
         'actions':
-        ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"],
-        'uptodate': ['which rustup'],
-        'targets': [HOME_DIR / '.cargo/bin/rustup'],
+            ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"],
+            'uptodate': ['which rustup'],
+            'targets': [HOME_DIR / '.cargo/bin/rustup'],
     }
 
-CARGO_INSTALLS={
-        'exa': 'exa',
-        'ripgrep': 'rg',
-        'bat': 'bat',
-        # 'delta': 'delta',
-        'gitui': 'gitui',
-        'skim': 'sk',
-        }
+
+CARGO_INSTALLS = {
+    'exa': 'exa',
+    'ripgrep': 'rg',
+    'bat': 'bat',
+    # 'delta': 'delta',
+    'gitui': 'gitui',
+    'skim': 'sk',
+}
+
 
 def task_cargo():
     for k, v in CARGO_INSTALLS.items():
@@ -155,3 +175,28 @@ def task_cargo():
             'targets': [HOME_DIR / f'.cargo/bin/{v}'],
         }
 
+
+def task_w3m_get():
+    return {
+        'actions': ['ghq get tats/w3m'],
+        'uptodate': [True],
+        'targets': [W3M.SOURCE],
+    }
+
+
+def task_w3m_build():
+    def build():
+        # apt
+        run_or_raise('sudo', 'apt-get', 'install', '-y', *W3M.DEP_APTS)
+        # make
+        with push_dir(W3M.SOURCE.parent):
+            run_or_raise('./configure', f'--prefix={HOME_DIR}/local')
+            run_or_raise('make', '-j', '4')
+            run_or_raise('sudo', 'make', 'install')
+
+    return {
+        'actions': [build],
+        'targets': [W3M.BIN],
+        'file_dep': [W3M.SOURCE],
+        'verbosity': 2,
+    }

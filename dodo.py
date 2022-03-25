@@ -13,10 +13,11 @@ SYNC_DIR = HERE / 'sync'
 SYNC_HOME_DIR = SYNC_DIR / 'HOME'
 SYNC_APPDATA_DIR = SYNC_DIR / 'APPDATA'
 
-PIP_MODULES={
-        'xonsh': 'xonsh[full]',
-        'nerdfonts': 'nerdfonts',
-        }
+PIP_MODULES = {
+    'xonsh': 'xonsh[full]',
+    'nerdfonts': 'nerdfonts',
+    'autopep8': 'autopep8',
+}
 
 
 def is_windows():
@@ -70,71 +71,69 @@ def task_create_link():
         target = src.relative_to(SYNC_HOME_DIR)
         dst = HOME_DIR / target
         yield {
-                'name': target,
-                'file_dep': [src],
-                'targets': [dst],
-                'actions': [(mklink)],
-                'uptodate': [(check_link, (src, dst))],
-                'verbosity': 2,
-                }
+            'name': target,
+            'file_dep': [src],
+            'targets': [dst],
+            'actions': [(mklink)],
+            'uptodate': [(check_link, (src, dst))],
+            'verbosity': 2,
+        }
 
     if IS_WINDOWS:
         for src in traverse(SYNC_APPDATA_DIR):
             target = src.relative_to(SYNC_APPDATA_DIR)
             dst = APPDATA_DIR / target
             yield {
-                    'name': target,
-                    'file_dep': [src],
-                    'targets': [dst],
-                    'actions': [(mklink)],
-                    'uptodate': [(check_link, (src, dst))],
-                    'verbosity': 2,
-                    }
+                'name': target,
+                'file_dep': [src],
+                'targets': [dst],
+                'actions': [(mklink)],
+                'uptodate': [(check_link, (src, dst))],
+                'verbosity': 2,
+            }
+
 
 if IS_WINDOWS:
     pass
 else:
     HACKGEN_ZIP = HOME_DIR / 'local/src/HackGenNerd_v2.6.0.zip'
 
-
     def task_font_hackgen_downlaod():
         url = 'https://github.com/yuru7/HackGen/releases/download/v2.6.0/HackGenNerd_v2.6.0.zip'
         return {
-                'uptodate': [True],
-                'targets': [HACKGEN_ZIP],
-                'actions': [
-                    f'mkdir -p ~/local/src',
-                    f'curl {url} -L -o %(targets)s',
-                    ],
-                }
-
+            'uptodate': [True],
+            'targets': [HACKGEN_ZIP],
+            'actions': [
+                f'mkdir -p ~/local/src',
+                f'curl {url} -L -o %(targets)s',
+            ],
+        }
 
     def task_font_hackgen():
         return {
-                'file_dep': [HACKGEN_ZIP],
-                'targets': [HOME_DIR / '.fonts/HackGenNerdConsole-Regular.ttf'],
-                'actions': [
-                    'mkdir -p ~/.fonts',
-                    'unzip -o -p %(dependencies)s HackGenNerd_v2.6.0/HackGenNerdConsole-Regular.ttf | cat > %(targets)s',
-                    'fc-cache -fv',
-                    ],
-                }
+            'file_dep': [HACKGEN_ZIP],
+            'targets': [HOME_DIR / '.fonts/HackGenNerdConsole-Regular.ttf'],
+            'actions': [
+                'mkdir -p ~/.fonts',
+                'unzip -o -p %(dependencies)s HackGenNerd_v2.6.0/HackGenNerdConsole-Regular.ttf | cat > %(targets)s',
+                'fc-cache -fv',
+            ],
+        }
 
 
 if PYTHON_BIN.exists():
 
     def task_pip_api():
         return {
-                'actions': [f'{PYTHON_BIN} -m pip install pip-api'],
-                'uptodate': [HAS_PIP_API],
-                }
+            'actions': [f'{PYTHON_BIN} -m pip install pip-api'],
+            'uptodate': [HAS_PIP_API],
+        }
 
     if HAS_PIP_API:
         def task_pip():
             for k, v in PIP_MODULES.items():
                 yield {
-                        'name': k,
-                        'uptodate': [lambda: k in pip_api.installed_distributions()],
-                        'actions': [f'{PYTHON_BIN} -m pip install "{v}"'],
-                        }
-
+                    'name': k,
+                    'uptodate': [lambda: k in pip_api.installed_distributions()],
+                    'actions': [f'{PYTHON_BIN} -m pip install "{v}"'],
+                }

@@ -5,12 +5,20 @@ keymap : COMMAND
 keymap , PREV_TAB
 keymap . NEXT_TAB
 keymap M TAB_LINK
+keymap T TAB_GOTO ~/.w3m/bookmark.html
 keymap 0 LINE_BEGIN
-keymap < DOWN
-keymap > UP
+
+keymap B PREV
+keymap F NEXT
+
+keymap SPC UP
+keymap b DOWN
+
+keymap c-f NEXT_PAGE
+keymap c-b PREV_PAGE
+
 keymap H NEXT_LEFT
 keymap J NEXT_DOWN
 keymap K NEXT_UP
 keymap L NEXT_RIGHT
-keymap I DISPLAY_IMAGE
 

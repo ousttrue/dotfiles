@@ -21,7 +21,7 @@ def get_os_icon():
         return nf.icons['fa_linux'] + ' '
 
 def which(cmd: str)->bool:
-    return subprocess.run(f'which {cmd}', shell=True).returncode == 0
+    return subprocess.run(f'which {cmd} > /dev/null 2>&1', shell=True).returncode == 0
 
 $PROMPT_FIELDS['os_icon'] = get_os_icon()
 
