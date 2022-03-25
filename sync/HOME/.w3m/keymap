@@ -5,18 +5,16 @@ keymap : COMMAND
 keymap , PREV_TAB
 keymap . NEXT_TAB
 keymap M TAB_LINK
-keymap T TAB_GOTO ~/.w3m/bookmark.html
+keymap T TAB_GOTO ~/dotfiles/home.html
 keymap 0 LINE_BEGIN
 
 keymap B PREV
 keymap F NEXT
-#keymap b PREV_WORD
-
+keymap b PREV_WORD
+keymap i PREV_PAGE
+keymap SPC NEXT_PAGE
 keymap > UP
 keymap < DOWN
-
-keymap SPC NEXT_PAGE
-keymap b PREV_PAGE
 
 keymap j MOVE_DOWN1
 keymap k MOVE_UP1
@@ -24,6 +22,8 @@ keymap H NEXT_LEFT
 keymap J NEXT_DOWN
 keymap K NEXT_UP
 keymap L NEXT_RIGHT
+
+keymap x EXTERN
 
 # custom
 keymap u HEAD_V
