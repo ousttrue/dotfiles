@@ -110,7 +110,8 @@ else:
 
 aliases["cd.dotfiles"] = "cd ~/dotfiles"
 aliases["gs"] = "git status"
-aliases["gl"] = "git log"
+aliases["gl"] = "git log --oneline --decorate --graph --branches --tags --remotes"
+
 
 def _repos():
     repository = $(ghq list -p | peco).strip()

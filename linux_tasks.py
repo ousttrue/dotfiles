@@ -17,6 +17,8 @@ __all__ = [
     'task_cargo',
     'task_w3m_get',
     'task_w3m_build',
+    'task_neovim_get',
+    'task_neovim_build',
 ]
 
 
@@ -79,6 +81,30 @@ class W3M:
     DEP_APTS = [
         'libgc-dev',
         'libimlib2-dev',
+    ]
+
+    @classmethod
+    def has_source(cls):
+        return cls.SOURCE.is_dir()
+
+
+class NEOVIM:
+    GITHUB = 'neovim/neovim'
+    SOURCE = GHQ_DIR / 'github.com/neovim/neovim/README.md'
+    BIN = HOME_DIR / 'local/bin/nvim'
+    DEP_APTS = [
+        "ninja-build",
+        "gettext",
+        "libtool",
+        "libtool-bin",
+        "autoconf",
+        "automake",
+        "cmake",
+        "g++",
+        "pkg-config",
+        "unzip",
+        "curl",
+        "doxygen",
     ]
 
     @classmethod
@@ -180,6 +206,7 @@ def task_cargo():
 def task_w3m_get():
     return {
         'actions': [
+            'sudo apt-get install -y ' + ' '.join(W3M.DEP_APTS),
             'ghq get tats/w3m',
             f'cd {W3M.SOURCE.parent} && patch -p1 < ~/dotfiles/w3m.patch',
         ],
@@ -190,9 +217,6 @@ def task_w3m_get():
 
 def task_w3m_build():
     def build():
-        # apt
-        run_or_raise('sudo', 'apt-get', 'install', '-y', *W3M.DEP_APTS)
-        # make
         with push_dir(W3M.SOURCE.parent):
             run_or_raise('./configure', f'--prefix={HOME_DIR}/local')
             run_or_raise('make', '-j', '4')
@@ -205,3 +229,31 @@ def task_w3m_build():
         'verbosity': 2,
     }
 
+
+def task_neovim_get():
+    return {
+        'actions': [
+            'sudo  apt-get install -y ' + ' '.join(NEOVIM.DEP_APTS),
+            'ghq get neovim/neovim',
+            f'cd {NEOVIM.SOURCE.parent} && git switch -c v0.6.1',
+        ],
+        'uptodate': [True],
+        'targets': [NEOVIM.SOURCE],
+    }
+
+
+def task_neovim_build():
+    def build():
+        with push_dir(NEOVIM.SOURCE.parent):
+            run_or_raise('make',
+                         'CMAKE_BUILD_TYPE=Release',
+                         f'CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX={HOME_DIR}/local"',
+                         '-j', '4')
+            run_or_raise('make', 'install')
+
+    return {
+        'actions': [build],
+        'targets': [NEOVIM.BIN],
+        'file_dep': [NEOVIM.SOURCE],
+        'verbosity': 2,
+    }
