@@ -78,6 +78,7 @@ class W3M:
     BIN = HOME_DIR / 'local/bin/w3m'
     DEP_APTS = [
         'libgc-dev',
+        'libimlib2-dev',
     ]
 
     @classmethod
@@ -178,7 +179,10 @@ def task_cargo():
 
 def task_w3m_get():
     return {
-        'actions': ['ghq get tats/w3m'],
+        'actions': [
+            'ghq get tats/w3m',
+            f'cd {W3M.SOURCE.parent} && patch p1 < ~/.dotfiles/w3m.patch',
+        ],
         'uptodate': [True],
         'targets': [W3M.SOURCE],
     }
@@ -192,7 +196,7 @@ def task_w3m_build():
         with push_dir(W3M.SOURCE.parent):
             run_or_raise('./configure', f'--prefix={HOME_DIR}/local')
             run_or_raise('make', '-j', '4')
-            run_or_raise('sudo', 'make', 'install')
+            run_or_raise('make', 'install')
 
     return {
         'actions': [build],
@@ -200,3 +204,4 @@ def task_w3m_build():
         'file_dep': [W3M.SOURCE],
         'verbosity': 2,
     }
+

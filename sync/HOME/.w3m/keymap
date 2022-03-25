@@ -22,3 +22,5 @@ keymap J NEXT_DOWN
 keymap K NEXT_UP
 keymap L NEXT_RIGHT
 
+# custom
+keymap z HEAD_V

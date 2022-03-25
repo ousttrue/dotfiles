@@ -1,0 +1,31 @@
+diff --git a/main.c b/main.c
+index ced6f40..73e8eab 100644
+--- a/main.c
++++ b/main.c
+@@ -1733,6 +1733,14 @@ DEFUN(ctrCsrV, CENTER_V, "Center on cursor line")
+     }
+ }
+ 
++/* move cursor position to the head of screen */
++DEFUN(headCsrV, HEAD_V, "Head on cursor line")
++{
++    Currentbuf->topLine = lineSkip(Currentbuf, Currentbuf->topLine, Currentbuf->cursorY, FALSE);
++    arrangeLine(Currentbuf);
++    displayBuffer(Currentbuf, B_NORMAL);
++}
++
+ DEFUN(ctrCsrH, CENTER_H, "Center on cursor column")
+ {
+     int offsetx;
+diff --git a/proto.h b/proto.h
+index 66d497e..3e77159 100644
+--- a/proto.h
++++ b/proto.h
+@@ -5,6 +5,7 @@
+  *
+  *   Created: Wed Feb 10 12:47:03 1999
+  */
++extern void headCsrV(void);
+ extern int main(int argc, char **argv, char **envp);
+ extern void nulcmd(void);
+ extern void pushEvent(int cmd, void *data);
