@@ -121,7 +121,7 @@ def task_python310_build():
         with push_dir(PYTHON310.ARCHIVE.parent):
             run_or_raise('tar', 'xf', PYTHON310.ARCHIVE.name)
         # apt
-        run_or_raise('sudo', 'apt-get', 'install', '-y', *DEP_APTS)
+        run_or_raise('sudo', 'apt-get', 'install', '-y', *PYTHON310.DEP_APTS)
         # make
         with push_dir(PYTHON310.ARCHIVE_EXTRACT):
             run_or_raise('./configure', '--prefix', LOCAL_DIR,
@@ -181,7 +181,7 @@ def task_w3m_get():
     return {
         'actions': [
             'ghq get tats/w3m',
-            f'cd {W3M.SOURCE.parent} && patch -p1 < ~/.dotfiles/w3m.patch',
+            f'cd {W3M.SOURCE.parent} && patch -p1 < ~/dotfiles/w3m.patch',
         ],
         'uptodate': [True],
         'targets': [W3M.SOURCE],

@@ -14,10 +14,6 @@ else
     PATH=$HOME/local/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin
 fi
 
-if [ -d ~/.cargo ]; then
-    . ~/.cargo/env
-fi
-
 #
 # term
 #
@@ -25,3 +21,4 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
+. "$HOME/.cargo/env"
