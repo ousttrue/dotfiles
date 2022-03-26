@@ -24,6 +24,7 @@ keymap K NEXT_UP
 keymap L NEXT_RIGHT
 
 keymap x EXTERN
+keymap ; MARK_URL
 
 # custom
 keymap u HEAD_V

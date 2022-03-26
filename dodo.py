@@ -17,6 +17,8 @@ PIP_MODULES = {
     'xonsh': 'xonsh[full]',
     'nerdfonts': 'nerdfonts',
     'autopep8': 'autopep8',
+    'pipx': 'pipx',
+    'python-lsp-server[all]': 'pylsp',
 }
 
 
@@ -136,4 +138,3 @@ if PYTHON_BIN.exists():
                     'uptodate': [lambda: k in pip_api.installed_distributions()],
                     'actions': [f'{PYTHON_BIN} -m pip install "{v}"'],
                 }
-
