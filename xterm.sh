@@ -1,4 +1,4 @@
-xrdb -merge ~/.Xresources
+xrdb -merge ~/dotfiles/Xresources.wsl
 setxkbmap -layout us
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx

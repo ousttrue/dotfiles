@@ -39,8 +39,7 @@ else:
     PYTHON_SCRIPTS = HOME_DIR / '.local/bin'
 
 
-def mklink(dependencies, targets):
-    src = pathlib.Path(dependencies[0])
+def mklink(src, targets):
     dst = pathlib.Path(targets[0])
     if dst.exists() or dst.is_symlink():
         print(f'rm {dst}')
@@ -72,9 +71,9 @@ def task_create_link():
         dst = HOME_DIR / target
         yield {
             'name': target,
-            'file_dep': [src],
+            # 'file_dep': [src],
             'targets': [dst],
-            'actions': [(mklink)],
+            'actions': [(mklink, [src])],
             'uptodate': [(check_link, (src, dst))],
             'verbosity': 2,
         }
@@ -85,9 +84,9 @@ def task_create_link():
             dst = APPDATA_DIR / target
             yield {
                 'name': target,
-                'file_dep': [src],
+                # 'file_dep': [src],
                 'targets': [dst],
-                'actions': [(mklink)],
+                'actions': [(mklink, [src])],
                 'uptodate': [(check_link, (src, dst))],
                 'verbosity': 2,
             }
@@ -137,3 +136,4 @@ if PYTHON_BIN.exists():
                     'uptodate': [lambda: k in pip_api.installed_distributions()],
                     'actions': [f'{PYTHON_BIN} -m pip install "{v}"'],
                 }
+
