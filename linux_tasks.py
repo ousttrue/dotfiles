@@ -19,6 +19,7 @@ __all__ = [
     'task_w3m_build',
     'task_neovim_get',
     'task_neovim_build',
+    'task_sumneko_get',
 ]
 
 
@@ -106,6 +107,14 @@ class NEOVIM:
         "curl",
         "doxygen",
     ]
+
+    @classmethod
+    def has_source(cls):
+        return cls.SOURCE.is_dir()
+
+class SUMNEKO:
+    GITHUB = 'sumneko/lua-language-server'
+    SOURCE = GHQ_DIR / 'github.com/tats/lua-language-server/main.c'
 
     @classmethod
     def has_source(cls):
@@ -256,4 +265,14 @@ def task_neovim_build():
         'targets': [NEOVIM.BIN],
         'file_dep': [NEOVIM.SOURCE],
         'verbosity': 2,
+    }
+
+
+def task_sumneko_get():
+    return {
+        'actions': [
+            'ghq get sumneko/lua-language-server',
+        ],
+        'uptodate': [True],
+        'targets': [SUMNEKO.SOURCE],
     }

@@ -22,3 +22,5 @@ if [ -f ~/.bashrc ]; then
 fi
 
 . "$HOME/.cargo/env"
+
+alias luamake=/home/ousttrue/ghq/github.com/sumneko/lua-language-server/3rd/luamake/luamake

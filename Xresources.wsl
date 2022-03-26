@@ -14,7 +14,9 @@ XTerm*metaSendsEscape: true
 xterm*faceName: HackGenNerd Console:style=Regular
 !xterm*faceNameDoublesize: Yu Gothic:size=10
 /* xterm*faceNameDoublesize: MingLiU:style=Regular:size=10 */
-XTerm*faceNameDoublesize: HackGenNerd Console:style=Regular
+!XTerm*faceNameDoublesize: HackGenNerd Console:style=Regular
+!XTerm*faceNameDoublesize: NotoMono Nerd Font Mono
+XTerm*faceNameDoublesize: Sarasa Mono SC Nerd,更纱黑体 Mono SC Nerd
 XTerm*faceSize:           20
 XTerm*geometry: 92x48
 
