@@ -18,6 +18,8 @@ PIP_MODULES = {
     'nerdfonts': 'nerdfonts',
     'autopep8': 'autopep8',
     'pipx': 'pipx',
+}
+PIPX_MODULES = {
     'python-lsp-server[all]': 'pylsp',
 }
 
