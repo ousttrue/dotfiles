@@ -20,7 +20,8 @@ PIP_MODULES = {
     'pipx': 'pipx',
 }
 PIPX_MODULES = {
-    'python-lsp-server[all]': 'pylsp',
+    'pylsp': 'python-lsp-server[all]',
+    'ranger': 'ranger-fm',
 }
 
 

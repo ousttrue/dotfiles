@@ -28,6 +28,7 @@ return require("packer").startup(function(use)
             "kyazdani42/nvim-web-devicons", -- optional, for file icon
         },
         config = function()
+            vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap=true})
             require("nvim-tree").setup {}
         end,
     }

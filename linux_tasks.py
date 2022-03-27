@@ -2,7 +2,6 @@ from typing import Union
 import pathlib
 import platform
 import os
-import sys
 import urllib.request
 import contextlib
 import subprocess
@@ -20,6 +19,8 @@ __all__ = [
     'task_neovim_get',
     'task_neovim_build',
     'task_sumneko_get',
+    'task_sumneko_build',
+    'task_ranger_devicon_get',
 ]
 
 
@@ -112,9 +113,11 @@ class NEOVIM:
     def has_source(cls):
         return cls.SOURCE.is_dir()
 
+
 class SUMNEKO:
     GITHUB = 'sumneko/lua-language-server'
     SOURCE = GHQ_DIR / 'github.com/sumneko/lua-language-server/README.md'
+    BIN = HOME_DIR / 'local/bin/lua-language-server'
 
     @classmethod
     def has_source(cls):
@@ -275,4 +278,31 @@ def task_sumneko_get():
         ],
         'uptodate': [True],
         'targets': [SUMNEKO.SOURCE],
+    }
+
+
+def task_sumneko_build():
+    def build():
+        with push_dir(SUMNEKO.SOURCE.parent / '3rd/luamake'):
+            run_or_raise('./compile/install.sh')
+        with push_dir(SUMNEKO.SOURCE.parent):
+            run_or_raise('./3rd/luamake/luamake', 'rebuild')
+            run_or_raise('cp', './bin/lua-language-server',
+                         f'{HOME_DIR / "local/bin"}')
+
+    return {
+        'actions': [build],
+        'targets': [SUMNEKO.BIN],
+        'file_dep': [SUMNEKO.SOURCE],
+        'verbosity': 2,
+    }
+
+
+def task_ranger_devicon_get():
+    return {
+        'actions': [
+            'git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons',
+        ],
+        'uptodate': [True],
+        'targets': [HOME_DIR / '.config/ranger/plugins/ranger_devicons/README.md'],
     }
