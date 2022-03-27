@@ -1,5 +1,4 @@
-fbterm
-#cui
+[[yaft]]
 
 `# apt intall fbterm`
 user を `video` group に入れる。

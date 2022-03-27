@@ -1,5 +1,4 @@
-sphinx
-#python #chm
+[[myst-parser]]
 
 [* toctree]
 [https://github.com/sphinx-doc/sphinx/issues/8287 Allow to specify toctree pages as direct-children of parent page · Issue #8287 · sphinx-doc/sphinx · GitHub]

@@ -12,25 +12,47 @@ aliases: [LanguageServerProtocol]
 - [Official page for Language Server Protocol](https://microsoft.github.io/language-server-protocol/)
 	- [Language Servers](https://microsoft.github.io/language-server-protocol/implementors/servers/)
 
-## sequence
 
-initialize
-didOpen
+## General
+### Request: Initialize
+[Specification](https://microsoft.github.io/language-server-protocol/specification#initialize)
+
+### Notificatin: Initialized
+[Initialized Notification](https://microsoft.github.io/language-server-protocol/specification#initialized)
+
+## Workspace
+
+[Specification](https://microsoft.github.io/language-server-protocol/specification#workspace_workspaceFolders)
+
+## Text Document Synchronization
+
+[Specification](https://microsoft.github.io/language-server-protocol/specification#textDocument_synchronization)
+
+### textdocument/didOpen
+- @2020 [LSP 実装メモ (Text Document Synchronization `textDocument/didOpen` 編) - あれ](https://tennashi.hatenablog.com/entry/2020/07/25/230916)
+
+### textdocument/didChange
+- @2020 [LSP 実装メモ (Text Document Synchronization `textDocument/didChange` 編) - あれ](https://tennashi.hatenablog.com/entry/2020/08/01/201225)
+
+## Language Features
+-   code comprehension features like Hover or Goto Definition.
+-   coding features like diagnostics, code complete or code actions.
+
+ ### textDocument/completion
+ [textDocument/completion](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_completion)
 
 ## articles
 - [言語サーバープロトコルの概要 - Visual Studio (Windows) | Microsoft Docs](https://docs.microsoft.com/ja-jp/visualstudio/extensibility/language-server-protocol?view=vs-2022)
 - [LSP - Qiita](https://qiita.com/tags/lsp)
 - [lspの記事一覧 | Zenn](https://zenn.dev/topics/lsp)
-@2021 [SATySFi Language Server を作って快適に執筆してみた話](https://zenn.dev/monaqa/articles/2021-12-10-satysfi-language-server)
-@2021 [LSP のクライアントを実装してみたい - MemoBook](https://scrapbox.io/tamago324vim/LSP_%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F%E3%81%84)
-- (2020)[LSP 実装メモ (Text Document Synchronization `textDocument/didChange` 編) - あれ](https://tennashi.hatenablog.com/entry/2020/08/01/201225)
-- (2020)[VSCode: LSPの調査 – Torimemo](https://torimemoblog.wordpress.com/2020/05/05/vscode-lspの調査/)
-- (2020)[VSCode LSP Extension 指南](https://waltyou.github.io/Language-Server-Extension-Guide/)
-- (2020)[Language Server Protocol に対応したミニ言語処理系を作る](https://zenn.dev/takl/books/0fe11c6e177223)
-- (2019)[Language Server Protocol開発チュートリアル - Qiita](https://qiita.com/Ikuyadeu/items/98458f9ab760d09660ff)
-- (2019)[LSP学習記 #1 - Qiita](https://qiita.com/vain0x/items/d050fe7c8b342ed2004e)
-- (2018)[LSP4JでLanguage Server Protocol入門 - Qiita](https://qiita.com/minebreaker/items/c53e4dddb0709492d362)
-- (2016)[language server protocolについて (前編) - Qiita](https://qiita.com/atsushieno/items/ce31df9bd88e98eec5c4)
+- @2021 [SATySFi Language Server を作って快適に執筆してみた話](https://zenn.dev/monaqa/articles/2021-12-10-satysfi-language-server)
+- @2021 [LSP のクライアントを実装してみたい - MemoBook](https://scrapbox.io/tamago324vim/LSP_%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F%E3%81%84)
+- @2020 [Language Server Protocol に対応したミニ言語処理系を作る](https://zenn.dev/takl/books/0fe11c6e177223)
+
+## LSIF: Language Server Index Format
+[LSIF.dev](https://lsif.dev/)
+- @2019 [Language Server Index Format](https://code.visualstudio.com/blogs/2019/02/19/lsif)
+- @2020 [LSPから派生したLanguage Server Index Formatとは何か - Qiita](https://qiita.com/nakario/items/2a73065a1bc1540c1f00)
 
 ## vim
 - [GitHub - dense-analysis/ale: Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support](https://github.com/w0rp/ale)
@@ -43,5 +65,5 @@ didOpen
 ## python
 [[python_lsp]]
 
-## c#
+## csharp
 - [GitHub - OmniSharp/csharp-language-server-protocol: Language Server Protocol in C#](https://github.com/OmniSharp/csharp-language-server-protocol)

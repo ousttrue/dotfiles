@@ -11,3 +11,5 @@
 [[doit]]
 [[python_asyncio]]
 [[python_lsp]]
+[[sphinx]]
+[[ranger]]

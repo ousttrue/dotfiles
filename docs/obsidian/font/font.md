@@ -5,6 +5,11 @@
 - @2021 [プログラミング用フォントの選び方とおすすめ無料フォント](https://pouhon.net/font-programming/4990/)
 - @2021 [フォントに悩むよ、ほんと。｜doorei｜note](https://note.com/doorei/n/n5c039c744b92)
 
+- alphabet
+- cjk
+- emoji
+- nerdfont
+
 # [[source_han_sans|源ノ角ゴシック]]
 # [[mplus]]
 # [[IBM_Plex_Sans_JP]]
