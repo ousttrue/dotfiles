@@ -107,7 +107,7 @@ else:
             'uptodate': [True],
             'targets': [HACKGEN_ZIP],
             'actions': [
-                f'mkdir -p ~/local/src',
+                'mkdir -p ~/local/src',
                 f'curl {url} -L -o %(targets)s',
             ],
         }
@@ -123,6 +123,16 @@ else:
             ],
         }
 
+    def task_font_sarasa():
+        url = 'https://github.com/laishulu/Sarasa-Mono-SC-Nerd/raw/master/sarasa-mono-sc-nerd-regular.ttf'
+        return {
+            'uptodate': [True],
+            'targets': [HOME_DIR / '.fonts/sarasa-mono-sc-nerd-regular.ttf'],
+            'actions': [
+                'mkdir -p ~/.fonts',
+                f'curl {url} -L -O',
+            ]
+        }
 
 if PYTHON_BIN.exists():
 

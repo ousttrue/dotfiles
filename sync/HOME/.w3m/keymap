@@ -2,8 +2,8 @@ keymap q CLOSE_TAB
 keymap Q QUIT
 keymap ? HELP
 keymap : COMMAND
-keymap , PREV_TAB
-keymap . NEXT_TAB
+keymap [ PREV_TAB
+keymap ] NEXT_TAB
 keymap M TAB_LINK
 keymap T TAB_GOTO ~/dotfiles/home.html
 keymap 0 LINE_BEGIN
@@ -24,7 +24,7 @@ keymap K NEXT_UP
 keymap L NEXT_RIGHT
 
 keymap x EXTERN
-keymap ; MARK_URL
+keymap ";" MARK_URL
 
 # custom
 keymap u HEAD_V

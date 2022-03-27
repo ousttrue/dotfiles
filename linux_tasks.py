@@ -114,7 +114,7 @@ class NEOVIM:
 
 class SUMNEKO:
     GITHUB = 'sumneko/lua-language-server'
-    SOURCE = GHQ_DIR / 'github.com/tats/lua-language-server/main.c'
+    SOURCE = GHQ_DIR / 'github.com/sumneko/lua-language-server/README.md'
 
     @classmethod
     def has_source(cls):

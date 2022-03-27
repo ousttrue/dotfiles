@@ -18,7 +18,7 @@ end
 
 vim.cmd [[packadd packer.nvim]]
 
-return require("packer").startup(function()
+return require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
     use "tpope/vim-fugitive"
 
@@ -32,5 +32,23 @@ return require("packer").startup(function()
         end,
     }
 
-    use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
+    use "neovim/nvim-lspconfig" -- Collection of configurations for the built-in LSP client
+
+    use "itchyny/lightline.vim"
+
+    use {
+        "tpope/vim-commentary",
+        config = function()
+            vim.api.nvim_set_keymap("n", "<C-_>", ":Commentary<CR>", { noremap = true })
+            vim.api.nvim_set_keymap("", "<C-_>", ":Commentary<CR>", { noremap = true })
+        end,
+    }
+
+    use {
+        "Chiel92/vim-autoformat",
+        config = function()
+            vim.api.nvim_set_keymap("n", "<S-f>", ":Autoformat<CR>", { noremap = true })
+            vim.api.nvim_set_keymap("v", "<S-f>", ":Autoformat<CR>", { noremap = true })
+        end,
+    }
 end)
