@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-return {
+local config = {
     default_prog = {"xonsh"},
     font = wezterm.font("HackGenNerd Console"),
     font_size = 14.0,
@@ -23,3 +23,11 @@ return {
         { key = "l", mods = "ALT", action = wezterm.action({ ActivateTabRelative = 1 }) },
     }
 }
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+    config.default_prog = {'C:/Python310/Scripts/xonsh.exe'}
+else
+    config.default_prog = {'xonsh'}
+end
+
+return config

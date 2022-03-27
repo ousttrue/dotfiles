@@ -32,6 +32,7 @@ repo = 'Chiel92/vim-autoformat'
 hook_add='''
 nmap <S-f> :Autoformat<CR>
 vmap <S-f> :Autoformat<CR>
+let g:formatters_python = ['autopep8']
 '''
 
 [[plugins]]

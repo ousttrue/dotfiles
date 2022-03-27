@@ -50,6 +50,10 @@ nnoremap <C-l> :nohlsearch<CR><C-l>
 
 
 " python
+set pythonthreehome=C:\Python310 
+set pythonthreedll=C:\Python310\python310.dll
 nnoremap <F5> :T python3 %<CR>
 
 au BufNewFile,BufRead *.xsh setf python
+au FileType python setlocal formatprg=autopep8\ -
+

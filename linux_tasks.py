@@ -13,7 +13,6 @@ __all__ = [
     'task_python310_download',
     'task_python310_build',
     'task_rustup',
-    'task_cargo',
     'task_w3m_get',
     'task_w3m_build',
     'task_neovim_get',
@@ -194,25 +193,6 @@ def task_rustup():
             'targets': [HOME_DIR / '.cargo/bin/rustup'],
     }
 
-
-CARGO_INSTALLS = {
-    'exa': 'exa',
-    'ripgrep': 'rg',
-    'bat': 'bat',
-    # 'delta': 'delta',
-    'gitui': 'gitui',
-    'skim': 'sk',
-}
-
-
-def task_cargo():
-    for k, v in CARGO_INSTALLS.items():
-        yield {
-            'name': k,
-            'actions': [f"cargo install {k}"],
-            'uptodate': [f'which {v}'],
-            'targets': [HOME_DIR / f'.cargo/bin/{v}'],
-        }
 
 
 def task_w3m_get():

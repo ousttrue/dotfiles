@@ -151,3 +151,28 @@ if PYTHON_BIN.exists():
                     'uptodate': [lambda: k in pip_api.installed_distributions()],
                     'actions': [f'{PYTHON_BIN} -m pip install "{v}"'],
                 }
+
+CARGO_INSTALLS = {
+    'ripgrep': 'rg',
+    'bat': 'bat',
+    'stylua': 'stylua',
+}
+if IS_WINDOWS:
+    CARGO_INSTALLS['lsd'] = 'lsd'
+else:
+    CARGO_INSTALLS |= {
+            'exa': 'exa',
+            'gitui':'gitui',
+            'skim':'sk'
+            }
+
+
+def task_cargo():
+    for k, v in CARGO_INSTALLS.items():
+        yield {
+            'name': k,
+            'actions': [f"cargo install {k}"],
+            'uptodate': [f'which {v}'],
+            'targets': [HOME_DIR / f'.cargo/bin/{v}'],
+        }
+
