@@ -9,7 +9,7 @@ fcitx-autostart&
 xset -r 49  > /dev/null 2>&1
 
 # block xterm
-#/usr/bin/xterm
+/usr/bin/xterm
 #/usr/bin/urxvt
 #st -f "HackGenNerd Console-24"
 

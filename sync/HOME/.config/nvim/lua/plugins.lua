@@ -21,7 +21,7 @@ vim.cmd [[packadd packer.nvim]]
 return require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
     use "tpope/vim-fugitive"
-
+    use "airblade/vim-gitgutter"
     use {
         "kyazdani42/nvim-tree.lua",
         requires = {
@@ -35,7 +35,14 @@ return require("packer").startup(function(use)
 
     use "neovim/nvim-lspconfig" -- Collection of configurations for the built-in LSP client
 
-    use "itchyny/lightline.vim"
+    -- use "itchyny/lightline.vim"
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+        config = function()
+            require("lualine").setup()
+        end,
+    }
 
     use {
         "tpope/vim-commentary",
