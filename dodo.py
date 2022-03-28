@@ -155,7 +155,7 @@ else:
 class SUMNEKO:
     GITHUB = 'sumneko/lua-language-server'
     SOURCE = GHQ_DIR / 'github.com/sumneko/lua-language-server/README.md'
-    BIN = HOME_DIR / 'local/bin/lua-language-server'
+    BIN = HOME_DIR / f'local/bin/lua-language-server{EXE}'
 
     @classmethod
     def has_source(cls):
