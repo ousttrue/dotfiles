@@ -1,5 +1,6 @@
 import pathlib
 import os
+import doit.action
 
 HAS_PIP_API = False
 try:
@@ -9,9 +10,12 @@ except Exception as e:
     print(e)
 
 HERE = pathlib.Path(__file__).absolute().parent
+HOME_DIR = HERE.parent
+GHQ_DIR = HOME_DIR / 'ghq'
 SYNC_DIR = HERE / 'sync'
 SYNC_HOME_DIR = SYNC_DIR / 'HOME'
-SYNC_APPDATA_DIR = SYNC_DIR / 'APPDATA'
+SYNC_APPDATA_ROAMING_DIR = SYNC_DIR / 'APPDATA/Roaming'
+SYNC_APPDATA_LOCAL_DIR = SYNC_DIR / 'APPDATA/Local'
 
 PIP_MODULES = {
     'xonsh': 'xonsh[full]',
@@ -34,14 +38,108 @@ IS_WINDOWS = is_windows()
 
 if IS_WINDOWS:
     HOME_DIR = pathlib.Path(os.environ['USERPROFILE'])
-    APPDATA_DIR = pathlib.Path(os.environ['APPDATA'])
+    APPDATA_ROAMING_DIR = pathlib.Path(os.environ['APPDATA'])
+    APPDATA_LOCAL_DIR = APPDATA_ROAMING_DIR.parent / 'Local'
     PYTHON_BIN = pathlib.Path('C:/python310/python.exe')
     PYTHON_SCRIPTS = pathlib.Path('C:/python310/Scripts')
+    EXE = '.exe'
+    import vcenv
 else:
     HOME_DIR = pathlib.Path(os.environ['HOME'])
     from linux_tasks import *
     PYTHON_BIN = pathlib.Path('/usr/local/bin/python')
     PYTHON_SCRIPTS = HOME_DIR / '.local/bin'
+    EXE = ''
+
+
+class NEOVIM:
+    GITHUB = 'neovim/neovim'
+    SOURCE = GHQ_DIR / 'github.com/neovim/neovim/README.md'
+    BIN = HOME_DIR / f'local/bin/nvim{EXE}'
+    DEP_APTS = [
+        "ninja-build",
+        "gettext",
+        "libtool",
+        "libtool-bin",
+        "autoconf",
+        "automake",
+        "cmake",
+        "g++",
+        "pkg-config",
+        "unzip",
+        "curl",
+        "doxygen",
+    ]
+
+    @classmethod
+    def has_source(cls):
+        return cls.SOURCE.is_dir()
+
+
+def task_neovim_get():
+    actions = []
+    if IS_WINDOWS:
+        pass
+    else:
+        actions.append('sudo apt-get install -y ' + ' '.join(NEOVIM.DEP_APTS))
+    actions += [
+        'ghq get --branch v0.6.1 neovim/neovim',
+    ]
+    return {
+        'file_dep': [HOME_DIR / f'go/bin/ghq{EXE}'],
+        'actions': actions,
+        'targets': [NEOVIM.SOURCE],
+    }
+
+
+def mkdir(path: pathlib.Path):
+    print(path)
+    path.mkdir(parents=True, exist_ok=True)
+
+
+if IS_WINDOWS:
+    def task_neovim_build():
+        deps_dir = NEOVIM.SOURCE.parent / '.deps'
+        build_dir = NEOVIM.SOURCE.parent / 'build'
+        from cmake import CMAKE_BIN_DIR
+        cmake = f'{CMAKE_BIN_DIR}\\cmake.exe'
+        return {
+            'actions': [
+                # deps
+                (mkdir, [deps_dir]),
+                doit.action.CmdAction(
+                    f'{cmake} ../third-party -DCMAKE_BUILD_TYPE=RelWithDebInfo', cwd=deps_dir),
+                doit.action.CmdAction(
+                    f'{cmake} --build . --config RelWithDebInfo', cwd=deps_dir),
+                # nvim
+                (mkdir, [build_dir]),
+                doit.action.CmdAction(
+                    f'{cmake} .. -DCMAKE_BUILD_TYPE=RelWithDebInfo', cwd=build_dir),
+                doit.action.CmdAction(
+                    f'{cmake} --build . --config RelWithDebInfo', cwd=build_dir),
+                # install
+                doit.action.CmdAction(
+                    f'{cmake} --install . --config RelWithDebInfo --prefix {HOME_DIR / "local"}', cwd=build_dir),
+            ],
+            'targets': [NEOVIM.BIN],
+            'file_dep': [NEOVIM.SOURCE],
+            'verbosity': 2,
+        }
+
+else:
+    def task_neovim_build():
+        return {
+            'actions': [
+                f'mkdir -p {NEOVIM.SOURCE.parent}',
+                doit.action.CmdAction(
+                    f'make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX={HOME_DIR}/local" -j 4', cwd=NEOVIM.SOURCE.parent),
+                doit.action.CmdAction(
+                    f'make install', cwd=NEOVIM.SOURCE.parent)
+            ],
+            'targets': [NEOVIM.BIN],
+            'file_dep': [NEOVIM.SOURCE],
+            'verbosity': 2,
+        }
 
 
 def mklink(src, targets):
@@ -84,9 +182,9 @@ def task_create_link():
         }
 
     if IS_WINDOWS:
-        for src in traverse(SYNC_APPDATA_DIR):
-            target = src.relative_to(SYNC_APPDATA_DIR)
-            dst = APPDATA_DIR / target
+        for src in traverse(SYNC_APPDATA_ROAMING_DIR):
+            target = src.relative_to(SYNC_APPDATA_ROAMING_DIR)
+            dst = APPDATA_ROAMING_DIR / target
             yield {
                 'name': target,
                 # 'file_dep': [src],
@@ -95,6 +193,19 @@ def task_create_link():
                 'uptodate': [(check_link, (src, dst))],
                 'verbosity': 2,
             }
+
+        for src in traverse(SYNC_APPDATA_LOCAL_DIR):
+            target = src.relative_to(SYNC_APPDATA_LOCAL_DIR)
+            dst = APPDATA_LOCAL_DIR / target
+            yield {
+                'name': target,
+                # 'file_dep': [src],
+                'targets': [dst],
+                'actions': [(mklink, [src])],
+                'uptodate': [(check_link, (src, dst))],
+                'verbosity': 2,
+            }
+
 
 
 if IS_WINDOWS:
@@ -161,10 +272,10 @@ if IS_WINDOWS:
     CARGO_INSTALLS['lsd'] = 'lsd'
 else:
     CARGO_INSTALLS |= {
-            'exa': 'exa',
-            'gitui':'gitui',
-            'skim':'sk'
-            }
+        'exa': 'exa',
+        'gitui': 'gitui',
+        'skim': 'sk'
+    }
 
 
 def task_cargo():
@@ -172,7 +283,14 @@ def task_cargo():
         yield {
             'name': k,
             'actions': [f"cargo install {k}"],
-            'uptodate': [f'which {v}'],
-            'targets': [HOME_DIR / f'.cargo/bin/{v}'],
+            'uptodate': [True],
+            'targets': [HOME_DIR / f'.cargo/bin/{v}{EXE}'],
         }
 
+
+def task_go_ghq():
+    return {
+        'actions': [f'go install github.com/x-motemen/ghq@latest'],
+        'uptodate': [True],
+        'targets': [HOME_DIR / f'go/bin/ghq{EXE}'],
+    }

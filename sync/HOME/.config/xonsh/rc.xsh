@@ -90,25 +90,25 @@ $XONSH_APPEND_NEWLINE = True
 
 
 def path_append(src):
+    src = os.path.expanduser(src)
     for v in $PATH:
-        if v == os.path.expanduser(src):
+        if v == src:
             return
-    $PATH.append(src)
+    $PATH.append(str(pathlib.Path(src)))
 
 
+path_append('~/local/bin')
 path_append('~/go/bin')
 path_append('~/.cargo/bin')
 path_append('~/.local/bin')
 if platform.system() == 'Windows':
     path_append('C:\\Python310\\Scripts') 
     path_append('~\\tools')
-    path_append('~\\my_nvim\\install\\bin')
     path_append('C:\\Program Files\\Git\\usr\\bin')
     aliases['ls']=['lsd.exe']
     aliases['la']=['lsd.exe', '-a']
     aliases['ll']=['lsd.exe', '-al']
 else:
-    path_append('~/my_nvim/install/bin')
     if which('exa'):
         aliases['ls']='exa --color=auto --icons'
         aliases['la']='exa --color=auto --icons -a'

@@ -4,7 +4,7 @@ local config = {
     default_prog = {"xonsh"},
     font = wezterm.font("HackGenNerd Console"),
     font_size = 14.0,
-    color_scheme = "OneHalfDark",
+    -- color_scheme = "OneHalfDark",
     hide_tab_bar_if_only_one_tab = true,
     tab_bar_at_bottom = true,
     -- keybinds
@@ -16,7 +16,8 @@ local config = {
         { key = " ", mods = "LEADER", action = wezterm.action({ PasteFrom = "PrimarySelection" }) },
         { key = "[", mods = "LEADER", action = "ActivateCopyMode" },
         { key = "c", mods = "CTRL|SHIFT", action = wezterm.action({ CopyTo = "Clipboard" }) },
-        { key = "v", mods = "CTRL|SHIFT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
+        -- { key = "v", mods = "CTRL|SHIFT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
+        { key = "]", mods = "LEADER", action = wezterm.action({ PasteFrom = "Clipboard" }) },
         -- tab
         { key = "c", mods = "ALT", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
         { key = "h", mods = "ALT", action = wezterm.action({ ActivateTabRelative = -1 }) },
