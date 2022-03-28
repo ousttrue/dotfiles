@@ -7,11 +7,13 @@ import sys
 import os
 import platform
 
+
 def get_home()->pathlib.Path:
     home = os.environ.get('HOME')
     if home:
         return pathlib.Path(home)
     return pathlib.Path(os.environ['USERPROFILE'])
+
 
 def get_os_icon():
     import nerdfonts as nf
@@ -19,6 +21,7 @@ def get_os_icon():
         return nf.icons['fa_windows'] + ' '
     else:
         return nf.icons['fa_linux'] + ' '
+
 
 def which(cmd: str)->bool:
     return subprocess.run(f'which {cmd} > /dev/null 2>&1', shell=True).returncode == 0
@@ -85,20 +88,27 @@ $PROMPT = "{RED}┌{INTENSE_GREEN}{os_icon} [ {cwd} ] {gitstatus}\n{RED}└{INTE
 $BOTTOM_TOOLBAR = "{custom_date}"
 $XONSH_APPEND_NEWLINE = True
 
+
+def path_append(src):
+    for v in $PATH:
+        if v == os.path.expanduser(src):
+            return
+    $PATH.append(src)
+
+
+path_append('~/go/bin')
+path_append('~/.cargo/bin')
+path_append('~/.local/bin')
 if platform.system() == 'Windows':
-    $PATH.append('C:\\Python310\\Scripts')
-    $PATH.append('~\\tools')
-    $PATH.append('~\\go\\bin')
-    $PATH.append('~\\my_nvim\\install\\bin')
-    $PATH.append('C:\\Program Files\\Git\\usr\\bin')
-    $PATH.append('~\\.cargo\\bin')
+    path_append('C:\\Python310\\Scripts') 
+    path_append('~\\tools')
+    path_append('~\\my_nvim\\install\\bin')
+    path_append('C:\\Program Files\\Git\\usr\\bin')
     aliases['ls']=['lsd.exe']
     aliases['la']=['lsd.exe', '-a']
     aliases['ll']=['lsd.exe', '-al']
 else:
-    $PATH.append('~/.cargo/bin')
-    $PATH.append('~/.local/bin')
-    $PATH.append('~/my_nvim/install/bin')
+    path_append('~/my_nvim/install/bin')
     if which('exa'):
         aliases['ls']='exa --color=auto --icons'
         aliases['la']='exa --color=auto --icons -a'

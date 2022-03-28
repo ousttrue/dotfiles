@@ -28,7 +28,7 @@ return require("packer").startup(function(use)
             "kyazdani42/nvim-web-devicons", -- optional, for file icon
         },
         config = function()
-            vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap=true})
+            vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true })
             require("nvim-tree").setup {}
         end,
     }
@@ -57,6 +57,7 @@ return require("packer").startup(function(use)
         config = function()
             vim.api.nvim_set_keymap("n", "<S-f>", ":Autoformat<CR>", { noremap = true })
             vim.api.nvim_set_keymap("v", "<S-f>", ":Autoformat<CR>", { noremap = true })
+            vim.api.nvim_set_var("formatters_vue", { "yapf" })
         end,
     }
 end)
