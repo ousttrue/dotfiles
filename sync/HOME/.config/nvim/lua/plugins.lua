@@ -60,4 +60,27 @@ return require("packer").startup(function(use)
             vim.api.nvim_set_var("neoformat_basic_format_retab", "1")
         end,
     }
+
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            { "nvim-lua/popup.nvim" },
+            { "nvim-lua/plenary.nvim" },
+            { "kyazdani42/nvim-web-devicons" },
+            -- { "nvim-telescope/telescope-ghq.nvim" },
+            -- { "ousttrue/telescope-ghq.nvim" },
+        },
+        config = function()
+            -- require("telescope").load_extension("ghq")
+
+            local actions = require "telescope.actions"
+            require("telescope").setup {
+                defaults = { mappings = { i = {
+                    ["<c-[>"] = actions.close,
+                } } },
+            }
+            vim.api.nvim_set_keymap("n", "<Space><Space>", ":<C-u>Telescope<CR>", { noremap = true })
+            -- vim.api.nvim_set_keymap("n", "<F3>", ":<C-u>Telescope ghq list<CR>", {})
+        end,
+    }
 end)
