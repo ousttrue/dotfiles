@@ -30,7 +30,6 @@ except Exception as ex:
         format='%(asctime)s[%(levelname)s][%(name)s.%(funcName)s] %(message)s')
 logger.debug(f'HAS_COLOR: {HAS_COLOR}')
 
-
 MSYSTEM = os.environ.get('MSYSTEM')
 SELF = pathlib.Path(__file__).absolute()
 HERE = SELF.parent
@@ -67,10 +66,15 @@ def get_home() -> pathlib.Path:
 HOME = get_home()
 
 EXCLUDE = [
-    SELF, HERE / 'README.md', HERE / 'deploy.sh', HERE / 'scripts',
+    SELF,
+    HERE / 'README.md',
+    HERE / 'deploy.sh',
+    HERE / 'scripts',
 ]
-EXCLUDE_NAMES = ['.git', '.vscode', '.venv', '_build', 'docs', '.github', 'samples', '.gitignore', 'dodo.py']
-
+EXCLUDE_NAMES = [
+    '.git', '.vscode', '.venv', '_build', 'docs', '.github', 'samples',
+    '.gitignore', 'dodo.py'
+]
 
 APT = [
     'python3',
@@ -105,9 +109,7 @@ CARGO = [
     'fd-find',
 ]
 if not IS_WINDOWS:
-    CARGO += [
-        'exa'
-    ]
+    CARGO += ['exa']
 
 NPM = [
     'pyright',

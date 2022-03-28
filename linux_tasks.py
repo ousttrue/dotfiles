@@ -15,8 +15,6 @@ __all__ = [
     'task_rustup',
     'task_w3m_get',
     'task_w3m_build',
-    'task_sumneko_get',
-    'task_sumneko_build',
     'task_ranger_devicon_get',
 ]
 
@@ -81,16 +79,6 @@ class W3M:
         'libgc-dev',
         'libimlib2-dev',
     ]
-
-    @classmethod
-    def has_source(cls):
-        return cls.SOURCE.is_dir()
-
-
-class SUMNEKO:
-    GITHUB = 'sumneko/lua-language-server'
-    SOURCE = GHQ_DIR / 'github.com/sumneko/lua-language-server/README.md'
-    BIN = HOME_DIR / 'local/bin/lua-language-server'
 
     @classmethod
     def has_source(cls):
@@ -162,11 +150,10 @@ def task_python310_build():
 def task_rustup():
     return {
         'actions':
-            ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"],
-            'uptodate': ['which rustup'],
-            'targets': [HOME_DIR / '.cargo/bin/rustup'],
+        ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"],
+        'uptodate': ['which rustup'],
+        'targets': [HOME_DIR / '.cargo/bin/rustup'],
     }
-
 
 
 def task_w3m_get():
@@ -196,38 +183,12 @@ def task_w3m_build():
     }
 
 
-def task_sumneko_get():
-    return {
-        'actions': [
-            'ghq get sumneko/lua-language-server',
-        ],
-        'uptodate': [True],
-        'targets': [SUMNEKO.SOURCE],
-    }
-
-
-def task_sumneko_build():
-    def build():
-        with push_dir(SUMNEKO.SOURCE.parent / '3rd/luamake'):
-            run_or_raise('./compile/install.sh')
-        with push_dir(SUMNEKO.SOURCE.parent):
-            run_or_raise('./3rd/luamake/luamake', 'rebuild')
-            run_or_raise('cp', './bin/lua-language-server',
-                         f'{HOME_DIR / "local/bin"}')
-
-    return {
-        'actions': [build],
-        'targets': [SUMNEKO.BIN],
-        'file_dep': [SUMNEKO.SOURCE],
-        'verbosity': 2,
-    }
-
-
 def task_ranger_devicon_get():
     return {
         'actions': [
             'git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons',
         ],
         'uptodate': [True],
-        'targets': [HOME_DIR / '.config/ranger/plugins/ranger_devicons/README.md'],
+        'targets':
+        [HOME_DIR / '.config/ranger/plugins/ranger_devicons/README.md'],
     }

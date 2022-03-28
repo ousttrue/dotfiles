@@ -98,6 +98,7 @@ def mkdir(path: pathlib.Path):
 
 
 if IS_WINDOWS:
+
     def task_neovim_build():
         deps_dir = NEOVIM.SOURCE.parent / '.deps'
         build_dir = NEOVIM.SOURCE.parent / 'build'
@@ -108,37 +109,107 @@ if IS_WINDOWS:
                 # deps
                 (mkdir, [deps_dir]),
                 doit.action.CmdAction(
-                    f'{cmake} ../third-party -DCMAKE_BUILD_TYPE=RelWithDebInfo', cwd=deps_dir),
+                    f'{cmake} ../third-party -DCMAKE_BUILD_TYPE=RelWithDebInfo',
+                    cwd=deps_dir),
                 doit.action.CmdAction(
-                    f'{cmake} --build . --config RelWithDebInfo', cwd=deps_dir),
+                    f'{cmake} --build . --config RelWithDebInfo',
+                    cwd=deps_dir),
                 # nvim
                 (mkdir, [build_dir]),
                 doit.action.CmdAction(
-                    f'{cmake} .. -DCMAKE_BUILD_TYPE=RelWithDebInfo', cwd=build_dir),
+                    f'{cmake} .. -DCMAKE_BUILD_TYPE=RelWithDebInfo',
+                    cwd=build_dir),
                 doit.action.CmdAction(
-                    f'{cmake} --build . --config RelWithDebInfo', cwd=build_dir),
+                    f'{cmake} --build . --config RelWithDebInfo',
+                    cwd=build_dir),
                 # install
                 doit.action.CmdAction(
-                    f'{cmake} --install . --config RelWithDebInfo --prefix {HOME_DIR / "local"}', cwd=build_dir),
+                    f'{cmake} --install . --config RelWithDebInfo --prefix {HOME_DIR / "local"}',
+                    cwd=build_dir),
             ],
             'targets': [NEOVIM.BIN],
             'file_dep': [NEOVIM.SOURCE],
-            'verbosity': 2,
+            'verbosity':
+            2,
         }
 
 else:
+
     def task_neovim_build():
         return {
             'actions': [
                 f'mkdir -p {NEOVIM.SOURCE.parent}',
                 doit.action.CmdAction(
-                    f'make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX={HOME_DIR}/local" -j 4', cwd=NEOVIM.SOURCE.parent),
-                doit.action.CmdAction(
-                    f'make install', cwd=NEOVIM.SOURCE.parent)
+                    f'make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX={HOME_DIR}/local" -j 4',
+                    cwd=NEOVIM.SOURCE.parent),
+                doit.action.CmdAction(f'make install',
+                                      cwd=NEOVIM.SOURCE.parent)
             ],
             'targets': [NEOVIM.BIN],
             'file_dep': [NEOVIM.SOURCE],
-            'verbosity': 2,
+            'verbosity':
+            2,
+        }
+
+
+class SUMNEKO:
+    GITHUB = 'sumneko/lua-language-server'
+    SOURCE = GHQ_DIR / 'github.com/sumneko/lua-language-server/README.md'
+    BIN = HOME_DIR / 'local/bin/lua-language-server'
+
+    @classmethod
+    def has_source(cls):
+        return cls.SOURCE.is_dir()
+
+
+def task_sumneko_get():
+    return {
+        'actions': [
+            'ghq get sumneko/lua-language-server',
+        ],
+        'uptodate': [True],
+        'targets': [SUMNEKO.SOURCE],
+    }
+
+
+if IS_WINDOWS:
+
+    def task_sumneko_build():
+        sumneko_dir = SUMNEKO.SOURCE.parent
+        return {
+            'actions': [
+                doit.action.CmdAction('cmd /C compile\\install.bat',
+                                      cwd=(sumneko_dir / '3rd/luamake')),
+                doit.action.CmdAction('3rd\\luamake\\luamake.exe rebuild',
+                                      cwd=sumneko_dir),
+                doit.action.CmdAction(
+                    f'cp {sumneko_dir}/bin/lua-language-server.exe {HOME_DIR}/local/bin'
+                ),
+            ],
+            'targets': [SUMNEKO.BIN],
+            'file_dep': [SUMNEKO.SOURCE],
+            'verbosity':
+            2,
+        }
+
+else:
+
+    def task_sumneko_build():
+        sumneko_dir = SUMNEKO.SOURCE.parent
+        return {
+            'actions': [
+                doit.action.CmdAction('./compile/install.sh',
+                                      cwd=(sumneko_dir / '3rd/luamake')),
+                doit.action.CmdAction('./3rd/luamake/luamake rebuild',
+                                      cwd=sumneko_dir),
+                doit.action.CmdAction(
+                    f'cp {sumneko_dir}/bin/lua-language-server {HOME_DIR}/local/bin'
+                ),
+            ],
+            'targets': [SUMNEKO.BIN],
+            'file_dep': [SUMNEKO.SOURCE],
+            'verbosity':
+            2,
         }
 
 
@@ -207,7 +278,6 @@ def task_create_link():
             }
 
 
-
 if IS_WINDOWS:
     pass
 else:
@@ -246,6 +316,7 @@ else:
             ]
         }
 
+
 if PYTHON_BIN.exists():
 
     def task_pip_api():
@@ -255,13 +326,16 @@ if PYTHON_BIN.exists():
         }
 
     if HAS_PIP_API:
+
         def task_pip():
             for k, v in PIP_MODULES.items():
                 yield {
                     'name': k,
-                    'uptodate': [lambda: k in pip_api.installed_distributions()],
+                    'uptodate':
+                    [lambda: k in pip_api.installed_distributions()],
                     'actions': [f'{PYTHON_BIN} -m pip install "{v}"'],
                 }
+
 
 CARGO_INSTALLS = {
     'ripgrep': 'rg',
@@ -271,11 +345,7 @@ CARGO_INSTALLS = {
 if IS_WINDOWS:
     CARGO_INSTALLS['lsd'] = 'lsd'
 else:
-    CARGO_INSTALLS |= {
-        'exa': 'exa',
-        'gitui': 'gitui',
-        'skim': 'sk'
-    }
+    CARGO_INSTALLS |= {'exa': 'exa', 'gitui': 'gitui', 'skim': 'sk'}
 
 
 def task_cargo():
