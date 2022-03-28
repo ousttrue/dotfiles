@@ -79,7 +79,7 @@ return require("packer").startup(function(use)
                     ["<c-[>"] = actions.close,
                 } } },
             }
-            vim.api.nvim_set_keymap("n", "<C-P>", ":<C-u>Telescope<CR>", { noremap = true })
+            vim.api.nvim_set_keymap("n", "<Space><Space>", ":<C-u>Telescope<CR>", { noremap = true })
             vim.api.nvim_set_keymap("n", "<C-p>", ":<C-u>Telescope git_files<CR>", { noremap = true })
             -- vim.api.nvim_set_keymap("n", "<F3>", ":<C-u>Telescope ghq list<CR>", {})
         end,
