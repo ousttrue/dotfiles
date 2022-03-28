@@ -3,6 +3,7 @@ local wezterm = require "wezterm"
 local config = {
     default_prog = { "xonsh" },
     launch_menu = {},
+    enable_kitty_graphics = true,
     -- font
     font = wezterm.font "HackGenNerd Console",
     font_size = 14.0,

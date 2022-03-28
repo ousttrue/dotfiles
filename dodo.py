@@ -341,6 +341,7 @@ CARGO_INSTALLS = {
     'ripgrep': 'rg',
     'bat': 'bat',
     'stylua': 'stylua',
+    'viu': 'viu',
 }
 if IS_WINDOWS:
     CARGO_INSTALLS['lsd'] = 'lsd'
