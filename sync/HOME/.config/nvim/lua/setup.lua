@@ -36,8 +36,12 @@ local custom_lsp_attach = function(client)
     -- require('completion').on_attach()
 end
 
+-- Setup lspconfig.
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 lspconfig.sumneko_lua.setup {
     cmd = { LUA_SERVER },
+    capabilities = capabilities,
     settings = {
         Lua = {
             runtime = {
@@ -64,4 +68,5 @@ lspconfig.sumneko_lua.setup {
 
 lspconfig.pylsp.setup {
     on_attach = custom_lsp_attach,
+    capabilities = capabilities,
 }

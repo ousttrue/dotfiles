@@ -71,6 +71,38 @@ return require("packer").startup(function(use)
         end,
     }
 
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter.configs").setup {
+                -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+                ensure_installed = { "python", "lua", "markdown" },
+
+                -- Install languages synchronously (only applied to `ensure_installed`)
+                sync_install = false,
+
+                -- List of parsers to ignore installing
+                -- ignore_install = { "javascript" },
+
+                highlight = {
+                    -- `false` will disable the whole extension
+                    enable = true,
+
+                    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is the name of the parser)
+                    -- list of language that will be disabled
+                    -- disable = { "c", "rust" },
+
+                    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+                    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+                    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+                    -- Instead of true it can also be a list of languages
+                    -- additional_vim_regex_highlighting = false,
+                },
+            }
+        end,
+    }
+
     use "neovim/nvim-lspconfig" -- Collection of configurations for the built-in LSP client
     use {
         "folke/lsp-colors.nvim",
@@ -89,7 +121,7 @@ return require("packer").startup(function(use)
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
             require("trouble").setup {
-                auto_open = false, -- automatically open the list when you have diagnostics
+                auto_open = true, -- automatically open the list when you have diagnostics
             }
             -- Lua
             vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>", { silent = true, noremap = true })
@@ -111,6 +143,52 @@ return require("packer").startup(function(use)
         end,
     }
 
+    use {
+        "hrsh7th/nvim-cmp",
+        requires = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/vim-vsnip",
+            "hrsh7th/cmp-vsnip",
+            "hrsh7th/cmp-buffer",
+        },
+        config = function()
+            vim.opt.completeopt = "menu,menuone,noselect"
+
+            local cmp = require "cmp"
+
+            cmp.setup {
+                snippet = {
+                    -- REQUIRED - you must specify a snippet engine
+                    expand = function(args)
+                        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+                        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+                    end,
+                },
+                mapping = {
+                    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+                    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+                    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+                    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+                    ["<C-e>"] = cmp.mapping {
+                        i = cmp.mapping.abort(),
+                        c = cmp.mapping.close(),
+                    },
+                    ["<CR>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explici
+                },
+                sources = cmp.config.sources({
+                    { name = "nvim_lsp" },
+                    { name = "vsnip" }, -- For vsnip users.
+                    -- { name = 'luasnip' }, -- For luasnip users.
+                    -- { name = 'ultisnips' }, -- For ultisnips users.
+                    -- { name = 'snippy' }, -- For snippy users.
+                }, {
+                    { name = "buffer" },
+                }),
+            }
+        end,
+    }
     -- use "itchyny/lightline.vim"
     use {
         "nvim-lualine/lualine.nvim",

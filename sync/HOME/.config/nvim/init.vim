@@ -14,6 +14,7 @@ set noswapfile noundofile nobackup
 set hlsearch
 set hidden
 set termguicolors
+set number
 
 
 " ex mode を無効に
