@@ -144,17 +144,27 @@ return require("packer").startup(function(use)
     }
 
     use {
+        "ray-x/lsp_signature.nvim",
+        config = function()
+            require("lsp_signature").setup {}
+        end,
+    }
+
+    use {
         "hrsh7th/nvim-cmp",
         requires = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/vim-vsnip",
             "hrsh7th/cmp-vsnip",
             "hrsh7th/cmp-buffer",
+            "onsails/lspkind-nvim",
         },
         config = function()
             vim.opt.completeopt = "menu,menuone,noselect"
 
             local cmp = require "cmp"
+
+            local lspkind = require "lspkind"
 
             cmp.setup {
                 snippet = {
@@ -186,9 +196,17 @@ return require("packer").startup(function(use)
                 }, {
                     { name = "buffer" },
                 }),
+                formatting = {
+                    format = lspkind.cmp_format {
+                        mode = "symbol", -- show only symbol annotations
+                        maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                    },
+                },
             }
         end,
     }
+    use {}
+
     -- use "itchyny/lightline.vim"
     use {
         "nvim-lualine/lualine.nvim",
