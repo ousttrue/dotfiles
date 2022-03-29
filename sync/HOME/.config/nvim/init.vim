@@ -13,6 +13,7 @@ set belloff=all
 set noswapfile noundofile nobackup
 set hlsearch
 set hidden
+set termguicolors
 
 
 " ex mode を無効に
@@ -20,6 +21,8 @@ nnoremap Q <Nop>
 nnoremap q :close<CR>
 tnoremap <silent> <ESC> <C-\><C-n>
 nnoremap <C-l> :nohlsearch<CR><C-l>
+
+autocmd QuickFixCmdPost *grep* cwindow
 
 " python
 nnoremap <F5> :sp <CR> :term doit<CR>
