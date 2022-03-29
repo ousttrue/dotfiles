@@ -142,7 +142,7 @@ else:
                 doit.action.CmdAction(
                     f'make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX={HOME_DIR}/local" -j 4',
                     cwd=NEOVIM.SOURCE.parent),
-                doit.action.CmdAction(f'make install',
+                doit.action.CmdAction('make install',
                                       cwd=NEOVIM.SOURCE.parent)
             ],
             'targets': [NEOVIM.BIN],
@@ -361,7 +361,7 @@ def task_cargo():
 
 def task_go_ghq():
     return {
-        'actions': [f'go install github.com/x-motemen/ghq@latest'],
+        'actions': ['go install github.com/x-motemen/ghq@latest'],
         'uptodate': [True],
         'targets': [HOME_DIR / f'go/bin/ghq{EXE}'],
     }

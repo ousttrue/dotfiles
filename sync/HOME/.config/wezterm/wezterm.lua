@@ -6,7 +6,6 @@ local config = {
     enable_kitty_graphics = true,
     -- font
     font = wezterm.font "HackGenNerd Console",
-    font_size = 14.0,
     -- color_scheme = "OneHalfDark",
     hide_tab_bar_if_only_one_tab = true,
     tab_bar_at_bottom = true,
@@ -31,6 +30,7 @@ local config = {
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+    config.font_size = 14.0
     config.default_prog = { "C:/Python310/Scripts/xonsh.exe" }
     table.insert(config.launch_menu, { label = "wsl", args = { "wsl.exe", "~", "/usr/bin/bash", "--login" } })
 
@@ -54,6 +54,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         args = { "powershell.exe", "-NoLogo", "-NoExit", "-Command", "devcmd 16.0" },
     })
 else
+    config.font_size = 12.0
     config.default_prog = { "xonsh" }
     table.insert(config.launch_menu, { label = "zsh", args = { "zsh", "-l" } })
 end
