@@ -1,10 +1,9 @@
 '''
 vim like nested splitter
 '''
-from typing import Callable, TypeAlias, Dict, Optional, NamedTuple, List, Iterable, Tuple
+from typing import Callable, Optional, NamedTuple, List, Iterable, Tuple
 import asyncio
 from enum import Enum, auto
-from abc import ABCMeta, abstractmethod
 import prompt_toolkit
 import prompt_toolkit.key_binding
 import prompt_toolkit.key_binding.vi_state
@@ -87,127 +86,26 @@ def is_down(lhs: Rect, rhs: Rect) -> bool:
     return is_overlap_horizontally(lhs, rhs) and rhs.bottom < lhs.top
 
 
-class ISplitContext(metaclass=ABCMeta):
-    @abstractmethod
-    def create(self) -> prompt_toolkit.layout.AnyContainer: ...
-
-    @abstractmethod
-    def left_from(
-        self, target: prompt_toolkit.layout.AnyContainer) -> Optional[prompt_toolkit.layout.AnyContainer]: ...
-
-    @abstractmethod
-    def right_from(
-        self, target: prompt_toolkit.layout.AnyContainer) -> Optional[prompt_toolkit.layout.AnyContainer]: ...
-
-    @abstractmethod
-    def up_from(
-        self, target: prompt_toolkit.layout.AnyContainer) -> Optional[prompt_toolkit.layout.AnyContainer]: ...
-
-    @abstractmethod
-    def down_from(
-        self, target: prompt_toolkit.layout.AnyContainer) -> Optional[prompt_toolkit.layout.AnyContainer]: ...
-
-
-class SplitNode(prompt_toolkit.layout.DynamicContainer):
-    def __init__(self, kb: prompt_toolkit.key_binding.KeyBindings, context: ISplitContext, container: prompt_toolkit.layout.AnyContainer):
-        self.kb = kb
-        self.context = context
-        self.container = container
-
-        def has_focus() -> bool:
-            if isinstance(self.container, prompt_toolkit.layout.HSplit):
-                return False
-            if isinstance(self.container, prompt_toolkit.layout.VSplit):
-                return False
-            return prompt_toolkit.filters.has_focus(self.container)()
-
-        self.has_focus = prompt_toolkit.filters.Condition(has_focus)
-        self.add_key_binding(self.split_vertical, 'c-w', 'v')
-        self.add_key_binding(self.split_horizontal, 'c-w', 's')
-        self.add_key_binding(self.focus_left, 'c-w', 'h', eager=True)
-        self.add_key_binding(self.focus_down, 'c-w', 'j', eager=True)
-        self.add_key_binding(self.focus_up, 'c-w', 'k', eager=True)
-        self.add_key_binding(self.focus_right, 'c-w', 'l', eager=True)
-        super().__init__(lambda: self.container)
-
-    def add_key_binding(self, callback: Callable[[prompt_toolkit.key_binding.KeyPressEvent], None], *args, **kw):
-        self.kb.add(*args, **kw, filter=self.has_focus)(callback)
-
-    def split_vertical(self, e: prompt_toolkit.key_binding.KeyPressEvent):
-        new_node = self.context.create()
-        self.container = prompt_toolkit.layout.VSplit(
-            [
-                SplitNode(self.kb, self.context, self.container),
-                prompt_toolkit.layout.Window(char='|', width=1),
-                SplitNode(self.kb, self.context, new_node)
-            ])
-        e.app.layout.focus(new_node)
-
-    def split_horizontal(self, e: prompt_toolkit.key_binding.KeyPressEvent):
-        new_node = self.context.create()
-        self.container = prompt_toolkit.layout.HSplit(
-            [
-                SplitNode(self.kb, self.context, self.container),
-                prompt_toolkit.layout.Window(char='-', height=1),
-                SplitNode(self.kb, self.context, new_node)
-            ])
-        e.app.layout.focus(new_node)
-
-    def focus_left(self, e: prompt_toolkit.key_binding.KeyPressEvent):
-        c = prompt_toolkit.layout.to_container(self.get_container())
-        target = self.context.left_from(c)
-        if target:
-            e.app.layout.focus(target)
-
-    def focus_up(self, e: prompt_toolkit.key_binding.KeyPressEvent):
-        c = prompt_toolkit.layout.to_container(self.get_container())
-        target = self.context.up_from(c)
-        if target:
-            e.app.layout.focus(target)
-
-    def focus_down(self, e: prompt_toolkit.key_binding.KeyPressEvent):
-        c = prompt_toolkit.layout.to_container(self.get_container())
-        target = self.context.down_from(c)
-        if target:
-            e.app.layout.focus(target)
-
-    def focus_right(self, e: prompt_toolkit.key_binding.KeyPressEvent):
-        c = prompt_toolkit.layout.to_container(self.get_container())
-        target = self.context.right_from(c)
-        if target:
-            e.app.layout.focus(target)
-
-
-class SampleWindow:
-    def __init__(self) -> None:
-        self.buffer = prompt_toolkit.buffer.Buffer()
-        self.control = prompt_toolkit.layout.BufferControl(self.buffer)
-        self.container = prompt_toolkit.layout.Window(
-            self.control,
-            style=lambda: 'class:focus' if self.has_focus()else '',
-            wrap_lines=True)
-        self.has_focus = prompt_toolkit.filters.has_focus(self.container)
-
-    def __pt_container__(self):
-        return self.container
-
-
-class Factory(ISplitContext):
-    def __init__(self) -> None:
+class Factory:
+    def __init__(self, create, update) -> None:
         super().__init__()
-        self.containers: List[SampleWindow] = []
+        self.containers: List[prompt_toolkit.layout.AnyContainer] = []
+        self._create = create
+        self._update = update
 
     def create(self) -> prompt_toolkit.layout.AnyContainer:
-        c = SampleWindow()
+        c = self._create()
         self.containers.append(c)
-
-        # update
-        for i, c in enumerate(self.containers):
-            r = Rect.from_container(c)
-            c.buffer.text = f'{i}: {r}'
-            pass
-
+        self.update()
         return c
+
+    def update(self):
+        for i, c in enumerate(self.containers):
+            self._update(i, c)
+
+    def remove(self, c: prompt_toolkit.layout.AnyContainer):
+        self.containers.remove(c)
+        self.update()
 
     def _find_all(self, target: prompt_toolkit.layout.AnyContainer, pred) -> Iterable[Tuple[prompt_toolkit.layout.AnyContainer, Rect]]:
         r = Rect.from_container(target)
@@ -251,10 +149,126 @@ class Factory(ISplitContext):
         return found
 
 
+class SplitNode(prompt_toolkit.layout.DynamicContainer):
+    def __init__(self, kb: prompt_toolkit.key_binding.KeyBindings, factory: Factory, container: prompt_toolkit.layout.AnyContainer):
+        self.kb = kb
+        self.factory = factory
+        self.container = container
+
+        def has_focus() -> bool:
+            if isinstance(self.container, prompt_toolkit.layout.HSplit):
+                return False
+            if isinstance(self.container, prompt_toolkit.layout.VSplit):
+                return False
+            return prompt_toolkit.filters.has_focus(self.container)()
+
+        self.has_focus = prompt_toolkit.filters.Condition(has_focus)
+        self.add_key_binding(self.split_vertical, 'c-w', 'v')
+        self.add_key_binding(self.split_horizontal, 'c-w', 's')
+        self.add_key_binding(self.focus_left, 'c-w', 'h', eager=True)
+        self.add_key_binding(self.focus_down, 'c-w', 'j', eager=True)
+        self.add_key_binding(self.focus_up, 'c-w', 'k', eager=True)
+        self.add_key_binding(self.focus_right, 'c-w', 'l', eager=True)
+        self.add_key_binding(self.close, 'q', eager=True)
+        super().__init__(lambda: self.container)
+
+    def add_key_binding(self, callback: Callable[[prompt_toolkit.key_binding.KeyPressEvent], None], *args, **kw):
+        self.kb.add(*args, **kw, filter=self.has_focus)(callback)
+
+    def split_vertical(self, e: prompt_toolkit.key_binding.KeyPressEvent):
+        new_node = self.factory.create()
+        self.container = prompt_toolkit.layout.VSplit(
+            [
+                SplitNode(self.kb, self.factory, self.container),
+                prompt_toolkit.layout.Window(char='|', width=1),
+                SplitNode(self.kb, self.factory, new_node)
+            ])
+        e.app.layout.focus(new_node)
+
+    def split_horizontal(self, e: prompt_toolkit.key_binding.KeyPressEvent):
+        new_node = self.factory.create()
+        self.container = prompt_toolkit.layout.HSplit(
+            [
+                SplitNode(self.kb, self.factory, self.container),
+                prompt_toolkit.layout.Window(char='-', height=1),
+                SplitNode(self.kb, self.factory, new_node)
+            ])
+        e.app.layout.focus(new_node)
+
+    def focus_left(self, e: prompt_toolkit.key_binding.KeyPressEvent):
+        c = prompt_toolkit.layout.to_container(self.get_container())
+        target = self.factory.left_from(c)
+        if target:
+            e.app.layout.focus(target)
+
+    def focus_up(self, e: prompt_toolkit.key_binding.KeyPressEvent):
+        c = prompt_toolkit.layout.to_container(self.get_container())
+        target = self.factory.up_from(c)
+        if target:
+            e.app.layout.focus(target)
+
+    def focus_down(self, e: prompt_toolkit.key_binding.KeyPressEvent):
+        c = prompt_toolkit.layout.to_container(self.get_container())
+        target = self.factory.down_from(c)
+        if target:
+            e.app.layout.focus(target)
+
+    def focus_right(self, e: prompt_toolkit.key_binding.KeyPressEvent):
+        c = prompt_toolkit.layout.to_container(self.get_container())
+        target = self.factory.right_from(c)
+        if target:
+            e.app.layout.focus(target)
+
+    def close(self, e: prompt_toolkit.key_binding.KeyPressEvent):
+        parent = e.app.layout.get_parent(self)
+
+        self.factory.remove(self.container)
+
+        next_focus = None
+        if parent:
+            if isinstance(parent, (prompt_toolkit.layout.VSplit, prompt_toolkit.layout.HSplit)):
+                for child in parent.children:
+                    if isinstance(child, SplitNode):
+                        if child != self:
+                            next_focus = child
+
+            parent_parent = e.app.layout.get_parent(parent)
+            if isinstance(parent_parent, SplitNode):
+                parent_parent.container = next_focus
+
+            if next_focus:
+                e.app.layout.focus(next_focus)
+
+
+class SampleWindow:
+    def __init__(self, index: int) -> None:
+        self.index = index
+        self.buffer = prompt_toolkit.buffer.Buffer()
+        self.control = prompt_toolkit.layout.BufferControl(self.buffer)
+        self.container = prompt_toolkit.layout.Window(
+            self.control,
+            style=lambda: 'class:focus' if self.has_focus()else '',
+            wrap_lines=True)
+        self.has_focus = prompt_toolkit.filters.has_focus(self.container)
+
+    def __pt_container__(self):
+        return self.container
+
+
 async def main():
     kb = prompt_toolkit.key_binding.KeyBindings()
 
-    factory = Factory()
+    next_index = [0]
+
+    def create():
+        c = SampleWindow(next_index[0])
+        next_index[0] += 1
+        return c
+
+    def update(i, c):
+        r = Rect.from_container(c)
+        c.buffer.text = f'{c.index}: {r}'
+    factory = Factory(create, update)
 
     root = SplitNode(kb, factory, factory.create())
     app = prompt_toolkit.Application(
@@ -266,7 +280,7 @@ async def main():
         style=prompt_toolkit.styles.Style.from_dict(STYLE),
     )
 
-    @ kb.add('q', eager=True)
+    @ kb.add('Q', eager=True)
     def quit(e: prompt_toolkit.key_binding.KeyPressEvent):
         app.exit()
 
