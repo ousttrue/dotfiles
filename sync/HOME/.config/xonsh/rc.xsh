@@ -57,7 +57,7 @@ $XONSH_SHOW_TRACEBACK = True
 # サブプロセスタイムアウトのメッセージ抑制
 $SUPPRESS_BRANCH_TIMEOUT_MESSAGE = True
 # キー入力即評価（サイコー）
-$UPDATE_COMPLETIONS_ON_KEYPRESS = True
+# $UPDATE_COMPLETIONS_ON_KEYPRESS = True
 
 # lsコマンドの結果の見た目
 $LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30"
