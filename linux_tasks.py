@@ -1,4 +1,5 @@
 from typing import Union
+import doit.action
 import pathlib
 import platform
 import os
@@ -16,6 +17,7 @@ __all__ = [
     'task_w3m_get',
     'task_w3m_build',
     'task_ranger_devicon_get',
+    'task_zig_download',
 ]
 
 
@@ -43,7 +45,7 @@ def get_home():
 HOME_DIR = get_home()
 GHQ_DIR = HOME_DIR / 'ghq'
 USR_LOCAL = pathlib.Path('/usr/local')
-#LOCAL_DIR = HOME_DIR / 'local'
+# LOCAL_DIR = HOME_DIR / 'local'
 LOCAL_DIR = USR_LOCAL
 LOCAL_BIN = LOCAL_DIR / 'bin'
 HERE = pathlib.Path(__file__).absolute().parent
@@ -85,7 +87,14 @@ class W3M:
         return cls.SOURCE.is_dir()
 
 
+class ZIG:
+    ARCHIVE_URL = 'https://ziglang.org/download/0.9.1/zig-linux-x86_64-0.9.1.tar.xz'
+    ARCHIVE = HOME_DIR / 'local/src/zig-linux-x86_64-0.9.1.tar.xz'
+    BIN = HOME_DIR / 'local/bin/zig'
+
+
 def task_python310_download():
+
     def download():
         PYTHON310.ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
         response = urllib.request.urlopen(PYTHON310.ARCHIVE_URL)
@@ -104,17 +113,21 @@ def run_or_raise(*args: Union[str, pathlib.Path]):
     with subprocess.Popen(args,
                           stdout=subprocess.PIPE,
                           stderr=subprocess.STDOUT) as p:
+        assert (p.stdout)
         while p.poll() is None:
-            l = p.stdout.readline()
-            if b"The necessary bits to build these optional modules were not found:" in l:
-                print(l)
+            line = p.stdout.readline()
+            if isinstance(
+                    line, bytes
+            ) and b"The necessary bits to build these optional modules were not found:" in line:
+                print(line)
         return_code = p.wait()
     print(return_code)
     if return_code:
-        raise subprocess.CalledProcessError(return_code, cmd)
+        raise subprocess.CalledProcessError(return_code, cmd=f'{args}')
 
 
 def task_python310_build():
+
     def build():
         # extract
         with push_dir(PYTHON310.ARCHIVE.parent):
@@ -169,6 +182,7 @@ def task_w3m_get():
 
 
 def task_w3m_build():
+
     def build():
         with push_dir(W3M.SOURCE.parent):
             run_or_raise('./configure', f'--prefix={HOME_DIR}/local')
@@ -191,4 +205,25 @@ def task_ranger_devicon_get():
         'uptodate': [True],
         'targets':
         [HOME_DIR / '.config/ranger/plugins/ranger_devicons/README.md'],
+    }
+
+
+def task_zig_download():
+
+    def download():
+        ZIG.ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
+        response = urllib.request.urlopen(ZIG.ARCHIVE_URL)
+        data = response.read()
+        ZIG.ARCHIVE.write_bytes(data)
+
+    return {
+        'actions': [
+            f'make -p {ZIG.ARCHIVE.parent}',
+            f'curl {ZIG.ARCHIVE_URL} -o {ZIG.ARCHIVE}',
+            doit.action.CmdAction(f'tar xf {ZIG.ARCHIVE}',
+                                  cwd=ZIG.ARCHIVE.parent),
+            f'ln -s {ZIG.ARCHIVE.parent}/{ZIG.ARCHIVE.stem}/zig {ZIG.BIN}',
+        ],
+        'targets': [ZIG.BIN],
+        'uptodate': [True],
     }

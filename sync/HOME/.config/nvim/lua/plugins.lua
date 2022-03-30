@@ -77,7 +77,7 @@ return require("packer").startup(function(use)
         config = function()
             require("nvim-treesitter.configs").setup {
                 -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-                ensure_installed = { "python", "lua", "markdown" },
+                ensure_installed = { "python", "lua", "markdown", "zig" },
 
                 -- Install languages synchronously (only applied to `ensure_installed`)
                 sync_install = false,
