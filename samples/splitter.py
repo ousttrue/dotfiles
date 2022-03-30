@@ -4,6 +4,7 @@ vim like nested splitter
 from typing import Callable, Optional, NamedTuple, List, Iterable, Tuple
 import asyncio
 from enum import Enum, auto
+from prompt_toolkit.application.current import get_app
 import prompt_toolkit
 import prompt_toolkit.key_binding
 import prompt_toolkit.key_binding.vi_state
@@ -14,6 +15,7 @@ import prompt_toolkit.cursor_shapes
 import prompt_toolkit.filters
 import prompt_toolkit.widgets
 import prompt_toolkit.styles
+import prompt_toolkit.utils
 
 
 class Direction(Enum):
@@ -86,71 +88,54 @@ def is_down(lhs: Rect, rhs: Rect) -> bool:
     return is_overlap_horizontally(lhs, rhs) and rhs.bottom < lhs.top
 
 
-class Factory:
-    def __init__(self, create, update) -> None:
-        super().__init__()
-        self.containers: List[prompt_toolkit.layout.AnyContainer] = []
-        self._create = create
-        self._update = update
+def _find_all(layout: prompt_toolkit.layout.Layout, target: prompt_toolkit.layout.AnyContainer, pred) -> Iterable[Tuple[prompt_toolkit.layout.AnyContainer, Rect]]:
+    r = Rect.from_container(target)
+    for c in layout.find_all_windows():
+        if c == target:
+            continue
+        cr = Rect.from_container(c)
+        if pred(cr, r):
+            yield c, cr
 
-    def create(self) -> prompt_toolkit.layout.AnyContainer:
-        c = self._create()
-        self.containers.append(c)
-        self.update()
-        return c
 
-    def update(self):
-        for i, c in enumerate(self.containers):
-            self._update(i, c)
+def left_from(layout: prompt_toolkit.layout.Layout, target: prompt_toolkit.layout.AnyContainer) -> Optional[prompt_toolkit.layout.AnyContainer]:
+    found = None
+    r = Rect(0, 0, 0, 0)
+    for c, cr in _find_all(layout, target, is_left):
+        if not found or cr.right > r.right:
+            found, r = c, cr
+    return found
 
-    def remove(self, c: prompt_toolkit.layout.AnyContainer):
-        self.containers.remove(c)
-        self.update()
 
-    def _find_all(self, target: prompt_toolkit.layout.AnyContainer, pred) -> Iterable[Tuple[prompt_toolkit.layout.AnyContainer, Rect]]:
-        r = Rect.from_container(target)
-        for c in self.containers:
-            if c == target:
-                continue
-            cr = Rect.from_container(c)
-            if pred(cr, r):
-                yield c, cr
+def right_from(layout: prompt_toolkit.layout.Layout, target: prompt_toolkit.layout.AnyContainer) -> Optional[prompt_toolkit.layout.AnyContainer]:
+    found = None
+    r = Rect(0, 0, 0, 0)
+    for c, cr in _find_all(layout, target, is_right):
+        if not found or cr.left < r.left:
+            found, r = c, cr
+    return found
 
-    def left_from(self, target: prompt_toolkit.layout.AnyContainer) -> Optional[prompt_toolkit.layout.AnyContainer]:
-        found = None
-        r = Rect(0, 0, 0, 0)
-        for c, cr in self._find_all(target, is_left):
-            if not found or cr.right > r.right:
-                found, r = c, cr
-        return found
 
-    def right_from(self, target: prompt_toolkit.layout.AnyContainer) -> Optional[prompt_toolkit.layout.AnyContainer]:
-        found = None
-        r = Rect(0, 0, 0, 0)
-        for c, cr in self._find_all(target, is_right):
-            if not found or cr.left < r.left:
-                found, r = c, cr
-        return found
+def up_from(layout: prompt_toolkit.layout.Layout, target: prompt_toolkit.layout.AnyContainer) -> Optional[prompt_toolkit.layout.AnyContainer]:
+    found = None
+    r = Rect(0, 0, 0, 0)
+    for c, cr in _find_all(layout, target, is_up):
+        if not found or cr.bottom > r.bottom:
+            found, r = c, cr
+    return found
 
-    def up_from(self, target: prompt_toolkit.layout.AnyContainer) -> Optional[prompt_toolkit.layout.AnyContainer]:
-        found = None
-        r = Rect(0, 0, 0, 0)
-        for c, cr in self._find_all(target, is_up):
-            if not found or cr.bottom > r.bottom:
-                found, r = c, cr
-        return found
 
-    def down_from(self, target: prompt_toolkit.layout.AnyContainer) -> Optional[prompt_toolkit.layout.AnyContainer]:
-        found = None
-        r = Rect(0, 0, 0, 0)
-        for c, cr in self._find_all(target, is_down):
-            if not found or cr.top < r.top:
-                found, r = c, cr
-        return found
+def down_from(layout: prompt_toolkit.layout.Layout, target: prompt_toolkit.layout.AnyContainer) -> Optional[prompt_toolkit.layout.AnyContainer]:
+    found = None
+    r = Rect(0, 0, 0, 0)
+    for c, cr in _find_all(layout, target, is_down):
+        if not found or cr.top < r.top:
+            found, r = c, cr
+    return found
 
 
 class SplitNode(prompt_toolkit.layout.DynamicContainer):
-    def __init__(self, kb: prompt_toolkit.key_binding.KeyBindings, factory: Factory, container: prompt_toolkit.layout.AnyContainer):
+    def __init__(self, kb: prompt_toolkit.key_binding.KeyBindings, factory, container: prompt_toolkit.layout.AnyContainer):
         self.kb = kb
         self.factory = factory
         self.container = container
@@ -176,7 +161,7 @@ class SplitNode(prompt_toolkit.layout.DynamicContainer):
         self.kb.add(*args, **kw, filter=self.has_focus)(callback)
 
     def split_vertical(self, e: prompt_toolkit.key_binding.KeyPressEvent):
-        new_node = self.factory.create()
+        new_node = self.factory()
         self.container = prompt_toolkit.layout.VSplit(
             [
                 SplitNode(self.kb, self.factory, self.container),
@@ -186,7 +171,7 @@ class SplitNode(prompt_toolkit.layout.DynamicContainer):
         e.app.layout.focus(new_node)
 
     def split_horizontal(self, e: prompt_toolkit.key_binding.KeyPressEvent):
-        new_node = self.factory.create()
+        new_node = self.factory()
         self.container = prompt_toolkit.layout.HSplit(
             [
                 SplitNode(self.kb, self.factory, self.container),
@@ -197,47 +182,54 @@ class SplitNode(prompt_toolkit.layout.DynamicContainer):
 
     def focus_left(self, e: prompt_toolkit.key_binding.KeyPressEvent):
         c = prompt_toolkit.layout.to_container(self.get_container())
-        target = self.factory.left_from(c)
+        target = left_from(e.app.layout, c)
         if target:
             e.app.layout.focus(target)
 
     def focus_up(self, e: prompt_toolkit.key_binding.KeyPressEvent):
         c = prompt_toolkit.layout.to_container(self.get_container())
-        target = self.factory.up_from(c)
+        target = up_from(e.app.layout, c)
         if target:
             e.app.layout.focus(target)
 
     def focus_down(self, e: prompt_toolkit.key_binding.KeyPressEvent):
         c = prompt_toolkit.layout.to_container(self.get_container())
-        target = self.factory.down_from(c)
+        target = down_from(e.app.layout, c)
         if target:
             e.app.layout.focus(target)
 
     def focus_right(self, e: prompt_toolkit.key_binding.KeyPressEvent):
         c = prompt_toolkit.layout.to_container(self.get_container())
-        target = self.factory.right_from(c)
+        target = right_from(e.app.layout, c)
         if target:
             e.app.layout.focus(target)
 
     def close(self, e: prompt_toolkit.key_binding.KeyPressEvent):
         parent = e.app.layout.get_parent(self)
 
-        self.factory.remove(self.container)
+        next_focus = []
 
-        next_focus = None
-        if parent:
-            if isinstance(parent, (prompt_toolkit.layout.VSplit, prompt_toolkit.layout.HSplit)):
-                for child in parent.children:
+        def traverse(x):
+            if isinstance(x, (prompt_toolkit.layout.VSplit, prompt_toolkit.layout.HSplit)):
+                for child in x.children:
                     if isinstance(child, SplitNode):
                         if child != self:
-                            next_focus = child
+                            next_focus.append(child)
+                            break
+                    else:
+                        traverse(child)
 
-            parent_parent = e.app.layout.get_parent(parent)
-            if isinstance(parent_parent, SplitNode):
-                parent_parent.container = next_focus
+        if parent:
+            if isinstance(parent, (prompt_toolkit.layout.VSplit, prompt_toolkit.layout.HSplit)):
+                traverse(parent)
 
             if next_focus:
-                e.app.layout.focus(next_focus)
+
+                parent_parent = e.app.layout.get_parent(parent)
+                if isinstance(parent_parent, SplitNode):
+                    parent_parent.container = next_focus[0]
+
+                    e.app.layout.focus(next_focus[0])
 
 
 class SampleWindow:
@@ -261,16 +253,21 @@ async def main():
     next_index = [0]
 
     def create():
-        c = SampleWindow(next_index[0])
+        w = SampleWindow(next_index[0])
         next_index[0] += 1
-        return c
 
-    def update(i, c):
-        r = Rect.from_container(c)
-        c.buffer.text = f'{c.index}: {r}'
-    factory = Factory(create, update)
+        async def task():
+            for c in get_app().layout.walk():
+                if isinstance(c, SplitNode):
+                    if isinstance(c.container, SampleWindow):
+                        r = Rect.from_container(c.container)
+                        c.container.buffer.text = f'{c.container.index}: {r}'
+        # enqueue next frame for ensure render_info
+        asyncio.get_running_loop().create_task(task())
 
-    root = SplitNode(kb, factory, factory.create())
+        return w
+
+    root = SplitNode(kb, create, create())
     app = prompt_toolkit.Application(
         layout=prompt_toolkit.layout.Layout(root),
         full_screen=True,
