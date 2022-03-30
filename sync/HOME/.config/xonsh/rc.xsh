@@ -102,6 +102,7 @@ path_append('~/go/bin')
 path_append('~/.cargo/bin')
 path_append('~/.local/bin')
 if platform.system() == 'Windows':
+    import vcenv
     path_append('C:\\Python310\\Scripts') 
     path_append('~\\tools')
     path_append('C:\\Program Files\\Git\\usr\\bin')

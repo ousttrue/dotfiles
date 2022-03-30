@@ -6,6 +6,8 @@ HAS_PIP_API = False
 try:
     import pip_api
     HAS_PIP_API = True
+    # slow
+    PIP_INSTALLED = pip_api.installed_distributions()  # type: ignore
 except Exception as e:
     print(e)
 
@@ -332,7 +334,7 @@ if PYTHON_BIN.exists():
                 yield {
                     'name': k,
                     'uptodate':
-                    [lambda: k in pip_api.installed_distributions()],
+                    [lambda: k in PIP_INSTALLED],
                     'actions': [f'{PYTHON_BIN} -m pip install "{v}"'],
                 }
 
