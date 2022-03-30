@@ -17,7 +17,7 @@ __all__ = [
     'task_w3m_get',
     'task_w3m_build',
     'task_ranger_devicon_get',
-    'task_zig_download',
+    'task_zig',
 ]
 
 
@@ -90,7 +90,29 @@ class W3M:
 class ZIG:
     ARCHIVE_URL = 'https://ziglang.org/download/0.9.1/zig-linux-x86_64-0.9.1.tar.xz'
     ARCHIVE = HOME_DIR / 'local/src/zig-linux-x86_64-0.9.1.tar.xz'
+    ARCHIVE_EXTRACT = HOME_DIR / 'local/src/zig-linux-x86_64-0.9.1'
     BIN = HOME_DIR / 'local/bin/zig'
+
+
+def task_zig():
+
+    def download():
+        ZIG.ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
+        response = urllib.request.urlopen(ZIG.ARCHIVE_URL)
+        data = response.read()
+        ZIG.ARCHIVE.write_bytes(data)
+
+    return {
+        'actions': [
+            f'make -p {ZIG.ARCHIVE.parent}',
+            f'curl {ZIG.ARCHIVE_URL} -o {ZIG.ARCHIVE}',
+            doit.action.CmdAction(f'tar xf {ZIG.ARCHIVE}',
+                                  cwd=ZIG.ARCHIVE.parent),
+            f'ln -s {ZIG.ARCHIVE_EXTRACT}/zig {ZIG.BIN}',
+        ],
+        'targets': [ZIG.BIN],
+        'uptodate': [True],
+    }
 
 
 def task_python310_download():
@@ -205,25 +227,4 @@ def task_ranger_devicon_get():
         'uptodate': [True],
         'targets':
         [HOME_DIR / '.config/ranger/plugins/ranger_devicons/README.md'],
-    }
-
-
-def task_zig_download():
-
-    def download():
-        ZIG.ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
-        response = urllib.request.urlopen(ZIG.ARCHIVE_URL)
-        data = response.read()
-        ZIG.ARCHIVE.write_bytes(data)
-
-    return {
-        'actions': [
-            f'make -p {ZIG.ARCHIVE.parent}',
-            f'curl {ZIG.ARCHIVE_URL} -o {ZIG.ARCHIVE}',
-            doit.action.CmdAction(f'tar xf {ZIG.ARCHIVE}',
-                                  cwd=ZIG.ARCHIVE.parent),
-            f'ln -s {ZIG.ARCHIVE.parent}/{ZIG.ARCHIVE.stem}/zig {ZIG.BIN}',
-        ],
-        'targets': [ZIG.BIN],
-        'uptodate': [True],
     }

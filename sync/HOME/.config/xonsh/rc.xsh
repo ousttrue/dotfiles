@@ -120,6 +120,7 @@ else:
         aliases['ll']='ls --color=auto -al'
 
 aliases["cd.dotfiles"] = "cd ~/dotfiles"
+aliases["cd.local"] = "cd ~/local"
 aliases["gs"] = "git status"
 aliases["gl"] = "git log --oneline --decorate --graph --branches --tags --remotes"
 
