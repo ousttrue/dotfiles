@@ -32,7 +32,7 @@ local config = {
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     config.font_size = 14.0
     config.default_prog = { "C:/Python310/Scripts/xonsh.exe" }
-    table.insert(config.launch_menu, { label = "wsl", args = { "wsl.exe", "~", "/usr/bin/bash", "--login" } })
+    table.insert(config.launch_menu, { label = "wsl", args = { "wsl.exe", "~", "/usr/bin/bash", "--login", "-c", "xonsh" } })
 
     table.insert(config.launch_menu, { label = "PowerShell 5", args = { "powershell.exe", "-NoLogo" } })
     --table.insert(config.launch_menu, { label = "PowerShell", args = {"pwsh.exe", "-NoLogo"} })
