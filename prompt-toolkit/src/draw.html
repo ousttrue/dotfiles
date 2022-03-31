@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" /><link rel="next" title="pyvim" href="../pyvim.html" /><link rel="prev" title="Layout" href="layout.html" />
+<link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" /><link rel="next" title="Buffer &lt; BufferControl &lt; Window" href="buffer.html" /><link rel="prev" title="Layout" href="layout.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
         <title>draw - shell note ドキュメント</title>
@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=fade93df149f7c5fedb3ff897f799dc7d283b420" />
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     
     
 
@@ -135,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -159,24 +160,34 @@
 <li class="toctree-l1"><a class="reference internal" href="../../doit.html">doit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../xonsh.html">xonsh</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">prompt-toolkit</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../examples.html">examples</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Source読む</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../examples/index.html">examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/pager.html">pager.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Source読む</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="input.html">input</a></li>
 <li class="toctree-l3"><a class="reference internal" href="output.html">output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layout.html">Layout</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">draw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buffer.html">Buffer &lt; BufferControl &lt; Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keybinding.html">KeyBinding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="application.html">Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="search.html">search</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="layout.html">Layout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pyvim.html">pyvim</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../projects/index.html">using prompt_toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../projects/ptterm.html">ptterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../projects/pypager.html">pypager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../projects/pyvim.html">pyvim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../projects/ptfm.html">ptfm</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../pygments.html">pygments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../wt.html">WindowsTerminal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../font.html">font</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../font/index.html">font</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dotfiles.html">dotfiles</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../obsidian/index.html">Index</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
-</ul>
-</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">external</span></p>
 <ul>
@@ -201,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -215,19 +226,64 @@ Application -&gt; _redraw;
 _redraw -&gt; Renderer_render;
 Renderer_render -&gt; screen[label="layout.container.write_to_screen"];
 screen -&gt; _output_screen_diff;
-}</section>
+}<section id="renderer">
+<h2>Renderer<a class="headerlink" href="#renderer" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_output_screen_diff</span><span class="p">()</span>
+    <span class="c1"># Loop over the rows.</span>
+    <span class="n">row_count</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">screen</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">previous_screen</span><span class="o">.</span><span class="n">height</span><span class="p">),</span> <span class="n">height</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Column counter.</span>
+
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">row_count</span><span class="p">):</span>
+        <span class="n">new_row</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">data_buffer</span><span class="p">[</span><span class="n">y</span><span class="p">]</span>
+        <span class="n">previous_row</span> <span class="o">=</span> <span class="n">previous_screen</span><span class="o">.</span><span class="n">data_buffer</span><span class="p">[</span><span class="n">y</span><span class="p">]</span>
+        <span class="n">zero_width_escapes_row</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">zero_width_escapes</span><span class="p">[</span><span class="n">y</span><span class="p">]</span>
+
+        <span class="n">new_max_line_len</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">get_max_column_index</span><span class="p">(</span><span class="n">new_row</span><span class="p">))</span>
+        <span class="n">previous_max_line_len</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">get_max_column_index</span><span class="p">(</span><span class="n">previous_row</span><span class="p">))</span>
+
+        <span class="c1"># Loop over the columns.</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">new_max_line_len</span><span class="p">:</span>
+            <span class="n">new_char</span> <span class="o">=</span> <span class="n">new_row</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+            <span class="n">old_char</span> <span class="o">=</span> <span class="n">previous_row</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+            <span class="n">char_width</span> <span class="o">=</span> <span class="n">new_char</span><span class="o">.</span><span class="n">width</span> <span class="ow">or</span> <span class="mi">1</span>
+
+            <span class="c1"># each line / each column</span>
+
+
+<span class="k">class</span> <span class="nc">Renderer</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">screen</span> <span class="o">=</span> <span class="n">Screen</span><span class="p">()</span>
+
+        <span class="c1"># Screen.data_buffer と Screen.zero_width_escapes に情報を詰め込む</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">container</span><span class="o">.</span><span class="n">write_to_screen</span><span class="p">(</span><span class="n">screen</span><span class="o">...</span><span class="p">)</span>
+        <span class="n">screen</span><span class="o">.</span><span class="n">draw_all_floats</span><span class="p">()</span>
+
+        <span class="c1"># Screen.data_buffer と Screen.zero_width_escapes をoutput に出力する</span>
+        <span class="n">_output_screen_diff</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="screen">
+<h2>Screen<a class="headerlink" href="#screen" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Screen.data_buffer</span></code> に <code class="docutils literal notranslate"><span class="pre">row/column</span></code> 情報が入っている。</p>
+</section>
+<section id="reference">
+<h2>reference<a class="headerlink" href="#reference" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../pyvim.html">
+          <a class="next-page" href="buffer.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">pyvim</div>
+                <div class="title">Buffer &lt; BufferControl &lt; Window</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -256,8 +312,29 @@ screen -&gt; _output_screen_diff;
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">draw</a><ul>
+<li><a class="reference internal" href="#renderer">Renderer</a></li>
+<li><a class="reference internal" href="#screen">Screen</a></li>
+<li><a class="reference internal" href="#reference">reference</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

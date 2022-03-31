@@ -1,0 +1,405 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" /><link rel="next" title="ptfm" href="ptfm.html" /><link rel="prev" title="pypager" href="pypager.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
+        <title>pyvim - shell note ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=fade93df149f7c5fedb3ff897f799dc7d283b420" />
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">shell note  ドキュメント</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">shell note  ドキュメント</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder=検索 name="q" aria-label="検索">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../doit.html">doit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../xonsh.html">xonsh</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">prompt-toolkit</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../examples/index.html">examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/pager.html">pager.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../src/index.html">Source読む</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../src/input.html">input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../src/output.html">output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../src/layout.html">Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../src/draw.html">draw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../src/buffer.html">Buffer &lt; BufferControl &lt; Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../src/keybinding.html">KeyBinding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../src/application.html">Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../src/search.html">search</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">using prompt_toolkit</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ptterm.html">ptterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pypager.html">pypager</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">pyvim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ptfm.html">ptfm</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../pygments.html">pygments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../wt.html">WindowsTerminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../font/index.html">font</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dotfiles.html">dotfiles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">external</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ousttrue/dotfiles">github</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="pyvim">
+<h1>pyvim<a class="headerlink" href="#pyvim" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://github.com/prompt-toolkit/pyvim">https://github.com/prompt-toolkit/pyvim</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">launch.json</span></code></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="c1">// Use IntelliSense to learn about possible attributes.</span>
+    <span class="c1">// Hover to view descriptions of existing attributes.</span>
+    <span class="c1">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span>
+    <span class="s2">"version"</span><span class="o">:</span> <span class="s2">"0.2.0"</span><span class="p">,</span>
+    <span class="s2">"configurations"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Python: Current File"</span><span class="p">,</span>
+            <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"python"</span><span class="p">,</span>
+            <span class="s2">"request"</span><span class="o">:</span> <span class="s2">"launch"</span><span class="p">,</span>
+            <span class="s2">"module"</span><span class="o">:</span> <span class="s2">"pyvim"</span><span class="p">,</span>
+            <span class="s2">"console"</span><span class="o">:</span> <span class="s2">"externalTerminal"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="layout">
+<h2>layout<a class="headerlink" href="#layout" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">HSplit</span><span class="p">([</span>
+    <span class="n">TabsToolbar</span><span class="p">(</span><span class="n">editor</span><span class="p">),</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_fc</span><span class="p">,</span>
+    <span class="n">CommandLine</span><span class="p">(</span><span class="n">editor</span><span class="p">),</span>
+    <span class="n">ReportMessageToolbar</span><span class="p">(</span><span class="n">editor</span><span class="p">),</span>
+    <span class="n">SystemToolbar</span><span class="p">(),</span>
+    <span class="n">search_toolbar</span><span class="p">,</span>
+<span class="p">]),</span>
+</pre></div>
+</div>
+<section id="tabstoolbar">
+<h3>TabsToolbar<a class="headerlink" href="#tabstoolbar" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TabsToolbar</span><span class="p">(</span><span class="n">ConditionalContainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">editor</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TabsToolbar</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">Window</span><span class="p">(</span><span class="n">TabsControl</span><span class="p">(</span><span class="n">editor</span><span class="p">),</span> <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="nb">filter</span><span class="o">=</span><span class="n">Condition</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">editor</span><span class="o">.</span><span class="n">window_arrangement</span><span class="o">.</span><span class="n">tab_pages</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="self-fc">
+<h3>self._fc<a class="headerlink" href="#self-fc" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_fc</span> <span class="o">=</span> <span class="n">FloatContainer</span><span class="p">(</span>
+            <span class="n">content</span><span class="o">=</span><span class="n">VSplit</span><span class="p">([</span>
+                <span class="n">Window</span><span class="p">(</span><span class="n">BufferControl</span><span class="p">())</span>  <span class="c1"># Dummy window</span>
+            <span class="p">]),</span>
+            <span class="n">floats</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">Float</span><span class="p">(</span><span class="n">xcursor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ycursor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">content</span><span class="o">=</span><span class="n">CompletionsMenu</span><span class="p">(</span><span class="n">max_height</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                                              <span class="n">scroll_offset</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                              <span class="n">extra_filter</span><span class="o">=~</span><span class="n">has_focus</span><span class="p">(</span><span class="n">editor</span><span class="o">.</span><span class="n">command_buffer</span><span class="p">))),</span>
+                <span class="n">Float</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">BufferListOverlay</span><span class="p">(</span><span class="n">editor</span><span class="p">),</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                <span class="n">Float</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">content</span><span class="o">=</span><span class="n">ConditionalContainer</span><span class="p">(</span>
+                          <span class="n">CompletionsToolbar</span><span class="p">(),</span>
+                          <span class="nb">filter</span><span class="o">=</span><span class="n">has_focus</span><span class="p">(</span><span class="n">editor</span><span class="o">.</span><span class="n">command_buffer</span><span class="p">)</span> <span class="o">&amp;</span>
+                                       <span class="o">~</span><span class="n">_bufferlist_overlay_visible</span><span class="p">(</span><span class="n">editor</span><span class="p">)</span> <span class="o">&amp;</span>
+                                       <span class="n">Condition</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">editor</span><span class="o">.</span><span class="n">show_wildmenu</span><span class="p">))),</span>
+                <span class="n">Float</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">content</span><span class="o">=</span><span class="n">ValidationToolbar</span><span class="p">()),</span>
+                <span class="n">Float</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">content</span><span class="o">=</span><span class="n">MessageToolbarBar</span><span class="p">(</span><span class="n">editor</span><span class="p">)),</span>
+                <span class="n">Float</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">WelcomeMessageWindow</span><span class="p">(</span><span class="n">editor</span><span class="p">),</span>
+                      <span class="n">height</span><span class="o">=</span><span class="n">WELCOME_MESSAGE_HEIGHT</span><span class="p">,</span>
+                      <span class="n">width</span><span class="o">=</span><span class="n">WELCOME_MESSAGE_WIDTH</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="windowarrangement">
+<h3>WindowArrangement<a class="headerlink" href="#windowarrangement" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>木構造。(split されうる)</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>        <span class="k">def</span> <span class="nf">create_layout_from_node</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">window_arrangement</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+                <span class="c1"># Create frame for Window, or reuse it, if we had one already.</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">editor_buffer</span><span class="p">)</span>
+                <span class="n">frame</span> <span class="o">=</span> <span class="n">existing_frames</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">frame</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">frame</span><span class="p">,</span> <span class="n">pt_window</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_window_frame</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">editor_buffer</span><span class="p">)</span>
+
+                    <span class="c1"># Link layout Window to arrangement.</span>
+                    <span class="n">node</span><span class="o">.</span><span class="n">pt_window</span> <span class="o">=</span> <span class="n">pt_window</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">_frames</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span>
+                <span class="k">return</span> <span class="n">frame</span>
+
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">window_arrangement</span><span class="o">.</span><span class="n">VSplit</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">VSplit</span><span class="p">(</span>
+                    <span class="p">[</span><span class="n">create_layout_from_node</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">node</span><span class="p">],</span>
+                    <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="n">padding_char</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_vertical_border_char</span><span class="p">(),</span>
+                    <span class="n">padding_style</span><span class="o">=</span><span class="s1">'class:frameborder'</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">window_arrangement</span><span class="o">.</span><span class="n">HSplit</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">HSplit</span><span class="p">([</span><span class="n">create_layout_from_node</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">node</span><span class="p">])</span>
+
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">create_layout_from_node</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window_arrangement</span><span class="o">.</span><span class="n">active_tab</span><span class="o">.</span><span class="n">root</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fc</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">layout</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="ptfm.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">ptfm</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="pypager.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">pypager</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2022, ousttrue |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="../../_sources/prompt-toolkit/projects/pyvim.md.txt"
+               rel="nofollow">
+              ソースコードを表示
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">pyvim</a><ul>
+<li><a class="reference internal" href="#layout">layout</a><ul>
+<li><a class="reference internal" href="#tabstoolbar">TabsToolbar</a></li>
+<li><a class="reference internal" href="#self-fc">self._fc</a></li>
+<li><a class="reference internal" href="#windowarrangement">WindowArrangement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    <script src="../../_static/translations.js"></script>
+    </body>
+</html>
