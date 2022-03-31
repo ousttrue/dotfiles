@@ -157,7 +157,7 @@ else:
 class SUMNEKO:
     GITHUB = 'sumneko/lua-language-server'
     SOURCE = GHQ_DIR / 'github.com/sumneko/lua-language-server/README.md'
-    BIN = HOME_DIR / f'local/bin/lua-language-server{EXE}'
+    BIN = GHQ_DIR / f'github.com/sumneko/lua-language-server/bin/lua-language-server{EXE}'
 
     @classmethod
     def has_source(cls):
@@ -184,9 +184,6 @@ if IS_WINDOWS:
                                       cwd=(sumneko_dir / '3rd/luamake')),
                 doit.action.CmdAction('3rd\\luamake\\luamake.exe rebuild',
                                       cwd=sumneko_dir),
-                doit.action.CmdAction(
-                    f'cp {sumneko_dir}/bin/lua-language-server.exe {HOME_DIR}/local/bin'
-                ),
             ],
             'targets': [SUMNEKO.BIN],
             'file_dep': [SUMNEKO.SOURCE],
@@ -204,9 +201,6 @@ else:
                                       cwd=(sumneko_dir / '3rd/luamake')),
                 doit.action.CmdAction('./3rd/luamake/luamake rebuild',
                                       cwd=sumneko_dir),
-                doit.action.CmdAction(
-                    f'cp {sumneko_dir}/bin/lua-language-server {HOME_DIR}/local/bin'
-                ),
             ],
             'targets': [SUMNEKO.BIN],
             'file_dep': [SUMNEKO.SOURCE],

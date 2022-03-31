@@ -5,6 +5,9 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 local LUA_SERVER = vim.env.HOME .. "/ghq/github.com/sumneko/lua-language-server/bin/lua-language-server"
+if vim.fn.has("win32") ~= 0 then
+    LUA_SERVER = LUA_SERVER .. '.exe'
+end
 
 -- https://github.com/lucax88x/configs/blob/master/dotfiles/.config/nvim/lua/lt/lsp/init.lua
 local signs = {
