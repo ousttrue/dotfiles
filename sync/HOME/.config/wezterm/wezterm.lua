@@ -2,6 +2,8 @@ local wezterm = require "wezterm"
 
 local config = {
     default_prog = { "xonsh" },
+    initial_cols = 90,
+    initial_rows = 50,
     launch_menu = {},
     enable_kitty_graphics = true,
     -- font
@@ -30,7 +32,7 @@ local config = {
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    config.font_size = 14.0
+    config.font_size = 13.0
     config.default_prog = { "C:/Python310/Scripts/xonsh.exe" }
     table.insert(config.launch_menu, { label = "wsl", args = { "wsl.exe", "~", "/usr/bin/bash", "--login", "-c", "xonsh" } })
 
