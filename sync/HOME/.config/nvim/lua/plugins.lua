@@ -391,10 +391,10 @@ nnoremap <silent><mymap> :lua require'bufferline'.sort_buffers_by(function (buf_
         requires = { "vim-denops/denops.vim" },
         config = function()
             vim.cmd [[
-        call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
+call skkeleton#config({ 'globalJisyo': $HOME .. '/.skk/SKK-JISYO.L' })
+imap <C-j> <Plug>(skkeleton-toggle)
+cmap <C-j> <Plug>(skkeleton-toggle)
         ]]
-            vim.api.nvim_set_keymap("i", "<C-j>", "<Plug>(skkeleton-enable)", { noremap = true })
-            vim.api.nvim_set_keymap("c", "<C-j>", "<Plug>(skkeleton-enable)", { noremap = true })
         end,
     }
 end)
