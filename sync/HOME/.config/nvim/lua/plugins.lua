@@ -66,8 +66,96 @@ return require("packer").startup(function(use)
             "kyazdani42/nvim-web-devicons", -- optional, for file icon
         },
         config = function()
-            vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true })
-            require("nvim-tree").setup {}
+            vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", { noremap = true })
+            vim.api.nvim_set_var("nvim_tree_highlight_opened_files", 1)
+            vim.cmd [[
+highlight NvimTreeOpenedFile guibg=blue
+highlight NvimTreeFolderIcon guibg=blue
+]]
+            require("nvim-tree").setup {
+                -- auto_close = false,
+                -- auto_reload_on_write = true,
+                -- disable_netrw = false,
+                -- hide_root_folder = false,
+                -- hijack_cursor = false,
+                -- hijack_netrw = true,
+                -- hijack_unnamed_buffer_when_opening = false,
+                -- ignore_buffer_on_setup = false,
+                -- open_on_setup = false,
+                -- open_on_tab = false,
+                -- sort_by = "name",
+                -- update_cwd = false,
+                -- view = {
+                --     width = 30,
+                --     height = 30,
+                --     side = "left",
+                --     preserve_window_proportions = false,
+                --     number = false,
+                --     relativenumber = false,
+                --     signcolumn = "yes",
+                --     mappings = {
+                --         custom_only = false,
+                --         list = {
+                --             -- user mappings go here
+                --         },
+                --     },
+                -- },
+                -- hijack_directories = {
+                --     enable = true,
+                --     auto_open = true,
+                -- },
+                update_focused_file = {
+                    enable = true,
+                    update_cwd = false,
+                    ignore_list = {},
+                },
+                -- ignore_ft_on_setup = {},
+                -- system_open = {
+                --     cmd = nil,
+                --     args = {},
+                -- },
+                -- filters = {
+                --     dotfiles = false,
+                --     custom = {},
+                --     exclude = {},
+                -- },
+                -- git = {
+                --     enable = true,
+                --     ignore = true,
+                --     timeout = 400,
+                -- },
+                -- actions = {
+                --     change_dir = {
+                --         enable = true,
+                --         global = false,
+                --     },
+                --     open_file = {
+                --         quit_on_open = false,
+                --         resize_window = false,
+                --         window_picker = {
+                --             enable = true,
+                --             chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+                --             exclude = {
+                --                 filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+                --                 buftype = { "nofile", "terminal", "help" },
+                --             },
+                --         },
+                --     },
+                -- },
+                -- trash = {
+                --     cmd = "trash",
+                --     require_confirm = true,
+                -- },
+                -- log = {
+                --     enable = false,
+                --     truncate = false,
+                --     types = {
+                --         all = false,
+                --         config = false,
+                --         git = false,
+                --     },
+                -- },
+            }
         end,
     }
 
@@ -205,7 +293,6 @@ return require("packer").startup(function(use)
             }
         end,
     }
-    use {}
 
     -- use "itchyny/lightline.vim"
     use {
@@ -254,6 +341,14 @@ return require("packer").startup(function(use)
             vim.api.nvim_set_keymap("n", "<Space><Space>", ":<C-u>Telescope<CR>", { noremap = true })
             vim.api.nvim_set_keymap("n", "<C-p>", ":<C-u>Telescope git_files<CR>", { noremap = true })
             -- vim.api.nvim_set_keymap("n", "<F3>", ":<C-u>Telescope ghq list<CR>", {})
+        end,
+    }
+
+    use "godlygeek/tabular"
+    use {
+        "preservim/vim-markdown",
+        config = function()
+            vim.api.nvim_set_var("vim_markdown_folding_disabled", 1)
         end,
     }
 end)
