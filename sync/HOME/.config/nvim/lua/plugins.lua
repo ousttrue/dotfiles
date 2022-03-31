@@ -67,7 +67,13 @@ return require("packer").startup(function(use)
         },
         config = function()
             vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true })
-            require("nvim-tree").setup {}
+            require("nvim-tree").setup {
+                update_focused_file = {
+                    enable = true,
+                    update_cwd = false,
+                    ignore_list = {},
+                },
+            }
         end,
     }
 
@@ -205,7 +211,6 @@ return require("packer").startup(function(use)
             }
         end,
     }
-    use {}
 
     -- use "itchyny/lightline.vim"
     use {
@@ -256,4 +261,6 @@ return require("packer").startup(function(use)
             -- vim.api.nvim_set_keymap("n", "<F3>", ":<C-u>Telescope ghq list<CR>", {})
         end,
     }
+
+    use "kizza/actionmenu.nvim"
 end)

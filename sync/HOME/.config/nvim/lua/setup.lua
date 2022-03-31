@@ -1,12 +1,11 @@
-require("nvim-tree").setup {}
 local lspconfig = require "lspconfig"
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 local LUA_SERVER = vim.env.HOME .. "/ghq/github.com/sumneko/lua-language-server/bin/lua-language-server"
-if vim.fn.has("win32") ~= 0 then
-    LUA_SERVER = LUA_SERVER .. '.exe'
+if vim.fn.has "win32" ~= 0 then
+    LUA_SERVER = LUA_SERVER .. ".exe"
 end
 
 -- https://github.com/lucax88x/configs/blob/master/dotfiles/.config/nvim/lua/lt/lsp/init.lua
@@ -21,15 +20,46 @@ for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
-local custom_lsp_attach = function(client)
-    -- See `:help nvim_buf_set_keymap()` for more information
-    vim.api.nvim_buf_set_keymap(0, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
-    vim.api.nvim_buf_set_keymap(0, "n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true })
-    -- ... and other keymappings for LSP
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local custom_lsp_attach = function(client, bufnr)
+    -- See `:help nvim_buf_set_keymap()` for more information
+    -- ... and other keymappings for LSP
     -- Use LSP as the handler for omnifunc.
     --    See `:help omnifunc` and `:help ins-completion` for more information.
-    vim.api.nvim_buf_set_option(0, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    -- Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+    -- Mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(
+        bufnr,
+        "n",
+        "<space>wl",
+        "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
+        opts
+    )
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
     -- Use LSP as the handler for formatexpr.
     --    See `:help formatexpr` for more information.
@@ -37,6 +67,28 @@ local custom_lsp_attach = function(client)
 
     -- For plugins with an `on_attach` callback, call them here. For example:
     -- require('completion').on_attach()
+    local menu_items = {
+        '"K: hover"',
+        '"[C-k]: signature"',
+        '"gD: goto declaration"',
+        '"gd: goto definition"',
+        '"gi: goto implementation"',
+        '"gr: references"',
+        '"[space]D: definition"',
+        '"[space]rn: rename"',
+        '"[space]ca: codeaction"',
+        '"[space]q: diagnostic ilst"',
+        '"[space]f: format"',
+    }
+    local menu = "[" .. table.concat(menu_items, ", ") .. "]"
+
+    vim.api.nvim_buf_set_keymap(
+        bufnr,
+        "n",
+        "<f4>",
+        ":call actionmenu#open(" .. menu .. ", {i, item -> execute('normal '.split(item, ':')[0], '')})<CR>",
+        opts
+    )
 end
 
 -- Setup lspconfig.
@@ -44,7 +96,6 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 
 lspconfig.sumneko_lua.setup {
     cmd = { LUA_SERVER },
-    capabilities = capabilities,
     settings = {
         Lua = {
             runtime = {
@@ -67,6 +118,8 @@ lspconfig.sumneko_lua.setup {
             },
         },
     },
+    on_attach = custom_lsp_attach,
+    capabilities = capabilities,
 }
 
 lspconfig.pylsp.setup {
