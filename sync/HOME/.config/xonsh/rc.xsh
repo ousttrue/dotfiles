@@ -98,6 +98,12 @@ def path_append(src):
     $PATH.append(str(pathlib.Path(src)))
 
 
+DENO_DIR = HOME_DIR / '.deno'
+if DENO_DIR.is_dir():
+    $DENO_INSTALL=str(DENO_DIR)
+    path_append(DENO_DIR / 'bin')
+
+
 path_append('~/local/bin')
 path_append('~/go/bin')
 path_append('~/.cargo/bin')

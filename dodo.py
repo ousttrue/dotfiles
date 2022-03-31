@@ -144,8 +144,7 @@ else:
                 doit.action.CmdAction(
                     f'make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX={HOME_DIR}/local" -j 4',
                     cwd=NEOVIM.SOURCE.parent),
-                doit.action.CmdAction('make install',
-                                      cwd=NEOVIM.SOURCE.parent)
+                doit.action.CmdAction('make install', cwd=NEOVIM.SOURCE.parent)
             ],
             'targets': [NEOVIM.BIN],
             'file_dep': [NEOVIM.SOURCE],
@@ -327,8 +326,7 @@ if PYTHON_BIN.exists():
             for k, v in PIP_MODULES.items():
                 yield {
                     'name': k,
-                    'uptodate':
-                    [lambda: k in PIP_INSTALLED],
+                    'uptodate': [lambda: k in PIP_INSTALLED],
                     'actions': [f'{PYTHON_BIN} -m pip install "{v}"'],
                 }
 
@@ -360,4 +358,13 @@ def task_go_ghq():
         'actions': ['go install github.com/x-motemen/ghq@latest'],
         'uptodate': [True],
         'targets': [HOME_DIR / f'go/bin/ghq{EXE}'],
+    }
+
+def task_skk_dictionary():
+    url = 'https://skk-dev.github.io/dict/SKK-JISYO.L.gz'
+    dst = HOME_DIR / '.skk/SKK-JISYO.L'
+    return {
+        'actions': [(mkdir, [dst.parent]), f'curl {url} | gzip -dc > {dst}'],
+        'uptodate': [True],
+        'targets': [dst]
     }

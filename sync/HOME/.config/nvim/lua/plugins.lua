@@ -384,4 +384,17 @@ nnoremap <silent><mymap> :lua require'bufferline'.sort_buffers_by(function (buf_
             vim.api.nvim_set_var("vim_markdown_folding_disabled", 1)
         end,
     }
+
+    use { "vim-denops/denops-helloworld.vim", requires = { "vim-denops/denops.vim" } }
+    use {
+        "vim-skk/skkeleton",
+        requires = { "vim-denops/denops.vim" },
+        config = function()
+            vim.cmd [[
+        call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
+        ]]
+            vim.api.nvim_set_keymap("i", "<C-j>", "<Plug>(skkeleton-enable)", { noremap = true })
+            vim.api.nvim_set_keymap("c", "<C-j>", "<Plug>(skkeleton-enable)", { noremap = true })
+        end,
+    }
 end)
