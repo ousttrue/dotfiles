@@ -360,6 +360,7 @@ def task_go_ghq():
         'targets': [HOME_DIR / f'go/bin/ghq{EXE}'],
     }
 
+
 def task_skk_dictionary():
     url = 'https://skk-dev.github.io/dict/SKK-JISYO.L.gz'
     dst = HOME_DIR / '.skk/SKK-JISYO.L'
@@ -368,3 +369,19 @@ def task_skk_dictionary():
         'uptodate': [True],
         'targets': [dst]
     }
+
+
+if IS_WINDOWS:
+    def task_deno():
+        return {
+            "actions": ['iwr https://deno.land/x/install/install.ps1 -useb | iex'],
+            "uptodate": [True],
+            'targets': [HOME_DIR / '.deno/bin/deno.exe']
+        }
+else:
+    def task_deno():
+        return {
+            "actions": ['curl -fsSL https://deno.land/x/install/install.sh | sh'],
+            "uptodate": [True],
+            'targets': [HOME_DIR / '.deno/bin/deno']
+        }
