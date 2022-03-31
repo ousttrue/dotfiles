@@ -62,22 +62,26 @@ return require("packer").startup(function(use)
     }
     use {
         "kyazdani42/nvim-tree.lua",
+        tag = "1.6.7",
         requires = {
             "kyazdani42/nvim-web-devicons", -- optional, for file icon
         },
         config = function()
-            vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", { noremap = true })
-            vim.api.nvim_set_var("nvim_tree_highlight_opened_files", 1)
+            -- vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", { noremap = true })
+            vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true })
             vim.cmd [[
-highlight NvimTreeOpenedFile guibg=blue
-highlight NvimTreeFolderIcon guibg=blue
-]]
+highlight NvimTreeOpenedFile gui=reverse
+            ]]
+            vim.g.nvim_tree_highlight_opened_files = 3
+            -- vim.g.nvim_tree_indent_markers = 1
+            vim.g.nvim_tree_git_hl = 0
+            vim.g.nvim_tree_special_files = {}
             require("nvim-tree").setup {
                 -- auto_close = false,
                 -- auto_reload_on_write = true,
                 -- disable_netrw = false,
                 -- hide_root_folder = false,
-                -- hijack_cursor = false,
+                -- hijack_cursor = true,
                 -- hijack_netrw = true,
                 -- hijack_unnamed_buffer_when_opening = false,
                 -- ignore_buffer_on_setup = false,
@@ -104,6 +108,11 @@ highlight NvimTreeFolderIcon guibg=blue
                 --     enable = true,
                 --     auto_open = true,
                 -- },
+                update_focused_file = {
+                    enable = true,
+                    update_cwd = false,
+                    ignore_list = {},
+                },
                 -- ignore_ft_on_setup = {},
                 -- system_open = {
                 --     cmd = nil,
@@ -339,7 +348,6 @@ highlight NvimTreeFolderIcon guibg=blue
         end,
     }
 
-
     use "kizza/actionmenu.nvim"
 
     use "godlygeek/tabular"
@@ -349,5 +357,4 @@ highlight NvimTreeFolderIcon guibg=blue
             vim.api.nvim_set_var("vim_markdown_folding_disabled", 1)
         end,
     }
-
 end)
