@@ -26,6 +26,16 @@ return require("packer").startup(function(use)
     --         vim.cmd [[colorscheme moonfly]]
     --     end,
     -- }
+
+    -- using packer.nvim
+    use {
+        "akinsho/bufferline.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("bufferline").setup {}
+        end,
+    }
+
     use {
         "Mofiqul/dracula.nvim",
         config = function()
@@ -76,6 +86,7 @@ highlight NvimTreeOpenedFile gui=reverse
             -- vim.g.nvim_tree_indent_markers = 1
             vim.g.nvim_tree_git_hl = 0
             vim.g.nvim_tree_special_files = {}
+            vim.g.nvim_tree_disable_window_picker = 1
             require("nvim-tree").setup {
                 -- auto_close = false,
                 -- auto_reload_on_write = true,
@@ -304,6 +315,22 @@ highlight NvimTreeOpenedFile gui=reverse
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
         config = function()
             require("lualine").setup()
+
+            vim.cmd [[
+" These commands will navigate through buffers in order regardless of which mode you are using
+" e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
+nnoremap <silent>[b :BufferLineCycleNext<CR>
+nnoremap <silent>b] :BufferLineCyclePrev<CR>
+
+" These commands will move the current buffer backwards or forwards in the bufferline
+nnoremap <silent><mymap> :BufferLineMoveNext<CR>
+nnoremap <silent><mymap> :BufferLineMovePrev<CR>
+
+" These commands will sort buffers by directory, language, or a custom criteria
+nnoremap <silent>be :BufferLineSortByExtension<CR>
+nnoremap <silent>bd :BufferLineSortByDirectory<CR>
+nnoremap <silent><mymap> :lua require'bufferline'.sort_buffers_by(function (buf_a, buf_b) return buf_a.id < buf_b.id end)<CR>
+]]
         end,
     }
 

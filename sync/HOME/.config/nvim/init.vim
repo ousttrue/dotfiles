@@ -49,5 +49,7 @@ nnoremap q :close<CR>
 tnoremap <silent> <ESC> <C-\><C-n>
 nnoremap <C-l> :nohlsearch<CR><C-l>
 
+command Bd bp | sp | bn | bd
+
 autocmd QuickFixCmdPost *grep* cwindow
 

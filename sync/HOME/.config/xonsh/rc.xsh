@@ -8,6 +8,7 @@ import os
 import platform
 
 
+
 def get_home()->pathlib.Path:
     home = os.environ.get('HOME')
     if home:
@@ -69,8 +70,8 @@ $COLOR_INPUT = True
 $COLOR_RESULTS = True
 
 # xontrib load powerline2
-# xontrib load apt_tabcomplete
 # xontrib load z
+xontrib load vox
 
 #
 # プロンプトの表記
@@ -83,7 +84,7 @@ $COLOR_RESULTS = True
 #     "{env_name}{prompt_end} "
 # )
 
-$PROMPT = "{RED}┌{INTENSE_GREEN}{os_icon} [ {cwd} ] {gitstatus}\n{RED}└{INTENSE_GREEN}{prompt_end} "
+$PROMPT = "{RED}┌{INTENSE_GREEN}{os_icon} [ {cwd} ] {BOLD_RED}{env_name}{gitstatus}\n{RED}└{INTENSE_GREEN}{prompt_end} "
 # $RIGHT_PROMPT = "{user}{os_icon}{hostname}"
 $BOTTOM_TOOLBAR = "{custom_date}"
 $XONSH_APPEND_NEWLINE = True
@@ -110,6 +111,7 @@ if platform.system() == 'Windows':
     aliases['la']=['lsd.exe', '-a']
     aliases['ll']=['lsd.exe', '-al']
 else:
+    xontrib load apt_tabcomplete
     if which('exa'):
         aliases['ls']='exa --color=auto --icons'
         aliases['la']='exa --color=auto --icons -a'
