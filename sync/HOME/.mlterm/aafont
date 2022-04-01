@@ -1,0 +1,7 @@
+DEFAULT = HackGenNerd Console 24
+JISX0208_1983 = HackGenNerd Console 24
+JISX0201_ROMAN = HackGenNerd Console 24
+JISX0201_KATA = HackGenNerd Console 24
+ISO8859_1 = HackGenNerd Console 24
+U+E000-F8FF = HackGenNerd Console 24
+

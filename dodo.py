@@ -14,6 +14,7 @@ except Exception as e:
 HERE = pathlib.Path(__file__).absolute().parent
 HOME_DIR = HERE.parent
 GHQ_DIR = HOME_DIR / 'ghq'
+GHQ_GITHUB_DIR = GHQ_DIR / 'github.com'
 SYNC_DIR = HERE / 'sync'
 SYNC_HOME_DIR = SYNC_DIR / 'HOME'
 SYNC_APPDATA_ROAMING_DIR = SYNC_DIR / 'APPDATA/Roaming'
@@ -56,7 +57,7 @@ else:
 
 class NEOVIM:
     GITHUB = 'neovim/neovim'
-    SOURCE = GHQ_DIR / 'github.com/neovim/neovim/README.md'
+    SOURCE = GHQ_GITHUB_DIR / 'neovim/neovim/README.md'
     BIN = HOME_DIR / f'local/bin/nvim{EXE}'
     DEP_APTS = [
         "ninja-build",
@@ -155,8 +156,8 @@ else:
 
 class SUMNEKO:
     GITHUB = 'sumneko/lua-language-server'
-    SOURCE = GHQ_DIR / 'github.com/sumneko/lua-language-server/README.md'
-    BIN = GHQ_DIR / f'github.com/sumneko/lua-language-server/bin/lua-language-server{EXE}'
+    SOURCE = GHQ_GITHUB_DIR / 'sumneko/lua-language-server/README.md'
+    BIN = GHQ_GITHUB_DIR / f'sumneko/lua-language-server/bin/lua-language-server{EXE}'
 
     @classmethod
     def has_source(cls):
@@ -385,3 +386,16 @@ else:
             "uptodate": [True],
             'targets': [HOME_DIR / '.deno/bin/deno']
         }
+
+
+def task_emoji():
+    return {
+        'actions': [
+            'ghq get --shallow git@github.com:twitter/twemoji.git',
+            (mkdir, [HOME_DIR / '.mlterm']),
+            f'ln -s {GHQ_GITHUB_DIR}/twitter/twemoji/assets/72x72 {HOME_DIR}/.mlterm/emoji',
+        ],
+        "uptodate": [True],
+        'targets': [
+            GHQ_GITHUB_DIR / 'twitter/twemoji/README.md'
+        ], }

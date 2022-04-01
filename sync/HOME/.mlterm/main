@@ -1,0 +1,16 @@
+fontsize = 24
+use_variable_column_width = false
+use_anti_alias = true
+not_use_unicode_font = false
+use_scrollbar = false
+bg_color = #242424
+fg_color = #f6f3e8
+letter_space = 3
+#line_space = 3
+col_size_of_width_a = 1
+
+# Metaキーとして使用するキー(none,mod1,mod2,mod3,mod4,meta,alt,super,hyper)
+mod_meta_key = alt
+# Metaキーの挙動(none,esc,8bit)
+mod_meta_mode = esc
+
