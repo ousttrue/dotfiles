@@ -375,7 +375,7 @@ def task_skk_dictionary():
 if IS_WINDOWS:
     def task_deno():
         return {
-            "actions": ['iwr https://deno.land/x/install/install.ps1 -useb | iex'],
+            "actions": ['pwsh -c "iwr https://deno.land/x/install/install.ps1 -useb | iex"'],
             "uptodate": [True],
             'targets': [HOME_DIR / '.deno/bin/deno.exe']
         }
