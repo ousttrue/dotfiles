@@ -4,22 +4,186 @@
         <title>Home</title>
     </head>
     <body>
-        <form action="https://www.google.com/search" name="f">
-            <b>Google EN</b>
-            <input name="ie" value="utf-8" type="hidden">
-            <input name="source" value="hp" type="hidden">
-            <input name="gbv" value="1" type="hidden">
-            <input name="q" value="" size="55" title="Google &#26908;&#32034;" maxlength="2048">
-            <input name="num" value="50" type="hidden">
+        <h1>Google</h1>
+        <form action="https://www.google.com/search" method="GET" name="f" accept-charset="UTF-8">
+            <!-- <input name="hl" type="hidden" value="ja"/> -->
+            <h2>検索するキーワード</h2>
+            <table>
+                <tr>
+                    <td>すべてのキーワードを含む:</td>
+                    <td><input autofocus="autofocus" name="as_q" type="text" value=""/></td>
+                </tr>
+                <tr>
+                    <td>num</td>
+                    <td><input name="num" value="50"></td>
+                </tr>
+                <!-- <tr> -->
+                <!--     <td>語順も含め完全一致:</td> -->
+                <!--     <td><input name="as_epq" type="text" value=""/></td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--     <td>いずれかのキーワードを含む:</td> -->
+                <!--     <td><input name="as_oq" type="text" value=""/></td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--     <td>含めないキーワード:</td> -->
+                <!--     <td><input name="as_eq" type="text" value=""/></td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--     <td>数値の範囲:</td> -->
+                <!--     <td><input name="as_nlo" type="text"/> -->
+                <!--         ～ -->
+                <!--         <input name="as_nhi" type="text"/></td> -->
+                <!-- </tr> -->
+                <tr>
+                    <td>検索結果の絞り込み 言語:</td>
+                    <td><select name="lr">
+                            <option selected="selected" value="">
+                            すべての言語
+                            </option>
+                            <option value="lang_ja">
+                            日本語
+                            </option>
+                        </select>
+                </tr>
+                <tr>
+                    <td>地域:</td>
+                    <td><select name="cr">
+                            <option selected="selected" value="">
+                            すべての地域
+                            </option>
+                            <option value="countryJP">
+                            日本
+                            </option>
+                        </select>
+                </tr>
+                <tr>
+                    <td>最終更新日時:</td>
+                    <td><select name="as_qdr">
+                            <option selected="selected" value="all">
+                            指定なし
+                            </option>
+                            <option value="d">
+                            24 時間以内
+                            </option>
+                            <option value="w">
+                            1 週間以内
+                            </option>
+                            <option value="m">
+                            1 か月以内
+                            </option>
+                            <option value="y">
+                            1 年以内
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <!-- <tr> -->
+                <!--     <td>サイトまたはドメイン:</td> -->
+                <!--     <td><name="as_sitesearch" type="text" value=""/></td> -->
+                <!-- </tr> -->
+                <tr>
+                    <td>検索対象の範囲:</td>
+                    <td><select name="as_occt">
+                            <option value="">
+                            ページ全体
+                            </option>
+                            <option value="title">
+                            ページ タイトルのみ
+                            </option>
+                            <option value="body">
+                            ページ本文のみ
+                            </option>
+                            <option value="url">
+                            ページ URL のみ
+                            </option>
+                            <option value="links">
+                            そのページへのリンク内
+                            </option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>セーフサーチ</td>
+                    <td><select name="safe">
+                            <option selected="selected" value="images">
+                            不適切な検索結果を表示する
+                            </option>
+                            <option value="active">
+                            不適切な検索結果を非表示にする
+                            </option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>ファイル形式</td>
+                    <td><select name="as_filetype">
+                            <option selected="selected" value="">
+                            すべての形式
+                            </option>
+                            <option value="pdf">
+                            Adobe Acrobat PDF（.pdf）
+                            </option>
+                            <option value="ps">
+                            Adobe PostScript（.ps）
+                            </option>
+                            <option value="dwf">
+                            Autodesk DWF（.dwf）
+                            </option>
+                            <option value="kml">
+                            Google Earth KML（.kml）
+                            </option>
+                            <option value="kmz">
+                            Google Earth KMZ（.kmz）
+                            </option>
+                            <option value="xls">
+                            Microsoft Excel（.xls）
+                            </option>
+                            <option value="ppt">
+                            Microsoft PowerPoint（.ppt）
+                            </option>
+                            <option value="doc">
+                            Microsoft Word（.doc）
+                            </option>
+                            <option value="rtf">
+                            リッチ テキスト形式（.rtf）
+                            </option>
+                            <option value="swf">
+                            Shockwave Flash（.swf）
+                            </option>
+                        </select></td>
+                </tr>
+                <!-- <tr> -->
+                <!--     <td>ライセンス</td> -->
+                <!--     <td><select name="as_rights"> -->
+                <!--             <option selected="selected"> -->
+                <!--             ライセンスでフィルタリングしない -->
+                <!--             </option> -->
+                <!--             <option value="(cc_publicdomain|cc_attribute|cc_sharealike|cc_noncommercial|cc_nonderived)"> -->
+                <!--             自由に使用または共有できる -->
+                <!--             </option> -->
+                <!--             <option value="(cc_publicdomain|cc_attribute|cc_sharealike|cc_nonderived).-(cc_noncommercial)"> -->
+                <!--             営利目的を含め自由に使用または共有できる -->
+                <!--             </option> -->
+                <!--             <option value="(cc_publicdomain|cc_attribute|cc_sharealike|cc_noncommercial).-(cc_nonderived)"> -->
+                <!--             自由に使用、共有、または変更できる -->
+                <!--             </option> -->
+                <!--             <option value="(cc_publicdomain|cc_attribute|cc_sharealike).-(cc_noncommercial|cc_nonderived)"> -->
+                <!--             営利目的を含め自由に使用、共有、または変更できる -->
+                <!--             </option> -->
+                <!--         </select></td> -->
+                <!-- </tr> -->
+            </table>
+            <!-- <input name="tbs" type="hidden" value=""/> -->
+            <!-- <input name="gbv" type="hidden" value="1"/> -->
+            <input type="submit" value="search"/>
         </form>
-        <form action="https://www.google.com/search" name="f">
-            <b>Google JA</b>
-            <input name="ie" value="utf-8" type="hidden">
-            <input name="lr" value="lang_ja" type="hidden">
-            <input name="source" value="hp" type="hidden">
-            <input name="gbv" value="1" type="hidden">
-            <input name="q" value="" size="55" title="Google &#26908;&#32034;" maxlength="2048">
-            <input name="num" value="50" type="hidden">
-        </form>
+        <hr>
+
+        <p>
+        Python-3.10.4 <a href=https://www.python.org/>python</a>
+        <a href=https://github.com/prompt-toolkit/python-prompt-toolkit>prompt-toolkit</a>
+        </p>
+        <p>
+        Neovim-0.6.1 <a href=https://neovim.io>neovim</a>
+        </p>
     </body>
 </html>

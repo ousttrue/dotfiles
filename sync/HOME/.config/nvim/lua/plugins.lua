@@ -42,6 +42,8 @@ return require("packer").startup(function(use)
             vim.cmd [[colorscheme dracula]]
         end,
     }
+
+    use "tpope/vim-surround"
     use "tpope/vim-fugitive"
     -- use {
     --     "airblade/vim-gitgutter",
@@ -180,7 +182,7 @@ highlight NvimTreeOpenedFile gui=reverse
         config = function()
             require("nvim-treesitter.configs").setup {
                 -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-                ensure_installed = { "python", "lua", "markdown", "zig" },
+                ensure_installed = { "python", "lua", "markdown", "zig", "html", "css" },
 
                 -- Install languages synchronously (only applied to `ensure_installed`)
                 sync_install = false,
