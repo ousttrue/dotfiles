@@ -399,3 +399,18 @@ def task_emoji():
         'targets': [
             GHQ_GITHUB_DIR / 'twitter/twemoji/README.md'
         ], }
+
+
+def task_mlterm():
+    dir = GHQ_GITHUB_DIR / 'arakiken/mlterm'
+    return {
+        'actions': [
+            'ghq get arakiken/mlterm',
+            doit.action.CmdAction(f'./configure --prefix={HOME_DIR}/local --with-gui=console', cwd=dir),
+            doit.action.CmdAction('make install', cwd=dir),
+        ],
+        "uptodate": [True],
+        'targets': [
+            HOME_DIR / 'local/bin/mlterm-con'
+        ],
+    }
