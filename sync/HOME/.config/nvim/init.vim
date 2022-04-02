@@ -45,11 +45,11 @@ ab :computer: 💻
 
 " ex mode を無効に
 nnoremap Q <Nop>
-nnoremap q :close<CR>
 tnoremap <silent> <ESC> <C-\><C-n>
 nnoremap <C-l> :nohlsearch<CR><C-l>
 
 command Bd bp | sp | bn | bd
+nnoremap q :Bd<CR>
 
 autocmd QuickFixCmdPost *grep* cwindow
 
