@@ -1,9 +1,4 @@
-#term  #pty
-
-ECMA-48
-ANSI escape code
-
-https://en.wikipedia.org/wiki/ANSI_escape_code
-
-https://vt100.net/emu/dec_ansi_parser
+- [ANSI escape code - Wikipedia](https://en.wikipedia.org/wiki/ANSI_escape_code)
+- [VT100.net: A parser for DEC’s ANSI-compatible video terminals](https://vt100.net/emu/dec_ansi_parser)
+- [What is pyte? — pyte 0.8.1-dev documentation](https://pyte.readthedocs.io/en/latest/)
 
