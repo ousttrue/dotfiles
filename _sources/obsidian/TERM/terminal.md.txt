@@ -1,4 +1,5 @@
 [[windows_terminal]]
+[[multiplexer]]
 
 [[vt100]]
 [[font]]
