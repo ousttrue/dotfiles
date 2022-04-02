@@ -7,8 +7,12 @@
         "id": "44c429a36a0a7e19",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "TERM/vt100.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -36,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "zig",
+                "query": "tag:#term",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -45,7 +49,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -65,6 +70,7 @@
             "state": {
               "type": "localgraph",
               "state": {
+                "file": "TERM/vt100.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -107,6 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "TERM/vt100.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,15 +132,15 @@
   },
   "active": "44c429a36a0a7e19",
   "lastOpenFiles": [
+    "TERM/vt100.md",
+    "TERM/terminal.md",
+    "font/nerd_font.md",
+    "font/fontconfig.md",
+    "TERM/conpty.md",
     "Untitled.md",
     "TERM/wezterm.md",
-    "TERM/terminal.md",
     "TERM/fbterm.md",
     "TERM/sixel.md",
-    "TERM/yaft.md",
-    "TERM/sixel 1.md",
-    "font/font.md",
-    "TERM/simple_terminal.md",
-    "TERM/urxvt.md"
+    "TERM/yaft.md"
   ]
 }

@@ -1,6 +1,7 @@
 [[windows_terminal]]
 
-すべての文字を表示する[[font]]が欲しまる
+[[vt100]]
+[[font]]
 
 # .Xresource
 
@@ -13,7 +14,7 @@
 [[xterm]]
 [[urxvt]]
 
-# FontConfig
+# [[FontConfig]]
 [[simple_terminal]]
 
 # libvte

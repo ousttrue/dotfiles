@@ -35,7 +35,7 @@ local config = {
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    config.font_size = 13.0
+    config.font_size = 12.0
     config.default_prog = { "C:/Python310/Scripts/xonsh.exe" }
     table.insert(
         config.launch_menu,
@@ -73,7 +73,7 @@ end
 
 local function convert_home_dir(path)
     local cwd = path
-    local home = os.getenv "HOME"
+    local home = os.getenv "HOME" or os.getenv "USERPROFILE"
     cwd = cwd:gsub("^" .. home .. "/", "~/")
     return cwd
 end
