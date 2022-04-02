@@ -16,3 +16,11 @@
 - @2021 [krymtkts: Posts Tagged "font"](https://krymtkts.github.io/tags/font)
 	- @2021 [krymtkts: Migu Nerd Font のアイコンフォントを narrow にしたい](https://krymtkts.github.io/posts/2021-05-07-i-want-to-resize-migu-icon)
 - @2019 [Nerd Fonts Patcherを使って非Nerd-Fontにパッチを当てる方法。 - Qiita](https://qiita.com/Suzukaze31/items/ddcc6d9a0a9da19f6ee3)
+
+# Font Link
+- @2017 [あらゆるフォントを気軽に NERDFonts 対応化させる方法 (Windows or Linux) - カラクリスタ・ブログ](https://the.kalaclista.com/posts/2017/11/09/000135/)
+
+-   Windows: フォントリンク
+-   Linux: [[fontconfig]] によるフォントのリンク
+
+[[fontconfig]] を使う [[terminal]] ならできる。

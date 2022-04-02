@@ -376,6 +376,7 @@ nnoremap <silent><mymap> :lua require'bufferline'.sort_buffers_by(function (buf_
             -- vim.api.nvim_set_keymap("n", "<F3>", ":<C-u>Telescope ghq list<CR>", {})
         end,
     }
+    use "folke/lua-dev.nvim"
 
     use "kizza/actionmenu.nvim"
 

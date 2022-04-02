@@ -44,8 +44,8 @@ ab :email: 📧
 ab :computer: 💻
 
 " ex mode を無効に
-nnoremap Q <Nop>
 nnoremap q :close<CR>
+nnoremap Q <Nop>
 tnoremap <silent> <ESC> <C-\><C-n>
 nnoremap <C-l> :nohlsearch<CR><C-l>
 

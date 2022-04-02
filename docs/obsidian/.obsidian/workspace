@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "TERM/sixel.md",
+            "file": "TERM/vt100.md",
             "mode": "source",
             "source": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "zig",
+                "query": "tag:#term",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -49,7 +49,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -69,7 +70,11 @@
             "state": {
               "type": "localgraph",
               "state": {
+<<<<<<< HEAD
                 "file": "TERM/sixel.md",
+=======
+                "file": "TERM/vt100.md",
+>>>>>>> 9e0db686aa5473a29ab781410ddc2ae74099b490
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -112,7 +117,11 @@
             "state": {
               "type": "backlink",
               "state": {
+<<<<<<< HEAD
                 "file": "TERM/sixel.md",
+=======
+                "file": "TERM/vt100.md",
+>>>>>>> 9e0db686aa5473a29ab781410ddc2ae74099b490
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,6 +140,7 @@
   },
   "active": "4c79836238d15af4",
   "lastOpenFiles": [
+<<<<<<< HEAD
     "TERM/sixel.md",
     "DRCS.md",
     "TERM/zellij.md",
@@ -140,6 +150,17 @@
     "TERM/terminal.md",
     "Untitled.md",
     "TERM/fbterm.md",
+=======
+    "TERM/vt100.md",
+    "TERM/terminal.md",
+    "font/nerd_font.md",
+    "font/fontconfig.md",
+    "TERM/conpty.md",
+    "Untitled.md",
+    "TERM/wezterm.md",
+    "TERM/fbterm.md",
+    "TERM/sixel.md",
+>>>>>>> 9e0db686aa5473a29ab781410ddc2ae74099b490
     "TERM/yaft.md"
   ]
 }
