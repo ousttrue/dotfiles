@@ -1,4 +1,5 @@
 [[windows_terminal]]
+[[multiplexer]]
 
 すべての文字を表示する[[font]]が欲しまる
 

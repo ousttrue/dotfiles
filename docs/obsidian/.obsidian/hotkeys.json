@@ -1,4 +1,20 @@
 {
   "editor:open-search-replace": [],
-  "editor:open-search": []
+  "editor:open-search": [],
+  "app:go-back": [
+    {
+      "modifiers": [
+        "Shift"
+      ],
+      "key": "B"
+    }
+  ],
+  "app:go-forward": [
+    {
+      "modifiers": [
+        "Shift"
+      ],
+      "key": "F"
+    }
+  ]
 }
