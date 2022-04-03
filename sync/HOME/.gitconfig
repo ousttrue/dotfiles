@@ -1,9 +1,11 @@
 [core]
-	pager = less -cm
+    pager = less -cm
 [user]
-	email = ousttrue@gmail.com
-	name = ousttrue
+    email = ousttrue@gmail.com
+    name = ousttrue
 [credential]
-	helper = manager
+    helper = manager
 [pull]
-    
+[alias]
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
