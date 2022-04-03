@@ -91,3 +91,5 @@ alias gs='git status'
 alias gl='git lga'
 alias gr='cd $(git rev-parse --show-toplevel)'
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

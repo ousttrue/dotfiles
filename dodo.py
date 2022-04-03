@@ -338,6 +338,7 @@ CARGO_INSTALLS = {
     'bat': 'bat',
     'stylua': 'stylua',
     'viu': 'viu',
+    'zoxide': 'zoxide',
 }
 if IS_WINDOWS:
     CARGO_INSTALLS['lsd'] = 'lsd'

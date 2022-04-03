@@ -72,6 +72,7 @@ $COLOR_RESULTS = True
 # xontrib load powerline2
 # xontrib load z
 xontrib load vox
+xontrib load kitty
 
 #
 # プロンプトの表記
@@ -84,10 +85,44 @@ xontrib load vox
 #     "{env_name}{prompt_end} "
 # )
 
-$PROMPT = "{RED}┌{INTENSE_GREEN}{os_icon} [ {cwd} ] {BOLD_RED}{env_name}{gitstatus}\n{RED}└{INTENSE_GREEN}{prompt_end} "
-# $RIGHT_PROMPT = "{user}{os_icon}{hostname}"
-$BOTTOM_TOOLBAR = "{custom_date}"
-$XONSH_APPEND_NEWLINE = True
+# $PROMPT = "{RED}┌{INTENSE_GREEN}{os_icon} [ {cwd} ] {BOLD_RED}{env_name}{gitstatus}\n{RED}└{INTENSE_GREEN}{prompt_end} "
+# # $RIGHT_PROMPT = "{user}{os_icon}{hostname}"
+# $BOTTOM_TOOLBAR = "{custom_date}"
+# $XONSH_APPEND_NEWLINE = True
+xontrib load powerline3 prompt_ret_code
+
+# the foreground/background colors of the prompt-fields can be configured as below. 
+# This works for custom fields as well
+# The format is `<prompt-field-name>__pl_colors`. It can be a function returning `tuple[str, str]`
+# or set tuples directly as below.
+$PROMPT_FIELDS["user__pl_colors"] = ("BLACK", "CYAN")
+
+# choose the powerline glyph used
+$POWERLINE_MODE = "up" # if not set then it will choose random
+# available modes: round/down/up/flame/squares/ruiny/lego
+
+# define the prompts using the format style and you are good to go
+$PROMPT = "".join(
+    [
+        "{vte_new_tab_cwd}",
+        "{cwd:{}}",
+        "{gitstatus: {}}",
+        "{ret_code}",
+        "{background_jobs}",
+        os.linesep,
+        "{full_env_name: 🐍 {}}",
+        "{prompt_end}",
+    ]
+)
+$RIGHT_PROMPT = "".join(
+    (
+        # "{long_cmd_duration: ⌛{}}",
+        "{user: 🤖 {}}",
+        "{hostname: "+get_os_icon()+"{}}",
+        "{custom_date: 🕰 {}}",
+    )
+)
+
 
 
 def path_append(src):
@@ -183,4 +218,7 @@ lazy_module_dict = {
 for k,v in lazy_module_dict.items():
     t = "@lazyobject\ndef {}():\n    return importlib.import_module('{}')".format(k, v)
     exec(t)
+
+# zoxide
+execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
 
