@@ -132,6 +132,7 @@ aliases["cd.local"] = "cd ~/local"
 aliases["cd.desktop"] = "cd ~/Desktop"
 aliases["gs"] = "git status"
 aliases["gl"] = "git log --oneline --decorate --graph --branches --tags --remotes"
+aliases["gill"] = "git pull"
 
 
 def _repos():

@@ -3,9 +3,6 @@ local wezterm = require "wezterm"
 local config = {
     use_ime = true,
     default_prog = { "xonsh" },
-    initial_cols = 90,
-    initial_rows = 50,
-    launch_menu = {},
     enable_kitty_graphics = true,
     -- font
     font = wezterm.font "HackGenNerd Console",
@@ -35,36 +32,43 @@ local config = {
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+    --
+    -- Windows
+    --
     config.font_size = 12.0
     config.default_prog = { "C:/Python310/Scripts/xonsh.exe" }
-    table.insert(
-        config.launch_menu,
-        { label = "wsl", args = { "wsl.exe", "~", "/usr/bin/bash", "--login", "-c", "xonsh" } }
-    )
+    config.initial_cols = 120
+    config.initial_rows = 70
 
-    table.insert(config.launch_menu, { label = "PowerShell 5", args = { "powershell.exe", "-NoLogo" } })
-    --table.insert(config.launch_menu, { label = "PowerShell", args = {"pwsh.exe", "-NoLogo"} })
-    table.insert(
-        config.launch_menu,
-        { label = "VS PowerShell 2022", args = { "powershell.exe", "-NoLogo", "-NoExit", "-Command", "devps 17.0" } }
-    )
-    table.insert(
-        config.launch_menu,
-        { label = "VS PowerShell 2019", args = { "powershell.exe", "-NoLogo", "-NoExit", "-Command", "devps 16.0" } }
-    )
-    table.insert(config.launch_menu, { label = "Command Prompt", args = { "cmd.exe" } })
-    table.insert(config.launch_menu, {
-        label = "VS Command Prompt 2022",
-        args = { "powershell.exe", "-NoLogo", "-NoExit", "-Command", "devcmd 17.0" },
-    })
-    table.insert(config.launch_menu, {
-        label = "VS Command Prompt 2019",
-        args = { "powershell.exe", "-NoLogo", "-NoExit", "-Command", "devcmd 16.0" },
-    })
+    config.launch_menu = {
+        {
+            label = "wsl",
+            args = { "wsl.exe", "~", "/usr/bin/bash", "--login", "-c", "xonsh" },
+        },
+        {
+            label = "w3m",
+            args = { "wsl.exe", "~", "/usr/bin/bash", "--login", "-c", "w3m" },
+        },
+    }
 else
+    config.launch_menu = {
+        {
+            label = "w3m",
+            args = { "w3m" },
+        },
+    }
+
+    --
+    -- Linux
+    --
     config.font_size = 12.0
     config.default_prog = { "xonsh" }
-    table.insert(config.launch_menu, { label = "zsh", args = { "zsh", "-l" } })
+    config.initial_cols = 90
+    config.initial_rows = 50
+
+    config.launch_menu = {
+        { label = "zsh", args = { "zsh", "-l" } },
+    }
 end
 
 local function basename(s)
@@ -78,6 +82,9 @@ local function convert_home_dir(path)
     return cwd
 end
 
+--
+-- tab name
+--
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
     local user_title = tab.active_pane.user_vars.panetitle
     if user_title ~= nil and #user_title > 0 then
