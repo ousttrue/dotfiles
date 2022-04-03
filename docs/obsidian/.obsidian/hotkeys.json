@@ -4,17 +4,17 @@
   "app:go-back": [
     {
       "modifiers": [
-        "Shift"
+        "Mod"
       ],
-      "key": "B"
+      "key": "ArrowLeft"
     }
   ],
   "app:go-forward": [
     {
       "modifiers": [
-        "Shift"
+        "Mod"
       ],
-      "key": "F"
+      "key": "ArrowRight"
     }
   ]
 }
