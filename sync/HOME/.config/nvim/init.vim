@@ -13,6 +13,11 @@ else
     nnoremap <F5> :sp <CR> :term doit<CR>
 endif
 
+if has('win32')
+else
+    let g:python3_host_prog = "/usr/local/bin/python"
+endif
+
 set ts=4 sts=4 sw=4 expandtab
 set list
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<

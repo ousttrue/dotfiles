@@ -381,6 +381,8 @@ nnoremap <silent><mymap> :lua require'bufferline'.sort_buffers_by(function (buf_
     use "kizza/actionmenu.nvim"
 
     use "godlygeek/tabular"
+
+    use "ambergon/VimMDlink"
     use {
         "preservim/vim-markdown",
         config = function()

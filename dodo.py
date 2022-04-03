@@ -25,6 +25,7 @@ PIP_MODULES = {
     'nerdfonts': 'nerdfonts',
     'autopep8': 'autopep8',
     'pipx': 'pipx',
+    'pynvim': 'pynvim',
 }
 PIPX_MODULES = {
     'pylsp': 'python-lsp-server[all]',
