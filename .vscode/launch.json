@@ -29,8 +29,10 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "args": [],
-            "console": "externalTerminal",
+            "args": [
+                "/mnt/c/Users/oustt/Desktop/vp-of-eu.jpg",
+            ],
+            "console": "integratedTerminal",
             "justMyCode": false
         }
     ]
