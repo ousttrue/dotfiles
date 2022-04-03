@@ -32,7 +32,7 @@ $PROMPT_FIELDS['os_icon'] = get_os_icon()
 HOME_DIR = get_home()
 sys.path.append(str((HOME_DIR / 'dotfiles').absolute()))
 import xonsh_py
-$PROMPT_FIELDS['custom_date'] = xonsh_py._datetime
+$PROMPT_FIELDS['customdate'] = xonsh_py._datetime
 
 # エディタ
 #$EDITOR = '/usr/local/bin/vim'
@@ -88,7 +88,7 @@ xontrib load kitty
 
 # $PROMPT = "{RED}┌{INTENSE_GREEN}{os_icon} [ {cwd} ] {BOLD_RED}{env_name}{gitstatus}\n{RED}└{INTENSE_GREEN}{prompt_end} "
 # # $RIGHT_PROMPT = "{user}{os_icon}{hostname}"
-# $BOTTOM_TOOLBAR = "{custom_date}"
+# $BOTTOM_TOOLBAR = "{customdate}"
 # $XONSH_APPEND_NEWLINE = True
 xontrib load powerline3 prompt_ret_code
 
@@ -100,7 +100,7 @@ xontrib load powerline3 prompt_ret_code
 from prompt_toolkit.styles.named_colors import NAMED_COLORS
 $PROMPT_FIELDS["cwd__pl_colors"] = ("#FFFFFF", NAMED_COLORS['DarkGreen'])
 $PROMPT_FIELDS["user__pl_colors"] = ("#000000", "CYAN")
-$PROMPT_FIELDS["custom_date__pl_colors"] = ("#FFFFFF", NAMED_COLORS['MidnightBlue'])
+$PROMPT_FIELDS["customdate__pl_colors"] = ("#FFFFFF", NAMED_COLORS['MidnightBlue'])
 
 # choose the powerline glyph used
 $POWERLINE_MODE = "up" # if not set then it will choose random
@@ -123,7 +123,7 @@ $RIGHT_PROMPT = "".join(
         # "{long_cmd_duration: ⌛{}}",
         "{user: 🤖 {}}",
         "{hostname: "+get_os_icon()+"{}}",
-        "{custom_date: 🕰 {}}",
+        "{customdate:  {}}",
     )
 )
 

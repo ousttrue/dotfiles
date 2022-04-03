@@ -13,7 +13,7 @@ WEEKDAY = [
 def _datetime():
     import datetime
     now = datetime.datetime.now()
-    return f'{now.day}{WEEKDAY[now.weekday()]}{now.hour:02d}:{now.minute:02d}'
+    return f'{now.day}({WEEKDAY[now.weekday()]}){now.hour:02d}:{now.minute:02d}'
 
 @contextlib.contextmanager
 def pushdir(dst):

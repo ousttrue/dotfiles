@@ -51,16 +51,17 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         },
     }
 else
+    --
+    -- Linux
+    --
     config.launch_menu = {
         {
             label = "w3m",
             args = { "w3m" },
         },
     }
+    config.warn_about_missing_glyphs = false
 
-    --
-    -- Linux
-    --
     config.font_size = 12.0
     config.default_prog = { "xonsh" }
     config.initial_cols = 100
