@@ -63,7 +63,7 @@ else
     --
     config.font_size = 12.0
     config.default_prog = { "xonsh" }
-    config.initial_cols = 90
+    config.initial_cols = 100
     config.initial_rows = 50
 
     config.launch_menu = {

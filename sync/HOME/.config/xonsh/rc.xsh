@@ -68,6 +68,7 @@ $LANG = 'ja_JP.UTF-8'
 
 $COLOR_INPUT = True
 $COLOR_RESULTS = True
+$PROMPT_TOOLKIT_COLOR_DEPTH = 'DEPTH_24_BIT'
 
 # xontrib load powerline2
 # xontrib load z
@@ -95,7 +96,11 @@ xontrib load powerline3 prompt_ret_code
 # This works for custom fields as well
 # The format is `<prompt-field-name>__pl_colors`. It can be a function returning `tuple[str, str]`
 # or set tuples directly as below.
-$PROMPT_FIELDS["user__pl_colors"] = ("BLACK", "CYAN")
+# 
+from prompt_toolkit.styles.named_colors import NAMED_COLORS
+$PROMPT_FIELDS["cwd__pl_colors"] = ("#FFFFFF", NAMED_COLORS['DarkGreen'])
+$PROMPT_FIELDS["user__pl_colors"] = ("#000000", "CYAN")
+$PROMPT_FIELDS["custom_date__pl_colors"] = ("#FFFFFF", NAMED_COLORS['MidnightBlue'])
 
 # choose the powerline glyph used
 $POWERLINE_MODE = "up" # if not set then it will choose random
@@ -106,7 +111,6 @@ $PROMPT = "".join(
     [
         "{vte_new_tab_cwd}",
         "{cwd:{}}",
-        "{gitstatus: {}}",
         "{ret_code}",
         "{background_jobs}",
         os.linesep,
@@ -172,7 +176,7 @@ aliases["gill"] = "git pull"
 def _repos():
     repository = $(ghq list -p | peco).strip()
     if repository:
-        cd @(repository)
+        z @(repository)
 aliases['repos'] = _repos
 
 def _start(args, stdin=None, stdout=None, stderr=None, spec=None):

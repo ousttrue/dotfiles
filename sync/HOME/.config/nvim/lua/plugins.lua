@@ -350,6 +350,7 @@ nnoremap <silent><mymap> :lua require'bufferline'.sort_buffers_by(function (buf_
             vim.api.nvim_set_keymap("n", "<S-f>", ":Neoformat<CR>", { noremap = true })
             vim.api.nvim_set_keymap("v", "<S-f>", ":Neoformat<CR>", { noremap = true })
             vim.api.nvim_set_var("neoformat_basic_format_retab", "1")
+            vim.g.neoformat_enabled_python = {'yapf'}
         end,
     }
 
