@@ -113,7 +113,7 @@ $PROMPT = "".join(
         "{cwd:{}}",
         "{ret_code}",
         "{background_jobs}",
-        os.linesep,
+        '\n',
         "{full_env_name: 🐍 {}}",
         "{prompt_end}",
     ]

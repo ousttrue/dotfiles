@@ -375,16 +375,21 @@ def task_skk_dictionary():
 
 
 if IS_WINDOWS:
+
     def task_deno():
         return {
-            "actions": ['pwsh -c "iwr https://deno.land/x/install/install.ps1 -useb | iex"'],
+            "actions": [
+                'pwsh -c "iwr https://deno.land/x/install/install.ps1 -useb | iex"'
+            ],
             "uptodate": [True],
             'targets': [HOME_DIR / '.deno/bin/deno.exe']
         }
 else:
+
     def task_deno():
         return {
-            "actions": ['curl -fsSL https://deno.land/x/install/install.sh | sh'],
+            "actions":
+            ['curl -fsSL https://deno.land/x/install/install.sh | sh'],
             "uptodate": [True],
             'targets': [HOME_DIR / '.deno/bin/deno']
         }
@@ -398,21 +403,22 @@ def task_emoji():
             f'ln -s {GHQ_GITHUB_DIR}/twitter/twemoji/assets/72x72 {HOME_DIR}/.mlterm/emoji',
         ],
         "uptodate": [True],
-        'targets': [
-            GHQ_GITHUB_DIR / 'twitter/twemoji/README.md'
-        ], }
+        'targets': [GHQ_GITHUB_DIR / 'twitter/twemoji/README.md'],
+    }
 
 
 def task_mlterm():
+    if IS_WINDOWS:
+        return
     dir = GHQ_GITHUB_DIR / 'arakiken/mlterm'
     return {
         'actions': [
             'ghq get arakiken/mlterm',
-            doit.action.CmdAction(f'./configure --prefix={HOME_DIR}/local --with-gui=console', cwd=dir),
+            doit.action.CmdAction(
+                f'./configure --prefix={HOME_DIR}/local --with-gui=console',
+                cwd=dir),
             doit.action.CmdAction('make install', cwd=dir),
         ],
         "uptodate": [True],
-        'targets': [
-            HOME_DIR / 'local/bin/mlterm-con'
-        ],
+        'targets': [HOME_DIR / 'local/bin/mlterm-con'],
     }
