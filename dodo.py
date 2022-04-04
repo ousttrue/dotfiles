@@ -309,7 +309,7 @@ else:
             'targets': [HOME_DIR / '.fonts/sarasa-mono-sc-nerd-regular.ttf'],
             'actions': [
                 'mkdir -p ~/.fonts',
-                f'curl {url} -L -O',
+                f'curl {url} -L -o %(targets)s',
             ]
         }
 

@@ -93,3 +93,5 @@ alias gr='cd $(git rev-parse --show-toplevel)'
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+alias luamake=/home/ousttrue/ghq/github.com/sumneko/lua-language-server/3rd/luamake/luamake
