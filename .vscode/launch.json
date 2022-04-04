@@ -34,6 +34,16 @@
             ],
             "console": "integratedTerminal",
             "justMyCode": false
-        }
+        },
+        {
+            "name": "filer",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/filer.py",
+            "cwd": "${workspaceFolder}",
+            "args": [],
+            "console": "externalTerminal",
+            "justMyCode": false
+        },
     ]
 }

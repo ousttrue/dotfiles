@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "CG/WIC.md",
+            "file": "Linux/wayland.md",
             "mode": "source",
             "source": false
           }
@@ -78,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CG/WIC.md",
+                "file": "Linux/wayland.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "CG/WIC.md",
+                "file": "Linux/wayland.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -135,10 +135,12 @@
       }
     ],
     "direction": "horizontal",
-    "width": 911
+    "width": 540
   },
   "active": "c281232ba43bbcc6",
   "lastOpenFiles": [
+    "Linux/wayland.md",
+    "programming/TSF.md",
     "CG/WIC.md",
     "font/FontMetric.md",
     "programming/NamedPipe.md",
@@ -146,8 +148,6 @@
     "Untitled 1.md",
     "font/emoji.md",
     "Untitled 2.md",
-    "font/nerd_font.md",
-    "blender/blender.md",
-    "blender/LowPolyRoom.md"
+    "font/nerd_font.md"
   ]
 }
