@@ -104,10 +104,11 @@ def task_zig():
 
     return {
         'actions': [
-            f'make -p {ZIG.ARCHIVE.parent}',
+            f'mkdir -p {ZIG.ARCHIVE.parent}',
             f'curl {ZIG.ARCHIVE_URL} -o {ZIG.ARCHIVE}',
             doit.action.CmdAction(f'tar xf {ZIG.ARCHIVE}',
                                   cwd=ZIG.ARCHIVE.parent),
+            f'mkdir -p {ZIG.BIN.parent}',
             f'ln -s {ZIG.ARCHIVE_EXTRACT}/zig {ZIG.BIN}',
         ],
         'targets': [ZIG.BIN],

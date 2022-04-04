@@ -225,5 +225,7 @@ for k,v in lazy_module_dict.items():
     exec(t)
 
 # zoxide
-execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
+if which("zoxide"):
+    execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
+
 
