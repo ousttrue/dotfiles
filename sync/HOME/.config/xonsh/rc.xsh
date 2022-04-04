@@ -25,7 +25,15 @@ def get_os_icon():
 
 
 def which(cmd: str)->bool:
-    return subprocess.run(f'which {cmd} > /dev/null 2>&1', shell=True).returncode == 0
+    if platform.system()=='Windows':
+        for path in os.environ['PATH'].split(';'):
+            dir = pathlib.Path(path)
+            if(dir / cmd).exists():
+                return True
+            if(dir / (cmd+'.exe')).exists():
+                return True
+    else:
+        return subprocess.run(f'which {cmd} > /dev/null 2>&1', shell=True).returncode == 0
 
 $PROMPT_FIELDS['os_icon'] = get_os_icon()
 
