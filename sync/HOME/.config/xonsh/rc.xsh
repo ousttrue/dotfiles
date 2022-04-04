@@ -111,6 +111,7 @@ $PROMPT = "".join(
     [
         "{vte_new_tab_cwd}",
         "{cwd:{}}",
+        "{gitstatus:  {}}",
         "{ret_code}",
         "{background_jobs}",
         '\n',
