@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6825ec59c..5a23567f1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -275,7 +275,7 @@ int main(void)
+ 
+ if(MSVC)
+   # XXX: /W4 gives too many warnings. #3241
+-  add_compile_options(/W3)
++  add_compile_options(/W3 /source-charset:utf-8 /wd4244 /wd4267 /wd4996 /wd4566)
+   add_definitions(-D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_DEPRECATE)
+   add_definitions(-DWIN32)
+ else()

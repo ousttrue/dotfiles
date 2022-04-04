@@ -47,7 +47,7 @@ if IS_WINDOWS:
     PYTHON_BIN = pathlib.Path('C:/python310/python.exe')
     PYTHON_SCRIPTS = pathlib.Path('C:/python310/Scripts')
     EXE = '.exe'
-    import vcenv
+    # import vcenv
 else:
     HOME_DIR = pathlib.Path(os.environ['HOME'])
     from linux_tasks import *
