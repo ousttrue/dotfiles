@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Linux/wayland.md",
+            "file": "blender/blender.md",
             "mode": "source",
             "source": false
           }
@@ -78,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux/wayland.md",
+                "file": "blender/blender.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,11 +102,11 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Linux/wayland.md",
+                "file": "blender/blender.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
-                  "localJumps": 1,
+                  "localJumps": 2,
                   "localBacklinks": true,
                   "localForelinks": true,
                   "localInterlinks": false,
@@ -139,15 +139,15 @@
   },
   "active": "c281232ba43bbcc6",
   "lastOpenFiles": [
+    "blender/blender.md",
+    "blender/AssetBrowser.md",
+    "blender/ArchiMesh.md",
+    "blender/IsometricRoom.md",
+    "blender/BlenderKit.md",
     "Linux/wayland.md",
     "programming/TSF.md",
     "CG/WIC.md",
     "font/FontMetric.md",
-    "programming/NamedPipe.md",
-    "programming/BSTR.md",
-    "Untitled 1.md",
-    "font/emoji.md",
-    "Untitled 2.md",
-    "font/nerd_font.md"
+    "programming/NamedPipe.md"
   ]
 }
