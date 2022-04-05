@@ -14,10 +14,14 @@ import prompt_toolkit.buffer
 import prompt_toolkit.filters
 import prompt_toolkit.data_structures
 import prompt_toolkit.utils
+import prompt_toolkit.widgets
 STYLE = prompt_toolkit.styles.Style.from_dict({
     'dir': '#00FF00',
+    'linkdir': '#007700',
     'file': '#00FFFF',
+    'linkfile': '#007777',
     'hover': 'reverse',
+    'addressbar': 'reverse',
 })
 
 
@@ -47,8 +51,10 @@ class FileList:
             self.invalidated.fire()
         asyncio.get_event_loop().call_soon_threadsafe(fire)
 
-    def go_parent(self) -> int:
+    def go_parent(self) -> Optional[int]:
         assert(self.dir)
+        if self.dir.parent == self.dir:
+            return
         current = self.dir
         self.chdir(self.dir.parent)
         for i, (f, l) in enumerate(self.items):
@@ -58,6 +64,8 @@ class FileList:
 
     def chdir(self, dir: pathlib.Path):
         dir = dir.absolute()
+        if dir.is_symlink():
+            dir = dir.resolve()
         if self.dir == dir:
             return
         assert(dir.is_dir())
@@ -79,10 +87,16 @@ class FileList:
                 return text + ' ' * max(0, (max(self.max_wc, self.width-2) - l))
 
             def to_text(f: pathlib.Path, l: int) -> Tuple[str, str]:
-                if f.is_dir():
-                    return ('class:dir', ' ' + wc_padding(f.name, l) + '\n')
+                if f.is_symlink():
+                    if f.is_dir():
+                        return ('class:linkdir', ' ' + wc_padding(f.name, l) + '\n')
+                    else:
+                        return ('class:linkfile', ' ' + wc_padding(f.name, l) + '\n')
                 else:
-                    return ('class:file', ' ' + wc_padding(f.name, l) + '\n')
+                    if f.is_dir():
+                        return ('class:dir', ' ' + wc_padding(f.name, l) + '\n')
+                    else:
+                        return ('class:file', ' ' + wc_padding(f.name, l) + '\n')
 
             self._text_cache = []
             for f, l in self.items:
@@ -107,15 +121,21 @@ class Selector(prompt_toolkit.layout.FormattedTextControl):
         self.kb = kb
 
         def go_parent(e):
-            self.selected = self.items.go_parent()
+            index = self.items.go_parent()
+            if isinstance(index, int):
+                self.selected = index
         self._keybind(go_parent, 'left')
         self._keybind(go_parent, 'h')
 
         def go_selected(e):
             item = self.items[self.selected]
             if item and item.is_dir():
-                self.items.chdir(item)
-                self.selected = 0
+                try:
+                    self.items.chdir(item)
+                    self.selected = 0
+                except PermissionError:
+                    # TODO
+                    pass
         self._keybind(go_selected, 'l')
         self._keybind(self.up, 'up')
         self._keybind(self.up, 'k')
@@ -172,11 +192,14 @@ async def main():
         e.app.exit()
 
     selector = prompt_toolkit.layout.Window(Selector(kb, fl), width=25)
-    root = prompt_toolkit.layout.VSplit([
-        selector,
-        prompt_toolkit.layout.Window(char='|', width=1),
-        prompt_toolkit.layout.Window()
-    ])
+    root = prompt_toolkit.layout.HSplit([
+        prompt_toolkit.widgets.FormattedTextToolbar(
+            lambda: f'{fl.dir}', 'class:addressbar'),
+        prompt_toolkit.layout.VSplit([
+            selector,
+            prompt_toolkit.layout.Window(char='|', width=1),
+            prompt_toolkit.layout.Window()
+        ])])
 
     app = prompt_toolkit.Application(
         full_screen=True,
