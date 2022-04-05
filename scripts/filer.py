@@ -7,6 +7,7 @@ import prompt_toolkit
 import prompt_toolkit.layout
 import prompt_toolkit.key_binding
 import prompt_toolkit.key_binding.vi_state
+import prompt_toolkit.key_binding.bindings.scroll
 import prompt_toolkit.styles
 import prompt_toolkit.enums
 import prompt_toolkit.cursor_shapes
@@ -15,6 +16,9 @@ import prompt_toolkit.filters
 import prompt_toolkit.data_structures
 import prompt_toolkit.utils
 import prompt_toolkit.widgets
+import prompt_toolkit.lexers
+
+
 STYLE = prompt_toolkit.styles.Style.from_dict({
     'dir': '#00FF00',
     'linkdir': '#007700',
@@ -102,15 +106,17 @@ class FileList:
         if self.dir == dir:
             return
         assert(dir.is_dir())
-        self.dir = dir
-        self.items = []
-        self.selected_index = 0
-        for i, f in enumerate(self.dir.iterdir()):
-            self.items.append(FileItem(f, wcswidth(f.name)))
+        items = []
+        for i, f in enumerate(dir.iterdir()):
+            items.append(FileItem(f, wcswidth(f.name)))
             if f == select_target:
                 self.selected_index = i
+            self.dir = dir
+        self.items = items
         self.max_wc = max(l for f, l in self.items) if self.items else 0
         self._text_cache = None
+        if select_target is None:
+            self.selected_index = 0
         self.invalidated.fire()
 
     def go_parent(self, e) -> Optional[int]:
@@ -189,7 +195,14 @@ class Selector(prompt_toolkit.layout.FormattedTextControl):
 
 class Preview:
     def __init__(self) -> None:
+        self.current_path = None
+        lexer = prompt_toolkit.lexers.DynamicLexer(
+            lambda: prompt_toolkit.lexers.PygmentsLexer.from_filename(
+                self.current_path or ".txt", sync_from_start=False
+            )
+        )
         self.text_area = prompt_toolkit.widgets.TextArea(
+            lexer=lexer,
             read_only=True,
             scrollbar=True,
             line_numbers=True,
@@ -197,6 +210,26 @@ class Preview:
 
     def __pt_container__(self):
         return self.text_area
+
+    def set_path(self, path: Optional[pathlib.Path]):
+        if self.current_path == path:
+            return
+        self.current_path = path
+        if not path:
+            self.s = None
+            self.text_area.text = ''
+            return
+
+        if path.is_dir():
+            try:
+                self.text_area.text = '\n'.join(f.name for f in path.iterdir())
+            except Exception as e:
+                self.text_area.text = str(e)
+        else:
+            try:
+                self.text_area.text = path.read_text(encoding='utf-8')
+            except Exception as e:
+                self.text_area.text = str(e)
 
 
 async def main():
@@ -212,6 +245,9 @@ async def main():
 
     preview = Preview()
 
+    kb.add('space')(prompt_toolkit.key_binding.bindings.scroll.scroll_forward)
+    kb.add('b')(prompt_toolkit.key_binding.bindings.scroll.scroll_backward)
+
     @kb.add('tab', filter=prompt_toolkit.filters.has_focus(selector))
     def focus_preview(e: prompt_toolkit.key_binding.KeyPressEvent):
         e.app.layout.focus(preview)
@@ -221,20 +257,7 @@ async def main():
         e.app.layout.focus(selector)
 
     def on_invalidated(_):
-        s = fl.selected
-        if not s:
-            return
-        if s.is_dir():
-            try:
-                preview.text_area.text = '\n'.join(f.name for f in s.iterdir())
-            except Exception as e:
-                preview.text_area.text = str(e)
-        else:
-            try:
-                preview.text_area.text = s.read_text()
-            except Exception as e:
-                preview.text_area.text = str(e)
-
+        preview.set_path(fl.selected)
     fl.invalidated += on_invalidated
 
     root = prompt_toolkit.layout.HSplit([
