@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import List, Tuple, Iterable
 import asyncio
 import pathlib
 from prompt_toolkit.application.current import get_app
@@ -11,31 +11,66 @@ import prompt_toolkit.enums
 import prompt_toolkit.cursor_shapes
 import prompt_toolkit.buffer
 import prompt_toolkit.filters
-
+import prompt_toolkit.data_structures
+import prompt_toolkit.utils
 STYLE = prompt_toolkit.styles.Style.from_dict({
     'dir': '#00FF00',
     'file': '#00FFFF',
+    'hover': 'reverse',
 })
 
 
-class FileSelector:
+class FileSelector(prompt_toolkit.layout.FormattedTextControl):
     def __init__(self, kb: prompt_toolkit.key_binding.KeyBindings, current: pathlib.Path) -> None:
-        self.kb = kb
-        self._readonly = True
-        self.buffer = prompt_toolkit.buffer.Buffer(
-            read_only=prompt_toolkit.filters.Condition(lambda: self._readonly))
-        self.control = prompt_toolkit.layout.BufferControl(self.buffer)
-        self.container = prompt_toolkit.layout.Window(self.control)
+        super().__init__(
+            lambda: self.text,
+            focusable=True,
+            get_cursor_position=lambda: prompt_toolkit.data_structures.Point(0, self.selected))
+        self.text: List[Tuple[str, str]] = []
+        self.selected = 0
+
         self.dir = None
         self.chdir(current)
 
+        self.kb = kb
         self._keybind(self.go_parent, 'left')
+        self._keybind(self.up, 'up')
+        self._keybind(self.up, 'k')
+        self._keybind(self.down, 'down')
+        self._keybind(self.down, 'j')
 
-    def __pt_container__(self):
-        return self.container
+        self.on_selected = prompt_toolkit.utils.Event(self)
+
+    def create_content(self, *args):
+        content = super().create_content(*args)
+        get_line = content.get_line
+
+        def highlight_selected(line_index: int):
+            line: List[Tuple[str, str]] = get_line(line_index)
+            if line_index == self.selected:
+                line = [(style + ' class:selected', text)
+                        for style, text in line]
+            return line
+        content.get_line = highlight_selected
+        return content
 
     def _keybind(self, callback, *args, **kw):
         self.kb.add(*args, **kw)(callback)
+
+    def select(self, selected: int):
+        if self.selected == selected:
+            return
+        if selected < 0 or selected >= len(self.text):
+            return
+
+        self.selected = selected
+        self.on_selected.fire()
+
+    def up(self, e):
+        self.select(self.selected-1)
+
+    def down(self, e):
+        self.select(self.selected+1)
 
     def go_parent(self, e: prompt_toolkit.key_binding.KeyPressEvent):
         assert(self.dir)
@@ -47,9 +82,14 @@ class FileSelector:
             return
         assert(dir.is_dir())
         self.dir = dir
-        self._readonly = False
-        self.buffer.text = '\n'.join(f'{f.name}' for f in self.dir.iterdir())
-        self._readonly = True
+
+        def to_text(f: pathlib.Path) -> Tuple[str, str]:
+            if f.is_dir():
+                return ('class:dir', f' {f.name}\n')
+            else:
+                return ('class:file', f' {f.name}\n')
+
+        self.text = [to_text(f) for f in self.dir.iterdir()]
 
 
 async def main():
@@ -59,7 +99,8 @@ async def main():
     def quit(e: prompt_toolkit.key_binding.KeyPressEvent):
         e.app.exit()
 
-    root = FileSelector(kb, pathlib.Path('.'))
+    root = prompt_toolkit.layout.Window(
+        FileSelector(kb, pathlib.Path('.')))
 
     app = prompt_toolkit.Application(
         full_screen=True,

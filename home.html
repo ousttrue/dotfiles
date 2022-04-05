@@ -4,13 +4,35 @@
         <title>Home</title>
     </head>
     <body>
-        <h1>Google</h1>
-        <form action="https://www.google.com/search" method="GET" name="f" accept-charset="UTF-8">
-            <input name="as_q" type="text" value=""/>
-            <input name="num" value="50" type="hidden">
-        </form>
+        <table>
+            <tr>
+                <td>Google</td>
+                <td>
+                    <form action="https://www.google.com/search" method="GET" accept-charset="UTF-8">
+                        <input name="as_q" type="text" value=""/>
+                        <input name="num" value="50" type="hidden">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>github</td>
+                <td>
+                    <form action="https://github.com/search" method="GET" accept-charset="UTF-8">
+                        <input name="q">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Zenn</td>
+                <td>
+                    <form action="https://zenn.dev/search" method="GET" accept-charset="UTF-8">
+                        <input name="q">
+                    </form>
+                </td>
+            </tr>
+        </table>
 
-        <h1>Advanced</h1>
+        <h1>Google Advanced</h1>
         <form action="https://www.google.com/search" method="GET" name="f" accept-charset="UTF-8">
             <!-- <input name="hl" type="hidden" value="ja"/> -->
             <h2>検索するキーワード</h2>
