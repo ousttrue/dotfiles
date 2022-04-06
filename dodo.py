@@ -1,8 +1,52 @@
 import sys
 from doit.action import CmdAction
 from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
-                      GHQ_GITHUB_DIR, condition, mkdir)
+                      GHQ_GITHUB_DIR, condition, mkdir, traverse,
+                      SYNC_HOME_DIR, mklink, check_link)
 from doit.tools import result_dep
+
+
+def task_create_link():
+    '''
+    create symbol link for config files
+    '''
+    for src in traverse(SYNC_HOME_DIR):
+        target = src.relative_to(SYNC_HOME_DIR)
+        dst = HOME_DIR / target
+        yield {
+            'name': target,
+            # 'file_dep': [src],
+            'targets': [dst],
+            'actions': [(mklink, [src])],
+            'uptodate': [(check_link, (src, dst))],
+            'verbosity': 2,
+        }
+
+    if IS_WINDOWS:
+        for src in traverse(SYNC_APPDATA_ROAMING_DIR):
+            target = src.relative_to(SYNC_APPDATA_ROAMING_DIR)
+            dst = APPDATA_ROAMING_DIR / target
+            yield {
+                'name': target,
+                # 'file_dep': [src],
+                'targets': [dst],
+                'actions': [(mklink, [src])],
+                'uptodate': [(check_link, (src, dst))],
+                'verbosity': 2,
+            }
+
+        for src in traverse(SYNC_APPDATA_LOCAL_DIR):
+            target = src.relative_to(SYNC_APPDATA_LOCAL_DIR)
+            dst = APPDATA_LOCAL_DIR / target
+            yield {
+                'name': target,
+                # 'file_dep': [src],
+                'targets': [dst],
+                'actions': [(mklink, [src])],
+                'uptodate': [(check_link, (src, dst))],
+                'verbosity': 2,
+            }
+
 
 CARGO_INSTALLS = {
     'ripgrep': 'rg',
@@ -39,7 +83,10 @@ def task_cargo():
 
 import site
 
-SITE_PACKAGES = site.getusersitepackages()
+if IS_WINDOWS:
+    SITE_PACKAGES = site.getsitepackages()
+else:
+    SITE_PACKAGES = site.getusersitepackages()
 
 
 def task_pip_api():

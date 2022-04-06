@@ -3,39 +3,32 @@
 #
 import pathlib
 import os
+import sys
+import platform
 import doit.action
 from doit.tools import run_once
 from doit.tools import result_dep
 
-HERE = pathlib.Path(__file__).absolute().parent
-HOME_DIR = HERE.parent.parent
+DOTFILES = pathlib.Path(__file__).absolute().parent.parent
+HOME_DIR = DOTFILES.parent
 GHQ_DIR = HOME_DIR / 'ghq'
 GHQ_GITHUB_DIR = GHQ_DIR / 'github.com'
-SYNC_DIR = HERE / 'sync'
+SYNC_DIR = DOTFILES / 'sync'
 SYNC_HOME_DIR = SYNC_DIR / 'HOME'
-SYNC_APPDATA_ROAMING_DIR = SYNC_DIR / 'APPDATA/Roaming'
-SYNC_APPDATA_LOCAL_DIR = SYNC_DIR / 'APPDATA/Local'
 
-
-def is_windows():
-    import platform
-    return platform.system() == 'Windows'
-
-
-IS_WINDOWS = is_windows()
+IS_WINDOWS = platform.system() == 'Windows'
 
 if IS_WINDOWS:
     HOME_DIR = pathlib.Path(os.environ['USERPROFILE'])
     APPDATA_ROAMING_DIR = pathlib.Path(os.environ['APPDATA'])
     APPDATA_LOCAL_DIR = APPDATA_ROAMING_DIR.parent / 'Local'
-    PYTHON_BIN = pathlib.Path('C:/python310/python.exe')
-    PYTHON_SCRIPTS = pathlib.Path('C:/python310/Scripts')
+    PYTHON_SCRIPTS = pathlib.Path(sys.executable).parent / 'Scripts'
     EXE = '.exe'
-    # import vcenv
+    SYNC_APPDATA_ROAMING_DIR = SYNC_DIR / 'APPDATA/Roaming'
+    SYNC_APPDATA_LOCAL_DIR = SYNC_DIR / 'APPDATA/Local'
 else:
     HOME_DIR = pathlib.Path(os.environ['HOME'])
     from linux_tasks import *
-    PYTHON_BIN = pathlib.Path('/usr/local/bin/python')
     PYTHON_SCRIPTS = HOME_DIR / '.local/bin'
     EXE = ''
 
@@ -66,49 +59,6 @@ def traverse(d: pathlib.Path):
                 yield x
         else:
             yield f
-
-
-def task_create_link():
-    '''
-    create symbol link for config files
-    '''
-    for src in traverse(SYNC_HOME_DIR):
-        target = src.relative_to(SYNC_HOME_DIR)
-        dst = HOME_DIR / target
-        yield {
-            'name': target,
-            # 'file_dep': [src],
-            'targets': [dst],
-            'actions': [(mklink, [src])],
-            'uptodate': [(check_link, (src, dst))],
-            'verbosity': 2,
-        }
-
-    if IS_WINDOWS:
-        for src in traverse(SYNC_APPDATA_ROAMING_DIR):
-            target = src.relative_to(SYNC_APPDATA_ROAMING_DIR)
-            dst = APPDATA_ROAMING_DIR / target
-            yield {
-                'name': target,
-                # 'file_dep': [src],
-                'targets': [dst],
-                'actions': [(mklink, [src])],
-                'uptodate': [(check_link, (src, dst))],
-                'verbosity': 2,
-            }
-
-        for src in traverse(SYNC_APPDATA_LOCAL_DIR):
-            target = src.relative_to(SYNC_APPDATA_LOCAL_DIR)
-            dst = APPDATA_LOCAL_DIR / target
-            yield {
-                'name': target,
-                # 'file_dep': [src],
-                'targets': [dst],
-                'actions': [(mklink, [src])],
-                'uptodate': [(check_link, (src, dst))],
-                'verbosity': 2,
-            }
-
 
 
 def condition(cond):
