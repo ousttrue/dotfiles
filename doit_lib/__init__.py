@@ -62,7 +62,6 @@ def traverse(d: pathlib.Path):
 
 
 def condition(cond):
-
     def empty(*args):
         pass
 
@@ -80,7 +79,6 @@ class GitCloneTask(object):
     repository: str
     shallow: bool = False
     '''
-
     @classmethod
     def create_doit_tasks(cls):
         if cls is GitCloneTask:
@@ -123,8 +121,9 @@ class GitCloneTask(object):
 
         apts = kw.pop('apts', [])
         if apts:
-            kw['actions'].insert(0,
-                                 'sudo apt-get install -y ' + ' '.join(apts))
+            if not IS_WINDOWS:
+                kw['actions'].insert(
+                    0, 'sudo apt-get install -y ' + ' '.join(apts))
         return kw
 
 
@@ -134,7 +133,6 @@ class GitBuildTask(object):
     repository = GitCloneTask
     condition: bool = True
     '''
-
     @classmethod
     def create_doit_tasks(cls):
         if cls is GitBuildTask:

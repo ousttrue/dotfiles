@@ -2,7 +2,9 @@ import sys
 from doit.action import CmdAction
 from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
                       GHQ_GITHUB_DIR, condition, mkdir, traverse,
-                      SYNC_HOME_DIR, mklink, check_link)
+                      SYNC_HOME_DIR, SYNC_APPDATA_LOCAL_DIR,
+                      SYNC_APPDATA_ROAMING_DIR, APPDATA_LOCAL_DIR, DOTFILES,
+                      APPDATA_ROAMING_DIR, mklink, check_link)
 from doit.tools import result_dep
 
 
@@ -67,7 +69,7 @@ def task_rustup():
         'actions':
         ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"],
         'uptodate': ['which rustup'],
-        'targets': [HOME_DIR / '.cargo/bin/rustup'],
+        'targets': [HOME_DIR / f'.cargo/bin/rustup{EXE}'],
     }
 
 
@@ -76,7 +78,7 @@ def task_cargo():
         yield {
             'name': k,
             'actions': [f"cargo install {k}"],
-            'file_dep': [HOME_DIR / '.cargo/bin/rustup'],
+            'file_dep': [HOME_DIR / f'.cargo/bin/rustup{EXE}'],
             'targets': [HOME_DIR / f'.cargo/bin/{v}{EXE}'],
         }
 
@@ -84,7 +86,10 @@ def task_cargo():
 import site
 
 if IS_WINDOWS:
-    SITE_PACKAGES = site.getsitepackages()
+    for s in site.getsitepackages():
+        if 'site-packages' in s:
+            SITE_PACKAGES = s
+            break
 else:
     SITE_PACKAGES = site.getusersitepackages()
 
@@ -279,6 +284,8 @@ if IS_WINDOWS:
     class neovim(GitBuildTask):
         repository = neovim_ghq
         actions = [
+            f'git restore -- .',
+            f'git --git-dir= apply -p1 {DOTFILES}\\neovim.patch',
             # deps
             f'{cmake} -S %(git_dir)s/third-party -B %(git_dir)s/.deps -DCMAKE_BUILD_TYPE=RelWithDebInfo',
             f'{cmake} --build %(git_dir)s/.deps --config RelWithDebInfo',
@@ -332,7 +339,7 @@ else:
         ]
 
 
-if IS_WINDOWS:
+if not IS_WINDOWS:
 
     class w3m_ghq(GitCloneTask):
         user = 'tats'

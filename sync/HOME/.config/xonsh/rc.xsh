@@ -42,6 +42,12 @@ sys.path.append(str((HOME_DIR / 'dotfiles').absolute()))
 import xonsh_py
 $PROMPT_FIELDS['customdate'] = xonsh_py._datetime
 
+if platform.system()=='Windows':
+    import vcenv
+    $VCINSTALLDIR = vcenv.vc_map['VCINSTALLDIR']
+    $INCLUDE = vcenv.vc_map['INCLUDE']
+    $LIB = vcenv.vc_map['LIB']
+
 # エディタ
 #$EDITOR = '/usr/local/bin/vim'
 #$VISUAL = '/usr/local/bin/vim'
