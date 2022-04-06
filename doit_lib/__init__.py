@@ -7,15 +7,6 @@ import doit.action
 from doit.tools import run_once
 from doit.tools import result_dep
 
-HAS_PIP_API = False
-try:
-    import pip_api
-    HAS_PIP_API = True
-    # slow
-    PIP_INSTALLED = pip_api.installed_distributions()  # type: ignore
-except Exception as e:
-    print(e)
-
 HERE = pathlib.Path(__file__).absolute().parent
 HOME_DIR = HERE.parent.parent
 GHQ_DIR = HOME_DIR / 'ghq'
@@ -24,18 +15,6 @@ SYNC_DIR = HERE / 'sync'
 SYNC_HOME_DIR = SYNC_DIR / 'HOME'
 SYNC_APPDATA_ROAMING_DIR = SYNC_DIR / 'APPDATA/Roaming'
 SYNC_APPDATA_LOCAL_DIR = SYNC_DIR / 'APPDATA/Local'
-
-PIP_MODULES = {
-    'xonsh': 'xonsh[full]',
-    'nerdfonts': 'nerdfonts',
-    'autopep8': 'autopep8',
-    'pipx': 'pipx',
-    'pynvim': 'pynvim',
-}
-PIPX_MODULES = {
-    'pylsp': 'python-lsp-server[all]',
-    'ranger': 'ranger-fm',
-}
 
 
 def is_windows():
@@ -130,24 +109,6 @@ def task_create_link():
                 'verbosity': 2,
             }
 
-
-if PYTHON_BIN.exists():
-
-    def task_pip_api():
-        return {
-            'actions': [f'{PYTHON_BIN} -m pip install pip-api'],
-            'uptodate': [HAS_PIP_API],
-        }
-
-    if HAS_PIP_API:
-
-        def task_pip():
-            for k, v in PIP_MODULES.items():
-                yield {
-                    'name': k,
-                    'uptodate': [lambda: k in PIP_INSTALLED],
-                    'actions': [f'{PYTHON_BIN} -m pip install "{v}"'],
-                }
 
 
 def condition(cond):

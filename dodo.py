@@ -1,3 +1,4 @@
+import sys
 from doit.action import CmdAction
 from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
                       GHQ_GITHUB_DIR, condition, mkdir)
@@ -33,6 +34,52 @@ def task_cargo():
             'actions': [f"cargo install {k}"],
             'file_dep': [HOME_DIR / '.cargo/bin/rustup'],
             'targets': [HOME_DIR / f'.cargo/bin/{v}{EXE}'],
+        }
+
+
+import site
+
+SITE_PACKAGES = site.getusersitepackages()
+
+
+def task_pip_api():
+    return {
+        'actions': [f'{sys.executable} -m pip install pip-api'],
+        'uptodate': [True],
+        'targets': [f'{SITE_PACKAGES}/pip_api/__init__.py'],
+    }
+
+
+PIP_MODULES = {
+    'xonsh': 'xonsh[full]',
+    'nerdfonts': 'nerdfonts',
+    'autopep8': 'autopep8',
+    'pipx': 'pipx',
+    'pynvim': 'pynvim',
+}
+PIPX_MODULES = {
+    'pylsp': 'python-lsp-server[all]',
+    'ranger': 'ranger-fm',
+}
+
+PIP_INSTALLED = {}
+
+
+def get_pip_installed():
+    global PIP_INSTALLED
+    if not PIP_INSTALLED:
+        import pip_api
+        PIP_INSTALLED = pip_api.installed_distributions()  # type: ignore
+    return PIP_INSTALLED
+
+
+def task_pip():
+    for k, v in PIP_MODULES.items():
+        yield {
+            'name': k,
+            'uptodate': [lambda: k in get_pip_installed()],
+            'file_dep': [f'{SITE_PACKAGES}/pip_api/__init__.py'],
+            'actions': [f'{sys.executable} -m pip install "{v}"'],
         }
 
 
