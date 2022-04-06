@@ -398,18 +398,6 @@ else:
         }
 
 
-def task_emoji():
-    return {
-        'actions': [
-            'ghq get --shallow git@github.com:twitter/twemoji.git',
-            (mkdir, [HOME_DIR / '.mlterm']),
-            f'ln -s {GHQ_GITHUB_DIR}/twitter/twemoji/assets/72x72 {HOME_DIR}/.mlterm/emoji',
-        ],
-        "uptodate": [True],
-        'targets': [GHQ_GITHUB_DIR / 'twitter/twemoji/README.md'],
-    }
-
-
 def condition(cond):
 
     def empty(*args):
@@ -489,6 +477,10 @@ class GitBuildTask(object):
                 if isinstance(action, doit.action.CmdAction):
                     action.pkwargs['cwd'] = git_dir
 
+        kw['actions'] = [
+            doit.action.CmdAction(action)
+            if isinstance(action, str) else action for action in kw['actions']
+        ]
         kw['actions'].insert(0, (update_cwd, ))
 
         return kw

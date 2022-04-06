@@ -1,6 +1,6 @@
 from doit.action import CmdAction
 from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
-                      condition)
+                      condition, mkdir)
 from doit.tools import result_dep
 
 
@@ -37,7 +37,23 @@ class mlterm(GitBuildTask):
     condition = not IS_WINDOWS
     repository = mlterm_ghq
     actions = [
-        CmdAction(f'./configure --prefix={HOME_DIR}/local --with-gui=console'),
-        CmdAction('make install'),
+        f'./configure --prefix={HOME_DIR}/local --with-gui=console',
+        'make install',
     ]
     targets = [HOME_DIR / 'local/bin/mlterm-con']
+
+
+class emoji_ghq(GitCloneTask):
+    user = 'twitter'
+    repository = 'twemoji'
+    shallow = True
+
+
+class emoji_mlterm(GitBuildTask):
+    repository = emoji_ghq
+    actions = [
+        (mkdir, [HOME_DIR / '.mlterm']),
+        f'ln -s %(git_dir)s/assets/72x72 {HOME_DIR}/.mlterm/emoji',
+    ]
+    uptodate = [True]
+    targets = [HOME_DIR / '.mlterm/emoji']
