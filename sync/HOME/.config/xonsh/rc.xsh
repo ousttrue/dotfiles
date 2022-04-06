@@ -183,7 +183,7 @@ aliases["gill"] = "git pull"
 
 
 def _repos():
-    repository = $(ghq list -p | fzf).strip()
+    repository = $(ghq list -p | fzf --reverse).strip()
     if repository:
         z @(repository)
 aliases['repos'] = _repos

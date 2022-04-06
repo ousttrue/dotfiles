@@ -158,7 +158,8 @@ else:
 class SUMNEKO:
     GITHUB = 'sumneko/lua-language-server'
     SOURCE = GHQ_GITHUB_DIR / 'sumneko/lua-language-server/README.md'
-    BIN = GHQ_GITHUB_DIR / f'sumneko/lua-language-server/bin/lua-language-server{EXE}'
+    BIN = GHQ_GITHUB_DIR / \
+        f'sumneko/lua-language-server/bin/lua-language-server{EXE}'
 
     @classmethod
     def has_source(cls):
@@ -421,4 +422,20 @@ def task_mlterm():
         ],
         "uptodate": [True],
         'targets': [HOME_DIR / 'local/bin/mlterm-con'],
+    }
+
+
+def task_fzf():
+    if IS_WINDOWS:
+        install = f'pwsh -File {HOME_DIR}\\.fzf\\install.ps1'
+    else:
+        install = f'{HOME_DIR}/.fzf/install',
+    return {
+        'actions': [
+            f'git clone --depth 1 https://github.com/junegunn/fzf.git {HOME_DIR}/.fzf',
+            install,
+            f'cp {HOME_DIR}/.fzf/bin/fzf{EXE} %(targets)s',
+        ],
+        'uptodate': [True],
+        'targets': [HOME_DIR / f'local/bin/fzf{EXE}']
     }
