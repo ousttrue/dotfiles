@@ -200,6 +200,11 @@ class GitCloneTask(object):
             (return_repository_dir, ),
             doit.action.CmdAction('git rev-parse HEAD', cwd=git_dir),
         ]
+        patches = kw.pop('patches', [])
+        if patches:
+            kw['actions'].append(
+                doit.action.CmdAction('patch -p1 < ~/dotfiles/w3m.patch'))
+
         kw['uptodate'] = [True]
 
         kw['file_dep'] = kw.get('file_dep',

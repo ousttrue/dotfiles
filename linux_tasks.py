@@ -13,11 +13,6 @@ logger = logging.getLogger(__name__)
 __all__ = [
     'task_python310_download',
     'task_python310_build',
-    'task_rustup',
-    'task_w3m_get',
-    'task_w3m_build',
-    'task_ranger_devicon_get',
-    'task_zig',
 ]
 
 
@@ -72,48 +67,6 @@ class PYTHON310:
         "tk-dev",
     ]
 
-
-class W3M:
-    GITHUB = 'tats/w3m'
-    SOURCE = GHQ_DIR / 'github.com/tats/w3m/main.c'
-    BIN = HOME_DIR / 'local/bin/w3m'
-    DEP_APTS = [
-        'libgc-dev',
-        'libimlib2-dev',
-    ]
-
-    @classmethod
-    def has_source(cls):
-        return cls.SOURCE.is_dir()
-
-
-class ZIG:
-    ARCHIVE_URL = 'https://ziglang.org/download/0.9.1/zig-linux-x86_64-0.9.1.tar.xz'
-    ARCHIVE = HOME_DIR / 'local/src/zig-linux-x86_64-0.9.1.tar.xz'
-    ARCHIVE_EXTRACT = HOME_DIR / 'local/src/zig-linux-x86_64-0.9.1'
-    BIN = HOME_DIR / 'local/bin/zig'
-
-
-def task_zig():
-
-    def download():
-        ZIG.ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
-        response = urllib.request.urlopen(ZIG.ARCHIVE_URL)
-        data = response.read()
-        ZIG.ARCHIVE.write_bytes(data)
-
-    return {
-        'actions': [
-            f'mkdir -p {ZIG.ARCHIVE.parent}',
-            f'curl {ZIG.ARCHIVE_URL} -o {ZIG.ARCHIVE}',
-            doit.action.CmdAction(f'tar xf {ZIG.ARCHIVE}',
-                                  cwd=ZIG.ARCHIVE.parent),
-            f'mkdir -p {ZIG.BIN.parent}',
-            f'ln -s {ZIG.ARCHIVE_EXTRACT}/zig {ZIG.BIN}',
-        ],
-        'targets': [ZIG.BIN],
-        'uptodate': [True],
-    }
 
 
 def task_python310_download():
@@ -180,52 +133,4 @@ def task_python310_build():
         'targets': [PYTHON310.BIN],
         'file_dep': [PYTHON310.ARCHIVE],
         'verbosity': 2,
-    }
-
-
-def task_rustup():
-    return {
-        'actions':
-        ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"],
-        'uptodate': ['which rustup'],
-        'targets': [HOME_DIR / '.cargo/bin/rustup'],
-    }
-
-
-def task_w3m_get():
-    return {
-        'actions': [
-            'sudo apt-get install -y ' + ' '.join(W3M.DEP_APTS),
-            'ghq get tats/w3m',
-            f'cd {W3M.SOURCE.parent} && patch -p1 < ~/dotfiles/w3m.patch',
-        ],
-        'uptodate': [True],
-        'targets': [W3M.SOURCE],
-    }
-
-
-def task_w3m_build():
-
-    def build():
-        with push_dir(W3M.SOURCE.parent):
-            run_or_raise('./configure', f'--prefix={HOME_DIR}/local')
-            run_or_raise('make', '-j', '4')
-            run_or_raise('make', 'install')
-
-    return {
-        'actions': [build],
-        'targets': [W3M.BIN],
-        'file_dep': [W3M.SOURCE],
-        'verbosity': 2,
-    }
-
-
-def task_ranger_devicon_get():
-    return {
-        'actions': [
-            'git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons',
-        ],
-        'uptodate': [True],
-        'targets':
-        [HOME_DIR / '.config/ranger/plugins/ranger_devicons/README.md'],
     }

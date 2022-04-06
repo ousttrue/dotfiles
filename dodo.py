@@ -16,12 +16,22 @@ else:
     CARGO_INSTALLS |= {'exa': 'exa', 'gitui': 'gitui', 'skim': 'sk'}
 
 
+@condition(not IS_WINDOWS)
+def task_rustup():
+    return {
+        'actions':
+        ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"],
+        'uptodate': ['which rustup'],
+        'targets': [HOME_DIR / '.cargo/bin/rustup'],
+    }
+
+
 def task_cargo():
     for k, v in CARGO_INSTALLS.items():
         yield {
             'name': k,
             'actions': [f"cargo install {k}"],
-            'uptodate': [True],
+            'file_dep': [HOME_DIR / '.cargo/bin/rustup'],
             'targets': [HOME_DIR / f'.cargo/bin/{v}{EXE}'],
         }
 
@@ -226,3 +236,62 @@ else:
         targets = [
             f'{GHQ_GITHUB_DIR}/sumneko/lua-language-server/bin/lua-language-server'
         ]
+
+
+if IS_WINDOWS:
+
+    class w3m_ghq(GitCloneTask):
+        user = 'tats'
+        repository = 'w3m'
+        apts = [
+            'libgc-dev',
+            'libimlib2-dev',
+        ]
+        patches = ['~/dotfiles/w3m.patch']
+
+    class w3m(GitBuildTask):
+        repository = w3m_ghq
+        targets = ['~/local/bin/w3m']
+        actions = [
+            './configure --prefix=~/local',
+            'make -j 4',
+            'make install',
+        ]
+
+
+@condition(not IS_WINDOWS)
+def task_zig():
+    ZIG_ARCHIVE_URL = 'https://ziglang.org/download/0.9.1/zig-linux-x86_64-0.9.1.tar.xz'
+    ZIG_ARCHIVE = HOME_DIR / 'local/src/zig-linux-x86_64-0.9.1.tar.xz'
+    ZIG_ARCHIVE_EXTRACT = HOME_DIR / 'local/src/zig-linux-x86_64-0.9.1'
+    ZIG_BIN = HOME_DIR / 'local/bin/zig'
+
+    def download():
+        ZIG_ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
+        response = urllib.request.urlopen(ZIG_ARCHIVE_URL)
+        data = response.read()
+        ZIG_ARCHIVE.write_bytes(data)
+
+    return {
+        'actions': [
+            f'mkdir -p {ZIG_ARCHIVE.parent}',
+            f'curl {ZIG_ARCHIVE_URL} -o {ZIG_ARCHIVE}',
+            CmdAction(f'tar xf {ZIG_ARCHIVE}', cwd=ZIG_ARCHIVE.parent),
+            f'mkdir -p {ZIG_BIN.parent}',
+            f'ln -s {ZIG_ARCHIVE_EXTRACT}/zig {ZIG_BIN}',
+        ],
+        'targets': [ZIG_BIN],
+        'uptodate': [True],
+    }
+
+
+@condition(not IS_WINDOWS)
+def task_ranger_devicon_get():
+    return {
+        'actions': [
+            'git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons',
+        ],
+        'uptodate': [True],
+        'targets':
+        [HOME_DIR / '.config/ranger/plugins/ranger_devicons/README.md'],
+    }
