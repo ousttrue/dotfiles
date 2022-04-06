@@ -1,8 +1,10 @@
+from doit.action import CmdAction
+from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
+                      condition)
 from doit.tools import result_dep
-from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GhqTask)
 
 
-class fzf_ghq(GhqTask):
+class fzf_ghq(GitCloneTask):
     user = 'junegunn'
     repository = 'fzf'
     shallow = True
@@ -24,3 +26,18 @@ def task_fzf():
         'uptodate': [result_dep('fzf_ghq')],
         'targets': [HOME_DIR / f'local/bin/fzf{EXE}']
     }
+
+
+class mlterm_ghq(GitCloneTask):
+    user = 'arakiken'
+    repository = 'mlterm'
+
+
+class mlterm(GitBuildTask):
+    condition = not IS_WINDOWS
+    repository = mlterm_ghq
+    actions = [
+        CmdAction(f'./configure --prefix={HOME_DIR}/local --with-gui=console'),
+        CmdAction('make install'),
+    ]
+    targets = [HOME_DIR / 'local/bin/mlterm-con']

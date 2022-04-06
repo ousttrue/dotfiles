@@ -1,6 +1,8 @@
 import pathlib
 import os
 import doit.action
+from doit.tools import run_once
+from doit.tools import result_dep
 
 HAS_PIP_API = False
 try:
@@ -408,24 +410,20 @@ def task_emoji():
     }
 
 
-def task_mlterm():
-    if IS_WINDOWS:
-        return
-    dir = GHQ_GITHUB_DIR / 'arakiken/mlterm'
-    return {
-        'actions': [
-            'ghq get arakiken/mlterm',
-            doit.action.CmdAction(
-                f'./configure --prefix={HOME_DIR}/local --with-gui=console',
-                cwd=dir),
-            doit.action.CmdAction('make install', cwd=dir),
-        ],
-        "uptodate": [True],
-        'targets': [HOME_DIR / 'local/bin/mlterm-con'],
-    }
+def condition(cond):
+
+    def empty(*args):
+        pass
+
+    def decorated(func):
+        if not cond:
+            return empty
+        return func
+
+    return decorated
 
 
-class GhqTask(object):
+class GitCloneTask(object):
     '''
     user: str
     repository: str
@@ -434,27 +432,63 @@ class GhqTask(object):
 
     @classmethod
     def create_doit_tasks(cls):
-        if cls is GhqTask:
+        if cls is GitCloneTask:
             return  # avoid create tasks from base class 'Task'
         instance = cls()
         kw = dict((a, getattr(instance, a)) for a in dir(instance)
                   if not a.startswith('_'))
         kw.pop('create_doit_tasks')
-        if 'doc' not in kw:
-            kw['doc'] = cls.__doc__
 
         shallow = ' --shallow ' if kw.pop("shallow", False) else ' '
         user_repository = f'{kw.pop("user")}/{kw.pop("repository")}'
         git_dir = GHQ_DIR / f'github.com/{user_repository}'
+        cmd = f'ghq get{shallow}{user_repository}'
+        if 'doc' not in kw:
+            kw['doc'] = cmd
 
         def return_repository_dir():
             return {'git_dir': str(git_dir)}
 
         kw['actions'] = [
-            f'ghq get{shallow}{user_repository}',
-            doit.action.CmdAction('git rev-parse HEAD', cwd=git_dir),
+            cmd,
             (return_repository_dir, ),
+            doit.action.CmdAction('git rev-parse HEAD', cwd=git_dir),
         ]
-        kw['uptodate'] = [True]
+        kw['uptodate'] = [run_once]
+
+        return kw
+
+
+class GitBuildTask(object):
+    '''
+    actions = []
+    repository = GitCloneTask
+    condition: bool = True
+    '''
+
+    @classmethod
+    def create_doit_tasks(cls):
+        if cls is GitBuildTask:
+            return  # avoid create tasks from base class 'Task'
+        instance = cls()
+        kw = dict((a, getattr(instance, a)) for a in dir(instance)
+                  if not a.startswith('_'))
+        kw.pop('create_doit_tasks')
+
+        if 'condition' in kw and not kw.pop('condition'):
+            return
+
+        repository = kw.pop('repository').__name__
+        kw['getargs'] = {
+            'git_dir': (repository, 'git_dir'),
+        }
+        kw['uptodate'] = [result_dep(repository)]
+
+        def update_cwd(git_dir):
+            for i, action in enumerate(kw['actions']):
+                if isinstance(action, doit.action.CmdAction):
+                    action.pkwargs['cwd'] = git_dir
+
+        kw['actions'].insert(0, (update_cwd, ))
 
         return kw
