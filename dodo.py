@@ -148,6 +148,55 @@ if not IS_WINDOWS:
         }
 
 
+class neovim_ghq(GitCloneTask):
+    user = 'neovim'
+    repository = 'neovim'
+    branch = 'v0.6.1'
+    apts = [
+        "ninja-build",
+        "gettext",
+        "libtool",
+        "libtool-bin",
+        "autoconf",
+        "automake",
+        "cmake",
+        "g++",
+        "pkg-config",
+        "unzip",
+        "curl",
+        "doxygen",
+    ]
+
+
+if IS_WINDOWS:
+    from cmake import CMAKE_BIN_DIR
+    cmake = f'{CMAKE_BIN_DIR}\\cmake.exe'
+
+    class neovim(GitBuildTask):
+        repository = neovim_ghq
+        actions = [
+            # deps
+            f'{cmake} -S %(git_dir)s/third-party -B %(git_dir)s/.deps -DCMAKE_BUILD_TYPE=RelWithDebInfo',
+            f'{cmake} --build %(git_dir)s/.deps --config RelWithDebInfo',
+            # nvim
+            f'{cmake} -S %(git_dir)s -B %(git_dir)s/build -DCMAKE_BUILD_TYPE=RelWithDebInfo',
+            f'{cmake} --build %(git_dir)s/build --config RelWithDebInfo',
+            # install
+            f'{cmake} --install %(git_dir)s/build --config RelWithDebInfo --prefix {HOME_DIR / "local"}',
+        ]
+        targets = [HOME_DIR / f'local/bin/nvim{EXE}']
+
+else:
+
+    class neovim(GitBuildTask):
+        repository = neovim_ghq
+        actions = [
+            'make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=~/local" -j 4',
+            'make install',
+        ]
+        targets = [HOME_DIR / 'local/bin/nvim']
+
+
 class sumneko_lua_language_server_ghq(GitCloneTask):
     user = 'sumneko'
     repository = 'lua-language-server'
@@ -162,7 +211,9 @@ if IS_WINDOWS:
                       cwd='%(git_dir)s/3rd/luamake'),
             '3rd\\luamake\\luamake.exe rebuild',
         ]
-        targets = [f'{GHQ_GITHUB_DIR}/sumneko/lua-language-server/bin/lua-language-server{EXE}']
+        targets = [
+            f'{GHQ_GITHUB_DIR}/sumneko/lua-language-server/bin/lua-language-server{EXE}'
+        ]
 
 else:
 
@@ -172,4 +223,6 @@ else:
             CmdAction('./compile/install.sh', cwd='%(git_dir)s/3rd/luamake'),
             './3rd/luamake/luamake rebuild',
         ]
-        targets = [f'{GHQ_GITHUB_DIR}/sumneko/lua-language-server/bin/lua-language-server']
+        targets = [
+            f'{GHQ_GITHUB_DIR}/sumneko/lua-language-server/bin/lua-language-server'
+        ]

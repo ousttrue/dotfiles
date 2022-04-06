@@ -61,103 +61,9 @@ else:
     EXE = ''
 
 
-class NEOVIM:
-    GITHUB = 'neovim/neovim'
-    SOURCE = GHQ_GITHUB_DIR / 'neovim/neovim/README.md'
-    BIN = HOME_DIR / f'local/bin/nvim{EXE}'
-    DEP_APTS = [
-        "ninja-build",
-        "gettext",
-        "libtool",
-        "libtool-bin",
-        "autoconf",
-        "automake",
-        "cmake",
-        "g++",
-        "pkg-config",
-        "unzip",
-        "curl",
-        "doxygen",
-    ]
-
-    @classmethod
-    def has_source(cls):
-        return cls.SOURCE.is_dir()
-
-
-def task_neovim_get():
-    actions = []
-    if IS_WINDOWS:
-        pass
-    else:
-        actions.append('sudo apt-get install -y ' + ' '.join(NEOVIM.DEP_APTS))
-    actions += [
-        'ghq get --branch v0.6.1 neovim/neovim',
-    ]
-    return {
-        'file_dep': [HOME_DIR / f'go/bin/ghq{EXE}'],
-        'actions': actions,
-        'targets': [NEOVIM.SOURCE],
-    }
-
-
 def mkdir(path: pathlib.Path):
     print(path)
     path.mkdir(parents=True, exist_ok=True)
-
-
-if IS_WINDOWS:
-
-    def task_neovim_build():
-        deps_dir = NEOVIM.SOURCE.parent / '.deps'
-        build_dir = NEOVIM.SOURCE.parent / 'build'
-        from cmake import CMAKE_BIN_DIR
-        cmake = f'{CMAKE_BIN_DIR}\\cmake.exe'
-        return {
-            'actions': [
-                # deps
-                (mkdir, [deps_dir]),
-                doit.action.CmdAction(
-                    f'{cmake} ../third-party -DCMAKE_BUILD_TYPE=RelWithDebInfo',
-                    cwd=deps_dir),
-                doit.action.CmdAction(
-                    f'{cmake} --build . --config RelWithDebInfo',
-                    cwd=deps_dir),
-                # nvim
-                (mkdir, [build_dir]),
-                doit.action.CmdAction(
-                    f'{cmake} .. -DCMAKE_BUILD_TYPE=RelWithDebInfo',
-                    cwd=build_dir),
-                doit.action.CmdAction(
-                    f'{cmake} --build . --config RelWithDebInfo',
-                    cwd=build_dir),
-                # install
-                doit.action.CmdAction(
-                    f'{cmake} --install . --config RelWithDebInfo --prefix {HOME_DIR / "local"}',
-                    cwd=build_dir),
-            ],
-            'targets': [NEOVIM.BIN],
-            'file_dep': [NEOVIM.SOURCE],
-            'verbosity':
-            2,
-        }
-
-else:
-
-    def task_neovim_build():
-        return {
-            'actions': [
-                f'mkdir -p {NEOVIM.SOURCE.parent}',
-                doit.action.CmdAction(
-                    f'make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX={HOME_DIR}/local" -j 4',
-                    cwd=NEOVIM.SOURCE.parent),
-                doit.action.CmdAction('make install', cwd=NEOVIM.SOURCE.parent)
-            ],
-            'targets': [NEOVIM.BIN],
-            'file_dep': [NEOVIM.SOURCE],
-            'verbosity':
-            2,
-        }
 
 
 def mklink(src, targets):
@@ -274,9 +180,15 @@ class GitCloneTask(object):
         kw.pop('create_doit_tasks')
 
         shallow = ' --shallow ' if kw.pop("shallow", False) else ' '
+        branch = kw.pop('branch', '')
+        if branch:
+            branch = f' --branch {branch} '
+        else:
+            branch = ' '
+
         user_repository = f'{kw.pop("user")}/{kw.pop("repository")}'
         git_dir = GHQ_DIR / f'github.com/{user_repository}'
-        cmd = f'ghq get{shallow}{user_repository}'
+        cmd = f'ghq get{shallow}{branch}{user_repository}'
         if 'doc' not in kw:
             kw['doc'] = cmd
 
@@ -293,6 +205,10 @@ class GitCloneTask(object):
         kw['file_dep'] = kw.get('file_dep',
                                 []) + [HOME_DIR / f'go/bin/ghq{EXE}']
 
+        apts = kw.pop('apts', [])
+        if apts:
+            kw['actions'].insert(0,
+                                 'sudo apt-get install -y ' + ' '.join(apts))
         return kw
 
 
