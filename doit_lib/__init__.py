@@ -1,3 +1,6 @@
+#
+# http://blog.schettino72.net/posts/doit-task-creation.html
+#
 import pathlib
 import os
 import doit.action
@@ -359,45 +362,6 @@ def task_cargo():
         }
 
 
-def task_go_ghq():
-    return {
-        'actions': ['go install github.com/x-motemen/ghq@latest'],
-        'uptodate': [True],
-        'targets': [HOME_DIR / f'go/bin/ghq{EXE}'],
-    }
-
-
-def task_skk_dictionary():
-    url = 'https://skk-dev.github.io/dict/SKK-JISYO.L.gz'
-    dst = HOME_DIR / '.skk/SKK-JISYO.L'
-    return {
-        'actions': [(mkdir, [dst.parent]), f'curl {url} | gzip -dc > {dst}'],
-        'uptodate': [True],
-        'targets': [dst]
-    }
-
-
-if IS_WINDOWS:
-
-    def task_deno():
-        return {
-            "actions": [
-                'pwsh -c "iwr https://deno.land/x/install/install.ps1 -useb | iex"'
-            ],
-            "uptodate": [True],
-            'targets': [HOME_DIR / '.deno/bin/deno.exe']
-        }
-else:
-
-    def task_deno():
-        return {
-            "actions":
-            ['curl -fsSL https://deno.land/x/install/install.sh | sh'],
-            "uptodate": [True],
-            'targets': [HOME_DIR / '.deno/bin/deno']
-        }
-
-
 def condition(cond):
 
     def empty(*args):
@@ -442,7 +406,10 @@ class GitCloneTask(object):
             (return_repository_dir, ),
             doit.action.CmdAction('git rev-parse HEAD', cwd=git_dir),
         ]
-        kw['uptodate'] = [run_once]
+        kw['uptodate'] = [True]
+
+        kw['file_dep'] = kw.get('file_dep',
+                                []) + [HOME_DIR / f'go/bin/ghq{EXE}']
 
         return kw
 

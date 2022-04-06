@@ -4,6 +4,14 @@ from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
 from doit.tools import result_dep
 
 
+def task_go_ghq():
+    return {
+        'actions': ['go install github.com/x-motemen/ghq@latest'],
+        'uptodate': [True],
+        'targets': [HOME_DIR / f'go/bin/ghq{EXE}'],
+    }
+
+
 class fzf_ghq(GitCloneTask):
     user = 'junegunn'
     repository = 'fzf'
@@ -57,3 +65,25 @@ class emoji_mlterm(GitBuildTask):
     ]
     uptodate = [True]
     targets = [HOME_DIR / '.mlterm/emoji']
+
+
+def task_deno():
+    if IS_WINDOWS:
+        action = 'pwsh -c "iwr https://deno.land/x/install/install.ps1 -useb | iex"'
+    else:
+        action = 'curl -fsSL https://deno.land/x/install/install.sh | sh'
+    return {
+        "actions": [action],
+        "uptodate": [True],
+        'targets': [HOME_DIR / f'.deno/bin/deno{EXE}']
+    }
+
+
+def task_skk_dictionary():
+    url = 'https://skk-dev.github.io/dict/SKK-JISYO.L.gz'
+    dst = HOME_DIR / '.skk/SKK-JISYO.L'
+    return {
+        'actions': [(mkdir, [dst.parent]), f'curl {url} | gzip -dc > {dst}'],
+        'uptodate': [True],
+        'targets': [dst]
+    }
