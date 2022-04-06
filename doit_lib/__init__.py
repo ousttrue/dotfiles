@@ -160,62 +160,6 @@ else:
         }
 
 
-class SUMNEKO:
-    GITHUB = 'sumneko/lua-language-server'
-    SOURCE = GHQ_GITHUB_DIR / 'sumneko/lua-language-server/README.md'
-    BIN = GHQ_GITHUB_DIR / \
-        f'sumneko/lua-language-server/bin/lua-language-server{EXE}'
-
-    @classmethod
-    def has_source(cls):
-        return cls.SOURCE.is_dir()
-
-
-def task_sumneko_get():
-    return {
-        'actions': [
-            'ghq get sumneko/lua-language-server',
-        ],
-        'uptodate': [True],
-        'targets': [SUMNEKO.SOURCE],
-    }
-
-
-if IS_WINDOWS:
-
-    def task_sumneko_build():
-        sumneko_dir = SUMNEKO.SOURCE.parent
-        return {
-            'actions': [
-                doit.action.CmdAction('cmd /C compile\\install.bat',
-                                      cwd=(sumneko_dir / '3rd/luamake')),
-                doit.action.CmdAction('3rd\\luamake\\luamake.exe rebuild',
-                                      cwd=sumneko_dir),
-            ],
-            'targets': [SUMNEKO.BIN],
-            'file_dep': [SUMNEKO.SOURCE],
-            'verbosity':
-            2,
-        }
-
-else:
-
-    def task_sumneko_build():
-        sumneko_dir = SUMNEKO.SOURCE.parent
-        return {
-            'actions': [
-                doit.action.CmdAction('./compile/install.sh',
-                                      cwd=(sumneko_dir / '3rd/luamake')),
-                doit.action.CmdAction('./3rd/luamake/luamake rebuild',
-                                      cwd=sumneko_dir),
-            ],
-            'targets': [SUMNEKO.BIN],
-            'file_dep': [SUMNEKO.SOURCE],
-            'verbosity':
-            2,
-        }
-
-
 def mklink(src, targets):
     dst = pathlib.Path(targets[0])
     if dst.exists() or dst.is_symlink():
@@ -380,12 +324,18 @@ class GitBuildTask(object):
         def update_cwd(git_dir):
             for i, action in enumerate(kw['actions']):
                 if isinstance(action, doit.action.CmdAction):
-                    action.pkwargs['cwd'] = git_dir
+                    cwd = action.pkwargs.get('cwd', '')
+                    if cwd:
+                        action.pkwargs['cwd'] = cwd.replace(
+                            '%(git_dir)s', git_dir)
+                    else:
+                        action.pkwargs['cwd'] = git_dir
 
         kw['actions'] = [
             doit.action.CmdAction(action)
             if isinstance(action, str) else action for action in kw['actions']
         ]
         kw['actions'].insert(0, (update_cwd, ))
+        kw['verbosity'] = 2
 
         return kw

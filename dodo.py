@@ -1,6 +1,6 @@
 from doit.action import CmdAction
 from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
-                      condition, mkdir)
+                      GHQ_GITHUB_DIR, condition, mkdir)
 from doit.tools import result_dep
 
 CARGO_INSTALLS = {
@@ -44,7 +44,7 @@ def task_fzf():
     if IS_WINDOWS:
         install = 'pwsh -File %(git_dir)s\\install.ps1'
     else:
-        install = '%(git_dir)s/install'
+        install = '%(git_dir)s/install --all'
     return {
         'getargs': {
             'git_dir': ('fzf_ghq', 'git_dir'),
@@ -146,3 +146,30 @@ if not IS_WINDOWS:
                 f'curl {url} -L -o %(targets)s',
             ]
         }
+
+
+class sumneko_lua_language_server_ghq(GitCloneTask):
+    user = 'sumneko'
+    repository = 'lua-language-server'
+
+
+if IS_WINDOWS:
+
+    class sumneko_lua_language_server(GitBuildTask):
+        repository = sumneko_lua_language_server_ghq
+        actions = [
+            CmdAction('cmd /C compile\\install.bat',
+                      cwd='%(git_dir)s/3rd/luamake'),
+            '3rd\\luamake\\luamake.exe rebuild',
+        ]
+        targets = [f'{GHQ_GITHUB_DIR}/sumneko/lua-language-server/bin/lua-language-server{EXE}']
+
+else:
+
+    class sumneko_lua_language_server(GitBuildTask):
+        repository = sumneko_lua_language_server_ghq
+        actions = [
+            CmdAction('./compile/install.sh', cwd='%(git_dir)s/3rd/luamake'),
+            './3rd/luamake/luamake rebuild',
+        ]
+        targets = [f'{GHQ_GITHUB_DIR}/sumneko/lua-language-server/bin/lua-language-server']
