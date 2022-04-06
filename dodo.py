@@ -3,6 +3,28 @@ from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
                       condition, mkdir)
 from doit.tools import result_dep
 
+CARGO_INSTALLS = {
+    'ripgrep': 'rg',
+    'bat': 'bat',
+    'stylua': 'stylua',
+    'viu': 'viu',
+    'zoxide': 'zoxide',
+}
+if IS_WINDOWS:
+    CARGO_INSTALLS['lsd'] = 'lsd'
+else:
+    CARGO_INSTALLS |= {'exa': 'exa', 'gitui': 'gitui', 'skim': 'sk'}
+
+
+def task_cargo():
+    for k, v in CARGO_INSTALLS.items():
+        yield {
+            'name': k,
+            'actions': [f"cargo install {k}"],
+            'uptodate': [True],
+            'targets': [HOME_DIR / f'.cargo/bin/{v}{EXE}'],
+        }
+
 
 def task_go_ghq():
     return {
@@ -87,3 +109,40 @@ def task_skk_dictionary():
         'uptodate': [True],
         'targets': [dst]
     }
+
+
+if not IS_WINDOWS:
+    HACKGEN_ZIP = HOME_DIR / 'local/src/HackGenNerd_v2.6.0.zip'
+
+    def task_font_hackgen_downlaod():
+        url = 'https://github.com/yuru7/HackGen/releases/download/v2.6.0/HackGenNerd_v2.6.0.zip'
+        return {
+            'uptodate': [True],
+            'targets': [HACKGEN_ZIP],
+            'actions': [
+                'mkdir -p ~/local/src',
+                f'curl {url} -L -o %(targets)s',
+            ],
+        }
+
+    def task_font_hackgen():
+        return {
+            'file_dep': [HACKGEN_ZIP],
+            'targets': [HOME_DIR / '.fonts/HackGenNerdConsole-Regular.ttf'],
+            'actions': [
+                'mkdir -p ~/.fonts',
+                'unzip -o -p %(dependencies)s HackGenNerd_v2.6.0/HackGenNerdConsole-Regular.ttf | cat > %(targets)s',
+                'fc-cache -fv',
+            ],
+        }
+
+    def task_font_sarasa():
+        url = 'https://github.com/laishulu/Sarasa-Mono-SC-Nerd/raw/master/sarasa-mono-sc-nerd-regular.ttf'
+        return {
+            'uptodate': [True],
+            'targets': [HOME_DIR / '.fonts/sarasa-mono-sc-nerd-regular.ttf'],
+            'actions': [
+                'mkdir -p ~/.fonts',
+                f'curl {url} -L -o %(targets)s',
+            ]
+        }
