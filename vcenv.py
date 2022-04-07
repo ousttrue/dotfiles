@@ -50,10 +50,17 @@ def vcvars64() -> Dict[str, str]:
     return new
 
 
-if platform.system() == 'Windows':
+def get_env() -> Dict[str, str]:
+    if platform.system() != 'Windows':
+        return {}
+
     # for luarocks detect vc
-    vc_map = vcvars64()
-    os.environ['VCINSTALLDIR'] = vc_map['VCINSTALLDIR']
-    os.environ['PATH'] = vc_map['PATH']
-    os.environ['INCLUDE'] = vc_map['INCLUDE']
-    os.environ['LIB'] = vc_map['LIB']
+    return {
+        k: v
+        for k, v in vcvars64().items() if k in (
+            'VCINSTALLDIR',
+            'PATH',
+            'INCLUDE',
+            'LIB',
+        )
+    }

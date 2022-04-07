@@ -52,10 +52,11 @@ def path_append(src):
 
 if platform.system()=='Windows':
     import vcenv
-    $VCINSTALLDIR = vcenv.vc_map['VCINSTALLDIR']
-    $INCLUDE = vcenv.vc_map['INCLUDE']
-    $LIB = vcenv.vc_map['LIB']
-    for p in vcenv.vc_map['PATH'].split(';'):
+    vc_map = vcenv.get_env()
+    $VCINSTALLDIR = vc_map['VCINSTALLDIR']
+    $INCLUDE = vc_map['INCLUDE']
+    $LIB = vc_map['LIB']
+    for p in vc_map['PATH'].split(';'):
         path_append(p)
 
 # エディタ
