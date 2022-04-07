@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "build_python",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/build_python.py",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
             "name": "apply",
             "type": "python",
             "request": "launch",

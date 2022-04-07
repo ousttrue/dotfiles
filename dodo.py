@@ -277,6 +277,7 @@ class neovim_ghq(GitCloneTask):
         "curl",
         "doxygen",
     ]
+    patches = [DOTFILES / 'neovim.patch']
 
 
 if IS_WINDOWS:
@@ -286,8 +287,6 @@ if IS_WINDOWS:
     class neovim(GitBuildTask):
         repository = neovim_ghq
         actions = [
-            f'git restore -- .',
-            f'git --git-dir= apply -p1 {DOTFILES}\\neovim.patch',
             # deps
             f'{cmake} -S %(git_dir)s/third-party -B %(git_dir)s/.deps -DCMAKE_BUILD_TYPE=RelWithDebInfo',
             f'{cmake} --build %(git_dir)s/.deps --config RelWithDebInfo',
@@ -350,7 +349,7 @@ if not IS_WINDOWS:
             'libgc-dev',
             'libimlib2-dev',
         ]
-        patches = ['~/dotfiles/w3m.patch']
+        patches = [DOTFILES / 'w3m.patch']
 
     class w3m(GitBuildTask):
         repository = w3m_ghq
@@ -403,6 +402,41 @@ def task_ranger_devicon_get():
 class bpy_ghq(GitCloneTask):
     user = 'blender'
     repository = 'blender'
+    apts = [
+        'build-essential',
+        'git',
+        'subversion',
+        'cmake',
+        'libx11-dev',
+        'libxxf86vm-dev',
+        'libxcursor-dev',
+        'libxi-dev',
+        'libxrandr-dev',
+        'libxinerama-dev',
+        'libglew-dev',
+        'libx11-dev',
+        'libxi-dev',
+        'libsndfile1-dev',
+        'libopenexr-dev',
+        'libjpeg-dev',
+        'libopenal-dev',
+        'libalut-dev',
+        'libglu1-mesa-dev',
+        'libsdl-dev',
+        'libfreetype6-dev',
+        'libavdevice-dev',
+        'libavformat-dev',
+        'libavutil-dev',
+        'libavcodec-dev',
+        'libswscale-dev',
+        'libx264-dev',
+        'libxvidcore-dev',
+        'libmp3lame-dev',
+        'libspnav-dev',
+        'libzstd-dev',
+        'libboost-all-dev',
+        'libopenimageio-dev',
+    ]
 
 
 CONFIGURE_FLAGS = ' '.join([
@@ -413,6 +447,16 @@ CONFIGURE_FLAGS = ' '.join([
     '-DWITH_OPENVDB=OFF',
     '-DWITH_LIBMV=OFF',
     '-DWITH_MEM_JEMALLOC=OFF',
+    '-DWITH_DRACO=OFF',
+    '-DWITH_TBB=OFF',
+    '-DWITH_GMP=OFF',
+    '-DWITH_CYCLES=OFF',
+    '-DWITH_HARU=OFF',
+    '-DWITH_POTRACE=OFF',
+    '-DWITH_MOD_OCEANSIM=OFF',
+    '-DWITH_OPENCOLLADA=OFF',
+    '-DWITH_AUDASPACE=OFF',
+    '-DWITH_WINDOWS_BUNDLE_CRT=OFF',
 ])
 
 BPY_FLAGS = ' '.join([
@@ -424,6 +468,7 @@ BPY_FLAGS = ' '.join([
 class bpy(GitBuildTask):
     repository = bpy_ghq
     actions = [
+        # './build_files/build_environment/install_deps.sh',
         'git switch -C v3.1.2 refs/tags/v3.1.2',
         f'{sys.executable} build_files/utils/make_update.py',
         f'cmake -S . -B ../bpy -G Ninja {CONFIGURE_FLAGS} {BPY_FLAGS}',

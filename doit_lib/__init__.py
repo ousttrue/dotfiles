@@ -28,7 +28,6 @@ if IS_WINDOWS:
     SYNC_APPDATA_LOCAL_DIR = SYNC_DIR / 'APPDATA/Local'
 else:
     HOME_DIR = pathlib.Path(os.environ['HOME'])
-    from linux_tasks import *
     PYTHON_SCRIPTS = HOME_DIR / '.local/bin'
     EXE = ''
 
@@ -62,6 +61,7 @@ def traverse(d: pathlib.Path):
 
 
 def condition(cond):
+
     def empty(*args):
         pass
 
@@ -79,6 +79,7 @@ class GitCloneTask(object):
     repository: str
     shallow: bool = False
     '''
+
     @classmethod
     def create_doit_tasks(cls):
         if cls is GitCloneTask:
@@ -108,12 +109,14 @@ class GitCloneTask(object):
             cmd,
             (return_repository_dir, ),
             doit.action.CmdAction('git rev-parse HEAD', cwd=git_dir),
+            doit.action.CmdAction('git restore -- .', cwd=git_dir),
         ]
         patches = kw.pop('patches', [])
         if patches:
-            kw['actions'].append(
-                doit.action.CmdAction('patch -p1 < ~/dotfiles/w3m.patch'))
-
+            for patch in patches:
+                kw['actions'].append(
+                    doit.action.CmdAction(f'git --git-dir= apply -p1 {patch}',
+                                          cwd=git_dir))
         kw['uptodate'] = [True]
 
         kw['file_dep'] = kw.get('file_dep',
@@ -133,6 +136,7 @@ class GitBuildTask(object):
     repository = GitCloneTask
     condition: bool = True
     '''
+
     @classmethod
     def create_doit_tasks(cls):
         if cls is GitBuildTask:
