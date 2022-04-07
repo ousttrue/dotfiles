@@ -396,3 +396,9 @@ def task_ranger_devicon_get():
         'targets':
         [HOME_DIR / '.config/ranger/plugins/ranger_devicons/README.md'],
     }
+
+
+class bpy_ghq(GitCloneTask):
+    user = 'blender'
+    repository = 'blender'
+    branch = 'v3.1.2'
