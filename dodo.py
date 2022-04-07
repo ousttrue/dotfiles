@@ -1,10 +1,12 @@
 import sys
+import pathlib
 from doit.action import CmdAction
 from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
                       GHQ_GITHUB_DIR, condition, mkdir, traverse,
                       SYNC_HOME_DIR, DOTFILES, mklink, check_link)
 if IS_WINDOWS:
-    from doit_lib import (SYNC_APPDATA_LOCAL_DIR,SYNC_APPDATA_ROAMING_DIR, APPDATA_LOCAL_DIR, APPDATA_ROAMING_DIR)
+    from doit_lib import (SYNC_APPDATA_LOCAL_DIR, SYNC_APPDATA_ROAMING_DIR,
+                          APPDATA_LOCAL_DIR, APPDATA_ROAMING_DIR)
 from doit.tools import result_dep
 
 
@@ -88,10 +90,10 @@ import site
 if IS_WINDOWS:
     for s in site.getsitepackages():
         if 'site-packages' in s:
-            SITE_PACKAGES = s
+            SITE_PACKAGES = pathlib.Path(s)
             break
 else:
-    SITE_PACKAGES = site.getusersitepackages()
+    SITE_PACKAGES = pathlib.Path(site.getusersitepackages())
 
 
 def task_pip_api():
@@ -401,4 +403,33 @@ def task_ranger_devicon_get():
 class bpy_ghq(GitCloneTask):
     user = 'blender'
     repository = 'blender'
-    branch = 'v3.1.2'
+
+
+CONFIGURE_FLAGS = ' '.join([
+    '-DCMAKE_BUILD_TYPE=Release',
+    '-DWITH_INTERNATIONAL=OFF',
+    '-DWITH_INPUT_NDOF=OFF',
+    '-DWITH_CYCLES=OFF',
+    '-DWITH_OPENVDB=OFF',
+    '-DWITH_LIBMV=OFF',
+    '-DWITH_MEM_JEMALLOC=OFF',
+])
+
+BPY_FLAGS = ' '.join([
+    '-DWITH_PYTHON_INSTALL=OFF', '-DWITH_PYTHON_INSTALL_NUMPY=OFF',
+    '-DWITH_PYTHON_MODULE=ON'
+])
+
+
+class bpy(GitBuildTask):
+    repository = bpy_ghq
+    actions = [
+        'git switch -C v3.1.2 refs/tags/v3.1.2',
+        f'{sys.executable} build_files/utils/make_update.py',
+        f'cmake -S . -B ../bpy -G Ninja {CONFIGURE_FLAGS} {BPY_FLAGS}',
+        f'cmake --build ../bpy',
+        f'cmake --install ../bpy --config Release --prefix {HOME_DIR / "local/bpy"}',
+        # f'echo bpy > {pth}',
+        # f'ln -s {install} {dst}',
+    ]
+    targets = [SITE_PACKAGES / 'bpy']
