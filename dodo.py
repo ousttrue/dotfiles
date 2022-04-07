@@ -2,9 +2,9 @@ import sys
 from doit.action import CmdAction
 from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
                       GHQ_GITHUB_DIR, condition, mkdir, traverse,
-                      SYNC_HOME_DIR, SYNC_APPDATA_LOCAL_DIR,
-                      SYNC_APPDATA_ROAMING_DIR, APPDATA_LOCAL_DIR, DOTFILES,
-                      APPDATA_ROAMING_DIR, mklink, check_link)
+                      SYNC_HOME_DIR, DOTFILES, mklink, check_link)
+if IS_WINDOWS:
+    from doit_lib import (SYNC_APPDATA_LOCAL_DIR,SYNC_APPDATA_ROAMING_DIR, APPDATA_LOCAL_DIR, APPDATA_ROAMING_DIR)
 from doit.tools import result_dep
 
 
