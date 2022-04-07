@@ -353,12 +353,12 @@ if not IS_WINDOWS:
 
     class w3m(GitBuildTask):
         repository = w3m_ghq
-        targets = ['~/local/bin/w3m']
         actions = [
-            './configure --prefix=~/local',
+            f'./configure --prefix={HOME_DIR}/local',
             'make -j 4',
             'make install',
         ]
+        targets = [HOME_DIR / 'local/bin/w3m']
 
 
 @condition(not IS_WINDOWS)

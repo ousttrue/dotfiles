@@ -108,7 +108,6 @@ class GitCloneTask(object):
         kw['actions'] = [
             cmd,
             (return_repository_dir, ),
-            doit.action.CmdAction('git rev-parse HEAD', cwd=git_dir),
             doit.action.CmdAction('git restore -- .', cwd=git_dir),
         ]
         patches = kw.pop('patches', [])
@@ -117,6 +116,8 @@ class GitCloneTask(object):
                 kw['actions'].append(
                     doit.action.CmdAction(f'git --git-dir= apply -p1 {patch}',
                                           cwd=git_dir))
+        kw['actions'].append(
+            doit.action.CmdAction('git rev-parse HEAD', cwd=git_dir))
         kw['uptodate'] = [True]
 
         kw['file_dep'] = kw.get('file_dep',
@@ -153,7 +154,7 @@ class GitBuildTask(object):
         kw['getargs'] = {
             'git_dir': (repository, 'git_dir'),
         }
-        kw['uptodate'] = [result_dep(repository)]
+        kw['uptodate'] = [True]
 
         def update_cwd(git_dir):
             for i, action in enumerate(kw['actions']):
