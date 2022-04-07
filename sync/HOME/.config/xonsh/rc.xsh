@@ -42,11 +42,21 @@ sys.path.append(str((HOME_DIR / 'dotfiles').absolute()))
 import xonsh_py
 $PROMPT_FIELDS['customdate'] = xonsh_py._datetime
 
+def path_append(src):
+    src = os.path.expanduser(src)
+    for v in $PATH:
+        if v == src:
+            return
+    $PATH.append(str(pathlib.Path(src)))
+
+
 if platform.system()=='Windows':
     import vcenv
     $VCINSTALLDIR = vcenv.vc_map['VCINSTALLDIR']
     $INCLUDE = vcenv.vc_map['INCLUDE']
     $LIB = vcenv.vc_map['LIB']
+    for p in vcenv.vc_map['PATH'].split(';'):
+        path_append(p)
 
 # エディタ
 #$EDITOR = '/usr/local/bin/vim'
@@ -142,14 +152,6 @@ $RIGHT_PROMPT = "".join(
     )
 )
 
-
-
-def path_append(src):
-    src = os.path.expanduser(src)
-    for v in $PATH:
-        if v == src:
-            return
-    $PATH.append(str(pathlib.Path(src)))
 
 
 DENO_DIR = HOME_DIR / '.deno'
