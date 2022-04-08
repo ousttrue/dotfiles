@@ -2,7 +2,6 @@ local wezterm = require "wezterm"
 
 local config = {
     use_ime = true,
-    default_prog = { "xonsh" },
     enable_kitty_graphics = true,
     -- font
     font = wezterm.font "HackGenNerd Console",
@@ -35,21 +34,11 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     --
     -- Windows
     --
-    config.font_size = 12.0
     config.default_prog = { "C:/Python310/Scripts/xonsh.exe" }
+
+    config.font_size = 12.0
     config.initial_cols = 120
     config.initial_rows = 70
-
-    config.launch_menu = {
-        {
-            label = "wsl",
-            args = { "wsl.exe", "~", "/usr/bin/bash", "--login", "-c", "xonsh" },
-        },
-        {
-            label = "w3m",
-            args = { "wsl.exe", "~", "/usr/bin/bash", "--login", "-c", "w3m" },
-        },
-    }
 else
     --
     -- Linux
