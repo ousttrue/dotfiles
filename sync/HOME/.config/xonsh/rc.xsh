@@ -182,18 +182,13 @@ else:
         aliases['la']='ls --color=auto -a'
         aliases['ll']='ls --color=auto -al'
 
-aliases["cd.dotfiles"] = "cd ~/dotfiles"
-aliases["cd.local"] = "cd ~/local"
-aliases["cd.desktop"] = "cd ~/Desktop"
-aliases["gs"] = "git status"
-aliases["gill"] = "git pull"
-
+aliases["gs"] = "git status -sb"
 
 def _repos():
     repository = $(ghq list -p | fzf --reverse).strip()
     if repository:
         z @(repository)
-aliases['repos'] = _repos
+aliases['gg'] = _repos
 
 def _start(args, stdin=None, stdout=None, stderr=None, spec=None):
     cmd = ['cmd.exe', '/c', 'start'] + args
