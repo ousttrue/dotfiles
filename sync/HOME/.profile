@@ -5,7 +5,6 @@ umask 022
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 export EDITOR=vim
-export HTTP_HOME=~/dotfiles/home.html
 
 if [ -v MSYSTEM ]; then
     # msys

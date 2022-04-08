@@ -24,16 +24,14 @@ def get_os_icon():
         return nf.icons['fa_linux'] + ' '
 
 
-def which(cmd: str)->bool:
-    if platform.system()=='Windows':
-        for path in os.environ['PATH'].split(';'):
-            dir = pathlib.Path(path)
-            if(dir / cmd).exists():
-                return True
-            if(dir / (cmd+'.exe')).exists():
-                return True
-    else:
-        return subprocess.run(f'which {cmd} > /dev/null 2>&1', shell=True).returncode == 0
+def _which(cmd: str)->bool:
+    for path in $PATH:
+        dir = pathlib.Path(path)
+        if(dir / cmd).exists():
+            return True
+        if(dir / (cmd+'.exe')).exists():
+            return True
+    return False
 
 $PROMPT_FIELDS['os_icon'] = get_os_icon()
 
@@ -42,13 +40,12 @@ sys.path.append(str((HOME_DIR / 'dotfiles').absolute()))
 import xonsh_py
 $PROMPT_FIELDS['customdate'] = xonsh_py._datetime
 
-def path_append(src):
+def insert_path(src):
     src = os.path.expanduser(src)
     for v in $PATH:
         if v == src:
             return
-    $PATH.append(str(pathlib.Path(src)))
-
+    $PATH.insert(0, str(pathlib.Path(src)))
 
 if platform.system()=='Windows':
     import vcenv
@@ -57,7 +54,7 @@ if platform.system()=='Windows':
     $INCLUDE = vc_map['INCLUDE']
     $LIB = vc_map['LIB']
     for p in vc_map['PATH'].split(';'):
-        path_append(p)
+        insert_path(p)
 
 # エディタ
 #$EDITOR = '/usr/local/bin/vim'
@@ -158,24 +155,25 @@ $RIGHT_PROMPT = "".join(
 DENO_DIR = HOME_DIR / '.deno'
 if DENO_DIR.is_dir():
     $DENO_INSTALL=str(DENO_DIR)
-    path_append(DENO_DIR / 'bin')
+    insert_path(DENO_DIR / 'bin')
 
-
-path_append('~/local/bin')
-path_append('~/go/bin')
-path_append('~/.cargo/bin')
-path_append('~/.local/bin')
 if platform.system() == 'Windows':
     import vcenv
-    path_append('C:\\Python310\\Scripts') 
-    path_append('~\\tools')
-    path_append('C:\\Program Files\\Git\\usr\\bin')
+    insert_path('C:\\Python310\\Scripts') 
+    # insert_path('~\\tools')
+    insert_path('C:\\Program Files\\Git\\usr\\bin')
+insert_path('~/local/bin')
+insert_path('~/go/bin')
+insert_path('~/.cargo/bin')
+insert_path('~/.local/bin')
+
+if platform.system() == 'Windows':
     aliases['ls']=['lsd.exe']
     aliases['la']=['lsd.exe', '-a']
     aliases['ll']=['lsd.exe', '-al']
 else:
     xontrib load apt_tabcomplete
-    if which('exa'):
+    if _which('exa'):
         aliases['ls']='exa --color=auto --icons'
         aliases['la']='exa --color=auto --icons -a'
         aliases['ll']='exa --color=auto --icons -al'
@@ -242,7 +240,8 @@ for k,v in lazy_module_dict.items():
     exec(t)
 
 # zoxide
-if which("zoxide"):
+if _which("zoxide"):
     execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
 
+$HTTP_HOME='~/dotfiles/home.html'
 
