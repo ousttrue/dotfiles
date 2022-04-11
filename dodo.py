@@ -478,3 +478,15 @@ if IS_WINDOWS:
             (mklink, [HOME_DIR / "local/bpy/3.1"]),
         ]
         targets = [str(pathlib.Path(sys.executable).parent / '3.1')]
+
+else:
+    class bpy(GitBuildTask):
+        repository = bpy_ghq
+        actions = [
+            'git switch -C v3.1.2 refs/tags/v3.1.2',
+            f'{sys.executable} build_files/utils/make_update.py',
+            f'cmake -S . -B ../bpy -G Ninja {CONFIGURE_FLAGS} {BPY_FLAGS}',
+            'cmake --build ../bpy',
+            f'cmake --install ../bpy --config Release --prefix {HOME_DIR / "local/bpy"}',
+        ]
+        targets = [HOME_DIR / 'local/bpy/bpy.so']
