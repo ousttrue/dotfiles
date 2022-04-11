@@ -1,23 +1,66 @@
-#gpu/opengl
+[[glsl]]
 
-opengl
-[https://www.opengl.org/img/opengl_logo.jpg]
+- https://qiita.com/9ballsyndrome/items/7bae4f4cec8d26692d29
+- https://wlog.flatlib.jp/index.php?virtualpath=item/1637
 
-https://github.com/KhronosGroup/OpenGL-Registry/blob/master/xml/gl.xml
+# Buffer
 
-table:.csv
- WebGL	OpenGL ES	OpenGL	glsl
- 1.0	1.0	1.3	1.0
- 	2.0	2.0	#version 110
- 2.0	3.0	4.1 ARB_ES2_compatibility	#version 300 es
+## UBO: Uniform Buffer Object
 
+> D3D の ConstantBuffer に相当する
 
-	[GLSLのシェーダーリフレクション http://blog.techlab-xe.net/archives/2973]
-	[GLSLのシェーダーリフレクション (2) http://blog.techlab-xe.net/archives/2978]
+- https://qiita.com/hoboaki/items/b188c4495f4708c19002
 
-`GL_ACTIVE_ATTRIBUTES`
+`GL_UNIFORM_BUFFER`
 
-	[WebGLでシェーダーリフレクション https://qiita.com/ryutorion/items/9255badd6c99532ede59]
+## Texture Image Load and Store `4.2`
 
-[* LearnOpenGL]
-	https://github.com/JoeyDeVries/LearnOpenGL
+> Direct3D の UAV に相当する
+
+# ComputeShader
+
+- https://kakashibata.hatenablog.jp/entry/2020/08/31/001306
+
+`GL_COMPUTE_SHADER` を一つだけコンパイルして、アタッチ、リンクする。
+
+use してから dispatch することで起動する。
+
+```c++
+GLuseProgram(computeProgram);
+GLdispatchCompute(1, 1, 1);
+```
+
+- https://www.khronos.org/opengl/wiki/Compute_Shader#Inputs
+
+自身の実行情報を得るには？
+
+```glsl
+uint id = gl_GlobalInvocationID.x;
+```
+
+## working group
+
+```glsl
+layout (local_size_x = 8, local_size_y = 1, local_size_z = 1) in;
+```
+
+## SSBO: Shader Storage Buffer Object `4.3`
+
+> 書込みが可能
+> Functionally speaking, SSBOs can be thought of as a much nicer interface to Buffer Textures when accessed via Image Load Store.
+
+- https://blog.techlab-xe.net/opengl-%E3%81%AE-computeshader/
+- https://techblog.sega.jp/entry/2016/10/27/140454
+- https://gaz.hateblo.jp/entry/2018/12/28/002720
+
+```glsl
+layout (std430, binding = 0) buffer SSBO {
+  float data[];
+} ssbo;
+```
+
+```c++
+createBuffer GL_SHADER_STORAGE_BUFFER
+bindBufferBase()
+```
+

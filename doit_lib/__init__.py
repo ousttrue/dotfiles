@@ -43,7 +43,7 @@ def mklink(src, targets):
         print(f'rm {dst}')
         dst.unlink()
     dst.parent.mkdir(exist_ok=True, parents=True)
-    assert (src.is_file())
+    # assert (src.is_file())
     dst.symlink_to(src, target_is_directory=False)
 
 

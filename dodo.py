@@ -464,17 +464,17 @@ BPY_FLAGS = ' '.join([
     '-DWITH_PYTHON_MODULE=ON'
 ])
 
+if IS_WINDOWS:
 
-class bpy(GitBuildTask):
-    repository = bpy_ghq
-    actions = [
-        # './build_files/build_environment/install_deps.sh',
-        'git switch -C v3.1.2 refs/tags/v3.1.2',
-        f'{sys.executable} build_files/utils/make_update.py',
-        f'cmake -S . -B ../bpy -G Ninja {CONFIGURE_FLAGS} {BPY_FLAGS}',
-        f'cmake --build ../bpy',
-        f'cmake --install ../bpy --config Release --prefix {HOME_DIR / "local/bpy"}',
-        # f'echo bpy > {pth}',
-        # f'ln -s {install} {dst}',
-    ]
-    targets = [SITE_PACKAGES / 'bpy']
+    class bpy(GitBuildTask):
+        repository = bpy_ghq
+        actions = [
+            'git switch -C v3.1.2 refs/tags/v3.1.2',
+            f'{sys.executable} build_files/utils/make_update.py',
+            f'cmake -S . -B ../bpy -G Ninja {CONFIGURE_FLAGS} {BPY_FLAGS}',
+            'cmake --build ../bpy',
+            f'cmake --install ../bpy --config Release --prefix {HOME_DIR / "local/bpy"}',
+            f'cp ../bpy/bin/bpy.pyd {HOME_DIR / "local/bpy/bpy.pyd"}',
+            (mklink, [HOME_DIR / "local/bpy/3.1"]),
+        ]
+        targets = [str(pathlib.Path(sys.executable).parent / '3.1')]
