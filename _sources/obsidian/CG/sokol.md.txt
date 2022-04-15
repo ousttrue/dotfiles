@@ -1,4 +1,4 @@
-[[OpenGL]]
+[[OpenGL 1]]
 [[d3d11]]
 
 -   [GitHub - floooh/sokol: minimal cross-platform standalone C headers](https://github.com/floooh/sokol)
