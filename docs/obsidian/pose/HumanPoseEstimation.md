@@ -4,7 +4,7 @@ aliases: [姿勢推定]
 
 [[motion]]
 [[HandPose]]
-[[OpenPose]]
+[[openpose]]
 [[mediapipe]]
 
 - [human-pose-estimation · GitHub Topics · GitHub](https://github.com/topics/human-pose-estimation)
