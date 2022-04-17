@@ -353,7 +353,7 @@ if not IS_WINDOWS:
             'libgc-dev',
             'libimlib2-dev',
         ]
-        # patches = [DOTFILES / 'w3m.patch']
+        patches = [DOTFILES / 'w3m.patch']
 
     class w3m(GitBuildTask):
         repository = w3m_ghq
