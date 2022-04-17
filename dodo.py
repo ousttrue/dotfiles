@@ -352,6 +352,8 @@ if not IS_WINDOWS:
         apts = [
             'libgc-dev',
             'libimlib2-dev',
+            'libsixel-dev',
+            'libsixel-bin',
         ]
         patches = [DOTFILES / 'w3m.patch']
 
