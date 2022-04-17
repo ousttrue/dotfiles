@@ -112,9 +112,10 @@ class GitCloneTask(object):
         ]
         patches = kw.pop('patches', [])
         if patches:
+            # for create: git diff --no-prefix > PATCH_FILE
             for patch in patches:
                 kw['actions'].append(
-                    doit.action.CmdAction(f'git --git-dir= apply -p1 {patch}',
+                    doit.action.CmdAction(f'patch -p0 < {patch}',
                                           cwd=git_dir))
         kw['actions'].append(
             doit.action.CmdAction('git rev-parse HEAD', cwd=git_dir))

@@ -1,5 +1,7 @@
 import sys
 import pathlib
+import urllib.request
+import site
 from doit.action import CmdAction
 from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
                       GHQ_GITHUB_DIR, condition, mkdir, traverse,
@@ -68,8 +70,9 @@ else:
 @condition(not IS_WINDOWS)
 def task_rustup():
     return {
-        'actions':
-        ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"],
+        'actions': [
+            "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
+        ],
         'uptodate': ['which rustup'],
         'targets': [HOME_DIR / f'.cargo/bin/rustup{EXE}'],
     }
@@ -84,8 +87,6 @@ def task_cargo():
             'targets': [HOME_DIR / f'.cargo/bin/{v}{EXE}'],
         }
 
-
-import site
 
 if IS_WINDOWS:
     for s in site.getsitepackages():
@@ -115,7 +116,6 @@ PIPX_MODULES = {
     'pylsp': 'python-lsp-server[all]',
     'ranger': 'ranger-fm',
 }
-
 
 PIP_INSTALLED = {}
 
@@ -484,6 +484,7 @@ if IS_WINDOWS:
         targets = [str(pathlib.Path(sys.executable).parent / '3.1')]
 
 else:
+
     class bpy(GitBuildTask):
         repository = bpy_ghq
         actions = [
