@@ -95,7 +95,7 @@ $PROMPT_TOOLKIT_COLOR_DEPTH = 'DEPTH_24_BIT'
 # xontrib load powerline2
 # xontrib load z
 xontrib load vox
-xontrib load kitty
+#xontrib load kitty
 
 #
 # プロンプトの表記

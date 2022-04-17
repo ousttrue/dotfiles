@@ -69,7 +69,7 @@ else:
 def task_rustup():
     return {
         'actions':
-        ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"],
+        ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"],
         'uptodate': ['which rustup'],
         'targets': [HOME_DIR / f'.cargo/bin/rustup{EXE}'],
     }
@@ -116,6 +116,7 @@ PIPX_MODULES = {
     'ranger': 'ranger-fm',
 }
 
+
 PIP_INSTALLED = {}
 
 
@@ -139,7 +140,10 @@ def task_pip():
 
 def task_go_ghq():
     return {
-        'actions': ['go install github.com/x-motemen/ghq@latest'],
+        'actions': [
+            # 'go install github.com/x-motemen/ghq@latest',
+            'go get github.com/motemen/ghq',
+        ],
         'uptodate': [True],
         'targets': [HOME_DIR / f'go/bin/ghq{EXE}'],
     }
@@ -349,7 +353,7 @@ if not IS_WINDOWS:
             'libgc-dev',
             'libimlib2-dev',
         ]
-        patches = [DOTFILES / 'w3m.patch']
+        # patches = [DOTFILES / 'w3m.patch']
 
     class w3m(GitBuildTask):
         repository = w3m_ghq

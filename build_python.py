@@ -77,6 +77,10 @@ class PYTHON310:
         "zlib1g-dev",
         "uuid-dev",
         "tk-dev",
+        #
+        "curl",
+        "vim",
+        "golang",
     ]
 
 
@@ -118,6 +122,14 @@ def main():
     print('build_python')
     download()
     build()
+
+    print('''
+$ pip inistall doit
+$ ~/.local/bin/doit
+$ pip install xonsh[full]
+$ xpip install xontrib-powerline3
+$ xpip install xontrib-powerline3
+''')
 
 
 if __name__ == '__main__':
