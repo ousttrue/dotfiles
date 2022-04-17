@@ -1,0 +1,4 @@
+[[UEFI]]
+[[grub]]
+[[PXE]]
+[[iPXE]]
