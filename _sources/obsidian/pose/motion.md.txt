@@ -11,7 +11,7 @@
 - [[keyframe]]
 - [[bvh]]
 - [[VMC]]
-- [[mmd]]
+- [[pose/mmd]]
 - [[openpose]]
 
 ## [[humanoid]]
