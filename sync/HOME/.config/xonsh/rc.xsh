@@ -182,7 +182,7 @@ else:
         aliases['la']='ls --color=auto -a'
         aliases['ll']='ls --color=auto -al'
 
-aliases["st"] = "git status -sb"
+aliases["gst"] = "git status -sb"
 
 def _repos():
     repository = $(ghq list -p | fzf --reverse).strip()
