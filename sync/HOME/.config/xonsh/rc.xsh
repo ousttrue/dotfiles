@@ -16,12 +16,6 @@ def get_home()->pathlib.Path:
     return pathlib.Path(os.environ['USERPROFILE'])
 
 
-def get_os_icon():
-    import nerdfonts as nf
-    if platform.system()=='Windows':
-        return nf.icons['fa_windows'] + ' '
-    else:
-        return nf.icons['fa_linux'] + ' '
 
 
 def _which(cmd: str)->bool:
@@ -33,12 +27,13 @@ def _which(cmd: str)->bool:
             return True
     return False
 
-$PROMPT_FIELDS['os_icon'] = get_os_icon()
 
 HOME_DIR = get_home()
 sys.path.append(str((HOME_DIR / 'dotfiles').absolute()))
 import xonsh_py
 $PROMPT_FIELDS['customdate'] = xonsh_py._datetime
+import doit_lib
+$PROMPT_FIELDS['os_icon'] = doit_lib.get_os_icon()
 
 def insert_path(src):
     src = os.path.expanduser(src)
@@ -145,7 +140,7 @@ $RIGHT_PROMPT = "".join(
     (
         # "{long_cmd_duration: ⌛{}}",
         "{user: 🤖 {}}",
-        "{hostname: "+get_os_icon()+"{}}",
+        "{hostname: "+doit_lib.get_os_icon()+"{}}",
         "{customdate:  {}}",
     )
 )

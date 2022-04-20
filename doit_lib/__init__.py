@@ -44,6 +44,20 @@ class Platforms(Enum):
 PLATFORM = Platforms.get()
 IS_WINDOWS = PLATFORM == Platforms.Windows
 
+
+def get_os_icon():
+    import nerdfonts as nf
+    match PLATFORM:
+        case Platforms.Windows:
+            return nf.icons['fa_windows'] + ' '
+        case Platforms.Ubuntu:
+            return nf.icons['linux_ubuntu'] + ' '
+        case Platforms.Gentoo:
+            return nf.icons['linux_gentoo'] + ' '
+        case _:
+            return '??'
+
+
 if IS_WINDOWS:
     HOME_DIR = pathlib.Path(os.environ['USERPROFILE'])
     APPDATA_ROAMING_DIR = pathlib.Path(os.environ['APPDATA'])
