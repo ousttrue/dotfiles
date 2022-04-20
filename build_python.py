@@ -124,9 +124,10 @@ def main():
     build()
 
     print('''
-$ pip inistall doit
-$ ~/.local/bin/doit
+$ pip install doit
 $ pip install xonsh[full]
+$ pip install nerdfonts
+$ ~/.local/bin/doit
 $ xpip install xontrib-powerline3
 $ xpip install xontrib-powerline3
 ''')

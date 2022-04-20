@@ -82,7 +82,7 @@ def task_cargo():
     for k, v in CARGO_INSTALLS.items():
         yield {
             'name': k,
-            'actions': [f"cargo install {k}"],
+            'actions': [f"{HOME_DIR}/.cargo/bin/cargo{EXE} install {k}"],
             'file_dep': [HOME_DIR / f'.cargo/bin/rustup{EXE}'],
             'targets': [HOME_DIR / f'.cargo/bin/{v}{EXE}'],
         }
@@ -409,27 +409,25 @@ class bpy_ghq(GitCloneTask):
     user = 'blender'
     repository = 'blender'
     apts = [
-        'build-essential',
+        # 'build-essential',
         'git',
-        'subversion',
+        # 'subversion',
         'cmake',
-        'libx11-dev',
         'libxxf86vm-dev',
-        'libxcursor-dev',
+        # 'libxcursor-dev',
         'libxi-dev',
-        'libxrandr-dev',
-        'libxinerama-dev',
-        'libglew-dev',
-        'libx11-dev',
-        'libxi-dev',
-        'libsndfile1-dev',
+        # 'libxrandr-dev',
+        # 'libxinerama-dev',
+        # 'libglew-dev',
+        # 'libx11-dev',
+        # 'libsndfile1-dev',
         'libopenexr-dev',
         'libjpeg-dev',
-        'libopenal-dev',
-        'libalut-dev',
-        'libglu1-mesa-dev',
-        'libsdl-dev',
-        'libfreetype6-dev',
+        # 'libopenal-dev',
+        # 'libalut-dev',
+        # 'libglu1-mesa-dev',
+        # 'libsdl-dev',
+        # 'libfreetype6-dev',
         'libavdevice-dev',
         'libavformat-dev',
         'libavutil-dev',
@@ -438,7 +436,7 @@ class bpy_ghq(GitCloneTask):
         'libx264-dev',
         'libxvidcore-dev',
         'libmp3lame-dev',
-        'libspnav-dev',
+        # 'libspnav-dev',
         'libzstd-dev',
         'libboost-all-dev',
         'libopenimageio-dev',
@@ -497,3 +495,9 @@ else:
             f'cmake --install ../bpy --config Release --prefix {HOME_DIR / "local/bpy"}',
         ]
         targets = [HOME_DIR / 'local/bpy/bpy.so']
+
+DOIT_CONFIG = {'default_tasks': [
+    'create_link',
+    'font_hackgen',
+    'neovim',
+    ]}
