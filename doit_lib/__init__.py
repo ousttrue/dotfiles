@@ -6,8 +6,10 @@ import os
 import sys
 import platform
 import doit.action
+from enum import Enum, auto
 from doit.tools import run_once
 from doit.tools import result_dep
+
 
 DOTFILES = pathlib.Path(__file__).absolute().parent.parent
 HOME_DIR = DOTFILES.parent
@@ -16,7 +18,31 @@ GHQ_GITHUB_DIR = GHQ_DIR / 'github.com'
 SYNC_DIR = DOTFILES / 'sync'
 SYNC_HOME_DIR = SYNC_DIR / 'HOME'
 
-IS_WINDOWS = platform.system() == 'Windows'
+
+class Platforms(Enum):
+    Unknown = auto()
+    # Windows11
+    Windows = auto()
+    # Ubuntu-20.04
+    Ubuntu = auto()
+    Gentoo = auto()
+    # msys2
+    # WSL(Ubuntu)
+    # mingw64
+
+    @staticmethod
+    def get()->'Platforms':
+        if pathlib.Path('/usr/bin/apt').exists():
+            return Platforms.Ubuntu
+        if pathlib.Path('/usr/bin/emerge').exists():
+            return Platforms.Gentoo
+        if platform.system() == 'Windows':
+            return Platforms.Windows
+        return Platforms.Unknown
+
+
+PLATFORM = Platforms.get()
+IS_WINDOWS = PLATFORM == Platforms.Windows
 
 if IS_WINDOWS:
     HOME_DIR = pathlib.Path(os.environ['USERPROFILE'])
@@ -125,10 +151,13 @@ class GitCloneTask(object):
                                 []) + [HOME_DIR / f'go/bin/ghq{EXE}']
 
         apts = kw.pop('apts', [])
-        if apts:
-            if not IS_WINDOWS:
+        if apts and PLATFORM == Platforms.Ubuntu:
                 kw['actions'].insert(
                     0, 'sudo apt-get install -y ' + ' '.join(apts))
+        emerge = kw.pop('emerge', [])
+        if emerge and PLATFORM == Platforms.Gentoo:
+                kw['actions'].insert(
+                    0, 'sudo emerge ' + ' '.join(emerge))
         return kw
 
 

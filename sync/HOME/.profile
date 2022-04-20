@@ -10,7 +10,7 @@ if [ -v MSYSTEM ]; then
     # msys
     test
 else
-    PATH=$HOME/local/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin
+    PATH=$HOME/local/bin:$HOME/.local/bin:/usr/local/go/bin:/usr/local/bin:/usr/bin:/bin
 fi
 
 #

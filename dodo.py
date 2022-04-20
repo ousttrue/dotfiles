@@ -53,6 +53,31 @@ def task_create_link():
                 'verbosity': 2,
             }
 
+GO_ARCHIVE = HOME_DIR / 'local/src/go1.18.1.linux-amd64.tar.gz'
+GO_BIN = '/usr/local/go/bin/go'
+
+@condition(not IS_WINDOWS)
+def task_golang_downlaod():
+    url = 'https://go.dev/dl/go1.18.1.linux-amd64.tar.gz'
+    return {
+        'uptodate': [True],
+        'targets': [GO_ARCHIVE],
+        'actions': [
+            'mkdir -p ~/local/src',
+            f'curl {url} -L -o %(targets)s',
+        ],
+    }
+
+@condition(not IS_WINDOWS)
+def task_golang():
+    return {
+        'file_dep': [GO_ARCHIVE],
+        'actions': [
+            'sudo rm -rf /usr/local/go',
+            'sudo tar -C /usr/local -xzf %(dependencies)s',
+        ],
+        'targets': [ GO_BIN ]
+    }
 
 CARGO_INSTALLS = {
     'ripgrep': 'rg',
@@ -99,7 +124,7 @@ else:
 
 def task_pip_api():
     return {
-        'actions': [f'{sys.executable} -m pip install pip-api'],
+        'actions': [f'{sys.executable} -m pip install --user pip-api'],
         'uptodate': [True],
         'targets': [f'{SITE_PACKAGES}/pip_api/__init__.py'],
     }
@@ -134,17 +159,18 @@ def task_pip():
             'name': k,
             'uptodate': [lambda: k in get_pip_installed()],
             'file_dep': [f'{SITE_PACKAGES}/pip_api/__init__.py'],
-            'actions': [f'{sys.executable} -m pip install "{v}"'],
+            'actions': [f'{sys.executable} -m pip install --user "{v}"'],
         }
 
 
 def task_go_ghq():
     return {
         'actions': [
-            # 'go install github.com/x-motemen/ghq@latest',
-            'go get github.com/motemen/ghq',
+            'go install github.com/x-motemen/ghq@latest',
+            # 'go get github.com/motemen/ghq',
         ],
         'uptodate': [True],
+        'file_dep': [GO_BIN],
         'targets': [HOME_DIR / f'go/bin/ghq{EXE}'],
     }
 
@@ -281,6 +307,9 @@ class neovim_ghq(GitCloneTask):
         "curl",
         "doxygen",
     ]
+    emerge = [
+        'cmake',
+    ]
     patches = [DOTFILES / 'neovim.patch']
 
 
@@ -354,6 +383,9 @@ if not IS_WINDOWS:
             'libimlib2-dev',
             'libsixel-dev',
             'libsixel-bin',
+        ]
+        emerge = [
+            'boehm-gc'
         ]
         patches = [DOTFILES / 'w3m.patch']
 
@@ -498,7 +530,7 @@ else:
 
 DOIT_CONFIG = {'default_tasks': [
     'create_link',
-    'font_hackgen',
+    # 'font_hackgen',
     'deno',
     'pip',
     'neovim',
