@@ -499,5 +499,8 @@ else:
 DOIT_CONFIG = {'default_tasks': [
     'create_link',
     'font_hackgen',
+    'deno',
+    'pip',
     'neovim',
+    'w3m',
     ]}
