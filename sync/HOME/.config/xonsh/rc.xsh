@@ -158,6 +158,7 @@ if platform.system() == 'Windows':
     # insert_path('~\\tools')
     insert_path('C:\\Program Files\\Git\\usr\\bin')
 insert_path('~/local/bin')
+insert_path('/usr/local/go/bin')
 insert_path('~/go/bin')
 insert_path('~/.cargo/bin')
 insert_path('~/.local/bin')
