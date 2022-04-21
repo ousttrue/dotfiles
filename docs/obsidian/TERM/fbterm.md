@@ -1,3 +1,5 @@
+[[terminal]]
+
 [[yaft]]
 
 `# apt intall fbterm`
