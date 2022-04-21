@@ -1,2 +1,3 @@
 setxkbmap -layout us
-xfce4-session
+#xfce4-session
+weston

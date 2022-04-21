@@ -33,3 +33,8 @@
 
 # Windows
 [[mintty]]
+
+Linux
+[[fbterm]]
+[[yaft]]
+[[kmscon]]
