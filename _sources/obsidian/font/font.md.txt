@@ -30,3 +30,7 @@
 - [GNU Unifont Glyphs](http://unifoundry.com/unifont/index.html)
 - [Windows Terminal Cascadia Code | Microsoft Docs](https://docs.microsoft.com/en-us/windows/terminal/cascadia-code)
 - [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/)
+- [GitHub - slavfox/Cozette: A bitmap programming font optimized for coziness 💜](https://github.com/slavfox/Cozette)
+
+# powerline
+- [GitHub - ryanoasis/powerline-extra-symbols: Extra glyphs for your powerline separators](https://github.com/ryanoasis/powerline-extra-symbols)

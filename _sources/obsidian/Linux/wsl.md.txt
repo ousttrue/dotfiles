@@ -38,3 +38,6 @@ code:cli.bat
 
 WslRegisterDistribution
 
+
+## ubuntu-21.04
+- [How to install Ubuntu 21.10 on WSL for Windows 10 and 11 | Windows Central](https://www.windowscentral.com/how-install-ubuntu-2110-wsl-windows-10-and-11)
