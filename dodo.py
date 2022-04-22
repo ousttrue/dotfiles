@@ -132,6 +132,7 @@ def task_pip_api():
 
 PIP_MODULES = {
     'xonsh': 'xonsh[full]',
+    'xontrib_powerline3': 'xontrib-powerline3',
     'nerdfonts': 'nerdfonts',
     'autopep8': 'autopep8',
     'pipx': 'pipx',
@@ -535,4 +536,5 @@ DOIT_CONFIG = {'default_tasks': [
     'pip',
     'neovim',
     'w3m',
+    'fzf',
     ]}

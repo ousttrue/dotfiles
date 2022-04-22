@@ -163,6 +163,11 @@ insert_path('~/go/bin')
 insert_path('~/.cargo/bin')
 insert_path('~/.local/bin')
 
+if _which('nvim'):
+    $EDITOR='nvim'
+elif _which('vim'):
+    $EDITOR='vim'
+
 if platform.system() == 'Windows':
     aliases['ls']=['lsd.exe']
     aliases['la']=['lsd.exe', '-a']

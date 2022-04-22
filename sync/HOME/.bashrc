@@ -95,3 +95,11 @@ alias gr='cd $(git rev-parse --show-toplevel)'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 alias luamake=/home/ousttrue/ghq/github.com/sumneko/lua-language-server/3rd/luamake/luamake
+
+if [ `which vim > /dev/null 2>&1` ]; then
+    export EDITOR=vim
+fi
+if [ `which nvim > /dev/null 2>&1` ]; then
+    export EDITOR=nvim
+fi
+
