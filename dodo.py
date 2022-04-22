@@ -53,8 +53,10 @@ def task_create_link():
                 'verbosity': 2,
             }
 
+
 GO_ARCHIVE = HOME_DIR / 'local/src/go1.18.1.linux-amd64.tar.gz'
 GO_BIN = '/usr/local/go/bin/go'
+
 
 @condition(not IS_WINDOWS)
 def task_golang_downlaod():
@@ -68,6 +70,7 @@ def task_golang_downlaod():
         ],
     }
 
+
 @condition(not IS_WINDOWS)
 def task_golang():
     return {
@@ -76,8 +79,9 @@ def task_golang():
             'sudo rm -rf /usr/local/go',
             'sudo tar -C /usr/local -xzf %(dependencies)s',
         ],
-        'targets': [ GO_BIN ]
+        'targets': [GO_BIN]
     }
+
 
 CARGO_INSTALLS = {
     'ripgrep': 'rg',
@@ -171,7 +175,7 @@ def task_go_ghq():
             # 'go get github.com/motemen/ghq',
         ],
         'uptodate': [True],
-        'file_dep': [GO_BIN],
+        'file_dep': [] if IS_WINDOWS else [GO_BIN],
         'targets': [HOME_DIR / f'go/bin/ghq{EXE}'],
     }
 
@@ -385,9 +389,7 @@ if not IS_WINDOWS:
             'libsixel-dev',
             'libsixel-bin',
         ]
-        emerge = [
-            'boehm-gc'
-        ]
+        emerge = ['boehm-gc']
         patches = [DOTFILES / 'w3m.patch']
 
     class w3m(GitBuildTask):
@@ -529,12 +531,19 @@ else:
         ]
         targets = [HOME_DIR / 'local/bpy/bpy.so']
 
-DOIT_CONFIG = {'default_tasks': [
-    'create_link',
-    # 'font_hackgen',
-    'deno',
-    'pip',
-    'neovim',
-    'w3m',
-    'fzf',
-    ]}
+
+DOIT_CONFIG = {
+    'default_tasks': [
+        'create_link',
+        # 'font_hackgen',
+        'deno',
+        'pip',
+        'neovim',
+        'fzf',
+    ]
+}
+
+if IS_WINDOWS:
+    pass
+else:
+    DOIT_CONFIG['default_tasks'].append('w3m')
