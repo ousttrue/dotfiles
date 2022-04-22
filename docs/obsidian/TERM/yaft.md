@@ -1,1 +1,2 @@
-[GitHub - uobikiemukot/yaft: yet another framebuffer terminal](https://github.com/uobikiemukot/yaft)
+- [GitHub - uobikiemukot/yaft: yet another framebuffer terminal](https://github.com/uobikiemukot/yaft)
+- [yaftを使う - すずしめにっき](https://suzusime-log.hatenablog.jp/entry/2018/11/16/024551)

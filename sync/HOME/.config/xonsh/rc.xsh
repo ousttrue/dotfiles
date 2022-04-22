@@ -241,3 +241,18 @@ if _which("zoxide"):
 
 $HTTP_HOME='~/dotfiles/home.html'
 
+# cleanup path
+def cleanup_path():
+    used = set()
+    for p in $PATH:
+        used.add(p)
+    $PATH.clear()
+    for p in used:
+        $PATH.append(p)
+
+
+
+
+
+
+
