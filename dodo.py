@@ -531,6 +531,18 @@ else:
         ]
         targets = [HOME_DIR / 'local/bpy/bpy.so']
 
+    class yaft_ghq(GitCloneTask):
+        user = 'uobikiemukot'
+        repository = 'yaft'
+
+    class yaft(GitBuildTask):
+        repository = yaft_ghq
+        actions = [
+            'make',
+            'sudo make install',
+        ]
+        targets = ['/usr/local/bin/yaft']
+
 
 DOIT_CONFIG = {
     'default_tasks': [
@@ -540,6 +552,7 @@ DOIT_CONFIG = {
         'pip',
         'neovim',
         'fzf',
+        'skk_dictionary',
     ]
 }
 
