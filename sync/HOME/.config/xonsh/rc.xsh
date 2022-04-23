@@ -33,7 +33,13 @@ sys.path.append(str((HOME_DIR / 'dotfiles').absolute()))
 import xonsh_py
 $PROMPT_FIELDS['customdate'] = xonsh_py._datetime
 import doit_lib
-$PROMPT_FIELDS['os_icon'] = doit_lib.get_os_icon()
+def get_os_icon():
+    key = doit_lib.ICON_KEY_MAP.get(doit_lib.PLATFORM)
+    if key:
+        import nerdfonts
+        return nerdfonts.icons[key] + ' ' 
+    return '??'
+$PROMPT_FIELDS['os_icon'] = get_os_icon()
 
 def insert_path(src):
     src = os.path.expanduser(src)
@@ -140,7 +146,7 @@ $RIGHT_PROMPT = "".join(
     (
         # "{long_cmd_duration: ⌛{}}",
         "{user: 🤖 {}}",
-        "{hostname: "+doit_lib.get_os_icon()+"{}}",
+        "{hostname: "+get_os_icon()+"{}}",
         "{customdate:  {}}",
     )
 )

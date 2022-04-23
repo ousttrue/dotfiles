@@ -6,6 +6,7 @@ import urllib.request
 import contextlib
 import subprocess
 import logging
+from doit_lib import PLATFORM, Platforms
 
 LOGGER = logging.getLogger(__name__)
 
@@ -59,9 +60,9 @@ HERE = pathlib.Path(__file__).absolute().parent
 
 
 class PYTHON310:
-    ARCHIVE_URL = 'https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tar.xz'
-    ARCHIVE = HOME_DIR / 'local/src/Python-3.10.2.tar.xz'
-    ARCHIVE_EXTRACT = HOME_DIR / 'local/src/Python-3.10.2'
+    ARCHIVE_URL = 'https://www.python.org/ftp/python/3.10.4/Python-3.10.4.tar.xz'
+    ARCHIVE = HOME_DIR / 'local/src/Python-3.10.4.tar.xz'
+    ARCHIVE_EXTRACT = HOME_DIR / 'local/src/Python-3.10.4'
     BIN = LOCAL_BIN / 'python'
     DEP_APTS = [
         "build-essential",
@@ -98,7 +99,10 @@ def build():
     with push_dir(PYTHON310.ARCHIVE.parent):
         run_or_raise('tar', 'xf', PYTHON310.ARCHIVE.name)
     # apt
-    run_or_raise('sudo', 'apt-get', 'install', '-y', *PYTHON310.DEP_APTS)
+    if PLATFORM == Platforms.Ubuntu:
+        run_or_raise('sudo', 'apt-get', 'install', '-y', *PYTHON310.DEP_APTS)
+    else:
+        pass
     # make
     with push_dir(PYTHON310.ARCHIVE_EXTRACT):
         run_or_raise('./configure', '--prefix', LOCAL_DIR,

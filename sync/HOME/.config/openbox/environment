@@ -2,6 +2,11 @@
 # Set system-wide environment variables here for Openbox
 # User-specific variables should be placed in $HOME/.config/openbox/environment
 #
+eval $(gpg-agent --daemon)
+eval $(gnome-keyring-daemon)
+if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
+       eval `dbus-launch --sh-syntax --exit-with-session`
+fi
 
 # To set your language for displaying messages and time/date formats, use the following:
 #LANG=en_CA.UTF8

@@ -5,10 +5,7 @@ import pathlib
 import os
 import sys
 import platform
-import doit.action
 from enum import Enum, auto
-from doit.tools import run_once
-from doit.tools import result_dep
 
 
 DOTFILES = pathlib.Path(__file__).absolute().parent.parent
@@ -40,22 +37,16 @@ class Platforms(Enum):
             return Platforms.Windows
         return Platforms.Unknown
 
+    def get_icon_key(self):
+        return ICON_KEY_MAP.get(self)
 
 PLATFORM = Platforms.get()
 IS_WINDOWS = PLATFORM == Platforms.Windows
-
-
-def get_os_icon():
-    import nerdfonts as nf
-    match PLATFORM:
-        case Platforms.Windows:
-            return nf.icons['fa_windows'] + ' '
-        case Platforms.Ubuntu:
-            return nf.icons['linux_ubuntu'] + ' '
-        case Platforms.Gentoo:
-            return nf.icons['linux_gentoo'] + ' '
-        case _:
-            return '??'
+ICON_KEY_MAP = {
+        Platforms.Windows: 'fa_windows',
+        Platforms.Ubuntu: 'linux_ubuntu',
+        Platforms.Gentoo: 'linux_gentoo',
+        }
 
 
 if IS_WINDOWS:
@@ -122,6 +113,7 @@ class GitCloneTask(object):
 
     @classmethod
     def create_doit_tasks(cls):
+        import doit.action
         if cls is GitCloneTask:
             return  # avoid create tasks from base class 'Task'
         instance = cls()
@@ -184,6 +176,7 @@ class GitBuildTask(object):
 
     @classmethod
     def create_doit_tasks(cls):
+        import doit.action
         if cls is GitBuildTask:
             return  # avoid create tasks from base class 'Task'
         instance = cls()

@@ -66,15 +66,20 @@
 </menu>
 
 <menu id="apps-multimedia-menu" label="Multimedia">
-  <item label="MPlayer">
+  <item label="Volume">
     <action name="Execute">
-      <command>gmplayer</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-        <wmclass>MPlayer</wmclass>
-      </startupnotify>
+      <command>pavucontrol</command>
     </action>
   </item>
+  <!-- <item label="MPlayer"> -->
+  <!--   <action name="Execute"> -->
+  <!--     <command>gmplayer</command> -->
+  <!--     <startupnotify> -->
+  <!--       <enabled>yes</enabled> -->
+  <!--       <wmclass>MPlayer</wmclass> -->
+  <!--     </startupnotify> -->
+  <!--   </action> -->
+  <!-- </item> -->
 </menu>
 
 <menu id="apps-fileman-menu" label="File Managers">
