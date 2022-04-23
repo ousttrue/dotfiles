@@ -551,4 +551,5 @@ DOIT_CONFIG = {'default_tasks': [
     'neovim',
     'w3m',
     'fzf',
+    'skk_dictionary',
     ]}
