@@ -3,15 +3,24 @@
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 
 <menu id="apps-www" label="WWW">
-  <item label="Chromium">
+  <item label="Firefox">
     <action name="Execute">
-      <command>chromium</command>
+      <command>firefox-bin</command>
       <startupnotify>
         <enabled>yes</enabled>
-        <wmclass>Chromium</wmclass>
+        <wmclass>Firefox</wmclass>
       </startupnotify>
     </action>
   </item>
+  <!-- <item label="Chromium"> -->
+  <!--   <action name="Execute"> -->
+  <!--     <command>chromium</command> -->
+  <!--     <startupnotify> -->
+  <!--       <enabled>yes</enabled> -->
+  <!--       <wmclass>Chromium</wmclass> -->
+  <!--     </startupnotify> -->
+  <!--   </action> -->
+  <!-- </item> -->
 </menu>
 
 <menu id="apps-term-menu" label="Terminals">

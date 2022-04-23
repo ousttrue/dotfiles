@@ -1,7 +1,7 @@
 local wezterm = require "wezterm"
 
 local config = {
-    use_ime = true,
+    -- use_ime = true,
     enable_kitty_graphics = true,
     -- font
     font = wezterm.font "HackGenNerd Console",
