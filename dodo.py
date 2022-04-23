@@ -139,6 +139,7 @@ PIP_MODULES = {
     'xontrib_powerline3': 'xontrib-powerline3',
     'nerdfonts': 'nerdfonts',
     'autopep8': 'autopep8',
+    'yapf': 'yapf',
     'pipx': 'pipx',
     'pynvim': 'pynvim',
 }
@@ -553,6 +554,7 @@ DOIT_CONFIG = {
         'neovim',
         'fzf',
         'skk_dictionary',
+        'sumneko_lua_language_server',
     ]
 }
 
