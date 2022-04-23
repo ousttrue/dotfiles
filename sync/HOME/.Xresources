@@ -15,7 +15,7 @@ xterm*faceName: HackGenNerd Console:style=Regular
 !xterm*faceNameDoublesize: Yu Gothic:size=10
 /* xterm*faceNameDoublesize: MingLiU:style=Regular:size=10 */
 XTerm*faceNameDoublesize: HackGenNerd Console:style=Regular
-XTerm*faceSize:           13
+XTerm*faceSize:           10
 XTerm*geometry: 92x48
 
 !XTerm*faceName: 游ゴシック
