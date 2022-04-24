@@ -1,3 +1,4 @@
+#!/bin/sh
 xrdb -merge ~/.Xresources
 
 export GTK_IM_MODULE=ibus
@@ -8,5 +9,6 @@ ibus-daemon -drx
 if [ `which tint2 > /dev/null` ]; then
     tint2&
 fi
-exec openbox-session
+exec dbus-launch --exit-with-session openbox-session
+# exec dbus-launch --exit-with-session startlxde
 
