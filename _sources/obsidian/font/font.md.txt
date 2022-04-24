@@ -19,6 +19,9 @@
 - [[Inconsolata]]
 
 # other
+
+- [GitHub - fontworks-fonts/DotGothic16: A font file available from Google Fonts.](https://github.com/fontworks-fonts/DotGothic16)
+- [SFMono + FiraCode記号リガチャ + NerdFont化 したらイイ感じのプログラミングフォントが爆誕した | Trial and Spiral](https://blog.solunita.net/posts/combine-sfmono-ligaturizer-nerd-font/)
 - [新しい日本語フォントがたくさんリリースされてる！ 2021年、日本語の新作フリーフォントのまとめ | コリス](https://coliss.com/articles/freebies/japanese-free-fonts-dec-2021.html)
 - [フォントオタクなデザイナーが本気で選んだ「美しいフォント」24選【フリー＆有償】 - インターネット・格安SIMのソルディ](https://hikkoshizamurai.jp/soldi/articles/font_select_2017/)
 - [GitHub - tonsky/FiraCode: Free monospaced font with programming ligatures](https://github.com/tonsky/FiraCode/)

@@ -1,6 +1,35 @@
+[[fontforge]]
+
+- [あらゆる環境で使えるオレオレ NERDFont を手軽に合成する方法 - カラクリスタ・ブログ](https://the.kalaclista.com/posts/2017/12/06/000118/)
+
+> Unicodeの私用領域(Private Use Area U+E000 ~ U+F8FF)
+
+# fonts
+## seti-ui: Seti UI
+- a set of icons for Seti UI. https://atom.io/themes/seti-ui
+## devicon: Devicon
+- a set of icons representing programming languages, designing & development tools. http://devicon.fr/
+## powerline-extra: Powerline Extra Symbols
+- Extra glyphs for the powerline separators. https://github.com/ryanoasis/powerline-extra-symbols
+## powerline: Powerline Symbols
+- https://github.com/powerline/powerline
+
+## pomicons: Pomicons
+- A set of icons for Pomodoro Technique. https://github.com/gabrielelana/pomicons
+
+## fa: Font Awesome
+- http://fontawesome.io/
+## fae: Font Awesome Extension
+- http://andrelgava.github.io/font-awesome-extension/
+## linux: Font Linux
+- https://github.com/Lukas-W/font-linux
+## octicons: Github Octicons
+- https://octicons.github.com
+
 - [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/)
 [Fetching Title#d5j2](https://github.com/ryanoasis/nerd-fonts)
 	- [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/font-downloads)
+	- [GitHub - ryanoasis/nerd-fonts: Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts: Hack, Source Code Pro, more. Glyph collections: Font Awesome, Material Design Icons, Octicons, & more](https://github.com/ryanoasis/nerd-fonts)
 
 ![[sankey-glyphs-combined-diagram.png]]
 
@@ -18,7 +47,6 @@
 - @2019 [Nerd Fonts Patcherを使って非Nerd-Fontにパッチを当てる方法。 - Qiita](https://qiita.com/Suzukaze31/items/ddcc6d9a0a9da19f6ee3)
 
 # Font Link
-- @2017 [あらゆるフォントを気軽に NERDFonts 対応化させる方法 (Windows or Linux) - カラクリスタ・ブログ](https://the.kalaclista.com/posts/2017/11/09/000135/)
 
 -   Windows: フォントリンク
 -   Linux: [[fontconfig]] によるフォントのリンク
