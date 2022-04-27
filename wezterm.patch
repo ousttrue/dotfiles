@@ -1,0 +1,13 @@
+diff --git get-deps get-deps
+index b94a567e9..b33015fe5 100755
+--- get-deps
++++ get-deps
+@@ -225,7 +225,7 @@ gentoo_deps() {
+     'cmake' \
+     'fontconfig' \
+     'openssl' \
+-    'git' \
++    'dev-vcs/git' \
+     'libX11' \
+     'libxkbcommon' \
+     'pkgconf' \

@@ -545,6 +545,20 @@ else:
         targets = ['/usr/local/bin/yaft']
 
 
+class wezterm_ghq(GitCloneTask):
+    user = 'wez'
+    repository = 'wezterm'
+    patches = [DOTFILES / 'wezterm.patch']
+
+
+class wezterm(GitBuildTask):
+    repository = wezterm_ghq
+    actions = [
+        './get-deps',
+        'cargo build --release',
+    ]
+
+
 DOIT_CONFIG = {
     'default_tasks': [
         'create_link',
