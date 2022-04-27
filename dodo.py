@@ -562,7 +562,7 @@ class wezterm(GitBuildTask):
 DOIT_CONFIG = {
     'default_tasks': [
         'create_link',
-        # 'font_hackgen',
+        'font_hackgen',
         'deno',
         'pip',
         'neovim',
