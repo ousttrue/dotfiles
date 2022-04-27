@@ -553,6 +553,7 @@ class wezterm_ghq(GitCloneTask):
 
 class wezterm(GitBuildTask):
     repository = wezterm_ghq
+    file_dep = [HOME_DIR / '.fonts/HackGenNerdConsole-Regular.ttf']
     actions = [
         './get-deps',
         'cargo build --release',
@@ -562,7 +563,6 @@ class wezterm(GitBuildTask):
 DOIT_CONFIG = {
     'default_tasks': [
         'create_link',
-        'font_hackgen',
         'deno',
         'pip',
         'neovim',
