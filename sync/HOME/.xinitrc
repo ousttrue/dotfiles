@@ -1,7 +1,7 @@
 #!/bin/sh
 xrdb -merge ~/.Xresources
 if which xset > /dev/null 2>&1; then
-    xset s off
+    xset s off -dpms
 fi
 if which setxkbmap > /dev/null 2>&1; then
     setxkbmap -option ctrl:nocaps
