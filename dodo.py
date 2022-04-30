@@ -429,6 +429,21 @@ def task_zig():
     }
 
 
+class zls_ghq(GitCloneTask):
+    user = 'zigtools'
+    repository = 'zls'
+    branch = '0.9.0'
+
+
+class zls(GitBuildTask):
+    repository = zls_ghq
+    file_dep = [HOME_DIR / 'local/bin/zig']
+    actions = [
+        'zig build -Drelease-safe',
+        # './zig-out/bin/zls config',
+    ]
+
+
 @condition(not IS_WINDOWS)
 def task_ranger_devicon_get():
     return {
@@ -558,6 +573,30 @@ class wezterm(GitBuildTask):
         './get-deps',
         'cargo build --release',
     ]
+
+
+LLVM_ARCHIVE = HOME_DIR / 'local/src/llvm-14.0.3.src.tar.xz'
+
+
+def task_llvm_downlaod():
+    url = 'https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.3/llvm-14.0.3.src.tar.xz'
+    return {
+        'uptodate': [True],
+        'targets': [LLVM_ARCHIVE],
+        'actions': [
+            'mkdir -p ~/local/src',
+            f'curl {url} -L -o %(targets)s',
+        ],
+    }
+
+
+def task_llvm_extract():
+    return {
+        'file_dep': [LLVM_ARCHIVE],
+        'actions': [
+            f'tar -C {HOME_DIR}/local/src -xf %(dependencies)s',
+        ],
+    }
 
 
 DOIT_CONFIG = {
