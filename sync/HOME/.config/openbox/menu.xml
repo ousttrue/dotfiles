@@ -63,6 +63,9 @@
   <item label="Xterm">
     <action name="Execute"><command>xterm</command></action>
   </item>
+  <item label="Obsidian">
+    <action name="Execute"><command>obsidian</command></action>
+  </item>
 </menu>
 
 <menu id="apps-multimedia-menu" label="Multimedia">

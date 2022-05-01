@@ -1,0 +1,115 @@
+---@class Config
+---@field public alignment string @Aligned position on screen, may be top_left, top_right, top_middle, bottom_left, bottom_right, bottom_middle, middle_left, middle_middle, middle_right, or none (also can be abbreviated as tl, tr, tm, bl, br, bm, ml, mm, mr). See also gap_x and gap_y.
+---@field public append_file string @Append the file given as argument.
+---@field public background string @Boolean value, if true, Conky will be forked to background when started.
+---@field public forced_redraw string @Boolean value, if true, Conky will redraw everything when you switch the workspace. This may cause delays/flickering on some WMs.
+---@field public border_inner_margin string @Inner border margin in pixels (the margin between the border and text).
+---@field public border_outer_margin string @Outer border margin in pixels (the margin between the border and the edge of the window).
+---@field public border_width string @Border width in pixels.
+---@field public colorN string @Predefine a color for use inside conky.text segments. Substitute N by a digit between 0 and 9, inclusively. When specifying the color value in hex, omit the leading hash (#).
+---@field public console_bar_fill string @A character to fill the console bars. (default: '#')
+---@field public console_bar_unfill string @A character to unfill the console bars. (default: '.')
+---@field public console_graph_ticks string @A comma-separated list of strings to use as the bars of a graph output to console/shell. The first list item is used for the minimum bar height and the last item is used for the maximum, e.g. " ,_,=,#".
+---@field public cpu_avg_samples string @The number of samples to average for CPU monitoring.
+---@field public default_bar_height string @Specify a default height for bars. If not specified, the default value is 6.
+---@field public default_bar_width string @Specify a default width for bars. If not specified, the default value is 0, which causes the bar to expand to fit the width of your Conky window. If you set out_to_console = true, the default value will be 10 for the text version of the bar.
+---@field public default_color string @Default color and border color.
+---@field public default_gauge_height string @Specify a default height for gauges. If not specified, the default value is 25.
+---@field public default_gauge_width string @Specify a default width for gauges. If not specified, the default value is 40.
+---@field public default_graph_height string @Specify a default height for graphs. If not specified, the default value is 25.
+---@field public default_graph_width string @Specify a default width for graphs. If not specified, the default value is 0, which causes the graph to expand to fit the width of your Conky window. If you set out_to_console = true, the text version of the graph will actually have no width and you will need to set a sensible default or set the height and width of each graph individually.
+---@field public default_outline_color string @Default outline color.
+---@field public default_shade_color string @Default shading color and border's shading color.
+---@field public disable_auto_reload string @Enable to disable the inotify-based auto config reload feature.
+---@field public diskio_avg_samples string @The number of samples to average for disk I/O monitoring.
+---@field public display string @Specify an X display to connect to.
+---@field public xinerama_head string @Specify a Xinerama head.
+---@field public double_buffer string @Use the Xdbe extension? (eliminates flicker) It is highly recommended to use own window with this one so double buffer won't be so big.
+---@field public draw_blended string @Boolean, blend when rendering drawn image? Some images blend incorrectly breaking alpha with ARBG visuals. This provides a possible work around by disabling blending. Defaults to true.
+---@field public draw_borders string @Draw borders around text.
+---@field public draw_graph_borders string @Draw borders around graphs.
+---@field public draw_outline string @Draw outlines.
+---@field public draw_shades string @Draw shades.
+---@field public extra_newline string @Put an extra newline at the end when writing to stdout, useful for writing to awesome's wiboxes.
+---@field public font string @Font name in X, xfontsel can be used to get a nice font.
+---@field public fontN string @Predefine a font to be used in conky.text segments. Substitute N by a number between 0 and 9 inclusive. Use the same format as a font variable.
+---@field public format_human_readable string @If enabled, values which are in bytes will be printed in human readable format (i.e., KiB, MiB, etc). If disabled, the number of bytes is printed instead.
+---@field public gap_x string @Gap, in pixels, between right or left border of screen, same as passing -x at command line, e.g. gap_x 10. For other position related stuff, see 'alignment'.
+---@field public gap_y string @Gap, in pixels, between top or bottom border of screen, same as passing -y at command line, e.g. gap_y 10. For other position related stuff, see 'alignment'.
+---@field public github_token string @Specify API token for GitHub notifications.
+---@field public hddtemp_host string @Hostname to connect to for hddtemp objects. Defaults to "127.0.0.1".
+---@field public hddtemp_port string @Port to use for hddtemp connections. Defaults to 7634.
+---@field public http_refresh string @When this is set the page generated with out_to_http will automatically refresh each interval. Default value is no.
+---@field public if_up_strictness string @How strict should if_up be when testing an interface for being up? The value is one of up, link or address, to check for the interface being solely up, being up and having link or being up, having link and an assigned IP address.
+---@field public imap string @Default global IMAP server. Arguments are: "host user pass [-i interval (in seconds)] [-f 'folder'] [-p port] [-e 'command'] [-r retries]". Default port is 143, default folder is 'INBOX', default interval is 5 minutes, and default number of retries before giving up is 5. If the password is supplied as '*', you will be prompted to enter the password when Conky starts.
+---@field public imlib_cache_flush_interval string @Interval (in seconds) to flush Imlib2 cache.
+---@field public imlib_cache_size string @Imlib2 image cache size, in bytes. Defaults to 4MiB. Increase this value if you use $image lots. Set to 0 to disable the image cache.
+---@field public lua_draw_hook_post string @This function, if defined, will be called by Conky through each iteration after drawing to the window. Requires X support. Takes any number of optional arguments. Use this hook for drawing things on top of what Conky draws. Conky puts 'conky_' in front of function_name to prevent accidental calls to the wrong function unless you place 'conky_' in front of it yourself.
+---@field public lua_draw_hook_pre string @This function, if defined, will be called by Conky through each iteration before drawing to the window. Requires X support. Takes any number of optional arguments. Use this hook for drawing things on top of what Conky draws. Conky puts 'conky_' in front of function_name to prevent accidental calls to the wrong function unless you place 'conky_' in front of it yourself.
+---@field public lua_load string @Loads the Lua scripts separated by spaces.
+---@field public lua_shutdown_hook string @This function, if defined, will be called by Conky at shutdown or when the configuration is reloaded. Use this hook to clean up after yourself, such as freeing memory which has been allocated by external libraries via Lua. Conky puts 'conky_' in front of function_name to prevent accidental calls to the wrong function unless you place 'conky_' in front of it yourself.
+---@field public lua_startup_hook string @This function, if defined, will be called by Conky at startup or when the configuration is reloaded. Use this hook to initialize values, or for any run-once applications. Conky puts 'conky_' in front of function_name to prevent accidental calls to the wrong function unless you place 'conky_' in front of it yourself.
+---@field public mail_spool string @Mail spool for mail checking.
+---@field public max_port_monitor_connections string @Allow each port monitor to track at most this many connections (if 0 or not set, default is 256).
+---@field public max_text_width string @When a line in the output contains 'width' chars and the end isn't reached, the next char will start on a new line. If you want to make sure that lines don't get broken, set 'width' to 0.
+---@field public max_user_text string @Maximum size of user text buffer, i.e. text inside conky.text section in config file (default is 16384 bytes).
+---@field public maximum_width string @Maximum width of window.
+---@field public minimum_height string @Minimum height of the window.
+---@field public minimum_width string @Minimum width of window.
+---@field public mpd_host string @Host of MPD server.
+---@field public mpd_password string @MPD server password.
+---@field public mpd_port string @Port of MPD server.
+---@field public mysql_host string @Host of MySQL server. Defaults to localhost.
+---@field public mysql_port string @Port of MySQL server. Defaults to the default mysql port.
+---@field public mysql_user string @MySQL user name to use when connecting to the server. Defaults to your username.
+---@field public mysql_password string @Password of the MySQL user. Place it between "-chars. When this is not set there is no password used.
+---@field public mysql_db string @MySQL database to use. Defaults to mysql.
+---@field public music_player_interval string @Music player thread update interval (defaults to Conky's update interval).
+---@field public net_avg_samples string @The number of samples to average for net data.
+---@field public no_buffers string @Subtract (file system) buffers from used memory.
+---@field public nvidia_display string @The display that the nvidia variable will use (defaults to the value of the display variable).
+---@field public out_to_console string @Print text to stdout.
+---@field public out_to_http string @Let conky act as a small http-server serving its text.
+---@field public out_to_ncurses string @Print text in the console, but use ncurses so that conky can print the text of a new update over the old text. (In the future this will provide more useful things).
+---@field public out_to_stderr string @Print text to stderr.
+---@field public out_to_x string @When set to no, there will be no output in X (useful when you also use things like out_to_console). If you set it to no, make sure that it's placed before all other X-related setting (take the first line of your configfile to be sure). Default value is yes.
+---@field public override_utf8_locale string @Force UTF8. Requires XFT.
+---@field public overwrite_file string @Overwrite the file given as argument.
+---@field public own_window string @Boolean, create own window to draw.
+---@field public own_window_class string @Manually set the WM_CLASS name. Defaults to "Conky".
+---@field public own_window_colour string @If own_window_transparent no, set a specified background colour (defaults to black). Takes either a hex value (e.g. '#ffffff'), a shorthand hex value (e.g. '#fff'), or a valid RGB name (see
+---@field public own_window_hints string @If own_window is yes, you may use these window manager hints to affect the way Conky displays. Notes: Use own_window_type desktop as another way to implement many of these hints implicitly. If you use own_window_type override, window manager hints have no meaning and are ignored.
+---@field public own_window_title string @Manually set the window name. Defaults to "conky (<hostname>)".
+---@field public own_window_argb_visual string @Boolean, use ARGB visual? ARGB can be used for real transparency, note that a composite manager is required for real transparency. This option will not work as desired (in most cases) in conjunction with 'own_window_type override'.
+---@field public own_window_argb_value string @When ARGB visuals are enabled, this use this to modify the alpha value used. Valid range is 0-255, where 0 is 0% opacity, and 255 is 100% opacity.
+---@field public own_window_transparent string @Boolean, set transparency? If ARGB visual is enabled, sets background opacity to 0%.
+---@field public own_window_type string @if own_window is yes, you may specify type normal, desktop, dock, panel or override (default: normal). Desktop windows are special windows that have no window decorations; are always visible on your desktop; do not appear in your pager or taskbar; and are sticky across all workspaces. Panel windows reserve space along a desktop edge, just like panels and taskbars, preventing maximized windows from overlapping them. The edge is chosen based on the alignment option. Override windows are not under the control of the window manager. Hints are ignored. This type of window can be useful for certain situations.
+---@field public pad_percents string @Pad percentages to this many decimals (0 = no padding).
+---@field public pop3 string @Default global POP3 server. Arguments are: "host user pass [-i interval (in seconds)] [-p port] [-e 'command'] [-r retries]". Default port is 110, default interval is 5 minutes, and default number of retries before giving up is 5. If the password is supplied as '*', you will be prompted to enter the password when Conky starts.
+---@field public short_units string @Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
+---@field public show_graph_range string @Shows the time range covered by a graph.
+---@field public show_graph_scale string @Shows the maximum value in scaled graphs.
+---@field public stippled_borders string @Border stippling (dashing) in pixels.
+---@field public temperature_unit string @Desired output unit of all objects displaying a temperature. Parameters are either "fahrenheit" or "celsius". The default unit is degree Celsius.
+---@field public templateN string @Define a template for later use inside conky.text segments. Substitute N by a digit between 0 and 9, inclusively. The value of the variable is being inserted into the stuff inside conky.text at the corresponding position, but before some substitutions are applied:
+---@field public text_buffer_size string @Size of the standard text buffer (default is 256 bytes). This buffer is used for intermediary text, such as individual lines, output from $exec vars, and various other variables. Increasing the size of this buffer can drastically reduce Conky's performance, but will allow for more text display per variable. The size of this buffer cannot be smaller than the default value of 256 bytes.
+---@field public times_in_seconds string @If true, variables that output times output a number that represents seconds. This doesn't affect $time, $tztime and $utime.
+---@field public top_cpu_separate string @If true, cpu in top will show usage of one processor's power. If false, cpu in top will show the usage of all processors' power combined.
+---@field public top_name_verbose string @If true, top name shows the full command line of each process, including arguments (whenever possible). Otherwise, only the basename is displayed. Default value is false.
+---@field public top_name_width string @Width for $top name value (defaults to 15 characters).
+---@field public total_run_times string @Total number of times for Conky to update before quitting. Zero makes Conky run forever.
+---@field public units_spacer string @String to place between values and units. (default: empty)
+---@field public update_interval string @Update interval.
+---@field public update_interval_on_battery string @Update interval when running on battery power.
+---@field public detect_battery string @One or more batteries to check in order to use update_interval_on_battery (comma separated, BAT0 default).
+---@field public uppercase string @Boolean value, if true, text is rendered in upper case.
+---@field public lowercase string @Boolean value, if true, text is rendered in lower case.
+---@field public use_spacer string @Adds spaces around certain objects to stop them from moving other things around. Arguments are left, right, and none (default). The old true/false values are deprecated and default to right/none respectively. Note that this only helps if you are using a mono font, such as Bitstream Vera Sans Mono.
+---@field public use_xft string @Use Xft (anti-aliased font and stuff).
+---@field public xftalpha string @Alpha of Xft font. Must be a value at or between 1 and 0.
+local config = {}
+
+---@class Conky
+---@field public config Config
+conky = {}
+

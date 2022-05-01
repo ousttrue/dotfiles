@@ -40,7 +40,7 @@ local custom_lsp_attach = function(client, bufnr)
     -- Use LSP as the handler for omnifunc.
     --    See `:help omnifunc` and `:help ins-completion` for more information.
     -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions

@@ -29,6 +29,7 @@ set hidden
 set termguicolors
 set number
 set signcolumn=yes
+set modeline
 
 " Emoji shortcuts
 ab :white_check_mark: ✅

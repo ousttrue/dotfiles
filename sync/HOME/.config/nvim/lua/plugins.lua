@@ -258,54 +258,32 @@ highlight NvimTreeOpenedFile gui=reverse
     use {
         "hrsh7th/nvim-cmp",
         requires = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/vim-vsnip",
-            -- "hrsh7th/cmp-vsnip",
-            "hrsh7th/cmp-buffer",
-            "onsails/lspkind-nvim",
+            { "hrsh7th/cmp-nvim-lsp" },
         },
         config = function()
-            vim.opt.completeopt = "menu,menuone,noselect"
-
             local cmp = require "cmp"
-
-            local lspkind = require "lspkind"
-
             cmp.setup {
-                snippet = {
-                    -- REQUIRED - you must specify a snippet engine
-                    expand = function(args)
-                        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-                        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-                        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-                        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-                    end,
-                },
+                -- snippet = {
+                --     expand = function(args)
+                --         require("luasnip").lsp_expand(args.body)
+                --     end,
+                -- },
+                -- documentation = {
+                --     border = "solid",
+                -- },
                 mapping = {
-                    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-                    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-                    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-                    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-                    ["<C-e>"] = cmp.mapping {
-                        i = cmp.mapping.abort(),
-                        c = cmp.mapping.close(),
-                    },
-                    ["<CR>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explici
-                },
-                sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
-                    { name = "vsnip" }, -- For vsnip users.
-                    -- { name = 'luasnip' }, -- For luasnip users.
-                    -- { name = 'ultisnips' }, -- For ultisnips users.
-                    -- { name = 'snippy' }, -- For snippy users.
-                }, {
-                    { name = "buffer" },
-                }),
-                formatting = {
-                    format = lspkind.cmp_format {
-                        mode = "symbol", -- show only symbol annotations
-                        maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-                    },
+                    ["<c-p>"] = cmp.mapping.select_prev_item(),
+                    ["<c-n>"] = cmp.mapping.select_next_item(),
+                    ["<c-d>"] = cmp.mapping.scroll_docs(-4),
+                    ["<c-f>"] = cmp.mapping.scroll_docs(4),
+                    ["<c-e>"] = cmp.mapping.close(),
+                    -- ["<c-k>"] = cmp.mapping(function(fallback)
+                    --     if luasnip.expand_or_jumpable() then
+                    --         luasnip.expand_or_jump()
+                    --     else
+                    --         fallback()
+                    --     end
+                    -- end, { "i", "s" }),
                 },
             }
         end,
