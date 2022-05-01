@@ -72,10 +72,6 @@ if which setxkbmap > /dev/null 2>&1; then
     setxkbmap -layout us
 fi
 
-function repos {
-  cd "$( ghq list --full-path | peco)"
-}
-
 #
 # rust
 #
@@ -92,6 +88,17 @@ fi
 #     eval "$(pyenv init -)"
 #     eval "$(pyenv init --path)"
 # fi
+
+# function repos {
+#   cd "$( ghq list --full-path | peco)"
+# }
+function gg {
+    local repository
+    repository=$(ghq list -p | fzf-tmux --reverse +m)
+    if [ -n ${repository} ]; then
+        z ${repository}
+    fi
+}
 
 #
 # alias
