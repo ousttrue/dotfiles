@@ -440,11 +440,12 @@ def task_zig():
 class zls_ghq(GitCloneTask):
     user = 'zigtools'
     repository = 'zls'
+    patches = [DOTFILES / 'zls.patch']
 
 
 class zls(GitBuildTask):
     repository = zls_ghq
-    file_dep = [HOME_DIR / 'local/bin/zig{EXE}']
+    file_dep = [HOME_DIR / f'local/bin/zig{EXE}']
     actions = [
         f'zig{EXE} build -Drelease-safe',
         f'ln -s zig-out/bin/zls{EXE} {HOME_DIR}/local/bin/zls{EXE}',
@@ -455,12 +456,12 @@ class zls(GitBuildTask):
 class gyro_ghq(GitCloneTask):
     user = 'mattnite'
     repository = 'gyro'
+    patches = [DOTFILES / 'gyro.patch']
 
 
 class gyro(GitBuildTask):
     repository = gyro_ghq
-    file_dep = [HOME_DIR / 'local/bin/zig{EXE}']
-    patches = [DOTFILES / 'gyro.patch']
+    file_dep = [HOME_DIR / f'local/bin/zig{EXE}']
     actions = [
         f'zig{EXE} build -Drelease-safe',
         f'ln -s zig-out/bin/gyro{EXE} {HOME_DIR}/local/bin/gyro{EXE}',
