@@ -33,6 +33,7 @@
 
 # Windows
 [[mintty]]
+[[conemu]]
 
 Linux
 [[fbterm]]

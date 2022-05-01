@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>triplets - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -220,45 +220,62 @@
         <article role="main">
           <p>vcpkg
 https://vcpkg.readthedocs.io/en/latest/</p>
-<p>[* 先に入れる方がよいパッケージ(依存)]
-VTK
-[* select vc]
-https://github.com/microsoft/vcpkg/blob/master/docs/users/triplets.md#vcpkg_platform_toolset
+<section class="tex2jax_ignore mathjax_ignore" id="triplets">
+<h1>triplets<a class="headerlink" href="#triplets" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vcpkg</span> <span class="n">help</span> <span class="n">triplets</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">&gt;</span> <span class="o">.</span>\<span class="n">vcpkg</span><span class="o">.</span><span class="n">exe</span> <span class="n">help</span> <span class="n">triplet</span>
+ <span class="n">Available</span> <span class="n">architecture</span> <span class="n">triplets</span><span class="p">:</span>
+   <span class="n">arm</span><span class="o">-</span><span class="n">uwp</span>
+   <span class="n">arm</span><span class="o">-</span><span class="n">windows</span>
+   <span class="n">arm64</span><span class="o">-</span><span class="n">uwp</span>
+   <span class="n">arm64</span><span class="o">-</span><span class="n">windows</span>
+   <span class="n">x64</span><span class="o">-</span><span class="n">linux</span>
+   <span class="n">x64</span><span class="o">-</span><span class="n">osx</span>
+   <span class="n">x64</span><span class="o">-</span><span class="n">uwp</span>
+   <span class="n">x64</span><span class="o">-</span><span class="n">windows</span> <span class="o">&lt;-</span> <span class="n">これ</span>
+   <span class="n">x64</span><span class="o">-</span><span class="n">windows</span><span class="o">-</span><span class="n">static</span>
+   <span class="n">x86</span><span class="o">-</span><span class="n">uwp</span>
+   <span class="n">x86</span><span class="o">-</span><span class="n">windows</span>
+   <span class="n">x86</span><span class="o">-</span><span class="n">windows</span><span class="o">-</span><span class="n">static</span>
+</pre></div>
+</div>
+<p>zig用
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">vcpkg</span> <span class="pre">install</span> <span class="pre">llvm[clang]:x64-windows-static</span></code></p>
+<section id="id1">
+<h2>環境変数<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">VCPKG_DEFAULT_TRIPLET=x64-windows</span></code></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>先に入れる方がよいパッケージ(依存)]<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>VTK
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="select-vc">
+<h1>select vc<a class="headerlink" href="#select-vc" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://github.com/microsoft/vcpkg/blob/master/docs/users/triplets.md#vcpkg_platform_toolset
 The Visual Studio 2019 platform toolset is v142.
 The Visual Studio 2017 platform toolset is v141.
 The Visual Studio 2015 platform toolset is v140.</p>
-<p>[* CMAKE_TOOLCHAIN_FILE]
-integration してないとき
-code:settings.json
-"cmake.configureArgs": [
-"-DCMAKE_PREFIX_PATH=${env:VCPKG_DIR}/installed/x64-windows"
-]</p>
-<p>integration しているとき? 動きません</p>
-<p>https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md
-$ cmake ../my/project -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cmake-toolchain-file">
+<h1>CMAKE_TOOLCHAIN_FILE<a class="headerlink" href="#cmake-toolchain-file" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>integration してないとき</p>
+<div class="highlight-settings.json notranslate"><div class="highlight"><pre><span></span>"cmake.configureArgs": [
+ "-DCMAKE_PREFIX_PATH=${env:VCPKG_DIR}/installed/x64-windows"
+]    
+</pre></div>
+</div>
+<p>integration しているとき?</p>
+<p>https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmake ../my/project -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake
+</pre></div>
+</div>
 <p>vscode
 <code class="docutils literal notranslate"><span class="pre">cmake.configureSettings</span></code> ?</p>
-<p>[* triplet]</p>
-<p>code:.log</p>
-<blockquote>
-<div><p>.\vcpkg.exe help triplet
-Available architecture triplets:
-arm-uwp
-arm-windows
-arm64-uwp
-arm64-windows
-x64-linux
-x64-osx
-x64-uwp
-x64-windows &lt;- これ
-x64-windows-static
-x86-uwp
-x86-windows
-x86-windows-static</p>
-</div></blockquote>
-<p>環境変数
-<code class="docutils literal notranslate"><span class="pre">VCPKG_DEFAULT_TRIPLET=x64-windows</span></code></p>
-<p>$ vcpkg install llvm:x64-windows</p>
 <p>[* from github]</p>
 <blockquote>
 <div><p>.\vcpkg.exe create libtermkey https://github.com/neovim/libtermkey.git
@@ -266,6 +283,7 @@ https://vcpkg.readthedocs.io/en/latest/maintainers/vcpkg_from_github/</p>
 </div></blockquote>
 <p>[* overlay]
 https://github.com/microsoft/vcpkg/blob/master/docs/specifications/ports-overlay.md</p>
+</section>
 
         </article>
       </div>
@@ -288,8 +306,30 @@ https://github.com/microsoft/vcpkg/blob/master/docs/specifications/ports-overlay
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">triplets</a><ul>
+<li><a class="reference internal" href="#id1">環境変数</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">先に入れる方がよいパッケージ(依存)]</a></li>
+<li><a class="reference internal" href="#select-vc">select vc</a></li>
+<li><a class="reference internal" href="#cmake-toolchain-file">CMAKE_TOOLCHAIN_FILE</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

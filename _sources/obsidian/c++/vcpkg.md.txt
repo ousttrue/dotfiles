@@ -1,32 +1,13 @@
 vcpkg
 	https://vcpkg.readthedocs.io/en/latest/
 
-[* 先に入れる方がよいパッケージ(依存)]
-	VTK
-[* select vc]
-https://github.com/microsoft/vcpkg/blob/master/docs/users/triplets.md#vcpkg_platform_toolset
-	The Visual Studio 2019 platform toolset is v142.
-	The Visual Studio 2017 platform toolset is v141.
-	The Visual Studio 2015 platform toolset is v140.
+# triplets
 
-[* CMAKE_TOOLCHAIN_FILE]
-integration してないとき 
-code:settings.json
- "cmake.configureArgs": [
-     "-DCMAKE_PREFIX_PATH=${env:VCPKG_DIR}/installed/x64-windows"
- ]    
+```
+vcpkg help triplets
+```
 
-integration しているとき? 動きません
-
-https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md
-$ cmake ../my/project -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake
-
-vscode
-	`cmake.configureSettings` ?
-
-[* triplet]
-
-code:.log
+```
  > .\vcpkg.exe help triplet
  Available architecture triplets:
    arm-uwp
@@ -41,11 +22,44 @@ code:.log
    x86-uwp
    x86-windows
    x86-windows-static
+```
 
-環境変数
+zig用
+`$ vcpkg install llvm[clang]:x64-windows-static`
+
+## 環境変数
 `VCPKG_DEFAULT_TRIPLET=x64-windows`
 
-$ vcpkg install llvm:x64-windows
+# 先に入れる方がよいパッケージ(依存)]
+	VTK
+	
+# select vc
+https://github.com/microsoft/vcpkg/blob/master/docs/users/triplets.md#vcpkg_platform_toolset
+	The Visual Studio 2019 platform toolset is v142.
+	The Visual Studio 2017 platform toolset is v141.
+	The Visual Studio 2015 platform toolset is v140.
+
+# CMAKE_TOOLCHAIN_FILE
+integration してないとき 
+
+```settings.json
+"cmake.configureArgs": [
+ "-DCMAKE_PREFIX_PATH=${env:VCPKG_DIR}/installed/x64-windows"
+]    
+```
+
+integration しているとき?
+
+https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md
+
+```
+$ cmake ../my/project -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake
+```
+
+vscode
+	`cmake.configureSettings` ?
+
+
 
 [* from github]
 > .\vcpkg.exe create libtermkey https://github.com/neovim/libtermkey.git
