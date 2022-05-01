@@ -127,3 +127,5 @@ if which nvim > /dev/null 2>&1; then
     export EDITOR=nvim
 fi
 
+export HTTP_HOME='~/dotfiles/home.html'
+
