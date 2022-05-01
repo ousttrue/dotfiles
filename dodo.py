@@ -403,26 +403,34 @@ if not IS_WINDOWS:
         targets = [HOME_DIR / 'local/bin/w3m']
 
 
-@condition(not IS_WINDOWS)
+#
+# https://github.com/ziglang/zig/wiki/Building-Zig-on-Windows
+#
 def task_zig():
-    ZIG_ARCHIVE_URL = 'https://ziglang.org/download/0.9.1/zig-linux-x86_64-0.9.1.tar.xz'
-    ZIG_ARCHIVE = HOME_DIR / 'local/src/zig-linux-x86_64-0.9.1.tar.xz'
-    ZIG_ARCHIVE_EXTRACT = HOME_DIR / 'local/src/zig-linux-x86_64-0.9.1'
-    ZIG_BIN = HOME_DIR / 'local/bin/zig'
+    # master
+    if IS_WINDOWS:
+        ZIG_ARCHIVE_URL = 'https://ziglang.org/builds/zig-windows-x86_64-0.10.0-dev.2024+d127c1d59.zip'
+        ZIG_ARCHIVE = HOME_DIR / 'local/src/zig-windows-x86_64-0.10.0-dev.2024+d127c1d59.zip'
+        ZIG_ARCHIVE_EXTRACT = HOME_DIR / \
+            'local/src/zig-windows-x86_64-0.10.0-dev.2024+d127c1d59'
+        ZIG_EXTRACT = CmdAction(f'unzip {ZIG_ARCHIVE}', cwd=ZIG_ARCHIVE.parent)
+    else:
+        ZIG_ARCHIVE_URL = 'https://ziglang.org/builds/zig-linux-x86_64-0.10.0-dev.2024+d127c1d59.tar.xz'
+        ZIG_ARCHIVE = HOME_DIR / 'local/src/zig-linux-x86_64-0.10.0-dev.2024+d127c1d59.tar.xz'
+        ZIG_ARCHIVE_EXTRACT = HOME_DIR / \
+            'local/src/zig-linux-x86_64-0.10.0-dev.2024+d127c1d59'
+        ZIG_EXTRACT = CmdAction(f'tar xf {ZIG_ARCHIVE}',
+                                cwd=ZIG_ARCHIVE.parent)
 
-    def download():
-        ZIG_ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
-        response = urllib.request.urlopen(ZIG_ARCHIVE_URL)
-        data = response.read()
-        ZIG_ARCHIVE.write_bytes(data)
+    ZIG_BIN = HOME_DIR / 'local/bin/zig'
 
     return {
         'actions': [
-            f'mkdir -p {ZIG_ARCHIVE.parent}',
+            (mkdir, [ZIG_ARCHIVE.parent]),
             f'curl {ZIG_ARCHIVE_URL} -o {ZIG_ARCHIVE}',
-            CmdAction(f'tar xf {ZIG_ARCHIVE}', cwd=ZIG_ARCHIVE.parent),
-            f'mkdir -p {ZIG_BIN.parent}',
-            f'ln -s {ZIG_ARCHIVE_EXTRACT}/zig {ZIG_BIN}',
+            ZIG_EXTRACT,
+            (mkdir, [ZIG_BIN.parent]),
+            f'ln -s {ZIG_ARCHIVE_EXTRACT}/zig{EXE} {ZIG_BIN}',
         ],
         'targets': [ZIG_BIN],
         'uptodate': [True],
@@ -432,15 +440,30 @@ def task_zig():
 class zls_ghq(GitCloneTask):
     user = 'zigtools'
     repository = 'zls'
-    branch = '0.9.0'
 
 
 class zls(GitBuildTask):
     repository = zls_ghq
-    file_dep = [HOME_DIR / 'local/bin/zig']
+    file_dep = [HOME_DIR / 'local/bin/zig{EXE}']
     actions = [
-        'zig build -Drelease-safe',
+        f'zig{EXE} build -Drelease-safe',
+        f'ln -s zig-out/bin/zls{EXE} {HOME_DIR}/local/bin/zls{EXE}',
         # './zig-out/bin/zls config',
+    ]
+
+
+class gyro_ghq(GitCloneTask):
+    user = 'mattnite'
+    repository = 'gyro'
+
+
+class gyro(GitBuildTask):
+    repository = gyro_ghq
+    file_dep = [HOME_DIR / 'local/bin/zig{EXE}']
+    patches = [DOTFILES / 'gyro.patch']
+    actions = [
+        f'zig{EXE} build -Drelease-safe',
+        f'ln -s zig-out/bin/gyro{EXE} {HOME_DIR}/local/bin/gyro{EXE}',
     ]
 
 
@@ -575,6 +598,13 @@ class wezterm(GitBuildTask):
     ]
 
 
+class vcpkg_ghq(GitCloneTask):
+    user = 'microsoft'
+    repository = 'vcpkg'
+    shallow = True
+
+
+# https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.1/llvm-13.0.1.src.tar.xz
 LLVM_ARCHIVE = HOME_DIR / 'local/src/llvm-14.0.3.src.tar.xz'
 
 

@@ -5,7 +5,7 @@ export EDITOR=vim
 
 if [ -v MSYSTEM ]; then
     # msys
-    test
+    PATH="/c/Python310/Scripts:$PATH"
 else
     PATH=$HOME/local/bin:$HOME/.local/bin:/usr/local/go/bin:/usr/local/bin:/usr/bin:/bin
 fi

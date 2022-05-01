@@ -43,11 +43,14 @@ def run_or_raise(*args: Union[str, pathlib.Path]):
 
 
 def get_home():
+    home = os.environ.get('HOME')
+    if home:
+        return pathlib.Path(home)
+    userprofile = os.environ.get('USERPROFILE')
+    if userprofile:
+        return pathlib.Path(userprofile)
     system = platform.system()
-    if system == 'Linux':
-        return pathlib.Path(os.environ['HOME'])
-    else:
-        raise RuntimeError()
+    raise RuntimeError(system)
 
 
 HOME_DIR = get_home()
@@ -97,7 +100,8 @@ def download():
 def build():
     # extract
     with push_dir(PYTHON310.ARCHIVE.parent):
-        run_or_raise('tar', 'xf', PYTHON310.ARCHIVE.name)
+        if not PYTHON310.ARCHIVE_EXTRACT.exists():
+            run_or_raise('tar', 'xf', PYTHON310.ARCHIVE.name)
     # apt
     if PLATFORM == Platforms.Ubuntu:
         run_or_raise('sudo', 'apt-get', 'install', '-y', *PYTHON310.DEP_APTS)
