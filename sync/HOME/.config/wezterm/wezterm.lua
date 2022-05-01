@@ -10,23 +10,24 @@ local config = {
     tab_bar_at_bottom = true,
     -- keybinds
     disable_default_key_bindings = true,
-    leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 },
+    -- leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 },
     keys = {
-        { key = "r", mods = "LEADER", action = "ReloadConfiguration" },
-        { key = "q", mods = "LEADER", action = wezterm.action { CloseCurrentTab = { confirm = false } } },
-        { key = "c", mods = "LEADER", action = "ShowLauncher" },
-        { key = "s", mods = "LEADER", action = "QuickSelect" },
-        { key = " ", mods = "LEADER", action = wezterm.action { PasteFrom = "PrimarySelection" } },
-        { key = "[", mods = "LEADER", action = "ActivateCopyMode" },
-        { key = "c", mods = "CTRL|SHIFT", action = wezterm.action { CopyTo = "Clipboard" } },
-        -- { key = "v", mods = "CTRL|SHIFT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
-        { key = "]", mods = "LEADER", action = wezterm.action { PasteFrom = "Clipboard" } },
-        -- tab
-        { key = "c", mods = "ALT", action = wezterm.action { SpawnTab = "CurrentPaneDomain" } },
-        { key = "h", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } },
-        { key = "l", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } },
-        { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } },
-        { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } },
+    --     { key = "r", mods = "LEADER", action = "ReloadConfiguration" },
+    --     { key = "q", mods = "LEADER", action = wezterm.action { CloseCurrentTab = { confirm = false } } },
+    --     { key = "c", mods = "LEADER", action = "ShowLauncher" },
+    --     { key = "s", mods = "LEADER", action = "QuickSelect" },
+    --     { key = " ", mods = "LEADER", action = wezterm.action { PasteFrom = "PrimarySelection" } },
+    --     { key = "[", mods = "LEADER", action = "ActivateCopyMode" },
+    --     { key = "c", mods = "CTRL|SHIFT", action = wezterm.action { CopyTo = "Clipboard" } },
+    --     -- { key = "v", mods = "CTRL|SHIFT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
+        { key = "Insert", mods = "SHIFT", action = wezterm.action { PasteFrom = "Clipboard" } },
+        { key = "v", mods = "CTRL", action = wezterm.action { PasteFrom = "Clipboard" } },
+    --     -- tab
+    --     { key = "c", mods = "ALT", action = wezterm.action { SpawnTab = "CurrentPaneDomain" } },
+    --     { key = "h", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } },
+    --     { key = "l", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } },
+    --     { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } },
+    --     { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } },
     },
 }
 
@@ -52,7 +53,7 @@ else
     config.warn_about_missing_glyphs = false
 
     config.font_size = 12.0
-    config.default_prog = { "xonsh" }
+    config.default_prog = { "bash" }
     config.initial_cols = 100
     config.initial_rows = 50
 
