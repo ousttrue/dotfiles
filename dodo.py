@@ -135,6 +135,7 @@ def task_pip_api():
 
 
 PIP_MODULES = {
+    'powerline_shell': 'powerline-shell',
     'xonsh': 'xonsh[full]',
     'xontrib_powerline3': 'xontrib-powerline3',
     'nerdfonts': 'nerdfonts',
