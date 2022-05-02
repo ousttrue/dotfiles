@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>$PROFILE - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,42 +212,39 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>windows setup
-<code class="docutils literal notranslate"><span class="pre">201904</span></code></p>
-<p>Chrome入れる
-DownloadフォルダをDesktopに</p>
-<p>7zip入れる</p>
-<p>caps to ctrl
-https://docs.microsoft.com/en-us/sysinternals/downloads/ctrl2cap</p>
+          <p>[[.NET6]]</p>
+<p><code class="docutils literal notranslate"><span class="pre">7.2</span></code> <a class="reference external" href="https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-72?view=powershell-7.2">What's New in PowerShell 7.2 - PowerShell | Microsoft Docs</a>
+- <a class="reference external" href="https://devblogs.microsoft.com/powershell/general-availability-of-powershell-7-2/">General Availability of PowerShell 7.2 - PowerShell Team</a></p>
+<blockquote>
+<div><p>built on .NET 6.0.</p>
+</div></blockquote>
 <p>scoop
 powershellの実行許可
 https://scoop.sh/ インストール
 失敗した場合は、<code class="docutils literal notranslate"><span class="pre">%USERPROFILE%/scoop</span></code> を消してやりなおし</p>
-<p>cica font
-https://github.com/miiton/Cica/releases</p>
 <p>git
 scoop install git vim</p>
-<p>vim
-code:vimrc.vim
-set encoding=utf8
-let s:nvim_init = expand('~/AppData/Local/nvim/init.vim')
-if filereadable(s:nvim_init)
-execute 'source ' . s:nvim_init
-endif</p>
-<p>python適当に
-https://qiita.com/ousttrue/items/527a9c3045f710806aa9</p>
-<p>powershell設定
-<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">%USERPROFILE%\Documents\WindowsPowerShell</span></code>
-<code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1</span></code>
-<code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">$profile</span></code>
-code:profile.ps1
-Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine
+<section class="tex2jax_ignore mathjax_ignore" id="profile">
+<h1>$PROFILE<a class="headerlink" href="#profile" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1</span></code></p></li>
+<li><p>`%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir %USERPROFILE%\Documents\WindowsPowerShell
+%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+vim $profile
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="readline">
+<h1>readline<a class="headerlink" href="#readline" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-profile.ps1 notranslate"><div class="highlight"><pre><span></span>Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+b' -Function BackwardChar
 Set-PSReadlineKeyHandler -Key 'Ctrl+f' -Function ForwardChar
 Set-PSReadlineKeyHandler -Key 'Ctrl+d' -Function DeleteChar
@@ -257,11 +254,16 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+n' -Function HistorySearchForward
 Set-PSReadlineKeyHandler -Key 'Ctrl+a' -Function BeginningOfLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+e' -Function EndOfLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+m' -Function AcceptLine
-Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine</p>
-<p>scoop
-ctags
-dub
-llvm</p>
+Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="psfzf">
+<h1>psfzf<a class="headerlink" href="#psfzf" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="powerline">
+<h1>powerline<a class="headerlink" href="#powerline" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
 
         </article>
       </div>
@@ -284,8 +286,27 @@ llvm</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">$PROFILE</a></li>
+<li><a class="reference internal" href="#readline">readline</a></li>
+<li><a class="reference internal" href="#psfzf">psfzf</a></li>
+<li><a class="reference internal" href="#powerline">powerline</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

@@ -1,0 +1,1 @@
+- [GitHub - nushell/nushell: A new type of shell](https://github.com/nushell/nushell)
