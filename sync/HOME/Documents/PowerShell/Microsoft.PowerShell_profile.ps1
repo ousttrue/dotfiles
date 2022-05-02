@@ -53,11 +53,11 @@ function addPath($path) {
 
 insertPath("C:\Python310\Scripts")
 insertPath("C:\Python310")
-insertPath("C:\Users\ousttrue\.deno\bin")
-insertPath("C:\Users\ousttrue\.cargo\bin")
-insertPath("C:\Users\ousttrue\go\bin")
-insertPath("C:\Users\ousttrue\local\bin")
-addPath("C:\Users\ousttrue\AppData\Local\Programs\Microsoft VS Code")
+insertPath($env:USERPROFILE + "\.deno\bin")
+insertPath($env:USERPROFILE + "\.cargo\bin")
+insertPath($env:USERPROFILE + "\go\bin")
+insertPath($env:USERPROFILE + "\local\bin")
+addPath($env:USERPROFILE + "\AppData\Local\Programs\Microsoft VS Code")
 addPath("C:\Program Files\CMake\bin")
 
 # readline
