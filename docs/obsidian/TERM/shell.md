@@ -2,3 +2,4 @@
 - [[clink]]
 - [[powershell]]
 - [[xonsh]]
+- [[nushell]]

@@ -9,3 +9,5 @@
 [GitHub - errno-mmd/VMD-Lifting: VMD-Lifting is a fork of 'Lifting from the Deep' that outputs estimated 3D pose data to a VMD file](https://github.com/errno-mmd/VMD-Lifting)
 
 [GitHub - errno-mmd/smoothvmd: make VMD motion smooth and slim](https://github.com/errno-mmd/smoothvmd)
+
+- [受け身・筋トレモーション - BowlRoll](https://bowlroll.net/file/30631)
