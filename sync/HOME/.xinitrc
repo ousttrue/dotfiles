@@ -22,5 +22,9 @@ if which conky > /dev/null 2>&1; then
     conky&
 fi
 
+if which mpd > /dev/null 2>&1; then
+    mpd
+fi
+
 exec dbus-launch --exit-with-session openbox-session
 

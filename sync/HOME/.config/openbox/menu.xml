@@ -63,6 +63,12 @@
   <item label="Xterm">
     <action name="Execute"><command>xterm</command></action>
   </item>
+</menu>
+
+<menu id="apps-editor-menu" label="Editor">
+  <item label="Vim">
+    <action name="Execute"><command>gvim</command></action>
+  </item>
   <item label="Obsidian">
     <action name="Execute"><command>obsidian</command></action>
   </item>
@@ -74,7 +80,17 @@
       <command>pavucontrol</command>
     </action>
   </item>
-  <!-- <item label="MPlayer"> -->
+  <item label="gmpc">
+    <action name="Execute">
+      <command>gmpc</command>
+    </action>
+  </item>
+  <item label="EasyTag">
+    <action name="Execute">
+      <command>easytag</command>
+    </action>
+  </item>
+   <!-- <item label="MPlayer"> -->
   <!--   <action name="Execute"> -->
   <!--     <command>gmplayer</command> -->
   <!--     <startupnotify> -->
@@ -166,6 +182,7 @@
 <menu id="root-menu" label="Openbox 3">
   <separator label="Applications" />
   <menu id="apps-www"/>
+  <menu id="apps-editor-menu"/>
   <menu id="apps-graphics-menu"/>
   <menu id="apps-net-menu"/>
   <menu id="apps-office-menu"/>
