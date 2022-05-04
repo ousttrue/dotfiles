@@ -1,3 +1,4 @@
+#!/bin/sh
 #
 # These things are run when an Openbox X Session is started.
 # You may place a similar script in $HOME/.config/openbox/autostart
@@ -16,4 +17,8 @@
 #
 #xfce-mcs-manager &
 #tint2&
+
+if which picom > /dev/null 2>&1; then
+    picom -b
+fi
 

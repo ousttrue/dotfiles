@@ -128,4 +128,5 @@ if which nvim > /dev/null 2>&1; then
 fi
 
 export HTTP_HOME='~/dotfiles/home.html'
+export XDG_MUSIC_DIR=$HOME/Music
 
