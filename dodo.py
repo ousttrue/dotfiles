@@ -199,6 +199,7 @@ def task_fzf():
         },
         'actions': [
             install,
+            f'mkdir -p {HOME_DIR}/local/bin',
             f'cp %(git_dir)s/bin/fzf{EXE} %(targets)s',
         ],
         'uptodate': [result_dep('fzf_ghq')],
@@ -299,7 +300,7 @@ if not IS_WINDOWS:
 class neovim_ghq(GitCloneTask):
     user = 'neovim'
     repository = 'neovim'
-    branch = 'v0.6.1'
+    branch = 'v0.7.0'
     apts = [
         "ninja-build",
         "gettext",
@@ -315,7 +316,7 @@ class neovim_ghq(GitCloneTask):
         "doxygen",
     ]
     emerge = [
-        'cmake',
+        # 'cmake',
     ]
     patches = [DOTFILES / 'neovim.patch']
 
@@ -344,6 +345,7 @@ else:
         repository = neovim_ghq
         actions = [
             'make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=~/local" -j 4',
+            'mkdir -p ~/local/bin',
             'make install',
         ]
         targets = [HOME_DIR / 'local/bin/nvim']
@@ -646,4 +648,5 @@ DOIT_CONFIG = {
 if IS_WINDOWS:
     pass
 else:
-    DOIT_CONFIG['default_tasks'].append('w3m')
+    pass
+    # DOIT_CONFIG['default_tasks'].append('w3m')
