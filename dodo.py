@@ -599,6 +599,7 @@ class wezterm(GitBuildTask):
     actions = [
         './get-deps',
         'cargo build --release',
+        f'ln -s {HOME_DIR}/ghq/github.com/wez/wezterm/target/release/wezterm {HOME_DIR}/local/bin/wezterm',
     ]
 
 

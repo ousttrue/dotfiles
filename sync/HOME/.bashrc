@@ -26,10 +26,6 @@ fi
 
 export _BASHRC_=1
 
-if which zoxide > /dev/null 2>&1; then
-    eval "$(zoxide init bash)"
-fi
-
 # # https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 # if [ -f "$HOME/.git-prompt.sh" ]; then
 #     source ~/.git-prompt.sh
@@ -92,6 +88,10 @@ fi
 # function repos {
 #   cd "$( ghq list --full-path | peco)"
 # }
+if which zoxide > /dev/null 2>&1; then
+    eval "$(zoxide init bash)"
+fi
+
 function gg {
     local repository
     repository=$(ghq list -p | fzf-tmux --reverse +m)
@@ -119,6 +119,8 @@ alias gst="git status -sb"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 alias luamake=/home/ousttrue/ghq/github.com/sumneko/lua-language-server/3rd/luamake/luamake
+
+alias eau='emerge -av --autounmask=y --autounmask-write=y'
 
 if which vim > /dev/null 2>&1; then
     export EDITOR=vim
