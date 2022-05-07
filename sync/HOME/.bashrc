@@ -50,7 +50,8 @@ shopt -u histappend
 export HISTSIZE=9999
 
 function _update_ps1() {
-  PS1=$(powerline-shell $?)
+  # PS1=$(powerline-shell $?)
+  PS1="$(powerline-shell $?)\n$ "
 }
 
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then

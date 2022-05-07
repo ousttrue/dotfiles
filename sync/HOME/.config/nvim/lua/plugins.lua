@@ -176,6 +176,19 @@ highlight NvimTreeOpenedFile gui=reverse
         end,
     }
 
+    use "christoomey/vim-tmux-navigator"
+    use {
+        "preservim/vimux",
+        config = function()
+            -- Prompt for a command to run
+            vim.api.nvim_set_keymap("n", "<F6>", ":VimuxPromptCommand<CR>", { silent = true, noremap = true })
+            -- Run last command executed by VimuxRunCommand
+            vim.api.nvim_set_keymap("n", "<F5>", ":VimuxRunLastCommand<CR>", { silent = true, noremap = true })
+            -- Inspect runner pane
+            vim.api.nvim_set_keymap("n", "<F7>", ":VimuxInspectRunner<CR>", { silent = true, noremap = true })
+        end,
+    }
+
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",

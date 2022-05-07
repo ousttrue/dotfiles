@@ -21,7 +21,7 @@ endif
 set ts=4 sts=4 sw=4 expandtab
 set list
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-set laststatus=2
+set laststatus=3
 set belloff=all
 set noswapfile noundofile nobackup
 set hlsearch
