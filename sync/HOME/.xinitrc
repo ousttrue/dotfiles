@@ -22,6 +22,10 @@ if which conky > /dev/null 2>&1; then
     conky&
 fi
 
+if which volumeicon > /dev/null 2>&1; then
+    volumeicon&
+fi
+
 if which mpd > /dev/null 2>&1; then
     mpd
 fi
