@@ -286,6 +286,98 @@ Functionally speaking, SSBOs can be thought of as a much nicer interface to Buff
 <span class="n">bindBufferBase</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 </div>
+<p>[[glsl]]</p>
+<ul class="simple">
+<li><p>https://qiita.com/9ballsyndrome/items/7bae4f4cec8d26692d29</p></li>
+<li><p>https://wlog.flatlib.jp/index.php?virtualpath=item/1637</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Buffer<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id2">
+<h2>UBO: Uniform Buffer Object<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<blockquote>
+<div><p>D3D の ConstantBuffer に相当する</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>https://qiita.com/hoboaki/items/b188c4495f4708c19002</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">GL_UNIFORM_BUFFER</span></code></p>
+</section>
+<section id="id3">
+<h2>Texture Image Load and Store <code class="docutils literal notranslate"><span class="pre">4.2</span></code><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<blockquote>
+<div><p>Direct3D の UAV に相当する</p>
+</div></blockquote>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id4">
+<h1>ComputeShader<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>https://kakashibata.hatenablog.jp/entry/2020/08/31/001306</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">GL_COMPUTE_SHADER</span></code> を一つだけコンパイルして、アタッチ、リンクする。</p>
+<p>use してから dispatch することで起動する。</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">GLuseProgram</span><span class="p">(</span><span class="n">computeProgram</span><span class="p">);</span><span class="w"></span>
+<span class="n">GLdispatchCompute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>https://www.khronos.org/opengl/wiki/Compute_Shader#Inputs</p></li>
+</ul>
+<p>自身の実行情報を得るには？</p>
+<div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="kt">uint</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">gl_GlobalInvocationID</span><span class="p">.</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<section id="id5">
+<h2>working group<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="k">layout</span><span class="w"> </span><span class="p">(</span><span class="n">local_size_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="n">local_size_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">local_size_z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h2>SSBO: Shader Storage Buffer Object <code class="docutils literal notranslate"><span class="pre">4.3</span></code><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<blockquote>
+<div><p>書込みが可能
+Functionally speaking, SSBOs can be thought of as a much nicer interface to Buffer Textures when accessed via Image Load Store.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>https://blog.techlab-xe.net/opengl-%E3%81%AE-computeshader/</p></li>
+<li><p>https://techblog.sega.jp/entry/2016/10/27/140454</p></li>
+<li><p>https://gaz.hateblo.jp/entry/2018/12/28/002720</p></li>
+</ul>
+<div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="k">layout</span><span class="w"> </span><span class="p">(</span><span class="n">std430</span><span class="p">,</span><span class="w"> </span><span class="n">binding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mo">0</span><span class="p">)</span><span class="w"> </span><span class="k">buffer</span><span class="w"> </span><span class="n">SSBO</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">data</span><span class="p">[];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ssbo</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">createBuffer</span><span class="w"> </span><span class="n">GL_SHADER_STORAGE_BUFFER</span><span class="w"></span>
+<span class="n">bindBufferBase</span><span class="p">()</span><span class="w"></span>
+</pre></div>
+</div>
+<p>opengl matrix
+#opengl
+http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/</p>
+<p>code:glm.cpp
+#include &lt;glm/gtc/matrix_transform.hpp&gt;</p>
+<p>auto m = glm::translation(1, 2, 3);</p>
+<p>m[0][3] = 1;
+m[1][3] = 2;
+m[2][3] = 3;</p>
+<p>auto mvp = projection * view * model;</p>
+<p>code:mvp.glsl
+#version 300 es
+in vec3 vPosition;<br/>
+uniform mat4 ModelMatrix;
+uniform mat4 ViewMatrix;
+uniform mat4 ProjectionMatrix;
+uniform mat4 MVPMatrix;
+void main()<br/>
+{<br/>
+//gl_Position = ProjectionMatrix * ViewMatrix * ModelMatrix * vec4(vPosition, 1);<br/>
+gl_Position = MVPMatrix * vec4(vPosition, 1);
+}</p>
 </section>
 </section>
 
@@ -330,6 +422,16 @@ Functionally speaking, SSBOs can be thought of as a much nicer interface to Buff
 <li><a class="reference internal" href="#computeshader">ComputeShader</a><ul>
 <li><a class="reference internal" href="#working-group">working group</a></li>
 <li><a class="reference internal" href="#ssbo-shader-storage-buffer-object-4-3">SSBO: Shader Storage Buffer Object <code class="docutils literal notranslate"><span class="pre">4.3</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">Buffer</a><ul>
+<li><a class="reference internal" href="#id2">UBO: Uniform Buffer Object</a></li>
+<li><a class="reference internal" href="#id3">Texture Image Load and Store <code class="docutils literal notranslate"><span class="pre">4.2</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">ComputeShader</a><ul>
+<li><a class="reference internal" href="#id5">working group</a></li>
+<li><a class="reference internal" href="#id6">SSBO: Shader Storage Buffer Object <code class="docutils literal notranslate"><span class="pre">4.3</span></code></a></li>
 </ul>
 </li>
 </ul>
