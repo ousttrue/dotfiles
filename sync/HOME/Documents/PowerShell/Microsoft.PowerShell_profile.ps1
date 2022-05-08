@@ -59,6 +59,7 @@ insertPath($env:USERPROFILE + "\go\bin")
 insertPath($env:USERPROFILE + "\local\bin")
 addPath($env:USERPROFILE + "\AppData\Local\Programs\Microsoft VS Code")
 addPath("C:\Program Files\CMake\bin")
+addPath("C:\Program Files\Git\usr\bin")
 
 # readline
 Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine
