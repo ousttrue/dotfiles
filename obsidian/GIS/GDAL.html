@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>build - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,46 +212,70 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>GDAL
-#GIS</p>
-<p>https://gdal.org/index.html
-https://gdal.org/python/ swig
-https://live.osgeo.org/archive/10.5/ja/quickstart/gdal_quickstart.html
-http://www2.geog.ucl.ac.uk/~plewis/geogg122_current/_build/html/Chapter4_GDAL/OGR_Python.html</p>
-<p>[* shp]</p>
-<p>shp to gtiff
-https://gdal.org/tutorials/raster_api_tut.html</p>
-<p>code:.py
-from osgeo import gdal, ogr</p>
-<p>def main(shp_file):
-geo = ogr.Open(shp_file)
-# print(geo.GetLayerCount())
-layer = geo.GetLayer()
-x_min, x_max, y_min, y_max = layer.GetExtent()</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> aspect = (x_max - x_min) / (y_max - y_min)
- height = 512
+          <p>[[GIS]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gdal.org/index.html">GDAL — GDAL documentation</a></p></li>
+</ul>
+<blockquote>
+<div><p>translator library for raster and vector geospatial data formats</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference external" href="https://live.osgeo.org/archive/10.5/ja/quickstart/gdal_quickstart.html">GDAL/OGR クイックスタート — OSGeo-Live 10.5 Documentation</a></p></li>
+<li><p>http://www2.geog.ucl.ac.uk/~plewis/geogg122_current/_build/html/Chapter0_Introduction/f1_index.html</p></li>
+</ul>
+<section id="build">
+<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://trac.osgeo.org/osgeo4w/">OSGeo4W</a></p></li>
+<li><p><a class="reference external" href="https://gdal.org/build_hints.html">Build hints (cmake) — GDAL documentation</a></p></li>
+</ul>
+<section id="proj">
+<h2>PROJ に依存<a class="headerlink" href="#proj" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/OSGeo/PROJ/">GitHub - OSGeo/PROJ: PROJ - Cartographic Projections and Coordinate Transformations Library</a></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">sqlite3</span></code> が必用。</p>
+</section>
+</section>
+<section id="shp">
+<h1>shp<a class="headerlink" href="#shp" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gdal.org/tutorials/raster_api_tut.html">Raster API tutorial — GDAL documentation</a></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osgeo</span> <span class="kn">import</span> <span class="n">gdal</span><span class="p">,</span> <span class="n">ogr</span>
 
- ds = gdal.GetDriverByName('GTiff').Create('tmp.tif', int(height * aspect),
-                                           height, 1, gdal.GDT_Int16)
- res = (y_max - y_min) / height
 
- # x, width, x_skew, y, y_skew, height
- # ds.SetGeoTransform((x_min, res, 0, y_min, 0, res))
- ds.SetGeoTransform((x_min, res, 0, y_max, 0, -res)) # flip vertical
- # white background
- band = ds.GetRasterBand(1)
- band.SetNoDataValue(-9999)
-
- gdal.RasterizeLayer(ds, [1], layer, burn_values=[0]) 
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">shp_file</span><span class="p">):</span>
+	<span class="n">geo</span> <span class="o">=</span> <span class="n">ogr</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="n">shp_file</span><span class="p">)</span>
+	<span class="c1"># print(geo.GetLayerCount())</span>
+	<span class="n">layer</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">GetLayer</span><span class="p">()</span>
+	<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">GetExtent</span><span class="p">()</span>
+	
+	<span class="n">aspect</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_max</span> <span class="o">-</span> <span class="n">x_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">y_max</span> <span class="o">-</span> <span class="n">y_min</span><span class="p">)</span>
+	<span class="n">height</span> <span class="o">=</span> <span class="mi">512</span>
+	
+	<span class="n">ds</span> <span class="o">=</span> <span class="n">gdal</span><span class="o">.</span><span class="n">GetDriverByName</span><span class="p">(</span><span class="s1">'GTiff'</span><span class="p">)</span><span class="o">.</span><span class="n">Create</span><span class="p">(</span><span class="s1">'tmp.tif'</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">height</span> <span class="o">*</span> <span class="n">aspect</span><span class="p">),</span>
+										   <span class="n">height</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gdal</span><span class="o">.</span><span class="n">GDT_Int16</span><span class="p">)</span>
+	<span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_max</span> <span class="o">-</span> <span class="n">y_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">height</span>
+	
+	<span class="c1"># x, width, x_skew, y, y_skew, height</span>
+	<span class="c1"># ds.SetGeoTransform((x_min, res, 0, y_min, 0, res))</span>
+	<span class="n">ds</span><span class="o">.</span><span class="n">SetGeoTransform</span><span class="p">((</span><span class="n">x_min</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">res</span><span class="p">))</span> <span class="c1"># flip vertical</span>
+	<span class="c1"># white background</span>
+	<span class="n">band</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">GetRasterBand</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="n">band</span><span class="o">.</span><span class="n">SetNoDataValue</span><span class="p">(</span><span class="o">-</span><span class="mi">9999</span><span class="p">)</span>
+	
+	<span class="n">gdal</span><span class="o">.</span><span class="n">RasterizeLayer</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">layer</span><span class="p">,</span> <span class="n">burn_values</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
 </pre></div>
 </div>
-<p>[都道府県の画像アセットを全自動生成しよう。 http://www.zopfco.de/entry/2016/12/22/002947]</p>
+<p><a class="reference external" href="http://www.zopfco.de/entry/2016/12/22/002947">都道府県の画像アセットを全自動生成しよう。 - Zopfcode</a></p>
+</section>
 
         </article>
       </div>
@@ -274,8 +298,28 @@ x_min, x_max, y_min, y_max = layer.GetExtent()</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">build</a><ul>
+<li><a class="reference internal" href="#proj">PROJ に依存</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shp">shp</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
