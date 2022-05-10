@@ -3,6 +3,9 @@
 [[CityJSON]]
 [[CityGML]]
 
+## Library
+[[GDAL]]
+
 ## [[Python]]
 [[folium]]
 [Introduction - GeoDjangoではじめる地理空間情報](https://homata.gitbook.io/geodjango/)
@@ -23,10 +26,10 @@
 [GitHub - opencitymodel/opencitymodel: Open citygml data for the United States](https://github.com/opencitymodel/opencitymodel)
 [Natural Earth » Downloads - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales](http://www.naturalearthdata.com/downloads/)
 
-GIS
-[WindowsにBlenderとBlender GISをインストールする https://qiita.com/warenashi/items/61fce7baf2af13d09420]
+- [GitHub - domlysz/BlenderGIS: Blender addons to make the bridge between Blender and geographic data](https://github.com/domlysz/BlenderGIS)
+- [WindowsにBlenderとBlender GISをインストールする - Qiita](https://qiita.com/warenashi/items/61fce7baf2af13d09420)
 
-https://minna.mieruka.city/halfarea-mesh/
+[2分の1の地域メッシュ（500mメッシュ） - 都市構造可視化計画 活用アイデア集](https://minna.mieruka.city/halfarea-mesh/)
 
 osmnx
 
