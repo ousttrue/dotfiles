@@ -135,3 +135,5 @@ export XDG_MUSIC_DIR=$HOME/Music
 
 
 source C:\Users\ousttrue\AppData\Roaming\dystroy\broot\config\launcher\bash\br
+
+source /home/ousttrue/.config/broot/launcher/bash/br
