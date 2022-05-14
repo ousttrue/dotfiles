@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>RuntimeDetection - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,16 +212,62 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
+          <p><a class="reference external" href="https://monado.dev/">Monado - Open Source XR Platform</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gitlab.freedesktop.org/monado/monado">Monado / Monado · GitLab</a></p></li>
 <li><p><a class="reference external" href="https://dochavez.github.io/Documenting-with-Docusaurus-V2.-/docs/monado">Installation for Linux | OpenXR</a></p></li>
 <li><p><a class="reference external" href="https://monado.freedesktop.org/getting-started.html">Monado - Getting Started</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.freedesktop.org/monado/demos/openxr-simple-example">Monado / Demos / openxr-simple-example · GitLab</a></p></li>
 </ul>
+<p>depends</p>
+<ul class="simple">
+<li><p>glslang</p></li>
+<li><p>eigen</p></li>
+<li><p>openhmd</p>
+<ul>
+<li><p>HIDAPI</p></li>
+</ul>
+</li>
+</ul>
+<p>cmake -DCMAKE_BUILD_TYPE=Release</p>
+<section class="tex2jax_ignore mathjax_ignore" id="runtimedetection">
+<h1>RuntimeDetection<a class="headerlink" href="#runtimedetection" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://monado.freedesktop.org/getting-started.html#selecting-the-monado-runtime-for-openxr-applications">Monado - Getting Started</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/share/openxr/1/openxr_monado.json</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">XRT_FEATURE_OPENXR</span></code> に依存。
+<code class="docutils literal notranslate"><span class="pre">XRT_FEATURE_COMPOSITOR_MAIN</span></code></p>
+<section id="system">
+<h2>system<a class="headerlink" href="#system" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">xdg</span><span class="o">/</span><span class="n">openxr</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span>
+<span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openxr</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">openxr_monado</span><span class="o">.</span><span class="n">json</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">xdg</span><span class="o">/</span><span class="n">openxr</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">active_runtime</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</section>
+<section id="user-local">
+<h2>user local<a class="headerlink" href="#user-local" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/.</span><span class="n">config</span><span class="o">/</span><span class="n">openxr</span><span class="o">/</span><span class="mi">1</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openxr</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">openxr_monado</span><span class="o">.</span><span class="n">json</span> <span class="o">~/.</span><span class="n">config</span><span class="o">/</span><span class="n">openxr</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">active_runtime</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</section>
+<section id="environment-variable">
+<h2>environment variable<a class="headerlink" href="#environment-variable" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">XR_RUNTIME_JSON</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openxr</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">openxr_monado</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>動かーん<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[VK_KHR_display]]
+<a class="reference external" href="https://gitlab.freedesktop.org/monado/monado/-/issues/136">Hello! Any advice for getting Oculus CV1 to work? (#136) · Issues · Monado / Monado · GitLab</a></p>
+</section>
+</section>
 
         </article>
       </div>
@@ -244,8 +290,30 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">RuntimeDetection</a><ul>
+<li><a class="reference internal" href="#system">system</a></li>
+<li><a class="reference internal" href="#user-local">user local</a></li>
+<li><a class="reference internal" href="#environment-variable">environment variable</a></li>
+<li><a class="reference internal" href="#id1">動かーん</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
