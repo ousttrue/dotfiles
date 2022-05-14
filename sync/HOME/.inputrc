@@ -2,14 +2,14 @@ set bell-style none
 "\C-n":history-search-forward
 "\C-p":history-search-backward
 
-# Use Vi, not Emacs, style editing
-set editing-mode vi
-# Keymaps for when we're in command mode (e.g., after hitting ESC)
-set keymap vi-command
-# Keymaps for when we're in insert (i.e., typing stuff in) mode
-set keymap vi-insert
+# # Use Vi, not Emacs, style editing
+# set editing-mode vi
+# # Keymaps for when we're in command mode (e.g., after hitting ESC)
+# set keymap vi-command
+# # Keymaps for when we're in insert (i.e., typing stuff in) mode
+# set keymap vi-insert
 
-# for vi mode
-set show-mode-in-prompt on
-set vi-ins-mode-string \1\e[34;1m\2I\1\e[0m\2
-set vi-cmd-mode-string \1\e[31;1m\2N\1\e[0m\2
+# # for vi mode
+# set show-mode-in-prompt on
+# set vi-ins-mode-string \1\e[34;1m\2I\1\e[0m\2
+# set vi-cmd-mode-string \1\e[31;1m\2N\1\e[0m\2

@@ -41,6 +41,6 @@ hook_add='''
 nmap <Space><Space> :NERDTreeVCS<CR>
 '''
 
-[[plugins]]
-repo = "christoomey/vim-tmux-navigator"
+# [[plugins]]
+# repo = "christoomey/vim-tmux-navigator"
 

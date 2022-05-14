@@ -176,7 +176,7 @@ highlight NvimTreeOpenedFile gui=reverse
         end,
     }
 
-    use "christoomey/vim-tmux-navigator"
+    -- use "christoomey/vim-tmux-navigator"
     use {
         "preservim/vimux",
         config = function()
