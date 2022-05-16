@@ -143,6 +143,7 @@ PIP_MODULES = {
     'yapf': 'yapf',
     'pipx': 'pipx',
     'pynvim': 'pynvim',
+    'powerline_status': 'powerline-status',
 }
 PIPX_MODULES = {
     'pylsp': 'python-lsp-server[all]',
