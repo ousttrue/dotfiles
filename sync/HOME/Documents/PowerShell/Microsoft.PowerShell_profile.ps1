@@ -1,3 +1,5 @@
+$env:HOME = $env:USERPROFILE
+
 if($env:TERM_PROGRAM -ne "vscode"){
     chcp 65001
 }

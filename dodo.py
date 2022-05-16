@@ -1,6 +1,5 @@
 import sys
 import pathlib
-import urllib.request
 import site
 from doit.action import CmdAction
 from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
@@ -261,41 +260,45 @@ def task_skk_dictionary():
     }
 
 
-if not IS_WINDOWS:
-    HACKGEN_ZIP = HOME_DIR / 'local/src/HackGenNerd_v2.6.0.zip'
+HACKGEN_ZIP = HOME_DIR / 'local/src/HackGenNerd_v2.6.0.zip'
 
-    def task_font_hackgen_downlaod():
-        url = 'https://github.com/yuru7/HackGen/releases/download/v2.6.0/HackGenNerd_v2.6.0.zip'
-        return {
-            'uptodate': [True],
-            'targets': [HACKGEN_ZIP],
-            'actions': [
-                'mkdir -p ~/local/src',
-                f'curl {url} -L -o %(targets)s',
-            ],
-        }
 
-    def task_font_hackgen():
-        return {
-            'file_dep': [HACKGEN_ZIP],
-            'targets': [HOME_DIR / '.fonts/HackGenNerdConsole-Regular.ttf'],
-            'actions': [
-                'mkdir -p ~/.fonts',
-                'unzip -o -p %(dependencies)s HackGenNerd_v2.6.0/HackGenNerdConsole-Regular.ttf | cat > %(targets)s',
-                'fc-cache -fv',
-            ],
-        }
+def task_font_hackgen_downlaod():
+    url = 'https://github.com/yuru7/HackGen/releases/download/v2.6.0/HackGenNerd_v2.6.0.zip'
+    return {
+        'uptodate': [True],
+        'targets': [HACKGEN_ZIP],
+        'actions': [
+            (mkdir, [HOME_DIR / 'local/src']),
+            f'curl {url} -L -o %(targets)s',
+        ],
+    }
 
-    def task_font_sarasa():
-        url = 'https://github.com/laishulu/Sarasa-Mono-SC-Nerd/raw/master/sarasa-mono-sc-nerd-regular.ttf'
-        return {
-            'uptodate': [True],
-            'targets': [HOME_DIR / '.fonts/sarasa-mono-sc-nerd-regular.ttf'],
-            'actions': [
-                'mkdir -p ~/.fonts',
-                f'curl {url} -L -o %(targets)s',
-            ]
-        }
+
+def task_font_hackgen():
+    task = {
+        'file_dep': [HACKGEN_ZIP],
+        'targets': [HOME_DIR / '.fonts/HackGenNerdConsole-Regular.ttf'],
+        'actions': [
+            (mkdir, [HOME_DIR / '.fonts']),
+            'unzip -o -p %(dependencies)s HackGenNerd_v2.6.0/HackGenNerdConsole-Regular.ttf | cat > %(targets)s',
+        ],
+    }
+    if not IS_WINDOWS:
+        task['actions'].append('fc-cache -fv')
+    return task
+
+
+def task_font_sarasa():
+    url = 'https://github.com/laishulu/Sarasa-Mono-SC-Nerd/raw/master/sarasa-mono-sc-nerd-regular.ttf'
+    return {
+        'uptodate': [True],
+        'targets': [HOME_DIR / '.fonts/sarasa-mono-sc-nerd-regular.ttf'],
+        'actions': [
+            'mkdir -p ~/.fonts',
+            f'curl {url} -L -o %(targets)s',
+        ]
+    }
 
 
 class neovim_ghq(GitCloneTask):
