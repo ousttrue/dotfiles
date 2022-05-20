@@ -456,7 +456,7 @@ class zls(GitBuildTask):
     file_dep = [HOME_DIR / f'local/bin/zig{EXE}']
     actions = [
         f'zig{EXE} build -Drelease-safe',
-        f'ln -s zig-out/bin/zls{EXE} {HOME_DIR}/local/bin/zls{EXE}',
+        f'ln -s {HOME_DIR}/ghq/github.com/zigtools/zls/zig-out/bin/zls{EXE} {HOME_DIR}/local/bin/zls{EXE}',
         # './zig-out/bin/zls config',
     ]
 
