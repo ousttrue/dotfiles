@@ -89,6 +89,7 @@ CARGO_INSTALLS = {
     'viu': 'viu',
     'zoxide': 'zoxide',
     'broot': 'broot',
+    'fd-find': 'fd',
 }
 if IS_WINDOWS:
     CARGO_INSTALLS['lsd'] = 'lsd'
