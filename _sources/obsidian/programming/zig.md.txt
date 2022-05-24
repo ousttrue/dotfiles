@@ -16,3 +16,8 @@ imgui は `@cImport`
 
 ## allocator
 - [Allocator ってなに (Zig Documentation) - MemoBook](https://scrapbox.io/tamago324vim/Allocator_%E3%81%A3%E3%81%A6%E3%81%AA%E3%81%AB_(Zig_Documentation))
+
+# build
+- [Zig Build - Gamedev Guide](https://ikrima.dev/dev-notes/zig/zig-build/)
+- [@import() and Packages - Zig NEWS](https://zig.news/mattnite/import-and-packages-23mb)
+
