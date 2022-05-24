@@ -422,12 +422,14 @@ def task_zig():
         ZIG_ARCHIVE_NAME = f'zig-windows-x86_64-0.10.0-dev.{ZIG_BUILD_VERSION}'
         ZIG_ARCHIVE_PATH = HOME_DIR / f'local/src/{ZIG_ARCHIVE_NAME}.zip'
         ZIG_ARCHIVE_URL = f'https://ziglang.org/builds/{ZIG_ARCHIVE_NAME}.zip'
-        ZIG_EXTRACT = CmdAction( f'unzip {ZIG_ARCHIVE_PATH}', cwd=HOME_DIR / 'local/src')
+        ZIG_EXTRACT = CmdAction(f'unzip {ZIG_ARCHIVE_PATH}',
+                                cwd=HOME_DIR / 'local/src')
     else:
         ZIG_ARCHIVE_NAME = f'zig-linux-x86_64-0.10.0-dev.{ZIG_BUILD_VERSION}'
         ZIG_ARCHIVE_PATH = HOME_DIR / f'local/src/{ZIG_ARCHIVE_NAME}.tar.xz'
         ZIG_ARCHIVE_URL = f'https://ziglang.org/builds/{ZIG_ARCHIVE_NAME}.tar.xz'
-        ZIG_EXTRACT = CmdAction( f'tar xf {ZIG_ARCHIVE_PATH}', cwd=HOME_DIR / 'local/src')
+        ZIG_EXTRACT = CmdAction(f'tar xf {ZIG_ARCHIVE_PATH}',
+                                cwd=HOME_DIR / 'local/src')
     ZIG_BIN = HOME_DIR / f'local/bin/zig{EXE}'
 
     return {
@@ -436,7 +438,7 @@ def task_zig():
             f'curl {ZIG_ARCHIVE_URL} -o {ZIG_ARCHIVE_PATH}',
             ZIG_EXTRACT,
             (mkdir, [ZIG_BIN.parent]),
-            f'ln -s {ZIG_ARCHIVE_PATH.parent}/{ZIG_ARCHIVE_NAME}/zig{EXE} {ZIG_BIN}',
+            (mklink, [f'{ZIG_ARCHIVE_PATH.parent}/{ZIG_ARCHIVE_NAME}/zig{EXE}']),
         ],
         'targets': [ZIG_BIN],
         'uptodate': [True],
@@ -452,25 +454,28 @@ class zls_ghq(GitCloneTask):
 class zls(GitBuildTask):
     repository = zls_ghq
     file_dep = [HOME_DIR / f'local/bin/zig{EXE}']
+    targets = [f'{HOME_DIR}/local/bin/zls{EXE}']
     actions = [
         f'zig{EXE} build -Drelease-safe',
-        f'ln -s {HOME_DIR}/ghq/github.com/zigtools/zls/zig-out/bin/zls{EXE} {HOME_DIR}/local/bin/zls{EXE}',
-        # './zig-out/bin/zls config',
+        (mklink,
+         [f'{HOME_DIR}/ghq/github.com/zigtools/zls/zig-out/bin/zls{EXE}']),
     ]
 
 
 class gyro_ghq(GitCloneTask):
     user = 'mattnite'
     repository = 'gyro'
-    patches = [DOTFILES / 'gyro.patch']
+    # patches = [DOTFILES / 'gyro.patch']
 
 
 class gyro(GitBuildTask):
     repository = gyro_ghq
     file_dep = [HOME_DIR / f'local/bin/zig{EXE}']
+    targets = [f'{HOME_DIR}/local/bin/gyro{EXE}']
     actions = [
         f'zig{EXE} build -Drelease-safe',
-        f'ln -s zig-out/bin/gyro{EXE} {HOME_DIR}/local/bin/gyro{EXE}',
+        (mklink,
+         [f'{HOME_DIR}/ghq/github.com/mattnite/gyro/zig-out/bin/gyro{EXE}']),
     ]
 
 
