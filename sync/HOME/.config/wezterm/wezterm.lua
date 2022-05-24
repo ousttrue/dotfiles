@@ -43,8 +43,8 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     config.initial_rows = 70
 
     table.insert(config.keys, { key = "c", mods = "ALT", action = wezterm.action { SpawnTab = "CurrentPaneDomain" } })
-    table.insert(config.keys, { key = "h", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
-    table.insert(config.keys, { key = "l", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
+    table.insert(config.keys, { key = ",", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
+    table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
     table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
     table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
 else

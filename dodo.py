@@ -417,29 +417,26 @@ if not IS_WINDOWS:
 #
 def task_zig():
     # master
+    ZIG_BUILD_VERSION = '2351+b64a1d5ab'
     if IS_WINDOWS:
-        ZIG_ARCHIVE_URL = 'https://ziglang.org/builds/zig-windows-x86_64-0.10.0-dev.2024+d127c1d59.zip'
-        ZIG_ARCHIVE = HOME_DIR / 'local/src/zig-windows-x86_64-0.10.0-dev.2024+d127c1d59.zip'
-        ZIG_ARCHIVE_EXTRACT = HOME_DIR / \
-            'local/src/zig-windows-x86_64-0.10.0-dev.2024+d127c1d59'
-        ZIG_EXTRACT = CmdAction(f'unzip {ZIG_ARCHIVE}', cwd=ZIG_ARCHIVE.parent)
+        ZIG_ARCHIVE_NAME = f'zig-windows-x86_64-0.10.0-dev.{ZIG_BUILD_VERSION}'
+        ZIG_ARCHIVE_PATH = HOME_DIR / f'local/src/{ZIG_ARCHIVE_NAME}.zip'
+        ZIG_ARCHIVE_URL = f'https://ziglang.org/builds/{ZIG_ARCHIVE_NAME}.zip'
+        ZIG_EXTRACT = CmdAction( f'unzip {ZIG_ARCHIVE_PATH}', cwd=HOME_DIR / 'local/src')
     else:
-        ZIG_ARCHIVE_URL = 'https://ziglang.org/builds/zig-linux-x86_64-0.10.0-dev.2024+d127c1d59.tar.xz'
-        ZIG_ARCHIVE = HOME_DIR / 'local/src/zig-linux-x86_64-0.10.0-dev.2024+d127c1d59.tar.xz'
-        ZIG_ARCHIVE_EXTRACT = HOME_DIR / \
-            'local/src/zig-linux-x86_64-0.10.0-dev.2024+d127c1d59'
-        ZIG_EXTRACT = CmdAction(f'tar xf {ZIG_ARCHIVE}',
-                                cwd=ZIG_ARCHIVE.parent)
-
-    ZIG_BIN = HOME_DIR / 'local/bin/zig'
+        ZIG_ARCHIVE_NAME = f'zig-linux-x86_64-0.10.0-dev.{ZIG_BUILD_VERSION}'
+        ZIG_ARCHIVE_PATH = HOME_DIR / f'local/src/{ZIG_ARCHIVE_NAME}.tar.xz'
+        ZIG_ARCHIVE_URL = f'https://ziglang.org/builds/{ZIG_ARCHIVE_NAME}.tar.xz'
+        ZIG_EXTRACT = CmdAction( f'tar xf {ZIG_ARCHIVE_PATH}', cwd=HOME_DIR / 'local/src')
+    ZIG_BIN = HOME_DIR / f'local/bin/zig{EXE}'
 
     return {
         'actions': [
-            (mkdir, [ZIG_ARCHIVE.parent]),
-            f'curl {ZIG_ARCHIVE_URL} -o {ZIG_ARCHIVE}',
+            (mkdir, [ZIG_ARCHIVE_PATH.parent]),
+            f'curl {ZIG_ARCHIVE_URL} -o {ZIG_ARCHIVE_PATH}',
             ZIG_EXTRACT,
             (mkdir, [ZIG_BIN.parent]),
-            f'ln -s {ZIG_ARCHIVE_EXTRACT}/zig{EXE} {ZIG_BIN}',
+            f'ln -s {ZIG_ARCHIVE_PATH.parent}/{ZIG_ARCHIVE_NAME}/zig{EXE} {ZIG_BIN}',
         ],
         'targets': [ZIG_BIN],
         'uptodate': [True],
