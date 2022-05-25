@@ -5,8 +5,9 @@ import pathlib
 import os
 import sys
 import platform
+import urllib.request
+import shutil
 from enum import Enum, auto
-
 
 DOTFILES = pathlib.Path(__file__).absolute().parent.parent
 HOME_DIR = DOTFILES.parent
@@ -28,7 +29,7 @@ class Platforms(Enum):
     # mingw64
 
     @staticmethod
-    def get()->'Platforms':
+    def get() -> 'Platforms':
         if pathlib.Path('/usr/bin/apt').exists():
             return Platforms.Ubuntu
         if pathlib.Path('/usr/bin/emerge').exists():
@@ -40,14 +41,14 @@ class Platforms(Enum):
     def get_icon_key(self):
         return ICON_KEY_MAP.get(self)
 
+
 PLATFORM = Platforms.get()
 IS_WINDOWS = PLATFORM == Platforms.Windows
 ICON_KEY_MAP = {
-        Platforms.Windows: 'fa_windows',
-        Platforms.Ubuntu: 'linux_ubuntu',
-        Platforms.Gentoo: 'linux_gentoo',
-        }
-
+    Platforms.Windows: 'fa_windows',
+    Platforms.Ubuntu: 'linux_ubuntu',
+    Platforms.Gentoo: 'linux_gentoo',
+}
 
 if IS_WINDOWS:
     HOME_DIR = pathlib.Path(os.environ['USERPROFILE'])
@@ -69,7 +70,13 @@ def mkdir(path: pathlib.Path):
 
 
 def mklink(src, targets):
-    dst = pathlib.Path(targets[0])
+    match targets:
+        case list():
+            dst = pathlib.Path(targets[0])
+        case pathlib.Path():
+            dst = targets
+        case _:
+            raise RuntimeError(f'{targets}')
     if dst.exists() or dst.is_symlink():
         print(f'rm {dst}')
         dst.unlink()
@@ -92,7 +99,6 @@ def traverse(d: pathlib.Path):
 
 
 def condition(cond):
-
     def empty(*args):
         pass
 
@@ -110,7 +116,6 @@ class GitCloneTask(object):
     repository: str
     shallow: bool = False
     '''
-
     @classmethod
     def create_doit_tasks(cls):
         import doit.action
@@ -147,8 +152,7 @@ class GitCloneTask(object):
             # for create: git diff --no-prefix > PATCH_FILE
             for patch in patches:
                 kw['actions'].append(
-                    doit.action.CmdAction(f'patch -p0 < {patch}',
-                                          cwd=git_dir))
+                    doit.action.CmdAction(f'patch -p0 < {patch}', cwd=git_dir))
         kw['actions'].append(
             doit.action.CmdAction('git rev-parse HEAD', cwd=git_dir))
         kw['uptodate'] = [True]
@@ -158,12 +162,11 @@ class GitCloneTask(object):
 
         apts = kw.pop('apts', [])
         if apts and PLATFORM == Platforms.Ubuntu:
-                kw['actions'].insert(
-                    0, 'sudo apt-get install -y ' + ' '.join(apts))
+            kw['actions'].insert(0,
+                                 'sudo apt-get install -y ' + ' '.join(apts))
         emerge = kw.pop('emerge', [])
         if emerge and PLATFORM == Platforms.Gentoo:
-                kw['actions'].insert(
-                    0, 'sudo emerge ' + ' '.join(emerge))
+            kw['actions'].insert(0, 'sudo emerge ' + ' '.join(emerge))
         return kw
 
 
@@ -173,7 +176,6 @@ class GitBuildTask(object):
     repository = GitCloneTask
     condition: bool = True
     '''
-
     @classmethod
     def create_doit_tasks(cls):
         import doit.action
@@ -211,3 +213,15 @@ class GitBuildTask(object):
         kw['verbosity'] = 2
 
         return kw
+
+
+def download(url: str, targets):
+    dst = pathlib.Path(targets[0])
+    with urllib.request.urlopen(url) as web_file:
+        data = web_file.read()
+        dst.write_bytes(data)
+
+
+def extract(dst_dir, dependencies):
+    src = pathlib.Path(dependencies[0])
+    shutil.unpack_archive(src, dst_dir)

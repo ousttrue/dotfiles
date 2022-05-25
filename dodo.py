@@ -4,7 +4,8 @@ import site
 from doit.action import CmdAction
 from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
                       GHQ_GITHUB_DIR, condition, mkdir, traverse,
-                      SYNC_HOME_DIR, DOTFILES, mklink, check_link)
+                      SYNC_HOME_DIR, DOTFILES, mklink, check_link, download,
+                      extract)
 if IS_WINDOWS:
     from doit_lib import (SYNC_APPDATA_LOCAL_DIR, SYNC_APPDATA_ROAMING_DIR,
                           APPDATA_LOCAL_DIR, APPDATA_ROAMING_DIR)
@@ -415,33 +416,50 @@ if not IS_WINDOWS:
 #
 # https://github.com/ziglang/zig/wiki/Building-Zig-on-Windows
 #
-def task_zig():
-    # master
-    ZIG_BUILD_VERSION = '2351+b64a1d5ab'
-    if IS_WINDOWS:
-        ZIG_ARCHIVE_NAME = f'zig-windows-x86_64-0.10.0-dev.{ZIG_BUILD_VERSION}'
-        ZIG_ARCHIVE_PATH = HOME_DIR / f'local/src/{ZIG_ARCHIVE_NAME}.zip'
-        ZIG_ARCHIVE_URL = f'https://ziglang.org/builds/{ZIG_ARCHIVE_NAME}.zip'
-        ZIG_EXTRACT = CmdAction(f'unzip {ZIG_ARCHIVE_PATH}',
-                                cwd=HOME_DIR / 'local/src')
-    else:
-        ZIG_ARCHIVE_NAME = f'zig-linux-x86_64-0.10.0-dev.{ZIG_BUILD_VERSION}'
-        ZIG_ARCHIVE_PATH = HOME_DIR / f'local/src/{ZIG_ARCHIVE_NAME}.tar.xz'
-        ZIG_ARCHIVE_URL = f'https://ziglang.org/builds/{ZIG_ARCHIVE_NAME}.tar.xz'
-        ZIG_EXTRACT = CmdAction(f'tar xf {ZIG_ARCHIVE_PATH}',
-                                cwd=HOME_DIR / 'local/src')
-    ZIG_BIN = HOME_DIR / f'local/bin/zig{EXE}'
+# master
+ZIG_BUILD_VERSION = '2351+b64a1d5ab'
+if IS_WINDOWS:
+    ZIG_ARCHIVE_NAME = f'zig-windows-x86_64-0.10.0-dev.{ZIG_BUILD_VERSION}'
+    ZIG_ARCHIVE_PATH = HOME_DIR / f'local/src/{ZIG_ARCHIVE_NAME}.zip'
+    ZIG_ARCHIVE_URL = f'https://ziglang.org/builds/{ZIG_ARCHIVE_NAME}.zip'
+else:
+    ZIG_ARCHIVE_NAME = f'zig-linux-x86_64-0.10.0-dev.{ZIG_BUILD_VERSION}'
+    ZIG_ARCHIVE_PATH = HOME_DIR / f'local/src/{ZIG_ARCHIVE_NAME}.tar.xz'
+    ZIG_ARCHIVE_URL = f'https://ziglang.org/builds/{ZIG_ARCHIVE_NAME}.tar.xz'
+ZIG_EXTRACT_FILE = HOME_DIR / f'local/src/{ZIG_ARCHIVE_NAME}/zig{EXE}'
+ZIG_BIN = HOME_DIR / f'local/bin/zig{EXE}'
 
+
+def task_zig_download():
     return {
         'actions': [
-            (mkdir, [ZIG_ARCHIVE_PATH.parent]),
-            f'curl {ZIG_ARCHIVE_URL} -o {ZIG_ARCHIVE_PATH}',
-            ZIG_EXTRACT,
-            (mkdir, [ZIG_BIN.parent]),
-            (mklink, [f'{ZIG_ARCHIVE_PATH.parent}/{ZIG_ARCHIVE_NAME}/zig{EXE}']),
+            (download, [ZIG_ARCHIVE_URL]),
         ],
-        'targets': [ZIG_BIN],
+        'targets': [ZIG_ARCHIVE_PATH],
         'uptodate': [True],
+    }
+
+
+def task_zig_extract():
+    dst_dir = HOME_DIR / 'local/src'
+    return {
+        'actions': [
+            (extract, [dst_dir]),
+        ],
+        'file_dep': [ZIG_ARCHIVE_PATH],
+        'targets': [ZIG_EXTRACT_FILE],
+    }
+
+
+def task_zig():
+    return {
+        'actions': [
+            (mklink, [ZIG_EXTRACT_FILE, ZIG_BIN]),
+            (mklink, [ZIG_EXTRACT_FILE.parent / 'lib',
+                      ZIG_BIN.parent / 'lib']),
+        ],
+        'file_dep': [ZIG_EXTRACT_FILE],
+        'targets': [ZIG_BIN],
     }
 
 
