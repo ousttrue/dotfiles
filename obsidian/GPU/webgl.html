@@ -218,42 +218,76 @@
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://qiita.com/gpsnmeajp/items/29adc31f30e531fe8023">SteamVRで自作のデバイスやソフトを簡単にトラッカーとして認識させる方法(バーチャルモーショントラッカー) - Qiita</a></p>
-<p>steamvr
-#unity #openvr</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://developer.valvesoftware.com/wiki/SteamVR/Environments
-https://steamcommunity.com/app/250820/discussions/
+          <p>webgl
+#javascript</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://webglfundamentals.org/webgl/lessons/webgl-less-code-more-fun.html
+
+https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
+	https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial
+	https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context
 </pre></div>
 </div>
-<p>設定
-<code class="docutils literal notranslate"><span class="pre">C:/Steam/steamapps/common/SteamVR/resources/settings/default.vrsettings</span></code></p>
-<p>[** 2.0]
-OpenVRのUnityWrapper + The Lab の Interaction system
-https://valvesoftware.github.io/steamvr_unity_plugin/articles/Interaction-System.html
-https://www.slideshare.net/shohashimoto4/steamvr-plugin-20
-https://steamcommunity.com/games/250820/announcements/detail/1696059027982397407</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[SteamVR2.0のInteractionシステムが超便利だから使ってみよう https://qiita.com/ZeniZeni/items/7ee19ee2725305188cc3]
-[SteamVR Plugin 2.0 セットアップ・サンプルシーンを動かすまでの備忘録 https://qiita.com/kyourikey/items/5967018e613b2fd49a1f]
-https://github.com/ValveSoftware/steamvr_unity_plugin
+<p>https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL
+https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_objects_with_WebGL
+https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL
+https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL
+https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL
+https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL</p>
+<p>[* live server]
+https://www.hypertextcandy.com/live-reload-web-servers</p>
+<p>[* vscode]</p>
+<p><code class="docutils literal notranslate"><span class="pre">"editor.formatOnSave":</span> <span class="pre">true</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://marketplace.visualstudio.com/items?itemName=daiyy.quick-html-previewer
 </pre></div>
 </div>
-<p>[** 1.0]
-2回インストールしたらなおった
-<code class="docutils literal notranslate"><span class="pre">TypeLoadException:</span> <span class="pre">Could</span> <span class="pre">not</span> <span class="pre">load</span> <span class="pre">type</span> <span class="pre">'System.Action'</span> <span class="pre">from</span> <span class="pre">assembly</span></code></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SteamVR_Controller.cs
-[Unity SteamVR Pluginのソースを読む Part2 https://kazumalab.hatenablog.com/entry/2017/07/04/065540]
+<p>[* hello]
+code:index.html</p>
+<body>
+<canvas height="480" id="glCanvas" width="640"></canvas>
+</body>
+<script src="renderer.js"></script>
+<script>
+     const renderer = new Renderer("#glCanvas");
+     renderer.frame();
+ </script>
+<p>code:renderer.js
+class Renderer {</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> constructor(canvas_id) {
+     const canvas = document.querySelector(canvas_id);
+     this.gl = canvas.getContext("webgl2");
+     if (this.gl === null) {
+         alert("Unable to initialize WebGL. Your browser or machine may not support it.");
+     }
+ }
+
+ // animation
+ update(time_ms) {
+     const angle = time_ms * 0.001 * Math.PI;
+     this.bg = Math.sin(angle) + 1;
+     this.clear_color = [this.bg, this.bg, this.bg, 1];
+ }
+
+ // draw
+ render(gl) {
+     // Set clear color to black, fully opaque
+     gl.clearColor(...this.clear_color);
+     // Clear the color buffer with specified clear color
+     gl.clear(gl.COLOR_BUFFER_BIT);
+ }
+
+ frame() {
+     this.update(Date.now());
+     this.render(this.gl);
+     requestAnimationFrame(() =&gt; { this.frame(); });
+ }
 </pre></div>
 </div>
-<p>[** 実装]
-[*  openvr_api.cs]
-[SteamVR(HTC Vive) Unity插件深度分析（二） http://gad.qq.com/article/detail/27050]</p>
-<p>[* COpenVRContext]</p>
-<p>#openvr #steamvr</p>
-<p>https://github.com/ValveSoftware/steamvr_unity_plugin</p>
-<p><code class="docutils literal notranslate"><span class="pre">openvr.h</span></code> の Unity ラッパー
-https://github.com/ValveSoftware/openvr/blob/master/headers/openvr_api.cs <code class="docutils literal notranslate"><span class="pre">1.9.16</span></code> openvr.h と同じ
-https://github.com/ValveSoftware/steamvr_unity_plugin/tree/master/Assets/SteamVR/Plugins <code class="docutils literal notranslate"><span class="pre">OpenVR</span> <span class="pre">SDK</span> <span class="pre">1.8.19</span></code>
-https://github.com/ValveSoftware/openvr/tree/master/samples/unity_teleport_sample/Assets/Plugins `OpenVR SDK 0.9.2</p>
+<p>}</p>
+<p>[* matrix]
+https://sbfl.net/blog/2018/02/05/webgl-matrixgl/#i-2
+http://glmatrix.net/
+https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection
+https://github.com/infusion/Quaternion.js/</p>
 
         </article>
       </div>
@@ -268,7 +302,7 @@ https://github.com/ValveSoftware/openvr/tree/master/samples/unity_teleport_sampl
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/CG/streamvr.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/GPU/webgl.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>

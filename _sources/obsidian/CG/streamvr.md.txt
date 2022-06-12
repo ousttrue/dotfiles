@@ -1,3 +1,5 @@
+[SteamVRで自作のデバイスやソフトを簡単にトラッカーとして認識させる方法(バーチャルモーショントラッカー) - Qiita](https://qiita.com/gpsnmeajp/items/29adc31f30e531fe8023)
+
 steamvr
 #unity #openvr
 

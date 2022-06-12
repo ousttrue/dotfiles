@@ -218,42 +218,87 @@
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://qiita.com/gpsnmeajp/items/29adc31f30e531fe8023">SteamVRで自作のデバイスやソフトを簡単にトラッカーとして認識させる方法(バーチャルモーショントラッカー) - Qiita</a></p>
-<p>steamvr
-#unity #openvr</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://developer.valvesoftware.com/wiki/SteamVR/Environments
-https://steamcommunity.com/app/250820/discussions/
+          <p>function-linking-graph
+#d3d11</p>
+<p>https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/using-shader-linking
+https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/pachaging-a-shader-library module 作る
+https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/constructing-a-function-linking-graph</p>
+<p>[* ID3D11LinkingNode]
+https://docs.microsoft.com/en-us/windows/win32/api/d3d11shader/nn-d3d11shader-id3d11linkingnode</p>
+<p>input
+https://docs.microsoft.com/en-us/windows/win32/api/d3d11shader/nf-d3d11shader-id3d11functionlinkinggraph-setinputsignature</p>
+<p>output
+https://docs.microsoft.com/en-us/windows/win32/api/d3d11shader/nf-d3d11shader-id3d11functionlinkinggraph-setoutputsignature</p>
+<p>function call
+https://docs.microsoft.com/en-us/windows/win32/api/d3d11shader/nf-d3d11shader-id3d11functionlinkinggraph-callfunction
+モジュール内の関数を呼び出す？</p>
+<p>[* PassValue]
+node を連結する
+https://docs.microsoft.com/en-us/windows/win32/api/d3d11shader/nf-d3d11shader-id3d11functionlinkinggraph-passvalue</p>
+<p>[* ModuleInstance]
+ID3D11ModuleInstance
+constant buffer とかのバインド
+https://docs.microsoft.com/en-us/windows/win32/api/d3d11shader/nn-d3d11shader-id3d11moduleinstance</p>
+<p>[* Moduule]
+ID3D11Module
+関数とかが入っている？
+D3DLoadModule</p>
+<p>http://masafumi.cocolog-nifty.com/masafumis_diary/2014/05/windows-81direc.html
+http://microsoftdevelopernetworksamples.blogspot.com/2017/06/windowsappshlsl-shader-compiler-sample.html
+https://i1.code.msdn.s-msft.com/Windows-8-Modern-Style-App-Samples</p>
+<p>https://github.com/microsoft/VCSamples/tree/master/VC2012Samples/Windows%208%20samples/C%2B%2B/Windows%208%20app%20samples</p>
+<p>code:.xml</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span> <span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+ 
+ <span class="nt">&lt;Package</span>
+   <span class="na">xmlns=</span><span class="s">"http://schemas.microsoft.com/appx/manifest/foundation/windows10"</span>
+   <span class="na">xmlns:mp=</span><span class="s">"http://schemas.microsoft.com/appx/2014/phone/manifest"</span>
+   <span class="na">xmlns:uap=</span><span class="s">"http://schemas.microsoft.com/appx/manifest/uap/windows10"</span>
+   <span class="na">IgnorableNamespaces=</span><span class="s">"uap mp"</span><span class="nt">&gt;</span>
+ 
+   <span class="nt">&lt;Identity</span>
+     <span class="na">Name=</span><span class="s">"7eed9f6b-ee1e-41dc-a4bc-cbe2e85db97f"</span>
+     <span class="na">Publisher=</span><span class="s">"CN=oustt"</span>
+     <span class="na">Version=</span><span class="s">"1.0.0.0"</span> <span class="nt">/&gt;</span>
+ 
+   <span class="nt">&lt;mp:PhoneIdentity</span> <span class="na">PhoneProductId=</span><span class="s">"7eed9f6b-ee1e-41dc-a4bc-cbe2e85db97f"</span> <span class="na">PhonePublisherId=</span><span class="s">"00000000-0000-0000-0000-000000000000"</span><span class="nt">/&gt;</span>
+ 
+   <span class="nt">&lt;Properties&gt;</span>
+     <span class="nt">&lt;DisplayName&gt;</span>App1<span class="nt">&lt;/DisplayName&gt;</span>
+     <span class="nt">&lt;PublisherDisplayName&gt;</span>oustt<span class="nt">&lt;/PublisherDisplayName&gt;</span>
+     <span class="nt">&lt;Logo&gt;</span>Assets\StoreLogo.png<span class="nt">&lt;/Logo&gt;</span>
+   <span class="nt">&lt;/Properties&gt;</span>
+ 
+   <span class="nt">&lt;Dependencies&gt;</span>
+     <span class="nt">&lt;TargetDeviceFamily</span> <span class="na">Name=</span><span class="s">"Windows.Universal"</span> <span class="na">MinVersion=</span><span class="s">"10.0.0.0"</span> <span class="na">MaxVersionTested=</span><span class="s">"10.0.0.0"</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/Dependencies&gt;</span>
+ 
+   <span class="nt">&lt;Resources&gt;</span>
+     <span class="nt">&lt;Resource</span> <span class="na">Language=</span><span class="s">"x-generate"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/Resources&gt;</span>
+ 
+   <span class="nt">&lt;Applications&gt;</span>
+     <span class="nt">&lt;Application</span> <span class="na">Id=</span><span class="s">"App"</span>
+       <span class="na">Executable=</span><span class="s">"$targetnametoken$.exe"</span>
+       <span class="na">EntryPoint=</span><span class="s">"App1.App"</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;uap:VisualElements</span>
+         <span class="na">DisplayName=</span><span class="s">"App1"</span>
+         <span class="na">Square150x150Logo=</span><span class="s">"Assets\Square150x150Logo.png"</span>
+         <span class="na">Square44x44Logo=</span><span class="s">"Assets\Square44x44Logo.png"</span>
+         <span class="na">Description=</span><span class="s">"App1"</span>
+         <span class="na">BackgroundColor=</span><span class="s">"transparent"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;uap:DefaultTile</span> <span class="na">Wide310x150Logo=</span><span class="s">"Assets\Wide310x150Logo.png"</span><span class="nt">/&gt;</span>
+         <span class="nt">&lt;uap:SplashScreen</span> <span class="na">Image=</span><span class="s">"Assets\SplashScreen.png"</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;/uap:VisualElements&gt;</span>
+     <span class="nt">&lt;/Application&gt;</span>
+   <span class="nt">&lt;/Applications&gt;</span>
+ 
+   <span class="nt">&lt;Capabilities&gt;</span>
+     <span class="nt">&lt;Capability</span> <span class="na">Name=</span><span class="s">"internetClient"</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/Capabilities&gt;</span>
+ <span class="nt">&lt;/Package&gt;</span>
 </pre></div>
 </div>
-<p>設定
-<code class="docutils literal notranslate"><span class="pre">C:/Steam/steamapps/common/SteamVR/resources/settings/default.vrsettings</span></code></p>
-<p>[** 2.0]
-OpenVRのUnityWrapper + The Lab の Interaction system
-https://valvesoftware.github.io/steamvr_unity_plugin/articles/Interaction-System.html
-https://www.slideshare.net/shohashimoto4/steamvr-plugin-20
-https://steamcommunity.com/games/250820/announcements/detail/1696059027982397407</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[SteamVR2.0のInteractionシステムが超便利だから使ってみよう https://qiita.com/ZeniZeni/items/7ee19ee2725305188cc3]
-[SteamVR Plugin 2.0 セットアップ・サンプルシーンを動かすまでの備忘録 https://qiita.com/kyourikey/items/5967018e613b2fd49a1f]
-https://github.com/ValveSoftware/steamvr_unity_plugin
-</pre></div>
-</div>
-<p>[** 1.0]
-2回インストールしたらなおった
-<code class="docutils literal notranslate"><span class="pre">TypeLoadException:</span> <span class="pre">Could</span> <span class="pre">not</span> <span class="pre">load</span> <span class="pre">type</span> <span class="pre">'System.Action'</span> <span class="pre">from</span> <span class="pre">assembly</span></code></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SteamVR_Controller.cs
-[Unity SteamVR Pluginのソースを読む Part2 https://kazumalab.hatenablog.com/entry/2017/07/04/065540]
-</pre></div>
-</div>
-<p>[** 実装]
-[*  openvr_api.cs]
-[SteamVR(HTC Vive) Unity插件深度分析（二） http://gad.qq.com/article/detail/27050]</p>
-<p>[* COpenVRContext]</p>
-<p>#openvr #steamvr</p>
-<p>https://github.com/ValveSoftware/steamvr_unity_plugin</p>
-<p><code class="docutils literal notranslate"><span class="pre">openvr.h</span></code> の Unity ラッパー
-https://github.com/ValveSoftware/openvr/blob/master/headers/openvr_api.cs <code class="docutils literal notranslate"><span class="pre">1.9.16</span></code> openvr.h と同じ
-https://github.com/ValveSoftware/steamvr_unity_plugin/tree/master/Assets/SteamVR/Plugins <code class="docutils literal notranslate"><span class="pre">OpenVR</span> <span class="pre">SDK</span> <span class="pre">1.8.19</span></code>
-https://github.com/ValveSoftware/openvr/tree/master/samples/unity_teleport_sample/Assets/Plugins `OpenVR SDK 0.9.2</p>
 
         </article>
       </div>
@@ -268,7 +313,7 @@ https://github.com/ValveSoftware/openvr/tree/master/samples/unity_teleport_sampl
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/CG/streamvr.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/GPU/d3d_function_linking_graph.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
