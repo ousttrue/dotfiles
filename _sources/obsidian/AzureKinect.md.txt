@@ -23,6 +23,8 @@
 -   [[Matroska]] コンテナー形式を使用するセンサー記録ツールと再生リーダー API。
 -   Azure Kinect DK ファームウェア更新ツール。
 
+- [AzureKinect の opencv-kinfu-samples をビルドする - Qiita](https://qiita.com/ousttrue/items/daea793638850965b43f)
+
 # k4abt
 -   体のセグメント化を提供します。
 -   認識範囲内の体の各部位または全身の解剖学的に正しい骨格を含みます。
@@ -34,6 +36,6 @@
 `"C:\Program Files\Azure Kinect Body Tracking SDK\tools\k4abt_simple_3d_viewer.exe"`
 
 - [Azure Kinect Sensor SDK Documentation](https://microsoft.github.io/Azure-Kinect-Body-Tracking/)
-- [AzureKinect の opencv-kinfu-samples をビルドする - Qiita](https://qiita.com/ousttrue/items/daea793638850965b43f)
 - [Azure Kinect のボディ トラッキング結果の取得 | Microsoft Docs](https://docs.microsoft.com/ja-jp/azure/kinect-dk/get-body-tracking-results)
 - [ボディ フレームの Azure Kinect DK データへのアクセス | Microsoft Docs](https://docs.microsoft.com/ja-jp/azure/kinect-dk/access-data-body-frame)
+	
