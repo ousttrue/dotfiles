@@ -1,3 +1,7 @@
+[GStreamer: open source multimedia framework](https://gstreamer.freedesktop.org/)
+
+- [Gstreamer](https://zenn.dev/goforbroke/scraps/77b4afa1503385)
+- [GStreamer 事はじめ](https://www.sinby.com/seiko-udoku/20/05160.html)
 - [OpenCVのgstreamerでキャプチャすると遅延が少なかったメモ(仮) - Qiita](https://qiita.com/nakasuke_/items/84ec6cb3ddc9dee003c2)
 
 # RTSP
