@@ -1,33 +1,79 @@
-escape sequence
-#linux #term
+[[VT100]] と同じ？
 
-https://www.askapache.com/linux/zen-terminal-escape-codes/
-https://vorfee.hatenablog.jp/entry/2015/03/17/173635
+- [ANSI escape code - Wikipedia](https://en.wikipedia.org/wiki/ANSI_escape_code)
+- [ANSI Escape Sequence](https://paulschou.com/tools/ansi/escape.html)
+- [Terminal Escape Code Zen](https://www.askapache.com/linux/zen-terminal-escape-codes/)
+- [ターミナルのechoやprintfに256色で色をつける 完全版 - vorfee's Tech Blog](https://vorfee.hatenablog.jp/entry/2015/03/17/173635)
 
-`\e` => `ESC`
+# Control Sequence Introducer (CSI)
+`\e[`
 
-`\e__COMMAND__\a`
+# Linux
+```c
+#include <stdio.h>
+#include <unistd.h>
+int main(int argc, char *argv[]) { 
+	if (isatty(fileno(stdout))) { 
+		fputs("Detected a TTY\n", stderr);
+		fputs("\033[31mRED \033[32mGREEN \033[34mBLUE\033[0m\n", stdout); 
+	} else { 
+		fputs("Not a TTY\n", stderr); 
+	} 
+}
+```
 
-[*  tells xterm to set icon and title bar]
-`\e]0;__TITLE__\a`
+# Windows
+- [Windows向けのプログラムでANSIエスケープシーケンスを使うには - Qiita](https://qiita.com/mod_poppo/items/2ff384530c6f3215c635)
 
-[* Windows向けのプログラムでANSIエスケープシーケンスを使うには https://qiita.com/mod_poppo/items/2ff384530c6f3215c635]
+```c
+// stream に対してANSIエスケープシーケンスを有効化
+// 成功すれば true, 失敗した場合は false を返す 
+bool enable_virtual_terminal_processing(FILE *stream) { 
+	HANDLE handle = (HANDLE)_get_osfhandle(_fileno(stream)); 
+	DWORD mode = 0;
+	if (!GetConsoleMode(handle, &mode)) { 
+		// 失敗 
+		return false; 
+	} 
+	if (!SetConsoleMode(handle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING)) { 
+		// 失敗 
+		// 古いWindowsコンソールの場合は GetLastError() == ERROR_INVALID_PARAMETER
+		return false; 
+	} 
+	return true; 
+}
+```
 
-[* msys git]
-`\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h \[\033[35m\]$MSYSTEM \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n`
+# 色を変える
+- [bash:tip_colors_and_formatting - FLOZz' MISC](https://misc.flogisoft.com/bash/tip_colors_and_formatting)
 
-[* termcap]
-escape sequence のデータベース。
+> `\e`はキーボードのESCキーを表しており、`\e`の代わりに`\033`（8進数形式のESC）や`\0x1b`、`\0x1B`、`\x1b`、`\x1B`
 
-code:termcap 256-colors
-	termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+```
+\e[31m
 
-termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-Modify or create one if needed so that it looks like this:
-Code:
-termcapinfo xterm-color|xterm-16color|xterm-88color|xterm-256color|rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# 31: 色
+# m: 終了
+```
 
-https://en.wikipedia.org/wiki/ANSI_escape_code
+# カーソル移動
+- [ANSIエスケープシーケンス チートシート - Qiita](https://qiita.com/PruneMazui/items/8a023347772620025ad6)
 
-code:py
-  process.stdout.write("\x1b[6n");
+# 画面制御
+- [付録　エスケープシーケンス　プログラミング](https://www.ns.kogakuin.ac.jp/~cu40887/handouts/escape.html)
+- [画面をクリアする - Windows Console | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/console/clearing-the-screen)
+
+```
+\e[2J
+
+# 2J: 画面クリア
+```
+
+```
+\e[K
+
+# K: カーソル位置から右をクリア
+```
+
+# ScreenSize
+- [console - Getting terminal size in c for windows? - Stack Overflow](https://stackoverflow.com/questions/6812224/getting-terminal-size-in-c-for-windows)

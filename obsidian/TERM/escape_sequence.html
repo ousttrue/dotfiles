@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>Control Sequence Introducer (CSI) - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,34 +212,106 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>escape sequence
-#linux #term</p>
-<p>https://www.askapache.com/linux/zen-terminal-escape-codes/
-https://vorfee.hatenablog.jp/entry/2015/03/17/173635</p>
-<p><code class="docutils literal notranslate"><span class="pre">\e</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">ESC</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">\e__COMMAND__\a</span></code></p>
-<p>[*  tells xterm to set icon and title bar]
-<code class="docutils literal notranslate"><span class="pre">\e]0;__TITLE__\a</span></code></p>
-<p>[* Windows向けのプログラムでANSIエスケープシーケンスを使うには https://qiita.com/mod_poppo/items/2ff384530c6f3215c635]</p>
-<p>[* msys git]
-<code class="docutils literal notranslate"><span class="pre">\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h</span> <span class="pre">\[\033[35m\]$MSYSTEM</span> <span class="pre">\[\033[33m\]\w\[\033[36m\]</span></code>__git_ps1<code class="docutils literal notranslate"><span class="pre">\[\033[0m\]\n</span></code></p>
-<p>[* termcap]
-escape sequence のデータベース。</p>
-<p>code:termcap 256-colors
-termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'</p>
-<p>termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-Modify or create one if needed so that it looks like this:
-Code:
-termcapinfo xterm-color|xterm-16color|xterm-88color|xterm-256color|rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'</p>
-<p>https://en.wikipedia.org/wiki/ANSI_escape_code</p>
-<p>code:py
-process.stdout.write("\x1b[6n");</p>
+          <p>[[VT100]] と同じ？</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI escape code - Wikipedia</a></p></li>
+<li><p><a class="reference external" href="https://paulschou.com/tools/ansi/escape.html">ANSI Escape Sequence</a></p></li>
+<li><p><a class="reference external" href="https://www.askapache.com/linux/zen-terminal-escape-codes/">Terminal Escape Code Zen</a></p></li>
+<li><p><a class="reference external" href="https://vorfee.hatenablog.jp/entry/2015/03/17/173635">ターミナルのechoやprintfに256色で色をつける 完全版 - vorfee's Tech Blog</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="control-sequence-introducer-csi">
+<h1>Control Sequence Introducer (CSI)<a class="headerlink" href="#control-sequence-introducer-csi" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">\e[</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="linux">
+<h1>Linux<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isatty</span><span class="p">(</span><span class="n">fileno</span><span class="p">(</span><span class="n">stdout</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">		</span><span class="n">fputs</span><span class="p">(</span><span class="s">"Detected a TTY</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">stderr</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="n">fputs</span><span class="p">(</span><span class="s">"</span><span class="se">\033</span><span class="s">[31mRED </span><span class="se">\033</span><span class="s">[32mGREEN </span><span class="se">\033</span><span class="s">[34mBLUE</span><span class="se">\033</span><span class="s">[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">stdout</span><span class="p">);</span><span class="w"> </span>
+<span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">		</span><span class="n">fputs</span><span class="p">(</span><span class="s">"Not a TTY</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">stderr</span><span class="p">);</span><span class="w"> </span>
+<span class="w">	</span><span class="p">}</span><span class="w"> </span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="windows">
+<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/mod_poppo/items/2ff384530c6f3215c635">Windows向けのプログラムでANSIエスケープシーケンスを使うには - Qiita</a></p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// stream に対してANSIエスケープシーケンスを有効化</span>
+<span class="c1">// 成功すれば true, 失敗した場合は false を返す </span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">enable_virtual_terminal_processing</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">	</span><span class="n">HANDLE</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">HANDLE</span><span class="p">)</span><span class="n">_get_osfhandle</span><span class="p">(</span><span class="n">_fileno</span><span class="p">(</span><span class="n">stream</span><span class="p">));</span><span class="w"> </span>
+<span class="w">	</span><span class="n">DWORD</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">GetConsoleMode</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mode</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">		</span><span class="c1">// 失敗 </span>
+<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span>
+<span class="w">	</span><span class="p">}</span><span class="w"> </span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">SetConsoleMode</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ENABLE_VIRTUAL_TERMINAL_PROCESSING</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">		</span><span class="c1">// 失敗 </span>
+<span class="w">		</span><span class="c1">// 古いWindowsコンソールの場合は GetLastError() == ERROR_INVALID_PARAMETER</span>
+<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span>
+<span class="w">	</span><span class="p">}</span><span class="w"> </span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>色を変える<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://misc.flogisoft.com/bash/tip_colors_and_formatting">bash:tip_colors_and_formatting - FLOZz' MISC</a></p></li>
+</ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">\e</span></code>はキーボードのESCキーを表しており、<code class="docutils literal notranslate"><span class="pre">\e</span></code>の代わりに<code class="docutils literal notranslate"><span class="pre">\033</span></code>（8進数形式のESC）や<code class="docutils literal notranslate"><span class="pre">\0x1b</span></code>、<code class="docutils literal notranslate"><span class="pre">\0x1B</span></code>、<code class="docutils literal notranslate"><span class="pre">\x1b</span></code>、<code class="docutils literal notranslate"><span class="pre">\x1B</span></code></p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">e</span><span class="p">[</span><span class="mi">31</span><span class="n">m</span>
+
+<span class="c1"># 31: 色</span>
+<span class="c1"># m: 終了</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>カーソル移動<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/PruneMazui/items/8a023347772620025ad6">ANSIエスケープシーケンス チートシート - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>画面制御<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ns.kogakuin.ac.jp/~cu40887/handouts/escape.html">付録　エスケープシーケンス　プログラミング</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/clearing-the-screen">画面をクリアする - Windows Console | Microsoft Docs</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="n">J</span>
+
+<span class="c1"># 2J: 画面クリア</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">e</span><span class="p">[</span><span class="n">K</span>
+
+<span class="c1"># K: カーソル位置から右をクリア</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="screensize">
+<h1>ScreenSize<a class="headerlink" href="#screensize" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/6812224/getting-terminal-size-in-c-for-windows">console - Getting terminal size in c for windows? - Stack Overflow</a></p></li>
+</ul>
+</section>
 
         </article>
       </div>
@@ -262,8 +334,30 @@ process.stdout.write("\x1b[6n");</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Control Sequence Introducer (CSI)</a></li>
+<li><a class="reference internal" href="#linux">Linux</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+<li><a class="reference internal" href="#id1">色を変える</a></li>
+<li><a class="reference internal" href="#id2">カーソル移動</a></li>
+<li><a class="reference internal" href="#id3">画面制御</a></li>
+<li><a class="reference internal" href="#screensize">ScreenSize</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

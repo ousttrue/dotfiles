@@ -3,6 +3,9 @@
 
 [[vt100]]
 [[font]]
+[[terminfo]]
+
+[Text-Terminal-HOWTO](https://linuxjf.osdn.jp/JFdocs/Text-Terminal-HOWTO.html)
 
 # .Xresource
 
