@@ -7,6 +7,12 @@
 
 [Text-Terminal-HOWTO](https://linuxjf.osdn.jp/JFdocs/Text-Terminal-HOWTO.html)
 
+# 入力: main loop
+
+```c++
+#include <termios.h>
+```
+
 # .Xresource
 
 `xrdb -merge .Xresources`
