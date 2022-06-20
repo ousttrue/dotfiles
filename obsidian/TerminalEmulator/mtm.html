@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>入力: main loop - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,71 +212,13 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[windows_terminal]]
-[[multiplexer]]</p>
-<p>[[vt100]]
-[[font]]
-[[terminfo]]
-[[stdio]]
-[[ioctl.h]]</p>
-<p><a class="reference external" href="https://linuxjf.osdn.jp/JFdocs/Text-Terminal-HOWTO.html">Text-Terminal-HOWTO</a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="main-loop">
-<h1>入力: main loop<a class="headerlink" href="#main-loop" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;termios.h&gt;</span><span class="cp"></span>
-</pre></div>
-</div>
-<p>[[libuv]] 使うべし</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="xresource">
-<h1>.Xresource<a class="headerlink" href="#xresource" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">xrdb</span> <span class="pre">-merge</span> <span class="pre">.Xresources</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://malkalech.com/xresources_magic">X resources を設定することのメモ | Jenemal Notes</a></p></li>
-</ul>
-<p>[[xft]] XFreeType</p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://onozaki.org/d/?date=20161014">X11でのFontの設定(4) -Xftの設定-, X11でのFontの設定(5) -XTermの設定- - ここに日記はありません(2016-10-14)</a>
-[[xterm]]
-[[urxvt]]</p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="fontconfig">
-<h1>[[FontConfig]]<a class="headerlink" href="#fontconfig" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[simple_terminal]]</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="libvte">
-<h1>libvte<a class="headerlink" href="#libvte" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[gnome-terminal]]
-[[sakura]]</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="gpu">
-<h1>GPU<a class="headerlink" href="#gpu" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[alacritty]]
-[[kitty]]
-[[wezterm]]</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="other">
-<h1>Other<a class="headerlink" href="#other" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[mlterm]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/91861/wayst">GitHub - 91861/wayst: A simple terminal emulator</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="windows">
-<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[mintty]]
-[[conemu]]</p>
-<p>Linux
-[[fbterm]]
-[[yaft]]
-[[kmscon]]</p>
-</section>
+          <p><a class="reference external" href="https://github.com/deadpixi/mtm">GitHub - deadpixi/mtm: Perhaps the smallest useful terminal multiplexer in the world.</a></p>
 
         </article>
       </div>
@@ -291,7 +233,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/TERM/terminal.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/TerminalEmulator/mtm.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -299,30 +241,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">入力: main loop</a></li>
-<li><a class="reference internal" href="#xresource">.Xresource</a></li>
-<li><a class="reference internal" href="#fontconfig">[[FontConfig]]</a></li>
-<li><a class="reference internal" href="#libvte">libvte</a></li>
-<li><a class="reference internal" href="#gpu">GPU</a></li>
-<li><a class="reference internal" href="#other">Other</a></li>
-<li><a class="reference internal" href="#windows">Windows</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

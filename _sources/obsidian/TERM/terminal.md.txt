@@ -4,6 +4,8 @@
 [[vt100]]
 [[font]]
 [[terminfo]]
+[[stdio]]
+[[ioctl.h]]
 
 [Text-Terminal-HOWTO](https://linuxjf.osdn.jp/JFdocs/Text-Terminal-HOWTO.html)
 
@@ -12,6 +14,8 @@
 ```c++
 #include <termios.h>
 ```
+
+[[libuv]] 使うべし
 
 # .Xresource
 
