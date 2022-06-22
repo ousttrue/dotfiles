@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Format - shell note ドキュメント</title>
+        <title>MinimumBuild - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,72 +218,56 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="format">
-<h1>Format<a class="headerlink" href="#format" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[geojson]]
-[[CityJSON]]
-[[CityGML]]</p>
-<section id="library">
-<h2>Library<a class="headerlink" href="#library" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[GDAL]]</p>
-</section>
-<section id="python">
-<h2>[[python]]<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[folium]]
-<a class="reference external" href="https://homata.gitbook.io/geodjango/">Introduction - GeoDjangoではじめる地理空間情報</a>
-<a class="reference external" href="https://qiita.com/tags/geodjango">GeoDjango - Qiita</a></p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="data">
-<h1>Data<a class="headerlink" href="#data" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[plateau]]</p>
-<section id="id1">
-<h2>国土地理院<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="http://nlftp.mlit.go.jp/ksj/">https://nlftp.mlit.go.jp/ksj/</a>
-<a class="reference external" href="https://marina.sys.wakayama-u.ac.jp/~tokoi/?date=20140907">床井研究室 - 地理院地図 3D を Oculus Rift で見てみる</a></p>
-</section>
-<section id="id2">
-<h2>渋谷<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://3dcel.com/">3D City Experience Lab.</a></p>
-</section>
-<section id="us">
-<h2>US<a class="headerlink" href="#us" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://github.com/opencitymodel/opencitymodel">GitHub - opencitymodel/opencitymodel: Open citygml data for the United States</a>
-<a class="reference external" href="http://www.naturalearthdata.com/downloads/">Natural Earth » Downloads - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales</a></p>
+          <p>[[ptex]]
+[[IGES]]
+[[libigl]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/domlysz/BlenderGIS">GitHub - domlysz/BlenderGIS: Blender addons to make the bridge between Blender and geographic data</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/warenashi/items/61fce7baf2af13d09420">WindowsにBlenderとBlender GISをインストールする - Qiita</a></p></li>
+<li><p>通常の三角形メッシュじゃなくて、四角形メッシュが欲しい。</p></li>
+<li><p>クリース情報を記録したい。</p></li>
+<li><p><a class="reference external" href="https://graphics.pixar.com/opensubdiv/overview.html">OpenSubdiv Overview</a></p></li>
+<li><p><a class="reference external" href="https://github.com/PixarAnimationStudios/OpenSubdiv">GitHub - PixarAnimationStudios/OpenSubdiv: An Open-Source subdivision surface library.</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/syoyo/items/8f7ceed1f339a531b342">OpenSubdiv で mesh smooth のメモ - Qiita</a></p></li>
 </ul>
-<p><a class="reference external" href="https://minna.mieruka.city/halfarea-mesh/">2分の1の地域メッシュ（500mメッシュ） - 都市構造可視化計画 活用アイデア集</a></p>
-<p>osmnx</p>
-<p>VCPKG
-$ vcpkg install gdal:x64-windows geos:x64-window</p>
-<p>pyproj
-https://ikatakos.com/pot/programming/python/packages/pyproj
-http://pyproj4.github.io/pyproj/stable/
-https://github.com/pyproj4/pyproj
-$ pip install pyproj==1.9.6</p>
-<p>PROJ_DIR
-https://github.com/OSGeo/proj-datumgrid
-https://github.com/OSGeo/PROJ</p>
-<p>https://trac.osgeo.org/osgeo4w/wiki/OSGeo4W_jp</p>
-<p>[* libspatialindex]
-https://libspatialindex.org/index.html#windows-builds</p>
-<p>[ここ最近のWeb地図周辺の動向をまとめてみた https://shimz.me/blog/map/4268]
-https://shimz.me/blog/googleearthengine/6232</p>
-<p>[Web 地図用 Javascript ライブラリ https://qiita.com/kkdd/items/b9435b6770d7a19d9f27]</p>
-<p>https://leafletjs.com/</p>
-<p>https://openstreetmap.jp/</p>
-<p>政府
-http://cyberjapandata.gsi.go.jp/3d/index.html
-http://marina.sys.wakayama-u.ac.jp/~tokoi/?date=20140907</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://www.e-stat.go.jp/gis
-</pre></div>
-</div>
-<p>http://kartograph.org/
-[e-StatのshapefileからSVG画像を作成しDomoのカスタムチャート作成 https://qiita.com/Mitztj/items/825d73e7dbb91db3c325]
-[都道府県の画像アセットを全自動生成しよう。 http://www.zopfco.de/entry/2016/12/22/002947]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="minimumbuild">
+<h1>MinimumBuild<a class="headerlink" href="#minimumbuild" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="api">
+<h1>API<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="sdc">
+<h2>Sdc<a class="headerlink" href="#sdc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>サブディビジョンコア
+<a class="reference external" href="http://takahito-tejima.github.io/OpenSubdivJpDoc/sdc_overview.html">Sdc Overview</a></p>
+</section>
+<section id="vtr">
+<h2>Vtr<a class="headerlink" href="#vtr" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ベクトル化トポロジ表現
+<code class="docutils literal notranslate"><span class="pre">internal</span></code>
+<a class="reference external" href="http://takahito-tejima.github.io/OpenSubdivJpDoc/vtr_overview.html">Vtr Overview</a></p>
+</section>
+<section id="far">
+<h2>Far<a class="headerlink" href="#far" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>特徴適応型表現
+<a class="reference external" href="http://takahito-tejima.github.io/OpenSubdivJpDoc/far_overview.html">Far Overview</a></p>
+</section>
+<section id="osd">
+<h2>Osd<a class="headerlink" href="#osd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>OpenSubdiv クロスプラットフォーム
+<a class="reference external" href="http://takahito-tejima.github.io/OpenSubdivJpDoc/osd_overview.html">Osd Overview</a></p>
+</section>
+<section id="hbr-legacy">
+<h2>hbr(legacy)<a class="headerlink" href="#hbr-legacy" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">3.0</span></code> で deprecated ?</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://graphics.pixar.com/opensubdiv/docs/using_osd_hbr.html">Using Hbr</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="blender">
+<h1>blender<a class="headerlink" href="#blender" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/subdivision_surface.html">Subdivision Surface Modifier — Blender Manual</a></p></li>
+<li><p>fbx export では subsurf できる</p></li>
+</ul>
 </section>
 
         </article>
@@ -299,7 +283,7 @@ http://marina.sys.wakayama-u.ac.jp/~tokoi/?date=20140907</p>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/GIS/GIS.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/pixar/OpenSubdiv.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -319,17 +303,16 @@ http://marina.sys.wakayama-u.ac.jp/~tokoi/?date=20140907</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Format</a><ul>
-<li><a class="reference internal" href="#library">Library</a></li>
-<li><a class="reference internal" href="#python">[[python]]</a></li>
+<li><a class="reference internal" href="#">MinimumBuild</a></li>
+<li><a class="reference internal" href="#api">API</a><ul>
+<li><a class="reference internal" href="#sdc">Sdc</a></li>
+<li><a class="reference internal" href="#vtr">Vtr</a></li>
+<li><a class="reference internal" href="#far">Far</a></li>
+<li><a class="reference internal" href="#osd">Osd</a></li>
+<li><a class="reference internal" href="#hbr-legacy">hbr(legacy)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#data">Data</a><ul>
-<li><a class="reference internal" href="#id1">国土地理院</a></li>
-<li><a class="reference internal" href="#id2">渋谷</a></li>
-<li><a class="reference internal" href="#us">US</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#blender">blender</a></li>
 </ul>
 
           </div>

@@ -1,17 +1,13 @@
-usd
+Pixar USD 系列の OpenSource
 
-#pixar
+[[OpenSubdiv]]
 
-
-	https://graphics.pixar.com/usd/docs/index.html
-		https://graphics.pixar.com/usd/docs/USD-Tutorials.html
-			
-https://zenn.dev/remiria
-https://developer.nvidia.com/usd
-
-[* articles]
-	https://fereria.github.io/reincarnation_tech/11_Pipeline/
-	[Pixar USD介绍 https://zhuanlan.zhihu.com/p/97710961]
+- [USD Home — Universal Scene Description 22.05 documentation](https://graphics.pixar.com/usd/docs/index.html)
+- [USD Tutorials — Universal Scene Description 22.05 documentation](https://graphics.pixar.com/usd/docs/USD-Tutorials.html)
+- [あんどうめぐみ@れみりあさんの記事一覧 | Zenn](https://zenn.dev/remiria)
+- [Pixar Universal Scene Description (USD) | NVIDIA Developer](https://developer.nvidia.com/usd)
+- [Index - Reincarnation+#Tech](https://fereria.github.io/reincarnation_tech/11_Pipeline/)
+- [Pixar USD介绍 - 知乎](https://zhuanlan.zhihu.com/p/97710961)
 
 [* 2021]
 	https://developer.nvidia.com/usd

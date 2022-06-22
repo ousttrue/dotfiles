@@ -6,7 +6,7 @@
 ## Library
 [[GDAL]]
 
-## [[Python]]
+## [[python]]
 [[folium]]
 [Introduction - GeoDjangoではじめる地理空間情報](https://homata.gitbook.io/geodjango/)
 [GeoDjango - Qiita](https://qiita.com/tags/geodjango)
