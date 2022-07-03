@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>Font metrics - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,44 +212,49 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>Font metrics
-#DirectWrite
-#typography
-#font</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://docs.microsoft.com/ja-jp/dotnet/framework/winforms/advanced/how-to-obtain-font-metrics
-https://docs.microsoft.com/en-us/windows/desktop/DirectWrite/glyphs-and-glyph-runs#glyph-runs
-https://creativemarket.com/blog/10-typography-terms-every-designer-should-know
-[https://www.cresco.co.jp/blog/entry/91/ Java の Font 周りの比較的ディープな話(前編)]
-[https://www.cresco.co.jp/blog/entry/103/ Java の Font 周りの比較的ディープな話(後編)]
-</pre></div>
-</div>
-<p>[*** Glyph]
-https://www.freetype.org/freetype2/docs/glyphs/glyphs-3.html
-http://pawlan.com/monica/articles/texttutorial/other.html
-bounds</p>
-<p>[* Vertical]
-baseline
-ascent
-descent
-leading</p>
-<p>[* Horizontal]
-advance</p>
-<p>DirectWrite get_text_size
-http://bubibinba.blogspot.com/2012/10/drawtext.html</p>
-<p>[*** designUnits]
-[DWRITE_GLYPH_METRICS https://docs.microsoft.com/en-us/windows/desktop/api/dwrite/ns-dwrite-dwrite_glyph_metrics]
+          <section class="tex2jax_ignore mathjax_ignore" id="font-metrics">
+<h1>Font metrics<a class="headerlink" href="#font-metrics" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[DirectWrite]]
+[[freetype]]
+[[stb_truetype]]
+[[typography]]
+[[font]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/dotnet/framework/winforms/advanced/how-to-obtain-font-metrics">方法: フォント メトリックを取得する - Windows Forms .NET Framework | Microsoft Docs</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/desktop/DirectWrite/glyphs-and-glyph-runs#glyph-runs">Glyphs and Glyph Runs - Win32 apps | Microsoft Docs</a></p></li>
+</ul>
+<p><a class="reference external" href="https://creativemarket.com/blog/10-typography-terms-every-designer-should-know">10 Typography Terms Every Designer Should Know - Creative Market Blog</a>
+<a class="reference external" href="https://www.cresco.co.jp/blog/entry/91/">Java の Font 周りの比較的ディープな話(前編)</a>
+<a class="reference external" href="https://www.cresco.co.jp/blog/entry/103/">Java の Font 周りの比較的ディープな話(後編)</a></p>
+<section id="glyph">
+<h2>Glyph<a class="headerlink" href="#glyph" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.freetype.org/freetype2/docs/glyphs/glyphs-3.html">FreeType Glyph Conventions | Glyph Metrics</a></p></li>
+<li><p><a class="reference external" href="http://pawlan.com/monica/articles/texttutorial/other.html">Tutorial on Styled Text</a></p></li>
+<li><p>baseline</p></li>
+<li><p>ascent</p></li>
+<li><p>descent</p></li>
+<li><p>leading</p></li>
+<li><p>advance</p></li>
+</ul>
+</section>
+<section id="designunits">
+<h2>designUnits<a class="headerlink" href="#designunits" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[DWRITE_GLYPH_METRICS https://docs.microsoft.com/en-us/windows/desktop/api/dwrite/ns-dwrite-dwrite_glyph_metrics]
 https://docs.microsoft.com/en-us/windows/desktop/DirectWrite/glyphs-and-glyph-runs#glyph-runs</p>
 <p>[* To EM]
 https://stackoverflow.com/questions/42659511/i-am-getting-a-different-font-height-from-directwrite-font-text-metric-than-i-re
 <code class="docutils literal notranslate"><span class="pre">DWRITE_FONT_METRICS.designUnitsPerEm</span></code></p>
 <p>[* DWRITE_FONT_METRICS with ID2D1RenderTarget::DrawString rect]
 rectの幅が足りないと改行されるのだが</p>
+</section>
+</section>
 
         </article>
       </div>
@@ -272,8 +277,28 @@ rectの幅が足りないと改行されるのだが</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Font metrics</a><ul>
+<li><a class="reference internal" href="#glyph">Glyph</a></li>
+<li><a class="reference internal" href="#designunits">designUnits</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

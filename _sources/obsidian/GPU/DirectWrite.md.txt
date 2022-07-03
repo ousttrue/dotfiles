@@ -19,3 +19,5 @@ DirectWrite emoji
 [* Format]
 	http://mrxray.on.coocan.jp/Delphi/Others/Emoji.htm
 
+DirectWrite get_text_size
+	http://bubibinba.blogspot.com/2012/10/drawtext.html

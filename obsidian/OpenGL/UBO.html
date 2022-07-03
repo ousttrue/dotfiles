@@ -220,29 +220,65 @@
         <article role="main">
           <section id="ubo-uniform-buffer-object">
 <h1>UBO: Uniform Buffer Object<a class="headerlink" href="#ubo-uniform-buffer-object" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.khronos.org/opengl/wiki/Uniform_Buffer_Object">Uniform Buffer Object - OpenGL Wiki</a></p></li>
+<li><p><a class="reference external" href="https://blog.techlab-xe.net/opengl-4%E4%B8%96%E4%BB%A3%E3%81%A7%E3%81%AE%E6%8F%8F%E7%94%BB%E6%89%8B%E9%A0%86-%E3%81%9D%E3%81%AE%EF%BC%92/">OpenGL 4世代での描画手順 その２ – すらりん日記</a></p></li>
+</ul>
 <blockquote>
 <div><p>D3D の ConstantBuffer に相当する</p>
 </div></blockquote>
-<ul class="simple">
-<li><p>https://qiita.com/hoboaki/items/b188c4495f4708c19002</p></li>
-</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#version 300 es</span>
+
+<span class="n">layout</span><span class="w"> </span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">position</span><span class="p">;</span><span class="w"></span>
+<span class="n">layout</span><span class="w"> </span><span class="p">(</span><span class="n">std140</span><span class="p">)</span><span class="w"> </span><span class="n">uniform</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">	</span><span class="n">mat4</span><span class="w"> </span><span class="n">mvp</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span><span class="n">mat</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">uniform</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">scale</span><span class="p">;</span><span class="w"> </span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"> </span>
+<span class="w">	</span><span class="n">gl_Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mat</span><span class="p">.</span><span class="n">mvp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">position</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">scale</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w"> </span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">GL_UNIFORM_BUFFER</span></code></p>
 </section>
-<section id="id1">
-<h1>UBO: Uniform Buffer Object<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<blockquote>
-<div><p>D3D の ConstantBuffer に相当する</p>
-</div></blockquote>
-<ul class="simple">
-<li><p>https://qiita.com/hoboaki/items/b188c4495f4708c19002</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">GL_UNIFORM_BUFFER</span></code></p>
+<section class="tex2jax_ignore mathjax_ignore" id="c">
+<h1>C<a class="headerlink" href="#c" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="create">
+<h2>create<a class="headerlink" href="#create" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">glGenBuffers</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ubo</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
-<section id="texture-image-load-and-store-4-2">
-<h1>Texture Image Load and Store <code class="docutils literal notranslate"><span class="pre">4.2</span></code><a class="headerlink" href="#texture-image-load-and-store-4-2" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<blockquote>
-<div><p>Direct3D の UAV に相当する</p>
-</div></blockquote>
+<section id="upload">
+<h2>upload<a class="headerlink" href="#upload" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// mvpMatrix は 4x4 の行列 gl.bindBuffer(gl.UNIFORM_BUFFER, matrixUBO); gl.bufferData(gl.UNIFORM_BUFFER, mvpMatrix, gl.DYNAMIC_DRAW); gl.bindBuffer(gl.UNIFORM_BUFFER, null);</span>
+</pre></div>
+</div>
+</section>
+<section id="block-index">
+<h2>block index<a class="headerlink" href="#block-index" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">blockIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glGetUniformBlockIndex</span><span class="p">(</span><span class="n">shaderProgram</span><span class="p">,</span><span class="w"> </span><span class="s">"matrix"</span><span class="p">);</span><span class="w"></span>
+<span class="n">glUniformBlockBinding</span><span class="p">(</span><span class="n">shaderProgram</span><span class="p">,</span><span class="w"> </span><span class="n">blockIndex</span><span class="p">,</span><span class="w"> </span><span class="n">UBO_BINDING_POINT</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="bind">
+<h2>bind<a class="headerlink" href="#bind" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">glBindBufferBase</span><span class="p">(</span><span class="n">GL_UNIFORM_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">UBO_BINDING_POINT</span><span class="p">,</span><span class="w"> </span><span class="n">ubo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="memory-layout">
+<h1>memory layout<a class="headerlink" href="#memory-layout" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="std140">
+<h2>std140<a class="headerlink" href="#std140" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/hoboaki/items/b188c4495f4708c19002">ユニフォームブロックのメモリレイアウト @ゲームプログラマの小話[開発:グラフィックス] - Qiita</a></p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -279,8 +315,17 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">UBO: Uniform Buffer Object</a></li>
-<li><a class="reference internal" href="#id1">UBO: Uniform Buffer Object</a></li>
-<li><a class="reference internal" href="#texture-image-load-and-store-4-2">Texture Image Load and Store <code class="docutils literal notranslate"><span class="pre">4.2</span></code></a></li>
+<li><a class="reference internal" href="#c">C</a><ul>
+<li><a class="reference internal" href="#create">create</a></li>
+<li><a class="reference internal" href="#upload">upload</a></li>
+<li><a class="reference internal" href="#block-index">block index</a></li>
+<li><a class="reference internal" href="#bind">bind</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#memory-layout">memory layout</a><ul>
+<li><a class="reference internal" href="#std140">std140</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
