@@ -1,33 +1,28 @@
-Font metrics
-#DirectWrite
-#typography
-#font
+# Font metrics
+[[DirectWrite]]
+[[freetype]]
+[[stb_truetype]]
+[[typography]]
+[[font]]
 
-	https://docs.microsoft.com/ja-jp/dotnet/framework/winforms/advanced/how-to-obtain-font-metrics
-	https://docs.microsoft.com/en-us/windows/desktop/DirectWrite/glyphs-and-glyph-runs#glyph-runs
-	https://creativemarket.com/blog/10-typography-terms-every-designer-should-know
-	[https://www.cresco.co.jp/blog/entry/91/ Java の Font 周りの比較的ディープな話(前編)]
-	[https://www.cresco.co.jp/blog/entry/103/ Java の Font 周りの比較的ディープな話(後編)]
+- [方法: フォント メトリックを取得する - Windows Forms .NET Framework | Microsoft Docs](https://docs.microsoft.com/ja-jp/dotnet/framework/winforms/advanced/how-to-obtain-font-metrics)
+- [Glyphs and Glyph Runs - Win32 apps | Microsoft Docs](https://docs.microsoft.com/en-us/windows/desktop/DirectWrite/glyphs-and-glyph-runs#glyph-runs)
 
-[*** Glyph]
-	https://www.freetype.org/freetype2/docs/glyphs/glyphs-3.html
-	http://pawlan.com/monica/articles/texttutorial/other.html
-	bounds
+[10 Typography Terms Every Designer Should Know - Creative Market Blog](https://creativemarket.com/blog/10-typography-terms-every-designer-should-know)
+[Java の Font 周りの比較的ディープな話(前編)](https://www.cresco.co.jp/blog/entry/91/)
+[Java の Font 周りの比較的ディープな話(後編)](https://www.cresco.co.jp/blog/entry/103/)
 
-[* Vertical]
-	baseline
-	ascent
-	descent
- leading
+## Glyph
+- [FreeType Glyph Conventions | Glyph Metrics](https://www.freetype.org/freetype2/docs/glyphs/glyphs-3.html)
+- [Tutorial on Styled Text](http://pawlan.com/monica/articles/texttutorial/other.html)
 
-[* Horizontal] 
-	advance
+- baseline
+- ascent
+- descent
+- leading
+- advance
 
-
-DirectWrite get_text_size
-	http://bubibinba.blogspot.com/2012/10/drawtext.html
-
-[*** designUnits]
+## designUnits
 [DWRITE_GLYPH_METRICS https://docs.microsoft.com/en-us/windows/desktop/api/dwrite/ns-dwrite-dwrite_glyph_metrics]
 	https://docs.microsoft.com/en-us/windows/desktop/DirectWrite/glyphs-and-glyph-runs#glyph-runs
 
