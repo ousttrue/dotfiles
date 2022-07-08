@@ -1,0 +1,4 @@
+- [Pythonによる不動産情報のデータ取得＆分析（１）【賃貸物件／Webスクレイピング編】 - akatak blog](https://akatak.hatenadiary.jp/entry/2018/08/12/093126)
+- [【超初心者向け】コピペで動かして楽しむPython環境構築&スクレイピング&機械学習&実用化【SUUMOでお得賃貸物件を探そう！】 - Qiita](https://qiita.com/haraso_1130/items/8ea9ba66f9d5f0fc2157)
+- [SUUMO の中古物件情報を Tableau で分析してみる ～データ収集編～ - GIS奮闘記](https://www.gis-py.com/entry/scraping-suumo)
+- [【コード解説】PythonでSUUMOの賃貸物件情報をスクレイピングする【requests, BeautifulSoup, pandas等】](https://myfrankblog.com/scraping-suumo-website/)

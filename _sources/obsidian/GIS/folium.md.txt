@@ -1,4 +1,5 @@
-#python 
+[[GIS]]
+[[suumo]]
 
 # Folium
 
@@ -14,3 +15,11 @@
 https://estuarine.jp/2017/10/bl2xy-python/
 
 [【folium】マーカーのPopupにWebページのリンクの貼り付け、TwitterやYouTubeなどを埋め込む - よちよちpython](https://chayarokurokuro.hatenablog.com/entry/2021/08/04/070359)
+
+## kml
+[[kml]]
+- [Easy interactive maps with folium](https://ocefpaf.github.io/python4oceanographers/blog/2014/05/05/folium/)
+- [【Python】foliumで活断層を表示する方法 | 1up noob](https://1upnoob.blogspot.com/2021/05/python-folium-active-fault.html)
+
+## geojson
+- [folium（位置情報の可視化）の使い方メモ - Qiita](https://qiita.com/hotoku/items/0d9ddbd24568c1a07f9f)

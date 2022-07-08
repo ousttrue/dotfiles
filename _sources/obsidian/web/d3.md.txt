@@ -1,1 +1,8 @@
-[www.openspc2.org/reibun/D3.js/pdf/D3.pdf](http://www.openspc2.org/reibun/D3.js/pdf/D3.pdf)
+[[JupyterNotebook]]
+
+`Data Driven Document`
+
+- [これから D3.js を始める人のためのメモ - Qiita](https://qiita.com/corestate55/items/e70d5981c33a89f63367)
+- [www.openspc2.org/reibun/D3.js/pdf/D3.pdf](http://www.openspc2.org/reibun/D3.js/pdf/D3.pdf)
+
+`v5`

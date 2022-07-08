@@ -31,43 +31,11 @@
 
 [2分の1の地域メッシュ（500mメッシュ） - 都市構造可視化計画 活用アイデア集](https://minna.mieruka.city/halfarea-mesh/)
 
-osmnx
+## 政府
+- [立体地図（地理院地図3D・触地図）](http://cyberjapandata.gsi.go.jp/3d/index.html)
+	- [床井研究室 - 地理院地図 3D を Oculus Rift で見てみる](http://marina.sys.wakayama-u.ac.jp/~tokoi/?date=20140907)
+- [地図で見る統計(統計GIS) | 政府統計の総合窓口](https://www.e-stat.go.jp/gis)
 
-VCPKG
-$ vcpkg install gdal:x64-windows geos:x64-window
-
-
-pyproj
-https://ikatakos.com/pot/programming/python/packages/pyproj
-http://pyproj4.github.io/pyproj/stable/
-https://github.com/pyproj4/pyproj
-$ pip install pyproj==1.9.6
-
-PROJ_DIR
-https://github.com/OSGeo/proj-datumgrid
-https://github.com/OSGeo/PROJ
-
-https://trac.osgeo.org/osgeo4w/wiki/OSGeo4W_jp
-
-[* libspatialindex]
-https://libspatialindex.org/index.html#windows-builds
-
-[ここ最近のWeb地図周辺の動向をまとめてみた https://shimz.me/blog/map/4268]
-https://shimz.me/blog/googleearthengine/6232
-
-
-[Web 地図用 Javascript ライブラリ https://qiita.com/kkdd/items/b9435b6770d7a19d9f27]
-
-https://leafletjs.com/
-
-https://openstreetmap.jp/
-
-政府
-	http://cyberjapandata.gsi.go.jp/3d/index.html
-			http://marina.sys.wakayama-u.ac.jp/~tokoi/?date=20140907
-
-	https://www.e-stat.go.jp/gis
-
-http://kartograph.org/
-	[e-StatのshapefileからSVG画像を作成しDomoのカスタムチャート作成 https://qiita.com/Mitztj/items/825d73e7dbb91db3c325]
-	[都道府県の画像アセットを全自動生成しよう。 http://www.zopfco.de/entry/2016/12/22/002947]
+## .shp
+- [PythonでのShapefile（.shp）操作まとめ - Qiita](https://qiita.com/c60evaporator/items/78b4148bac6afa4844f9)
+- [都道府県の画像アセットを全自動生成しよう。 - Zopfcode](http://www.zopfco.de/entry/2016/12/22/002947)
