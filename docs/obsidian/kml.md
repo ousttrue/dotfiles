@@ -1,0 +1,1 @@
+- [KMZ ファイル  |  KML（Keyhole Markup Language）  |  Google Developers](https://developers.google.com/kml/documentation/kmzarchives?hl=ja)
