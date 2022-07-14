@@ -9,3 +9,6 @@
 # sixel 動かん
 - [Feature Request: sixel graphics support · Issue #448 · microsoft/terminal · GitHub](https://github.com/microsoft/terminal/issues/448)
 - [ConPTY Passthrough mode · Issue #1173 · microsoft/terminal · GitHub](https://github.com/microsoft/terminal/issues/1173)
+
+## ColorTheme
+- [Windows ターミナルの配色 | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/color-schemes)
