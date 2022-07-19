@@ -8,25 +8,23 @@ aliases: [LanguageServerProtocol]
 # Language Server Protocol
 - `2016年6月に、Microsoftがlanguage server protocol公開`
 
-- [Language Server Extension Guide | Visual Studio Code Extension API](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide)
 - [Official page for Language Server Protocol](https://microsoft.github.io/language-server-protocol/)
 	- [Language Servers](https://microsoft.github.io/language-server-protocol/implementors/servers/)
+	- [GitHub - microsoft/vscode-extension-samples: Sample code illustrating the VS Code extension API.](https://github.com/microsoft/vscode-extension-samples)
 
 
-## General
-### Request: Initialize
-[Specification](https://microsoft.github.io/language-server-protocol/specification#initialize)
+## Client: vscode
+- [Language Server Extension Guide | Visual Studio Code Extension API](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide)
+- [vscode-extension-samples/lsp-sample at main · microsoft/vscode-extension-samples · GitHub](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample)
+- [LSP学習記 #1 - Qiita](https://qiita.com/vain0x/items/d050fe7c8b342ed2004e)
+- [Pyright を LSP サーバとした自作 LSP クライアント（調査編） | フューチャー技術ブログ](https://future-architect.github.io/articles/20220302a/)
 
-### Notificatin: Initialized
-[Initialized Notification](https://microsoft.github.io/language-server-protocol/specification#initialized)
+### LanguageClient
+- [GitHub - microsoft/vscode-languageserver-node: Language server protocol implementation for VSCode. This allows implementing language services in JS/TS running on node.js](https://github.com/microsoft/vscode-languageserver-node)
+- [xtext-languageserver-example/extension.ts at master · itemis/xtext-languageserver-example · GitHub](https://github.com/itemis/xtext-languageserver-example/blob/master/vscode-extension/src/extension.ts)
+- [Language Client を作る｜Language Server Protocol に対応したミニ言語処理系を作る](https://zenn.dev/takl/books/0fe11c6e177223/viewer/096a43)
 
-## Workspace
-
-[Specification](https://microsoft.github.io/language-server-protocol/specification#workspace_workspaceFolders)
-
-## Text Document Synchronization
-
-[Specification](https://microsoft.github.io/language-server-protocol/specification#textDocument_synchronization)
+## Server
 
 ### textdocument/didOpen
 - @2020 [LSP 実装メモ (Text Document Synchronization `textDocument/didOpen` 編) - あれ](https://tennashi.hatenablog.com/entry/2020/07/25/230916)

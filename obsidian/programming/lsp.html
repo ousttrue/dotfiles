@@ -224,31 +224,32 @@
 <h1>Language Server Protocol<a class="headerlink" href="#language-server-protocol" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">2016年6月に、Microsoftがlanguage</span> <span class="pre">server</span> <span class="pre">protocol公開</span></code></p></li>
-<li><p><a class="reference external" href="https://code.visualstudio.com/api/language-extensions/language-server-extension-guide">Language Server Extension Guide | Visual Studio Code Extension API</a></p></li>
 <li><p><a class="reference external" href="https://microsoft.github.io/language-server-protocol/">Official page for Language Server Protocol</a></p>
 <ul>
 <li><p><a class="reference external" href="https://microsoft.github.io/language-server-protocol/implementors/servers/">Language Servers</a></p></li>
+<li><p><a class="reference external" href="https://github.com/microsoft/vscode-extension-samples">GitHub - microsoft/vscode-extension-samples: Sample code illustrating the VS Code extension API.</a></p></li>
 </ul>
 </li>
 </ul>
-<section id="general">
-<h2>General<a class="headerlink" href="#general" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="request-initialize">
-<h3>Request: Initialize<a class="headerlink" href="#request-initialize" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a class="reference external" href="https://microsoft.github.io/language-server-protocol/specification#initialize">Specification</a></p>
+<section id="client-vscode">
+<h2>Client: vscode<a class="headerlink" href="#client-vscode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/api/language-extensions/language-server-extension-guide">Language Server Extension Guide | Visual Studio Code Extension API</a></p></li>
+<li><p><a class="reference external" href="https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample">vscode-extension-samples/lsp-sample at main · microsoft/vscode-extension-samples · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/vain0x/items/d050fe7c8b342ed2004e">LSP学習記 #1 - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://future-architect.github.io/articles/20220302a/">Pyright を LSP サーバとした自作 LSP クライアント（調査編） | フューチャー技術ブログ</a></p></li>
+</ul>
+<section id="languageclient">
+<h3>LanguageClient<a class="headerlink" href="#languageclient" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/microsoft/vscode-languageserver-node">GitHub - microsoft/vscode-languageserver-node: Language server protocol implementation for VSCode. This allows implementing language services in JS/TS running on node.js</a></p></li>
+<li><p><a class="reference external" href="https://github.com/itemis/xtext-languageserver-example/blob/master/vscode-extension/src/extension.ts">xtext-languageserver-example/extension.ts at master · itemis/xtext-languageserver-example · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://zenn.dev/takl/books/0fe11c6e177223/viewer/096a43">Language Client を作る｜Language Server Protocol に対応したミニ言語処理系を作る</a></p></li>
+</ul>
 </section>
-<section id="notificatin-initialized">
-<h3>Notificatin: Initialized<a class="headerlink" href="#notificatin-initialized" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a class="reference external" href="https://microsoft.github.io/language-server-protocol/specification#initialized">Initialized Notification</a></p>
 </section>
-</section>
-<section id="workspace">
-<h2>Workspace<a class="headerlink" href="#workspace" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://microsoft.github.io/language-server-protocol/specification#workspace_workspaceFolders">Specification</a></p>
-</section>
-<section id="text-document-synchronization">
-<h2>Text Document Synchronization<a class="headerlink" href="#text-document-synchronization" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://microsoft.github.io/language-server-protocol/specification#textDocument_synchronization">Specification</a></p>
+<section id="server">
+<h2>Server<a class="headerlink" href="#server" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <section id="textdocument-didopen">
 <h3>textdocument/didOpen<a class="headerlink" href="#textdocument-didopen" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
@@ -352,13 +353,11 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Language Server Protocol</a><ul>
-<li><a class="reference internal" href="#general">General</a><ul>
-<li><a class="reference internal" href="#request-initialize">Request: Initialize</a></li>
-<li><a class="reference internal" href="#notificatin-initialized">Notificatin: Initialized</a></li>
+<li><a class="reference internal" href="#client-vscode">Client: vscode</a><ul>
+<li><a class="reference internal" href="#languageclient">LanguageClient</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#workspace">Workspace</a></li>
-<li><a class="reference internal" href="#text-document-synchronization">Text Document Synchronization</a><ul>
+<li><a class="reference internal" href="#server">Server</a><ul>
 <li><a class="reference internal" href="#textdocument-didopen">textdocument/didOpen</a></li>
 <li><a class="reference internal" href="#textdocument-didchange">textdocument/didChange</a></li>
 </ul>
