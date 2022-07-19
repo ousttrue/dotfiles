@@ -4,6 +4,7 @@ aliases: [LanguageServerProtocol]
 
 [[vscode]]
 [[LSIF]]
+[[codelens]]
 
 # Language Server Protocol
 - `2016年6月に、Microsoftがlanguage server protocol公開`

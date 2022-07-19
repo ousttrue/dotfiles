@@ -2,7 +2,7 @@
 
 - [GitHub - nrdmn/awesome-zig](https://github.com/nrdmn/awesome-zig)
 
-## [[LSP]]
+## [[lsp]]
 - [GitHub - zigtools/zls: Zig LSP implementation + Zig Language Server](https://github.com/zigtools/zls)
 
 ## d3d11
