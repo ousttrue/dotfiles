@@ -417,7 +417,8 @@ if not IS_WINDOWS:
 # https://github.com/ziglang/zig/wiki/Building-Zig-on-Windows
 #
 # master
-ZIG_BUILD_VERSION = '2351+b64a1d5ab'
+# ZIG_BUILD_VERSION = '2351+b64a1d5ab'
+ZIG_BUILD_VERSION = '3027+0e26c6149'
 if IS_WINDOWS:
     ZIG_ARCHIVE_NAME = f'zig-windows-x86_64-0.10.0-dev.{ZIG_BUILD_VERSION}'
     ZIG_ARCHIVE_PATH = HOME_DIR / f'local/src/{ZIG_ARCHIVE_NAME}.zip'
