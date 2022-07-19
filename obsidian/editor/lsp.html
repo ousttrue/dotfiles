@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>[[lsp]] - shell note ドキュメント</title>
+        <title>Language Server Protocol - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,59 +218,105 @@
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://ziglang.org/">Home ⚡ Zig Programming Language</a></p>
+          <p>[[vscode]]
+[[LSIF]]
+[[codelens]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="language-server-protocol">
+<h1>Language Server Protocol<a class="headerlink" href="#language-server-protocol" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/nrdmn/awesome-zig">GitHub - nrdmn/awesome-zig</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2016年6月に、Microsoftがlanguage</span> <span class="pre">server</span> <span class="pre">protocol公開</span></code></p></li>
+<li><p><a class="reference external" href="https://microsoft.github.io/language-server-protocol/">Official page for Language Server Protocol</a></p>
+<ul>
+<li><p><a class="reference external" href="https://microsoft.github.io/language-server-protocol/implementors/servers/">Language Servers</a></p></li>
+<li><p><a class="reference external" href="https://github.com/microsoft/vscode-extension-samples">GitHub - microsoft/vscode-extension-samples: Sample code illustrating the VS Code extension API.</a></p></li>
 </ul>
-<section id="lsp">
-<h1>[[lsp]]<a class="headerlink" href="#lsp" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/zigtools/zls">GitHub - zigtools/zls: Zig LSP implementation + Zig Language Server</a></p></li>
+</li>
 </ul>
-</section>
-<section id="d3d11">
-<h1>d3d11<a class="headerlink" href="#d3d11" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="client-vscode">
+<h2>Client: vscode<a class="headerlink" href="#client-vscode" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/michal-z/zig-gamedev">GitHub - michal-z/zig-gamedev: Building game development ecosystem for @ziglang!</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/api/language-extensions/language-server-extension-guide">Language Server Extension Guide | Visual Studio Code Extension API</a></p></li>
+<li><p><a class="reference external" href="https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample">vscode-extension-samples/lsp-sample at main · microsoft/vscode-extension-samples · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/vain0x/items/d050fe7c8b342ed2004e">LSP学習記 #1 - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://future-architect.github.io/articles/20220302a/">Pyright を LSP サーバとした自作 LSP クライアント（調査編） | フューチャー技術ブログ</a></p></li>
 </ul>
-<p>imgui は <code class="docutils literal notranslate"><span class="pre">@cImport</span></code></p>
-</section>
-<section id="graphics">
-<h1>graphics<a class="headerlink" href="#graphics" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="languageclient">
+<h3>LanguageClient<a class="headerlink" href="#languageclient" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://git.yx.mk/hexops/mach">https://git.yx.mk/hexops/mach</a></p></li>
-</ul>
-</section>
-<section id="allocator">
-<h1>allocator<a class="headerlink" href="#allocator" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://scrapbox.io/tamago324vim/Allocator_%E3%81%A3%E3%81%A6%E3%81%AA%E3%81%AB_(Zig_Documentation)">Allocator ってなに (Zig Documentation) - MemoBook</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="build">
-<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://ikrima.dev/dev-notes/zig/zig-build/">Zig Build - Gamedev Guide</a></p></li>
-<li><p><a class="reference external" href="https://zig.news/mattnite/import-and-packages-23mb">@import() and Packages - Zig NEWS</a></p></li>
+<li><p><a class="reference external" href="https://github.com/microsoft/vscode-languageserver-node">GitHub - microsoft/vscode-languageserver-node: Language server protocol implementation for VSCode. This allows implementing language services in JS/TS running on node.js</a></p></li>
+<li><p><a class="reference external" href="https://github.com/itemis/xtext-languageserver-example/blob/master/vscode-extension/src/extension.ts">xtext-languageserver-example/extension.ts at master · itemis/xtext-languageserver-example · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://zenn.dev/takl/books/0fe11c6e177223/viewer/096a43">Language Client を作る｜Language Server Protocol に対応したミニ言語処理系を作る</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>0.9<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://pithlessly.github.io/allocgate.html">Allocgate is coming in Zig 0.9, and you will have to change your code</a></p></li>
-</ul>
-<section id="zls">
-<h2>zls<a class="headerlink" href="#zls" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">var</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">zig</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">allocator</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
 </section>
-<section id="webgl">
-<h2>webgl<a class="headerlink" href="#webgl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="server">
+<h2>Server<a class="headerlink" href="#server" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="textdocument-didopen">
+<h3>textdocument/didOpen<a class="headerlink" href="#textdocument-didopen" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/fabioarnold/hello-webgl">GitHub - fabioarnold/hello-webgl: Hello WebGL in Zig</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://tennashi.hatenablog.com/entry/2020/07/25/230916">LSP 実装メモ (Text Document Synchronization <code class="docutils literal notranslate"><span class="pre">textDocument/didOpen</span></code> 編) - あれ</a></p></li>
 </ul>
-<p>[[peg]]</p>
+</section>
+<section id="textdocument-didchange">
+<h3>textdocument/didChange<a class="headerlink" href="#textdocument-didchange" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>@2020 <a class="reference external" href="https://tennashi.hatenablog.com/entry/2020/08/01/201225">LSP 実装メモ (Text Document Synchronization <code class="docutils literal notranslate"><span class="pre">textDocument/didChange</span></code> 編) - あれ</a></p></li>
+</ul>
+</section>
+</section>
+<section id="language-features">
+<h2>Language Features<a class="headerlink" href="#language-features" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>code comprehension features like Hover or Goto Definition.</p></li>
+<li><p>coding features like diagnostics, code complete or code actions.</p></li>
+</ul>
+<section id="textdocument-completion">
+<h3>textDocument/completion<a class="headerlink" href="#textdocument-completion" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_completion">textDocument/completion</a></p>
+</section>
+</section>
+<section id="articles">
+<h2>articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/visualstudio/extensibility/language-server-protocol?view=vs-2022">言語サーバープロトコルの概要 - Visual Studio (Windows) | Microsoft Docs</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/tags/lsp">LSP - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://zenn.dev/topics/lsp">lspの記事一覧 | Zenn</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://zenn.dev/monaqa/articles/2021-12-10-satysfi-language-server">SATySFi Language Server を作って快適に執筆してみた話</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://scrapbox.io/tamago324vim/LSP_%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F%E3%81%84">LSP のクライアントを実装してみたい - MemoBook</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://zenn.dev/takl/books/0fe11c6e177223">Language Server Protocol に対応したミニ言語処理系を作る</a></p></li>
+</ul>
+</section>
+<section id="lsif-language-server-index-format">
+<h2>LSIF: Language Server Index Format<a class="headerlink" href="#lsif-language-server-index-format" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://lsif.dev/">LSIF.dev</a></p>
+<ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://code.visualstudio.com/blogs/2019/02/19/lsif">Language Server Index Format</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/nakario/items/2a73065a1bc1540c1f00">LSPから派生したLanguage Server Index Formatとは何か - Qiita</a></p></li>
+</ul>
+</section>
+<section id="vim">
+<h2>vim<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/w0rp/ale">GitHub - dense-analysis/ale: Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jsfaint/gen_tags.vim">GitHub - jsfaint/gen_tags.vim: Async plugin for vim and neovim to ease the use of ctags/gtags</a></p></li>
+</ul>
+</section>
+<section id="c">
+<h2>c++<a class="headerlink" href="#c" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/cquery-project/cquery">GitHub - jacobdufault/cquery: C/C++ language server supporting multi-million line code base, powered by libclang. Emacs, Vim, VSCode, and others with language server protocol support. Cross references, completion, diagnostics, semantic highlighting and more</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cquery-project/cquery/wiki/Building-cquery">Building cquery · jacobdufault/cquery Wiki · GitHub</a></p></li>
+</ul>
+</section>
+<section id="python">
+<h2>python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[python_lsp]]</p>
+</section>
+<section id="csharp">
+<h2>csharp<a class="headerlink" href="#csharp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/OmniSharp/csharp-language-server-protocol">GitHub - OmniSharp/csharp-language-server-protocol: Language Server Protocol in C#</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -287,7 +333,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/zig/zig.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/editor/lsp.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -307,14 +353,26 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">[[lsp]]</a></li>
-<li><a class="reference internal" href="#d3d11">d3d11</a></li>
-<li><a class="reference internal" href="#graphics">graphics</a></li>
-<li><a class="reference internal" href="#allocator">allocator</a></li>
-<li><a class="reference internal" href="#build">build</a></li>
-<li><a class="reference internal" href="#id1">0.9</a><ul>
-<li><a class="reference internal" href="#zls">zls</a></li>
-<li><a class="reference internal" href="#webgl">webgl</a></li>
+<li><a class="reference internal" href="#">Language Server Protocol</a><ul>
+<li><a class="reference internal" href="#client-vscode">Client: vscode</a><ul>
+<li><a class="reference internal" href="#languageclient">LanguageClient</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#server">Server</a><ul>
+<li><a class="reference internal" href="#textdocument-didopen">textdocument/didOpen</a></li>
+<li><a class="reference internal" href="#textdocument-didchange">textdocument/didChange</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#language-features">Language Features</a><ul>
+<li><a class="reference internal" href="#textdocument-completion">textDocument/completion</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#articles">articles</a></li>
+<li><a class="reference internal" href="#lsif-language-server-index-format">LSIF: Language Server Index Format</a></li>
+<li><a class="reference internal" href="#vim">vim</a></li>
+<li><a class="reference internal" href="#c">c++</a></li>
+<li><a class="reference internal" href="#python">python</a></li>
+<li><a class="reference internal" href="#csharp">csharp</a></li>
 </ul>
 </li>
 </ul>

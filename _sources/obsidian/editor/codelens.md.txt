@@ -1,0 +1,1 @@
+- [CodeLens によるコード変更とその他の履歴の検索 - Visual Studio (Windows) | Microsoft Docs](https://docs.microsoft.com/ja-jp/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2022)
