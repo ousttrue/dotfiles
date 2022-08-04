@@ -1,7 +1,7 @@
 [[SyntaxHighlight]]
 [[windows_terminal]]
 
-## reserved
+# reserved
 1.  black  
 2.  red  
 3.  green  
@@ -20,12 +20,15 @@
 15.  brcyan  
 16.  brwhite
 
-## themes
+# themes
 - [Category:Color schemes - Wikipedia](https://en.wikipedia.org/wiki/Category:Color_schemes)
 - [Dracula (color scheme) - Wikipedia](https://en.wikipedia.org/wiki/Dracula_(color_scheme))
 - [Solarized - Wikipedia](https://en.wikipedia.org/wiki/Solarized)
 - [僕が恋したVSCodeのおすすめテーマ「Monokai Pro」は他とは違うぞ！ | ITblo9](https://itblo9.com/monokai-pro/)
 
-## vscode
+# vscode
 - [Color Theme | Visual Studio Code Extension API](https://code.visualstudio.com/api/extension-guides/color-theme)
 - [VSCodeを自分の好きな色に染める | メンバーズクリエイターズブログ](https://creators.members.co.jp/2021/02/knowledge_007/)
+
+## SemanticToken
+- [How To Customize Semantic Token Colorization With Visual Studio Code | by Dan Romans | Medium](https://medium.com/@danromans/how-to-customize-semantic-token-colorization-with-visual-studio-code-ac3eab96141b)
