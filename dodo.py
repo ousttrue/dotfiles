@@ -485,7 +485,7 @@ class zls(GitBuildTask):
 class gyro_ghq(GitCloneTask):
     user = 'mattnite'
     repository = 'gyro'
-    # patches = [DOTFILES / 'gyro.patch']
+    patches = [DOTFILES / 'gyro.patch']
 
 
 class gyro(GitBuildTask):
