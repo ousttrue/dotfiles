@@ -304,6 +304,23 @@ def task_font_sarasa():
     }
 
 
+pacman = [
+    "autoconf",
+    "automake",
+    "cmake",
+    "gcc",
+    "git",
+    "go",
+    "m4",
+    "make",
+    "ninja",
+    "patch",
+    "pkgconf",
+    "unzip",
+    "which",
+]
+
+
 class neovim_ghq(GitCloneTask):
     user = 'neovim'
     repository = 'neovim'
@@ -324,21 +341,6 @@ class neovim_ghq(GitCloneTask):
     ]
     emerge = [
         # 'cmake',
-    ]
-    pacman = [
-        "autoconf",
-        "automake",
-        "cmake",
-        "gcc",
-        "git",
-        "go",
-        "m4",
-        "make",
-        "ninja",
-        "patch",
-        "pkgconf",
-        "unzip",
-        "which",
     ]
     patches = [DOTFILES / 'neovim.patch']
 
