@@ -144,3 +144,10 @@ lspconfig.pylsp.setup {
     on_attach = custom_lsp_attach,
     capabilities = capabilities,
 }
+
+lspconfig.zls.setup {
+    cmd = { home .. '/ghq/github.com/ousttrue/yazls/zig-out/bin/yazls' },
+    on_attach = custom_lsp_attach,
+    capabilities = capabilities,
+}
+

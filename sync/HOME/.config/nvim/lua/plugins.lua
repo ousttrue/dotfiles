@@ -378,4 +378,6 @@ cmap <C-j> <Plug>(skkeleton-toggle)
         ]]
         end,
     }
+
+    use "ziglang/zig.vim"
 end)
