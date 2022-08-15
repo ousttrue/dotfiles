@@ -74,7 +74,7 @@ return require("packer").startup(function(use)
     }
     use {
         "kyazdani42/nvim-tree.lua",
-        tag = "1.6.7",
+        -- tag = "1.6.7",
         requires = {
             "kyazdani42/nvim-web-devicons", -- optional, for file icon
         },

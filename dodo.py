@@ -683,7 +683,7 @@ DOIT_CONFIG = {
     'default_tasks': [
         'create_link',
         'deno',
-        #'pip',
+        # 'pip',
         'neovim',
         'fzf',
         'skk_dictionary',
