@@ -325,6 +325,21 @@ class neovim_ghq(GitCloneTask):
     emerge = [
         # 'cmake',
     ]
+    pacman = [
+        "autoconf",
+        "automake",
+        "cmake",
+        "gcc",
+        "git",
+        "go",
+        "m4",
+        "make",
+        "ninja",
+        "patch",
+        "pkgconf",
+        "unzip",
+        "which",
+    ]
     patches = [DOTFILES / 'neovim.patch']
 
 
@@ -666,7 +681,7 @@ DOIT_CONFIG = {
     'default_tasks': [
         'create_link',
         'deno',
-        'pip',
+        #'pip',
         'neovim',
         'fzf',
         'skk_dictionary',
