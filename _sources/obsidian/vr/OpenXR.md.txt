@@ -1,6 +1,8 @@
-- [Quickstart | OpenXR Toolkit](https://mbucchia.github.io/OpenXR-Toolkit/)
-
 # The OpenXR Loader provided by Khronos
+`include/openxr/openxr.h`
+link `openxr_loader.lib`
+
+- [Quickstart | OpenXR Toolkit](https://mbucchia.github.io/OpenXR-Toolkit/)
 - [GitHub - KhronosGroup/OpenXR-SDK: Generated headers and sources for OpenXR loader.](https://github.com/KhronosGroup/OpenXR-SDK)
 
 ```
@@ -15,6 +17,9 @@ runtime をロードさするには？
 - [OpenXRランタイムを実行時に選ぶ](https://zenn.dev/shiena/articles/openxr-runtime)
 
 # Runtime
+- [GitHub - Ybalrid/OpenXR-API-Layer-Template: A CMake based template repository to create OpenXR layers in C++](https://github.com/Ybalrid/OpenXR-API-Layer-Template)
+- [device/vr/openxr/test/fake_openxr_impl_api.cc - chromium/src - Git at Google](https://chromium.googlesource.com/chromium/src/+/ae4b5702945b407b40fed05de61b52bc9ebe8451/device/vr/openxr/test/fake_openxr_impl_api.cc)
+ 
 ## [[monado]]
 
 ## [[SteamVR]]
