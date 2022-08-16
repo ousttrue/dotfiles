@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>wast - shell note ドキュメント</title>
+        <title>protocol - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,76 +218,31 @@
           </label>
         </div>
         <article role="main">
-          <p>wasm debug</p>
-<p>[[zig]]</p>
+          <p>[[FetchAPI]]
+[[StreamsAPI]]
+[[TLS]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="protocol">
+<h1>protocol<a class="headerlink" href="#protocol" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>https://developers.google.com/web/updates/2020/12/webassembly</p></li>
-<li><p>https://developers.google.com/web/updates/2019/12/webassembly</p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="wast">
-<h1>wast<a class="headerlink" href="#wast" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>https://webassembly.org/</p></li>
-<li><p>https://developer.mozilla.org/en-US/docs/WebAssembly/Using_the_JavaScript_API</p></li>
-<li><p>https://github.com/WebAssembly/binaryen</p></li>
-<li><p>https://github.com/WebAssembly/wabt</p></li>
-<li><p>https://github.com/wasm3/wasm3</p></li>
+<li><p><a class="reference external" href="https://www.slideshare.net/KaoruMaeda/http2simple">HTTP2 最速実装 〜入門編〜</a></p></li>
+<li><p><a class="reference external" href="https://zenn.dev/satoken/articles/golang-http2">golangで作るHTTP2プロトコル</a></p></li>
+<li><p>h2spec</p></li>
+<li><p>protospec</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="articles">
-<h1>articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="server">
+<h1>server<a class="headerlink" href="#server" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>https://qiita.com/lempiji/items/462cce79dab8166fa5a5
-[WebAssemblyとは？〜実際にC言語をブラウザで動かす〜【2019年6月版】 https://qiita.com/umamichi/items/c62d18b7ed81fdba63c2]
-[(Learn the Hard Way)nodejs-8でのWebAssembly自体を調べてみた https://qiita.com/bellbind/items/a6435b0c8f10306128b8]
-http://calmery.hatenablog.com/entry/2017/03/08/222513
-https://ukyo.github.io/wasm-usui-book/webroot/intro.html</p></li>
+<li><p><a class="reference external" href="https://qiita.com/tatsuhiro-t/items/4b45eddf82cfe8a12dcd">Python で HTTP/2 サーバーを書こう - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://logmi.jp/tech/articles/325004">HTTP/2をゼロからの実装したときに感じた“難しさ”　僕がGoで仕様準拠テストツール「protospec」を開発した理由 - ログミーTech</a></p></li>
 </ul>
-<p>https://blog.wnotes.net/posts/webassembly-lua/</p>
-<p>[* Table]</p>
-<p>[** types]
-i32, i64
-f32, f64
-<code class="docutils literal notranslate"><span class="pre">c</span></code> と <code class="docutils literal notranslate"><span class="pre">cpp</span></code> でマングルが違う
-C: <code class="docutils literal notranslate"><span class="pre">add</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">_add</span></code>
-C++:  extern "C"
-[** load]
-https://developer.mozilla.org/ja/docs/WebAssembly/Loading_and_running</p>
-<p>code:run.js
-const response = await fetch('add.wasm')
-const buffer = await response.arrayBuffer();
-const compiled = await WebAssembly.compile(buffer);
-const instance = await WebAssembly.instantiate(compiled);
-console.log(instance);
-const value = instance.exports.add(1, 2);
-console.log(value);</p>
-<p>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compile
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module
-code:Module.js
-const compiled = await WebAssembly.compile(buffer);</p>
-<p>// await 抜きで同じ？
-var compiled = new WebAssembly.Module(buffer);</p>
-<p>[* memory]
-code:.js
-// or access the buffer contents of an exported memory:
-var i32 = new Uint32Array(obj.instance.exports.memory.buffer);</p>
-<p>// or access the elements of an exported table:
-var table = obj.instance.exports.table;
-console.log(table.get(0)());</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory
-https://users.rust-lang.org/t/wasm-memory-buffer-empty-after-allocating-vec-u8/18112
-https://hacks.mozilla.org/2017/07/memory-in-webassembly-and-why-its-safer-than-you-think/
-</pre></div>
-</div>
-<p>[* WebAssembly 1.0(Wasm)]</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[ゼロからはじめるWebAssembly入門(2017/01更新) https://qiita.com/OMOIKANESAN/items/1ffc06ef6283befc4355]
-https://developer.mozilla.org/en-US/docs/WebAssembly
-</pre></div>
-</div>
-<p>[* compiler]
-https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html</p>
-<p>[* module]
-https://webassembly.org/docs/modules/</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="client">
+<h1>client<a class="headerlink" href="#client" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/0xfffffff7/items/0e19d255abb84372bb9a">HTTP2最速実装をmain()関数だけで簡単に説明する(SSL編) - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://www.nslabs.jp/http2-client-implementation-sample-tls-version.rhtml">HTTP/2 クライアント実装サンプル (TLS版) | Netsphere Laboratories</a></p></li>
+</ul>
 </section>
 
         </article>
@@ -303,7 +258,7 @@ https://webassembly.org/docs/modules/</p>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/programming/wasm.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/web/http2.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -323,8 +278,9 @@ https://webassembly.org/docs/modules/</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">wast</a></li>
-<li><a class="reference internal" href="#articles">articles</a></li>
+<li><a class="reference internal" href="#">protocol</a></li>
+<li><a class="reference internal" href="#server">server</a></li>
+<li><a class="reference internal" href="#client">client</a></li>
 </ul>
 
           </div>
