@@ -1,3 +1,5 @@
+[[peg]]
+
 [Home ⚡ Zig Programming Language](https://ziglang.org/)
 
 - [GitHub - nrdmn/awesome-zig](https://github.com/nrdmn/awesome-zig)
@@ -33,6 +35,5 @@ var tree = try std.zig.parse(self.allocator, text);
 ```
 
 ## webgl
-- [GitHub - fabioarnold/hello-webgl: Hello WebGL in Zig](https://github.com/fabioarnold/hello-webgl)
-
-[[peg]]
+- ⚡ [GitHub - fabioarnold/hello-webgl: Hello WebGL in Zig](https://github.com/fabioarnold/hello-webgl)
+- ⚡ [GitHub - raulgrell/zig-wasm-webgl: Using Zig and WebGL](https://github.com/raulgrell/zig-wasm-webgl)

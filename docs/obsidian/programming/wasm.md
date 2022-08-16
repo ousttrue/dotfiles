@@ -1,23 +1,20 @@
 wasm debug
-#wasm
 
-https://developers.google.com/web/updates/2020/12/webassembly
-https://developers.google.com/web/updates/2019/12/webassembly
+[[zig]]
 
+- https://developers.google.com/web/updates/2020/12/webassembly
+- https://developers.google.com/web/updates/2019/12/webassembly
 
-wasm
+# wast
 
-#wast
+- https://webassembly.org/
+- https://developer.mozilla.org/en-US/docs/WebAssembly/Using_the_JavaScript_API
+- https://github.com/WebAssembly/binaryen
+- https://github.com/WebAssembly/wabt
+- https://github.com/wasm3/wasm3
 
-	https://webassembly.org/
-		https://developer.mozilla.org/en-US/docs/WebAssembly/Using_the_JavaScript_API
-	https://github.com/WebAssembly/binaryen
-	https://github.com/WebAssembly/wabt
-
-	https://github.com/wasm3/wasm3
-
-[** articles]
-	https://qiita.com/lempiji/items/462cce79dab8166fa5a5
+# articles
+* https://qiita.com/lempiji/items/462cce79dab8166fa5a5
 	[WebAssemblyとは？〜実際にC言語をブラウザで動かす〜【2019年6月版】 https://qiita.com/umamichi/items/c62d18b7ed81fdba63c2]
 	[(Learn the Hard Way)nodejs-8でのWebAssembly自体を調べてみた https://qiita.com/bellbind/items/a6435b0c8f10306128b8]
 	http://calmery.hatenablog.com/entry/2017/03/08/222513

@@ -1,5 +1,4 @@
-webgl
-#javascript
+[[wasm]]
 
 
 	https://webglfundamentals.org/webgl/lessons/webgl-less-code-more-fun.html
