@@ -2,8 +2,13 @@
 `include/openxr/openxr.h`
 link `openxr_loader.lib`
 
+- [https://www.khronos.org/files/openxr-10-reference-guide.pdf](https://www.khronos.org/files/openxr-10-reference-guide.pdf)
+- [The OpenXR Specification](https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html)
+
 - [Quickstart | OpenXR Toolkit](https://mbucchia.github.io/OpenXR-Toolkit/)
 - [GitHub - KhronosGroup/OpenXR-SDK: Generated headers and sources for OpenXR loader.](https://github.com/KhronosGroup/OpenXR-SDK)
+
+`OpenXR.Loader.1.0.24.nupkg`
 
 ```
 git clone https://github.com/KhronosGroup/OpenXR-SDK.git
