@@ -1,5 +1,12 @@
 [[wasm]]
 
+[WebGL Overview - The Khronos Group Inc](https://www.khronos.org/webgl/)
+- [WebGL/webgl2.idl at main · KhronosGroup/WebGL · GitHub](https://github.com/KhronosGroup/WebGL/blob/main/specs/2.0.0/webgl2.idl)
+
+zig で WEBGL互換のラッパーライブラリを作る
+- wasm WebGL2
+- Windows/Linux glfw OpenGL4
+- android OpenGL ES3
 
 	https://webglfundamentals.org/webgl/lessons/webgl-less-code-more-fun.html
 
