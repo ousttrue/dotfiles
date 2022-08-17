@@ -1,4 +1,8 @@
 [[OpenGL]]
+[[wasm]]
+
+[WebGL Overview - The Khronos Group Inc](https://www.khronos.org/webgl/)
+- [WebGL/webgl2.idl at main · KhronosGroup/WebGL · GitHub](https://github.com/KhronosGroup/WebGL/blob/main/specs/2.0.0/webgl2.idl)
 
 - [WebGL - Less Code, More Fun](https://webglfundamentals.org/webgl/lessons/webgl-less-code-more-fun.html)
 - [WebGL: 2D and 3D graphics for the web - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
@@ -10,6 +14,11 @@
 - [Using textures in WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL)
 - [Lighting in WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL)
 - [Animating textures in WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL)
+
+zig で WEBGL互換のラッパーライブラリを作る
+- wasm WebGL2
+- Windows/Linux glfw OpenGL4
+- android OpenGL ES3
 
 - [ファイルの変更を監視して自動リロードするローカルWebサーバーの起動方法3選 | Hypertext Candy](https://www.hypertextcandy.com/live-reload-web-servers)
 

@@ -1,78 +1,73 @@
 wasm debug
-#wasm
 
-https://developers.google.com/web/updates/2020/12/webassembly
-https://developers.google.com/web/updates/2019/12/webassembly
+[[zig]]
+
+[WebAssembly | MDN](https://developer.mozilla.org/en-US/docs/WebAssembly)
+- [WebAssembly](https://webassembly.org/)
+- [Using the WebAssembly JavaScript API - WebAssembly | MDN](https://developer.mozilla.org/en-US/docs/WebAssembly/Using_the_JavaScript_API)
+- [GitHub - WebAssembly/binaryen: Compiler infrastructure and toolchain library for WebAssembly](https://github.com/WebAssembly/binaryen)
+- [GitHub - WebAssembly/wabt: The WebAssembly Binary Toolkit](https://github.com/WebAssembly/wabt)
+- https://github.com/wasm3/wasm3
+- [WebAssemblyコードのロードと実行 - WebAssembly | MDN](https://developer.mozilla.org/ja/docs/WebAssembly/Loading_and_running)
+
+# browser
+
+wasm に対して browser の関数をエクスポートするには関数ポインタを代入する。
+
+```js
+// get
+const response = await fetch('add.wasm')
+// byte array
+const buffer = await response.arrayBuffer();
+// compile
+const compiled = await WebAssembly.compile(buffer);
+// instanciate env に webgl などを埋め込む
+const instance = await WebAssembly.instantiate(compiled, { env });
+console.log(instance);
+// call
+const value = instance.exports.add(1, 2);
+console.log(value);
+```
+
+- [WebAssembly.compile() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compile)
+- [WebAssembly.Module - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module)
 
 
-wasm
+## imports
+```
+WebAssembly.instantiate(bufferSource, importObject);
+```
 
-#wast
 
-	https://webassembly.org/
-		https://developer.mozilla.org/en-US/docs/WebAssembly/Using_the_JavaScript_API
-	https://github.com/WebAssembly/binaryen
-	https://github.com/WebAssembly/wabt
+- [WebAssembly.Module.imports() - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module/imports)
+- [Emscripten で C/C++ から JS の関数を呼ぶには - DEV Community](https://dev.to/chikoski/emscripten-c-c-js-57fb)
 
-	https://github.com/wasm3/wasm3
+## exports
 
-[** articles]
-	https://qiita.com/lempiji/items/462cce79dab8166fa5a5
-	[WebAssemblyとは？〜実際にC言語をブラウザで動かす〜【2019年6月版】 https://qiita.com/umamichi/items/c62d18b7ed81fdba63c2]
-	[(Learn the Hard Way)nodejs-8でのWebAssembly自体を調べてみた https://qiita.com/bellbind/items/a6435b0c8f10306128b8]
-	http://calmery.hatenablog.com/entry/2017/03/08/222513
-	https://ukyo.github.io/wasm-usui-book/webroot/intro.html
+wasm が browser に公開する
 
-https://blog.wnotes.net/posts/webassembly-lua/
+```js
+// or access the buffer contents of an exported memory:
+var i32 = new Uint32Array(obj.instance.exports.memory.buffer);
 
-[* Table]
+// or access the elements of an exported table:
+var table = obj.instance.exports.table;
+console.log(table.get(0)());
+```
 
-[** types]
-	i32, i64
-	f32, f64
-`c` と `cpp` でマングルが違う
-C: `add` => `_add`
-C++:  extern "C" 
-[** load]
-	https://developer.mozilla.org/ja/docs/WebAssembly/Loading_and_running
+- [WebAssembly.Memory() - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory)
+- [Memory in WebAssembly (and why it’s safer than you think) - Mozilla Hacks - the Web developer blog](https://hacks.mozilla.org/2017/07/memory-in-webassembly-and-why-its-safer-than-you-think/)
 
-code:run.js
- const response = await fetch('add.wasm')
- const buffer = await response.arrayBuffer();
- const compiled = await WebAssembly.compile(buffer);
- const instance = await WebAssembly.instantiate(compiled);
- console.log(instance);
- const value = instance.exports.add(1, 2);
- console.log(value);
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compile
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module
-code:Module.js
- const compiled = await WebAssembly.compile(buffer);
- 
- // await 抜きで同じ？
- var compiled = new WebAssembly.Module(buffer);
+# debgger
 
-[* memory]
-code:.js
-   // or access the buffer contents of an exported memory:
-   var i32 = new Uint32Array(obj.instance.exports.memory.buffer);
- 
-   // or access the elements of an exported table:
-   var table = obj.instance.exports.table;
-   console.log(table.get(0)());
+- [Debugging WebAssembly with modern tools - Chrome Developers](https://developers.google.com/web/updates/2020/12/webassembly)
+- [Improved WebAssembly debugging in Chrome DevTools - Chrome Developers](https://developers.google.com/web/updates/2019/12/webassembly)
+* [WebAssemblyでもブラウザでステップ実行ができるようになってたので寄り道しながら頑張った話 - Qiita](https://qiita.com/lempiji/items/462cce79dab8166fa5a5)
 
-	https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory
-	https://users.rust-lang.org/t/wasm-memory-buffer-empty-after-allocating-vec-u8/18112
-	https://hacks.mozilla.org/2017/07/memory-in-webassembly-and-why-its-safer-than-you-think/
-
-[* WebAssembly 1.0(Wasm)]
-	
-	[ゼロからはじめるWebAssembly入門(2017/01更新) https://qiita.com/OMOIKANESAN/items/1ffc06ef6283befc4355]
-	https://developer.mozilla.org/en-US/docs/WebAssembly
-
-[* compiler]
-https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html
-
-[* module]
-https://webassembly.org/docs/modules/
+# articles
+- [WebAssemblyを試してみた - Calmery.me](http://calmery.hatenablog.com/entry/2017/03/08/222513)
+- [まえがき | WEBASSEMBLY USUI BOOK](https://ukyo.github.io/wasm-usui-book/webroot/intro.html)
+- [LuaをWebAssemblyにコンパイルして実行する話 - blog::wnotes.net](https://blog.wnotes.net/posts/webassembly-lua/)
+- [Build your own WebAssembly Compiler](https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html)
+- [Modules — WebAssembly 2.0 (Draft 2022-08-11)](https://webassembly.org/docs/modules/)
