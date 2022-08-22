@@ -24,18 +24,21 @@ class Platforms(Enum):
     # Ubuntu-20.04
     Ubuntu = auto()
     Gentoo = auto()
+    FreeBSD = auto()
     # msys2
     # WSL(Ubuntu)
     # mingw64
 
     @staticmethod
     def get() -> 'Platforms':
+        if platform.system() == 'FreeBSD':
+            return Platforms.FreeBSD
+        if platform.system() == 'Windows':
+            return Platforms.Windows
         if pathlib.Path('/usr/bin/apt').exists():
             return Platforms.Ubuntu
         if pathlib.Path('/usr/bin/emerge').exists():
             return Platforms.Gentoo
-        if platform.system() == 'Windows':
-            return Platforms.Windows
         return Platforms.Unknown
 
     def get_icon_key(self):
