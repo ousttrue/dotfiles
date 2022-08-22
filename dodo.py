@@ -245,16 +245,17 @@ class emoji_mlterm(GitBuildTask):
     targets = [HOME_DIR / '.mlterm/emoji']
 
 
-def task_deno():
-    if IS_WINDOWS:
-        action = 'pwsh -c "iwr https://deno.land/x/install/install.ps1 -useb | iex"'
-    else:
-        action = 'curl -fsSL https://deno.land/x/install/install.sh | sh'
-    return {
-        "actions": [action],
-        "uptodate": [True],
-        'targets': [HOME_DIR / f'.deno/bin/deno{EXE}']
-    }
+if PLATFORM != Platforms.FreeBSD:
+    def task_deno():
+        if IS_WINDOWS:
+            action = 'pwsh -c "iwr https://deno.land/x/install/install.ps1 -useb | iex"'
+        else:
+            action = 'curl -fsSL https://deno.land/x/install/install.sh | sh'
+        return {
+            "actions": [action],
+            "uptodate": [True],
+            'targets': [HOME_DIR / f'.deno/bin/deno{EXE}']
+        }
 
 
 def task_skk_dictionary():
