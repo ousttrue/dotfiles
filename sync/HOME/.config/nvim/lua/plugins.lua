@@ -84,11 +84,11 @@ return require("packer").startup(function(use)
             vim.cmd [[
 highlight NvimTreeOpenedFile gui=reverse
             ]]
-            vim.g.nvim_tree_highlight_opened_files = 3
+            -- vim.g.nvim_tree_highlight_opened_files = 3
             -- vim.g.nvim_tree_indent_markers = 1
-            vim.g.nvim_tree_git_hl = 0
-            vim.g.nvim_tree_special_files = {}
-            vim.g.nvim_tree_disable_window_picker = 1
+            -- vim.g.nvim_tree_git_hl = 0
+            -- vim.g.nvim_tree_special_files = {}
+            -- vim.g.nvim_tree_disable_window_picker = 1
             require("nvim-tree").setup {
                 -- auto_close = false,
                 -- auto_reload_on_write = true,
@@ -141,24 +141,24 @@ highlight NvimTreeOpenedFile gui=reverse
                 --     ignore = true,
                 --     timeout = 400,
                 -- },
-                -- actions = {
-                --     change_dir = {
-                --         enable = true,
-                --         global = false,
-                --     },
-                --     open_file = {
-                --         quit_on_open = false,
-                --         resize_window = false,
-                --         window_picker = {
-                --             enable = true,
-                --             chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-                --             exclude = {
-                --                 filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
-                --                 buftype = { "nofile", "terminal", "help" },
-                --             },
-                --         },
-                --     },
-                -- },
+                actions = {
+                    --     change_dir = {
+                    --         enable = true,
+                    --         global = false,
+                    --     },
+                    open_file = {
+                        --         quit_on_open = false,
+                        --         resize_window = false,
+                        window_picker = {
+                            enable = false,
+                            --             chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+                            --             exclude = {
+                            --                 filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+                            --                 buftype = { "nofile", "terminal", "help" },
+                            --             },
+                        },
+                    },
+                },
                 -- trash = {
                 --     cmd = "trash",
                 --     require_confirm = true,
@@ -172,6 +172,10 @@ highlight NvimTreeOpenedFile gui=reverse
                 --         git = false,
                 --     },
                 -- },
+                renderer = {
+                    highlight_opened_files = "all",
+                    highlight_git = true,
+                },
             }
         end,
     }

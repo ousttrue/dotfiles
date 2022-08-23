@@ -2,7 +2,7 @@ import sys
 import pathlib
 import site
 from doit.action import CmdAction
-from doit_lib import (IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
+from doit_lib import (PLATFORM, Platforms, IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
                       GHQ_GITHUB_DIR, condition, mkdir, traverse,
                       SYNC_HOME_DIR, DOTFILES, mklink, check_link, download,
                       extract)
@@ -54,8 +54,12 @@ def task_create_link():
             }
 
 
-GO_ARCHIVE = HOME_DIR / 'local/src/go1.18.1.linux-amd64.tar.gz'
 GO_BIN = '/usr/local/go/bin/go'
+if PLATFORM == Platforms.FreeBSD:
+    GO_ARCHIVE = HOME_DIR / 'local/src/go1.19.freebsd-amd64.tar.gz'
+
+else:
+    GO_ARCHIVE = HOME_DIR / 'local/src/go1.18.1.linux-amd64.tar.gz'
 
 
 @condition(not IS_WINDOWS)
@@ -241,16 +245,17 @@ class emoji_mlterm(GitBuildTask):
     targets = [HOME_DIR / '.mlterm/emoji']
 
 
-def task_deno():
-    if IS_WINDOWS:
-        action = 'pwsh -c "iwr https://deno.land/x/install/install.ps1 -useb | iex"'
-    else:
-        action = 'curl -fsSL https://deno.land/x/install/install.sh | sh'
-    return {
-        "actions": [action],
-        "uptodate": [True],
-        'targets': [HOME_DIR / f'.deno/bin/deno{EXE}']
-    }
+if PLATFORM != Platforms.FreeBSD:
+    def task_deno():
+        if IS_WINDOWS:
+            action = 'pwsh -c "iwr https://deno.land/x/install/install.ps1 -useb | iex"'
+        else:
+            action = 'curl -fsSL https://deno.land/x/install/install.sh | sh'
+        return {
+            "actions": [action],
+            "uptodate": [True],
+            'targets': [HOME_DIR / f'.deno/bin/deno{EXE}']
+        }
 
 
 def task_skk_dictionary():
@@ -368,9 +373,9 @@ else:
     class neovim(GitBuildTask):
         repository = neovim_ghq
         actions = [
-            'make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=~/local" -j 4',
+            'gmake CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=~/local" -j 4',
             'mkdir -p ~/local/bin',
-            'make install',
+            'gmake install',
         ]
         targets = [HOME_DIR / 'local/bin/nvim']
 
@@ -392,6 +397,9 @@ if IS_WINDOWS:
         targets = [
             f'{GHQ_GITHUB_DIR}/sumneko/lua-language-server/bin/lua-language-server{EXE}'
         ]
+
+elif PLATFORM == Platforms.FreeBSD:
+    pass
 
 else:
 
@@ -687,7 +695,7 @@ DOIT_CONFIG = {
         'neovim',
         'fzf',
         'skk_dictionary',
-        'sumneko_lua_language_server',
+        # 'sumneko_lua_language_server',
     ]
 }
 

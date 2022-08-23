@@ -54,7 +54,7 @@ function _update_ps1() {
   PS1="$(powerline-shell $?)\n$ "
 }
 
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+if [[ `which poweline-shell > /dev/null` && $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
   PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
@@ -104,10 +104,15 @@ function gg {
 #
 # alias
 #
+UNAME_OS=`uname -o`
 if which exa > /dev/null 2>&1; then
     alias ls='exa --color=auto --icons'
     alias la='exa --color=auto --icons -a'
     alias ll='exa --color=auto --icons -al'
+elif [ "$UNAME_OS" = "FreeBSD" ]; then
+    alias ls='ls --color'
+    alias la='ls --color -a'
+    alias ll='ls --color -al'
 else
     alias ls='ls -I "NTUSER.DAT*" --color=auto'
     alias la='ls -I "NTUSER.DAT*" --color=auto -a'
@@ -134,5 +139,5 @@ export HTTP_HOME='~/dotfiles/home.html'
 export XDG_MUSIC_DIR=$HOME/Music
 
 # source C:\Users\ousttrue\AppData\Roaming\dystroy\broot\config\launcher\bash\br
-source /home/ousttrue/.config/broot/launcher/bash/br
+# source /home/ousttrue/.config/broot/launcher/bash/br
 
