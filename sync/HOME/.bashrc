@@ -16,6 +16,7 @@ path_unshift "$HOME/.local/bin"
 path_unshift "$HOME/local/bin"
 path_unshift "$HOME/go/bin"
 path_unshift "$HOME/cargo/bin"
+path_unshift "$HOME/local/src/zig"
 if [ -v MSYSTEM ]; then
     # msys
     path_push "/c/Python310/Scripts"
