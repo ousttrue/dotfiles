@@ -1,9 +1,16 @@
 [[zig]]
+[[OpenXRQuest]]
 
 `/app/build/outputs/apk`
 
 # version
-`12`
+[Android Releases  |  Android Developers](https://developer.android.com/about/versions?hl=ja)
+
+|Android| API level | device |
+|-|-|-|
+|13|| beta |
+| 12| 31| pixel3a |
+
 - [java - Android Studio error: "Manifest merger failed: Apps targeting Android 12" - Stack Overflow](https://stackoverflow.com/questions/67412084/android-studio-error-manifest-merger-failed-apps-targeting-android-12)
 
 
