@@ -144,3 +144,12 @@ export XDG_MUSIC_DIR=$HOME/Music
 # source C:\Users\ousttrue\AppData\Roaming\dystroy\broot\config\launcher\bash\br
 # source /home/ousttrue/.config/broot/launcher/bash/br
 
+# export JAVA_HOME=/usr/lib/jvm/java-18-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+export ANDROID_HOME=/opt/android-sdk
+path_push "$ANDROID_HOME/tools"
+path_push "$ANDROID_HOME/platform-tools"
+# export ANDROID_NDK_HOME=/opt/android-ndk-r10d
+# path_push $ANDROID_NDK_HOME
+
+source /home/ousttrue/.config/broot/launcher/bash/br
