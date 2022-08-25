@@ -218,83 +218,85 @@
           </label>
         </div>
         <article role="main">
-          <p>[[wasm]]</p>
+          <p>[[OpenGL]]
+[[wasm]]</p>
 <p><a class="reference external" href="https://www.khronos.org/webgl/">WebGL Overview - The Khronos Group Inc</a></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/KhronosGroup/WebGL/blob/main/specs/2.0.0/webgl2.idl">WebGL/webgl2.idl at main · KhronosGroup/WebGL · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://webglfundamentals.org/webgl/lessons/webgl-less-code-more-fun.html">WebGL - Less Code, More Fun</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API">WebGL: 2D and 3D graphics for the web - Web APIs | MDN</a></p>
+<ul>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial">WebGL tutorial - Web APIs | MDN</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context">Adding 2D content to a WebGL context - Web APIs | MDN</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL">Using shaders to apply color in WebGL - Web APIs | MDN</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_objects_with_WebGL">Animating objects with WebGL - Web APIs | MDN</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL">Creating 3D objects using WebGL - Web APIs | MDN</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL">Using textures in WebGL - Web APIs | MDN</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL">Lighting in WebGL - Web APIs | MDN</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL">Animating textures in WebGL - Web APIs | MDN</a></p></li>
 </ul>
 <p>zig で WEBGL互換のラッパーライブラリを作る</p>
-<ul>
+<ul class="simple">
 <li><p>wasm WebGL2</p></li>
 <li><p>Windows/Linux glfw OpenGL4</p></li>
-<li><p>android OpenGL ES3</p>
-<p>https://webglfundamentals.org/webgl/lessons/webgl-less-code-more-fun.html</p>
-<p>https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
-https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial
-https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context
-https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL
-https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_objects_with_WebGL
-https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL
-https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL
-https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL
-https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL</p>
-</li>
+<li><p>android OpenGL ES3</p></li>
+<li><p><a class="reference external" href="https://www.hypertextcandy.com/live-reload-web-servers">ファイルの変更を監視して自動リロードするローカルWebサーバーの起動方法3選 | Hypertext Candy</a></p></li>
 </ul>
-<p>[* live server]
-https://www.hypertextcandy.com/live-reload-web-servers</p>
-<p>[* vscode]</p>
 <p><code class="docutils literal notranslate"><span class="pre">"editor.formatOnSave":</span> <span class="pre">true</span></code></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://marketplace.visualstudio.com/items?itemName=daiyy.quick-html-previewer
-</pre></div>
-</div>
-<p>[* hello]
-code:index.html</p>
-<body>
-<canvas height="480" id="glCanvas" width="640"></canvas>
-</body>
-<script src="renderer.js"></script>
-<script>
-     const renderer = new Renderer("#glCanvas");
-     renderer.frame();
- </script>
-<p>code:renderer.js
-class Renderer {</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> constructor(canvas_id) {
-     const canvas = document.querySelector(canvas_id);
-     this.gl = canvas.getContext("webgl2");
-     if (this.gl === null) {
-         alert("Unable to initialize WebGL. Your browser or machine may not support it.");
+<ul class="simple">
+<li><p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=daiyy.quick-html-previewer">Quick HTML Previewer - Visual Studio Marketplace</a></p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span> <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">"glCanvas"</span> <span class="na">width</span><span class="o">=</span><span class="s">"640"</span> <span class="na">height</span><span class="o">=</span><span class="s">"480"</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+ <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"renderer.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+     <span class="kd">const</span> <span class="nx">renderer</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Renderer</span><span class="p">(</span><span class="s2">"#glCanvas"</span><span class="p">);</span>
+     <span class="nx">renderer</span><span class="p">.</span><span class="nx">frame</span><span class="p">();</span>
+ <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+code:renderer.js
+ class Renderer {
+ 
+     constructor(canvas_id) {
+         const canvas = document.querySelector(canvas_id);
+         this.gl = canvas.getContext("webgl2");
+         if (this.gl === null) {
+             alert("Unable to initialize WebGL. Your browser or machine may not support it.");
+         }
+     }
+ 
+     // animation
+     update(time_ms) {
+         const angle = time_ms * 0.001 * Math.PI;
+         this.bg = Math.sin(angle) + 1;
+         this.clear_color = [this.bg, this.bg, this.bg, 1];
+     }
+ 
+     // draw
+     render(gl) {
+         // Set clear color to black, fully opaque
+         gl.clearColor(...this.clear_color);
+         // Clear the color buffer with specified clear color
+         gl.clear(gl.COLOR_BUFFER_BIT);
+     }
+ 
+     frame() {
+         this.update(Date.now());
+         this.render(this.gl);
+         requestAnimationFrame(() =&gt; { this.frame(); });
      }
  }
-
- // animation
- update(time_ms) {
-     const angle = time_ms * 0.001 * Math.PI;
-     this.bg = Math.sin(angle) + 1;
-     this.clear_color = [this.bg, this.bg, this.bg, 1];
- }
-
- // draw
- render(gl) {
-     // Set clear color to black, fully opaque
-     gl.clearColor(...this.clear_color);
-     // Clear the color buffer with specified clear color
-     gl.clear(gl.COLOR_BUFFER_BIT);
- }
-
- frame() {
-     this.update(Date.now());
-     this.render(this.gl);
-     requestAnimationFrame(() =&gt; { this.frame(); });
- }
 </pre></div>
 </div>
-<p>}</p>
-<p>[* matrix]
-https://sbfl.net/blog/2018/02/05/webgl-matrixgl/#i-2
-http://glmatrix.net/
-https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection
-https://github.com/infusion/Quaternion.js/</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sbfl.net/blog/2018/02/05/webgl-matrixgl/#i-2">WebGL用のJavaScript行列計算ライブラリMatrixGLを公開しました</a></p></li>
+<li><p><a class="reference external" href="http://glmatrix.net/">glMatrix</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection">WebGL model view projection - Web APIs | MDN</a></p></li>
+<li><p><a class="reference external" href="https://github.com/infusion/Quaternion.js/">GitHub - infusion/Quaternion.js: A JavaScript Quaternion library</a></p></li>
+</ul>
 
         </article>
       </div>

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>browser - shell note ドキュメント</title>
+        <title>Type - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -221,14 +221,24 @@
           <p>wasm debug</p>
 <p>[[zig]]</p>
 <p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/WebAssembly">WebAssembly | MDN</a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="type">
+<h1>Type<a class="headerlink" href="#type" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://webassembly.org/">WebAssembly</a></p></li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/WebAssembly/Using_the_JavaScript_API">Using the WebAssembly JavaScript API - WebAssembly | MDN</a></p></li>
-<li><p><a class="reference external" href="https://github.com/WebAssembly/binaryen">GitHub - WebAssembly/binaryen: Compiler infrastructure and toolchain library for WebAssembly</a></p></li>
-<li><p><a class="reference external" href="https://github.com/WebAssembly/wabt">GitHub - WebAssembly/wabt: The WebAssembly Binary Toolkit</a></p></li>
-<li><p>https://github.com/wasm3/wasm3</p></li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/ja/docs/WebAssembly/Loading_and_running">WebAssemblyコードのロードと実行 - WebAssembly | MDN</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i32</span></code>, <code class="docutils literal notranslate"><span class="pre">i64</span></code>, <code class="docutils literal notranslate"><span class="pre">f32</span></code>, <code class="docutils literal notranslate"><span class="pre">f64</span></code></p></li>
 </ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="module">
+<h1>module<a class="headerlink" href="#module" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="memory">
+<h2>memory<a class="headerlink" href="#memory" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="export">
+<h2>export<a class="headerlink" href="#export" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="import">
+<h2>import<a class="headerlink" href="#import" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="browser">
 <h1>browser<a class="headerlink" href="#browser" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>wasm に対して browser の関数をエクスポートするには関数ポインタを代入する。</p>
@@ -246,36 +256,12 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compile">WebAssembly.compile() - JavaScript | MDN</a></p></li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module">WebAssembly.Module - JavaScript | MDN</a></p></li>
-</ul>
-<section id="imports">
-<h2>imports<a class="headerlink" href="#imports" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">WebAssembly</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">bufferSource</span><span class="p">,</span> <span class="n">importObject</span><span class="p">);</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module/imports">WebAssembly.Module.imports() - JavaScript | MDN</a></p></li>
-<li><p><a class="reference external" href="https://dev.to/chikoski/emscripten-c-c-js-57fb">Emscripten で C/C++ から JS の関数を呼ぶには - DEV Community</a></p></li>
-</ul>
 </section>
-<section id="exports">
-<h2>exports<a class="headerlink" href="#exports" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>wasm が browser に公開する</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// or access the buffer contents of an exported memory:</span>
-<span class="kd">var</span> <span class="nx">i32</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Uint32Array</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">instance</span><span class="p">.</span><span class="nx">exports</span><span class="p">.</span><span class="nx">memory</span><span class="p">.</span><span class="nx">buffer</span><span class="p">);</span>
-
-<span class="c1">// or access the elements of an exported table:</span>
-<span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">instance</span><span class="p">.</span><span class="nx">exports</span><span class="p">.</span><span class="nx">table</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">table</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">)());</span>
-</pre></div>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="text">
+<h1>text形式<a class="headerlink" href="#text" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory">WebAssembly.Memory() - JavaScript | MDN</a></p></li>
-<li><p><a class="reference external" href="https://hacks.mozilla.org/2017/07/memory-in-webassembly-and-why-its-safer-than-you-think/">Memory in WebAssembly (and why it’s safer than you think) - Mozilla Hacks - the Web developer blog</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/ja/docs/WebAssembly/Understanding_the_text_format">WebAssembly テキスト形式の理解 - WebAssembly | MDN</a></p></li>
 </ul>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="debgger">
 <h1>debgger<a class="headerlink" href="#debgger" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -290,6 +276,7 @@
 <section class="tex2jax_ignore mathjax_ignore" id="articles">
 <h1>articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
+<li><p><a class="reference external" href="https://tyfkda.github.io/blog/2021/02/04/c-on-browser.html">【WASM】Cコンパイラをブラウザ上で動かす - Kludge Factory</a></p></li>
 <li><p><a class="reference external" href="http://calmery.hatenablog.com/entry/2017/03/08/222513">WebAssemblyを試してみた - Calmery.me</a></p></li>
 <li><p><a class="reference external" href="https://ukyo.github.io/wasm-usui-book/webroot/intro.html">まえがき | WEBASSEMBLY USUI BOOK</a></p></li>
 <li><p><a class="reference external" href="https://blog.wnotes.net/posts/webassembly-lua/">LuaをWebAssemblyにコンパイルして実行する話 - blog::wnotes.net</a></p></li>
@@ -331,11 +318,15 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">browser</a><ul>
-<li><a class="reference internal" href="#imports">imports</a></li>
-<li><a class="reference internal" href="#exports">exports</a></li>
+<li><a class="reference internal" href="#">Type</a></li>
+<li><a class="reference internal" href="#module">module</a><ul>
+<li><a class="reference internal" href="#memory">memory</a></li>
+<li><a class="reference internal" href="#export">export</a></li>
+<li><a class="reference internal" href="#import">import</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#browser">browser</a></li>
+<li><a class="reference internal" href="#text">text形式</a></li>
 <li><a class="reference internal" href="#debgger">debgger</a></li>
 <li><a class="reference internal" href="#articles">articles</a></li>
 </ul>

@@ -1,37 +1,33 @@
+[[OpenGL]]
 [[wasm]]
 
 [WebGL Overview - The Khronos Group Inc](https://www.khronos.org/webgl/)
 - [WebGL/webgl2.idl at main · KhronosGroup/WebGL · GitHub](https://github.com/KhronosGroup/WebGL/blob/main/specs/2.0.0/webgl2.idl)
+
+- [WebGL - Less Code, More Fun](https://webglfundamentals.org/webgl/lessons/webgl-less-code-more-fun.html)
+- [WebGL: 2D and 3D graphics for the web - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
+	- [WebGL tutorial - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial)
+	- [Adding 2D content to a WebGL context - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context)
+	- [Using shaders to apply color in WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL)
+- [Animating objects with WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_objects_with_WebGL)
+- [Creating 3D objects using WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL)
+- [Using textures in WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL)
+- [Lighting in WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL)
+- [Animating textures in WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL)
 
 zig で WEBGL互換のラッパーライブラリを作る
 - wasm WebGL2
 - Windows/Linux glfw OpenGL4
 - android OpenGL ES3
 
-	https://webglfundamentals.org/webgl/lessons/webgl-less-code-more-fun.html
-
-	https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
-		https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial
-		https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context
-  https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL
-  https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_objects_with_WebGL
-  https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL
-  https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL
-  https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL
-		https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL
-
-[* live server]
-https://www.hypertextcandy.com/live-reload-web-servers
-
-[* vscode]
+- [ファイルの変更を監視して自動リロードするローカルWebサーバーの起動方法3選 | Hypertext Candy](https://www.hypertextcandy.com/live-reload-web-servers)
 
 `"editor.formatOnSave": true`
 
-	https://marketplace.visualstudio.com/items?itemName=daiyy.quick-html-previewer
+- [Quick HTML Previewer - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=daiyy.quick-html-previewer)
 
 
-[* hello]
-code:index.html
+```html
  <body>
      <canvas id="glCanvas" width="640" height="480"></canvas>
  </body>
@@ -73,9 +69,10 @@ code:renderer.js
          requestAnimationFrame(() => { this.frame(); });
      }
  }
+```
 
-[* matrix]
-	https://sbfl.net/blog/2018/02/05/webgl-matrixgl/#i-2
-	http://glmatrix.net/
- 	https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection
-	https://github.com/infusion/Quaternion.js/
+- [WebGL用のJavaScript行列計算ライブラリMatrixGLを公開しました](https://sbfl.net/blog/2018/02/05/webgl-matrixgl/#i-2)
+- [glMatrix](http://glmatrix.net/)
+- [WebGL model view projection - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection)
+- [GitHub - infusion/Quaternion.js: A JavaScript Quaternion library](https://github.com/infusion/Quaternion.js/)
+
