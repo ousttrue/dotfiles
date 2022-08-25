@@ -3,15 +3,18 @@ wasm debug
 [[zig]]
 
 [WebAssembly | MDN](https://developer.mozilla.org/en-US/docs/WebAssembly)
-- [WebAssembly](https://webassembly.org/)
-- [Using the WebAssembly JavaScript API - WebAssembly | MDN](https://developer.mozilla.org/en-US/docs/WebAssembly/Using_the_JavaScript_API)
-- [GitHub - WebAssembly/binaryen: Compiler infrastructure and toolchain library for WebAssembly](https://github.com/WebAssembly/binaryen)
-- [GitHub - WebAssembly/wabt: The WebAssembly Binary Toolkit](https://github.com/WebAssembly/wabt)
-- https://github.com/wasm3/wasm3
-- [WebAssemblyコードのロードと実行 - WebAssembly | MDN](https://developer.mozilla.org/ja/docs/WebAssembly/Loading_and_running)
+
+
+# Type
+-   `i32`, `i64`, `f32`, `f64`
+
+# module
+
+## memory
+## export
+## import
 
 # browser
-
 wasm に対して browser の関数をエクスポートするには関数ポインタを代入する。
 
 ```js
@@ -29,35 +32,8 @@ const value = instance.exports.add(1, 2);
 console.log(value);
 ```
 
-- [WebAssembly.compile() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compile)
-- [WebAssembly.Module - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module)
-
-
-## imports
-```
-WebAssembly.instantiate(bufferSource, importObject);
-```
-
-
-- [WebAssembly.Module.imports() - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module/imports)
-- [Emscripten で C/C++ から JS の関数を呼ぶには - DEV Community](https://dev.to/chikoski/emscripten-c-c-js-57fb)
-
-## exports
-
-wasm が browser に公開する
-
-```js
-// or access the buffer contents of an exported memory:
-var i32 = new Uint32Array(obj.instance.exports.memory.buffer);
-
-// or access the elements of an exported table:
-var table = obj.instance.exports.table;
-console.log(table.get(0)());
-```
-
-- [WebAssembly.Memory() - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory)
-- [Memory in WebAssembly (and why it’s safer than you think) - Mozilla Hacks - the Web developer blog](https://hacks.mozilla.org/2017/07/memory-in-webassembly-and-why-its-safer-than-you-think/)
-
+# text形式
+- [WebAssembly テキスト形式の理解 - WebAssembly | MDN](https://developer.mozilla.org/ja/docs/WebAssembly/Understanding_the_text_format)
 
 # debgger
 
@@ -66,6 +42,7 @@ console.log(table.get(0)());
 * [WebAssemblyでもブラウザでステップ実行ができるようになってたので寄り道しながら頑張った話 - Qiita](https://qiita.com/lempiji/items/462cce79dab8166fa5a5)
 
 # articles
+- [【WASM】Cコンパイラをブラウザ上で動かす - Kludge Factory](https://tyfkda.github.io/blog/2021/02/04/c-on-browser.html)
 - [WebAssemblyを試してみた - Calmery.me](http://calmery.hatenablog.com/entry/2017/03/08/222513)
 - [まえがき | WEBASSEMBLY USUI BOOK](https://ukyo.github.io/wasm-usui-book/webroot/intro.html)
 - [LuaをWebAssemblyにコンパイルして実行する話 - blog::wnotes.net](https://blog.wnotes.net/posts/webassembly-lua/)

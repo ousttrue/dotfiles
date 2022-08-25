@@ -12,6 +12,10 @@
 
 imgui は `@cImport`
 
+# OpenGL
+- [GitHub - mypalmike/zigNeHe: NeHe OpenGL tutorials, ported to the Zig language.](https://github.com/mypalmike/zigNeHe)
+
+
 ## graphics
 
 - <https://git.yx.mk/hexops/mach>
