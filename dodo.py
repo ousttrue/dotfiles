@@ -370,12 +370,17 @@ if IS_WINDOWS:
 
 else:
 
+    if PLATFORM == Platforms.FreeBSD:
+        gmake = 'gmake'
+    else:
+        gmake = 'make'
+
     class neovim(GitBuildTask):
         repository = neovim_ghq
         actions = [
-            'gmake CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=~/local" -j 4',
+            f'{gmake} CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=~/local" -j 4',
             'mkdir -p ~/local/bin',
-            'gmake install',
+            f'{gmake} install',
         ]
         targets = [HOME_DIR / 'local/bin/nvim']
 

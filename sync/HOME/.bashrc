@@ -16,6 +16,7 @@ path_unshift "$HOME/.local/bin"
 path_unshift "$HOME/local/bin"
 path_unshift "$HOME/go/bin"
 path_unshift "$HOME/cargo/bin"
+path_unshift "$HOME/local/src/zig"
 if [ -v MSYSTEM ]; then
     # msys
     path_push "/c/Python310/Scripts"
@@ -54,8 +55,10 @@ function _update_ps1() {
   PS1="$(powerline-shell $?)\n$ "
 }
 
-if [[ `which poweline-shell > /dev/null` && $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+if which powerline-shell > /dev/null 2>&1; then
+    if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+        PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+    fi
 fi
 
 #
@@ -141,3 +144,12 @@ export XDG_MUSIC_DIR=$HOME/Music
 # source C:\Users\ousttrue\AppData\Roaming\dystroy\broot\config\launcher\bash\br
 # source /home/ousttrue/.config/broot/launcher/bash/br
 
+# export JAVA_HOME=/usr/lib/jvm/java-18-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+export ANDROID_HOME=/opt/android-sdk
+path_push "$ANDROID_HOME/tools"
+path_push "$ANDROID_HOME/platform-tools"
+# export ANDROID_NDK_HOME=/opt/android-ndk-r10d
+# path_push $ANDROID_NDK_HOME
+
+source /home/ousttrue/.config/broot/launcher/bash/br
