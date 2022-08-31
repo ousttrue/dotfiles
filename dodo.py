@@ -648,7 +648,7 @@ else:
 class wezterm_ghq(GitCloneTask):
     user = 'wez'
     repository = 'wezterm'
-    patches = [DOTFILES / 'wezterm.patch']
+    # patches = [DOTFILES / 'wezterm.patch']
 
 
 class wezterm(GitBuildTask):

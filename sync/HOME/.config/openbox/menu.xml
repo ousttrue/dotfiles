@@ -177,6 +177,9 @@
   <item label="Reconfigure Openbox">
     <action name="Reconfigure" />
   </item>
+  <item label="barrier">
+    <action name="Execute"><command>barrier</command></action>
+  </item>
 </menu>
 
 <menu id="root-menu" label="Openbox 3">
