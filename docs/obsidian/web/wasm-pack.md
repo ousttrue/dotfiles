@@ -1,3 +1,5 @@
+[[wasm]]
+
 wasm-pack
 #rust #wasm
 
