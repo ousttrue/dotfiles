@@ -36,6 +36,7 @@ console.log(value);
 - [WebAssembly テキスト形式の理解 - WebAssembly | MDN](https://developer.mozilla.org/ja/docs/WebAssembly/Understanding_the_text_format)
 
 # debgger
+-  [Chrome ウェブストア - 拡張機能](https://chrome.google.com/webstore/detail/cc%20%20-devtools-support-dwa/pdcpmagijalfljmkmjngeonclgbbannb)
 
 - [Debugging WebAssembly with modern tools - Chrome Developers](https://developers.google.com/web/updates/2020/12/webassembly)
 - [Improved WebAssembly debugging in Chrome DevTools - Chrome Developers](https://developers.google.com/web/updates/2019/12/webassembly)
