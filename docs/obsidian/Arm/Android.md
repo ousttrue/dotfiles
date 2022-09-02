@@ -1,3 +1,4 @@
+[[arm_snapdragon]]
 [[zig]]
 [[OpenXRQuest]]
 
@@ -10,6 +11,12 @@
 |-|-|-|
 |13|| beta |
 | 12| 31| pixel3a |
+|7||nougat|
+|6||lolipop|
+|5|||
+|4||ICS|
+|3||gingerbred|
+
 
 - [java - Android Studio error: "Manifest merger failed: Apps targeting Android 12" - Stack Overflow](https://stackoverflow.com/questions/67412084/android-studio-error-manifest-merger-failed-apps-targeting-android-12)
 
