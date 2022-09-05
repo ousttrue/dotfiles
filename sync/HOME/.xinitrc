@@ -16,7 +16,9 @@ if which ibus-daemon > /dev/null 2>&1; then
     ibus-daemon -drx
 fi
 
-if which tint2 > /dev/null 2>&1; then
+if which polybar > /dev/null 2>&1; then
+    polybar&
+elif which tint2 > /dev/null 2>&1; then
     tint2&
 fi
 
@@ -32,5 +34,7 @@ if which mpd > /dev/null 2>&1; then
     mpd
 fi
 
+# exec startlxqt
 exec openbox-session
+# exec berry
 
