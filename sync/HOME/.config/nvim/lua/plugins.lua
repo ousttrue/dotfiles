@@ -384,4 +384,6 @@ cmap <C-j> <Plug>(skkeleton-toggle)
     }
 
     use "ziglang/zig.vim"
+    use "Fymyte/rasi.vim"
+
 end)
