@@ -1,0 +1,5 @@
+[[statusbar]]
+[[launcher]]
+[[openbox]]
+[[xfce4]]
+[[xterm]]
