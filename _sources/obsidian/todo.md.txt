@@ -1,2 +1,3 @@
-[[zig]]
+[[zig]] + [[OpenGL]] + [[wasm]]
 
+[[python]] + [[flask]] + [[Leaflet]]

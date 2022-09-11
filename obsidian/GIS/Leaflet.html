@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Format - shell note ドキュメント</title>
+        <title>Python - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,77 +212,26 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="format">
-<h1>Format<a class="headerlink" href="#format" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[geojson]]
-[[CityJSON]]
-[[CityGML]]</p>
-<section id="library">
-<h2>Library<a class="headerlink" href="#library" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[GDAL]]</p>
-</section>
-<section id="python">
-<h2>[[python]]<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h2>
+          <ul class="simple">
+<li><p><a class="reference external" href="https://leafletjs.com/">Leaflet - a JavaScript library for interactive maps</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/mitch0807/items/7ed4eaf6253a9b879ae7">地図ライブラリの本命「Leaflet」を5分で理解&amp;導入する - Qiita</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="python">
+<h1>Python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[folium]]</p>
+<p>python だと folium で簡単に地図が表示するところまではいける。
+が、そこで詰まる。</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://programminghistorian.org/en/lessons/mapping-with-python-leaflet">Web Mapping with Python and Leaflet | Programming Historian</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/Kanahiro/items/1e6647e7317626c2436e">LeafletとFlaskでシンプルなWebGISをつくった話 - Qiita</a>
-[[flask]] [[Leaflet]] [[Jinja2]]</p>
-<ul>
-<li><p><a class="reference external" href="https://github.com/Kanahiro/vanilla-gis-old">GitHub - Kanahiro/vanilla-gis-old: WebGIS - Leaflet.js based Simple using and looking map.</a></p></li>
+<li><p><a class="reference external" href="https://python.plainenglish.io/how-to-create-a-web-map-with-leaflet-and-python-de0200757d6c">How to Create a Web Map with Leaflet and Python | by EBISYS R&amp;D | Python in Plain English</a></p></li>
 </ul>
-</li>
-<li><p><a class="reference external" href="https://qiita.com/aimof/items/b4e4551d27abaf5bb258">【脱GIS】（Pythonとかで）地理空間情報、位置情報を扱うための情報まとめ【随時更新】 - Qiita</a>
-[[folium]]
-[[GeoDjango]]</p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="data">
-<h1>Data<a class="headerlink" href="#data" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[plateau]]</p>
-<section id="id1">
-<h2>国土地理院<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="http://nlftp.mlit.go.jp/ksj/">https://nlftp.mlit.go.jp/ksj/</a>
-<a class="reference external" href="https://marina.sys.wakayama-u.ac.jp/~tokoi/?date=20140907">床井研究室 - 地理院地図 3D を Oculus Rift で見てみる</a></p>
-</section>
-<section id="id2">
-<h2>渋谷<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://3dcel.com/">3D City Experience Lab.</a></p>
-</section>
-<section id="us">
-<h2>US<a class="headerlink" href="#us" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://github.com/opencitymodel/opencitymodel">GitHub - opencitymodel/opencitymodel: Open citygml data for the United States</a>
-<a class="reference external" href="http://www.naturalearthdata.com/downloads/">Natural Earth » Downloads - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales</a></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/domlysz/BlenderGIS">GitHub - domlysz/BlenderGIS: Blender addons to make the bridge between Blender and geographic data</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/warenashi/items/61fce7baf2af13d09420">WindowsにBlenderとBlender GISをインストールする - Qiita</a></p></li>
-</ul>
-<p><a class="reference external" href="https://minna.mieruka.city/halfarea-mesh/">2分の1の地域メッシュ（500mメッシュ） - 都市構造可視化計画 活用アイデア集</a></p>
-</section>
-<section id="id3">
-<h2>政府<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="http://cyberjapandata.gsi.go.jp/3d/index.html">立体地図（地理院地図3D・触地図）</a></p>
-<ul>
-<li><p><a class="reference external" href="http://marina.sys.wakayama-u.ac.jp/~tokoi/?date=20140907">床井研究室 - 地理院地図 3D を Oculus Rift で見てみる</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.e-stat.go.jp/gis">地図で見る統計(統計GIS) | 政府統計の総合窓口</a></p></li>
-</ul>
-</section>
-<section id="shp">
-<h2>.shp<a class="headerlink" href="#shp" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/c60evaporator/items/78b4148bac6afa4844f9">PythonでのShapefile（.shp）操作まとめ - Qiita</a></p></li>
-<li><p><a class="reference external" href="http://www.zopfco.de/entry/2016/12/22/002947">都道府県の画像アセットを全自動生成しよう。 - Zopfcode</a></p></li>
-</ul>
-</section>
+<p>Leaflet を自ら操作した方が話が早い。</p>
 </section>
 
         </article>
@@ -298,7 +247,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/GIS/GIS.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/GIS/Leaflet.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -306,36 +255,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Format</a><ul>
-<li><a class="reference internal" href="#library">Library</a></li>
-<li><a class="reference internal" href="#python">[[python]]</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#data">Data</a><ul>
-<li><a class="reference internal" href="#id1">国土地理院</a></li>
-<li><a class="reference internal" href="#id2">渋谷</a></li>
-<li><a class="reference internal" href="#us">US</a></li>
-<li><a class="reference internal" href="#id3">政府</a></li>
-<li><a class="reference internal" href="#shp">.shp</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
