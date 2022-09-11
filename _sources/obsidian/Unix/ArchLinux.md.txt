@@ -1,3 +1,5 @@
+[[pacman]]
+
 - [Arch Linux JP Project](https://www.archlinux.jp/)
 
 # AUR
