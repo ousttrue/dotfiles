@@ -1,3 +1,4 @@
+
 # Format
 [[geojson]]
 [[CityJSON]]
@@ -7,10 +8,13 @@
 [[GDAL]]
 
 ## [[python]]
+- [Web Mapping with Python and Leaflet | Programming Historian](https://programminghistorian.org/en/lessons/mapping-with-python-leaflet)
+- [LeafletとFlaskでシンプルなWebGISをつくった話 - Qiita](https://qiita.com/Kanahiro/items/1e6647e7317626c2436e)
+	[[flask]] [[Leaflet]] [[Jinja2]]
+	- [GitHub - Kanahiro/vanilla-gis-old: WebGIS - Leaflet.js based Simple using and looking map.](https://github.com/Kanahiro/vanilla-gis-old)
+- [【脱GIS】（Pythonとかで）地理空間情報、位置情報を扱うための情報まとめ【随時更新】 - Qiita](https://qiita.com/aimof/items/b4e4551d27abaf5bb258)
 [[folium]]
-[Introduction - GeoDjangoではじめる地理空間情報](https://homata.gitbook.io/geodjango/)
-[GeoDjango - Qiita](https://qiita.com/tags/geodjango)
-
+[[GeoDjango]]
 
 # Data
 [[plateau]]

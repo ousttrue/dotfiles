@@ -13,3 +13,4 @@
 [[python_lsp]]
 [[sphinx]]
 [[ranger]]
+[[flask]]

@@ -1,1 +1,4 @@
+[[PackageManager]]
+[[msys2]]
+
 - [GitHub - moson-mo/pacseek: A terminal user interface for searching and installing Arch Linux packages](https://github.com/moson-mo/pacseek)
