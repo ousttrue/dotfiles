@@ -1,3 +1,3 @@
 [[vnc]]
-[[rdp]]
+[[RDP]]
 [[spout]]
