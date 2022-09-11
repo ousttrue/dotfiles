@@ -140,6 +140,11 @@
 </menu>
 
 <menu id="system-menu" label="System">
+    <item label="Polybar">
+        <action name="Execute">
+            <command>~/.config/polybar/launch.sh</command>
+        </action>
+    </item>
   <item label="Openbox Configuration Manager">
     <action name="Execute">
       <command>obconf</command>
