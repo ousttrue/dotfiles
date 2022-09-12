@@ -1,28 +1,29 @@
-lua
-[https://www.lua.org/images/logo.gif]
+- [The Programming Language Lua](https://www.lua.org/)
 
-https://github.com/dibyendumajumdar/ravi
-bool
-`Both false and nil are considered false`
+- [GitHub - dibyendumajumdar/ravi: Ravi is a dialect of Lua, featuring limited optional static typing, JIT and AOT compilers](https://github.com/dibyendumajumdar/ravi)
 
-https://www.lua.org/docs.html
-	http://www.lua.inf.puc-rio.br/publications.html
+[Lua: documentation](https://www.lua.org/docs.html)
+- [LabLua - Programming Language Research](http://www.lua.inf.puc-rio.br/publications.html)
 
-https://qiita.com/dwarfJP/items/ae116b404be0b09255ff
-
-[** Versions]
+# Versions
 https://www.lua.org/versions.html
 
-[* 5.4]
+`5.4`
 http://www.lua.org/work/doc/#changes
 
-[* 5.3] 
+`5.3`
+- integer
 https://www.lua.org/manual/5.3/readme.html#changes
-	https://the-ravi-programming-language.readthedocs.io/en/latest/lua_bytecode_reference.html
-[* 5.2]
+- [Lua 5.3 Bytecode Reference — Ravi Programming Language 0.1 documentation](https://the-ravi-programming-language.readthedocs.io/en/latest/lua_bytecode_reference.html)
+	
+`5.2`
 https://www.lua.org/manual/5.2/readme.html#changes
-	http://files.catwell.info/misc/mirror/lua-5.2-bytecode-vm-dirk-laurie/lua52vm.html
-	https://j-7system.blog.so-net.ne.jp/2012-05-08 移植について
+- [files.catwell.info/misc/mirror/lua-5.2-bytecode-vm-dirk-laurie/lua52vm.html](http://files.catwell.info/misc/mirror/lua-5.2-bytecode-vm-dirk-laurie/lua52vm.html)
+- [Lua 5.2.0をNiosIIに移植する：如是我聞～これからＦＰＧＡの話をしよう～：SSブログ](https://j-7system.blog.so-net.ne.jp/2012-05-08) 
 
-[* 5.1] 
+`5.1`
 https://www.lua.org/manual/5.1/manual.html#7
+- [The LuaJIT Project](https://luajit.org/)
+- [LuaをNiosIIへ移植するメモ：如是我聞～これからＦＰＧＡの話をしよう～：SSブログ](https://j-7system.blog.ss-blog.jp/2012-05-06)
+
+# LanguageServer
