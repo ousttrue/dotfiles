@@ -2,8 +2,14 @@
 [[OpenGL_Text]]
 [[OpenGL_matrix]]
 
-- https://qiita.com/9ballsyndrome/items/7bae4f4cec8d26692d29
-- https://wlog.flatlib.jp/index.php?virtualpath=item/1637
+# Registry
+- [GitHub - KhronosGroup/OpenGL-Registry: OpenGL, OpenGL ES, and OpenGL ES-SC API and Extension Registry](https://github.com/KhronosGroup/OpenGL-Registry)
+
+## gl.xml
+
+- registry
+	- types
+	- enum
 
 # Buffer
 [[UBO]]
