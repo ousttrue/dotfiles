@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>SetConsoleMode - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,21 +212,41 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
           <p>[[conhost]] を代替する新しい API
-[[windows_terminal]]</p>
+[[windows_terminal]]
+[[vt100]]</p>
+<blockquote>
+<div><p>Windows 疑似コンソールは、疑似コンソール、ConPTY、または Windows PTY とも呼ばれ</p>
+</div></blockquote>
 <p>Windows10 <code class="docutils literal notranslate"><span class="pre">1903</span></code>
-from <code class="docutils literal notranslate"><span class="pre">17733</span></code> <code class="docutils literal notranslate"><span class="pre">1809</span></code>
-<a class="reference external" href="https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/">Windows Command-Line: Introducing the Windows Pseudo Console (ConPTY) - Windows Command Line</a></p>
+from <code class="docutils literal notranslate"><span class="pre">17733</span></code> <code class="docutils literal notranslate"><span class="pre">1809</span></code></p>
+<section class="tex2jax_ignore mathjax_ignore" id="setconsolemode">
+<h1>SetConsoleMode<a class="headerlink" href="#setconsolemode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/setconsolemode">SetConsoleMode 関数 - Windows Console | Microsoft Docs</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="input">
+<h1>Input<a class="headerlink" href="#input" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/reading-input-buffer-events">入力バッファー イベントの読み取り - Windows Console | Microsoft Docs</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="articles">
+<h1>Articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2018 <a class="reference external" href="https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/">Windows Command-Line: Introducing the Windows Pseudo Console (ConPTY) - Windows Command Line</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://devblogs.microsoft.com/commandline/24-bit-color-in-the-windows-console/">24-bit Color in the Windows Console! - Windows Command Line</a></p></li>
+</ul>
 <p>HOST側
 Client側 =&gt; VT</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://devblogs.microsoft.com/commandline/24-bit-color-in-the-windows-console/">24-bit Color in the Windows Console! - Windows Command Line</a></p></li>
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/createpseudoconsole">CreatePseudoConsole function - Windows Console | Microsoft Docs</a></p></li>
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions">Using the High-Level Input and Output Functions - Windows Console | Microsoft Docs</a></p></li>
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/creating-a-pseudoconsole-session#preparing-for-creation-of-the-child-process">Creating a Pseudoconsole session - Windows Console | Microsoft Docs</a></p></li>
@@ -237,6 +257,7 @@ Client側 =&gt; VT</p>
 <li><p><a class="reference external" href="https://github.com/microsoft/terminal/tree/master/samples/ConPTY/EchoCon">terminal/samples/ConPTY/EchoCon at main · microsoft/terminal · GitHub</a></p></li>
 <li><p><a class="reference external" href="https://github.com/waf/MiniTerm">GitHub - waf/MiniTerm: Experiments with the new Windows PTY APIs</a></p></li>
 </ul>
+</section>
 
         </article>
       </div>
@@ -259,8 +280,26 @@ Client側 =&gt; VT</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">SetConsoleMode</a></li>
+<li><a class="reference internal" href="#input">Input</a></li>
+<li><a class="reference internal" href="#articles">Articles</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
