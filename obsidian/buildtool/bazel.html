@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>zig - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -219,25 +219,18 @@
         </div>
         <article role="main">
           <ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://blog.kkty.jp/entry/2019/01/11/195601">libuvとは(特にイベントループについて) - kkty’s blog</a></p></li>
+<li><p><a class="reference external" href="https://bazel.build/">Bazel</a></p></li>
+<li><p><a class="reference external" href="https://zenn.dev/kesin11/books/c86010deb5b8008f394f/viewer/9eb544">Bazelの基本的な仕組み｜Bazelの解説（TS, Dockerイメージ、リモートキャッシュ）</a></p></li>
+<li><p><a class="reference external" href="https://www.flywheel.jp/topics/bazel_version_1_1_0/">ビルドツール「Bazel」について | フライウィール</a></p></li>
+<li><p><a class="reference external" href="https://note.com/npaka/n/n898f177e7a9e">Bazel 入門 (1) - 事始め｜npaka｜note</a></p></li>
 </ul>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;uv.h&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">uv_loop_t</span><span class="w"> </span><span class="o">*</span><span class="n">loop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">uv_loop_t</span><span class="p">));</span><span class="w"></span>
-<span class="w">    </span><span class="n">uv_loop_init</span><span class="p">(</span><span class="n">loop</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Now quitting.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">uv_run</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span><span class="w"> </span><span class="n">UV_RUN_DEFAULT</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">uv_loop_close</span><span class="p">(</span><span class="n">loop</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">loop</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="zig">
+<h1>zig<a class="headerlink" href="#zig" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[zig]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sr.ht/~motiejus/bazel-zig-cc/">bazel-zig-cc: bazel toolchain using zig-cc</a>]</p></li>
+</ul>
+</section>
 
         </article>
       </div>
@@ -252,7 +245,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/programming/libuv.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/buildtool/bazel.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
