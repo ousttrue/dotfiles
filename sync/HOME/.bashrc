@@ -10,6 +10,7 @@ path_push() {
     [ ! -d $1 ] || [ -z "${PATH##*$1*}" ] || export PATH=$PATH:$1
 }
 
+path_unshift "$HOME/zig"
 path_unshift "/usr/local/go/bin"
 path_push "$HOME/.deno/bin"
 path_unshift "$HOME/.local/bin"
@@ -153,3 +154,6 @@ path_push "$ANDROID_HOME/platform-tools"
 # path_push $ANDROID_NDK_HOME
 
 source /home/ousttrue/.config/broot/launcher/bash/br
+
+export PATH=$(printf %s "$PATH" | awk -v RS=: -v ORS=: '!arr[$0]++')
+

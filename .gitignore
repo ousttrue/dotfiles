@@ -3,3 +3,5 @@
 *.pyc
 .doit.*
 .mypy_cache
+zig-out
+zig-cache
