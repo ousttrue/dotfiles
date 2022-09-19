@@ -230,6 +230,34 @@
 <p><code class="docutils literal notranslate"><span class="pre">-filter:replies</span></code></p>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="stylus">
+<h1>stylus<a class="headerlink" href="#stylus" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">-moz-document</span><span class="w"> </span><span class="nt">url-prefix</span><span class="o">(</span><span class="s2">"https://twitter.com/"</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c">/* ここにコードを挿入... */</span><span class="w"></span>
+<span class="w">    </span><span class="nt">div</span><span class="o">[</span><span class="nt">aria-label</span><span class="o">=</span><span class="s2">"タイムライン: トレンド"</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="k">display</span><span class="p">:</span><span class="kc">none</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nt">div</span><span class="o">[</span><span class="nt">data-testid</span><span class="o">=</span><span class="s2">"placementTracking"</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">display</span><span class="p">:</span><span class="kc">none</span><span class="p">;</span><span class="w">    </span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">div</span><span class="o">[</span><span class="nt">aria-label</span><span class="o">*=</span><span class="s2">"いいね"</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">display</span><span class="p">:</span><span class="kc">none</span><span class="p">;</span><span class="w">    </span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">-moz-document</span><span class="w"> </span><span class="nt">domain</span><span class="o">(</span><span class="s2">"twitter.com"</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c">/* ここにコードを挿入... */</span><span class="w"></span>
+<span class="w">    </span><span class="nt">div</span><span class="o">[</span><span class="nt">aria-label</span><span class="o">=</span><span class="s2">"Timeline: Trending now"</span><span class="o">]</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
@@ -269,6 +297,7 @@
 <li><a class="reference internal" href="#replay">replay</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#stylus">stylus</a></li>
 </ul>
 
           </div>
