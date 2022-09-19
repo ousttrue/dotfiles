@@ -36,9 +36,10 @@
 [[sakura]]
 
 # GPU
-[[alacritty]]
-[[kitty]]
-[[wezterm]]
+- [[alacritty]]
+- [[kitty]]
+- [[wezterm]]
+- [GitHub - liamg/darktile: Darktile is a GPU rendered terminal emulator designed for tiling window managers.](https://github.com/liamg/darktile)
 
 # Other
 [[mlterm]]
