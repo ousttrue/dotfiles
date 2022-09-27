@@ -28,8 +28,11 @@ int main() {
 - [Big Sky :: libuvのループはリファレンスの減少でも止められる。](https://mattn.kaoriya.net/software/lang/c/20111213134522.htm)
 
 # tty
+## write(vt100 escape sequence)
 - [uv_tty_t — TTY handle — libuv documentation](http://docs.libuv.org/en/v1.x/tty.html)
 - [node.jsを支えるlibuvのチュートリアル"uvbook" :ユーティリティ - 自由課題](https://kimitok.hateblo.jp/entry/2014/04/24/231854)
+## read
+- [tty: read callback is called after closing · Issue #2012 · libuv/libuv · GitHub](https://github.com/libuv/libuv/issues/2012)
 
 # uv_pipe_t
 
