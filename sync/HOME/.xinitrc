@@ -1,13 +1,15 @@
 #!/bin/sh
 xrdb -merge ~/.Xresources
+
 if which xset > /dev/null 2>&1; then
     xset s off -dpms
 fi
-if which setxkbmap > /dev/null 2>&1; then
-    setxkbmap -option ctrl:nocaps
-fi
+#if which setxkbmap > /dev/null 2>&1; then
+#    #setxkbmap -option ctrl:nocaps
+#    setxkbmap jp
+#fi
 
-eval "$(dbus-launch --sh-syntax --exit-with-session)"
+#eval "$(dbus-launch --sh-syntax --exit-with-session)"
 
 if which ibus-daemon > /dev/null 2>&1; then
     export GTK_IM_MODULE=ibus
@@ -20,7 +22,9 @@ if which mpd > /dev/null 2>&1; then
     mpd
 fi
 
-# exec startlxqt
-exec openbox-session
+exec startlxqt
+# exec openbox-session
+# exec openbox
+# exec blackbox
 # exec berry
-
+# exec xterm

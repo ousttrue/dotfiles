@@ -69,9 +69,9 @@ fi
 #     export DISPLAY=localhost:0
 #     xrdb ~/.Xresources
 # fi
-if which setxkbmap > /dev/null 2>&1; then
-    setxkbmap -layout us
-fi
+#if which setxkbmap > /dev/null 2>&1; then
+#    setxkbmap -layout us
+#fi
 
 #
 # rust

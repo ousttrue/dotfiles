@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<labwc_config>
+
+  <keyboard>
+    <default />
+    <keybind key="W-d"><action name="Execute" command="foot" /></keybind>
+  </keyboard>
+
+</labwc_config>

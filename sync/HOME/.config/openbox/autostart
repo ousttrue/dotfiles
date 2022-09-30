@@ -16,8 +16,6 @@
 # If you want to use XFCE config tools...
 #
 #xfce-mcs-manager &
-#tint2&
-
 if which picom > /dev/null 2>&1; then
     picom -b
 fi
@@ -36,3 +34,7 @@ if which volumeicon > /dev/null 2>&1; then
     volumeicon&
 fi
 
+setxkbmap jp
+setxkbmap -model jp106 -layout jp
+
+xterm&
