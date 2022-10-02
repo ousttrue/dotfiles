@@ -1,5 +1,5 @@
 bake
-#blender
+[[blender]]
 
 https://3dgraph.me/modeling/draw-wrinkle-with-a-blender-sculpt-and-bake-normal-map/
 [プロシージャルテクスチャを画像に https://note.mu/lab1092/n/n4f8a8d81f8b7]
