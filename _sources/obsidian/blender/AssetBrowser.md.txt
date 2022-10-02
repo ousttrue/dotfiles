@@ -5,3 +5,6 @@
 [Blender 3.0から追加された「アセットブラウザ」の基本的な使い方をご紹介！ - TomoGのごちゃまぜ倉庫](https://www.tomog-storage.com/entry/Blender-Beginner-HowUseAssetBrowser)
 
 [[Blender 3.0] 新機能「Asset Browser」User Libraryの登録方法について重点的に説明していきます！ #098 - YouTube](https://www.youtube.com/watch?v=kIiWzUlKpvU&ab_channel=%E3%81%8A%E3%81%AE%E3%81%BCCG_OnoboCG)
+
+[[Blender]]
+[Blender 3.0 - Asset Browser for Beginners! - YouTube](https://www.youtube.com/watch?v=gJC0y6HqyAU)
