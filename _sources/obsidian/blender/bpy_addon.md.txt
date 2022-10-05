@@ -1,120 +1,89 @@
-bpy addon
-#blender #bpy #bpy.types.Panel
+[[blender]]
+[[modeling]]
 
-	https://docs.blender.org/api/blender_python_api_current/bpy.types.Operator.html
-	https://docs.blender.org/manual/en/latest/advanced/scripting/addon_tutorial.html
-	[【Blender 2.8 アドオン開発】004 Hello Blender AddOn https://memoteu.hatenablog.com/entry/2019/04/11/022255]
-	https://memoteu.hatenablog.com/entry/2019/05/08/160000
-	https://note.com/appai/n/n1026bd60e789
- [Blender の UI スクリプト集 http://dskjal.com/blender/ui-script.html]
-	http://qcganime.web.fc2.com/BLENDER/ADDON01.html
+# bl_info
 
-[* 命名規則]
-	class名
-	bl_idname ユニークになるように小文字でつける `{namespace}.{operator_name}`
+[Process/Addons/Guidelines/metainfo - Blender Developer Wiki](https://wiki.blender.org/wiki/Process/Addons/Guidelines/metainfo)
 
-Operator
-code:.py
- class MESH_OT_InsetStraightSkeleton(bpy.types.Operator):
-     bl_idname = "mesh.insetstraightskeleton"
-     bl_label = "Inset Straight Skeleton"
-     bl_description = "Make an inset inside selection using straight skeleton algorithm"
-     bl_options = {'UNDO', 'REGISTER', 'GRAB_CURSOR', 'BLOCKING'}
+```python
+bl_info = {
+     "name": "addons name",
+     "author": "suggypop",
+     "version": (0, 0, 1),
+     "blender": (2, 83, 0),
+     "location": "3D View",
+     "description": "アドオンの説明",
+     "warning": "これはサンプルのアドオンです",
+     "support": "TESTING",
+     "wiki_url": "",
+     "tracker_url": "",
+     "category": "Object"
+}
+```
 
-パネル
-code:.py
- class HelloWorldPanel(bpy.types.Panel):
-		# `[A-Z][A-Z0-9_]*_{Separator}_[A-Za-z0-9_]+`
-     bl_idname = "OBJECT_PT_hello_world"
+# fake-bpy-module
+- [GitHub - nutti/fake-bpy-module: Fake Blender Python API module collection for the code completion.](https://github.com/nutti/fake-bpy-module)
 
-サブパネル
-code:.py
- class OBJ_PT_import_transform(bpy.types.Panel):
-     bl_parent_id = "FILE_PT_operator" # sub panel
-     bl_space_type = 'FILE_BROWSER'
-     bl_region_type = 'TOOL_PROPS'
-     bl_label = "Transform"
+# folder
+- `INSTALL_DIR\2.80\scripts\addons`
+- `%USERPROFILE%\AppData\Roaming\Blender Foundation\Blender\2.79\scripts\addons`
 
-Exporter
-code:.py
- class ExportOBJ(bpy.types.Operator, ExportHelper):
-     """Save a Wavefront OBJ File""" 
-     bl_idname = "export_scene.obj" # 命名規則は？
-     bl_label = 'Export OBJ'
-     bl_options = {'PRESET'}
+# Operator
 
-Importer
-code:.py
- class ImportOBJ(bpy.types.Operator, ImportHelper):
-     """Load a Wavefront OBJ File"""
-     bl_idname = "import_scene.obj"
-     bl_label = "Import OBJ"
-     bl_options = {'PRESET', 'UNDO'}
+```python
+class MESH_OT_InsetStraightSkeleton(bpy.types.Operator):
+    bl_idname = "mesh.insetstraightskeleton"
+    bl_label = "Inset Straight Skeleton"
+    bl_description = "Make an inset inside selection using straight skeleton algorithm"
+    bl_options = {'UNDO', 'REGISTER', 'GRAB_CURSOR', 'BLOCKING'}
+```
 
+# パネル
+```python
+class HelloWorldPanel(bpy.types.Panel):
+	# `[A-Z][A-Z0-9_]*_{Separator}_[A-Za-z0-9_]+`
+    bl_idname = "OBJECT_PT_hello_world"
+```
 
-	`bl_info`
-	`bpy.types.Operator` の作成と登録 `bpy.utils.register_class(cls)`
-	`bpy.types.Panel` の作成と登録 `bpy.utils.register_class(cls)`
-		#bpy.types.Panel
+# サブパネル
 
-[* addon folder]
-	`INSTALL_DIR\2.80\scripts\addons`
-	`%USERPROFILE%\AppData\Roaming\Blender Foundation\Blender\2.79\scripts\addons`
+```python
+class OBJ_PT_import_transform(bpy.types.Panel):
+    bl_parent_id = "FILE_PT_operator" # sub panel
+    bl_space_type = 'FILE_BROWSER'
+    bl_region_type = 'TOOL_PROPS'
+    bl_label = "Transform"
+```
 
-code: addon.py
-	import bpy
-	
-	
-	class ObjectMoveX(bpy.types.Operator):
-    """My Object Moving Script"""
-    bl_idname = "object.move_x"
-    bl_label = "Move X by One"
-    bl_options = {'REGISTER', 'UNDO'}
-	
-    def execute(self, context):
-        scene = context.scene
-        for obj in scene.objects:
-            obj.location.x += 1.0
-	
-        return {'FINISHED'}
-	
-	def register():
-    bpy.utils.register_class(ObjectMoveX)
-	
-	def unregister():
-    bpy.utils.unregister_class(ObjectMoveX)
-	
-	
-	if __name__ == "__main__":
-    register()
+# Exporter
+```python
+class ExportOBJ(bpy.types.Operator, ExportHelper):
+    """Save a Wavefront OBJ File""" 
+    bl_idname = "export_scene.obj" # 命名規則は？
+    bl_label = 'Export OBJ'
+    bl_options = {'PRESET'}
+```
 
-とりあずこれで、`User Preferences - Add-ons`に表示されることを確認する。
-
-#blender
-
-	http://renderhjs.net/textools/blender/
-
-	Snap_Utilities_Line
-
-#blender
-
-	https://dskjal.com/blender/register-operation.html
-	https://dskjal.com/blender/python-script-tips.html
-
-	https://sites.google.com/site/matosus304blendernotes/home/download
+# Importer
+```python
+class ImportOBJ(bpy.types.Operator, ImportHelper):
+    """Load a Wavefront OBJ File"""
+    bl_idname = "import_scene.obj"
+    bl_label = "Import OBJ"
+    bl_options = {'PRESET', 'UNDO'}
+```
 
 
-[* addons]
-https://github.com/SavMartin/TexTools-Blender
-https://github.com/samytichadou/Auto_Reload_Blender_addon
+# register_class
+ `bpy.utils.register_class(cls)`
+ `bpy.utils.register_class(cls)`
 
-#blender
+# addons
 
-https://gumroad.com/l/spmxY
-
-https://modelinghappy.com/archives/28623
-
+- [TexTools](http://renderhjs.net/textools/blender/)
+- [GitHub - samytichadou/Auto_Reload_Blender_addon: Handy automatic reload for Image Textures](https://github.com/samytichadou/Auto_Reload_Blender_addon)
+- [Blender Add-on : Pose Library Thumbnails [ver2.0.4~]](https://gumroad.com/l/spmxY)
+- [「Sorcar」Blenderでプロシージャルモデリング出来るノードエディター - 3DCG最新情報サイト MODELING HAPPY](https://modelinghappy.com/archives/28623)
 
 AddOn紹介
 [https://www.youtube.com/watch?v=SC5qpe0Emmg]
-
