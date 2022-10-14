@@ -9,7 +9,11 @@ aliases: [nvim]
 [[nvim_diagnostics]]
 [[nvim_tree]]
 
-# v0.7.0 dev
+# v0.8.0
+- [Neovim 40個のおすすめオプション](https://jp.magicode.io/denx/articles/eb5a9c43526e4592937977bf3a959ad3)
+- winbar
+
+# v0.7.0
 - Tree-sitter integration (highlighting, folds)
 - Better file-change detection
 - TUI as a remote UI ($NVIM, --remote)
