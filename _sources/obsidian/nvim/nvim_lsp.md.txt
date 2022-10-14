@@ -1,3 +1,5 @@
+[Neovim+LSPをなるべく簡単な設定で構築する](https://zenn.dev/botamotch/articles/21073d78bc68bf)
+
 [Nvim documentation: lsp](https://neovim.io/doc/user/lsp.html)
 
 # 本体組み込み
