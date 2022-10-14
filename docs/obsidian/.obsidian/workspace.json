@@ -1,0 +1,156 @@
+{
+  "main": {
+    "id": "15912e52f3c5775a",
+    "type": "split",
+    "children": [
+      {
+        "id": "b9832679bb20e1ec",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b5ac21b80def348b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "editor/vim.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1b03a283e945a0e9",
+    "type": "split",
+    "children": [
+      {
+        "id": "7432b170e43edb0f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a69f4d2db1f79362",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2b5a14af738885c8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "void",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 365.5
+  },
+  "right": {
+    "id": "81970b00531257e5",
+    "type": "split",
+    "children": [
+      {
+        "id": "047003dda826022a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9d0151d048f43173",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "editor/vim.md",
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 2,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 1,
+                  "close": false
+                }
+              }
+            }
+          },
+          {
+            "id": "fd87a115fe589525",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "912c4b78e9999c46",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "editor/vim.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 909.5
+  },
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "b5ac21b80def348b",
+  "lastOpenFiles": [
+    "TERM/vim.md",
+    "nvim/nvim_lsp.md",
+    "nvim/neovim.md",
+    "text/ColorScheme.md",
+    "nvim_git.md",
+    "nvim/neovim 1.md",
+    "TERM/termbox2.md",
+    "TERM/tui.md",
+    "X11/DisplayManager.md",
+    "Unix/pacman.md"
+  ]
+}
