@@ -1,5 +1,7 @@
 [[SyntaxHighlight]]
 [[windows_terminal]]
+[[vim]]
+[[neovim]]
 
 # reserved
 1.  black  
@@ -32,3 +34,6 @@
 
 ## SemanticToken
 - [How To Customize Semantic Token Colorization With Visual Studio Code | by Dan Romans | Medium](https://medium.com/@danromans/how-to-customize-semantic-token-colorization-with-visual-studio-code-ac3eab96141b)
+
+# vim
+- [vim color schemeを自作する - Qiita](https://qiita.com/kyokio/items/ba3d832e95ab7f6d04df)
