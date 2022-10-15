@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "editor/vim.md",
+                "file": "nvim/neovim.md",
                 "mode": "source",
                 "source": false
               }
@@ -61,7 +61,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 365.5
+    "width": 258.5
   },
   "right": {
     "id": "81970b00531257e5",
@@ -77,7 +77,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "editor/vim.md",
+                "file": "nvim/neovim.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -100,7 +100,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 1,
+                  "scale": 0.6989606412938243,
                   "close": false
                 }
               }
@@ -120,7 +120,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "editor/vim.md",
+                "file": "nvim/neovim.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,22 +135,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 909.5
+    "width": 624.5
   },
   "ribbon": {
     "mostRecentAction": ""
   },
   "active": "b5ac21b80def348b",
   "lastOpenFiles": [
+    "nvim.md",
+    "editor/vim.md",
     "TERM/vim.md",
     "nvim/nvim_lsp.md",
     "nvim/neovim.md",
     "text/ColorScheme.md",
-    "nvim_git.md",
+    "nvim/nvim_git.md",
     "nvim/neovim 1.md",
     "TERM/termbox2.md",
-    "TERM/tui.md",
-    "X11/DisplayManager.md",
-    "Unix/pacman.md"
+    "TERM/tui.md"
   ]
 }
