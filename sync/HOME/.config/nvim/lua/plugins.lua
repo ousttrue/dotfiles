@@ -28,6 +28,12 @@ return require("packer").startup(function(use)
     -- }
 
     -- using packer.nvim
+
+    use {
+        "SmiteshP/nvim-navic",
+        requires = "neovim/nvim-lspconfig",
+    }
+
     use {
         "akinsho/bufferline.nvim",
         requires = "kyazdani42/nvim-web-devicons",
@@ -385,5 +391,4 @@ cmap <C-j> <Plug>(skkeleton-toggle)
 
     use "ziglang/zig.vim"
     use "Fymyte/rasi.vim"
-
 end)

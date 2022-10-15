@@ -1,17 +1,21 @@
 ---
 aliases: [nvim]
 ---
-[News - Neovim](https://neovim.io/news/)
-[Roadmap - Neovim](https://neovim.io/roadmap/)
+- [News - Neovim](https://neovim.io/news/)
+- [Roadmap - Neovim](https://neovim.io/roadmap/)
 
 [[nvim_packer]]
 [[nvim_lsp]]
 [[nvim_diagnostics]]
 [[nvim_tree]]
 
+# articles
+- [Learn Neovim The Practical Way. All articles on how to configure and… | by alpha2phi | Medium](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f#545a)
+
 # v0.8.0
 - [Neovim 40個のおすすめオプション](https://jp.magicode.io/denx/articles/eb5a9c43526e4592937977bf3a959ad3)
 - winbar
+- [https://twitter.com/neovim/status/1527849682570977282](https://twitter.com/neovim/status/1527849682570977282)
 
 # v0.7.0
 - Tree-sitter integration (highlighting, folds)
