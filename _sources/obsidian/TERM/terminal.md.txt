@@ -6,8 +6,11 @@
 [[terminfo]]
 [[stdio]]
 [[ioctl.h]]
+[[termbox]]
+[[termbox2]]
 
-[Text-Terminal-HOWTO](https://linuxjf.osdn.jp/JFdocs/Text-Terminal-HOWTO.html)
+- [Text-Terminal-HOWTO](https://linuxjf.osdn.jp/JFdocs/Text-Terminal-HOWTO.html)
+- [なぜ Control-/ がターミナルで使えないか調べたらターミナルの歴史を紐解くことになった](https://zenn.dev/takc923/articles/d2ec1fcd4ea66f)
 
 # 入力: main loop
 
