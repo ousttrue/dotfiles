@@ -1,3 +1,5 @@
+[[neovim]]
+
 vim
 - [NeoVim使いのためのnvim-lspconfig おすすめキーマッピングの紹介 - アルパカログ](https://alpacat.com/blog/nvim-lspconfig-key-mappings)
 - https://github.com/gelguy/wilder.nvim
