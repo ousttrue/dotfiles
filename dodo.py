@@ -95,6 +95,7 @@ CARGO_INSTALLS = {
     'zoxide': 'zoxide',
     'broot': 'broot',
     'fd-find': 'fd',
+    'wezterm': 'wezterm',
 }
 if IS_WINDOWS:
     CARGO_INSTALLS['lsd'] = 'lsd'
@@ -329,7 +330,7 @@ pacman = [
 class neovim_ghq(GitCloneTask):
     user = 'neovim'
     repository = 'neovim'
-    branch = 'v0.8.0'
+    # branch = 'v0.8.0'
     apts = [
         "ninja-build",
         "gettext",
