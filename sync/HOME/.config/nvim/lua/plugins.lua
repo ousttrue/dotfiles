@@ -104,6 +104,11 @@ function M.setup()
             },
             config = require("config.nvim-lspconfig").setup,
         }
+        use {
+            "folke/trouble.nvim",
+            requires = "nvim-tree/nvim-web-devicons",
+            config = require("config.trouble").setup,
+        }
 
         if packer_bootstrap then
             print "Restart Neovim required after installation!"
