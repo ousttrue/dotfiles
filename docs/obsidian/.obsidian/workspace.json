@@ -156,14 +156,14 @@
   "active": "c606d4567453d9c7",
   "lastOpenFiles": [
     "nvim/neovim.md",
-    "nvim/nvim_lsp.md",
+    "text/treesitter.md",
     "vim_plugins.md",
+    "nvim/nvim_lsp.md",
     "nvim/nvim_tree.md",
     "nvim.md",
     "editor/vim.md",
     "TERM/vim.md",
     "text/ColorScheme.md",
-    "nvim/nvim_git.md",
-    "nvim/neovim 1.md"
+    "nvim/nvim_git.md"
   ]
 }

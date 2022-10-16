@@ -41,5 +41,8 @@ vim.cmd [[
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
-]]require("plugins").setup()
+]]
+require("plugins").setup()
+
+vim.keymap.set("n", "q", ":close<CR>", { noremap = true })
 

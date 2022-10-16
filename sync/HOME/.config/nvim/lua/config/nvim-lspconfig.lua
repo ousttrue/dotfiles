@@ -14,5 +14,6 @@ function M.setup()
     }
 
     lspconfig.clangd.setup {}
+    lspconfig.pyright.setup {}
 end
 return M

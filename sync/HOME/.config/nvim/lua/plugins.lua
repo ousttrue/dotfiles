@@ -76,12 +76,32 @@ function M.setup()
             config = require("config.vim-commentary").setup,
         }
 
+        -- telescope
         use {
             "nvim-telescope/telescope.nvim",
             tag = "0.1.0",
             -- or                            , branch = '0.1.x',
             requires = "nvim-lua/plenary.nvim",
             config = require("config.telescope").setup,
+        }
+        use {
+            "nvim-telescope/telescope-frecency.nvim",
+            config = require "config.telescope-frecency".setup,
+            requires = { "kkharji/sqlite.lua" },
+        }
+
+        -- treesitter
+        use {
+            "nvim-treesitter/nvim-treesitter",
+            run = function()
+                require("nvim-treesitter.install").update { with_sync = true }
+            end,
+            config = require("config.nvim-treesitter").setup,
+        }
+
+        use {
+            "stevearc/aerial.nvim",
+            config = require("config.aerial").setup,
         }
 
         -- lsp
@@ -108,6 +128,10 @@ function M.setup()
             "folke/trouble.nvim",
             requires = "nvim-tree/nvim-web-devicons",
             config = require("config.trouble").setup,
+        }
+        use {
+            "jose-elias-alvarez/null-ls.nvim",
+            config = require("config.null-ls").setup,
         }
 
         if packer_bootstrap then
