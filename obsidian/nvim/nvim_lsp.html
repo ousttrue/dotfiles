@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>本体組み込み - shell note ドキュメント</title>
+        <title>mason - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,15 +218,24 @@
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://zenn.dev/botamotch/articles/21073d78bc68bf">Neovim+LSPをなるべく簡単な設定で構築する</a></p>
-<p><a class="reference external" href="https://neovim.io/doc/user/lsp.html">Nvim documentation: lsp</a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>本体組み込み<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>lua モジュール <code class="docutils literal notranslate"><span class="pre">vim.lsp</span></code>, <code class="docutils literal notranslate"><span class="pre">vim.diagnostics</span></code> などが本体組み込みでこれを <code class="docutils literal notranslate"><span class="pre">plugin</span></code> で制御する。</p>
+          <ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/botamotch/articles/21073d78bc68bf">Neovim+LSPをなるべく簡単な設定で構築する</a></p></li>
+<li><p><a class="reference external" href="https://neovim.io/doc/user/lsp.html">Nvim documentation: lsp</a></p></li>
+<li><p><a class="reference external" href="https://k0kubun.hatenablog.com/entry/neovim-lsp">Neovimを一瞬でVSCode並みに便利にする - k0kubun's blog</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="mason">
+<h1>mason<a class="headerlink" href="#mason" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/williamboman/mason.nvim">GitHub - williamboman/mason.nvim: Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/williamboman/mason-lspconfig.nvim">GitHub - williamboman/mason-lspconfig.nvim: Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim</a></p></li>
+<li><p><a class="reference external" href="https://zenn.dev/kawarimidoll/articles/367b78f7740e84">nvim-lsp-installerからmason.nvimへ移行する</a></p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="nvim-lspconfig">
 <h1>nvim-lspconfig<a class="headerlink" href="#nvim-lspconfig" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://github.com/neovim/nvim-lspconfig">GitHub - neovim/nvim-lspconfig: Quickstart configurations for the Nvim LSP client</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/neovim/nvim-lspconfig">GitHub - neovim/nvim-lspconfig: Quickstart configurations for the Nvim LSP client</a></p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="completion-locationlist-definition-hover">
 <h1>completion, locationlist, definition, hover...<a class="headerlink" href="#completion-locationlist-definition-hover" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -265,7 +274,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">本体組み込み</a></li>
+<li><a class="reference internal" href="#">mason</a></li>
 <li><a class="reference internal" href="#nvim-lspconfig">nvim-lspconfig</a></li>
 <li><a class="reference internal" href="#completion-locationlist-definition-hover">completion, locationlist, definition, hover...</a></li>
 </ul>

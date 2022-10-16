@@ -8,6 +8,7 @@ aliases: [nvim]
 [[nvim_lsp]]
 [[nvim_diagnostics]]
 [[nvim_tree]]
+[[vim_plugins]]
 
 # articles
 - [Learn Neovim The Practical Way. All articles on how to configure and… | by alpha2phi | Medium](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f#545a)
