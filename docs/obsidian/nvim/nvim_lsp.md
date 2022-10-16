@@ -11,5 +11,8 @@
 # nvim-lspconfig
 - [GitHub - neovim/nvim-lspconfig: Quickstart configurations for the Nvim LSP client](https://github.com/neovim/nvim-lspconfig)
 
+# null-ls
+- [[Neovim]null_ls.nvimを用いてNeovim上でLinter/Formtterを動かす🌵](https://zenn.dev/fukakusa_kadoma/articles/32884de923fca1)
+- [【Neovim】null-lsを導入してElixirのリンターcredoの実行結果を表示する](https://zenn.dev/koga1020/articles/583be482690a3c)
 
 # completion, locationlist, definition, hover...

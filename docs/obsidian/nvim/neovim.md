@@ -8,6 +8,7 @@ aliases: [nvim]
 [[nvim_lsp]]
 [[nvim_diagnostics]]
 [[nvim_tree]]
+[[nvim_terminal]]
 [[vim_plugins]]
 [[treesitter]]
 

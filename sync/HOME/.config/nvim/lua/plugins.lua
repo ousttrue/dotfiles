@@ -45,17 +45,12 @@ function M.setup()
             end,
         }
 
+        use { "rcarriga/nvim-notify" }
         use {
             "nvim-lualine/lualine.nvim",
             requires = "nvim-tree/nvim-web-devicons", -- optional, for file icons
             config = require("config.lualine").setup,
         }
-
-        use {
-            "sidebar-nvim/sidebar.nvim",
-            config = require("config.sidebar").setup,
-        }
-
         use {
             "akinsho/bufferline.nvim",
             tag = "v2.*",
@@ -81,8 +76,20 @@ function M.setup()
         }
 
         use {
-            "sbdchd/neoformat",
-            config = require("config.neoformat").setup,
+            "folke/todo-comments.nvim",
+            requires = "nvim-lua/plenary.nvim",
+            config = require("config.todo-comments").setup,
+        }
+
+        -- TODO: null-ls
+        -- use {
+        --     "sbdchd/neoformat",
+        --     config = require("config.neoformat").setup,
+        -- }
+
+        use {
+            "sidebar-nvim/sidebar.nvim",
+            config = require("config.sidebar").setup,
         }
 
         use {
@@ -118,6 +125,20 @@ function M.setup()
             config = require("config.aerial").setup,
         }
 
+        -- task
+        use {
+            "akinsho/toggleterm.nvim",
+            config = require("config.toggleterm").setup,
+        }
+        use {
+            "yutkat/taskrun.nvim",
+            config = require("config.taskrun").setup,
+        }
+        use {
+            "Shatur/neovim-tasks",
+            config = require("config.neovim-tasks").setup,
+        }
+
         -- cmp
         use {
             "hrsh7th/nvim-cmp",
@@ -128,6 +149,11 @@ function M.setup()
             },
             config = require("config.nvim-cmp").setup,
         }
+
+        -- lua
+        use "tjdevries/nlua.nvim"
+        -- c++
+        use "vim-scripts/a.vim"
 
         -- lsp
         use {
@@ -168,6 +194,9 @@ function M.setup()
         use "RRethy/vim-illuminate"
         use "weilbith/nvim-lsp-smag"
 
+        --
+        --
+        --
         if packer_bootstrap then
             print "Restart Neovim required after installation!"
             require("packer").sync()

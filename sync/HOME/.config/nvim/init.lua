@@ -37,12 +37,18 @@ opt.modeline = true
 
 -- Highlight on yank
 vim.cmd [[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
+augroup YankHighlight
+  autocmd!
+  autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+augroup end
 ]]
-require("plugins").setup()
 
 vim.keymap.set("n", "q", ":close<CR>", { noremap = true })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
+vim.keymap.set("n", "<S-f>", vim.lsp.buf.format, { noremap = true })
+vim.keymap.set("v", "<S-f>", vim.lsp.buf.format, { noremap = true })
+
+ 
+-- packer
+require("plugins").setup()

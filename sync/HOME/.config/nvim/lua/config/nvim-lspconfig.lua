@@ -16,7 +16,7 @@ function M.setup()
         capabilities[k] = v
     end
 
-    lspconfig.sumneko_lua.setup {
+      lspconfig.sumneko_lua.setup {
         settings = {
             Lua = {
                 diagnostics = {
