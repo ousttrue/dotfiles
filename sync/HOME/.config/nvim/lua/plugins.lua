@@ -37,9 +37,11 @@ function M.setup()
         use { "wbthomason/packer.nvim" }
 
         use {
-            "sainnhe/everforest",
+            -- "sainnhe/everforest",
+            "arcticicestudio/nord-vim",
             config = function()
-                vim.cmd "colorscheme everforest"
+                -- vim.cmd "colorscheme everforest"
+                vim.cmd "colorscheme nord"
             end,
         }
 
@@ -47,6 +49,18 @@ function M.setup()
             "nvim-lualine/lualine.nvim",
             requires = "nvim-tree/nvim-web-devicons", -- optional, for file icons
             config = require("config.lualine").setup,
+        }
+
+        use {
+            "sidebar-nvim/sidebar.nvim",
+            config = require("config.sidebar").setup,
+        }
+
+        use {
+            "akinsho/bufferline.nvim",
+            tag = "v2.*",
+            requires = "nvim-tree/nvim-web-devicons",
+            config = require("config.bufferline").setup,
         }
 
         use {
@@ -86,7 +100,7 @@ function M.setup()
         }
         use {
             "nvim-telescope/telescope-frecency.nvim",
-            config = require "config.telescope-frecency".setup,
+            config = require("config.telescope-frecency").setup,
             requires = { "kkharji/sqlite.lua" },
         }
 
@@ -104,7 +118,22 @@ function M.setup()
             config = require("config.aerial").setup,
         }
 
+        -- cmp
+        use {
+            "hrsh7th/nvim-cmp",
+            requires = {
+                "hrsh7th/cmp-nvim-lsp",
+                "hrsh7th/vim-vsnip",
+                "onsails/lspkind.nvim",
+            },
+            config = require("config.nvim-cmp").setup,
+        }
+
         -- lsp
+        use {
+            "folke/lsp-colors.nvim",
+            config = require("config.lsp-colors").setup,
+        }
         use {
             "williamboman/mason.nvim",
             config = require("config.mason").setup,
@@ -119,10 +148,13 @@ function M.setup()
                 "williamboman/mason.nvim",
                 "williamboman/mason-lspconfig.nvim",
                 "hrsh7th/nvim-cmp",
-                "hrsh7th/cmp-nvim-lsp",
-                "hrsh7th/vim-vsnip",
+                "nvim-lua/lsp-status.nvim",
             },
             config = require("config.nvim-lspconfig").setup,
+        }
+        use {
+            "kkharji/lspsaga.nvim",
+            config = require("config.lspsaga").setup,
         }
         use {
             "folke/trouble.nvim",
@@ -133,6 +165,8 @@ function M.setup()
             "jose-elias-alvarez/null-ls.nvim",
             config = require("config.null-ls").setup,
         }
+        use "RRethy/vim-illuminate"
+        use "weilbith/nvim-lsp-smag"
 
         if packer_bootstrap then
             print "Restart Neovim required after installation!"

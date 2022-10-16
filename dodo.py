@@ -2,10 +2,10 @@ import sys
 import pathlib
 import site
 from doit.action import CmdAction
-from doit_lib import (PLATFORM, Platforms, IS_WINDOWS, HOME_DIR, EXE, GitCloneTask, GitBuildTask,
-                      GHQ_GITHUB_DIR, condition, mkdir, traverse,
-                      SYNC_HOME_DIR, DOTFILES, mklink, check_link, download,
-                      extract)
+from doit_lib import (PLATFORM, Platforms, IS_WINDOWS, HOME_DIR, EXE,
+                      GitCloneTask, GitBuildTask, GHQ_GITHUB_DIR, condition,
+                      mkdir, traverse, SYNC_HOME_DIR, DOTFILES, mklink,
+                      check_link, download, extract)
 if IS_WINDOWS:
     from doit_lib import (SYNC_APPDATA_LOCAL_DIR, SYNC_APPDATA_ROAMING_DIR,
                           APPDATA_LOCAL_DIR, APPDATA_ROAMING_DIR)
@@ -247,6 +247,7 @@ class emoji_mlterm(GitBuildTask):
 
 
 if PLATFORM != Platforms.FreeBSD:
+
     def task_deno():
         if IS_WINDOWS:
             action = 'pwsh -c "iwr https://deno.land/x/install/install.ps1 -useb | iex"'
