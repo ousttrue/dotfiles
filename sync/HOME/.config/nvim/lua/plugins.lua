@@ -57,6 +57,15 @@ function M.setup()
             requires = "nvim-tree/nvim-web-devicons",
             config = require("config.bufferline").setup,
         }
+        use {
+            "kevinhwang91/nvim-hlslens",
+            config = require("config.nvim-hlslens").setup,
+        }
+        use {
+            "petertriho/nvim-scrollbar",
+            requires = "kevinhwang91/nvim-hlslens",
+            config = require("config.nvim-scrollbar").setup,
+        }
 
         use {
             "goolord/alpha-nvim",
@@ -80,12 +89,6 @@ function M.setup()
             requires = "nvim-lua/plenary.nvim",
             config = require("config.todo-comments").setup,
         }
-
-        -- TODO: null-ls
-        -- use {
-        --     "sbdchd/neoformat",
-        --     config = require("config.neoformat").setup,
-        -- }
 
         use {
             "sidebar-nvim/sidebar.nvim",

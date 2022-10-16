@@ -41,6 +41,8 @@ augroup YankHighlight
   autocmd!
   autocmd TextYankPost * silent! lua vim.highlight.on_yank()
 augroup end
+
+autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 ]]
 
 vim.keymap.set("n", "q", ":close<CR>", { noremap = true })
