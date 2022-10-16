@@ -44,6 +44,12 @@ function M.setup()
         }
 
         use {
+            "nvim-lualine/lualine.nvim",
+            requires = "nvim-tree/nvim-web-devicons", -- optional, for file icons
+            config = require("config.lualine").setup,
+        }
+
+        use {
             "goolord/alpha-nvim",
             config = require("config.alpha").setup,
         }
@@ -76,6 +82,27 @@ function M.setup()
             -- or                            , branch = '0.1.x',
             requires = "nvim-lua/plenary.nvim",
             config = require("config.telescope").setup,
+        }
+
+        -- lsp
+        use {
+            "williamboman/mason.nvim",
+            config = require("config.mason").setup,
+        }
+        use {
+            "williamboman/mason-lspconfig.nvim",
+            config = require("config.mason-lspconfig").setup,
+        }
+        use {
+            "neovim/nvim-lspconfig",
+            requires = {
+                "williamboman/mason.nvim",
+                "williamboman/mason-lspconfig.nvim",
+                "hrsh7th/nvim-cmp",
+                "hrsh7th/cmp-nvim-lsp",
+                "hrsh7th/vim-vsnip",
+            },
+            config = require("config.nvim-lspconfig").setup,
         }
 
         if packer_bootstrap then

@@ -74,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 258.5
+    "width": 236.5
   },
   "right": {
     "id": "81970b00531257e5",
@@ -155,15 +155,15 @@
   },
   "active": "c606d4567453d9c7",
   "lastOpenFiles": [
-    "nvim/nvim_tree.md",
     "nvim/neovim.md",
+    "nvim/nvim_lsp.md",
+    "vim_plugins.md",
+    "nvim/nvim_tree.md",
     "nvim.md",
     "editor/vim.md",
     "TERM/vim.md",
-    "nvim/nvim_lsp.md",
     "text/ColorScheme.md",
     "nvim/nvim_git.md",
-    "nvim/neovim 1.md",
-    "TERM/termbox2.md"
+    "nvim/neovim 1.md"
   ]
 }
