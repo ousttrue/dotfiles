@@ -12,5 +12,7 @@ function M.setup()
             },
         },
     }
+
+    lspconfig.clangd.setup {}
 end
 return M

@@ -6,6 +6,19 @@ function M.setup()
     require("nvim-tree").setup {
         renderer = {
             indent_width = 1,
+            icons = {
+                glyphs = {
+                    git = {
+                        unstaged = "",
+                        staged = "✓",
+                        unmerged = "",
+                        renamed = "➜",
+                        untracked = "ﰂ",
+                        deleted = "ﯰ",
+                        ignored = "◌",
+                    },
+                },
+            },
         },
     }
 end
