@@ -29,29 +29,30 @@ def task_create_link():
         }
 
     if IS_WINDOWS:
-        for src in traverse(SYNC_APPDATA_ROAMING_DIR):
-            target = src.relative_to(SYNC_APPDATA_ROAMING_DIR)
-            dst = APPDATA_ROAMING_DIR / target
-            yield {
-                'name': target,
-                # 'file_dep': [src],
-                'targets': [dst],
-                'actions': [(mklink, [src])],
-                'uptodate': [(check_link, (src, dst))],
-                'verbosity': 2,
-            }
+        pass
+        #for src in traverse(SYNC_APPDATA_ROAMING_DIR):
+        #    target = src.relative_to(SYNC_APPDATA_ROAMING_DIR)
+        #    dst = APPDATA_ROAMING_DIR / target
+        #    yield {
+        #        'name': target,
+        #        # 'file_dep': [src],
+        #        'targets': [dst],
+        #        'actions': [(mklink, [src])],
+        #        'uptodate': [(check_link, (src, dst))],
+        #        'verbosity': 2,
+        #    }
 
-        for src in traverse(SYNC_APPDATA_LOCAL_DIR):
-            target = src.relative_to(SYNC_APPDATA_LOCAL_DIR)
-            dst = APPDATA_LOCAL_DIR / target
-            yield {
-                'name': target,
-                # 'file_dep': [src],
-                'targets': [dst],
-                'actions': [(mklink, [src])],
-                'uptodate': [(check_link, (src, dst))],
-                'verbosity': 2,
-            }
+        #for src in traverse(SYNC_APPDATA_LOCAL_DIR):
+        #    target = src.relative_to(SYNC_APPDATA_LOCAL_DIR)
+        #    dst = APPDATA_LOCAL_DIR / target
+        #    yield {
+        #        'name': target,
+        #        # 'file_dep': [src],
+        #        'targets': [dst],
+        #        'actions': [(mklink, [src])],
+        #        'uptodate': [(check_link, (src, dst))],
+        #        'verbosity': 2,
+        #    }
 
 
 GO_BIN = '/usr/local/go/bin/go'
@@ -353,22 +354,23 @@ class neovim_ghq(GitCloneTask):
 
 
 if IS_WINDOWS:
-    from cmake import CMAKE_BIN_DIR
-    cmake = f'{CMAKE_BIN_DIR}\\cmake.exe'
+    pass
+    # from cmake import CMAKE_BIN_DIR
+    # cmake = f'{CMAKE_BIN_DIR}\\cmake.exe'
 
-    class neovim(GitBuildTask):
-        repository = neovim_ghq
-        actions = [
-            # deps
-            f'{cmake} -S %(git_dir)s/third-party -B %(git_dir)s/.deps -DCMAKE_BUILD_TYPE=RelWithDebInfo',
-            f'{cmake} --build %(git_dir)s/.deps --config RelWithDebInfo',
-            # nvim
-            f'{cmake} -S %(git_dir)s -B %(git_dir)s/build -DCMAKE_BUILD_TYPE=RelWithDebInfo',
-            f'{cmake} --build %(git_dir)s/build --config RelWithDebInfo',
-            # install
-            f'{cmake} --install %(git_dir)s/build --config RelWithDebInfo --prefix {HOME_DIR / "local"}',
-        ]
-        targets = [HOME_DIR / f'local/bin/nvim{EXE}']
+    # class neovim(GitBuildTask):
+    #     repository = neovim_ghq
+    #     actions = [
+    #         # deps
+    #         f'{cmake} -S %(git_dir)s/third-party -B %(git_dir)s/.deps -DCMAKE_BUILD_TYPE=RelWithDebInfo',
+    #         f'{cmake} --build %(git_dir)s/.deps --config RelWithDebInfo',
+    #         # nvim
+    #         f'{cmake} -S %(git_dir)s -B %(git_dir)s/build -DCMAKE_BUILD_TYPE=RelWithDebInfo',
+    #         f'{cmake} --build %(git_dir)s/build --config RelWithDebInfo',
+    #         # install
+    #         f'{cmake} --install %(git_dir)s/build --config RelWithDebInfo --prefix {HOME_DIR / "local"}',
+    #     ]
+    #     targets = [HOME_DIR / f'local/bin/nvim{EXE}']
 
 else:
 
@@ -702,7 +704,7 @@ DOIT_CONFIG = {
         'create_link',
         'deno',
         # 'pip',
-        'neovim',
+        # 'neovim',
         'fzf',
         'skk_dictionary',
         # 'sumneko_lua_language_server',

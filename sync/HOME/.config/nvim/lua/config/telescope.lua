@@ -11,10 +11,10 @@ function M.setup()
     }
 
     local builtin = require "telescope.builtin"
-    local frecency = require("telescope").extensions.frecency
-    local function frecency_cwd()
-        frecency.frecency { workspace = "CWD" }
-    end
+    -- local frecency = require("telescope").extensions.frecency
+    -- local function frecency_cwd()
+    --     frecency.frecency { workspace = "CWD" }
+    -- end
     local function git_files_untracked()
         builtin.git_files { show_untracked = true }
     end

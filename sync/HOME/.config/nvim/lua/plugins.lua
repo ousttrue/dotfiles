@@ -109,11 +109,11 @@ function M.setup()
       requires = "nvim-lua/plenary.nvim",
       config = require("config.telescope").setup,
     }
-    use {
-      "nvim-telescope/telescope-frecency.nvim",
-      config = require("config.telescope-frecency").setup,
-      requires = { "kkharji/sqlite.lua" },
-    }
+    -- use {
+    --   "nvim-telescope/telescope-frecency.nvim",
+    --   config = require("config.telescope-frecency").setup,
+    --   requires = { "kkharji/sqlite.lua" },
+    -- }
 
     -- treesitter
     use {
