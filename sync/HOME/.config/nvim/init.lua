@@ -46,6 +46,8 @@ autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 ]]
 
 -- vim.keymap.set("n", "q", ":close<CR>", { noremap = true })
+vim.keymap.set("n", "[", ":bp<CR>", { noremap = true })
+vim.keymap.set("n", "]", ":bn<CR>", { noremap = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- lsp
@@ -64,8 +66,10 @@ vim.keymap.set("n", "ge", vim.diagnostic.open_float, { noremap = true })
 vim.keymap.set("n", "g]", vim.diagnostic.goto_next, { noremap = true })
 vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, { noremap = true })
 -- LSP handlers
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true })
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  { virtual_text = true }
+)
 
 -- packer
 require("plugins").setup()

@@ -208,7 +208,7 @@ def task_fzf():
         },
         'actions': [
             install,
-            f'mkdir -p {HOME_DIR}/local/bin',
+            # f'mkdir -p {HOME_DIR}/local/bin',
             f'cp %(git_dir)s/bin/fzf{EXE} %(targets)s',
         ],
         'uptodate': [result_dep('fzf_ghq')],

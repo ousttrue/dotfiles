@@ -83,6 +83,8 @@ function M.setup()
       config = require("config.alpha").setup,
     }
 
+    use "andreshazard/vim-logreview"
+
     use {
       "TimUntersberger/neogit",
       requires = "nvim-lua/plenary.nvim",

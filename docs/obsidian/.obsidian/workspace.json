@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "nvim/nvim_lsp.md",
+                "file": "vim_plugins.md",
                 "mode": "source",
                 "source": false
               }
@@ -90,7 +90,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "nvim/nvim_lsp.md",
+                "file": "vim_plugins.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -113,7 +113,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.6989606412938243,
+                  "scale": 1.160290656453026,
                   "close": false
                 }
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "nvim/nvim_lsp.md",
+                "file": "vim_plugins.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,15 +155,15 @@
   },
   "active": "c606d4567453d9c7",
   "lastOpenFiles": [
-    "vim_plugins.md",
-    "nvim/nvim_lsp.md",
-    "nvim/nvim_terminal.md",
     "nvim/neovim.md",
+    "programming/msys2.md",
+    "nvim/nvim_lsp.md",
+    "vim_plugins.md",
+    "nvim/nvim_terminal.md",
     "text/treesitter.md",
     "nvim/nvim_tree.md",
     "nvim.md",
     "editor/vim.md",
-    "TERM/vim.md",
-    "text/ColorScheme.md"
+    "TERM/vim.md"
   ]
 }
