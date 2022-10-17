@@ -1,4 +1,4 @@
-- [Neovim+LSPをなるべく簡単な設定で構築する](https://zenn.dev/botamotch/articles/21073d78bc68bf)
+- @2022 `0.7.2` [Neovim+LSPをなるべく簡単な設定で構築する](https://zenn.dev/botamotch/articles/21073d78bc68bf)
 - [Nvim documentation: lsp](https://neovim.io/doc/user/lsp.html)
 - [Neovimを一瞬でVSCode並みに便利にする - k0kubun's blog](https://k0kubun.hatenablog.com/entry/neovim-lsp)
 - @2019 [NeovimのBuiltin LSPを使ってみる - Qiita](https://qiita.com/slin/items/2b43925065de3b9a6d3b)
