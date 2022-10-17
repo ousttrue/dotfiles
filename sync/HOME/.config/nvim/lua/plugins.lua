@@ -172,7 +172,7 @@ function M.setup()
       requires = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/vim-vsnip",
-        "onsails/lspkind.nvim",
+        -- "onsails/lspkind.nvim",
       },
       config = require("config.nvim-cmp").setup,
     }
