@@ -46,6 +46,11 @@ function M.setup()
       end,
     }
 
+    use {
+      "norcalli/nvim-colorizer.lua",
+      -- config = require("nvim-colorizer").setup,
+    }
+
     use { "rcarriga/nvim-notify" }
     use {
       "nvim-lualine/lualine.nvim",
@@ -66,6 +71,11 @@ function M.setup()
       "petertriho/nvim-scrollbar",
       requires = "kevinhwang91/nvim-hlslens",
       config = require("config.nvim-scrollbar").setup,
+    }
+
+    use {
+      "famiu/bufdelete.nvim",
+      config = require("config.bufdelete").setup,
     }
 
     use {
@@ -123,10 +133,23 @@ function M.setup()
       end,
       config = require("config.nvim-treesitter").setup,
     }
-
+    use {
+      "yioneko/nvim-yati",
+      requires = "nvim-treesitter/nvim-treesitter",
+      config = require("config.nvim-yati").setup,
+    }
+    use {
+      "nvim-treesitter/nvim-treesitter-context",
+      config = require("config.nvim-treesitter-context").setup,
+    }
     use {
       "stevearc/aerial.nvim",
       config = require("config.aerial").setup,
+    }
+    use {
+      "m-demare/hlargs.nvim",
+      requires = { "nvim-treesitter/nvim-treesitter" },
+      config = require("config.hlargs").setup,
     }
 
     -- task

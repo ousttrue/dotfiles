@@ -45,7 +45,7 @@ augroup end
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 ]]
 
-vim.keymap.set("n", "q", ":close<CR>", { noremap = true })
+-- vim.keymap.set("n", "q", ":close<CR>", { noremap = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- lsp
