@@ -221,7 +221,7 @@ function M.setup()
       config = require("config.null-ls").setup,
     }
     use "RRethy/vim-illuminate"
-    use "weilbith/nvim-lsp-smag"
+    -- use "weilbith/nvim-lsp-smag"
     use {
       "j-hui/fidget.nvim",
       config = require("config.fidget").setup,
