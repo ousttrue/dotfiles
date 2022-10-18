@@ -85,10 +85,16 @@ function M.setup()
 
     use "andreshazard/vim-logreview"
 
+    -- git
     use {
       "TimUntersberger/neogit",
       requires = "nvim-lua/plenary.nvim",
       config = require("config.neogit").setup,
+    }
+    use {
+      "lewis6991/gitsigns.nvim",
+      -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+      -- config = require("gitsigns").setup,
     }
 
     use {
@@ -174,6 +180,7 @@ function M.setup()
       requires = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/vim-vsnip",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
         -- "onsails/lspkind.nvim",
       },
       config = require("config.nvim-cmp").setup,
