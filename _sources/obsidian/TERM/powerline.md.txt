@@ -1,5 +1,5 @@
 [[wezterm]]
-[[vim]]
+[[vim 1]]
 [[tmux]]
 
 # powerline-shell
