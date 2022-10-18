@@ -220,7 +220,8 @@ function M.setup()
       config = require("config.nvim-lspconfig").setup,
     }
     use {
-      "kkharji/lspsaga.nvim",
+      "glepnir/lspsaga.nvim",
+      branch = "main",
       config = require("config.lspsaga").setup,
     }
     use {
