@@ -48,6 +48,8 @@ autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 vim.keymap.set("n", "q", ":close<CR>", { noremap = true })
 vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
 vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
+vim.keymap.set("n", "<C-j>", ":bnext<CR>", { noremap = true })
+vim.keymap.set("n", "<C-k>", ":bprev<CR>", { noremap = true })
 vim.keymap.set("n", "[c", ":cp<CR>", { noremap = true })
 vim.keymap.set("n", "]c", ":cn<CR>", { noremap = true })
 vim.keymap.set("n", "<S-Tab>", ":cp<CR>", { noremap = true })
@@ -56,11 +58,12 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 vim.keymap.set("n", "<C-B>", ":make<CR>", { noremap = true })
 
 -- lsp
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { noremap = true })
 vim.keymap.set("n", "<S-f>", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("v", "<S-f>", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "<space>f", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
-vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { noremap = true })
+vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
 vim.keymap.set("n", "gf", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
@@ -86,8 +89,10 @@ vim.keymap.set("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_wo
 -- vim.keymap.set("n", "<space>q", vim.diagnostic.set_loclist, { noremap = true })
 
 -- LSP handlers
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true })
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  { virtual_text = true }
+)
 
 -- packer
 require("plugins").setup()
