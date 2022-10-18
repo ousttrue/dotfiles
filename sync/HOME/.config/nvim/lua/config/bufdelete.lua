@@ -6,7 +6,7 @@ function M.setup()
         bufdelete.bufdelete(0, true)
     end
 
-    vim.keymap.set("n", "q", d, { noremap = true })
+    vim.keymap.set("n", "Q", d, { noremap = true })
 end
 
 return M

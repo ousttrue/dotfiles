@@ -45,7 +45,7 @@ augroup end
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 ]]
 
--- vim.keymap.set("n", "q", ":close<CR>", { noremap = true })
+vim.keymap.set("n", "q", ":close<CR>", { noremap = true })
 vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
 vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
 vim.keymap.set("n", "[c", ":cp<CR>", { noremap = true })
