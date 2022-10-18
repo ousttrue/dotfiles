@@ -1,4 +1,4 @@
-[[vim]]
+[[vim 1]]
 [[neovim|nvim]]
 
 # articles

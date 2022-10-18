@@ -13,19 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "nvim/neovim.md",
+                "file": "vim/neovim.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "c606d4567453d9c7",
+            "id": "119af5ff185b8f0b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "vim_plugins.md",
+                "file": "vim/vim_quickfix.md",
                 "mode": "source",
                 "source": false
               }
@@ -90,7 +90,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "vim_plugins.md",
+                "file": "vim/vim_quickfix.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -133,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vim_plugins.md",
+                "file": "vim/vim_quickfix.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,17 +153,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "c606d4567453d9c7",
+  "active": "119af5ff185b8f0b",
   "lastOpenFiles": [
-    "nvim/neovim.md",
-    "programming/msys2.md",
-    "nvim/nvim_lsp.md",
-    "vim_plugins.md",
-    "nvim/nvim_terminal.md",
-    "text/treesitter.md",
-    "nvim/nvim_tree.md",
+    "todo.md",
+    "ip.md",
+    "vim/vim.md",
+    "vim/vim 1.md",
+    "vim/neovim.md",
+    "vim/vim_quickfix.md",
+    "vim/vim_plugins.md",
     "nvim.md",
-    "editor/vim.md",
-    "TERM/vim.md"
+    "programming/msys2.md",
+    "vim/nvim_lsp.md"
   ]
 }
