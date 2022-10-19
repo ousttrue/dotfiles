@@ -55,7 +55,7 @@ vim.keymap.set("n", "]c", ":cn<CR>", { noremap = true })
 vim.keymap.set("n", "<S-Tab>", ":cp<CR>", { noremap = true })
 vim.keymap.set("n", "<Tab>", ":cn<CR>", { noremap = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
-vim.keymap.set("n", "<C-B>", ":make<CR>", { noremap = true })
+vim.keymap.set("n", "<C-S-B>", ":make<CR>", { noremap = true })
 
 -- lsp
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { noremap = true })

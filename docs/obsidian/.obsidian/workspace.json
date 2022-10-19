@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "vim/neovim.md",
+                "file": "vim/vim_plugins.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,14 +25,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "vim/nvim_lsp.md",
+                "file": "vim/null-ls.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -90,7 +89,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "vim/nvim_lsp.md",
+                "file": "vim/vim_plugins.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -113,7 +112,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.8109975013216395,
+                  "scale": 0.8109975013216388,
                   "close": false
                 }
               }
@@ -133,7 +132,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vim/nvim_lsp.md",
+                "file": "vim/vim_plugins.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -148,22 +147,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 624.5
+    "width": 769.5
   },
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "119af5ff185b8f0b",
+  "active": "b5ac21b80def348b",
   "lastOpenFiles": [
+    "todo.md",
+    "vim/null-ls.md",
+    "vim/neovim.md",
+    "vim/nvim_lsp.md",
+    "vim 1.md",
     "vim/vim_plugins.md",
     "Zettelkasten.md",
-    "vim/nvim_lsp.md",
     "Untitled.md",
-    "null-ls.md",
     "nullls.md",
-    "vim/vim_quickfix.md",
-    "todo.md",
-    "ip.md",
-    "vim/vim.md"
+    "vim/vim_quickfix.md"
   ]
 }

@@ -1,7 +1,8 @@
 [[vim 1]]
-[[neovim|nvim]]
+	[[neovim|nvim]]
 
 # articles
+- [GitHub - rockerBOO/awesome-neovim: Collections of awesome neovim plugins.](https://github.com/rockerBOO/awesome-neovim)
 - @2022 [ワシの使っているNeovimプラグインは200個近くあるぞ](https://zenn.dev/yutakatay/articles/neovim-plugins-2022)
 - @2022 [neovimの棚卸をして、LSP対応やらファインダーの変更やら色々やった - joker1007’s diary](https://joker1007.hatenablog.com/entry/2022/09/03/172957)
 

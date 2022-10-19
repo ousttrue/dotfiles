@@ -3,7 +3,14 @@ local M = {}
 function M.setup()
     -- vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", { noremap = true })
     vim.keymap.set("n", "<Leader>e", ":NvimTreeFindFileToggle<CR>", { noremap = true })
+
     require("nvim-tree").setup {
+        sync_root_with_cwd = true,
+        respect_buf_cwd = true,
+        update_focused_file = {
+            enable = true,
+            update_root = true,
+        },
         view = {
             float = {
                 enable = true,

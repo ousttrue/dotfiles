@@ -50,6 +50,7 @@ function M.setup()
       "norcalli/nvim-colorizer.lua",
       -- config = require("nvim-colorizer").setup,
     }
+    use "yutkat/confirm-quit.nvim"
 
     use { "rcarriga/nvim-notify" }
     use {
@@ -72,6 +73,7 @@ function M.setup()
       requires = "kevinhwang91/nvim-hlslens",
       config = require("config.nvim-scrollbar").setup,
     }
+    use { "kevinhwang91/nvim-bqf" }
 
     use {
       "famiu/bufdelete.nvim",
@@ -103,8 +105,20 @@ function M.setup()
     -- }
 
     use {
+      "klen/nvim-config-local",
+      config = require("config.config-local").setup,
+    }
+
+    use {
+      "ahmedkhalf/project.nvim",
+      config = require("config.project").setup,
+    }
+
+    use {
       "nvim-tree/nvim-tree.lua",
-      requires = "nvim-tree/nvim-web-devicons", -- optional, for file icons
+      requires = {
+        "nvim-tree/nvim-web-devicons",
+      },
       config = require("config.nvim-tree").setup,
     }
 
@@ -129,7 +143,9 @@ function M.setup()
       "nvim-telescope/telescope.nvim",
       tag = "0.1.0",
       -- or                            , branch = '0.1.x',
-      requires = "nvim-lua/plenary.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim",
+      },
       config = require("config.telescope").setup,
     }
     -- use {
