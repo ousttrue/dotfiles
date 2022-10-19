@@ -8,3 +8,7 @@
 
 # project
 - [Neovim - Project Local Config with exrc.nvim | by Munif Tanjim | Medium](https://muniftanjim.medium.com/neovim-project-local-config-with-exrc-nvim-42ebcb859809)
+
+# write
+## floating window
+- [How to write neovim plugins in Lua | 2n](https://www.2n.pl/blog/how-to-write-neovim-plugins-in-lua)

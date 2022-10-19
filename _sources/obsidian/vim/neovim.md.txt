@@ -9,12 +9,17 @@ aliases: [nvim]
 [[nvim_diagnostics]]
 [[nvim_tree]]
 [[nvim_terminal]]
+[[nvim_lua]]
 [[vim_plugins]]
 [[treesitter]]
 
 - [Lsp - Neovim docs](https://neovim.io/doc/user/lsp.html)
 
 ---
+
+```sh
+nvim +Tutor
+```
 
 # articles
 - [Learn Neovim The Practical Way. All articles on how to configure and… | by alpha2phi | Medium](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f#545a)
