@@ -10,6 +10,7 @@ function M.setup()
   }
   -- telescope.load_extension("ghq")
   telescope.load_extension "projects"
+  telescope.load_extension "packer"
 
   local builtin = require "telescope.builtin"
   -- local frecency = require("telescope").extensions.frecency

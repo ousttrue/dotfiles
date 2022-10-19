@@ -11,7 +11,7 @@ function M.setup()
   }
 
   -- Hover Doc
-  keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true,  noremap=true })
+  -- keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true,  noremap=true })
 
   -- Example:
   local function get_file_name(include_path)

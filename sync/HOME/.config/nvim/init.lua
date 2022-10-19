@@ -45,6 +45,9 @@ augroup end
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 ]]
 
+vim.keymap.set("n", "<S-F>", "<C-i>", { noremap = true })
+vim.keymap.set("n", "<S-B>", "<C-o>", { noremap = true })
+
 vim.keymap.set("n", "q", ":close<CR>", { noremap = true })
 vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
 vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
@@ -59,8 +62,8 @@ vim.keymap.set("n", "<C-S-B>", ":make<CR>", { noremap = true })
 
 -- lsp
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { noremap = true })
-vim.keymap.set("n", "<S-f>", vim.lsp.buf.format, { noremap = true })
-vim.keymap.set("v", "<S-f>", vim.lsp.buf.format, { noremap = true })
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { noremap = true })
+vim.keymap.set("v", "<leader>f", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "<space>f", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })

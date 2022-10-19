@@ -2,7 +2,7 @@
 
 [[python]] + [[flask]] + [[Leaflet]]
 
-# [[nvim]]
+# [[neovim|nvim]]
 ## [[vim_plugins]]
 - [ ] project 単位の設定
 

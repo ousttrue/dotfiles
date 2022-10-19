@@ -139,6 +139,7 @@ function M.setup()
     }
 
     -- telescope
+    use "nvim-telescope/telescope-packer.nvim"
     use {
       "nvim-telescope/telescope.nvim",
       tag = "0.1.0",

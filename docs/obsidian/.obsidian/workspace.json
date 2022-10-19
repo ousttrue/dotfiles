@@ -154,15 +154,15 @@
   },
   "active": "b5ac21b80def348b",
   "lastOpenFiles": [
-    "todo.md",
-    "vim/null-ls.md",
     "vim/neovim.md",
+    "vim/vim_plugins.md",
+    "vim/nvim_lua.md",
+    "todo.md",
+    "nvim.md",
+    "vim/null-ls.md",
     "vim/nvim_lsp.md",
     "vim 1.md",
-    "vim/vim_plugins.md",
     "Zettelkasten.md",
-    "Untitled.md",
-    "nullls.md",
-    "vim/vim_quickfix.md"
+    "Untitled.md"
   ]
 }
