@@ -103,6 +103,10 @@ function M.setup()
     --     "sindrets/diffview.nvim",
     --     requires = "nvim-lua/plenary.nvim",
     -- }
+    use {
+      "rhysd/git-messenger.vim",
+      config = require("config.git-messenger").setup,
+    }
 
     use {
       "klen/nvim-config-local",

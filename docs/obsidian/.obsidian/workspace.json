@@ -13,19 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "vim/vim_plugins.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "119af5ff185b8f0b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "vim/null-ls.md",
+                "file": "vim/nvim_floating.md",
                 "mode": "source",
                 "source": false
               }
@@ -73,7 +61,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 236.5
+    "width": 220.5
   },
   "right": {
     "id": "81970b00531257e5",
@@ -89,7 +77,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "vim/vim_plugins.md",
+                "file": "vim/nvim_floating.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -112,7 +100,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.8109975013216388,
+                  "scale": 0.6780252644037237,
                   "close": false
                 }
               }
@@ -132,7 +120,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vim/vim_plugins.md",
+                "file": "vim/nvim_floating.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,22 +135,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 769.5
+    "width": 787.5
   },
   "ribbon": {
     "mostRecentAction": ""
   },
   "active": "b5ac21b80def348b",
   "lastOpenFiles": [
+    "nvim.md",
     "vim/neovim.md",
+    "todo.md",
+    "Unix/ip.md",
+    "Untitled.md",
+    "vim/nvim_floating.md",
+    "vim/null-ls.md",
     "vim/vim_plugins.md",
     "vim/nvim_lua.md",
-    "todo.md",
-    "nvim.md",
-    "vim/null-ls.md",
-    "vim/nvim_lsp.md",
-    "vim 1.md",
-    "Zettelkasten.md",
-    "Untitled.md"
+    "vim/nvim_lsp.md"
   ]
 }

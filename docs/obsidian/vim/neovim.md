@@ -12,6 +12,7 @@ aliases: [nvim]
 [[nvim_lua]]
 [[vim_plugins]]
 [[treesitter]]
+[[nvim_floating]]
 
 - [Lsp - Neovim docs](https://neovim.io/doc/user/lsp.html)
 
