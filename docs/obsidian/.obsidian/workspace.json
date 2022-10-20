@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "vim/nvim_floating.md",
+                "file": "vim/neovim.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "vim/nvim_floating.md",
+                "file": "vim/neovim.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -88,8 +88,16 @@
                   "showTags": false,
                   "showAttachments": false,
                   "hideUnresolved": false,
-                  "collapse-color-groups": true,
-                  "colorGroups": [],
+                  "collapse-color-groups": false,
+                  "colorGroups": [
+                    {
+                      "query": "#red",
+                      "color": {
+                        "a": 1,
+                        "rgb": 14701138
+                      }
+                    }
+                  ],
                   "collapse-display": true,
                   "showArrow": false,
                   "textFadeMultiplier": 0,
@@ -100,7 +108,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.6780252644037237,
+                  "scale": 0.8109975013216375,
                   "close": false
                 }
               }
@@ -120,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vim/nvim_floating.md",
+                "file": "vim/neovim.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,17 +148,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "b5ac21b80def348b",
+  "active": "9d0151d048f43173",
   "lastOpenFiles": [
-    "nvim.md",
+    "vim/nvim_virtualtext.md",
     "vim/neovim.md",
+    "vim/vim_snippet.md",
+    "vim/vim_plugins.md",
+    "vim/nvim_terminal.md",
+    "vim/nvim_floating.md",
+    "nvim.md",
     "todo.md",
     "Unix/ip.md",
-    "Untitled.md",
-    "vim/nvim_floating.md",
-    "vim/null-ls.md",
-    "vim/vim_plugins.md",
-    "vim/nvim_lua.md",
-    "vim/nvim_lsp.md"
+    "Untitled.md"
   ]
 }

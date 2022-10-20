@@ -52,6 +52,8 @@ function M.setup()
     }
     use "yutkat/confirm-quit.nvim"
 
+    use { "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" }
+
     use { "rcarriga/nvim-notify" }
     use {
       "nvim-lualine/lualine.nvim",

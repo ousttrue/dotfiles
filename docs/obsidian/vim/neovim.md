@@ -1,6 +1,8 @@
 ---
 aliases: [nvim]
 ---
+#red
+
 - [News - Neovim](https://neovim.io/news/)
 - [Roadmap - Neovim](https://neovim.io/roadmap/)
 
@@ -13,6 +15,8 @@ aliases: [nvim]
 [[vim_plugins]]
 [[treesitter]]
 [[nvim_floating]]
+[[vim_snippet]]
+[[nvim_virtualtext]]
 
 - [Lsp - Neovim docs](https://neovim.io/doc/user/lsp.html)
 
