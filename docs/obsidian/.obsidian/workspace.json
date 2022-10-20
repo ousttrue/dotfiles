@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "vim/neovim.md",
+                "file": "todo.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "vim/neovim.md",
+                "file": "todo.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -128,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vim/neovim.md",
+                "file": "todo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -148,16 +148,16 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "9d0151d048f43173",
+  "active": "b5ac21b80def348b",
   "lastOpenFiles": [
-    "vim/nvim_virtualtext.md",
     "vim/neovim.md",
+    "todo.md",
+    "vim/nvim_virtualtext.md",
     "vim/vim_snippet.md",
     "vim/vim_plugins.md",
     "vim/nvim_terminal.md",
     "vim/nvim_floating.md",
     "nvim.md",
-    "todo.md",
     "Unix/ip.md",
     "Untitled.md"
   ]
