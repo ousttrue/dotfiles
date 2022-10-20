@@ -264,6 +264,11 @@ function M.setup()
       "simrat39/symbols-outline.nvim",
       config = require("config.symbols-outline").setup,
     }
+    use {
+      "SmiteshP/nvim-navic",
+      requires = "neovim/nvim-lspconfig",
+      config = require("config.navic").setup,
+    }
 
     --
     --

@@ -62,19 +62,19 @@ function M.setup()
 
   local events = { "BufEnter", "BufWinEnter", "CursorMoved" }
 
-  vim.api.nvim_create_autocmd(events, {
-    pattern = "*",
-    callback = function()
-      config_winbar_or_statusline()
-    end,
-  })
+  -- vim.api.nvim_create_autocmd(events, {
+  --   pattern = "*",
+  --   callback = function()
+  --     config_winbar_or_statusline()
+  --   end,
+  -- })
 
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "LspsagaUpdateSymbol",
-    callback = function()
-      config_winbar_or_statusline()
-    end,
-  })
+  -- vim.api.nvim_create_autocmd("User", {
+  --   pattern = "LspsagaUpdateSymbol",
+  --   callback = function()
+  --     config_winbar_or_statusline()
+  --   end,
+  -- })
 end
 
 return M

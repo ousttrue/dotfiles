@@ -61,3 +61,4 @@ local config = {
   style = "minimal",
 }
 new_window(config)
+
