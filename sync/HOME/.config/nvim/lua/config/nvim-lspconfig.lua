@@ -58,7 +58,10 @@ function M.setup()
   }
 
   lspconfig.pyright.setup {
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+      client.server_capabilities.document_formatting = false
+      on_attach(client, bufnr)
+    end,
     capabilities = lsp_status.capabilities,
   }
 

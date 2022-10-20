@@ -93,12 +93,13 @@ def check_link(src: pathlib.Path, dst: pathlib.Path):
 
 
 def traverse(d: pathlib.Path):
-    for f in d.iterdir():
-        if f.is_dir():
-            for x in traverse(f):
-                yield x
-        else:
-            yield f
+    if d.exists():
+        for f in d.iterdir():
+            if f.is_dir():
+                for x in traverse(f):
+                    yield x
+            else:
+                yield f
 
 
 def condition(cond):

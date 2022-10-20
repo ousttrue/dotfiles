@@ -29,30 +29,29 @@ def task_create_link():
         }
 
     if IS_WINDOWS:
-        pass
-        #for src in traverse(SYNC_APPDATA_ROAMING_DIR):
-        #    target = src.relative_to(SYNC_APPDATA_ROAMING_DIR)
-        #    dst = APPDATA_ROAMING_DIR / target
-        #    yield {
-        #        'name': target,
-        #        # 'file_dep': [src],
-        #        'targets': [dst],
-        #        'actions': [(mklink, [src])],
-        #        'uptodate': [(check_link, (src, dst))],
-        #        'verbosity': 2,
-        #    }
+        for src in traverse(SYNC_APPDATA_ROAMING_DIR):
+            target = src.relative_to(SYNC_APPDATA_ROAMING_DIR)
+            dst = APPDATA_ROAMING_DIR / target
+            yield {
+                'name': target,
+                # 'file_dep': [src],
+                'targets': [dst],
+                'actions': [(mklink, [src])],
+                'uptodate': [(check_link, (src, dst))],
+                'verbosity': 2,
+            }
 
-        #for src in traverse(SYNC_APPDATA_LOCAL_DIR):
-        #    target = src.relative_to(SYNC_APPDATA_LOCAL_DIR)
-        #    dst = APPDATA_LOCAL_DIR / target
-        #    yield {
-        #        'name': target,
-        #        # 'file_dep': [src],
-        #        'targets': [dst],
-        #        'actions': [(mklink, [src])],
-        #        'uptodate': [(check_link, (src, dst))],
-        #        'verbosity': 2,
-        #    }
+        for src in traverse(SYNC_APPDATA_LOCAL_DIR):
+            target = src.relative_to(SYNC_APPDATA_LOCAL_DIR)
+            dst = APPDATA_LOCAL_DIR / target
+            yield {
+                'name': target,
+                # 'file_dep': [src],
+                'targets': [dst],
+                'actions': [(mklink, [src])],
+                'uptodate': [(check_link, (src, dst))],
+                'verbosity': 2,
+            }
 
 
 GO_BIN = '/usr/local/go/bin/go'
