@@ -2,6 +2,8 @@
 
 [[python]] + [[flask]] + [[Leaflet]]
 
+#blue
+
 # [[neovim|nvim]]
 ## [[vim_plugins]]
 - [ ] project 単位の設定
@@ -19,3 +21,7 @@
 
 # w3m
 - [ ] push 時のキャッシュ挙動
+
+# tui
+- [GitHub - afify/sfm: simple file manager](https://github.com/afify/sfm)
+- yazls のデバッグツール作りたい
