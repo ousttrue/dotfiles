@@ -24,7 +24,7 @@ smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '
   ]]
 
   -- Load all snippets from the nvim/LuaSnip directory at startup
-  require("luasnip.loaders.from_lua").load { paths = vim.env.XDG_CONFIG_HOME .. "/nvim/LuaSnip/" }
+  require("luasnip.loaders.from_lua").load { paths = (vim.env.XDG_CONFIG_HOME or "~/.config") .. "/nvim/LuaSnip/" }
 end
 
 return M

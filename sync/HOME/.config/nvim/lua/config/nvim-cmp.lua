@@ -18,9 +18,9 @@ function M.setup()
       { name = "buffer" },
       { name = "nvim_lsp_signature_help" },
     },
-    experimental = {
-      ghost_text = true,
-    },
+    -- experimental = {
+    --   ghost_text = true,
+    -- },
     -- formatting = {
     --     format = lspkind.cmp_format {
     --         mode = "symbol", -- show only symbol annotations
