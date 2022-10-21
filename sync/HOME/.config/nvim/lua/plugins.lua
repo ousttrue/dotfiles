@@ -52,7 +52,13 @@ function M.setup()
     }
     use "yutkat/confirm-quit.nvim"
 
-    use { "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" }
+    use "jghauser/mkdir.nvim"
+
+    use {
+      "L3MON4D3/LuaSnip",
+      tag = "v<CurrentMajor>.*",
+      config = require("config.LuaSnip").setup,
+    }
 
     use { "rcarriga/nvim-notify" }
     use {

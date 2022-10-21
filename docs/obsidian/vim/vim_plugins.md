@@ -1,5 +1,7 @@
-[[vim 1]]
-	[[neovim|nvim]]
+[[vim]]
+[[neovim|nvim]]
+
+#blue
 
 # articles
 - [GitHub - rockerBOO/awesome-neovim: Collections of awesome neovim plugins.](https://github.com/rockerBOO/awesome-neovim)

@@ -93,6 +93,14 @@ function gg {
     }
 }
 
+function gs {
+    $dst = $(git branch | fzf).Trim()
+    if($dst)
+    {
+        git switch $dst
+    }
+}
+
 del alias:ls  # PowerShell 側の ls を削除
 function ls() {
     lsd $args

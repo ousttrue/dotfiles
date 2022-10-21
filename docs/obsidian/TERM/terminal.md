@@ -1,3 +1,5 @@
+#red
+
 [[windows_terminal]]
 [[multiplexer]]
 
