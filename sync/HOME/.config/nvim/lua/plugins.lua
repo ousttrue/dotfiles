@@ -216,6 +216,7 @@ function M.setup()
     use {
       "hrsh7th/nvim-cmp",
       requires = {
+        "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lsp-signature-help",
         "onsails/lspkind.nvim",
@@ -278,7 +279,18 @@ function M.setup()
     use {
       "SmiteshP/nvim-navic",
       requires = "neovim/nvim-lspconfig",
-      config = require("config.navic").setup,
+      -- config = require("config.navic").setup,
+    }
+    use {
+      "utilyre/barbecue.nvim",
+      requires = {
+        "neovim/nvim-lspconfig",
+        "smiteshp/nvim-navic",
+        "kyazdani42/nvim-web-devicons", -- optional
+      },
+      config = function()
+        require("barbecue").setup()
+      end,
     }
 
     --

@@ -18,6 +18,18 @@ fullscreen の term アプリを `tui` と分類
 	- [GitHub - gdamore/tcell: Tcell is an alternate terminal package, similar in some ways to termbox, but better in others.](https://github.com/gdamore/tcell)
 	- [GitHub - rivo/tview: Terminal UI library with rich, interactive widgets — written in Golang](https://github.com/rivo/tview)
 
+## zig
+- [~leon_plickat/zig-spoon - sourcehut git](https://git.sr.ht/~leon_plickat/zig-spoon)
+
+# c
+- [GitHub - Cubified/tuibox: A single-header terminal UI (TUI) library, capable of creating mouse-driven, interactive applications on the command line.](https://github.com/Cubified/tuibox)
+	- [GitHub - Cubified/vt100utils: A single-header C library for encoding, decoding, and doing useful things with ANSI graphics escape sequences.](https://github.com/Cubified/vt100utils)
+
+## c++
+- [GitHub - a-n-t-h-o-n-y/TermOx: C++17 Terminal User Interface(TUI) Library.](https://github.com/a-n-t-h-o-n-y/TermOx)
+- [tvision/examples/tvedit at master · magiblot/tvision · GitHub](https://github.com/magiblot/tvision/tree/master/examples/tvedit)
+- [GitHub - ArthurSonzogni/FTXUI: C++ Functional Terminal User Interface.](https://github.com/ArthurSonzogni/FTXUI)
+
 # git
 - [GitHub - extrawurst/gitui: Blazing 💥 fast terminal-ui for git written in rust 🦀](https://github.com/extrawurst/gitui)
 - [[tig]]
