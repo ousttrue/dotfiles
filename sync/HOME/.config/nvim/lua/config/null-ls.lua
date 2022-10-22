@@ -6,6 +6,7 @@ function M.setup()
     sources = {
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.yapf,
+      null_ls.builtins.formatting.cmake_format,
     },
   }
 end

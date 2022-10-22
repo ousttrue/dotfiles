@@ -3,7 +3,7 @@ local g = vim.g
 local opt = vim.opt
 
 -- Remap leader and local leader to <Space>
-api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
 
@@ -45,18 +45,28 @@ augroup end
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 ]]
 
+opt.completeopt = "menuone,noinsert"
+vim.keymap.set("i", "<C-j>", "<C-x><C-o>")
+-- vim.cmd[[
+-- inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+-- inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-x><C-o>"
+-- inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
+-- ]]
+
 vim.keymap.set("n", "<S-F>", "<C-i>", { noremap = true })
 vim.keymap.set("n", "<S-B>", "<C-o>", { noremap = true })
+vim.keymap.set("n", "<C-.>", ":bnext<CR>", { noremap = true })
+vim.keymap.set("n", "<C-,>", ":bprev<CR>", { noremap = true })
+vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true })
 
+vim.keymap.set("n", "<Leader>q", "q", { noremap = true })
 vim.keymap.set("n", "q", ":close<CR>", { noremap = true })
 vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
 vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
-vim.keymap.set("n", "<C-j>", ":bnext<CR>", { noremap = true })
-vim.keymap.set("n", "<C-k>", ":bprev<CR>", { noremap = true })
 vim.keymap.set("n", "[c", ":cp<CR>", { noremap = true })
 vim.keymap.set("n", "]c", ":cn<CR>", { noremap = true })
--- vim.keymap.set("n", "<S-Tab>", ":cp<CR>", { noremap = true })
--- vim.keymap.set("n", "<Tab>", ":cn<CR>", { noremap = true })
+vim.keymap.set("n", "<S-Tab>", ":cp<CR>", { noremap = true })
+vim.keymap.set("n", "<Tab>", ":cn<CR>", { noremap = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 vim.keymap.set("n", "<C-S-B>", ":make<CR>", { noremap = true })
 

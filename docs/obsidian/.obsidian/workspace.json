@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "vim/vim_snippet.md",
+                "file": "vim/vim_completion.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "vim/vim_snippet.md",
+                "file": "vim/vim_completion.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -135,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vim/vim_snippet.md",
+                "file": "vim/vim_completion.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,15 +157,15 @@
   },
   "active": "b5ac21b80def348b",
   "lastOpenFiles": [
+    "nvim_keymap.md",
+    "vim/neovim.md",
     "vim/vim_completion.md",
+    "vim 1.md",
+    "vim/vim_quickfix.md",
+    "vim/vim_snippet.md",
     "Untitled.md",
     "vim/vim_plugins.md",
-    "vim/vim_snippet.md",
-    "vim/neovim.md",
     "todo.md",
-    "TERM/tui.md",
-    "TERM/termbox.md",
-    "TERM/terminal.md",
-    "vim/nvim_virtualtext.md"
+    "TERM/tui.md"
   ]
 }

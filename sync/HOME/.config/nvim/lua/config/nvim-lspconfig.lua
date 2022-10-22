@@ -6,6 +6,7 @@ function M.setup()
   -- local symbols_outline = require "symbols-outline"
   lsp_status.register_progress()
   local navic = require "nvim-navic"
+  local util = require "lspconfig.util"
 
   local function on_attach(client, bufnr)
     aerial.on_attach(client, bufnr)
@@ -53,6 +54,7 @@ function M.setup()
     init_options = {
       clangdFileStatus = true,
     },
+    root_dir = util.root_pattern("build/compile_commands.json", ".git"),
     on_attach = on_attach,
     capabilities = lsp_status.capabilities,
   }

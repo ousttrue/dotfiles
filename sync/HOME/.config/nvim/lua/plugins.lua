@@ -226,7 +226,7 @@ function M.setup()
     -- lua
     use "tjdevries/nlua.nvim"
     -- c++
-    use "vim-scripts/a.vim"
+    -- use "vim-scripts/a.vim"
 
     -- lsp
     use {
