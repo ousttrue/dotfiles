@@ -17,6 +17,7 @@ aliases: [nvim]
 [[nvim_floating]]
 [[vim_snippet]]
 [[nvim_virtualtext]]
+[[nvim_keymap]]
 
 - [Lsp - Neovim docs](https://neovim.io/doc/user/lsp.html)
 
