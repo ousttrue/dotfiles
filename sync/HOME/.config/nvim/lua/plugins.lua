@@ -55,6 +55,17 @@ function M.setup()
     use "jghauser/mkdir.nvim"
 
     use {
+      "folke/twilight.nvim",
+      config = function()
+        require("twilight").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end,
+    }
+
+    use {
       "L3MON4D3/LuaSnip",
       -- tag = "v1.*",
       config = require("config.LuaSnip").setup,
