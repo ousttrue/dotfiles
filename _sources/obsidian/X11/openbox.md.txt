@@ -1,3 +1,6 @@
+#blue
+
+[[xorg]]
 [[statusbar]]
 [[launcher]]
 

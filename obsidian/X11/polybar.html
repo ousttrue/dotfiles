@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>keymap - shell note ドキュメント</title>
+        <title>module - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,33 +212,39 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>#red</p>
-<p>[[statusbar]]
-[[launcher]]
-[[openbox]]
-[[xfce4]]
-[[xterm]]
-[[dbus]]
-[[pulseaudio]]</p>
-<section class="tex2jax_ignore mathjax_ignore" id="keymap">
-<h1>keymap<a class="headerlink" href="#keymap" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://wiki.archlinux.jp/index.php/Xorg_%E3%81%A7%E3%81%AE%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E8%A8%AD%E5%AE%9A">Xorg でのキーボード設定 - ArchWiki</a></p></li>
+          <ul class="simple">
+<li><p><a class="reference external" href="https://polybar.github.io/">Polybar - A fast and easy-to-use tool for creating status bars</a></p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">setxkbmap</span> <span class="pre">-print</span> <span class="pre">-verbose</span> <span class="pre">10</span></code>
-<code class="docutils literal notranslate"><span class="pre">setxkbmap</span> <span class="pre">us</span></code>
-<code class="docutils literal notranslate"><span class="pre">setxkbmap</span> <span class="pre">jp</span></code></p>
-<p>ibus に自動でキーマップを変える動作がある。
-advanced の</p>
+<p><code class="docutils literal notranslate"><span class="pre">~/.config/polybar/config.ini</span></code></p>
 <ul class="simple">
-<li><p>[ ] <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">system</span> <span class="pre">keyboard</span> <span class="pre">layout</span></code> を使うべし！</p></li>
+<li><p><a class="reference external" href="https://tonooo71.github.io/posts/polybar">Polybarの導入 - RINotes</a></p></li>
+<li><p><a class="reference external" href="https://tonooo71.github.io/posts/polybar-setting">Polybarの設定 - RINotes</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/matoruru/items/ab491eac6b2b74e3ce3b">GTK+のAdapta-Noktoが気に入りすぎてPolybarテーマを作った - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://scrapbox.io/tosuke/playerctl%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6polybar%E3%81%ABSpotify%E3%81%AE%E6%9B%B2%E6%83%85%E5%A0%B1%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B">playerctlを使ってpolybarにSpotifyの曲情報を表示する - tosuke</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="module">
+<h1>module<a class="headerlink" href="#module" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="wm">
+<h1>wm<a class="headerlink" href="#wm" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="i3">
+<h2>i3<a class="headerlink" href="#i3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arimasou16.com/blog/2021/09/04/00415/">折角なのでalterlinux-i3-manager(Polybar)をいじって時刻表示から日時表示に、そしてfcitxのキーボード言語(InputMethod)を表示させる</a></p></li>
+</ul>
+</section>
+<section id="openbox">
+<h2>openbox<a class="headerlink" href="#openbox" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/felipefacundes/desktop/blob/master/polybar/config-openbox">desktop/config-openbox at master · felipefacundes/desktop · GitHub</a></p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -254,7 +260,7 @@ advanced の</p>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/X11/xorg.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/X11/polybar.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -262,8 +268,29 @@ advanced の</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">module</a></li>
+<li><a class="reference internal" href="#wm">wm</a><ul>
+<li><a class="reference internal" href="#i3">i3</a></li>
+<li><a class="reference internal" href="#openbox">openbox</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
