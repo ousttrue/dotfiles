@@ -1,4 +1,3 @@
-skk
 [Vim と asyncomplete を使って IME を作った。 https://zenn.dev/mattn/articles/5a84f6a09f907c374577]
 
 https://hakasenote.hnishi.com/2021/20210105-vim-eskk/
@@ -39,3 +38,6 @@ code:.vim
 
 - [新しいVim用日本語入力プラグインを作った](https://zenn.dev/kuu/articles/vac2021-skkeleton)
 
+# [[vim]]
+- [[eskk]]
+- [GitHub - ueno/libskk: Japanese SKK input method library](https://github.com/ueno/libskk)
