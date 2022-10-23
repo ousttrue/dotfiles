@@ -4,18 +4,71 @@
     "type": "split",
     "children": [
       {
-        "id": "b9832679bb20e1ec",
+        "id": "24f1e1aed021442b",
         "type": "tabs",
+        "dimension": 60.14319809069213,
         "children": [
           {
-            "id": "b5ac21b80def348b",
+            "id": "9f03bff39f29f889",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "32702313c0d74366",
+        "type": "tabs",
+        "dimension": 39.856801909307876,
+        "children": [
+          {
+            "id": "9d0151d048f43173",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
               "state": {
-                "file": "vim/vim_plugins.md",
-                "mode": "source",
-                "source": false
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 2,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [
+                    {
+                      "query": "#red",
+                      "color": {
+                        "a": 1,
+                        "rgb": 14701138
+                      }
+                    },
+                    {
+                      "query": "#blue",
+                      "color": {
+                        "a": 1,
+                        "rgb": 3074047
+                      }
+                    }
+                  ],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 0.5668553336114578,
+                  "close": true
+                }
               }
             }
           }
@@ -48,7 +101,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "void",
+                "query": "null-ls",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -61,68 +114,18 @@
       }
     ],
     "direction": "horizontal",
-    "width": 220.5
+    "width": 200
   },
   "right": {
     "id": "81970b00531257e5",
     "type": "split",
     "children": [
       {
-        "id": "047003dda826022a",
+        "id": "d939c5703b853908",
         "type": "tabs",
         "children": [
           {
-            "id": "9d0151d048f43173",
-            "type": "leaf",
-            "state": {
-              "type": "localgraph",
-              "state": {
-                "file": "vim/vim_plugins.md",
-                "options": {
-                  "collapse-filter": true,
-                  "search": "",
-                  "localJumps": 2,
-                  "localBacklinks": true,
-                  "localForelinks": true,
-                  "localInterlinks": false,
-                  "showTags": false,
-                  "showAttachments": false,
-                  "hideUnresolved": false,
-                  "collapse-color-groups": false,
-                  "colorGroups": [
-                    {
-                      "query": "#red",
-                      "color": {
-                        "a": 1,
-                        "rgb": 14701138
-                      }
-                    },
-                    {
-                      "query": "#blue",
-                      "color": {
-                        "a": 1,
-                        "rgb": 3074047
-                      }
-                    }
-                  ],
-                  "collapse-display": true,
-                  "showArrow": false,
-                  "textFadeMultiplier": 0,
-                  "nodeSizeMultiplier": 1,
-                  "lineSizeMultiplier": 1,
-                  "collapse-forces": true,
-                  "centerStrength": 0.518713248970312,
-                  "repelStrength": 10,
-                  "linkStrength": 1,
-                  "linkDistance": 250,
-                  "scale": 0.5668553336114603,
-                  "close": false
-                }
-              }
-            }
-          },
-          {
-            "id": "fd87a115fe589525",
+            "id": "c1c7036bfdf7ac60",
             "type": "leaf",
             "state": {
               "type": "calendar",
@@ -130,12 +133,11 @@
             }
           },
           {
-            "id": "912c4b78e9999c46",
+            "id": "7a4a7f20fd6259b8",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vim/vim_plugins.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,22 +152,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 855.5
+    "width": 453.5,
+    "collapsed": true
   },
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "b5ac21b80def348b",
+  "active": "9f03bff39f29f889",
   "lastOpenFiles": [
-    "TERM/tui.md",
-    "todo.md",
-    "vim/vim_completion.md",
-    "vim/vim_plugins.md",
-    "nvim_keymap.md",
-    "vim/neovim.md",
-    "vim 1.md",
-    "vim/vim_quickfix.md",
-    "vim/vim_snippet.md",
-    "Untitled.md"
+    "Untitled 1.md",
+    "Untitled.md",
+    "X11/polybar.md",
+    "X11/statusbar.md",
+    "X11/xorg.md",
+    "TerminalEmulator/xterm.md",
+    "Unix/keymap.md",
+    "Unix/xdg.md",
+    "vim/null-ls.md",
+    "TERM/fuzzyfinder.md"
   ]
 }

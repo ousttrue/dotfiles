@@ -1,4 +1,5 @@
 #!/bin/sh
+set -x
 xrdb -merge ~/.Xresources
 
 if which xset > /dev/null 2>&1; then
@@ -22,9 +23,10 @@ if which mpd > /dev/null 2>&1; then
     mpd
 fi
 
-exec startlxqt
-# exec openbox-session
+# exec startlxqt
+exec openbox-session
 # exec openbox
 # exec blackbox
 # exec berry
 # exec xterm
+# exec qtile start

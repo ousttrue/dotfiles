@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
-
 <menu id="apps-www" label="WWW">
   <item label="Firefox">
     <action name="Execute">
@@ -21,6 +20,8 @@
   <!--     </startupnotify> -->
   <!--   </action> -->
   <!-- </item> -->
+
+    <menu id="ob_file_browser" label="Pipe" execute="/usr/bin/obfilebrowser --desktop-menu" />
 </menu>
 
 <menu id="apps-term-menu" label="Terminals">
@@ -69,8 +70,13 @@
   <item label="Vim">
     <action name="Execute"><command>gvim</command></action>
   </item>
-  <item label="Obsidian">
-    <action name="Execute"><command>obsidian</command></action>
+  <item label="Obsidian" icon="/usr/share/pixmaps/obsidian.png">
+      <showIcons>yes</showIcons>
+      <action name="Execute"><command>obsidian</command></action>
+      <startupnotify>
+          <enabled>yes</enabled>
+          <wmclass>obsidian</wmclass>
+      </startupnotify>
   </item>
 </menu>
 
@@ -182,6 +188,7 @@
   <item label="Reconfigure Openbox">
     <action name="Reconfigure" />
   </item>
+  <separator />
   <item label="barrier">
     <action name="Execute"><command>barrier</command></action>
   </item>

@@ -34,7 +34,7 @@ if which volumeicon > /dev/null 2>&1; then
     volumeicon&
 fi
 
-setxkbmap jp
-setxkbmap -model jp106 -layout jp
+if which pluseaudio > /dev/null 2>&1; then
+    pluseaudio --start
+fi
 
-xterm&
