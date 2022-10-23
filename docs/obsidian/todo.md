@@ -22,6 +22,6 @@
 # w3m
 - [ ] push 時のキャッシュ挙動
 
-# tui
+# [[tui]]
 - [GitHub - afify/sfm: simple file manager](https://github.com/afify/sfm)
 - yazls のデバッグツール作りたい

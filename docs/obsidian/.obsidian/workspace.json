@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "vim/vim_plugins.md",
+                "file": "TERM/tui.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "vim/vim_plugins.md",
+                "file": "TERM/tui.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -135,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vim/vim_plugins.md",
+                "file": "TERM/tui.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,17 +155,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "9d0151d048f43173",
+  "active": "b5ac21b80def348b",
   "lastOpenFiles": [
+    "todo.md",
+    "vim/vim_completion.md",
+    "vim/vim_plugins.md",
     "nvim_keymap.md",
     "TERM/tui.md",
-    "vim/vim_completion.md",
     "vim/neovim.md",
     "vim 1.md",
     "vim/vim_quickfix.md",
     "vim/vim_snippet.md",
-    "Untitled.md",
-    "vim/vim_plugins.md",
-    "todo.md"
+    "Untitled.md"
   ]
 }
