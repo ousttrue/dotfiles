@@ -12,8 +12,12 @@
             "id": "9f03bff39f29f889",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "ime.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -29,6 +33,7 @@
             "state": {
               "type": "localgraph",
               "state": {
+                "file": "ime.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -138,6 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "ime.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -160,15 +166,15 @@
   },
   "active": "9f03bff39f29f889",
   "lastOpenFiles": [
-    "Untitled 1.md",
-    "Untitled.md",
     "X11/polybar.md",
+    "ime.md",
+    "editor/skk.md",
+    "Untitled.md",
+    "B.md",
+    "Untitled 1.md",
     "X11/statusbar.md",
     "X11/xorg.md",
     "TerminalEmulator/xterm.md",
-    "Unix/keymap.md",
-    "Unix/xdg.md",
-    "vim/null-ls.md",
-    "TERM/fuzzyfinder.md"
+    "Unix/keymap.md"
   ]
 }

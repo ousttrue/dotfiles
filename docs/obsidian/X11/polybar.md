@@ -8,6 +8,7 @@
 - [playerctlを使ってpolybarにSpotifyの曲情報を表示する - tosuke](https://scrapbox.io/tosuke/playerctl%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6polybar%E3%81%ABSpotify%E3%81%AE%E6%9B%B2%E6%83%85%E5%A0%B1%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B)
 
 # module
+- [GitHub - TiagoDanin/Awesome-Polybar: Curated list of Polybar](https://github.com/TiagoDanin/Awesome-Polybar)
 
 # wm
 ## i3
