@@ -54,6 +54,8 @@ function M.setup()
 
     use "jghauser/mkdir.nvim"
 
+    use "thinca/vim-quickrun"
+
     use {
       "folke/twilight.nvim",
       config = function()

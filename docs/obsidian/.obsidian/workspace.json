@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "keyboard/setxkbmap.md",
+                "file": "quickrun.md",
                 "mode": "source",
                 "source": false
               }
@@ -46,7 +46,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "keyboard/setxkbmap.md",
+                "file": "quickrun.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -156,7 +156,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "keyboard/setxkbmap.md",
+                "file": "quickrun.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,9 +179,9 @@
   },
   "active": "9bc98db0481f8107",
   "lastOpenFiles": [
+    "keyboard/setxkbmap.md",
     "keyboard/keyboard.md",
     "keyboard/ime.md",
-    "keyboard/setxkbmap.md",
     "TERM/tui.md",
     "X11/xorg.md",
     "X11/polybar.md",
