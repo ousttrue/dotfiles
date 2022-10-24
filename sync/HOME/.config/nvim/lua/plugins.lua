@@ -51,10 +51,13 @@ function M.setup()
       -- config = require("nvim-colorizer").setup,
     }
     use "yutkat/confirm-quit.nvim"
-
     use "jghauser/mkdir.nvim"
+    -- use { "thinca/vim-quickrun", config = require("config.vim-quickrun").setup }
 
-    use "thinca/vim-quickrun"
+    use {
+      "stevearc/overseer.nvim",
+      config = require("config.overseer").setup,
+    }
 
     use {
       "folke/twilight.nvim",
@@ -124,10 +127,10 @@ function M.setup()
     --     "sindrets/diffview.nvim",
     --     requires = "nvim-lua/plenary.nvim",
     -- }
-    use {
-      "rhysd/git-messenger.vim",
-      config = require("config.git-messenger").setup,
-    }
+    -- use {
+    --   "rhysd/git-messenger.vim",
+    --   config = require("config.git-messenger").setup,
+    -- }
 
     use {
       "klen/nvim-config-local",

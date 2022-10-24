@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "quickrun.md",
+                "file": "vim/vim_plugins.md",
                 "mode": "source",
                 "source": false
               }
@@ -46,7 +46,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "quickrun.md",
+                "file": "vim/vim_plugins.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -156,7 +156,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "quickrun.md",
+                "file": "vim/vim_plugins.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,15 +179,15 @@
   },
   "active": "9bc98db0481f8107",
   "lastOpenFiles": [
+    "vim/quickrun.md",
+    "obsidian/plugins.md",
+    "TERM/tui.md",
+    "keyboard/fcitx5.md",
+    "keyboard/ime.md",
     "keyboard/setxkbmap.md",
     "keyboard/keyboard.md",
-    "keyboard/ime.md",
-    "TERM/tui.md",
     "X11/xorg.md",
     "X11/polybar.md",
-    "editor/skk.md",
-    "Untitled.md",
-    "B.md",
-    "Untitled 1.md"
+    "editor/skk.md"
   ]
 }

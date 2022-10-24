@@ -13,9 +13,9 @@ fi
 #eval "$(dbus-launch --sh-syntax --exit-with-session)"
 
 if which fcitx5 > /dev/null 2>&1; then
-    export GTK_IM_MODULE=fcitx
-    export QT_IM_MODULE=fcitx
-    export XMODIFIERS=@im=fcitx
+    export GTK_IM_MODULE=fcitx5
+    export QT_IM_MODULE=fcitx5
+    export XMODIFIERS=@im=fcitx5
     fcitx5&
 elif which ibus-daemon > /dev/null 2>&1; then
     export GTK_IM_MODULE=ibus
