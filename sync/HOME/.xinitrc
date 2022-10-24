@@ -12,7 +12,12 @@ fi
 
 #eval "$(dbus-launch --sh-syntax --exit-with-session)"
 
-if which ibus-daemon > /dev/null 2>&1; then
+if which fcitx5 > /dev/null 2>&1; then
+    export GTK_IM_MODULE=fcitx
+    export QT_IM_MODULE=fcitx
+    export XMODIFIERS=@im=fcitx
+    fcitx5&
+elif which ibus-daemon > /dev/null 2>&1; then
     export GTK_IM_MODULE=ibus
     export QT_IM_MODULE=ibus
     export XMODIFIERS=@im=ibus

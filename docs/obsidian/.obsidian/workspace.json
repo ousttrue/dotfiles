@@ -106,7 +106,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "null-ls",
+                "query": "fcitx",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -115,7 +115,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -166,14 +167,14 @@
   },
   "active": "9f03bff39f29f889",
   "lastOpenFiles": [
-    "X11/polybar.md",
+    "X11/xorg.md",
     "ime.md",
+    "X11/polybar.md",
     "editor/skk.md",
     "Untitled.md",
     "B.md",
     "Untitled 1.md",
     "X11/statusbar.md",
-    "X11/xorg.md",
     "TerminalEmulator/xterm.md",
     "Unix/keymap.md"
   ]
