@@ -5,6 +5,7 @@
 
 # articles
 - [GitHub - yutkat/my-neovim-pluginlist: My personal list of Neovim plugins](https://github.com/yutkat/my-neovim-pluginlist)
+	- [my-neovim-pluginlist/task-runner.md at main · yutkat/my-neovim-pluginlist · GitHub](https://github.com/yutkat/my-neovim-pluginlist/blob/main/task-runner.md)
 - [GitHub - rockerBOO/awesome-neovim: Collections of awesome neovim plugins.](https://github.com/rockerBOO/awesome-neovim)
 - @2022 [Neovimプラグインをまともに選定できるリストを作った](https://zenn.dev/yutakatay/articles/neovim-pluginlist)
 - @2022 [ワシの使っているNeovimプラグインは200個近くあるぞ](https://zenn.dev/yutakatay/articles/neovim-plugins-2022)
