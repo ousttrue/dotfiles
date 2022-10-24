@@ -14,13 +14,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ime.md",
+                "file": "keyboard/keyboard.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9bc98db0481f8107",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "keyboard/setxkbmap.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "32702313c0d74366",
@@ -33,7 +46,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "ime.md",
+                "file": "keyboard/setxkbmap.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -115,12 +128,11 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 233.5
   },
   "right": {
     "id": "81970b00531257e5",
@@ -144,7 +156,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ime.md",
+                "file": "keyboard/setxkbmap.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,17 +177,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "9f03bff39f29f889",
+  "active": "9bc98db0481f8107",
   "lastOpenFiles": [
+    "keyboard/keyboard.md",
+    "keyboard/ime.md",
+    "keyboard/setxkbmap.md",
+    "TERM/tui.md",
     "X11/xorg.md",
-    "ime.md",
     "X11/polybar.md",
     "editor/skk.md",
     "Untitled.md",
     "B.md",
-    "Untitled 1.md",
-    "X11/statusbar.md",
-    "TerminalEmulator/xterm.md",
-    "Unix/keymap.md"
+    "Untitled 1.md"
   ]
 }
