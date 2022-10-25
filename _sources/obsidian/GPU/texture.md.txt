@@ -1,4 +1,4 @@
-#gpu 
+[[gpu]] 
 
 [[distancefield]]
 [[cubemap]]
