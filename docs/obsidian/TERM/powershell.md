@@ -24,6 +24,10 @@ vim $profile
 ```
 
 # readline
+- [【PowerShell】PsReadLine 設定のススメ - Qiita](https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81)
+- [Set-PSReadLineKeyHandler (PSReadLine) - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/psreadline/set-psreadlinekeyhandler?view=powershell-7.2)
+- [about PSReadLine Functions - PowerShell | Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2)
+
 ```profile.ps1
 Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+b' -Function BackwardChar

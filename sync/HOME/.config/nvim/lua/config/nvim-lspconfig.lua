@@ -77,6 +77,11 @@ function M.setup()
     on_attach = on_attach,
     capabilities = lsp_status.capabilities,
   }
+
+  lspconfig.groovyls.setup {
+    on_attach = on_attach,
+    capabilities = lsp_status.capabilities,
+  }
 end
 
 return M

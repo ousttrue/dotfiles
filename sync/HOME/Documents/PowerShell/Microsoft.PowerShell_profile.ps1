@@ -1,4 +1,5 @@
 $env:HOME = $env:USERPROFILE
+$env:JAVA_HOME = $env:STUDIO_HOME + "\jre";
 
 if($env:TERM_PROGRAM -ne "vscode"){
     chcp 65001
@@ -62,8 +63,11 @@ insertPath($env:USERPROFILE + "\local\bin")
 addPath($env:USERPROFILE + "\AppData\Local\Programs\Microsoft VS Code")
 addPath("C:\Program Files\CMake\bin")
 addPath("C:\Program Files\Git\usr\bin")
+addPath($env:JAVA_HOME + "\bin")
+addPath($env:ANDROID_HOME + "\platform-tools")
 
 # readline
+# https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2
 Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+b' -Function BackwardChar
 Set-PSReadlineKeyHandler -Key 'Ctrl+f' -Function ForwardChar
@@ -98,6 +102,13 @@ function gs {
     if($dst)
     {
         git switch $dst
+    }
+}
+function gsf {
+    $dst = $(git branch | fzf).Trim()
+    if($dst)
+    {
+        git switch -f $dst
     }
 }
 
