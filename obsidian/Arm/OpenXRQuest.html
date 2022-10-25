@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -223,10 +223,31 @@
 <section class="tex2jax_ignore mathjax_ignore" id="oculus-openxr-mobile-sdk">
 <h1>Oculus OpenXR Mobile SDK<a class="headerlink" href="#oculus-openxr-mobile-sdk" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://developer.oculus.com/documentation/native/android/mobile-openxr/?locale=ja_JP">Site Unreachable</a></p></li>
+<li><p><a class="reference external" href="https://developer.oculus.com/downloads/package/oculus-openxr-mobile-sdk/">Site Unreachable</a></p>
+<ul>
+<li><p><a class="reference external" href="https://developer.oculus.com/documentation/native/android/mobile-build-run-hello-xr-app/">Build and Run hello_xr Sample App</a></p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OpenXRMobileSDK</span> <span class="c1"># MobileSDK</span>
+<span class="n">OpenXR</span><span class="o">-</span><span class="n">SDK</span><span class="o">-</span><span class="n">Source</span> <span class="c1"># github KhronosGroup/OpenXR-SDK-Source</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>@2021 <a class="reference external" href="https://qiita.com/tkymt/items/f40d201c42a88da23824">ネイティブ開発Ouclus Quest2 - Qiita</a></p></li>
 <li><p><a class="reference external" href="https://github.com/terryky/android_openxr_gles">GitHub - terryky/android_openxr_gles: VR sample applications on Android NDK using OpenXR + OpenGLES. (especially for Meta Quest2)</a></p></li>
 <li><p><a class="reference external" href="https://github.com/Wxz234/Android-Oculus">GitHub - Wxz234/Android-Oculus: A Openxr</a></p></li>
 </ul>
+<section id="android-manifest">
+<h2>android.manifest<a class="headerlink" href="#android-manifest" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;intent-filter&gt;</span>
+    <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.MAIN"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"com.oculus.intent.category.VR"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.LAUNCHER"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/intent-filter&gt;</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -250,8 +271,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Oculus OpenXR Mobile SDK</a><ul>
+<li><a class="reference internal" href="#android-manifest">android.manifest</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

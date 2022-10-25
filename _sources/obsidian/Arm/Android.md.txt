@@ -1,6 +1,8 @@
 [[arm_snapdragon]]
+#red
 [[zig]]
 [[OpenXRQuest]]
+[[AndroidStudio]]
 
 `/app/build/outputs/apk`
 
@@ -17,9 +19,10 @@
 |4||ICS|
 |3||gingerbred|
 
-
 - [java - Android Studio error: "Manifest merger failed: Apps targeting Android 12" - Stack Overflow](https://stackoverflow.com/questions/67412084/android-studio-error-manifest-merger-failed-apps-targeting-android-12)
 
+# 環境変数
+- [環境変数  |  Android デベロッパー  |  Android Developers](https://developer.android.com/studio/command-line/variables?hl=ja)
 
 # sdkmanager
 `/opt/android-sdk/tools/bin/sdkmanager`
