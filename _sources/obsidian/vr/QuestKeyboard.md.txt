@@ -6,6 +6,11 @@
 # Logitech K830
 在庫なし
 
+#  Logitech MX Keys universal
+16000円くらい
+
+# Logitech MX Keys Mini
+16000円くらい
+
 # Apple Magic Keyboard
 13000円くらい
-
