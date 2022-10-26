@@ -65,6 +65,7 @@ addPath("C:\Program Files\CMake\bin")
 addPath("C:\Program Files\Git\usr\bin")
 addPath($env:JAVA_HOME + "\bin")
 addPath($env:ANDROID_HOME + "\platform-tools")
+addPath($env:ANDROID_HOME + "\ndk\25.1.8937393")
 
 # readline
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2

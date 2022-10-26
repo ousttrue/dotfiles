@@ -5,11 +5,20 @@ link `openxr_loader.lib`
 - [https://www.khronos.org/files/openxr-10-reference-guide.pdf](https://www.khronos.org/files/openxr-10-reference-guide.pdf)
 - [The OpenXR Specification](https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html)
 
-- [Quickstart | OpenXR Toolkit](https://mbucchia.github.io/OpenXR-Toolkit/)
+# OpenXR-SDK
+## source
+- コード生成とサンプル
+- [GitHub - KhronosGroup/OpenXR-SDK-Source: Sources for OpenXR loader, basic API layers, and example code.](https://github.com/KhronosGroup/OpenXR-SDK-Source)
+- src/tests/hello_xr
+- python3 が必用
+
+`/CMakeLists.txt` からビルドできる
+=> `build/src/loader/Debug/openxr_loaderd.lib`
+
+## generated
 - [GitHub - KhronosGroup/OpenXR-SDK: Generated headers and sources for OpenXR loader.](https://github.com/KhronosGroup/OpenXR-SDK)
 
 `OpenXR.Loader.1.0.24.nupkg`
-
 ```
 git clone https://github.com/KhronosGroup/OpenXR-SDK.git
 cd OpenXR-SDK
@@ -18,10 +27,13 @@ ninja -C build install
 ```
 
 runtime をロードさするには？
-- [OpenXR® Loader - Design and Operation [DRAFT] (with all published extensions)](https://www.khronos.org/registry/OpenXR/specs/1.0/loader.html)
-- [OpenXRランタイムを実行時に選ぶ](https://zenn.dev/shiena/articles/openxr-runtime)
+
+# OpenXR toolkit
+- [Quickstart | OpenXR Toolkit](https://mbucchia.github.io/OpenXR-Toolkit/)
 
 # Runtime
+- [OpenXR® Loader - Design and Operation [DRAFT] (with all published extensions)](https://www.khronos.org/registry/OpenXR/specs/1.0/loader.html)
+- [OpenXRランタイムを実行時に選ぶ](https://zenn.dev/shiena/articles/openxr-runtime)
 - [GitHub - Ybalrid/OpenXR-API-Layer-Template: A CMake based template repository to create OpenXR layers in C++](https://github.com/Ybalrid/OpenXR-API-Layer-Template)
 - [device/vr/openxr/test/fake_openxr_impl_api.cc - chromium/src - Git at Google](https://chromium.googlesource.com/chromium/src/+/ae4b5702945b407b40fed05de61b52bc9ebe8451/device/vr/openxr/test/fake_openxr_impl_api.cc)
  
@@ -45,4 +57,6 @@ export XR_RUNTIME_JSON=/home/user/.local/share/openxr/runtime.d/steam_runtime.js
 - [Godot Engine VR開発メモ（Quest、Steam VR、WebXR対応） - フレームシンセシス](https://framesynthesis.jp/tech/godot/vr/)
 - [GitHub - CrispyPin/ovr-utils: Overlay app for OpenVR/SteamVR on Linux/Windows made in Godot](https://github.com/CrispyPin/ovr-utils)
 	- [GitHub - CrispyPin/ovr-utils: Overlay app for OpenVR/SteamVR on Linux/Windows made in Godot](https://github.com/CrispyPin/ovr-utils)
-	
+
+## quest native	
+[[QuestMobileSDK]]
