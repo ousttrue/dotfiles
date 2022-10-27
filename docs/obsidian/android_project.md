@@ -1,3 +1,0 @@
-[[Android]]
-
-Projectの構成
