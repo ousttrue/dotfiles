@@ -2,7 +2,7 @@ Android Debug Bridge
 
 `%USERPROFILE%\AppData\Local\Android\Sdk`
 
-[[android]]
+[[Android]]
 [[OculusQuest]]
 
 - [Android Debug Bridge（adb）  |  Android デベロッパー  |  Android Developers](https://developer.android.com/studio/command-line/adb?hl=ja)

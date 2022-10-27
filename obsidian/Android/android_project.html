@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>JDK - shell note ドキュメント</title>
+        <title>[[gradle]] - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -219,23 +219,100 @@
         </div>
         <article role="main">
           <p>[[Android]]</p>
+<p>Projectの構成</p>
+<section class="tex2jax_ignore mathjax_ignore" id="gradle">
+<h1>[[gradle]]<a class="headerlink" href="#gradle" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://developer.android.com/studio/install">Android Studio のインストール  |  Android デベロッパー  |  Android Developers</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://akira-watson.com/android/helloworld.html">[Android] 簡単なHello worldアプリをAndroid Studioで作成</a></p></li>
-<li><p>@2016 <a class="reference external" href="https://developers-jp.googleblog.com/2016/11/make-and-ndk-build-support-in-android.html">Google Developers Japan: Android Studio 2.2 が CMake と ndk-build をサポート</a></p></li>
+<li><p><a class="reference external" href="https://developer.android.com/studio/build?hl=ja">ビルドを設定する  |  Android デベロッパー  |  Android Developers</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="jdk">
-<h1>JDK<a class="headerlink" href="#jdk" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://android.benigumo.com/20211202/androidstudio-java-jdk/">AndroidStudio 利用する Java (JDK) の選択・設定の方法</a></p></li>
-</ul>
-<blockquote>
-<div><p>Windows では <code class="docutils literal notranslate"><span class="pre">ANDROID_STUDIO/jre</span></code> にインストールされる</p>
-</div></blockquote>
+<section id="build-gradle">
+<h2>build.gradle<a class="headerlink" href="#build-gradle" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="c1">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span>
+<span class="n">plugins</span> <span class="o">{</span>
+    <span class="n">id</span> <span class="s1">'com.android.application'</span> <span class="n">version</span> <span class="s1">'7.3.1'</span> <span class="n">apply</span> <span class="kc">false</span>
+    <span class="n">id</span> <span class="s1">'com.android.library'</span> <span class="n">version</span> <span class="s1">'7.3.1'</span> <span class="n">apply</span> <span class="kc">false</span>
+    <span class="n">id</span> <span class="s1">'org.jetbrains.kotlin.android'</span> <span class="n">version</span> <span class="s1">'1.7.20'</span> <span class="n">apply</span> <span class="kc">false</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="project">
-<h1>project<a class="headerlink" href="#project" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">%USERPROFILE%/AndroidStudioProjects/PROJECT_NAME</span></code></p>
+<section id="settings-gradle">
+<h2>settings.gradle<a class="headerlink" href="#settings-gradle" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プロジェクト設定</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">pluginManagement</span> <span class="o">{</span>
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">gradlePluginPortal</span><span class="o">()</span>
+        <span class="n">google</span><span class="o">()</span>
+        <span class="n">mavenCentral</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">dependencyResolutionManagement</span> <span class="o">{</span>
+    <span class="n">repositoriesMode</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">RepositoriesMode</span><span class="o">.</span><span class="na">FAIL_ON_PROJECT_REPOS</span><span class="o">)</span>
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">google</span><span class="o">()</span>
+        <span class="n">mavenCentral</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">rootProject</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s2">"My Application"</span>
+<span class="n">include</span> <span class="s1">':app'</span> <span class="c1">// app module</span>
+</pre></div>
+</div>
+</section>
+<section id="app-build-gradle">
+<h2>app/build.gradle<a class="headerlink" href="#app-build-gradle" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">plugins</span> <span class="o">{</span>
+    <span class="n">id</span> <span class="s1">'com.android.application'</span>
+    <span class="n">id</span> <span class="s1">'org.jetbrains.kotlin.android'</span>
+<span class="o">}</span>
+  
+<span class="n">android</span> <span class="o">{</span>
+    <span class="n">namespace</span> <span class="s1">'com.example.myapplication'</span>
+    <span class="n">compileSdk</span> <span class="mi">32</span>
+  
+    <span class="n">defaultConfig</span> <span class="o">{</span>
+        <span class="n">applicationId</span> <span class="s2">"com.example.myapplication"</span>
+        <span class="n">minSdk</span> <span class="mi">21</span>
+        <span class="n">targetSdk</span> <span class="mi">32</span>
+        <span class="n">versionCode</span> <span class="mi">1</span>
+        <span class="n">versionName</span> <span class="s2">"1.0"</span>
+
+        <span class="n">testInstrumentationRunner</span> <span class="s2">"androidx.test.runner.AndroidJUnitRunner"</span>
+    <span class="o">}</span>
+
+    <span class="n">buildTypes</span> <span class="o">{</span>
+        <span class="n">release</span> <span class="o">{</span>
+            <span class="n">minifyEnabled</span> <span class="kc">false</span>
+            <span class="n">proguardFiles</span> <span class="n">getDefaultProguardFile</span><span class="o">(</span><span class="s1">'proguard-android-optimize.txt'</span><span class="o">),</span> <span class="s1">'proguard-rules.pro'</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="n">compileOptions</span> <span class="o">{</span>
+        <span class="n">sourceCompatibility</span> <span class="n">JavaVersion</span><span class="o">.</span><span class="na">VERSION_1_8</span>
+        <span class="n">targetCompatibility</span> <span class="n">JavaVersion</span><span class="o">.</span><span class="na">VERSION_1_8</span>
+    <span class="o">}</span>
+
+    <span class="n">kotlinOptions</span> <span class="o">{</span>
+        <span class="n">jvmTarget</span> <span class="o">=</span> <span class="s1">'1.8'</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">implementation</span> <span class="s1">'androidx.core:core-ktx:1.7.0'</span>
+    <span class="n">implementation</span> <span class="s1">'androidx.appcompat:appcompat:1.4.1'</span>
+    <span class="n">implementation</span> <span class="s1">'com.google.android.material:material:1.5.0'</span>
+    <span class="n">implementation</span> <span class="s1">'androidx.constraintlayout:constraintlayout:2.1.3'</span>
+    <span class="n">testImplementation</span> <span class="s1">'junit:junit:4.13.2'</span>
+    <span class="n">androidTestImplementation</span> <span class="s1">'androidx.test.ext:junit:1.1.3'</span>
+    <span class="n">androidTestImplementation</span> <span class="s1">'androidx.test.espresso:espresso-core:3.4.0'</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="app-src">
+<h2>app/src<a class="headerlink" href="#app-src" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
 </section>
 
         </article>
@@ -251,7 +328,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/Arm/AndroidStudio.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/Android/android_project.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -271,8 +348,13 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">JDK</a></li>
-<li><a class="reference internal" href="#project">project</a></li>
+<li><a class="reference internal" href="#">[[gradle]]</a><ul>
+<li><a class="reference internal" href="#build-gradle">build.gradle</a></li>
+<li><a class="reference internal" href="#settings-gradle">settings.gradle</a></li>
+<li><a class="reference internal" href="#app-build-gradle">app/build.gradle</a></li>
+<li><a class="reference internal" href="#app-src">app/src</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
