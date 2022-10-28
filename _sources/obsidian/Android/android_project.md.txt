@@ -3,7 +3,10 @@
 Projectの構成
 
 # [[gradle]]
+
 - [ビルドを設定する  |  Android デベロッパー  |  Android Developers](https://developer.android.com/studio/build?hl=ja)
+- [Android Gradle plugin API reference  |  Android Developers](https://developer.android.com/reference/tools/gradle-api?hl=ja)
+
 ## build.gradle
 
 ```groovy
@@ -39,7 +42,13 @@ rootProject.name = "My Application"
 include ':app' // app module
 ```
 
-## app/build.gradle
+## modules
+- [Android のモジュールのパスを簡潔にする - Qiita](https://qiita.com/beyondseeker/items/6a1f0caddf995f5df46d)
+
+### app/build.gradle
+
+- [アプリ モジュールを設定する  |  Android デベロッパー  |  Android Developers](https://developer.android.com/studio/build/configure-app-module?hl=ja)
+- アプリケーション ID は名前空間と同じにしておきます。
 
 ```groovy
 plugins {
@@ -89,4 +98,57 @@ dependencies {
 }
 ```
 
-## app/src
+### app/src/main appモジュールの main ソースセット
+#### app/src/main/AndroidManifest.xml
+- @2018 [AndroidManifestについて](https://sasakiyuki.github.io/posts/android_document_android_manifest/)
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+    </application>
+</manifest>
+```
+
+`{namespace}.MainActivity`
+
+#### app/src/main/java/com/example/myapplication/MainActivity.kt
+
+```kotlin
+package com.example.myapplication
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+		// resource layout activity_main
+        setContentView(R.layout.activity_main) // view が描画
+    }
+}
+```
+
+=> [[android_view]]

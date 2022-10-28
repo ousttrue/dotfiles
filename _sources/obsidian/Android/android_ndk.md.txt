@@ -10,14 +10,22 @@
 
 # OpenGLES 2.0
 [[OpenGLES]]
-- [ndk-samples/hello-gl2 at main · android/ndk-samples · GitHub](https://github.com/android/ndk-samples/tree/main/hello-gl2)
-
-
-[[Android]]
-[[OpenGL]]
-
-- [Android：はじめてのAndroid NDK – しかるのち](https://shikarunochi.matrix.jp/?p=4080)
 - [Android：Android NDK で OpenGL – しかるのち](https://shikarunochi.matrix.jp/?p=4097)
+
+動かん
+- [ndk-samples/hello-gl2 at main · android/ndk-samples · GitHub](https://github.com/android/ndk-samples/tree/main/hello-gl2)
+- [GitHub - tenpercent/Android-NDK-OpenGLES2-basic-geometry: "hello-triangle"-inspired example using GLSurfaceView to display stuff and native OpenGL ES 2 routines to render stuff](https://github.com/tenpercent/Android-NDK-OpenGLES2-basic-geometry)
+
+# OpenGLES3.0
+```build.gradle
+def platformVersion = 24      // openGLES 3.2 min api level  
+// def platformVersion = 18    //openGLES 3 min api level  
+// def platformVersion = 12    //openGLES 2 min api level
+```
+
+動いた
+- [ndk-samples/gles3jni at master · android/ndk-samples · GitHub](https://github.com/android/ndk-samples/tree/master/gles3jni/)
+- [ndk-samples/teapots at main · android/ndk-samples · GitHub](https://github.com/android/ndk-samples/tree/main/teapots)
 
 # CMake
 - [CMake  |  Android NDK  |  Android Developers](https://developer.android.com/ndk/guides/cmake?hl=ja)
