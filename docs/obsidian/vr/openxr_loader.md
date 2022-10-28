@@ -1,0 +1,1 @@
+- [GitHub - maluoi/openxr-explorer: A cross-platform OpenXR capabilities explorer and runtime switcher with a CLI and GUI.](https://github.com/maluoi/openxr-explorer)

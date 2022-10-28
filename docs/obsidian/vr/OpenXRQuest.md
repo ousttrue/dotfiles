@@ -6,6 +6,7 @@
 - [Site Unreachable](https://developer.oculus.com/downloads/package/oculus-openxr-mobile-sdk/)
 	- [Build and Run hello_xr Sample App](https://developer.oculus.com/documentation/native/android/mobile-build-run-hello-xr-app/)
 
+env `PYTHONPATH=C:\\Python310`
 
 ```
 OpenXRMobileSDK # MobileSDK

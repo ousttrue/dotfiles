@@ -9,12 +9,12 @@
         "dimension": 60.14319809069213,
         "children": [
           {
-            "id": "9f03bff39f29f889",
+            "id": "a5522d63b79b22a9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Android/android_project.md",
+                "file": "vr/lovr.md",
                 "mode": "source",
                 "source": false
               }
@@ -33,7 +33,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Android/android_project.md",
+                "file": "vr/lovr.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -119,7 +119,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 248.5
   },
   "right": {
     "id": "81970b00531257e5",
@@ -143,7 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Android/android_project.md",
+                "file": "vr/lovr.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -161,20 +161,17 @@
     "width": 453.5,
     "collapsed": true
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
   "active": "a69f4d2db1f79362",
   "lastOpenFiles": [
-    "Android/Android.md",
-    "Android/zig_ndk.md",
-    "Android/android_ndk.md",
+    "vr/OpenXR.md",
+    "vr/openxr_loader.md",
+    "vr/hello_xr.md",
+    "GPU/spout.md",
+    "vr/QuestMobileSDK.md",
+    "vr/alvr.md",
+    "Android/android_adb.md",
+    "quest_adb.md",
     "vr/OpenXRQuest.md",
-    "Arm/NDK.md",
-    "OpenGL/vulkan.md",
-    "Android/ndk_vulkan.md",
-    "OpenGL/OpenGLES.md",
-    "vr/QuestKeyboard.md",
-    "vr/QuestMobileSDK.md"
+    "Android/android_project.md"
   ]
 }
