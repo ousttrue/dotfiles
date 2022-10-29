@@ -1,8 +1,31 @@
-[[zig]] + [[OpenGL]] + [[wasm]]
-
-[[python]] + [[flask]] + [[Leaflet]]
-
 #blue
+
+[[zig]] + [[OpenGL]] + [[wasm]]
+[[python]] + [[flask]] + [[Leaflet]]
+[[OpenXR]]
+
+# QuestPro
+
+## avatar tracker
+- body tracking
+- hand tracking
+- eye tracking
+- facial tracking
+- osc sender
+- local mirror renderer
+
+## avatracker receiver
+- osc renceiver
+- renderer
+- [[spout]]
+
+## MRWorkSpace
+- pass through
+- spacial anchor
+
+# SceneServer
+- SpacialAnchor
+- Scene
 
 # [[neovim|nvim]]
 ## [[vim_plugins]]

@@ -1,51 +1,13 @@
 #red
 
 # The OpenXR Loader provided by Khronos
-`include/openxr/openxr.h`
-link `openxr_loader.lib`
-
-```cmake
-# openxr
-add_library(openxr INTERFACE)
-target_include_directories(openxr INTERFACE $ENV{OPENXR_SDK_DIR}/include)
-target_link_directories(openxr INTERFACE
-                        $ENV{OPENXR_SDK_DIR}/native/x64/release/lib)
-target_link_libraries(openxr INTERFACE openxr_loader.lib)
-```
-
-実行時
-`${env:OPENXR_SDK_DIR}/native/x64/release/bin`
-
 [[openxr_loader]]
+[[hello_xr]]
 
 - [https://www.khronos.org/files/openxr-10-reference-guide.pdf](https://www.khronos.org/files/openxr-10-reference-guide.pdf)
 - [The OpenXR Specification](https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html)
 
-# OpenXR-SDK
-## source
-- コード生成とサンプル
-- [GitHub - KhronosGroup/OpenXR-SDK-Source: Sources for OpenXR loader, basic API layers, and example code.](https://github.com/KhronosGroup/OpenXR-SDK-Source)
-- src/tests/hello_xr
-- python3 が必用
-	* cmake-3.18 は python-3.9 までしか検出できないことに注意
-
-`/CMakeLists.txt` からビルドできる
-=> `build/src/loader/Debug/openxr_loaderd.lib`
-
-## generated
-- [GitHub - KhronosGroup/OpenXR-SDK: Generated headers and sources for OpenXR loader.](https://github.com/KhronosGroup/OpenXR-SDK)
-
-`OpenXR.Loader.1.0.24.nupkg`
-```
-git clone https://github.com/KhronosGroup/OpenXR-SDK.git
-cd OpenXR-SDK
-cmake -G Ninja -Bbuild -DCMAKE_BUILD_TYPE=Release
-ninja -C build install
-```
-
-runtime をロードさするには？
-
-
+	
 # Samples
 ## クロスプラットフォーム、オプション全部入り
 - [[hello_xr]]
@@ -59,11 +21,11 @@ runtime をロードさするには？
 vulkan とか必用。ビルド失敗
 - [GitHub - jherico/OpenXR-Samples: Samples for the OpenXR API](https://github.com/jherico/OpenXR-Samples)
 
-# Overlay
-- [GitHub - LunarG/OpenXR-OverlayLayer: Implementation of the OpenXR Overlay extension as a layer](https://github.com/LunarG/OpenXR-OverlayLayer)
-
-# OpenXR toolkit
-- [Quickstart | OpenXR Toolkit](https://mbucchia.github.io/OpenXR-Toolkit/)
+# Extensions
+- [[openxr_api_layer]]
+- [GitHub - LIV/XREW: Header Only OpenXR Extension Wrangler](https://github.com/LIV/XREW)
+- [OpenXR Runtime Extension Support Report](https://github.khronos.org/OpenXR-Inventory/extension_support.html)
+- [[XR_EXTX_overlay]]
 
 # Runtime
 - [OpenXR® Loader - Design and Operation [DRAFT] (with all published extensions)](https://www.khronos.org/registry/OpenXR/specs/1.0/loader.html)

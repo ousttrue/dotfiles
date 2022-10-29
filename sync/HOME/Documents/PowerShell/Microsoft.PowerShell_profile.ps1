@@ -1,5 +1,5 @@
 $env:HOME = $env:USERPROFILE
-$env:JAVA_HOME = $env:STUDIO_HOME + "\jre";
+$env:JAVA_HOME = $env:ANDROID_STUDIO_HOME + "\jre";
 
 if($env:TERM_PROGRAM -ne "vscode"){
     chcp 65001
@@ -65,7 +65,7 @@ addPath("C:\Program Files\CMake\bin")
 addPath("C:\Program Files\Git\usr\bin")
 addPath($env:JAVA_HOME + "\bin")
 addPath($env:ANDROID_HOME + "\platform-tools")
-addPath($env:ANDROID_HOME + "\ndk\25.1.8937393")
+addPath($env:ANDROID_HOME + "\ndk\21.4.7075529")
 
 # readline
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2
