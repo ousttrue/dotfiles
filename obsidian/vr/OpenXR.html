@@ -221,55 +221,12 @@
           <p>#red</p>
 <section class="tex2jax_ignore mathjax_ignore" id="the-openxr-loader-provided-by-khronos">
 <h1>The OpenXR Loader provided by Khronos<a class="headerlink" href="#the-openxr-loader-provided-by-khronos" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">include/openxr/openxr.h</span></code>
-link <code class="docutils literal notranslate"><span class="pre">openxr_loader.lib</span></code></p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># openxr</span>
-<span class="nb">add_library</span><span class="p">(</span><span class="s">openxr</span><span class="w"> </span><span class="s">INTERFACE</span><span class="p">)</span>
-<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">openxr</span><span class="w"> </span><span class="s">INTERFACE</span><span class="w"> </span><span class="o">$ENV{</span><span class="nv">OPENXR_SDK_DIR</span><span class="o">}</span><span class="s">/include</span><span class="p">)</span>
-<span class="nb">target_link_directories</span><span class="p">(</span><span class="s">openxr</span><span class="w"> </span><span class="s">INTERFACE</span>
-<span class="s"> </span><span class="w"> </span><span class="s"> </span><span class="w"> </span><span class="s"> </span><span class="w"> </span><span class="s"> </span><span class="w"> </span><span class="s"> </span><span class="w"> </span><span class="s"> </span><span class="w"> </span><span class="s"> </span><span class="w"> </span><span class="s"> </span><span class="w"> </span><span class="s"> </span><span class="w"> </span><span class="s"> </span><span class="w"> </span><span class="s"> </span><span class="w"> </span><span class="s"> </span><span class="w"> </span><span class="o">$ENV{</span><span class="nv">OPENXR_SDK_DIR</span><span class="o">}</span><span class="s">/native/x64/release/lib</span><span class="p">)</span>
-<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">openxr</span><span class="w"> </span><span class="s">INTERFACE</span><span class="w"> </span><span class="s">openxr_loader.lib</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>実行時
-<code class="docutils literal notranslate"><span class="pre">${env:OPENXR_SDK_DIR}/native/x64/release/bin</span></code></p>
-<p>[[openxr_loader]]</p>
+<p>[[openxr_loader]]
+[[hello_xr]]</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.khronos.org/files/openxr-10-reference-guide.pdf">https://www.khronos.org/files/openxr-10-reference-guide.pdf</a></p></li>
 <li><p><a class="reference external" href="https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html">The OpenXR Specification</a></p></li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="openxr-sdk">
-<h1>OpenXR-SDK<a class="headerlink" href="#openxr-sdk" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="source">
-<h2>source<a class="headerlink" href="#source" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>コード生成とサンプル</p></li>
-<li><p><a class="reference external" href="https://github.com/KhronosGroup/OpenXR-SDK-Source">GitHub - KhronosGroup/OpenXR-SDK-Source: Sources for OpenXR loader, basic API layers, and example code.</a></p></li>
-<li><p>src/tests/hello_xr</p></li>
-<li><p>python3 が必用</p>
-<ul>
-<li><p>cmake-3.18 は python-3.9 までしか検出できないことに注意</p></li>
-</ul>
-</li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">/CMakeLists.txt</span></code> からビルドできる
-=&gt; <code class="docutils literal notranslate"><span class="pre">build/src/loader/Debug/openxr_loaderd.lib</span></code></p>
-</section>
-<section id="generated">
-<h2>generated<a class="headerlink" href="#generated" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/KhronosGroup/OpenXR-SDK">GitHub - KhronosGroup/OpenXR-SDK: Generated headers and sources for OpenXR loader.</a></p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">OpenXR.Loader.1.0.24.nupkg</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">KhronosGroup</span><span class="o">/</span><span class="n">OpenXR</span><span class="o">-</span><span class="n">SDK</span><span class="o">.</span><span class="n">git</span>
-<span class="n">cd</span> <span class="n">OpenXR</span><span class="o">-</span><span class="n">SDK</span>
-<span class="n">cmake</span> <span class="o">-</span><span class="n">G</span> <span class="n">Ninja</span> <span class="o">-</span><span class="n">Bbuild</span> <span class="o">-</span><span class="n">DCMAKE_BUILD_TYPE</span><span class="o">=</span><span class="n">Release</span>
-<span class="n">ninja</span> <span class="o">-</span><span class="n">C</span> <span class="n">build</span> <span class="n">install</span>
-</pre></div>
-</div>
-<p>runtime をロードさするには？</p>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="samples">
 <h1>Samples<a class="headerlink" href="#samples" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -295,16 +252,13 @@ link <code class="docutils literal notranslate"><span class="pre">openxr_loader.
 </ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="overlay">
-<h1>Overlay<a class="headerlink" href="#overlay" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="extensions">
+<h1>Extensions<a class="headerlink" href="#extensions" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/LunarG/OpenXR-OverlayLayer">GitHub - LunarG/OpenXR-OverlayLayer: Implementation of the OpenXR Overlay extension as a layer</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="openxr-toolkit">
-<h1>OpenXR toolkit<a class="headerlink" href="#openxr-toolkit" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://mbucchia.github.io/OpenXR-Toolkit/">Quickstart | OpenXR Toolkit</a></p></li>
+<li><p>[[openxr_api_layer]]</p></li>
+<li><p><a class="reference external" href="https://github.com/LIV/XREW">GitHub - LIV/XREW: Header Only OpenXR Extension Wrangler</a></p></li>
+<li><p><a class="reference external" href="https://github.khronos.org/OpenXR-Inventory/extension_support.html">OpenXR Runtime Extension Support Report</a></p></li>
+<li><p>[[XR_EXTX_overlay]]</p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="runtime">
@@ -391,19 +345,13 @@ link <code class="docutils literal notranslate"><span class="pre">openxr_loader.
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">The OpenXR Loader provided by Khronos</a></li>
-<li><a class="reference internal" href="#openxr-sdk">OpenXR-SDK</a><ul>
-<li><a class="reference internal" href="#source">source</a></li>
-<li><a class="reference internal" href="#generated">generated</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#samples">Samples</a><ul>
 <li><a class="reference internal" href="#id1">クロスプラットフォーム、オプション全部入り</a></li>
 <li><a class="reference internal" href="#windows-mixedreality">Windows MixedReality用</a></li>
 <li><a class="reference internal" href="#id2">?</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#overlay">Overlay</a></li>
-<li><a class="reference internal" href="#openxr-toolkit">OpenXR toolkit</a></li>
+<li><a class="reference internal" href="#extensions">Extensions</a></li>
 <li><a class="reference internal" href="#runtime">Runtime</a><ul>
 <li><a class="reference internal" href="#monado">[[monado]]</a></li>
 <li><a class="reference internal" href="#steamvr">[[SteamVR]]</a></li>

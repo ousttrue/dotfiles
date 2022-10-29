@@ -10,9 +10,17 @@
 - Android SDKビルドツール、v28.0.3以降
 - Android NDK
 
+# Quest向け openxr_loader
 - [Build and Run hello_xr Sample App](https://developer.oculus.com/documentation/native/android/mobile-build-run-hello-xr-app/)
 
-SO をビルドする 
+# xrSamples
+- [Mobile OpenXR Samples](https://developer.oculus.com/documentation/native/android/mobile-openxr-sample/)
 
-# HandTracking
+## xrHandsFB
+- [Enable Hand Tracking](https://developer.oculus.com/documentation/native/android/mobile-hand-tracking/)
+
+`xrSamples/XrHandsFB/Projects/Android/build.gradle` ?
+
+> Demonstrates how to use hand tracking to drive simple pointer-based input and provide visual feedback for hand meshes and simple skinning.
+
 - @2021 [VR/ARの標準仕様「OpenXR」、Oculus Questのハンドトラッキングが正式対応 | Think IT（シンクイット）](https://thinkit.co.jp/article/19064)
