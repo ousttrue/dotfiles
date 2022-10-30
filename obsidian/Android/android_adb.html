@@ -219,29 +219,32 @@
         </div>
         <article role="main">
           <p>Android Debug Bridge</p>
-<p><code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\AppData\Local\Android\Sdk</span></code></p>
 <p>[[Android]]
-[[OculusQuest]]</p>
+[[QuestMobileSDK]]</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://developer.android.com/studio/command-line/adb?hl=ja">Android Debug Bridge（adb）  |  Android デベロッパー  |  Android Developers</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/uhooi/items/fb103ad3e263b0bb0abf#adb%E3%81%A7%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF">ADBでよく使うコマンド一覧 - Qiita</a></p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">ANDROID_HOME=%USERPROFILE%\AppData\Local\Android\Sdk</span></code>
+<code class="docutils literal notranslate"><span class="pre">%ANDROID_HOME/platform-tools/adb.exe</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ adb devices -l
 </pre></div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="driver">
 <h1>driver<a class="headerlink" href="#driver" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>開発者モードが必要</p>
 <section id="google">
 <h2>Google<a class="headerlink" href="#google" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://developer.android.com/studio/run/win-usb?hl=ja">Google USB ドライバを入手する  |  Android デベロッパー  |  Android Developers</a></p></li>
 </ul>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="quest">
-<h1>Quest<a class="headerlink" href="#quest" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="quest">
+<h2>Quest<a class="headerlink" href="#quest" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.scriptlife.jp/contents/programming/2019/06/23/oculus-quest-adb/">[Oculus Quest] adb接続する | script life 千夜一夜 プログラミング別館</a></p></li>
 </ul>
+</section>
 <section id="device">
 <h2>device 認識<a class="headerlink" href="#device" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
@@ -251,7 +254,6 @@
 <span class="mi">1</span><span class="n">PASH9BHD29144</span>         <span class="n">unauthorized</span> <span class="n">transport_id</span><span class="p">:</span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>接続許可</p>
 </section>
 </section>
 
@@ -290,9 +292,7 @@
             <ul>
 <li><a class="reference internal" href="#">driver</a><ul>
 <li><a class="reference internal" href="#google">Google</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#quest">Quest</a><ul>
+<li><a class="reference internal" href="#quest">Quest</a></li>
 <li><a class="reference internal" href="#device">device 認識</a></li>
 </ul>
 </li>
