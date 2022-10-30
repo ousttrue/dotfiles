@@ -1,7 +1,7 @@
 [[arm_snapdragon]]
 #red
 [[zig]]
-[[OpenXRQuest]]
+[[QuestMobileSDK]]
 [[AndroidStudio]]
 [[android_ndk]]
 
