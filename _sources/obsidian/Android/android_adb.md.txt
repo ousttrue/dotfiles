@@ -28,3 +28,8 @@ $ adb devices -l
 List of devices attached
 1PASH9BHD29144         unauthorized transport_id:1
 ```
+
+# apk 起動
+```
+$ adb shell am start -n "com.example.gl2handtrackOXR/com.oxrapp.glesapp.OXRAppMainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -D
+```

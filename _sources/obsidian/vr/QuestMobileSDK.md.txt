@@ -13,8 +13,10 @@
 
 - @2021 [ネイティブ開発Ouclus Quest2 - Qiita](https://qiita.com/tkymt/items/f40d201c42a88da23824)
 
-- [GitHub - terryky/android_openxr_gles: VR sample applications on Android NDK using OpenXR + OpenGLES. (especially for Meta Quest2)](https://github.com/terryky/android_openxr_gles)
 - [GitHub - Wxz234/Android-Oculus: A Openxr](https://github.com/Wxz234/Android-Oculus)
+
+# samples
+- [GitHub - terryky/android_openxr_gles: VR sample applications on Android NDK using OpenXR + OpenGLES. (especially for Meta Quest2)](https://github.com/terryky/android_openxr_gles)
 
 # Oculus Developer Hub
 
@@ -30,8 +32,26 @@
 # xrSamples
 - [Mobile OpenXR Samples](https://developer.oculus.com/documentation/native/android/mobile-openxr-sample/)
 
+## ovrbuild
+`bin/scripts/build/ovrbuild.py`
+環境変数
+- JAVA_HOME = AndroidStudio_INSTALL/jre
+- ANDROID_HOME = %USERPROFILE%/AppData/Local/Android/sdk
+- ANDROID_NDK_HOME = %ANDROID_HOME%/ndk/NDK_VERSION
+が必用。
+
+`D:\OpenXRMobileSDK\bin\scripts\build\../../../gradlew assembleRelease --daemon -quiet --build-cache --configure-on-demand --parallel -Pshould_install`
+
 ##  [XR_EXT_hand_tracking](https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html#XR_EXT_hand_tracking): xrHandsFB
 - [Enable Hand Tracking](https://developer.oculus.com/documentation/native/android/mobile-hand-tracking/)
+
+`XrSamples/XrHandsFB/Projects/Android/build.py` => ovrbuild
+
+```python
+import ovrbuild
+ovrbuild.init()
+ovrbuild.build()
+```
 
 ```c++
 // Inspect hand tracking system properties
@@ -43,8 +63,6 @@ XrSystemProperties systemProperties{
 };
 OXR(xrGetSystemProperties(GetInstance(), GetSystemId(), &systemProperties));
 ```
-
-`xrSamples/XrHandsFB/Projects/Android/build.gradle` ?
 
 > Demonstrates how to use hand tracking to drive simple pointer-based input and provide visual feedback for hand meshes and simple skinning.
 
@@ -69,6 +87,8 @@ OXR(xrGetSystemProperties(GetInstance(), GetSystemId(), &systemProperties));
 - [XR_FB_triangle_mesh](https://www.oculus.com/lynx/?u=https%3A%2F%2Fregistry.khronos.org%2FOpenXR%2Fspecs%2F1.0%2Fhtml%2Fxrspec.html%23XR_FB_triangle_mesh&e=AT2UPomIZ9jR7kOdzmMWnGa_G0B-j_Wc6QXVBwNoPRG85qJJ1YKV9kYP1IXaRsRfJgGbEWLpqdVusNU7_-X9tTCbSLGeFpBYwTm1MLD8qCV2xvIrqDNqqBEyoJaMqtPRZSjAxsITjSnDCmk5wA6i9IWoJmPSievmJrOYqw).
 
 # Scene
+- [【Meta Quest 2】最新アプデでMRセットアップ機能が実装 新しいコンテンツが増える？ - MoguLive](https://www.moguravr.com/meta-quest-2-9/)
+
 - xrSample/XrSceneModel
 - [OpenXR Scene Overview](https://developer.oculus.com/documentation/native/android/openxr-scene-overview/)
 - [XR_FB_scene](https://www.oculus.com/lynx/?u=https%3A%2F%2Fregistry.khronos.org%2FOpenXR%2Fspecs%2F1.0%2Fhtml%2Fxrspec.html%23XR_FB_scene&e=AT3BlXnZRaCRe3CYW1HdeKPUir-iED7cVDTAHr6XyLkO37MChTgxY1YrEI7GFnRp17TK4YdZtwvxQm8P4u9abNA9LZPRsf8jKfnIgHGZb1RYPTl0aOvKq-7awsGtsHnUClFcQTbONNOj1wlX721aYOppizfRCy3s0sIO8Q).

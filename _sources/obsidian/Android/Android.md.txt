@@ -5,7 +5,45 @@
 [[AndroidStudio]]
 [[android_ndk]]
 
+# project
+`7.3.1`
+```groovy
+// build.gradle
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    repositories {
+       google()
+       mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.1'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+```
+
+## app
+```groovy
+// settings.gradle
+include ':app'
+```
 `/app/build/outputs/apk`
+
+# lint
+- [Android Lintと修正方法 - Qiita](https://qiita.com/yoppie_x/items/4ada5a4c12ff9fd057a4)
 
 # version
 [Android Releases  |  Android Developers](https://developer.android.com/about/versions?hl=ja)
