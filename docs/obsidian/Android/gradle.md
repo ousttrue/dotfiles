@@ -2,11 +2,9 @@
 [[Android]]
 [[sdkman]]
 
-`6.9`
 
 - [Gradle Build Tool](https://gradle.org/)
 	- [Gradle | Releases](https://gradle.org/releases/)
-
 
 - [Getting Started | Building Java Projects with Gradle](https://spring.io/guides/gs/gradle/)
 

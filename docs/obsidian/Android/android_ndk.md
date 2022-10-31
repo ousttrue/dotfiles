@@ -1,9 +1,15 @@
 [[Android]]
+[[ndk_gdbserver]]
 
 - [NDK と CMake のインストールと設定  |  Android デベロッパー  |  Android Developers](https://developer.android.com/studio/projects/install-ndk?hl=ja)
 - @2020 [【Android Studio】NDKを使ってHelloWorld_手動ビルド【日本語】│夢と働き方と日々の生活 x 革命](https://kehalife.com/android-studio-ndk-manual/)
 
 `%ANDROID_HOME%\ndk\25.1.8937393`
+
+```
+ndk_envars = ["ANDROID_NDK", "NDKROOT", "ANDROID_NDK_HOME"]
+sdk_envars = ["ANDROID_HOME"]
+```
 
 # vscode
 - @2019 [Using Visual Studio Code as an Android C++ editor – Donald Munro – YABB (Yet Another Boring Blog)](https://donaldmunro.github.io/VSCode-Android-CC/)
