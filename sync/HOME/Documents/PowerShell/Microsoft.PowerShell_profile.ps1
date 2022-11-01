@@ -54,8 +54,8 @@ function addPath($path) {
     }
 }
 
-insertPath("C:\Python310\Scripts")
-insertPath("C:\Python310")
+# insertPath("C:\Python310\Scripts")
+# insertPath("C:\Python310")
 insertPath($env:USERPROFILE + "\.deno\bin")
 insertPath($env:USERPROFILE + "\.cargo\bin")
 insertPath($env:USERPROFILE + "\go\bin")
@@ -66,6 +66,7 @@ addPath("C:\Program Files\Git\usr\bin")
 addPath($env:JAVA_HOME + "\bin")
 addPath($env:ANDROID_HOME + "\platform-tools")
 addPath($env:ANDROID_HOME + "\ndk\21.4.7075529")
+addPath($env:GRADLE_HOME + "\bin")
 
 # readline
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2

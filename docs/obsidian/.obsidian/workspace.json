@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "physics_engine.md",
+                "file": "Android/gradle.md",
                 "mode": "source",
                 "source": false
               }
@@ -33,8 +33,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "49953291778a184e",
@@ -47,7 +46,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "physics_engine.md",
+                "file": "Android/gradle.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -158,7 +157,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "physics_engine.md",
+                "file": "Android/gradle.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -176,17 +175,17 @@
     "width": 638.5,
     "collapsed": true
   },
-  "active": "a69f4d2db1f79362",
+  "active": "e3fb95f150425e5f",
   "lastOpenFiles": [
+    "vr/QuestMobileSDK.md",
+    "Android/gradle.md",
+    "Android/android_ndk.md",
+    "physics_engine.md",
     "pose/physics.md",
     "vr/quest_app.md",
-    "physics_engine.md",
     "Android/android_adb.md",
     "vr/ndk_gdbserver.md",
-    "Android/android_ndk.md",
-    "vr/QuestMobileSDK.md",
     "_other/arm_snapdragon.md",
-    "Android/android_app.md",
-    "Android/android_project.md"
+    "Android/android_app.md"
   ]
 }

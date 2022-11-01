@@ -1,40 +1,13 @@
 # dotfiles
 
-`deploy.py`
+- used [doit](https://pydoit.org/)
+- dodo.py
 
-## depends
+## symbolic link
 
-* python3
-* git
-* ssh
-
-## nvim
-
-* packer
-* lsp
-* dap
-
-## vim
-
-* dein
-
-## env
-
-* Windows10
-* WSL on Windows
-* Ubuntu
-
-## sudo apt install
-
-* gcc
-* cmake
-
-## go
-
-* ghq
-* peco
-
-## rust
-
-* exa
+- from `sync/HOME` to `$HOME` or `%USERPROFILE%`
+- from `sync/APPDATA` to `%USERPROFILE%/AppData`
+- cargo
+- go
+- pip
 

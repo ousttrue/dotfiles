@@ -1,5 +1,6 @@
 [[Android]]
 [[ndk_gdbserver]]
+[[gradle]]
 
 `%ANDROID_HOME%\ndk\25.1.8937393`
 
@@ -11,6 +12,12 @@
 ## arch
 - [Android - ArchWiki](https://wiki.archlinux.jp/index.php/Android)
 - [AUR (en) - android-ndk](https://aur.archlinux.org/packages/android-ndk)
+
+# version
+[[gradle|AGP]] のバージョンから決める？
+
+# ABI
+- [Android ABI  |  Android NDK  |  Android Developers](https://developer.android.com/ndk/guides/abis?hl=ja)
 
 # build
 - [NDK と CMake のインストールと設定  |  Android デベロッパー  |  Android Developers](https://developer.android.com/studio/projects/install-ndk?hl=ja)
