@@ -222,16 +222,36 @@
 [[Android]]
 [[sdkman]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://gradle.org/">Gradle Build Tool</a></p>
-<ul>
-<li><p><a class="reference external" href="https://gradle.org/releases/">Gradle | Releases</a></p></li>
-</ul>
-</li>
+<li><p><a class="reference external" href="https://gradle.org/">Gradle Build Tool</a></p></li>
 <li><p><a class="reference external" href="https://spring.io/guides/gs/gradle/">Getting Started | Building Java Projects with Gradle</a></p></li>
+<li><p><a class="reference external" href="https://gradle.org/releases/">Gradle | Releases</a>
+<code class="docutils literal notranslate"><span class="pre">6.9.3</span></code>
+<code class="docutils literal notranslate"><span class="pre">7.3.1</span></code>
+<code class="docutils literal notranslate"><span class="pre">7.5.1</span></code>
+=&gt; NDK 21.4.7075529</p></li>
+<li><p><a class="reference external" href="https://qiita.com/kaakaa_hoe/items/741f44f9c23262abbcca">手軽にGradleビルドを高速化する10の方法 - Qiita</a></p></li>
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="env">
 <h1>env<a class="headerlink" href="#env" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">GRADLE_HOME</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="agp">
+<h1>AGP<a class="headerlink" href="#agp" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">7.3.1</span></code></p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
+	<span class="n">classpath</span> <span class="s1">'com.android.tools.build:gradle:7.3.1'</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developer.android.com/reference/tools/gradle-api/7.3/classes?hl=ja">Class Index  |  Android Developers</a></p></li>
+</ul>
+<p>Android Gradle Plugin</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developer.android.com/reference/tools/gradle-api?hl=ja">Android Gradle plugin API reference  |  Android Developers</a></p></li>
+<li><p><a class="reference external" href="https://developer.android.com/studio/releases/gradle-plugin?hl=ja">Android Gradle プラグインのリリースノート  |  Android デベロッパー  |  Android Developers</a></p></li>
+<li><p><a class="reference external" href="https://developer.android.com/studio/releases/gradle-plugin-roadmap?hl=ja">Android Gradle プラグインの DSL / API の移行スケジュール  |  Android デベロッパー  |  Android Developers</a></p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="groovy">
 <h1>[[groovy]]<a class="headerlink" href="#groovy" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -291,6 +311,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">env</a></li>
+<li><a class="reference internal" href="#agp">AGP</a></li>
 <li><a class="reference internal" href="#groovy">[[groovy]]</a></li>
 <li><a class="reference internal" href="#kotolin">[[kotolin]]</a></li>
 <li><a class="reference internal" href="#task">task</a></li>
