@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>dev - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,152 +212,17 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[Android]]
-[[ndk_gdbserver]]</p>
-<p><code class="docutils literal notranslate"><span class="pre">%ANDROID_HOME%\ndk\25.1.8937393</span></code></p>
-<section class="tex2jax_ignore mathjax_ignore" id="dev">
-<h1>dev<a class="headerlink" href="#dev" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="vscode">
-<h2>vscode<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+          <p>[[wsl]]
+[[Android]]</p>
 <ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://donaldmunro.github.io/VSCode-Android-CC/">Using Visual Studio Code as an Android C++ editor – Donald Munro – YABB (Yet Another Boring Blog)</a></p></li>
+<li><p><a class="reference external" href="https://news.mynavi.jp/techplus/article/20221025-2490823/">Windows Subsystem for Androidがバージョン1.0到達、5万超アプリがWindowsで動作可能に | TECH+（テックプラス）</a></p></li>
 </ul>
-</section>
-<section id="ubuntu">
-<h2>ubuntu<a class="headerlink" href="#ubuntu" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.kkaneko.jp/pro/js/andk.html">Ubuntu で Android NDK を使ってみる</a></p></li>
-</ul>
-</section>
-<section id="arch">
-<h2>arch<a class="headerlink" href="#arch" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://wiki.archlinux.jp/index.php/Android">Android - ArchWiki</a></p></li>
-<li><p><a class="reference external" href="https://aur.archlinux.org/packages/android-ndk">AUR (en) - android-ndk</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="build">
-<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developer.android.com/studio/projects/install-ndk?hl=ja">NDK と CMake のインストールと設定  |  Android デベロッパー  |  Android Developers</a></p></li>
-</ul>
-<section id="ndk-build">
-<h2>ndk-build<a class="headerlink" href="#ndk-build" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://kehalife.com/android-studio-ndk-manual/">【Android Studio】NDKを使ってHelloWorld_手動ビルド【日本語】│夢と働き方と日々の生活 x 革命</a></p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">jni/Android.mk</span></code>
-<code class="docutils literal notranslate"><span class="pre">jni/Application.mk</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ndk_envars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"ANDROID_NDK"</span><span class="p">,</span> <span class="s2">"NDKROOT"</span><span class="p">,</span> <span class="s2">"ANDROID_NDK_HOME"</span><span class="p">]</span>
-<span class="n">sdk_envars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"ANDROID_HOME"</span><span class="p">]</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>vscode<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://donaldmunro.github.io/VSCode-Android-CC/">Using Visual Studio Code as an Android C++ editor – Donald Munro – YABB (Yet Another Boring Blog)</a></p></li>
-</ul>
-<section id="cmake">
-<h2>CMake<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developer.android.com/ndk/guides/cmake?hl=ja">CMake  |  Android NDK  |  Android Developers</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/niusounds/items/1c799475caf981eb2335">CMake - Qiita</a></p></li>
-</ul>
-<section id="cmake-version">
-<h3>cmake version<a class="headerlink" href="#cmake-version" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://serenegiant.com/blog/?p=3676">Android Studioでデフォルトのcmake以外(ぶっちゃけcmake3.10)も使いたいのじゃ | 車輪の再発見みたいな？</a></p></li>
-</ul>
-</section>
-</section>
-<section id="gradle">
-<h2>gradle からの呼び出し<a class="headerlink" href="#gradle" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developer.android.com/ndk/guides/cmake?hl=ja">CMake  |  Android NDK  |  Android Developers</a></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-H${HOME}/Dev/github-projects/googlesamples/ndk-samples/hello-jni/app/src/main/cpp
--DCMAKE_FIND_ROOT_PATH=${HOME}/Dev/github-projects/googlesamples/ndk-samples/hello-jni/app/.cxx/cmake/universalDebug/prefab/armeabi-v7a/prefab
--DCMAKE_BUILD_TYPE=Debug
--DCMAKE_TOOLCHAIN_FILE=${HOME}/Android/Sdk/ndk/22.1.7171670/build/cmake/android.toolchain.cmake
--DANDROID_ABI=armeabi-v7a
--DANDROID_NDK=${HOME}/Android/Sdk/ndk/22.1.7171670
--DANDROID_PLATFORM=android-23
--DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
--DCMAKE_ANDROID_NDK=${HOME}/Android/Sdk/ndk/22.1.7171670
--DCMAKE_EXPORT_COMPILE_COMMANDS=ON
--DCMAKE_LIBRARY_OUTPUT_DIRECTORY=${HOME}/Dev/github-projects/googlesamples/ndk-samples/hello-jni/app/build/intermediates/cmake/universalDebug/obj/armeabi-v7a
--DCMAKE_RUNTIME_OUTPUT_DIRECTORY=${HOME}/Dev/github-projects/googlesamples/ndk-samples/hello-jni/app/build/intermediates/cmake/universalDebug/obj/armeabi-v7a
--DCMAKE_MAKE_PROGRAM=${HOME}/Android/Sdk/cmake/3.10.2.4988404/bin/ninja
--DCMAKE_SYSTEM_NAME=Android
--DCMAKE_SYSTEM_VERSION=23
--B${HOME}/Dev/github-projects/googlesamples/ndk-samples/hello-jni/app/.cxx/cmake/universalDebug/armeabi-v7a
--GNinja
-</pre></div>
-</div>
-</section>
-<section id="kits">
-<h2>kits<a class="headerlink" href="#kits" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>?</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://donaldmunro.github.io/VSCode-Android-CC/">Using Visual Studio Code as an Android C++ editor – Donald Munro – YABB (Yet Another Boring Blog)</a></p></li>
-</ul>
-</section>
-<section id="id2">
-<h2>vscode<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    "cmake.generator": "Ninja",
-    "cmake.configureSettings": {
-        "CMAKE_TOOLCHAIN_FILE": "${env:ANDROID_HOME}/ndk/21.0.6113669/build/cmake/android.toolchain.cmake",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-        "ANDROID_PLATFORM": "android-23",
-        "ANDROID_ABI": "armeabi-v7a",
-        "CMAKE_ANDROID_ARCH_ABI": "armeabi-v7a",
-    },
-    "clangd.arguments": [
-        "--compile-commands-dir=${workspaceFolder}/build"
-    ],
-}
-</pre></div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="samples">
-<h1>samples<a class="headerlink" href="#samples" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="opengles-2-0">
-<h2>OpenGLES 2.0<a class="headerlink" href="#opengles-2-0" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[OpenGLES]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://shikarunochi.matrix.jp/?p=4097">Android：Android NDK で OpenGL – しかるのち</a></p></li>
-</ul>
-<p>動かん</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/android/ndk-samples/tree/main/hello-gl2">ndk-samples/hello-gl2 at main · android/ndk-samples · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://github.com/tenpercent/Android-NDK-OpenGLES2-basic-geometry">GitHub - tenpercent/Android-NDK-OpenGLES2-basic-geometry: "hello-triangle"-inspired example using GLSurfaceView to display stuff and native OpenGL ES 2 routines to render stuff</a></p></li>
-</ul>
-</section>
-<section id="opengles3-0">
-<h2>OpenGLES3.0<a class="headerlink" href="#opengles3-0" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-build.gradle notranslate"><div class="highlight"><pre><span></span>def platformVersion = 24      // openGLES 3.2 min api level  
-// def platformVersion = 18    //openGLES 3 min api level  
-// def platformVersion = 12    //openGLES 2 min api level
-</pre></div>
-</div>
-<p>動いた</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/android/ndk-samples/tree/master/gles3jni/">ndk-samples/gles3jni at master · android/ndk-samples · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://github.com/android/ndk-samples/tree/main/teapots">ndk-samples/teapots at main · android/ndk-samples · GitHub</a></p></li>
-</ul>
-</section>
-</section>
 
         </article>
       </div>
@@ -372,7 +237,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/Android/android_ndk.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/Android/wsa.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -380,48 +245,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">dev</a><ul>
-<li><a class="reference internal" href="#vscode">vscode</a></li>
-<li><a class="reference internal" href="#ubuntu">ubuntu</a></li>
-<li><a class="reference internal" href="#arch">arch</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#build">build</a><ul>
-<li><a class="reference internal" href="#ndk-build">ndk-build</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id1">vscode</a><ul>
-<li><a class="reference internal" href="#cmake">CMake</a><ul>
-<li><a class="reference internal" href="#cmake-version">cmake version</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#gradle">gradle からの呼び出し</a></li>
-<li><a class="reference internal" href="#kits">kits</a></li>
-<li><a class="reference internal" href="#id2">vscode</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#samples">samples</a><ul>
-<li><a class="reference internal" href="#opengles-2-0">OpenGLES 2.0</a></li>
-<li><a class="reference internal" href="#opengles3-0">OpenGLES3.0</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
