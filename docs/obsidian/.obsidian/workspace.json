@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "vr/QuestMobileSDK.md",
+                "file": "vr/openxr_loader.md",
                 "mode": "source",
                 "source": false
               }
@@ -46,7 +46,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "vr/QuestMobileSDK.md",
+                "file": "vr/openxr_loader.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -157,7 +157,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vr/QuestMobileSDK.md",
+                "file": "vr/openxr_loader.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,15 +177,15 @@
   },
   "active": "e3fb95f150425e5f",
   "lastOpenFiles": [
-    "pose/OSC.md",
+    "vr/OpenXR.md",
     "vr/QuestMobileSDK.md",
-    "Android/gradle.md",
     "Android/android_ndk.md",
+    "pose/OSC.md",
+    "Android/gradle.md",
     "physics_engine.md",
     "pose/physics.md",
     "vr/quest_app.md",
     "Android/android_adb.md",
-    "vr/ndk_gdbserver.md",
-    "_other/arm_snapdragon.md"
+    "vr/ndk_gdbserver.md"
   ]
 }

@@ -40,3 +40,7 @@ ninja -C build install
 ```
 
 runtime をロードさするには？
+
+# Android
+- `arm64-v8a` and `armeabi-v7a`
+- [Fixed! Please Help Me With This Build Fail for hel... - Meta Community Forums - 981069](https://forums.oculusvr.com/t5/OpenXR-Development/Fixed-Please-Help-Me-With-This-Build-Fail-for-hello-xr/td-p/981069)
