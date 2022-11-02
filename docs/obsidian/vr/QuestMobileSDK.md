@@ -42,7 +42,7 @@
 
 `D:\OpenXRMobileSDK\bin\scripts\build\../../../gradlew assembleRelease --daemon -quiet --build-cache --configure-on-demand --parallel -Pshould_install`
 
-##  [XR_EXT_hand_tracking](https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html#XR_EXT_hand_tracking): xrHandsFB
+##  [XR_EXT_hand_tracking](https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html#XR_EXT_hand_tracking), XR_FB_hand_tracking_mesh: xrHandsFB
 - [Enable Hand Tracking](https://developer.oculus.com/documentation/native/android/mobile-hand-tracking/)
 
 `XrSamples/XrHandsFB/Projects/Android/build.py` => ovrbuild
@@ -100,7 +100,11 @@ OXR(xrGetSystemProperties(GetInstance(), GetSystemId(), &systemProperties));
 -   XR_FB_spatial_entity_storage
 -   XR_FB_spatial_entity_query
 -   XR_FB_spatial_entity_container
- 
+
+# SampleXrFramework
+## XrApp
+
+
 # Unity
 - [はじめての Oculus Quest アプリの作成 ｜npaka｜note](https://note.com/npaka/n/n749a134d0c11)
 - [Oculus Integration | 機能統合 | Unity Asset Store](https://assetstore.unity.com/packages/tools/integration/oculus-integration-82022)

@@ -177,15 +177,15 @@
   },
   "active": "e3fb95f150425e5f",
   "lastOpenFiles": [
-    "Android/gradle.md",
+    "pose/OSC.md",
     "vr/QuestMobileSDK.md",
+    "Android/gradle.md",
     "Android/android_ndk.md",
     "physics_engine.md",
     "pose/physics.md",
     "vr/quest_app.md",
     "Android/android_adb.md",
     "vr/ndk_gdbserver.md",
-    "_other/arm_snapdragon.md",
-    "Android/android_app.md"
+    "_other/arm_snapdragon.md"
   ]
 }
