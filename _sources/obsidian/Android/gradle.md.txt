@@ -1,17 +1,13 @@
----
-aliases: [AGP]
----
-
 [[building_tool]]
 [[Android]]
 [[sdkman]]
+[[AGP]]
 
+- [Gradle を完全に理解した人が、何も分からなくなるための第一歩 - Qiita](https://qiita.com/opengl-8080/items/c482998fa15ce738e2ba)
 - [Gradle Build Tool](https://gradle.org/)
 - [Getting Started | Building Java Projects with Gradle](https://spring.io/guides/gs/gradle/)
 - [Gradle | Releases](https://gradle.org/releases/)
-`6.9.3`
-`7.3.1`
-`7.5.1`
+
 => NDK 21.4.7075529
 
 -  [手軽にGradleビルドを高速化する10の方法 - Qiita](https://qiita.com/kaakaa_hoe/items/741f44f9c23262abbcca)
@@ -19,21 +15,6 @@ aliases: [AGP]
 # env
 
 `GRADLE_HOME`
-
-# AGP
-`7.3.1`
-```groovy
-dependencies {
-	classpath 'com.android.tools.build:gradle:7.3.1'
-}
-```
-- [Class Index  |  Android Developers](https://developer.android.com/reference/tools/gradle-api/7.3/classes?hl=ja)
-
-Android Gradle Plugin
-- [Android Gradle plugin API reference  |  Android Developers](https://developer.android.com/reference/tools/gradle-api?hl=ja)
-- [Android Gradle プラグインのリリースノート  |  Android デベロッパー  |  Android Developers](https://developer.android.com/studio/releases/gradle-plugin?hl=ja)
-- [Android Gradle プラグインの DSL / API の移行スケジュール  |  Android デベロッパー  |  Android Developers](https://developer.android.com/studio/releases/gradle-plugin-roadmap?hl=ja)
-
 
 # [[groovy]]
 => `build.gradle`
@@ -50,3 +31,5 @@ Android Gradle Plugin
 # task
 `3.2`
 - [Gradle の Task.leftShift() を Task.doLast() に置き換える - Qiita](https://qiita.com/ossan_pg/items/608134f44ccf4542edf2)
+
+# productFlavors

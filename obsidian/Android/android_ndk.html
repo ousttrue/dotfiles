@@ -263,6 +263,7 @@
 <h2>ndk-build<a class="headerlink" href="#ndk-build" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>@2020 <a class="reference external" href="https://kehalife.com/android-studio-ndk-manual/">【Android Studio】NDKを使ってHelloWorld_手動ビルド【日本語】│夢と働き方と日々の生活 x 革命</a></p></li>
+<li><p>@2018 <a class="reference external" href="https://qiita.com/kenma/items/598496840eef775db142">Android Studioでndk-buildを使う - Qiita</a></p></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">jni/Android.mk</span></code>
 <code class="docutils literal notranslate"><span class="pre">jni/Application.mk</span></code></p>
@@ -271,12 +272,6 @@
 </pre></div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>vscode<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://donaldmunro.github.io/VSCode-Android-CC/">Using Visual Studio Code as an Android C++ editor – Donald Munro – YABB (Yet Another Boring Blog)</a></p></li>
-</ul>
 <section id="cmake">
 <h2>CMake<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
@@ -289,9 +284,8 @@
 <li><p><a class="reference external" href="https://serenegiant.com/blog/?p=3676">Android Studioでデフォルトのcmake以外(ぶっちゃけcmake3.10)も使いたいのじゃ | 車輪の再発見みたいな？</a></p></li>
 </ul>
 </section>
-</section>
 <section id="gradle">
-<h2>gradle からの呼び出し<a class="headerlink" href="#gradle" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>gradle からの呼び出し<a class="headerlink" href="#gradle" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://developer.android.com/ndk/guides/cmake?hl=ja">CMake  |  Android NDK  |  Android Developers</a></p></li>
 </ul>
@@ -315,15 +309,18 @@
 </pre></div>
 </div>
 </section>
-<section id="kits">
-<h2>kits<a class="headerlink" href="#kits" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>?</p>
+</section>
+<section id="rust">
+<h2>rust<a class="headerlink" href="#rust" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://note.com/navitime_tech/n/n7c758204b362">Android NDK で Rust は使えるのか？調査してみた｜NAVITIME_Tech｜note</a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>vscode<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://donaldmunro.github.io/VSCode-Android-CC/">Using Visual Studio Code as an Android C++ editor – Donald Munro – YABB (Yet Another Boring Blog)</a></p></li>
 <li><p><a class="reference external" href="https://donaldmunro.github.io/VSCode-Android-CC/">Using Visual Studio Code as an Android C++ editor – Donald Munro – YABB (Yet Another Boring Blog)</a></p></li>
 </ul>
-</section>
-<section id="id2">
-<h2>vscode<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
     "cmake.generator": "Ninja",
     "cmake.configureSettings": {
@@ -340,7 +337,6 @@
 </pre></div>
 </div>
 </section>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="samples">
 <h1>samples<a class="headerlink" href="#samples" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="opengles-2-0">
@@ -348,9 +344,6 @@
 <p>[[OpenGLES]]</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://shikarunochi.matrix.jp/?p=4097">Android：Android NDK で OpenGL – しかるのち</a></p></li>
-</ul>
-<p>動かん</p>
-<ul class="simple">
 <li><p><a class="reference external" href="https://github.com/android/ndk-samples/tree/main/hello-gl2">ndk-samples/hello-gl2 at main · android/ndk-samples · GitHub</a></p></li>
 <li><p><a class="reference external" href="https://github.com/tenpercent/Android-NDK-OpenGLES2-basic-geometry">GitHub - tenpercent/Android-NDK-OpenGLES2-basic-geometry: "hello-triangle"-inspired example using GLSurfaceView to display stuff and native OpenGL ES 2 routines to render stuff</a></p></li>
 </ul>
@@ -413,18 +406,15 @@
 <li><a class="reference internal" href="#abi">ABI</a></li>
 <li><a class="reference internal" href="#build">build</a><ul>
 <li><a class="reference internal" href="#ndk-build">ndk-build</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id1">vscode</a><ul>
 <li><a class="reference internal" href="#cmake">CMake</a><ul>
 <li><a class="reference internal" href="#cmake-version">cmake version</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#gradle">gradle からの呼び出し</a></li>
-<li><a class="reference internal" href="#kits">kits</a></li>
-<li><a class="reference internal" href="#id2">vscode</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#rust">rust</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">vscode</a></li>
 <li><a class="reference internal" href="#samples">samples</a><ul>
 <li><a class="reference internal" href="#opengles-2-0">OpenGLES 2.0</a></li>
 <li><a class="reference internal" href="#opengles3-0">OpenGLES3.0</a></li>
