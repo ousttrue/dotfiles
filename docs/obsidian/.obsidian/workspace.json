@@ -9,25 +9,12 @@
         "dimension": 67.79741997133301,
         "children": [
           {
-            "id": "e3fb95f150425e5f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "vr/openxr_loader.md",
-                "mode": "source",
-                "source": false
-              }
-            },
-            "group": "6924ca220c0869e7"
-          },
-          {
             "id": "b1a0bdee70a76d8f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Android/android_ndk.md",
+                "file": "AGP.md",
                 "mode": "source",
                 "source": false
               }
@@ -46,7 +33,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "vr/openxr_loader.md",
+                "file": "AGP.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -88,8 +75,7 @@
                   "close": false
                 }
               }
-            },
-            "group": "6924ca220c0869e7"
+            }
           }
         ]
       }
@@ -157,7 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vr/openxr_loader.md",
+                "file": "AGP.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -175,17 +161,17 @@
     "width": 638.5,
     "collapsed": true
   },
-  "active": "e3fb95f150425e5f",
+  "active": "b1a0bdee70a76d8f",
   "lastOpenFiles": [
-    "vr/OpenXR.md",
-    "vr/QuestMobileSDK.md",
     "Android/android_ndk.md",
-    "pose/OSC.md",
+    "Android/ndk_zig.md",
+    "vr/QuestMobileSDK.md",
+    "AGP.md",
     "Android/gradle.md",
+    "android_apk.md",
     "physics_engine.md",
     "pose/physics.md",
     "vr/quest_app.md",
-    "Android/android_adb.md",
-    "vr/ndk_gdbserver.md"
+    "Android/android_adb.md"
   ]
 }

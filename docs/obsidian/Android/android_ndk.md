@@ -19,11 +19,13 @@
 # ABI
 - [Android ABI  |  Android NDK  |  Android Developers](https://developer.android.com/ndk/guides/abis?hl=ja)
 
+
 # build
 - [NDK と CMake のインストールと設定  |  Android デベロッパー  |  Android Developers](https://developer.android.com/studio/projects/install-ndk?hl=ja)
 
 ## ndk-build
 - @2020 [【Android Studio】NDKを使ってHelloWorld_手動ビルド【日本語】│夢と働き方と日々の生活 x 革命](https://kehalife.com/android-studio-ndk-manual/)
+- @2018 [Android Studioでndk-buildを使う - Qiita](https://qiita.com/kenma/items/598496840eef775db142)
 
 `jni/Android.mk`
 `jni/Application.mk`
@@ -33,9 +35,6 @@ ndk_envars = ["ANDROID_NDK", "NDKROOT", "ANDROID_NDK_HOME"]
 sdk_envars = ["ANDROID_HOME"]
 ```
 
-# vscode
-- @2019 [Using Visual Studio Code as an Android C++ editor – Donald Munro – YABB (Yet Another Boring Blog)](https://donaldmunro.github.io/VSCode-Android-CC/)
-
 ## CMake
 - [CMake  |  Android NDK  |  Android Developers](https://developer.android.com/ndk/guides/cmake?hl=ja)
 - [CMake - Qiita](https://qiita.com/niusounds/items/1c799475caf981eb2335)
@@ -43,7 +42,7 @@ sdk_envars = ["ANDROID_HOME"]
 ### cmake version
 - [Android Studioでデフォルトのcmake以外(ぶっちゃけcmake3.10)も使いたいのじゃ | 車輪の再発見みたいな？](https://serenegiant.com/blog/?p=3676)
 
-## gradle からの呼び出し
+### gradle からの呼び出し
 - [CMake  |  Android NDK  |  Android Developers](https://developer.android.com/ndk/guides/cmake?hl=ja)
 ```
 -H${HOME}/Dev/github-projects/googlesamples/ndk-samples/hello-jni/app/src/main/cpp
@@ -65,12 +64,12 @@ sdk_envars = ["ANDROID_HOME"]
 -GNinja
 ```
 
-## kits
-?
+## rust
+[Android NDK で Rust は使えるのか？調査してみた｜NAVITIME_Tech｜note](https://note.com/navitime_tech/n/n7c758204b362)
+
+# vscode
+- @2019 [Using Visual Studio Code as an Android C++ editor – Donald Munro – YABB (Yet Another Boring Blog)](https://donaldmunro.github.io/VSCode-Android-CC/)
 - [Using Visual Studio Code as an Android C++ editor – Donald Munro – YABB (Yet Another Boring Blog)](https://donaldmunro.github.io/VSCode-Android-CC/)
-
-## vscode
-
 ```json
 {
     "cmake.generator": "Ninja",
@@ -92,7 +91,6 @@ sdk_envars = ["ANDROID_HOME"]
 [[OpenGLES]]
 - [Android：Android NDK で OpenGL – しかるのち](https://shikarunochi.matrix.jp/?p=4097)
 
-動かん
 - [ndk-samples/hello-gl2 at main · android/ndk-samples · GitHub](https://github.com/android/ndk-samples/tree/main/hello-gl2)
 - [GitHub - tenpercent/Android-NDK-OpenGLES2-basic-geometry: "hello-triangle"-inspired example using GLSurfaceView to display stuff and native OpenGL ES 2 routines to render stuff](https://github.com/tenpercent/Android-NDK-OpenGLES2-basic-geometry)
 
