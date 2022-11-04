@@ -1,3 +1,4 @@
+[[buildtool]]
 
 - [Bazel](https://bazel.build/)
 - [Bazelの基本的な仕組み｜Bazelの解説（TS, Dockerイメージ、リモートキャッシュ）](https://zenn.dev/kesin11/books/c86010deb5b8008f394f/viewer/9eb544)
@@ -7,3 +8,8 @@
 # zig
 [[zig]]
 - [bazel-zig-cc: bazel toolchain using zig-cc](https://sr.ht/~motiejus/bazel-zig-cc/)]
+
+
+- [Googleが開発する最新ビルドツール「Bazel」を使ってみよう | さくらのナレッジ](https://knowledge.sakura.ad.jp/6174/)
+
+[[android_bazel]]

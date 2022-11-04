@@ -1,4 +1,4 @@
-[[building_tool]]
+[[buildtool]]
 [[Android]]
 [[sdkman]]
 [[AGP]]
