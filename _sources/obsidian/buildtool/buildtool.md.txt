@@ -1,9 +1,9 @@
 #red
 
-building tool
 [[cmake]]
 [[gradle]]
 [[bazel]]
+[[meson]]
 
 https://github.com/ranjian0/building_tool
 
