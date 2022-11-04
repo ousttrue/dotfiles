@@ -223,3 +223,24 @@ CMAKE_LIBRARY_OUTPUT_DIRECTORY = build/intermediates/cxx/Debug/2a4p5z4v/obj/arm6
 - add_library SHARED IMPORTED
 	- [CMake: IMPORTEDターゲット - Qiita](https://qiita.com/osamu0329/items/3e9868e83d3745b8c8b6)
 - add_library MODULE
+
+## cmake
+      "D:\\AndroidSdk\\cmake\\3.18.1\\bin\\cmake.exe" ^
+        "-H%USERPROFILE%\\ghq\\github.com\\ousttrue\\openxr_samples\\hello_xr\\app" ^
+        "-DCMAKE_SYSTEM_NAME=Android" ^
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON" ^
+        "-DCMAKE_SYSTEM_VERSION=24" ^
+        "-DANDROID_PLATFORM=android-24" ^
+        "-DANDROID_ABI=arm64-v8a" ^
+        "-DCMAKE_ANDROID_ARCH_ABI=arm64-v8a" ^
+        "-DANDROID_NDK=D:\\AndroidSdk\\ndk\\21.4.7075529" ^
+        "-DCMAKE_ANDROID_NDK=D:\\AndroidSdk\\ndk\\21.4.7075529" ^
+        "-DCMAKE_TOOLCHAIN_FILE=D:\\AndroidSdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake" ^
+        "-DCMAKE_MAKE_PROGRAM=D:\\AndroidSdk\\cmake\\3.18.1\\bin\\ninja.exe" ^
+        "-DCMAKE_CXX_FLAGS=-DDEFAULT_GRAPHICS_PLUGIN_OPENGLES" ^
+        "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=%USERPROFILE%\\ghq\\github.com\\ousttrue\\openxr_samples\\hello_xr\\app\\build\\intermediates\\cxx\\Debug\\4fc1c5w5\\obj\\arm64-v8a" ^
+        "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=%USERPROFILE%\\ghq\\github.com\\ousttrue\\openxr_samples\\hello_xr\\app\\build\\intermediates\\cxx\\Debug\\4fc1c5w5\\obj\\arm64-v8a" ^
+        "-DCMAKE_BUILD_TYPE=Debug" ^
+        "-B%USERPROFILE%\\ghq\\github.com\\ousttrue\\openxr_samples\\hello_xr\\app\\.cxx\\Debug\\4fc1c5w5\\arm64-v8a" ^
+        -GNinja
+		
