@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AudioVideo/gstreamer.md",
+                "file": "vr/alvr.md",
                 "mode": "source",
                 "source": false
               }
@@ -145,7 +145,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "imported",
+                "query": "aliases",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -154,7 +154,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -182,7 +183,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AudioVideo/gstreamer.md",
+                "file": "vr/alvr.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -202,15 +203,15 @@
   },
   "active": "8abbe0522889f7a7",
   "lastOpenFiles": [
+    "font/source_han_sans.md",
+    "vr/alvr.md",
+    "vr/quest_app.md",
+    "AudioVideo/gstreamer.md",
     "buildtool/meson.md",
     "buildtool/buildtool.md",
     "buildtool/bazel.md",
     "c++/bazel.md",
     "pose/HumanPoseEstimation.md",
-    "AGP.md",
-    "Android/gradle.md",
-    "vr/QuestMobileSDK.md",
-    "vr/openxr_loader.md",
-    "vr/OpenXR.md"
+    "AGP.md"
   ]
 }
