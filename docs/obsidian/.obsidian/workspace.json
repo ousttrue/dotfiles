@@ -4,66 +4,28 @@
     "type": "split",
     "children": [
       {
-        "id": "b9eb8fa158725c63",
+        "id": "49953291778a184e",
         "type": "tabs",
-        "dimension": 67.79741997133301,
+        "dimension": 70.18181818181817,
         "children": [
           {
-            "id": "e3fb95f150425e5f",
+            "id": "405d9b34e094c553",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pose/HumanPoseEstimation.md",
-                "mode": "source",
-                "source": false
-              }
-            },
-            "group": "6924ca220c0869e7"
-          },
-          {
-            "id": "73f8b2300fb7234b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "buildtool/meson.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8abbe0522889f7a7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "vr/alvr.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b1a0bdee70a76d8f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Android/android_ndk.md",
+                "file": "vr/XR_EXTX_overlay.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
-        "id": "49953291778a184e",
+        "id": "eae25cd5936f563e",
         "type": "tabs",
-        "dimension": 32.202580028666986,
+        "dimension": 29.818181818181817,
         "children": [
           {
             "id": "ae63d1dd58e987fa",
@@ -71,7 +33,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "pose/HumanPoseEstimation.md",
+                "file": "vr/XR_EXTX_overlay.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -109,12 +71,11 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.8176673469355002,
+                  "scale": 0.6836015131942567,
                   "close": false
                 }
               }
-            },
-            "group": "6924ca220c0869e7"
+            }
           }
         ]
       }
@@ -154,12 +115,11 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 226.5
+    "width": 200
   },
   "right": {
     "id": "81970b00531257e5",
@@ -183,7 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vr/alvr.md",
+                "file": "vr/XR_EXTX_overlay.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -201,17 +161,17 @@
     "width": 638.5,
     "collapsed": true
   },
-  "active": "8abbe0522889f7a7",
+  "active": "405d9b34e094c553",
   "lastOpenFiles": [
-    "font/source_han_sans.md",
+    "vr/openxr_api_layer.md",
+    "vr/OpenXR.md",
+    "Android/android_ndk.md",
+    "pose/HumanPoseEstimation.md",
+    "buildtool/meson.md",
     "vr/alvr.md",
+    "font/source_han_sans.md",
     "vr/quest_app.md",
     "AudioVideo/gstreamer.md",
-    "buildtool/meson.md",
-    "buildtool/buildtool.md",
-    "buildtool/bazel.md",
-    "c++/bazel.md",
-    "pose/HumanPoseEstimation.md",
-    "AGP.md"
+    "buildtool/buildtool.md"
   ]
 }
