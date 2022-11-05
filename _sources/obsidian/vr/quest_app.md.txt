@@ -11,3 +11,7 @@
 
 # physics
 - [GitHub - Ipsedo/PhyVR: A project for an Android VR game using bullet3 physics engine !](https://github.com/Ipsedo/PhyVR)
+
+# profiler
+- [Site Unreachable](https://developer.oculus.com/documentation/unity/ts-ovrmetricstool/?locale=ja_JP)
+- [OculusQuestでOVR Metrics Toolを使ってFPSを表示する - Qiita](https://qiita.com/Satoshi_Takahama/items/be56eedd87cbf33ddcee)
