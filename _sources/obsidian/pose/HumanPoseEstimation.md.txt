@@ -1,4 +1,4 @@
----
+[Fetching Title#9gdt](https://gitlab.freedesktop.org/xrdesktop/xrdesktop)---
 aliases: [姿勢推定]
 ---
 
