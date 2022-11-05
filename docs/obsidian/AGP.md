@@ -225,7 +225,7 @@ CMAKE_LIBRARY_OUTPUT_DIRECTORY = build/intermediates/cxx/Debug/2a4p5z4v/obj/arm6
 - add_library MODULE
 
 ## cmake
-      "D:\\AndroidSdk\\cmake\\3.18.1\\bin\\cmake.exe" ^
+      "CMAKE_EXE" ^
         "-H%USERPROFILE%\\ghq\\github.com\\ousttrue\\openxr_samples\\hello_xr\\app" ^
         "-DCMAKE_SYSTEM_NAME=Android" ^
         "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON" ^
