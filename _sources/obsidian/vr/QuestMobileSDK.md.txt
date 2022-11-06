@@ -42,31 +42,8 @@
 
 `D:\OpenXRMobileSDK\bin\scripts\build\../../../gradlew assembleRelease --daemon -quiet --build-cache --configure-on-demand --parallel -Pshould_install`
 
-##  [XR_EXT_hand_tracking](https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html#XR_EXT_hand_tracking), XR_FB_hand_tracking_mesh: xrHandsFB
-- [Enable Hand Tracking](https://developer.oculus.com/documentation/native/android/mobile-hand-tracking/)
-
-`XrSamples/XrHandsFB/Projects/Android/build.py` => ovrbuild
-
-```python
-import ovrbuild
-ovrbuild.init()
-ovrbuild.build()
-```
-
-```c++
-// Inspect hand tracking system properties
-XrSystemHandTrackingPropertiesEXT handTrackingSystemProperties{
-	XR_TYPE_SYSTEM_HAND_TRACKING_PROPERTIES_EXT
-};
-XrSystemProperties systemProperties{
-	XR_TYPE_SYSTEM_PROPERTIES, &handTrackingSystemProperties
-};
-OXR(xrGetSystemProperties(GetInstance(), GetSystemId(), &systemProperties));
-```
-
-> Demonstrates how to use hand tracking to drive simple pointer-based input and provide visual feedback for hand meshes and simple skinning.
-
-- @2021 [VR/ARの標準仕様「OpenXR」、Oculus Questのハンドトラッキングが正式対応 | Think IT（シンクイット）](https://thinkit.co.jp/article/19064)
+## XR_EXT_hand_tracking & XR_FB_hand_tracking_mesh
+[[XR_EXT_hand_tracking]]
 
 # Movement SDK
 - [# Movement SDK for OpenXR](https://developer.oculus.com/documentation/native/android/move-overview/)

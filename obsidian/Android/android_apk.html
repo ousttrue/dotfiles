@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>run Quest - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,46 +212,28 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[OpenXR]]
-[[lua]]</p>
+          <p>[[Android]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/bjornbytes/lovr">GitHub - bjornbytes/lovr: Lua Virtual Reality Framework</a></p></li>
+<li><p><a class="reference external" href="https://gazee.net/develop/apk-structure/">APKファイルのダウンロードとファイル構造、解析方法のまとめ - Gazee</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assets</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lib</span></code></p>
+<ul>
+<li><p>armeabi-v7a</p></li>
+<li><p>arm64-v8a</p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="run-quest">
-<h1>run Quest<a class="headerlink" href="#run-quest" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://lovr.org/docs/Getting_Started_(Quest)">LÖVR</a></p></li>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">META-INF</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">res</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">classes.dex</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resources.arsc</span></code></p></li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="build-for-quest">
-<h1>build for Quest<a class="headerlink" href="#build-for-quest" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    "cmake.configureSettings": {
-        "CMAKE_TOOLCHAIN_FILE": "${env:ANDROID_HOME}/ndk/21.4.7075529/build/cmake/android.toolchain.cmake",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-        "ANDROID": "ON",
-        "ANDROID_SDK": "${env:ANDROID_HOME}",
-        "ANDROID_BUILD_TOOLS_VERSION": "30.0.3",
-        "ANDROID_PLATFORM": "android-26",
-        "ANDROID_NATIVE_API_LEVEL": "26",
-        "ANDROID_ABI": "arm64-v8a",
-        "CMAKE_ANDROID_ARCH_ABI": "arm64-v8a",
-        "LOVR_USE_LUAJIT": "OFF",
-        "ANDROID_KEYSTORE": "${env:USERPROFILE}/.android/debug.keystore",
-        "ANDROID_KEYSTORE_PASS": "pass:android",
-        "ANDROID_KEY_PASS": "pass:android",
-    },
-}
-</pre></div>
-</div>
-</section>
 
         </article>
       </div>
@@ -266,7 +248,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/vr/lovr.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/Android/android_apk.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -274,25 +256,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">run Quest</a></li>
-<li><a class="reference internal" href="#build-for-quest">build for Quest</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

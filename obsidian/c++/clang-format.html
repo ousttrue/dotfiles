@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>AllowShortIfStatementsOnASingleLine: false - shell note ドキュメント</title>
+        <title>vscode - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,29 +218,37 @@
           </label>
         </div>
         <article role="main">
-          <p>clang-format
-#vscode_c++</p>
-<p>https://yasuharu519.hatenablog.com/entry/2015/12/13/210825</p>
-<p>code:.clang-format
-BasedOnStyle: LLVM</p>
-<section class="tex2jax_ignore mathjax_ignore" id="allowshortifstatementsonasingleline-false">
-<h1>AllowShortIfStatementsOnASingleLine: false<a class="headerlink" href="#allowshortifstatementsonasingleline-false" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="allowshortblocksonasingleline-false">
-<h1>AllowShortBlocksOnASingleLine: false<a class="headerlink" href="#allowshortblocksonasingleline-false" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>AllowShortFunctionsOnASingleLine: false
-AccessModifierOffset: -4
+          <ul class="simple">
+<li><p><a class="reference external" href="https://yasuharu519.hatenablog.com/entry/2015/12/13/210825">clang-format を イイ感じに設定する - def yasuharu519(self):</a></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">.clang-format</span></code></p>
+<div class="highlight-.clang-format notranslate"><div class="highlight"><pre><span></span>BasedOnStyle: LLVM
+# AllowShortIfStatementsOnASingleLine: false
+# AllowShortBlocksOnASingleLine: false
+AllowShortFunctionsOnASingleLine: false
+AccessModifierOffset: -4 
 BreakBeforeBraces: Allman # かっこの位置
 IndentCaseLabels: false # switch case
 IndentWidth: 4
 SortIncludes: false
-UseTab: Never</p>
-<p>code:.vscode/settings.json
-"C_Cpp.clang_format_style": "file" // 親フォルダに遡って .clang-formatを探す。project-rootにおいておくべし</p>
-<p>code:.clang-format
+UseTab: Never
 ColumnLimit: 0
-TabWidth: 4</p>
-<p>$ clang-format -style=llvm -dump-config &gt; .clang-format</p>
+TabWidth: 4
+</pre></div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="vscode">
+<h1>vscode<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>// 親フォルダに遡って .clang-formatを探す。project-rootにおいておくべし
+"C_Cpp.clang_format_style": "file" 
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>新規<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ clang-format -style=llvm -dump-config &gt; .clang-format
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -276,8 +284,8 @@ TabWidth: 4</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">AllowShortIfStatementsOnASingleLine: false</a></li>
-<li><a class="reference internal" href="#allowshortblocksonasingleline-false">AllowShortBlocksOnASingleLine: false</a></li>
+<li><a class="reference internal" href="#">vscode</a></li>
+<li><a class="reference internal" href="#id1">新規</a></li>
 </ul>
 
           </div>
