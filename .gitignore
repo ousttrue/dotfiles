@@ -5,3 +5,6 @@
 .mypy_cache
 zig-out
 zig-cache
+
+/docs/obsidian/.obsidian/workspace.json
+
