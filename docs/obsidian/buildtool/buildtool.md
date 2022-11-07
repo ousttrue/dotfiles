@@ -4,6 +4,7 @@
 [[gradle]]
 [[bazel]]
 [[meson]]
+[[tup]]
 
 https://github.com/ranjian0/building_tool
 
