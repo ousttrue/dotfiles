@@ -11,3 +11,8 @@
 - go
 - pip
 
+## memo
+
+- pkgconfig-lite and set `PKG_CONFIG_PATH` to `PREFIX/lib/pkgconfig`
+- win_flex
+

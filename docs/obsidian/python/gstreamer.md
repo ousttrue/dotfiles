@@ -7,9 +7,11 @@
 - @2012 [PythonからGStreamerを叩く - Ryusei’s Notes (a.k.a. M59のブログ)](https://mandel59.hateblo.jp/entry/2012/06/23/191507)
 
 # build
-- glib
-	- [GitHub - GNOME/gobject-introspection: Read-only mirror of https://gitlab.gnome.org/GNOME/gobject-introspection](https://github.com/GNOME/gobject-introspection)
-- cairo
-- pygobject
+- glib-introspection
+	`build_introspection_data=>false`
+
+Couldn't find include 'GLib-2.0.gir'
+
+`GI_EXTRA_BASE_DLL_DIRS`
 - [GIR's can't be built in Windows with Python >= 3.8 using subprojects. (#416) · Issues · GNOME / gobject-introspection · GitLab](https://gitlab.gnome.org/GNOME/gobject-introspection/-/issues/416)
 - [pango 1.48 does not build with harfbuzz, trying to find 'HarfBuzz-0.0.gir' (#522) · Issues · GNOME / pango · GitLab](https://gitlab.gnome.org/GNOME/pango/-/issues/522)
