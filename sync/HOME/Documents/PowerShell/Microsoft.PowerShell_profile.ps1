@@ -70,11 +70,18 @@ if($env:ANDROID_HOME -ne $null){
 if($env:GRADLE_HOME -ne $null){
     addPath($env:GRADLE_HOME + "\bin")
 }
-if($env:GSTREAMER_1_0_ROOT_MSVC_X86_64 -ne $null)
+if($env:GTK_DIR -ne $null)
 {
-    insertPath($env:GSTREAMER_1_0_ROOT_MSVC_X86_64 + "bin")
+    insertPath($env:GTK_DIR + "\bin")
 }
-
+if(Test-Path "C:\Python310")
+{
+    addPath("C:\Python310\Scripts")
+}
+elseif(Test-Path "C:\Python37")
+{
+    addPath("C:\Python37\Scripts")
+}
 # readline
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2
 Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine

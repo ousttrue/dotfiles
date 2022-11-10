@@ -1,0 +1,8 @@
+-- vim:set ft=lua
+function nyagos.alias.gg(args)
+  local result = nyagos.eval('ghq list -p| fzf --reverse +m')
+  if result then
+    nyagos.eval('cd '..result)
+  end
+end
+
