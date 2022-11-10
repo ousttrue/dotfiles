@@ -60,10 +60,20 @@ insertPath($env:USERPROFILE + "\go\bin")
 insertPath($env:USERPROFILE + "\local\bin")
 addPath($env:USERPROFILE + "\AppData\Local\Programs\Microsoft VS Code")
 addPath("C:\Program Files\Git\usr\bin")
-addPath($env:JAVA_HOME + "\bin")
-addPath($env:ANDROID_HOME + "\platform-tools")
-addPath($env:ANDROID_HOME + "\ndk\21.4.7075529")
-addPath($env:GRADLE_HOME + "\bin")
+if($env:JAVA_HOME -ne $null){
+    addPath($env:JAVA_HOME + "\bin")
+}
+if($env:ANDROID_HOME -ne $null){
+    addPath($env:ANDROID_HOME + "\platform-tools")
+    addPath($env:ANDROID_HOME + "\ndk\21.4.7075529")
+}
+if($env:GRADLE_HOME -ne $null){
+    addPath($env:GRADLE_HOME + "\bin")
+}
+if($env:GSTREAMER_1_0_ROOT_MSVC_X86_64 -ne $null)
+{
+    insertPath($env:GSTREAMER_1_0_ROOT_MSVC_X86_64 + "bin")
+}
 
 # readline
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2
