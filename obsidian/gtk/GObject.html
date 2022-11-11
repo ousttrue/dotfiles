@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>entry_point - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,85 +212,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://gitlab.freedesktop.org/xrdesktop/xrdesktop">Fetching Title#7bn3</a>[[buildtool]]
-[[gstreamer]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://mesonbuild.com/">The Meson Build system</a></p></li>
-<li><p>@2018 <a class="reference external" href="https://qiita.com/turenar/items/c727834fbf701beb47ef">CMakeの代替 (となってほしい)、Mesonチュートリアル - Qiita</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="entry-point">
-<h1>entry_point<a class="headerlink" href="#entry-point" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">mesonbuild.mesonmain:main</span></code></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="wrap-dependency-system">
-<h1>Wrap dependency system<a class="headerlink" href="#wrap-dependency-system" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://mesonbuild.com/Wrapdb-projects.html">Meson WrapDB packages</a></p></li>
-</ul>
-<section id="cmake-subproject">
-<h2>cmake subproject<a class="headerlink" href="#cmake-subproject" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/syoyo/items/ad965b5127188c356074">meson で cmake プロジェクトを subproject として使う - Qiita</a></p></li>
-</ul>
-</section>
-<section id="vscode-debugger">
-<h2>vscode debugger<a class="headerlink" href="#vscode-debugger" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "meson",
-            "type": "python",
-            "request": "launch",
-            "module": "mesonbuild.mesonmain",
-            "args": [
-                "compile",
-                "-C",
-                "build"
-            ],
-            "cwd": "${workspaceFolder}",
-            "justMyCode": false
-        },
-    ]
-}
-</pre></div>
-</div>
-</section>
-<section id="override-dependency">
-<h2>override_dependency<a class="headerlink" href="#override-dependency" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">subprojects</span>\<span class="n">pango</span>\<span class="n">pango</span>\<span class="n">meson</span><span class="o">.</span><span class="n">build</span><span class="p">:</span><span class="mi">171</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span> <span class="n">ERROR</span><span class="p">:</span> <span class="n">Tried</span> <span class="n">to</span> <span class="n">override</span> <span class="n">dependency</span> <span class="s1">'pango'</span> <span class="n">which</span> <span class="n">has</span> <span class="n">already</span> <span class="n">been</span> <span class="n">resolved</span> <span class="ow">or</span> <span class="n">overridden</span> <span class="n">at</span> <span class="n">D</span><span class="p">:</span>\<span class="n">ghq</span>\<span class="n">github</span><span class="o">.</span><span class="n">com</span>\<span class="n">GNOME</span>\<span class="n">gtk</span>\<span class="n">meson</span><span class="o">.</span><span class="n">build</span><span class="p">:</span><span class="mi">391</span><span class="p">:</span>
-</pre></div>
-</div>
-<p>gtk</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pango_dep</span>      <span class="o">=</span> <span class="n">dependency</span><span class="p">(</span><span class="s1">'pango'</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">pango_req</span><span class="p">,</span>
-                            <span class="n">fallback</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'pango'</span><span class="p">,</span> <span class="s1">'libpango_dep'</span><span class="p">])</span>
-
-<span class="n">pangocairo_dep</span> <span class="o">=</span> <span class="n">dependency</span><span class="p">(</span><span class="s1">'pangocairo'</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">pango_req</span><span class="p">,</span>
-                            <span class="n">fallback</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'pango'</span><span class="p">,</span> <span class="s1">'libpangocairo_dep'</span><span class="p">])</span>				
-</pre></div>
-</div>
-<p>pango</p>
-<div class="highlight-meson notranslate"><div class="highlight"><pre><span></span><span class="n">libpango_dep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vm">meson</span><span class="p">.</span><span class="n">declare_dependency</span><span class="p">()</span><span class="w"></span>
-<span class="vm">meson</span><span class="p">.</span><span class="n">override_dependency</span><span class="p">(</span><span class="s">'pango'</span><span class="p">,</span><span class="w"> </span><span class="n">libpango_dep</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="gtk4">
-<h1>[[GTK4]]<a class="headerlink" href="#gtk4" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://bitwalk.blogspot.com/2020/12/gtk4-2-meson.html">bitWalk's: GTK4 を触ってみた (2) ～ Meson でビルド ～</a></p></li>
-</ul>
-</section>
+          <p>[[meson]]
+[[gobject-introspection]]</p>
 
         </article>
       </div>
@@ -305,7 +234,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/buildtool/meson.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/gtk/GObject.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -313,31 +242,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">entry_point</a></li>
-<li><a class="reference internal" href="#wrap-dependency-system">Wrap dependency system</a><ul>
-<li><a class="reference internal" href="#cmake-subproject">cmake subproject</a></li>
-<li><a class="reference internal" href="#vscode-debugger">vscode debugger</a></li>
-<li><a class="reference internal" href="#override-dependency">override_dependency</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#gtk4">[[GTK4]]</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

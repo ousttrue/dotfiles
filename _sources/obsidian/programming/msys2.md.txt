@@ -24,6 +24,7 @@ MSYS=winsymlinks:nativestrict
 ```
 
 # $MSYSTEM
+- [Environments - MSYS2](https://www.msys2.org/docs/environments/)
 - MSYS
 - MINGW64
 	- mingw-w64-x86_64-toolchain

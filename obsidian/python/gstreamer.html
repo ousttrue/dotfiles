@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>build - shell note ドキュメント</title>
+        <title>gstreamer - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,36 +218,19 @@
           </label>
         </div>
         <article role="main">
-          <p>[[AudioVideo/gstreamer]]</p>
+          <p>[[AudioVideo/gstreamer]]
+[[gobject-introspection]]</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://brettviren.github.io/pygst-tutorial-org/pygst-tutorial.html">Python GStreamer Tutorial</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://www.moonlight-lullaby.info/post/2020/06-17/">Python GStreamer チュートリアル - Moonlight Lullaby</a></p></li>
 <li><p>@2014 <a class="reference external" href="https://interface.cqpub.co.jp/wp-content/uploads/interface/2014/09/if09_091.pdf">https://interface.cqpub.co.jp/wp-content/uploads/interface/2014/09/if09_091.pdf</a></p></li>
 <li><p>@2012 <a class="reference external" href="https://mandel59.hateblo.jp/entry/2012/06/23/191507">PythonからGStreamerを叩く - Ryusei’s Notes (a.k.a. M59のブログ)</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="build">
-<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>1st</p>
-<ul class="simple">
-<li><p>glib-introspection
-<code class="docutils literal notranslate"><span class="pre">build_introspection_data=&gt;false</span></code></p></li>
-</ul>
-<p>2nd
-<code class="docutils literal notranslate"><span class="pre">build_introspection_data=&gt;true</span></code></p>
-<p>meson.build
-g-ir-cpp-xxx.cpp
-giscaner/sourcescanner.py</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">linking</span> <span class="n">of</span> <span class="n">temporary</span> <span class="n">binary</span> <span class="n">failed</span><span class="p">:</span>
-<span class="o">.</span>\<span class="n">giscanner</span>\<span class="n">dumper</span><span class="o">.</span><span class="n">py</span>
-<span class="s1">'/libpath:C:/gnome/lib.lib'</span>
+<section class="tex2jax_ignore mathjax_ignore" id="gstreamer">
+<h1>gstreamer<a class="headerlink" href="#gstreamer" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">meson</span> <span class="n">setup</span> <span class="n">build</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=</span><span class="n">D</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span> <span class="o">-</span><span class="n">Dges</span><span class="o">=</span><span class="n">disabled</span>
 </pre></div>
 </div>
-<p>Couldn't find include 'GLib-2.0.gir'</p>
-<p><code class="docutils literal notranslate"><span class="pre">GI_EXTRA_BASE_DLL_DIRS</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://gitlab.gnome.org/GNOME/gobject-introspection/-/issues/416">GIR's can't be built in Windows with Python &gt;= 3.8 using subprojects. (#416) · Issues · GNOME / gobject-introspection · GitLab</a></p></li>
-<li><p><a class="reference external" href="https://gitlab.gnome.org/GNOME/pango/-/issues/522">pango 1.48 does not build with harfbuzz, trying to find 'HarfBuzz-0.0.gir' (#522) · Issues · GNOME / pango · GitLab</a></p></li>
-</ul>
 </section>
 
         </article>
