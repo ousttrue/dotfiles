@@ -7,8 +7,21 @@
 - @2012 [PythonからGStreamerを叩く - Ryusei’s Notes (a.k.a. M59のブログ)](https://mandel59.hateblo.jp/entry/2012/06/23/191507)
 
 # build
+1st
 - glib-introspection
 	`build_introspection_data=>false`
+
+2nd
+	`build_introspection_data=>true`
+
+meson.build
+g-ir-cpp-xxx.cpp
+giscaner/sourcescanner.py
+```
+linking of temporary binary failed:
+.\giscanner\dumper.py
+'/libpath:C:/gnome/lib.lib'
+```
 
 Couldn't find include 'GLib-2.0.gir'
 

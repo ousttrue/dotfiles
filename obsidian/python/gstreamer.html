@@ -227,10 +227,21 @@
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="build">
 <h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>1st</p>
 <ul class="simple">
 <li><p>glib-introspection
 <code class="docutils literal notranslate"><span class="pre">build_introspection_data=&gt;false</span></code></p></li>
 </ul>
+<p>2nd
+<code class="docutils literal notranslate"><span class="pre">build_introspection_data=&gt;true</span></code></p>
+<p>meson.build
+g-ir-cpp-xxx.cpp
+giscaner/sourcescanner.py</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">linking</span> <span class="n">of</span> <span class="n">temporary</span> <span class="n">binary</span> <span class="n">failed</span><span class="p">:</span>
+<span class="o">.</span>\<span class="n">giscanner</span>\<span class="n">dumper</span><span class="o">.</span><span class="n">py</span>
+<span class="s1">'/libpath:C:/gnome/lib.lib'</span>
+</pre></div>
+</div>
 <p>Couldn't find include 'GLib-2.0.gir'</p>
 <p><code class="docutils literal notranslate"><span class="pre">GI_EXTRA_BASE_DLL_DIRS</span></code></p>
 <ul class="simple">
