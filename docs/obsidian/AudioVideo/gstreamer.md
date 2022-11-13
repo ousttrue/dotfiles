@@ -88,3 +88,6 @@
 - [Unityのカメラ映像をRTSPストリームで出力する - Qiita](https://qiita.com/hiro-han/items/a20c9710d808e27f0ef2)
 - [GstreamerでRTSPを使った動画の送受信と保存 - Qiita](https://qiita.com/bigface00/items/7c1f568dba96c34ec077)
 - [macでrtspサーバを立てる - Qiita](https://qiita.com/k-yamada-github/items/1deaa6e81081e4a1aa35)
+
+# C
+- [Basic tutorial 5: GUI toolkit integration](https://gstreamer.freedesktop.org/documentation/tutorials/basic/toolkit-integration.html?gi-language=c)

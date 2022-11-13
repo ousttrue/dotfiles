@@ -1,5 +1,5 @@
 [[X11]]
-[[gtk+3]]
+[[GTK3]]
 
 # notifyd
 - [GitHub - xfce-mirror/xfce4-notifyd: Mirror repository, PRs are not watched, please use Xfce's GitLab](https://github.com/xfce-mirror/xfce4-notifyd)

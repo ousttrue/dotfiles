@@ -13,3 +13,6 @@
 # unity
 - [GitHub - keijiro/KlakSpout: Spout plugin for Unity](https://github.com/keijiro/KlakSpout)
 - @2017 [TCPSpout + KlakSpout で Unity ソフト間動画転送 - 自習室](http://izmiz.hateblo.jp/entry/2017/08/26/213246)
+
+# python
+- [GitHub - jlai/Python-SpoutGL: Python wrapper for SpoutGL](https://github.com/jlai/Python-SpoutGL)
