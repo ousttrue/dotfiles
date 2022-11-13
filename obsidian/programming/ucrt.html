@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>gstreamer - shell note ドキュメント</title>
+        <title>msys2 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,25 +212,28 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[AudioVideo/gstreamer]]
-[[gobject-introspection]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://brettviren.github.io/pygst-tutorial-org/pygst-tutorial.html">Python GStreamer Tutorial</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://www.moonlight-lullaby.info/post/2020/06-17/">Python GStreamer チュートリアル - Moonlight Lullaby</a></p></li>
-<li><p>@2014 <a class="reference external" href="https://interface.cqpub.co.jp/wp-content/uploads/interface/2014/09/if09_091.pdf">https://interface.cqpub.co.jp/wp-content/uploads/interface/2014/09/if09_091.pdf</a></p></li>
-<li><p>@2012 <a class="reference external" href="https://mandel59.hateblo.jp/entry/2012/06/23/191507">PythonからGStreamerを叩く - Ryusei’s Notes (a.k.a. M59のブログ)</a></p></li>
+          <ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/syoyo/items/198f91b31c49c5ba68bb">C/C++ developer からみた uCRT のメモ - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/cpp/porting/upgrade-your-code-to-the-universal-crt?view=msvc-170">Universal CRT へのコードのアップグレード | Microsoft Learn</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="gstreamer">
-<h1>gstreamer<a class="headerlink" href="#gstreamer" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">meson</span> <span class="n">setup</span> <span class="n">build</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=</span><span class="n">D</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span> <span class="o">-</span><span class="n">Dges</span><span class="o">=</span><span class="n">disabled</span>
-</pre></div>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="msys2">
+<h1>msys2<a class="headerlink" href="#msys2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/syoyo/items/ad14912c983da94ad16e">MinGW 環境で UCRT(Universal CRT) ライブラリを使って C アプリをビルドするメモ - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="checked-clang">
+<h1>checked clang<a class="headerlink" href="#checked-clang" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[clang]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/saitoyutaka/articles/ffd7b247026a82">Checked C clang の環境を用意する</a></p></li>
+</ul>
 </section>
 
         </article>
@@ -246,7 +249,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/python/gstreamer.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/programming/ucrt.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -254,8 +257,25 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">msys2</a></li>
+<li><a class="reference internal" href="#checked-clang">checked clang</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

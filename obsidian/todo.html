@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Stream - shell note ドキュメント</title>
+        <title>PySpout - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -222,12 +222,39 @@
 <p>[[zig]] + [[OpenGL]] + [[wasm]]
 [[python]] + [[flask]] + [[Leaflet]]
 [[OpenXR]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="pyspout">
+<h1>PySpout<a class="headerlink" href="#pyspout" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>TimerRecorder</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pygtk4">
+<h1>PyGtk4<a class="headerlink" href="#pygtk4" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>cairo</p></li>
+<li><p>pygobject(-Dtests=false)</p></li>
+<li><p>gtk(-Dmedisa-gstreamer=disabled, -Dbuild-tests=false)</p></li>
+<li><p>gstreamer</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gtk-install-order">
+<h1>GTK install order<a class="headerlink" href="#gtk-install-order" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>gobject-introspection (-Dbuild_introspection_data=false)
+-- gir &amp; typelib を使う環境ができる</p></li>
+<li><p>gobject-introspection (LIB=c:/gnome/lib)</p></li>
+<li><p>gtk(-Dmedisa-gstreamer=disabled, -Dbuild-tests=false)
+fix fontconfig symlink</p></li>
+<li><p>pygobject(-Dtests=false)</p></li>
+<li><p>gstreamer(with gir)</p></li>
+</ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="stream">
 <h1>Stream<a class="headerlink" href="#stream" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p>Unity</p></li>
 <li><p>[[spout]]</p></li>
-<li><p>[[gstreamer]]</p></li>
+<li><p>[[gst-python]]</p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="questpro">
@@ -341,7 +368,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Stream</a></li>
+<li><a class="reference internal" href="#">PySpout</a></li>
+<li><a class="reference internal" href="#pygtk4">PyGtk4</a></li>
+<li><a class="reference internal" href="#gtk-install-order">GTK install order</a></li>
+<li><a class="reference internal" href="#stream">Stream</a></li>
 <li><a class="reference internal" href="#questpro">QuestPro</a><ul>
 <li><a class="reference internal" href="#avatar-tracker">avatar tracker</a></li>
 <li><a class="reference internal" href="#avatracker-receiver">avatracker receiver</a></li>

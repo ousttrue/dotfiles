@@ -218,21 +218,83 @@
           </label>
         </div>
         <article role="main">
-          <p>[[pygobject]]</p>
+          <p>#red
+[[pygobject]]</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://gi.readthedocs.io/en/latest/">Overview — GObject Introspection</a></p></li>
 <li><p><a class="reference external" href="https://github.com/RubyData/workshop-materials/blob/master/gobject-introspection/introduction.md">workshop-materials/introduction.md at master · RubyData/workshop-materials · GitHub</a></p></li>
 <li><p><a class="reference external" href="https://www.clear-code.com/blog/2022/8/17/meson-and-gobject-introspection.html">Mesonを使ってGObject Introspection対応のビルドシステムを構築する方法 - 2022-08-17 - ククログ</a></p></li>
 <li><p><a class="reference external" href="https://github.com/RubyData/workshop-materials/blob/master/gobject-introspection/introduction.md">workshop-materials/introduction.md at master · RubyData/workshop-materials · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://www.slideshare.net/yurenju/python-and-gobject-introspection">Python and GObject Introspection</a></p></li>
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="build">
 <h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/MSVC.README.rst">MSVC.README.rst · main · GNOME / gobject-introspection · GitLab</a></p></li>
+</ul>
 <section id="st">
 <h2>1st<a class="headerlink" href="#st" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>glib-introspection</p></li>
+<li><p>gobject-introspection</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">meson</span> <span class="n">setup</span> <span class="n">build</span> <span class="o">--</span><span class="n">prefix</span> <span class="n">D</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span> <span class="o">-</span><span class="n">Dbuild_introspection_data</span><span class="o">=</span><span class="n">false</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># MINGW64
+$ PKG_CONFIG_PATH=C:/gnome/lib/pkgconfig meson setup build --prefix=C:/gnome -Dbuild_introspection_data=false -Dpython=C:/Python310/python.exe
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">meson</span> <span class="n">setup</span> <span class="n">build</span> <span class="o">--</span><span class="n">prefix</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span> <span class="o">-</span><span class="n">Dbuild_introspection_data</span><span class="o">=</span><span class="n">false</span>
+
+<span class="n">glib</span> <span class="mf">2.75.1</span>
+  <span class="n">Build</span> <span class="n">environment</span>
+    <span class="n">host</span> <span class="n">cpu</span>           <span class="p">:</span> <span class="n">x86_64</span>
+    <span class="n">host</span> <span class="n">endian</span>        <span class="p">:</span> <span class="n">little</span>
+    <span class="n">host</span> <span class="n">system</span>        <span class="p">:</span> <span class="n">windows</span>
+    <span class="n">C</span> <span class="n">Compiler</span>         <span class="p">:</span> <span class="n">msvc</span>
+    <span class="n">C</span><span class="o">++</span> <span class="n">Compiler</span>       <span class="p">:</span> <span class="n">msvc</span>
+    <span class="n">shared</span> <span class="n">build</span>       <span class="p">:</span> <span class="kc">True</span>
+    <span class="n">static</span> <span class="n">build</span>       <span class="p">:</span> <span class="kc">False</span>
+
+  <span class="n">Directories</span>
+    <span class="n">prefix</span>             <span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span>
+    <span class="n">bindir</span>             <span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span><span class="o">/</span><span class="nb">bin</span>
+    <span class="n">libexecdir</span>         <span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span><span class="o">/</span><span class="n">libexec</span>
+    <span class="n">pkgdatadir</span>         <span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">glib</span><span class="o">-</span><span class="mf">2.0</span>
+    <span class="n">datadir</span>            <span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span><span class="o">/</span><span class="n">share</span>
+    <span class="n">includedir</span>         <span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span><span class="o">/</span><span class="n">include</span><span class="o">/</span><span class="n">glib</span><span class="o">-</span><span class="mf">2.0</span>
+    <span class="n">giomodulesdir</span>      <span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">gio</span><span class="o">/</span><span class="n">modules</span>
+    <span class="n">localstatedir</span>      <span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span><span class="o">/</span><span class="n">var</span>
+
+  <span class="n">Options</span>
+    <span class="n">xattr</span>              <span class="p">:</span> <span class="kc">False</span>
+    <span class="n">man</span>                <span class="p">:</span> <span class="kc">False</span>
+    <span class="n">dtrace</span>             <span class="p">:</span> <span class="kc">False</span>
+    <span class="n">systemtap</span>          <span class="p">:</span> <span class="kc">False</span>
+    <span class="n">sysprof</span>            <span class="p">:</span> <span class="kc">False</span>
+    <span class="n">gtk_doc</span>            <span class="p">:</span> <span class="kc">False</span>
+    <span class="n">bsymbolic_functions</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="n">force_posix_threads</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="n">tests</span>              <span class="p">:</span> <span class="kc">True</span>
+    <span class="n">installed_tests</span>    <span class="p">:</span> <span class="kc">False</span>
+    <span class="n">nls</span>                <span class="p">:</span> <span class="n">auto</span>
+    <span class="n">oss_fuzz</span>           <span class="p">:</span> <span class="n">disabled</span>
+    <span class="n">glib_debug</span>         <span class="p">:</span> <span class="n">auto</span>
+    <span class="n">glib_assert</span>        <span class="p">:</span> <span class="kc">True</span>
+    <span class="n">glib_checks</span>        <span class="p">:</span> <span class="kc">True</span>
+    <span class="n">libelf</span>             <span class="p">:</span> <span class="n">auto</span>
+    <span class="n">multiarch</span>          <span class="p">:</span> <span class="kc">False</span>
+
+<span class="n">gobject</span><span class="o">-</span><span class="n">introspection</span> <span class="mf">1.74.1</span>
+
+  <span class="n">Subprojects</span>
+    <span class="n">glib</span>                    <span class="p">:</span> <span class="n">YES</span> <span class="mi">1</span> <span class="n">warnings</span>
+    <span class="n">gvdb</span>                    <span class="p">:</span> <span class="n">YES</span>
+    <span class="n">libffi</span>                  <span class="p">:</span> <span class="n">YES</span>
+    <span class="n">pcre2</span>                   <span class="p">:</span> <span class="n">YES</span>
+    <span class="n">proxy</span><span class="o">-</span><span class="n">libintl</span>           <span class="p">:</span> <span class="n">YES</span> <span class="mi">1</span> <span class="n">warnings</span>
+    <span class="n">zlib</span>                    <span class="p">:</span> <span class="n">YES</span>
+
+  <span class="n">User</span> <span class="n">defined</span> <span class="n">options</span>
+    <span class="n">prefix</span>                  <span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span>
+    <span class="n">build_introspection_data</span><span class="p">:</span> <span class="n">false</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="o">--</span><span class="nb">list</span><span class="o">-</span><span class="nb">all</span>
@@ -254,15 +316,22 @@
 </pre></div>
 </div>
 </section>
+<section id="nd">
+<h2>2nd<a class="headerlink" href="#nd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">meson</span> <span class="n">setup</span> <span class="n">build</span> <span class="o">--</span><span class="n">prefix</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="gir">
 <h1>GIR<a class="headerlink" href="#gir" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">PREFIX/share/gir-1.0</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">XDG_DATA_DIRS/gir-1.0</span></code></p>
 <section id="g-ir-scanner">
 <h2># g-ir-scanner<a class="headerlink" href="#g-ir-scanner" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">GI_EXTRA_BASE_DLL_DIRS</span></code>
-[[python]]</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://manpages.debian.org/experimental/gobject-introspection/g-ir-scanner.1.en.html#ENVIRONMENT_VARIABLES">g-ir-scanner(1) — gobject-introspection — Debian experimental — Debian Manpages</a>
+<code class="docutils literal notranslate"><span class="pre">GI_EXTRA_BASE_DLL_DIRS</span></code>
+[[python]]</p></li>
 <li><p><a class="reference external" href="https://gitlab.gnome.org/GNOME/gobject-introspection/-/issues/416">GIR's can't be built in Windows with Python &gt;= 3.8 using subprojects. (#416) · Issues · GNOME / gobject-introspection · GitLab</a></p></li>
 <li><p><a class="reference external" href="https://gitlab.gnome.org/GNOME/pango/-/issues/522">pango 1.48 does not build with harfbuzz, trying to find 'HarfBuzz-0.0.gir' (#522) · Issues · GNOME / pango · GitLab</a></p></li>
 </ul>
@@ -276,6 +345,141 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/gtk-rs/gir-files">GitHub - gtk-rs/gir-files</a></p></li>
 </ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="libgirepository">
+<h1>libgirepository<a class="headerlink" href="#libgirepository" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gi.readthedocs.io/en/latest/writingbindings/libgirepository.html">libgirepository — GObject Introspection</a></p></li>
+</ul>
+<section id="g-function-info-invoke">
+<h2>g_function_info_invoke<a class="headerlink" href="#g-function-info-invoke" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gnome.pages.gitlab.gnome.org/gobject-introspection/girepository/gi-GIFunctionInfo.html#g-function-info-invoke">GIFunctionInfo: libgirepository API Reference</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="python-3-10">
+<h1>python-3.10 のときに起きたエラーたち・・・<a class="headerlink" href="#python-3-10" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>python-3.7</p>
+<section id="unicodedecodeerror-utf-8-codec-can-t-decode-byte-0x8e-in-position-115-invalid-start-byte">
+<h2>UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8e in position 115: invalid start byte<a class="headerlink" href="#unicodedecodeerror-utf-8-codec-can-t-decode-byte-0x8e-in-position-115-invalid-start-byte" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>煩わしいのでシステムロケールを <code class="docutils literal notranslate"><span class="pre">utf-8</span></code>した。</p>
+</section>
+<section id="glib-types-h">
+<h2>大量のエラー glib-types.h<a class="headerlink" href="#glib-types-h" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">-</span><span class="n">ir</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">exo0vmyg</span><span class="o">.</span><span class="n">c</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">gnome</span>\<span class="n">include</span>\<span class="n">glib</span><span class="o">-</span><span class="mf">2.0</span>\<span class="n">gobject</span>\<span class="n">glib</span><span class="o">-</span><span class="n">types</span><span class="o">.</span><span class="n">h</span><span class="p">:</span><span class="mi">338</span><span class="p">:</span> <span class="n">syntax</span> <span class="n">error</span><span class="p">,</span> <span class="n">unexpected</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="s1">'GOBJECT_AVAILABLE_IN_ALL'</span> <span class="n">at</span> <span class="s1">'GOBJECT_AVAILABLE_IN_ALL'</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">g-ir-cpp-</span></code> で検索。
+<code class="docutils literal notranslate"><span class="pre">giscanner\sourcescanner.py</span></code> でコード生成していることがわかる。</p>
+<p><code class="docutils literal notranslate"><span class="pre">glib-types.h</span></code> には</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#error "Only &lt;glib-object.h&gt; can be included directly."</span>
+</pre></div>
+</div>
+<p>と書いてある。
+<code class="docutils literal notranslate"><span class="pre">gobject/glib-types.h</span></code> を <code class="docutils literal notranslate"><span class="pre">glib-object.h</span></code> で置き換えてみる。
+<code class="docutils literal notranslate"><span class="pre">gir/meson.build</span></code> を書き換えてみる。</p>
+<div class="highlight-meson notranslate"><div class="highlight"><pre><span></span>glib_files += join_paths(glib_incdir, 'gobject', 'glib-types.h')
+👇
+glib_files += join_paths(glib_incdir, 'glib-object.h')
+</pre></div>
+</div>
+<section id="linking-of-temporary-binary-failed">
+<h3><code class="docutils literal notranslate"><span class="pre">linking</span> <span class="pre">of</span> <span class="pre">temporary</span> <span class="pre">binary</span> <span class="pre">failed</span></code><a class="headerlink" href="#linking-of-temporary-binary-failed" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LINK</span> <span class="p">:</span> <span class="n">fatal</span> <span class="n">error</span> <span class="n">LNK1181</span><span class="p">:</span> <span class="n">cannot</span> <span class="nb">open</span> <span class="nb">input</span> <span class="n">file</span> <span class="s1">'gio-2.0.lib'</span>
+
+<span class="o">---</span> <span class="n">stderr</span> <span class="o">---</span>
+<span class="n">Microsoft</span> <span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">C</span><span class="o">/</span><span class="n">C</span><span class="o">++</span> <span class="n">Optimizing</span> <span class="n">Compiler</span> <span class="n">Version</span> <span class="mf">19.29.30146</span> <span class="k">for</span> <span class="n">x64</span>
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="n">Microsoft</span> <span class="n">Corporation</span><span class="o">.</span>  <span class="n">All</span> <span class="n">rights</span> <span class="n">reserved</span><span class="o">.</span>
+
+<span class="n">g</span><span class="o">-</span><span class="n">ir</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">f84ipeuo</span><span class="o">.</span><span class="n">c</span>
+<span class="n">linking</span> <span class="n">of</span> <span class="n">temporary</span> <span class="n">binary</span> <span class="n">failed</span><span class="p">:</span> <span class="n">Command</span> <span class="s1">'['</span><span class="n">link</span><span class="o">.</span><span class="n">exe</span><span class="s1">', '</span><span class="o">-</span><span class="n">out</span><span class="p">:</span><span class="n">C</span><span class="p">:</span>\\<span class="n">ghq</span>\\<span class="n">github</span><span class="o">.</span><span class="n">com</span>\\<span class="n">GNOME</span>\\<span class="n">gobject</span><span class="o">-</span><span class="n">introspection</span>\\<span class="n">build</span>\\<span class="n">tmp</span><span class="o">-</span><span class="n">introspectm8c95rt9</span>\\<span class="n">GLib</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="n">exe</span><span class="s1">', '</span><span class="n">C</span><span class="p">:</span>\\<span class="n">ghq</span>\\<span class="n">github</span><span class="o">.</span><span class="n">com</span>\\<span class="n">GNOME</span>\\<span class="n">gobject</span><span class="o">-</span><span class="n">introspection</span>\\<span class="n">build</span>\\<span class="n">tmp</span><span class="o">-</span><span class="n">introspectm8c95rt9</span>\\<span class="n">GLib</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="n">obj</span><span class="s1">', '</span><span class="o">/</span><span class="n">libpath</span><span class="p">:</span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">gnome</span><span class="o">/</span><span class="n">lib</span><span class="o">.</span><span class="n">lib</span><span class="s1">', '</span><span class="n">gio</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="n">lib</span><span class="s1">', '</span><span class="n">gobject</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="n">lib</span><span class="s1">', '</span><span class="n">gmodule</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="n">lib</span><span class="s1">', '</span><span class="n">glib</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="n">lib</span><span class="s1">', '</span><span class="n">intl</span><span class="o">.</span><span class="n">lib</span><span class="s1">', '</span><span class="n">glib</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="n">lib</span><span class="s1">', '</span><span class="n">gobject</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="n">lib</span><span class="s1">']'</span> <span class="n">returned</span> <span class="n">non</span><span class="o">-</span><span class="n">zero</span> <span class="n">exit</span> <span class="n">status</span> <span class="mf">1181.</span>    
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">/libpath:C:/gnome/lib.lib</span></code> が <code class="docutils literal notranslate"><span class="pre">/libpath:C:/gnome/lib</span></code> であるべき。</p>
+<p><code class="docutils literal notranslate"><span class="pre">linking</span> <span class="pre">of</span> <span class="pre">temporary</span> <span class="pre">binary</span> <span class="pre">failed</span></code> で検索すると
+<code class="docutils literal notranslate"><span class="pre">giscanner\dumper.py</span></code> で例外が起きていることが分かります。</p>
+<p>:::note info
+giscanner/dumper.py は ninja 経由で実行されているので break できませんでした。
+:::</p>
+<p>print debug で場所を発見。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>            <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="error-can-t-resolve-libraries-to-shared-libraries-glib-2-0-gobject-2-0">
+<h3>ERROR: can't resolve libraries to shared libraries: glib-2.0, gobject-2.0<a class="headerlink" href="#error-can-t-resolve-libraries-to-shared-libraries-glib-2-0-gobject-2-0" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">can't</span> <span class="pre">resolve</span> <span class="pre">libraries</span> <span class="pre">to</span> <span class="pre">shared</span> <span class="pre">libraries</span></code> で検索。</p>
+<p><code class="docutils literal notranslate"><span class="pre">giscanner\ccompiler.py</span></code> に発見。</p>
+<p>例外をもみ消した w</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">not_resolved</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span>
+                <span class="s2">"ERROR: can't resolve libraries to shared libraries: "</span> <span class="o">+</span>
+                <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">not_resolved</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># When we are using Visual C++ or clang-cl...</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_is_msvc</span><span class="p">():</span>
+            <span class="c1"># The search path of the .lib's on Visual C++</span>
+            <span class="c1"># is dependent on the LIB environmental variable,</span>
+            <span class="c1"># so just query for that</span>
+            <span class="n">libpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'LIB'</span><span class="p">)</span>
+            <span class="n">libsearch</span> <span class="o">=</span> <span class="n">libpath</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">';'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>環境変数</p>
+<p><code class="docutils literal notranslate"><span class="pre">LIB=C:/gnome/lib</span></code></p>
+<p>で解決。</p>
+</section>
+<section id="failed-tests-gimarshallingtests-1-0-gir">
+<h3>FAILED: tests/GIMarshallingTests-1.0.gir<a class="headerlink" href="#failed-tests-gimarshallingtests-1-0-gir" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>test ぽいのでスキップしよう。</p>
+<div class="highlight-meson:meson.build notranslate"><div class="highlight"><pre><span></span>#if not meson.is_cross_build()
+#  subdir('tests')
+#endif
+</pre></div>
+</div>
+</section>
+</section>
+<section id="cairo">
+<h2>cairo のビルド<a class="headerlink" href="#cairo" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="pygobject">
+<h2>pygobject のビルド<a class="headerlink" href="#pygobject" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="python">
+<h1>python 実験<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cairo</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cairo</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="modulenotfounderror-no-module-named-cairo">
+<h2>ModuleNotFoundError: No module named 'cairo'<a class="headerlink" href="#modulenotfounderror-no-module-named-cairo" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">が無いエラー</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PYTHONPATH</span><span class="o">=</span><span class="n">C</span><span class="p">:</span>\<span class="n">gnome</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>
+</pre></div>
+</div>
+</section>
+<section id="importerror-dll-load-failed-while-importing-cairo">
+<h2>ImportError: DLL load failed while importing _cairo: 指定されたモジュールが見つかりません。<a class="headerlink" href="#importerror-dll-load-failed-while-importing-cairo" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<hr class="docutils"/>
+<p><code class="docutils literal notranslate"><span class="pre">pyd</span> <span class="pre">のロードエラー</span></code></p>
+<p>python-3.8 で pyd の import 仕様が変更になっています。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">add_dll_directory</span><span class="p">(</span><span class="s1">'c:/gnome/bin'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>が必要です。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>import gi
+gi.require_version("GLib", "2.0")
+from gi.repository import GLib
+print(GLib)
+****```
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -314,6 +518,7 @@
             <ul>
 <li><a class="reference internal" href="#">build</a><ul>
 <li><a class="reference internal" href="#st">1st</a></li>
+<li><a class="reference internal" href="#nd">2nd</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#gir">GIR</a><ul>
@@ -322,6 +527,27 @@
 </li>
 <li><a class="reference internal" href="#repository-typelib">repository: typelib</a><ul>
 <li><a class="reference internal" href="#copy-gir">copy gir</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#libgirepository">libgirepository</a><ul>
+<li><a class="reference internal" href="#g-function-info-invoke">g_function_info_invoke</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python-3-10">python-3.10 のときに起きたエラーたち・・・</a><ul>
+<li><a class="reference internal" href="#unicodedecodeerror-utf-8-codec-can-t-decode-byte-0x8e-in-position-115-invalid-start-byte">UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8e in position 115: invalid start byte</a></li>
+<li><a class="reference internal" href="#glib-types-h">大量のエラー glib-types.h</a><ul>
+<li><a class="reference internal" href="#linking-of-temporary-binary-failed"><code class="docutils literal notranslate"><span class="pre">linking</span> <span class="pre">of</span> <span class="pre">temporary</span> <span class="pre">binary</span> <span class="pre">failed</span></code></a></li>
+<li><a class="reference internal" href="#error-can-t-resolve-libraries-to-shared-libraries-glib-2-0-gobject-2-0">ERROR: can't resolve libraries to shared libraries: glib-2.0, gobject-2.0</a></li>
+<li><a class="reference internal" href="#failed-tests-gimarshallingtests-1-0-gir">FAILED: tests/GIMarshallingTests-1.0.gir</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cairo">cairo のビルド</a></li>
+<li><a class="reference internal" href="#pygobject">pygobject のビルド</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python">python 実験</a><ul>
+<li><a class="reference internal" href="#modulenotfounderror-no-module-named-cairo">ModuleNotFoundError: No module named 'cairo'</a></li>
+<li><a class="reference internal" href="#importerror-dll-load-failed-while-importing-cairo">ImportError: DLL load failed while importing _cairo: 指定されたモジュールが見つかりません。</a></li>
 </ul>
 </li>
 </ul>

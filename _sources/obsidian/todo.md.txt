@@ -4,10 +4,29 @@
 [[python]] + [[flask]] + [[Leaflet]]
 [[OpenXR]]
 
+# PySpout
+- TimerRecorder
+
+# PyGtk4
+- cairo
+- pygobject(-Dtests=false)
+- gtk(-Dmedisa-gstreamer=disabled, -Dbuild-tests=false)
+- gstreamer
+
+# GTK install order
+- gobject-introspection (-Dbuild_introspection_data=false)
+-- gir & typelib を使う環境ができる
+- gobject-introspection (LIB=c:/gnome/lib)
+- gtk(-Dmedisa-gstreamer=disabled, -Dbuild-tests=false)
+	fix fontconfig symlink
+- pygobject(-Dtests=false)
+
+- gstreamer(with gir)
+
 # Stream
 - Unity
 - [[spout]]
-- [[gstreamer]] 
+- [[gst-python]] 
 
 # QuestPro
 
@@ -53,4 +72,3 @@
 # [[tui]]
 - [GitHub - afify/sfm: simple file manager](https://github.com/afify/sfm)
 - yazls のデバッグツール作りたい
-

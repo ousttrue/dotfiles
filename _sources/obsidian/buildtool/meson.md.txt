@@ -1,7 +1,9 @@
 [Fetching Title#7bn3](https://gitlab.freedesktop.org/xrdesktop/xrdesktop)[[buildtool]]
-[[gstreamer]]
+[[gst-python]]
 
 - [The Meson Build system](https://mesonbuild.com/)
+- @2022 [Mesonの使い方メモ - はしくれエンジニアもどきのメモ](https://cartman0.hatenablog.com/entry/2022/03/24/Meson%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%83%A1%E3%83%A2)
+- @2019 [［Meson］Meson for C++の苦闘記 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2019/09/20/023511)
 - @2018 [CMakeの代替 (となってほしい)、Mesonチュートリアル - Qiita](https://qiita.com/turenar/items/c727834fbf701beb47ef)
 
 # entry_point
