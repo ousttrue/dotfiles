@@ -74,13 +74,20 @@ if($env:GTK_DIR -ne $null)
 {
     insertPath($env:GTK_DIR + "\bin")
 }
-if(Test-Path "C:\Python310")
+if(Test-Path "C:\Python311")
+{
+    addPath("C:\Python311\Scripts")
+    addPath("C:\Python311")
+}
+elseif(Test-Path "C:\Python310")
 {
     addPath("C:\Python310\Scripts")
+    addPath("C:\Python310")
 }
 elseif(Test-Path "C:\Python37")
 {
     addPath("C:\Python37\Scripts")
+    addPath("C:\Python37")
 }
 # readline
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2
