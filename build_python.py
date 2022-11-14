@@ -6,9 +6,12 @@ import urllib.request
 import contextlib
 import subprocess
 import logging
-from doit_lib import PLATFORM, Platforms
+#from doit_lib import PLATFORM, Platforms
 
 LOGGER = logging.getLogger(__name__)
+
+def is_ubuntu()->bool:
+    return 'ubuntu' in pathlib.Path('/etc/os-release').read_text()
 
 
 @contextlib.contextmanager
@@ -103,7 +106,7 @@ def build():
         if not PYTHON310.ARCHIVE_EXTRACT.exists():
             run_or_raise('tar', 'xf', PYTHON310.ARCHIVE.name)
     # apt
-    if PLATFORM == Platforms.Ubuntu:
+    if is_ubuntu():
         run_or_raise('sudo', 'apt-get', 'install', '-y', *PYTHON310.DEP_APTS)
     else:
         pass

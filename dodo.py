@@ -206,6 +206,7 @@ def task_fzf():
             'git_dir': ('fzf_ghq', 'git_dir'),
         },
         'actions': [
+            'mkdir ~/local/bin',
             install,
             # f'mkdir -p {HOME_DIR}/local/bin',
             f'cp %(git_dir)s/bin/fzf{EXE} %(targets)s',
