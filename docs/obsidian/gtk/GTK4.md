@@ -8,6 +8,9 @@
 - @2020 [「GTK 4」が公開、メディア再生サポートなどが加わる | OSDN Magazine](https://mag.osdn.jp/20/12/18/132200)
 
 
+[Gtk – 4.0](https://docs.gtk.org/gtk4/index.html)
+- [Gtk – 4.0: Overview of the drawing model](https://docs.gtk.org/gtk4/drawing-model.html)
+
 GtkMediaStream
 GtkMediaFile
 GtkVideo
@@ -19,3 +22,5 @@ GskGLShaderNode
 
 # backend
 - [GTK 4 NGL Renderer – Happenings in GNOME](https://blogs.gnome.org/chergert/2021/02/24/gtk-4-ngl-renderer/)
+
+

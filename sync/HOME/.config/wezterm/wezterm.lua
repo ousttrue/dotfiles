@@ -44,6 +44,8 @@ table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { A
 table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
 table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
 table.insert(config.keys, { key = "[", mods = "LEADER", action = "ActivateCopyMode" })
+table.insert(config.keys, { key = 'PageUp', mods = 'SHIFT', action = wezterm.action.ScrollByPage(-1) })
+table.insert(config.keys, { key = 'PageDown', mods = 'SHIFT', action = wezterm.action.ScrollByPage(1) })
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   --
