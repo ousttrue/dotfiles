@@ -3,9 +3,9 @@
 [GStreamer: open source multimedia framework](https://gstreamer.freedesktop.org/)
 
 - [Gstreamer](https://zenn.dev/goforbroke/scraps/77b4afa1503385)
-	- [Tutorials](https://gstreamer.freedesktop.org/documentation/tutorials/index.html?gi-language=c)
+
 - @2020 [GStreamer 事はじめ](https://www.sinby.com/seiko-udoku/20/05160.html)
-- [OpenCVのgstreamerでキャプチャすると遅延が少なかったメモ(仮) - Qiita](https://qiita.com/nakasuke_/items/84ec6cb3ddc9dee003c2)
+- @2019 [OpenCVのgstreamerでキャプチャすると遅延が少なかったメモ(仮) - Qiita](https://qiita.com/nakasuke_/items/84ec6cb3ddc9dee003c2)
 - @2010 [あしたのオープンソース研究所: GStreamer - 2010-01-11 - ククログ](https://www.clear-code.com/blog/2010/1/11.html)
 
 `1.20`
@@ -24,6 +24,11 @@
 ## Meson
 - [Building from source using Meson](https://gstreamer.freedesktop.org/documentation/installing/building-from-source-using-meson.html)
 
+# tutorial
+-   [Basic tutorials](https://gstreamer.freedesktop.org/documentation/tutorials/basic/index.html): Describe general topics required to understand the rest of tutorials in GStreamer.
+-   [Playback tutorials](https://gstreamer.freedesktop.org/documentation/tutorials/playback/index.html): Explain everything you need to know to produce a media playback application using GStreamer.
+-   [Android tutorials](https://gstreamer.freedesktop.org/documentation/tutorials/android/index.html): Tutorials dealing with the few Android-specific topics you need to know.
+-   [iOS tutorials](https://gstreamer.freedesktop.org/documentation/tutorials/ios/index.html): Tutorials dealing with the few iOS-specific topics you need to know.
 
 # 列挙
 ## gst-device-monitor-1.0
@@ -91,3 +96,6 @@
 
 # C
 - [Basic tutorial 5: GUI toolkit integration](https://gstreamer.freedesktop.org/documentation/tutorials/basic/toolkit-integration.html?gi-language=c)
+
+# opencv
+- [OpenCVのGstreamerバックエンドで高度な動画キャプチャを実現する - Qiita](https://qiita.com/stnk20/items/242e400853579d511ea3)
