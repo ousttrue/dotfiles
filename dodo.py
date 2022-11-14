@@ -95,7 +95,7 @@ CARGO_INSTALLS = {
     'zoxide': 'zoxide',
     'broot': 'broot',
     'fd-find': 'fd',
-    'wezterm': 'wezterm',
+    #'wezterm': 'wezterm',
 }
 if IS_WINDOWS:
     CARGO_INSTALLS['lsd'] = 'lsd'
