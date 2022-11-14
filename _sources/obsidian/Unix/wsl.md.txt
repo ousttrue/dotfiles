@@ -1,8 +1,17 @@
-wsl
-#linux
+[[wslg]]
+[[Linux]]
 
-	https://docs.microsoft.com/en-us/windows/wsl/about
-		https://docs.microsoft.com/en-us/windows/wsl/install-win10
+# 管理
+
+```
+wsl --list --verbose
+  NAME               STATE           VERSION
+* Arch               Stopped         2
+  Ubuntu-CommPrev    Stopped         2
+```
+
+
+https://docs.microsoft.com/en-us/windows/wsl/install-win10
 			https://aka.ms/wslstore
 	https://news.mynavi.jp/series/bashonwindows
 
