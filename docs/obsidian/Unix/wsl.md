@@ -10,6 +10,29 @@ wsl --list --verbose
   Ubuntu-CommPrev    Stopped         2
 ```
 
+## 削除
+
+```
+wsl --unregister
+```
+
+# install
+
+```
+wsl --list --online
+インストールできる有効なディストリビューションの一覧を次に示します。
+'wsl --install -d <Distro>' を使用してインストールします。
+
+NAME            FRIENDLY NAME
+Ubuntu          Ubuntu
+Debian          Debian GNU/Linux
+kali-linux      Kali Linux Rolling
+openSUSE-42     openSUSE Leap 42
+SLES-12         SUSE Linux Enterprise Server v12
+Ubuntu-16.04    Ubuntu 16.04 LTS
+Ubuntu-18.04    Ubuntu 18.04 LTS
+Ubuntu-20.04    Ubuntu 20.04 LTS
+```
 
 https://docs.microsoft.com/en-us/windows/wsl/install-win10
 			https://aka.ms/wslstore
