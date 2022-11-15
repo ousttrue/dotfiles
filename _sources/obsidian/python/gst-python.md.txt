@@ -1,4 +1,4 @@
-[[AudioVideo/gstreamer]]
+[[gstreamer]]
 [[gobject-introspection]]
 
 - [Python GStreamer Tutorial](http://brettviren.github.io/pygst-tutorial-org/pygst-tutorial.html)

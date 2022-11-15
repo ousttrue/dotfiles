@@ -1,4 +1,6 @@
 [[DirectShow]]
+[[gtk]]
+[[gst_element]]
 
 [GStreamer: open source multimedia framework](https://gstreamer.freedesktop.org/)
 
@@ -20,6 +22,9 @@
 - [gStreamer/Pluginのビルド手順(Ubuntu, Windows) - Qiita](https://qiita.com/nakakura/items/4b2c1c312236ea96824b)
 - [Windows環境でGStreamerのSRTプラグイン（1.15.0.1）をビルドする（cerbero） - Qiita](https://qiita.com/maruo2/items/387e2322f72bf61c8e02)
 - [Windows版GStreamerのバージョン1.18以降での変更点 - h2oとphp8でwp](https://e-kamo.net/gstreamer-for-win-version-diffarence)
+
+## gtk4
+- [GStreamer / gst-plugins-rs · GitLab](https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs)
 
 ## Meson
 - [Building from source using Meson](https://gstreamer.freedesktop.org/documentation/installing/building-from-source-using-meson.html)
@@ -99,3 +104,14 @@
 
 # opencv
 - [OpenCVのGstreamerバックエンドで高度な動画キャプチャを実現する - Qiita](https://qiita.com/stnk20/items/242e400853579d511ea3)
+
+# gstgl
+- [plugins/glbox.py - edgetpuvision - Git at Google](https://coral.googlesource.com/edgetpuvision/+/refs/heads/release-day/plugins/glbox.py)
+- [gst-plugins-base/gstopengl.c at master · GStreamer/gst-plugins-base · GitHub](https://github.com/GStreamer/gst-plugins-base/blob/master/ext/gl/gstopengl.c)
+
+# gtksink
+- [gtk: add GTK4 support (!767) · Merge requests · GStreamer / gst-plugins-good · GitLab](https://gitlab.freedesktop.org/gstreamer/gst-plugins-good/-/merge_requests/767)
+
+- subprojects/gst-plugins-good/tests/examples/gtk/gtksink.c
+- subprojects/gst-plugins-good/ext/gtk/gstgtksink.h
+- subprojects/gst-plugins-good/ext/gtk/gstgtksink.c
