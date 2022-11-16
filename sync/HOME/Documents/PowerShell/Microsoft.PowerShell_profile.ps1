@@ -170,3 +170,14 @@ function rmrf {
     )
     Remove-Item -Recurse -Force $Target
 }
+function pipup {
+    py -m pip install pip --upgrade
+}
+function dotpull {
+    pushd ${env:HOME}/dotfiles
+    git pull
+    popd
+}
+
+
+
