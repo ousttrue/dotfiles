@@ -19,7 +19,7 @@
 - [GitHub - terryky/android_openxr_gles: VR sample applications on Android NDK using OpenXR + OpenGLES. (especially for Meta Quest2)](https://github.com/terryky/android_openxr_gles)
 
 # Oculus Developer Hub
-
+https://note.com/npaka/n/nc18d61e25c85
 - [Oculus Developer Hub for Windows](https://developer.oculus.com/downloads/package/oculus-developer-hub-win/)
 - [Oculus Quest 2 入門 (1) - Oculus Developer Hub の使い方｜npaka｜note](https://note.com/npaka/n/nc18d61e25c85)
 
