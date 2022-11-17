@@ -8,6 +8,9 @@
 
 - [Python and GObject Introspection](https://www.slideshare.net/yurenju/python-and-gobject-introspection)
 
+# doc
+- [GitHub - pygobject/pgi-docgen: API Documentation Generator for PyGObject](https://github.com/pygobject/pgi-docgen)
+
 # build
 - [MSVC.README.rst · main · GNOME / gobject-introspection · GitLab](https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/MSVC.README.rst)
 

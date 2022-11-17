@@ -16,3 +16,8 @@
 - [UnityでOpenXR Pluginを使ってVR対応アプリを作ってみる(OculusQuest2対応) | あのゲームの作り方Web版](https://anogame.net/2022/04/27/848/)
 - [Unity VR開発メモ（XR Interaction Toolkit + OpenXR Plugin） - フレームシンセシス](https://framesynthesis.jp/tech/unity/xr/)
 
+# build oculus
+```
+WARNING: The option setting 'android.enableR8=false' is deprecated.
+```
+
