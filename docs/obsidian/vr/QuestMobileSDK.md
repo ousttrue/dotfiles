@@ -15,6 +15,9 @@
 
 - [GitHub - Wxz234/Android-Oculus: A Openxr](https://github.com/Wxz234/Android-Oculus)
 
+# OVRPlugin
+`1.78` => OpenXR backend ?
+
 # samples
 - [GitHub - terryky/android_openxr_gles: VR sample applications on Android NDK using OpenXR + OpenGLES. (especially for Meta Quest2)](https://github.com/terryky/android_openxr_gles)
 

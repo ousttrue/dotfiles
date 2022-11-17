@@ -31,6 +31,7 @@
 # QuestPro
 
 ## avatar tracker
+[[OSC]]
 - body tracking
 - hand tracking
 - eye tracking

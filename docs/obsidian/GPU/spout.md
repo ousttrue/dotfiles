@@ -16,3 +16,4 @@
 
 # python
 - [GitHub - jlai/Python-SpoutGL: Python wrapper for SpoutGL](https://github.com/jlai/Python-SpoutGL)
+- [GitHub - spiraltechnica/Spout-for-Python: A modified Spout library using Boost::Python to enable Spout texture sharing using Python.](https://github.com/spiraltechnica/Spout-for-Python)
