@@ -43,3 +43,7 @@ int main() {
 
 # zig
 - [Simplistic libuv wrapper example in Zig · GitHub](https://gist.github.com/Qix-/a53c46b0ff25a38a24a49c1dcea28d54)
+
+# gtk
+[[GTK3]]
+- [libuv-glib/test-uv-gtk.c at master · derekdai/libuv-glib · GitHub](https://github.com/derekdai/libuv-glib/blob/master/test-uv-gtk.c)
