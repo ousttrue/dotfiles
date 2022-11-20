@@ -1,5 +1,8 @@
 [[myst-parser]]
 
+- [Sphinxのtoctreeにおける順序操作](https://zenn.dev/attakei/articles/337db96e3f7d30)
+- [Sphinxのドキュメントでは、「glob」フラグオプションによって提供されるtoctreeの順序を元に戻すにはどうすればよいですか？ - VoidCC](http://ja.voidcc.com/question/p-npkoyvmn-dw.html)
+
 [* toctree]
 [https://github.com/sphinx-doc/sphinx/issues/8287 Allow to specify toctree pages as direct-children of parent page · Issue #8287 · sphinx-doc/sphinx · GitHub]
 

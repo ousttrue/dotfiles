@@ -1,0 +1,3 @@
+#red
+[[xorg]]
+[[wayland]]

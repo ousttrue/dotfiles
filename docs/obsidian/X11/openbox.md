@@ -1,4 +1,5 @@
 #blue
+[[WindowManager]]
 
 [[xorg]]
 [[statusbar]]
@@ -10,3 +11,10 @@
 # menu
 `.config/openbox/menu.xml`
 - [Help:Menus - Openbox](http://openbox.org/wiki/Help:Menus)
+
+# wayland
+## waybox
+- [GitHub - wizbright/waybox: An openbox clone on Wayland (WIP)](https://github.com/wizbright/waybox)
+
+## labwc
+- [GitHub - labwc/labwc: A Wayland window-stacking compositor](https://github.com/labwc/labwc)
