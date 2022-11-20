@@ -5,6 +5,16 @@
 repo = 'Shougo/dein.vim'
 
 #
+# ColorScheme
+#
+[[plugins]]
+repo = 'tyrannicaltoucan/vim-deep-space'
+hook_add = '''
+set background=dark
+let g:color_scheme = 'deep-space'
+'''
+
+#
 # Minimum
 #
 [[plugins]]
@@ -22,6 +32,8 @@ repo = 'tpope/vim-commentary'
 hook_add='''
 nmap <C-_> :Commentary<CR>
 vmap <C-_> :Commentary<CR>
+nmap <C-/> :Commentary<CR>
+vmap <C-/> :Commentary<CR>
 '''
 
 [[plugins]]
@@ -32,7 +44,7 @@ repo = 'Chiel92/vim-autoformat'
 hook_add='''
 nmap <S-f> :Autoformat<CR>
 vmap <S-f> :Autoformat<CR>
-let g:formatters_python = ['autopep8']
+let g:formatters_python = ['black']
 '''
 
 [[plugins]]

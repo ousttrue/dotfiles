@@ -28,6 +28,8 @@ if dein#check_install()
     call dein#install()
 endif
 
+exec 'colorscheme' g:color_scheme
+
 "
 " settings
 "
@@ -40,19 +42,18 @@ set belloff=all
 set noswapfile noundofile nobackup
 set hlsearch
 set hidden
-
+set termguicolors
+" $TERMがxterm以外のときは以下を設定する必要がある。
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " 文字色
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色
 
 " ex mode を無効に
 nnoremap Q <Nop>
 nnoremap q :close<CR>
 tnoremap <silent> <ESC> <C-\><C-n>
 nnoremap <C-l> :nohlsearch<CR><C-l>
-
-
-" python
-set pythonthreehome=C:\Python310 
-set pythonthreedll=C:\Python310\python310.dll
-nnoremap <F5> :T python3 %<CR>
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <C-[>:w<CR>
 
 au BufNewFile,BufRead *.xsh setf python
 au FileType python setlocal formatprg=autopep8\ -

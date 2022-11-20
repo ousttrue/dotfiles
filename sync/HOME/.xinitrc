@@ -29,9 +29,9 @@ if which mpd > /dev/null 2>&1; then
 fi
 
 # exec startlxqt
-exec openbox-session
+# exec openbox-session
 # exec openbox
 # exec blackbox
 # exec berry
-# exec xterm
+exec xterm
 # exec qtile start

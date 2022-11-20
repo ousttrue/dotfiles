@@ -55,16 +55,16 @@ def task_create_link():
 
 
 GO_BIN = '/usr/local/go/bin/go'
+GO_VERSION = '1.19.3'
 if PLATFORM == Platforms.FreeBSD:
-    GO_ARCHIVE = HOME_DIR / 'local/src/go1.19.freebsd-amd64.tar.gz'
-
+    GO_ARCHIVE = HOME_DIR / f'local/src/go{GO_VERSION}.freebsd-amd64.tar.gz'
 else:
-    GO_ARCHIVE = HOME_DIR / 'local/src/go1.18.1.linux-amd64.tar.gz'
+    GO_ARCHIVE = HOME_DIR / f'local/src/go{GO_VERSION}.linux-amd64.tar.gz'
 
 
 @condition(not IS_WINDOWS)
 def task_golang_downlaod():
-    url = 'https://go.dev/dl/go1.18.1.linux-amd64.tar.gz'
+    url = f'https://go.dev/dl/go{GO_VERSION}.linux-amd64.tar.gz'
     return {
         'uptodate': [True],
         'targets': [GO_ARCHIVE],

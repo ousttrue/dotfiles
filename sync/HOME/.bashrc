@@ -105,6 +105,16 @@ function gg {
     fi
 }
 
+function emg {
+    pushd /var/db/repos/gentoo
+    local repository
+    repository=$(find * -mindepth 1 -maxdepth 1 -type d | fzf --preview "emerge --pretend {}")
+    popd
+    if [ -n ${repository} ]; then
+        sudo emerge -av --autounmask=y --autounmask-license=y --autounmask-write=y ${repository}
+    fi
+}
+
 #
 # alias
 #
@@ -153,7 +163,7 @@ path_push "$ANDROID_HOME/platform-tools"
 # export ANDROID_NDK_HOME=/opt/android-ndk-r10d
 # path_push $ANDROID_NDK_HOME
 
-source /home/ousttrue/.config/broot/launcher/bash/br
+# source /home/ousttrue/.config/broot/launcher/bash/br
 
 export PATH=$(printf %s "$PATH" | awk -v RS=: -v ORS=: '!arr[$0]++')
 
