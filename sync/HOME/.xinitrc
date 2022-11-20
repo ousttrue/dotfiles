@@ -33,5 +33,5 @@ fi
 # exec openbox
 # exec blackbox
 # exec berry
-exec xterm
-# exec qtile start
+# exec xterm
+exec qtile start

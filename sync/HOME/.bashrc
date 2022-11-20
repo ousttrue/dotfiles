@@ -52,8 +52,8 @@ shopt -u histappend
 export HISTSIZE=9999
 
 function _update_ps1() {
-  # PS1=$(powerline-shell $?)
-  PS1="$(powerline-shell $?)\n$ "
+    # PS1=$(powerline-shell $?)
+    PS1="$(powerline-shell $?)\n$ "
 }
 
 if which powerline-shell > /dev/null 2>&1; then
@@ -98,20 +98,36 @@ if which zoxide > /dev/null 2>&1; then
 fi
 
 function gg {
-    local repository
-    repository=$(ghq list -p | fzf-tmux --reverse +m)
-    if [ -n ${repository} ]; then
-        z ${repository}
+    local selected
+    selected=$(ghq list -p | fzf-tmux --reverse +m)
+    if [ -n ${selected} ]; then
+        z ${selected}
+    fi
+}
+
+function gs {
+    local selected
+    selected=$(git branch | fzf)
+    if [ -n ${selected} ]; then
+        git switch ${selected}
     fi
 }
 
 function emg {
     pushd /var/db/repos/gentoo
-    local repository
-    repository=$(find * -mindepth 1 -maxdepth 1 -type d | fzf --preview "emerge --pretend {}")
+    local selected
+    selected=$(find * -mindepth 1 -maxdepth 1 -type d | fzf --preview "emerge --pretend {}")
     popd
-    if [ -n ${repository} ]; then
-        sudo emerge -av --autounmask=y --autounmask-license=y --autounmask-write=y ${repository}
+    if [ -n ${selected} ]; then
+        sudo emerge -av --autounmask=y --autounmask-license=y --autounmask-write=y ${selected}
+    fi
+}
+
+function pkg {
+    local selected
+    selected = $(pkg-config --list-package-names | fzf --preview "bat ${HOME}/prefix/lib64/pkgconfig/{}.pc")
+    if [ -n ${selected} ]; then
+        bat $HOME/prefix/lib64/pkgconifg/${selected}.pc
     fi
 }
 
