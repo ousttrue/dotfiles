@@ -1,25 +1,32 @@
-SSG
-static site generator
+#red
 
-#zola #hugo #sphinx #wyam #web
+static site generator
 
 https://www.staticgen.com/
 	https://www.staticgen.com/nuxt
 	https://metalsmith.io/
 
-[** python]
-[* sphinx]
-[https://zenn.dev/attakei/articles/337db96e3f7d30 Sphinxのtoctreeにおける順序操作]
-[http://ja.voidcc.com/question/p-npkoyvmn-dw.html Sphinxのドキュメントでは、「glob」フラグオプションによって提供されるtoctreeの順序を元に戻すにはどうすればよいですか？ - VoidCC]
+# python
+[[python]]
 
-[* pelican]
-[https://blog.getpelican.com/ Pelican Static Site Generator, Powered by Python]
-	http://www.pelicanthemes.com/
-
-[* nikola]
-https://getnikola.com/
-[https://log.yostos.org/2020/04/26/migrate-to-nikola/ ブログをPelicanからNikolaに移行 | Notes Inegales]
-	https://themes.getnikola.com/
-
+## sphinx
 [[sphinx]]
+
+## pelican
+[Pelican – A Python Static Site Generator](https://blog.getpelican.com/)
+- [Pelican 4.8.0](https://docs.getpelican.com/en/latest/)
+	- [Pelican themes](http://www.pelicanthemes.com/)
+- @2021 [pelicanとGitHub Pagesを使って自前のブログを作ってみた](https://zenn.dev/luna_chevalier/articles/08195fbba8c10ffa6491)
+- @2021 [Pelicanでのブログ構築 with Docker · うずらの備忘録](https://www.mallows.io/20210310215020)
+- @2020 [Python製 Pelican を使ってサクッとブログを公開する - Qiita](https://qiita.com/saira/items/71faa202efb4320cb41d)
+- @2019 [Python製静的サイトジェネレータ Pelican を使ってブログ作成 – SAIRA Blog](https://www.sairablog.com/article/python-pelican-blog-howto.html)
+
+## nikola
+[Static Site Generator | Nikola](https://getnikola.com/)
+- https://themes.getnikola.com/
+
+@2020 [ブログをPelicanからNikolaに移行 | Notes Inegales](https://log.yostos.org/2020/04/26/migrate-to-nikola/)
+
+# Go
+[[golang]]
 [[hugo]]

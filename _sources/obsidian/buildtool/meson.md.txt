@@ -47,6 +47,16 @@
 subprojects\pango\pango\meson.build:171:6: ERROR: Tried to override dependency 'pango' which has already been resolved or overridden at D:\ghq\github.com\GNOME\gtk\meson.build:391:
 ```
 
+`mesonbuild/interpreter/mesonmain.py`
+```python
+# comment out
+383         if override:
+384             if permissive:
+385                 return
+386             m = 'Tried to override dependency {!r} which has already been resolved or overridden at {}'
+387             location = mlog.get_error_location_string(override.node.filename, override.node.lineno)
+388             raise InterpreterException(m.format(name, location))
+```
 gtk
 ```
 pango_dep      = dependency('pango', version: pango_req,

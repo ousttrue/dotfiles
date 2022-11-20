@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>compositor - shell note ドキュメント</title>
+        <title>libseat - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -224,32 +224,59 @@
 <li><p><a class="reference external" href="https://qiita.com/maueki/items/9a3a8791a05c00b34c29">Waylandとは？ - Qiita</a></p></li>
 <li><p><a class="reference external" href="https://qiita.com/maueki/items/34323b2762e3c3342c51">作って学ぶWayland - Qiita</a></p></li>
 <li><p><a class="reference external" href="http://d.hatena.ne.jp/devm33/20140422/1398182440">Waylandプログラミング入門 - ブログのタイトル</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/naohikowatanabe/items/06a8b988b89b4b1ec899">Wayland の Client と Compositor の概念を理解する - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://aznote.jakou.com/prog/wayland/index.html">Wayland プログラミング</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://qiita.com/naohikowatanabe/items/06a8b988b89b4b1ec899">Wayland の Client と Compositor の概念を理解する - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://wiki.gentoo.org/wiki/Wayland_Desktop_Landscape">Wayland Desktop Landscape - Gentoo Wiki</a></p></li>
 </ul>
-<section id="compositor">
-<h1>compositor<a class="headerlink" href="#compositor" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="libseat">
+<h1>libseat<a class="headerlink" href="#libseat" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sr.ht/~kennylevinsen/seatd/">seatd: Seat management daemon and library</a>
+session
+<code class="docutils literal notranslate"><span class="pre">seatd</span></code></p></li>
+</ul>
+<p>(graphics, input)</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="compositor-server">
+<h1>Compositor(Server)<a class="headerlink" href="#compositor-server" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p>[[wlroots]]</p></li>
 <li><p>weston</p></li>
 <li><p>sway</p></li>
 <li><p>[[<a class="reference external" href="https://wayfire.org/">Wayfire</a>]]</p></li>
 <li><p><a class="reference external" href="https://github.com/ec1oud/grefsen">GitHub - ec1oud/grefsen: A Qt/Wayland desktop</a></p></li>
+<li><p>[[qtile]]</p></li>
 </ul>
 </section>
-<section id="xdg-shell">
+<section class="tex2jax_ignore mathjax_ignore" id="display">
+<h1>Display<a class="headerlink" href="#display" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">WAYLAND_DISPLAY=wayland-0</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">XDG_RUNTIME_DIR=/tmp</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="input">
+<h1>Input<a class="headerlink" href="#input" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wayland.freedesktop.org/libinput/doc/latest/device-quirks.html">Device quirks — libinput 1.22.0 documentation</a></p></li>
+<li><p><a class="reference external" href="https://wayland.freedesktop.org/libinput/doc/latest/device-quirks.html">Device quirks — libinput 1.22.0 documentation</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="xdg-shell">
 <h1>xdg-shell<a class="headerlink" href="#xdg-shell" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="http://blog.mecheye.net/2014/06/xdg-shell/">xdg-shell | Clean Rinse</a></p></li>
 <li><p><a class="reference external" href="https://wiki.tizen.org/Wayland_xdg-shell_protocol">Wayland xdg-shell protocol - Tizen Wiki</a></p></li>
 </ul>
 </section>
-<section id="rdp-backend">
+<section class="tex2jax_ignore mathjax_ignore" id="rdp-backend">
 <h1>RDP backend<a class="headerlink" href="#rdp-backend" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="https://qiita.com/junjihashimoto@github/items/2c37ee557360a6459926">Wayland RDP backend試してみた - Qiita</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">f</span> <span class="n">rdp</span><span class="o">.</span><span class="n">key</span>
 <span class="n">weston</span> <span class="o">--</span><span class="n">backend</span><span class="o">=</span><span class="n">rdp</span><span class="o">-</span><span class="n">backend</span><span class="o">.</span><span class="n">so</span> <span class="o">--</span><span class="n">rdp4</span><span class="o">-</span><span class="n">key</span><span class="o">=</span><span class="n">rdp</span><span class="o">.</span><span class="n">key</span>
 </pre></div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vnc-backend">
+<h1>VNC backend<a class="headerlink" href="#vnc-backend" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 
         </article>
@@ -285,9 +312,13 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">compositor</a></li>
+<li><a class="reference internal" href="#">libseat</a></li>
+<li><a class="reference internal" href="#compositor-server">Compositor(Server)</a></li>
+<li><a class="reference internal" href="#display">Display</a></li>
+<li><a class="reference internal" href="#input">Input</a></li>
 <li><a class="reference internal" href="#xdg-shell">xdg-shell</a></li>
 <li><a class="reference internal" href="#rdp-backend">RDP backend</a></li>
+<li><a class="reference internal" href="#vnc-backend">VNC backend</a></li>
 </ul>
 
           </div>
