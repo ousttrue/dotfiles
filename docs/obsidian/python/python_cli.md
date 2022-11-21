@@ -6,3 +6,6 @@
 
 ## entry_points
 [PythonのCLIパッケージの作り方 - karakaram-blog](https://www.karakaram.com/how-to-create-python-cli-package/)
+
+# typer
+[Typer](https://typer.tiangolo.com/)
