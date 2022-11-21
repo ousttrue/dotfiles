@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>pyproject.toml - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,86 +212,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[python]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/index.html">Building and Distributing Packages with Setuptools - setuptools 65.5.1.post20221111 documentation</a></p></li>
-<li><p>@2018  <a class="reference external" href="https://qiita.com/Tadahiro_Yamamura/items/2cbcd272a96bb3761cc8">pythonのsetup.pyについてまとめる - Qiita</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="pyproject-toml">
-<h1>pyproject.toml<a class="headerlink" href="#pyproject-toml" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2015 <a class="reference external" href="https://peps.python.org/pep-0517/">PEP 517 – A build-system independent format for source trees | peps.python.org</a></p></li>
-<li><p>@2016 <a class="reference external" href="https://peps.python.org/pep-0518/">PEP 518 – Specifying Minimum Build System Requirements for Python Projects | peps.python.org</a></p></li>
-</ul>
-<section id="build-backend">
-<h2>build backend<a class="headerlink" href="#build-backend" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="setuptools">
-<h3>setuptools<a class="headerlink" href="#setuptools" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://setuptools.pypa.io/en/latest/build_meta.html">Build System Support - setuptools 65.5.1.post20221111 documentation</a></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyproject</span><span class="o">.</span><span class="n">toml</span>
-<span class="n">setup</span><span class="o">.</span><span class="n">cfg</span>
-<span class="n">MODULE_NAME</span><span class="o">/</span>
-	<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-</div>
-<p>pyproject.toml</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html">Configuring setuptools using pyproject.toml files - setuptools 65.5.1.post20221111 documentation</a></p></li>
-</ul>
-<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span><span class="w"></span>
-<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"setuptools"</span><span class="p">]</span><span class="w"></span>
-<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"setuptools.build_meta"</span><span class="w">  </span>
-</pre></div>
-</div>
-<p>setup.cfg</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/declarative_config.html#declarative-config">Configuring setuptools using setup.cfg files - setuptools 65.5.1.post20221111 documentation</a></p></li>
-</ul>
-<div class="highlight-setup.cfg notranslate"><div class="highlight"><pre><span></span>[metadata]
-name = meowpkg
-version = 0.0.1
-description = a package that meows
-
-[options]
-packages = find:
-</pre></div>
-</div>
-<p>entrypoint</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/entry_point.html">Entry Points - setuptools 65.5.1.post20221111 documentation</a></p></li>
-</ul>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="metadata">
-<h1>metadata<a class="headerlink" href="#metadata" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="setup-py">
-<h2>setup.py<a class="headerlink" href="#setup-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="setup-cfg">
-<h2>setup.cfg<a class="headerlink" href="#setup-cfg" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/declarative_config.html">Configuring setuptools using setup.cfg files - setuptools 65.6.0.post20221119 documentation</a></p></li>
-</ul>
-</section>
-<section id="id1">
-<h2>pyproject.toml<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="extras-require">
-<h1>extras_require<a class="headerlink" href="#extras-require" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/tshimura/items/87fadea8123219e2933c">パッケージの依存を分割して pip install する - Qiita</a></p></li>
-</ul>
-</section>
+          <p>[[python]]
+[[OpenGL]]</p>
 
         </article>
       </div>
@@ -306,7 +234,7 @@ packages = find:
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/python/python_package.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/python/pysdl2.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -314,37 +242,8 @@ packages = find:
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">pyproject.toml</a><ul>
-<li><a class="reference internal" href="#build-backend">build backend</a><ul>
-<li><a class="reference internal" href="#setuptools">setuptools</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#metadata">metadata</a><ul>
-<li><a class="reference internal" href="#setup-py">setup.py</a></li>
-<li><a class="reference internal" href="#setup-cfg">setup.cfg</a></li>
-<li><a class="reference internal" href="#id1">pyproject.toml</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#extras-require">extras_require</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

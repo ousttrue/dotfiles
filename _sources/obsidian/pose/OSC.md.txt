@@ -11,3 +11,13 @@ Open Sound Control
 
 ## OscCore
 - [GitHub - stella3d/OscCore: A performance-oriented OSC library for Unity](https://github.com/stella3d/OscCore)
+
+# python
+## python-osc
+- [python-osc · PyPI](https://pypi.org/project/python-osc/)
+
+[[puredata]]
+- @2017 [python-oscを使ってみる：前編｜TechRacho by BPS株式会社](https://techracho.bpsinc.jp/katayama-yuuki/2017_07_13/42884)
+
+[[vrchat]]
+- [VRChatでOSCやーる（Python3.9、Windows10） - Qiita](https://qiita.com/SatoshiGachiFujimoto/items/7f43954c7cbbe8c25dbe)[]

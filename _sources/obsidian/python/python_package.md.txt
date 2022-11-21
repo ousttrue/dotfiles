@@ -1,3 +1,9 @@
+---
+aliases: [setup.py]
+---
+
+[[python]]
+
 - [Building and Distributing Packages with Setuptools - setuptools 65.5.1.post20221111 documentation](https://setuptools.pypa.io/en/latest/userguide/index.html)
 - @2018  [pythonのsetup.pyについてまとめる - Qiita](https://qiita.com/Tadahiro_Yamamura/items/2cbcd272a96bb3761cc8)
 
@@ -37,3 +43,14 @@ packages = find:
 
 entrypoint
 - [Entry Points - setuptools 65.5.1.post20221111 documentation](https://setuptools.pypa.io/en/latest/userguide/entry_point.html)
+
+# metadata
+## setup.py
+
+## setup.cfg
+- [Configuring setuptools using setup.cfg files - setuptools 65.6.0.post20221119 documentation](https://setuptools.pypa.io/en/latest/userguide/declarative_config.html)
+
+## pyproject.toml
+
+# extras_require
+- [パッケージの依存を分割して pip install する - Qiita](https://qiita.com/tshimura/items/87fadea8123219e2933c)

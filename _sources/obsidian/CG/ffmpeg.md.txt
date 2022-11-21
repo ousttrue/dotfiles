@@ -27,3 +27,7 @@ keyframeの間隔を短く
 https://stackoverflow.com/questions/30979714/how-to-change-keyframe-interval-in-ffmpeg
 
 https://johnathan.org/originals/2016/07/attempting-to-stream-a-webcam-to-an-rtmp-server.html
+
+# python
+[[python]]
+[pyOpenGL + ffmpeg.exeでmovie fileを作る。 - Qiita](https://qiita.com/gaziya5/items/42b9856849fbe98e40d7)

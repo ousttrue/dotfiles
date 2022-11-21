@@ -4,6 +4,9 @@
 [[python]] + [[flask]] + [[Leaflet]]
 [[OpenXR]]
 
+# Update
+- [pysdl2やってみる - Qiita](https://qiita.com/ousttrue/items/6ffc9625c715a85dd3c4)
+
 # PySpout
 - TimerRecorder
 
