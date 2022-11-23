@@ -47,3 +47,6 @@ weston --backend=rdp-backend.so --rdp4-key=rdp.key
 ```
 
 # VNC backend
+
+# カーソル消える
+`export WLR_NO_HARDWARE_CURSORS=1`

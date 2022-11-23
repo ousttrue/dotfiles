@@ -1,11 +1,42 @@
 [[OpenXR]]
 [[lua]]
 
+[LÖVR](https://lovr.org/docs/Getting_Started)
 - [GitHub - bjornbytes/lovr: Lua Virtual Reality Framework](https://github.com/bjornbytes/lovr)
 - [GitHub - bjornbytes/lovr-docs: Documentation for LÖVR](https://github.com/bjornbytes/lovr-docs)
 
-# run Quest
-- [LÖVR](https://lovr.org/docs/Getting_Started_(Quest))
+# Version
+## `0.16`
+vulkan
+
+standard 未実装？
+
+## 0.15
+スタンドアロンの lua から動くようにして lua のデバッガをアタッチできないか？
+
+# Headset
+## Desktop
+glfw window
+
+`src\api\l_headset.c`
+```c
+static int l_lovrHeadsetUpdate(lua_State* L);
+```
+👇
+`src\modules\headset\headset_desktop.c`
+```c
+struct {
+  float pitch;
+  float yaw;
+} state;
+
+static double desktop_update(void) {
+}
+```
+
+# graphics
+- [LÖVR](https://lovr.org/docs/lovr.graphics)
+- [LÖVR](https://lovr.org/docs/Pass)
 
 # build for Quest
 
@@ -58,3 +89,5 @@
 
 # plugins
 - [LÖVR](https://lovr.org/docs/Plugins)
+## Network
+- [GitHub - brainrom/lovr-luasocket: Cmake-buildable libluasocket for LOVR](https://github.com/brainrom/lovr-luasocket)
