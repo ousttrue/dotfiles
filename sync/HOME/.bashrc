@@ -10,6 +10,7 @@ path_push() {
     [ ! -d $1 ] || [ -z "${PATH##*$1*}" ] || export PATH=$PATH:$1
 }
 
+path_unshift "$HOME/prefix/bin"
 path_unshift "$HOME/zig"
 path_unshift "/usr/local/go/bin"
 path_push "$HOME/.deno/bin"
