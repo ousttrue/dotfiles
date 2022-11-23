@@ -10,3 +10,7 @@
 - [GitHub - KhronosGroup/glslang: Khronos-reference front end for GLSL/ESSL, partial front end for HLSL, and a SPIR-V generator.](https://github.com/KhronosGroup/glslang)
 
 - [glslangValidatorを使ってシェーダの文法チェックをする(4-Ex1.) - Qiita](https://qiita.com/uechoco@github/items/031f4fe980582ff9234f)
+
+# Android
+[[Android]]
+- [Android の Vulkan シェーダー コンパイラ  |  Android NDK  |  Android Developers](https://developer.android.com/ndk/guides/graphics/shader-compilers?hl=ja)
