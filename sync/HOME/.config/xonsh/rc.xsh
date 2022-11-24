@@ -1,6 +1,9 @@
 #
 # @2019 [xonsh 始めました + xonshrc 弄って oh-my-fish/yimmy inspired な見た目にする](https://blog.atusy.net/2019/04/14/xonsh-debut/)
 #
+# エラー全て吐くように
+$XONSH_SHOW_TRACEBACK = True
+
 import subprocess
 import pathlib
 import sys
@@ -48,14 +51,14 @@ def insert_path(src):
             return
     $PATH.insert(0, str(pathlib.Path(src)))
 
-if platform.system()=='Windows':
-    import vcenv
-    vc_map = vcenv.get_env()
-    $VCINSTALLDIR = vc_map['VCINSTALLDIR']
-    $INCLUDE = vc_map['INCLUDE']
-    $LIB = vc_map['LIB']
-    for p in vc_map['PATH'].split(';'):
-        insert_path(p)
+# if platform.system()=='Windows':
+#     import vcenv
+#     vc_map = vcenv.get_env()
+#     $VCINSTALLDIR = vc_map['VCINSTALLDIR']
+#     $INCLUDE = vc_map['INCLUDE']
+#     $LIB = vc_map['LIB']
+#     for p in vc_map['PATH'].split(';'):
+#         insert_path(p)
 
 # エディタ
 #$EDITOR = '/usr/local/bin/vim'
@@ -76,8 +79,6 @@ $HISTCONTROL = "ignoredups"
 $XONSH_AUTOPAIR = True
 # ディレクトリ名を入力でcd
 $AUTO_CD = True
-# エラー全て吐くように
-$XONSH_SHOW_TRACEBACK = True
 # サブプロセスタイムアウトのメッセージ抑制
 $SUPPRESS_BRANCH_TIMEOUT_MESSAGE = True
 # キー入力即評価（サイコー）
@@ -113,7 +114,8 @@ xontrib load vox
 # # $RIGHT_PROMPT = "{user}{os_icon}{hostname}"
 # $BOTTOM_TOOLBAR = "{customdate}"
 # $XONSH_APPEND_NEWLINE = True
-xontrib load powerline3 prompt_ret_code
+xontrib load powerline3 
+#prompt_ret_code
 
 # the foreground/background colors of the prompt-fields can be configured as below. 
 # This works for custom fields as well
@@ -162,7 +164,7 @@ if platform.system() == 'Windows':
     import vcenv
     insert_path('C:\\Python310\\Scripts') 
     # insert_path('~\\tools')
-    insert_path('C:\\Program Files\\Git\\usr\\bin')
+    # insert_path('C:\\Program Files\\Git\\usr\\bin')
 insert_path('~/local/bin')
 insert_path('/usr/local/go/bin')
 insert_path('~/go/bin')
