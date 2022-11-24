@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>xontribs - shell note ドキュメント</title>
+        <title>python-mode vs subprocess-mode - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -220,21 +220,62 @@
         <article role="main">
           <p>[[python]]
 [[prompt_toolkit]]</p>
-<p><a class="reference external" href="https://xon.sh/contents.html">the xonsh shell — xonsh 0.11.0 documentation</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">0.13.2</span></code>
+<a class="reference external" href="https://xon.sh/contents.html">the xonsh shell — xonsh documentation</a></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://xon.sh/tutorial.html">Tutorial — xonsh 0.11.0 documentation</a></p></li>
+<li><p><a class="reference external" href="https://xon.sh/changelog.html">Xonsh Change Log - xonsh documentation</a></p></li>
+<li><p><a class="reference external" href="https://xon.sh/tutorial.html">Tutorial — xonsh documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/anki-code/xonsh-cheatsheet">GitHub - anki-code/xonsh-cheatsheet: Cheat sheet for xonsh shell with copy-pastable examples. The best doc for the new users.</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="python-mode-vs-subprocess-mode">
+<h1>python-mode vs subprocess-mode<a class="headerlink" href="#python-mode-vs-subprocess-mode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rc">
+<h1>rc<a class="headerlink" href="#rc" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">~/.xonshrc</span></code>
 <code class="docutils literal notranslate"><span class="pre">~/.config/xonsh/rc.xsh**</span></code></p>
-<section id="xontribs">
-<h1>xontribs<a class="headerlink" href="#xontribs" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://xon.sh/xontribs.html">Xontribs — xonsh 0.11.0 documentation</a></p></li>
+<li><p>path</p></li>
+<li><p>alias, command(gg, gst...)</p></li>
+<li><p>prompt</p></li>
+</ul>
+<section id="history">
+<h2>history<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://xon.sh/tutorial_hist.html">Tutorial: History - xonsh 0.13.2 documentation</a></p></li>
 </ul>
 </section>
-<section id="articles">
+<section id="completion">
+<h2>completion<a class="headerlink" href="#completion" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://xon.sh/tutorial_completers.html">Tutorial: Programmable Tab-Completion - xonsh 0.13.2 documentation</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="xontribs">
+<h1>xontribs<a class="headerlink" href="#xontribs" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://xon.sh/xontribs.html">Xontribs — xonsh documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/anki-code/xontrib-pipeliner">GitHub - anki-code/xontrib-pipeliner: Let your pipe lines flow thru the Python code in xonsh.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/laloch/xontrib-fzf-widgets">GitHub - laloch/xontrib-fzf-widgets: Set of fzf widgets for xonsh</a></p></li>
+<li><p><a class="reference external" href="https://github.com/AstraLuma/xontrib-z">GitHub - AstraLuma/xontrib-z: Tracks your most used directories, based on 'frecency'.</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="xonsh-is-the-shell-in-python">
+<h1>Xonsh is the Shell in Python<a class="headerlink" href="#xonsh-is-the-shell-in-python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">$()</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="xonsh-is-python-in-the-shell">
+<h1>Xonsh is Python in the Shell<a class="headerlink" href="#xonsh-is-python-in-the-shell" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">@()</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="articles">
 <h1>articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>@2019 <a class="reference external" href="https://blog.atusy.net/2019/04/14/xonsh-debut/">xonsh 始めました + xonshrc 弄って oh-my-fish/yimmy inspired な見た目にする | Atusy's blog</a>
+<p>@2022 <a class="reference external" href="https://zenn.dev/ikura1/articles/0af413212803893bbb61">wsl環境でのxonshセットアップ</a>
+@2022 <a class="reference external" href="https://sig9.org/archives/3014">Python が実行出来るシェル「xonsh」をインストールする | らくがきちょう v3</a>
+@2021 <a class="reference external" href="https://zenn.dev/nfwork01/articles/f9fb6fa6401e44">pickleデータをちょこちょこ見るスクリプト</a>
+@2020 <a class="reference external" href="https://speg03.hatenadiary.jp/entry/2020/06/15/225429">xonshことはじめ - speg03の雑記帳</a>
+@2019 <a class="reference external" href="https://blog.atusy.net/2019/04/14/xonsh-debut/">xonsh 始めました + xonshrc 弄って oh-my-fish/yimmy inspired な見た目にする | Atusy's blog</a>
 @2018 <a class="reference external" href="https://vaaaaaanquish.hatenablog.com/entry/2018/06/22/194227">Python製シェルxonshを半年使った所感や環境設定のまとめ - Stimulator</a></p>
 <ul class="simple">
 <li><p>(2017)<a class="reference external" href="https://qiita.com/advent-calendar/2017/xonsh">Xonsh Advent Calendar 2017 - Qiita</a></p></li>
@@ -276,7 +317,15 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">xontribs</a></li>
+<li><a class="reference internal" href="#">python-mode vs subprocess-mode</a></li>
+<li><a class="reference internal" href="#rc">rc</a><ul>
+<li><a class="reference internal" href="#history">history</a></li>
+<li><a class="reference internal" href="#completion">completion</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xontribs">xontribs</a></li>
+<li><a class="reference internal" href="#xonsh-is-the-shell-in-python">Xonsh is the Shell in Python</a></li>
+<li><a class="reference internal" href="#xonsh-is-python-in-the-shell">Xonsh is Python in the Shell</a></li>
 <li><a class="reference internal" href="#articles">articles</a></li>
 </ul>
 
