@@ -178,6 +178,20 @@ function dotpull {
     git pull
     popd
 }
+function apkget {
+    $apk = $(adb shell pm list packages -3 | fzf).Trim()
+    if($apk && $apk.startswith("package:"))
+    {
+        $name = $apk.SubString(8)
+        echo "name: ${name}"
 
-
+        $tmp_name = $(adb shell pm path $name).Trim()
+        if($tmp_name && $tmp_name.startswith("package:"))
+        {
+            $path = $tmp_name.SubString(8)
+            echo "path: ${path}"
+            adb pull "${path}" "${name}.apk"
+        }
+    }
+}
 

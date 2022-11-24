@@ -14,6 +14,14 @@ standard 未実装？
 ## 0.15
 スタンドアロンの lua から動くようにして lua のデバッガをアタッチできないか？
 
+# lua
+`.vscode/settings.json`
+```json
+    "Lua.workspace.library": [
+        "${3rd}/lovr/library"
+    ],
+```
+
 # Headset
 ## Desktop
 glfw window
@@ -90,4 +98,5 @@ static double desktop_update(void) {
 # plugins
 - [LÖVR](https://lovr.org/docs/Plugins)
 ## Network
+[[lua_socket]]
 - [GitHub - brainrom/lovr-luasocket: Cmake-buildable libluasocket for LOVR](https://github.com/brainrom/lovr-luasocket)

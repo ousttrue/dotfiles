@@ -7,6 +7,12 @@ aliases: [pygtk]
 - [GitHub - GNOME/pygobject: Read-only mirror of https://gitlab.gnome.org/GNOME/pygobject](https://github.com/GNOME/pygobject)
 - [Overview — PyGObject](https://pygobject.readthedocs.io/en/latest/)
 
+# __init__
+
+`g_object_new_with_properties`
+[[GLib]]
+- [GObject.Object.new_with_properties](https://docs.gtk.org/gobject/ctor.Object.new_with_properties.html)
+
 # examples
 - [pygobject/examples at master · GNOME/pygobject · GitHub](https://github.com/GNOME/pygobject/tree/master/examples)
 
