@@ -109,6 +109,8 @@ function M.setup()
       config = require("config.alpha").setup,
     }
 
+    use "linkinpark342/xonsh-vim"
+
     use "andreshazard/vim-logreview"
 
     -- git
