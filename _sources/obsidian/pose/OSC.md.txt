@@ -21,3 +21,6 @@ Open Sound Control
 
 [[vrchat]]
 - [VRChatでOSCやーる（Python3.9、Windows10） - Qiita](https://qiita.com/SatoshiGachiFujimoto/items/7f43954c7cbbe8c25dbe)[]
+
+# lua
+- [GitHub - davidgranstrom/losc: Open Sound Control (OSC) for lua/luajit](https://github.com/davidgranstrom/losc)

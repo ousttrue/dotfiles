@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Unity - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,54 +212,31 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>Open Sound Control</p>
+          <p>[[lua]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/CNMAT/OSC/blob/master/OSCMessage.h">OSC/OSCMessage.h at master · CNMAT/OSC · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://ccrma.stanford.edu/groups/osc/spec-1_0.html">OSC spec 1_0</a></p></li>
-<li><p><a class="reference external" href="https://yoppa.org/ma2_10/2279.html">yoppa org – openFramewoks – OSC (Open Sound Control) を利用したネットワーク連携</a></p></li>
+<li><p><a class="reference external" href="https://github.com/lunarmodules/luasocket">GitHub - lunarmodules/luasocket: Network support for the Lua language</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="unity">
-<h1>Unity<a class="headerlink" href="#unity" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://tips.hecomi.com/entry/2017/08/20/193823">Unity 向けの OSC 実装を作ってみた - 凹みTips</a></p></li>
-<li><p><a class="reference external" href="https://tips.hecomi.com/entry/2021/11/29/234527">uOSC v2 をリリースしました - 凹みTips</a></p></li>
-</ul>
-<section id="osccore">
-<h2>OscCore<a class="headerlink" href="#osccore" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/stella3d/OscCore">GitHub - stella3d/OscCore: A performance-oriented OSC library for Unity</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="python">
-<h1>python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="python-osc">
-<h2>python-osc<a class="headerlink" href="#python-osc" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://pypi.org/project/python-osc/">python-osc · PyPI</a></p></li>
-</ul>
-<p>[[puredata]]</p>
-<ul class="simple">
-<li><p>@2017 <a class="reference external" href="https://techracho.bpsinc.jp/katayama-yuuki/2017_07_13/42884">python-oscを使ってみる：前編｜TechRacho by BPS株式会社</a></p></li>
-</ul>
-<p>[[vrchat]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/SatoshiGachiFujimoto/items/7f43954c7cbbe8c25dbe">VRChatでOSCやーる（Python3.9、Windows10） - Qiita</a>[]</p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lua">
-<h1>lua<a class="headerlink" href="#lua" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/davidgranstrom/losc">GitHub - davidgranstrom/losc: Open Sound Control (OSC) for lua/luajit</a></p></li>
-</ul>
-</section>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">socket</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">"socket"</span><span class="p">)</span>
+
+<span class="c1">-- change here to the host an port you want to contact</span>
+<span class="kd">local</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="s2">"localhost"</span><span class="p">,</span> <span class="mi">13</span>
+<span class="c1">-- load namespace</span>
+<span class="c1">-- convert host name to ip address</span>
+<span class="kd">local</span> <span class="n">ip</span> <span class="o">=</span> <span class="nb">assert</span><span class="p">(</span><span class="n">socket</span><span class="p">.</span><span class="n">dns</span><span class="p">.</span><span class="n">toip</span><span class="p">(</span><span class="n">host</span><span class="p">))</span>
+<span class="c1">-- create a new UDP object</span>
+<span class="kd">local</span> <span class="n">udp</span> <span class="o">=</span> <span class="nb">assert</span><span class="p">(</span><span class="n">socket</span><span class="p">.</span><span class="n">udp</span><span class="p">())</span>
+<span class="c1">-- contact daytime host</span>
+<span class="nb">assert</span><span class="p">(</span><span class="n">udp</span><span class="p">:</span><span class="n">sendto</span><span class="p">(</span><span class="s2">"anything"</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+<span class="c1">-- retrieve the answer and print results</span>
+<span class="nb">io.write</span><span class="p">(</span><span class="nb">assert</span><span class="p">(</span><span class="n">udp</span><span class="p">:</span><span class="n">receive</span><span class="p">()))</span>
+</pre></div>
+</div>
 
         </article>
       </div>
@@ -274,7 +251,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/pose/OSC.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/lua/lua_socket.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -282,32 +259,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Unity</a><ul>
-<li><a class="reference internal" href="#osccore">OscCore</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#python">python</a><ul>
-<li><a class="reference internal" href="#python-osc">python-osc</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#lua">lua</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
