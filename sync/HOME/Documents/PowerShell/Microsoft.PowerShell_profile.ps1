@@ -195,3 +195,7 @@ function apkget {
     }
 }
 
+del alias:mv
+del alias:cp
+del alias:rm
+
