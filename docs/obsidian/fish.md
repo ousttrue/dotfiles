@@ -1,0 +1,1 @@
+- [fish shell](https://fishshell.com/)
