@@ -1,5 +1,5 @@
-[[hand]]
-[[motion]]
+[[XR_EXT_hand_tracking]]
+[[MotionCapture]]
 
 https://leapmotion.github.io/UnityModules/
 

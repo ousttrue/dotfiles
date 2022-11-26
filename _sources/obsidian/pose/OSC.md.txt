@@ -19,7 +19,7 @@ Open Sound Control
 [[puredata]]
 - @2017 [python-oscを使ってみる：前編｜TechRacho by BPS株式会社](https://techracho.bpsinc.jp/katayama-yuuki/2017_07_13/42884)
 
-[[vrchat]]
+[[VRChat]]
 - [VRChatでOSCやーる（Python3.9、Windows10） - Qiita](https://qiita.com/SatoshiGachiFujimoto/items/7f43954c7cbbe8c25dbe)[]
 
 # lua
