@@ -32,6 +32,10 @@ nvim +Tutor
 		- [Neovim for Beginners — init.lua. Let’s start our journey to customize… | by alpha2phi | Medium](https://alpha2phi.medium.com/neovim-for-beginners-init-lua-45ff91f741cb)
 
 # build
+- @2021 [WindowsでのNeovim build方法 - Qiita](https://qiita.com/Elgonian/items/5e0b17c00372782c6d42)
+
+## depndencies
+- [neovim/CMakeLists.txt at master · neovim/neovim · GitHub](https://github.com/neovim/neovim/blob/master/cmake.deps/CMakeLists.txt)
 
 # v0.8.0
 - [Neovim 40個のおすすめオプション](https://jp.magicode.io/denx/articles/eb5a9c43526e4592937977bf3a959ad3)

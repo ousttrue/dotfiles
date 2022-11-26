@@ -72,8 +72,27 @@ libpango_dep = meson.declare_dependency()
 meson.override_dependency('pango', libpango_dep)
 ```
 
-
-
 # [[GTK4]]
 - [bitWalk's: GTK4 を触ってみた (2) ～ Meson でビルド ～](https://bitwalk.blogspot.com/2020/12/gtk4-2-meson.html)
-	
+
+# Windows
+
+- `PYTHONUTF8=1`  + UTF-8 locale は動く
+- `PYTHONUTF8=1`  + not UTF-8 locale は動かない
+
+```
+The Meson build system
+Version: 0.64.0
+Source dir: C:\Users\oustt\Desktop\neovim-0.8.1
+Build dir: C:\Users\oustt\Desktop\neovim-0.8.1\build
+Build type: native build
+Project name: neovim
+Project version: undefined
+Activating VS 17.4.0
+C++ compiler for the host machine: cl (msvc 19.34.31933 "Microsoft(R) C/C++ Optimizing Compiler Version 19.34.31933 for x64")
+C++ linker for the host machine: link link 14.34.31933.0
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+
+meson.build:2:0: ERROR: No host machine compiler for 'src/nvim/main.c'
+```

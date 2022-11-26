@@ -1,4 +1,4 @@
-[[motion]]
+[[MotionCapture]]
 
 - [GitHub - wspr/bvh-matlab: Parse BVH files (Biovision) for Matlab](https://github.com/wspr/bvh-matlab)
 - [example-openFrameworks/example-bvh/bin/data at master · perfume-dev/example-openFrameworks · GitHub](https://github.com/perfume-dev/example-openFrameworks/tree/master/example-bvh/bin/data)

@@ -2,9 +2,9 @@
 aliases: [姿勢推定]
 ---
 
-[[motion]]
-[[HandPose]]
-[[openpose]]
+[[MotionCapture]]
+[[XR_EXT_hand_tracking]]
+[[HumanPoseEstimation]]
 [[mediapipe]]
 
 - [human-pose-estimation · GitHub Topics · GitHub](https://github.com/topics/human-pose-estimation)
@@ -39,3 +39,12 @@ aliases: [姿勢推定]
 - https://www.researchgate.net/publication/228975926_Human_pose_estimation_with_implicit_shape_models
 
 - https://github.com/cflamant/3d-pose-reconstruction
+
+
+[Human Pose Estimation]
+
+https://github.com/CMU-Perceptual-Computing-Lab/openpose
+
+	[OpenPose論文メモ http://yusuke-ujitoko.hatenablog.com/entry/2017/07/22/022416]
+ 	https://engineer.dena.jp/2017/11/chainerrealtime-multi-person-pose-estimation.html
+	https://news.mynavi.jp/article/cv_future-47/
