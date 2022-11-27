@@ -1,0 +1,1 @@
+- [Linuxで高音質Bluetoothを使う（AAC,aptX,LDAC） - おのかちお's blog](https://blog.katio.net/page/linux-bluetooth)

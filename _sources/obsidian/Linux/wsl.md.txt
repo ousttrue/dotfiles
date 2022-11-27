@@ -76,6 +76,16 @@ WslRegisterDistribution
 # /etc/wsl.conf
 
 ```
-[interop] 
+[user]
+default=ousttrue
+
+[network]
+hostname=wgentoo
+
+[interop]
 appendWindowsPath = false
 ```
+
+# vscode
+` /mnt/c/Users/USER_NAME/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code`
+でインストールできる。

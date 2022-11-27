@@ -1,5 +1,5 @@
 [[Linux]]
-[[pulseaudio]]
+[[PulseAudio]]
 
 # 動作確認
 ```
