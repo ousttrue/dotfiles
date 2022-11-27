@@ -701,10 +701,10 @@ def task_llvm_extract():
 DOIT_CONFIG = {
     'default_tasks': [
         'create_link',
-        'deno',
+        # 'deno',
         # 'pip',
         # 'neovim',
-        'fzf',
+        # 'fzf',
         'skk_dictionary',
         # 'sumneko_lua_language_server',
     ]
