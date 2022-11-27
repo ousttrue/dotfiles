@@ -30,9 +30,13 @@ fullscreen の term アプリを `tui` と分類
 - [tvision/examples/tvedit at master · magiblot/tvision · GitHub](https://github.com/magiblot/tvision/tree/master/examples/tvedit)
 - [GitHub - ArthurSonzogni/FTXUI: C++ Functional Terminal User Interface.](https://github.com/ArthurSonzogni/FTXUI)
 
+## python
+- [GitHub - jwlodek/py_cui: A python library for intuitively creating CUI/TUI interfaces with widgets, inspired by gocui.](https://github.com/jwlodek/py_cui)
+
 # git
 - [GitHub - extrawurst/gitui: Blazing 💥 fast terminal-ui for git written in rust 🦀](https://github.com/extrawurst/gitui)
 - [[tig]]
+
 # perf
 - [The Stress Terminal UI: s-tui | s-tui](https://amanusk.github.io/s-tui/)
 - [GitHub - aksakalli/gtop: System monitoring dashboard for terminal](https://github.com/aksakalli/gtop)

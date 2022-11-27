@@ -134,7 +134,13 @@ function gsf {
         git switch -f $dst
     }
 }
-
+function gsr {
+    $dst = $(git branch -r | fzf).Trim()
+    if($dst)
+    {
+        git switch -c $dst $dst
+    }
+}
 del alias:ls  # PowerShell 側の ls を削除
 function ls() {
     lsd $args
@@ -153,22 +159,6 @@ function gcd(){
 }
 function gst(){
     git status -sb
-}
-
-function rmrf {
-     <#
-        .DESCRIPTION
-        Deletes the specified file or directory.
-        .PARAMETER target
-        Target file or directory to be deleted.
-        .NOTES
-        This is an equivalent command of "rm -rf" in Unix-like systems.
-        #>
-    Param(
-        [Parameter(Mandatory=$true)]
-        [string]$Target
-    )
-    Remove-Item -Recurse -Force $Target
 }
 function pipup {
     py -m pip install pip --upgrade

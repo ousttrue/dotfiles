@@ -1,3 +1,7 @@
+---
+aliases: [RFB]
+---
+
 `Virtual Network Computing`
 - @2014 [第60回　いまさらながらVNC［その2］：玩式草子─ソフトウェアとたわむれる日々｜gihyo.jp … 技術評論社](https://gihyo.jp/lifestyle/serial/01/ganshiki-soushi/0060)
 - [vnc-client · GitHub Topics · GitHub](https://github.com/topics/vnc-client)
@@ -18,6 +22,10 @@
 # Server
 - [GitHub - phoboslab/jsmpeg-vnc: A low latency, high framerate screen sharing server for Windows and client for browsers](https://github.com/phoboslab/jsmpeg-vnc)
 - [GitHub - any1/neatvnc: A liberally licensed VNC server library with a clean interface](https://github.com/any1/neatvnc)
+
+## gnome
+[[GNOME]]
+- [Vino - ArchWiki](https://wiki.archlinux.jp/index.php/Vino)
 
 # Client
 ## c++
