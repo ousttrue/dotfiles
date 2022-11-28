@@ -31,3 +31,9 @@ code:CmakeLists.txt
 `%USERPROFILE%\AppData\Local\CMakeTools\cmake-tools-kits.json`
 
 - [CMake Kits — CMake Tools 1.4.0 documentation](https://vector-of-bool.github.io/docs/vscode-cmake-tools/kits.html)
+
+# toolchain
+- [CMAKE_TOOLCHAIN_FILE — CMake 3.25.0 Documentation](https://cmake.org/cmake/help/latest/variable/CMAKE_TOOLCHAIN_FILE.html)
+- [cmake-toolchains(7) — CMake 3.25.0 Documentation](https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html)
+
+`-DCMAKE_TOOLCHAIN_FILE=D:\\AndroidSdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake`
