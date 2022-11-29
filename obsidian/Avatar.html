@@ -1,0 +1,305 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=fade93df149f7c5fedb3ff897f799dc7d283b420" />
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">shell note  ドキュメント</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">shell note  ドキュメント</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder=検索 name="q" aria-label="検索">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../doit.html">doit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xonsh.html">xonsh</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../prompt-toolkit/index.html">prompt-toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../prompt-toolkit/examples/index.html">examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/examples/pager.html">pager.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../prompt-toolkit/src/index.html">Source読む</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/src/input.html">input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/src/output.html">output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/src/layout.html">Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/src/draw.html">draw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/src/buffer.html">Buffer &lt; BufferControl &lt; Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/src/keybinding.html">KeyBinding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/src/application.html">Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/src/search.html">search</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../prompt-toolkit/projects/index.html">using prompt_toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/projects/ptterm.html">ptterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/projects/pypager.html">pypager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/projects/pyvim.html">pyvim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../prompt-toolkit/projects/ptfm.html">ptfm</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pygments.html">pygments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wt.html">WindowsTerminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../font/index.html">font</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dotfiles.html">dotfiles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">external</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ousttrue/dotfiles">github</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="highlight-cardlink notranslate"><div class="highlight"><pre><span></span>url: https://nibanbosi.booth.pm/items/2728254
+title: "SFウィッチドレス - 二晩星堂 - BOOTH"
+description: "※この商品はVRoidStudio向けのテクスチャとVRM・FBXの3Dモデル素材データです。 SF×魔女をイメージした衣装です。 VRoid向けテクスチャ版と3Dモデル付きのVRM・FBX版があります。 VRoidStudioで作成したモデルをVRMで出力してポリゴン削減、メッシュの分割など改変したFBXのセットです。 【VRoid製オリジナルキャラクターモデル「El」】 ・El_SFwitchdress.vrm △31366　マテリアル 14 ・El_SFwitchdress_1.fbx △30502　マテリアル 13 ・El_SFwitchdress_2.fbx △11716　マテリアル"
+host: nibanbosi.booth.pm
+image: https://booth.pximg.net/c/620x620/670e837d-503c-4e9c-8616-67e50f3c55c3/i/2728254/9ca6ede1-7b87-45f6-afa2-f9aad1b88b13_base_resized.jpg
+</pre></div>
+</div>
+<div class="highlight-cardlink notranslate"><div class="highlight"><pre><span></span>url: https://dot-st.booth.pm/items/4092398
+title: "【VRC対応3Dアバター】枡花 蒼(ますはな あお) - .st （ドットエスティ） - BOOTH"
+description: ".st(ドットエスティ)オリジナルモデル「枡花 蒼」は、 VRChatでの使用を想定した3Dアバターです。 RAGEBLUEで実際に展開されているワンピースとMA-1、服飾小物を 身に着けたアバター含む、フルパッケージの内容となります。"
+host: dot-st.booth.pm
+image: https://booth.pximg.net/c/620x620/7efa0291-7b66-40e4-8cab-5c7c7d5fcf54/i/4092398/fe34d593-6861-4cd9-a36f-054b118484e2_base_resized.jpg
+</pre></div>
+</div>
+<div class="highlight-cardlink notranslate"><div class="highlight"><pre><span></span>url: https://nanka-tsukurouyo.booth.pm/items/1806469
+title: "オリジナル3Dモデル「ちゅろ」 - なんか作ろうよ - BOOTH"
+description: "VRChatSDK2/SDK3.0での使用を想定して制作しています。 規約や仕様を理解してから購入してください。 返金対応は行っていません。 現在PB対応しておりません。変換ツールなどをご使用してください。 ■ポリゴン数:46698△ 服なし：36635△ ■Blendshape Lip Sync:15種 口: 33種 目:14種 眉:6種 足:3種（グー・チョキ・パー） 胸:大きく・小さく ■animation 手:　9種 表情:12種 ■Eye tracking:対応 ■AvatarPerformance:poor （Medium版も付属します）"
+host: nanka-tsukurouyo.booth.pm
+image: https://booth.pximg.net/c/620x620/4720f57f-29f2-4c9f-af38-5b7b81653a21/i/1806469/d8c4ab11-3f86-41c3-9c13-bae1dcf147b7_base_resized.jpg
+</pre></div>
+</div>
+<div class="highlight-cardlink notranslate"><div class="highlight"><pre><span></span>url: https://chirolona.booth.pm/items/3974578
+title: "オリジナル３Ｄモデル【ちろる】Ver.1.11 - しろろのしっぽ - BOOTH"
+description: "【重要なお知らせ】 ★オリジナル３Ｄモデル【ちろる】をVer.1.1からVer.1.11へ更新しました。 ★【VRM】と【VRM1.0】【クエスト版（ポリゴン数未調整）】同梱しました。 VRChatのワールドでも試着できます。⇓⇓ https://vrchat.com/home/launch?worldId=wrld_a7040f4b-79b8-4a1a-9479-ad687a719564 【今後の予定（未定）】 ・べりー&amp;みんとの完成後ちろるのＶｅｒ１．２を予定しています。"
+host: chirolona.booth.pm
+image: https://booth.pximg.net/c/620x620/cc6500e8-b5bb-4ed1-8f3e-9617485f0d19/i/3974578/cb35d94d-ee2a-4cfd-9198-23cfb6ecc514_base_resized.jpg
+</pre></div>
+</div>
+<div class="highlight-cardlink notranslate"><div class="highlight"><pre><span></span>url: https://kokorobouzu.booth.pm/items/4351165
+title: "VRアバター用オリジナルモデル「ティルフィン」VRC VRM設定済み - kokorobouzu - BOOTH"
+description: "■■■■注意■■■■ ●オリジナルアバター「ティルフィン」標準版 VRChatSDK3.0用にセットセットアップ済。 ●オリジナルアバター「ティルフィン」完全版 VRCHAT+VRM+PSD VRChatSDK3.0用にセットセットアップ済。 本アバターで使用されている高解像度編集用PSDとVRMのセットです。 ●オリジナルアバター「ティルフィン」完全版＋支援 VRCHAT+VRM+PSD+支援 完全版と内容は同じです、よかったら支援お願いします。 それぞれお買い求めください。 ■■■■VRC■■■■ VRChat用にセットアップ済みのアセットパッケージです。"
+host: kokorobouzu.booth.pm
+image: https://booth.pximg.net/c/620x620/e3df372d-7b3e-4861-9106-df71df45ccc4/i/4351165/ce51e4c9-90d0-4e4e-89eb-844b426c3455_base_resized.jpg
+</pre></div>
+</div>
+<div class="highlight-cardlink notranslate"><div class="highlight"><pre><span></span>url: https://ooo-ri.booth.pm/items/4036136
+title: "&lt;VRM&gt;オリジナル　3Dモデル　ロマンディ - RRRO - BOOTH"
+description: "オリジナルモデルのロマンディです。 ご自由に使っていただけます！😊 改変OK 利用規約を必ず読んでからダウンロードしてください！"
+host: ooo-ri.booth.pm
+image: https://booth.pximg.net/c/620x620/86059694-c27b-4136-baae-7e89aa7f8fb7/i/4036136/940f33d5-a192-421d-be86-09d63ddba146_base_resized.jpg
+</pre></div>
+</div>
+<div class="highlight-cardlink notranslate"><div class="highlight"><pre><span></span>url: https://dokuganp.booth.pm/items/3645493
+title: "VRC向け3Dモデル「Reiz - レイズ -」 +VRM付き PB対応 - 竜のしっぽ - Dtail - - BOOTH"
+description: "8/4追記　PB対応完了しました。 ・PBの導入方法について 既存のユニティパッケージを導入し、最後に同梱されている 「reiz_physBone.unitypackage」をインポートしてください。 インポートすると ・Prefab_reiz_physBone ・Scene_reiz_physBone 上記２つが /Assets_Character/Reiz/Prefabs /Assets_Character/Reiz/Scenes に追加されます。PB対応版はこちらをご使用ください。 これらには最新のSDKを使用してください。 How to install the PB Install"
+host: dokuganp.booth.pm
+image: https://booth.pximg.net/c/620x620/90445b2e-c4c2-44eb-abdf-53229c1b1090/i/3645493/81bf8421-55fa-4f56-b274-a5ab1cbea064_base_resized.jpg
+</pre></div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2022, ousttrue |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="../_sources/obsidian/Avatar.md.txt"
+               rel="nofollow">
+              ソースコードを表示
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/translations.js"></script>
+    </body>
+</html>
