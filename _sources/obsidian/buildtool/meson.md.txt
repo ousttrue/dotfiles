@@ -2,15 +2,29 @@
 [[gst-python]]
 
 - [The Meson Build system](https://mesonbuild.com/)
+- @2022 [Mesonを使ってGObject Introspection対応のビルドシステムを構築する方法 - 2022-08-17 - ククログ](https://www.clear-code.com/blog/2022/8/17/meson-and-gobject-introspection.html)
 - @2022 [Mesonの使い方メモ - はしくれエンジニアもどきのメモ](https://cartman0.hatenablog.com/entry/2022/03/24/Meson%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%83%A1%E3%83%A2)
 - @2019 [［Meson］Meson for C++の苦闘記 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2019/09/20/023511)
 - @2018 [CMakeの代替 (となってほしい)、Mesonチュートリアル - Qiita](https://qiita.com/turenar/items/c727834fbf701beb47ef)
 
-# entry_point
+# reference
+- [Reference manual](https://mesonbuild.com/Reference-manual.html)
+
+# python
+## entry_point
 
 `mesonbuild.mesonmain:main`
 
-# Wrap dependency system
+# dependency
+- [Functions](https://mesonbuild.com/Reference-manual_functions.html#dependency)
+- pkg-config
+- cmake
+
+## subprojects
+- [Subprojects](https://mesonbuild.com/Subprojects.html)
+
+## wrap dependency system
+- [Wrap dependency system manual](https://mesonbuild.com/Wrap-dependency-system-manual.html)
 - [Meson WrapDB packages](https://mesonbuild.com/Wrapdb-projects.html)
 
 ## cmake subproject
