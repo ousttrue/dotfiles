@@ -188,5 +188,6 @@ function apkget {
 del alias:mv
 del alias:cp
 del alias:rm
+del alias:rmdir
 Remove-Item -Path Function:\mkdir
 
