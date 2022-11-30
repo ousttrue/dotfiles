@@ -24,6 +24,13 @@ if [ -v MSYSTEM ]; then
     path_push "/c/Python310/Scripts"
 fi
 
+UNAME_OS=`uname -o`
+if [ "$UNAME_OS" = "GNU/Linux" ]; then
+    export LD_LIBRARY_PATH=$HOME/prefix/lib64
+    export PKG_CONFIG_PATH=$HOME/prefix/lib64/pkgconfig:$HOME/prefix/share/pkgconfig
+    export PYTHONPATH=$HOME/prefix/lib/python3.10/site-packages
+fi
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -141,7 +148,6 @@ function dotpull {
 #
 # alias
 #
-UNAME_OS=`uname -o`
 if which exa > /dev/null 2>&1; then
     alias ls='exa --color=auto --icons'
     alias la='exa --color=auto --icons -a'
