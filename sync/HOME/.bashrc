@@ -132,6 +132,12 @@ function pkg {
     fi
 }
 
+function dotpull {
+    pushd $HOME/dotfiles
+    git pull
+    popd
+}
+
 #
 # alias
 #
