@@ -62,3 +62,10 @@ export XR_RUNTIME_JSON=/home/user/.local/share/openxr/runtime.d/steam_runtime.js
 
 ## quest native	
 [[QuestMobileSDK]]
+
+# unity
+
+```
+XR Management has already initialized an active loader in this scene. Please make sure to stop all subsystems and deinitialize the active loader before initializing a new one.
+UnityEngine.XR.Management.XRGeneralSettings:AttemptInitializeXRSDKOnLoad () (at Library/PackageCache/com.unity.xr.management@4.2.0/Runtime/XRGeneralSettings.cs:148)
+```
