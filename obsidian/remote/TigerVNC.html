@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>VNC Remote Framebuffer (RFB) Protocol - shell note ドキュメント</title>
+        <title>vncserver - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,63 +218,51 @@
           </label>
         </div>
         <article role="main">
-          <p><code class="docutils literal notranslate"><span class="pre">Virtual</span> <span class="pre">Network</span> <span class="pre">Computing</span></code></p>
+          <p>[[vnc]]</p>
 <ul class="simple">
-<li><p>@2014 <a class="reference external" href="https://gihyo.jp/lifestyle/serial/01/ganshiki-soushi/0060">第60回　いまさらながらVNC［その2］：玩式草子─ソフトウェアとたわむれる日々｜gihyo.jp … 技術評論社</a></p></li>
-<li><p><a class="reference external" href="https://github.com/topics/vnc-client">vnc-client · GitHub Topics · GitHub</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="vnc-remote-framebuffer-rfb-protocol">
-<h1>VNC Remote Framebuffer (RFB) Protocol<a class="headerlink" href="#vnc-remote-framebuffer-rfb-protocol" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="http://srgia.com/docs/rfbprotocol3.8.html">RFB Prococol 3.8</a></p></li>
-<li><p>@2019 <a class="reference external" href="https://qiita.com/onushinosenzo/items/b13e051d2fc6260e3294">いまさらRFBプロトコルについてまとめた - Qiita</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="client-server">
-<h1>Client &amp; Server<a class="headerlink" href="#client-server" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="c">
-<h2>c++<a class="headerlink" href="#c" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/ultravnc/ultravnc">GitHub - ultravnc/UltraVNC: UltraVNC Server and UltraVNC Viewer | Official repository: https://github.com/ultravnc/UltraVNC</a></p></li>
-<li><p><a class="reference external" href="https://www.tightvnc.com/">TightVNC: VNC-Compatible Free Remote Control / Remote Desktop Software</a></p></li>
+<li><p><a class="reference external" href="https://tigervnc.org/">TigerVNC</a></p>
+<ul>
 <li><p><a class="reference external" href="https://github.com/TigerVNC/tigervnc">GitHub - TigerVNC/tigervnc: High performance, multi-platform VNC client and server</a></p></li>
-<li><p><a class="reference external" href="https://github.com/kasmtech/KasmVNC">GitHub - kasmtech/KasmVNC: Modern VNC Server and client, web based and secure</a>
-[[qt5]]</p></li>
-<li><p><a class="reference external" href="https://github.com/aoyiduo/wovnc">GitHub - aoyiduo/wovnc: WoVNC - http://www.wovnc.com</a></p></li>
 </ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="server">
-<h1>Server<a class="headerlink" href="#server" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</li>
+<li><p><a class="reference external" href="https://wiki.gentoo.org/wiki/TigerVNC">TigerVNC - Gentoo Wiki</a></p></li>
+<li><p><a class="reference external" href="https://wiki.archlinux.jp/index.php/TigerVNC">TigerVNC - ArchWiki</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="vncserver">
+<h1>vncserver<a class="headerlink" href="#vncserver" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/phoboslab/jsmpeg-vnc">GitHub - phoboslab/jsmpeg-vnc: A low latency, high framerate screen sharing server for Windows and client for browsers</a></p></li>
-<li><p><a class="reference external" href="https://github.com/any1/neatvnc">GitHub - any1/neatvnc: A liberally licensed VNC server library with a clean interface</a></p></li>
+<li><p><a class="reference external" href="https://www.rouge.gr.jp/~fuku/tips/tigervnc-1-10/usr_share_doc_tigervnc_HOWTO_md.html">TigerVNC のインストール</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/furandon_pig/items/3b04daeb8704f3c27fd2">TigerVNC-1.11.0にてvncserver/vncsessionまわりのエラーを調査した話 - Qiita</a></p></li>
 </ul>
-<section id="gnome">
-<h2>gnome<a class="headerlink" href="#gnome" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[GNOME]]</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vncserver</span><span class="p">:</span> <span class="n">Couldn</span><span class="s1">'t find suitable Xsession.</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="x0vncserver">
+<h1>x0vncserver<a class="headerlink" href="#x0vncserver" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://wiki.archlinux.jp/index.php/Vino">Vino - ArchWiki</a></p></li>
+<li><p>~/.vnc/passwd</p></li>
+<li><p>~/.vnc/xstartup</p></li>
 </ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ x0vncserver -PasswordFile=.vnc/passwd
+
+Fri Dec  2 00:50:09 2022
+ XDesktop:    Enabling 8 buttons of X pointer device
+ XDesktop:    Allocated shared memory image
+ VNCSConnST:  Server default pixel format depth 24 (32bpp) little-endian rgb888
+X Error of failed request:  BadMatch (invalid parameter attributes)
+  Major opcode of failed request:  139 (RANDR)
+  Minor opcode of failed request:  7 (RRSetScreenSize)
+  Serial number of failed request:  108
+  Current serial number in output stream:  109
+</pre></div>
+</div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="client">
-<h1>Client<a class="headerlink" href="#client" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>c++<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="x11vnc">
+<h1>x11vnc<a class="headerlink" href="#x11vnc" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/zrax/gsshvnc">GitHub - zrax/gsshvnc: A simple VNC client with built-in SSH tunneling</a>
-[[GTK3]]</p></li>
-<li><p><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk-vnc">GNOME / gtk-vnc · GitLab</a></p></li>
-<li><p><a class="reference external" href="https://github.com/DanielGibson/sdl2_vnc">GitHub - DanielGibson/sdl2_vnc: VNC client lib for SDL2 - unofficial mirror/fork</a></p></li>
+<li><p><a class="reference external" href="https://taktak.jp/2018/10/28/3579/">開発メモ その141 x11vncを使う for Ubuntu and Fedora · A certain engineer "COMPLEX"</a></p></li>
 </ul>
-</section>
-<section id="csharp">
-<h2>CSharp<a class="headerlink" href="#csharp" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://vnc-client.marcusw.de/">VNC-Client Library for C# | MarcusW.VncClient</a></p></li>
-</ul>
-</section>
 </section>
 
         </article>
@@ -290,7 +278,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/X11/vnc.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/remote/TigerVNC.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -310,20 +298,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">VNC Remote Framebuffer (RFB) Protocol</a></li>
-<li><a class="reference internal" href="#client-server">Client &amp; Server</a><ul>
-<li><a class="reference internal" href="#c">c++</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#server">Server</a><ul>
-<li><a class="reference internal" href="#gnome">gnome</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#client">Client</a><ul>
-<li><a class="reference internal" href="#id1">c++</a></li>
-<li><a class="reference internal" href="#csharp">CSharp</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">vncserver</a></li>
+<li><a class="reference internal" href="#x0vncserver">x0vncserver</a></li>
+<li><a class="reference internal" href="#x11vnc">x11vnc</a></li>
 </ul>
 
           </div>
