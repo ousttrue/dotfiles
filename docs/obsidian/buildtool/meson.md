@@ -27,6 +27,9 @@
 - [Wrap dependency system manual](https://mesonbuild.com/Wrap-dependency-system-manual.html)
 - [Meson WrapDB packages](https://mesonbuild.com/Wrapdb-projects.html)
 
+## install先
+dll lib or bin ?
+
 ## cmake subproject
 - [meson で cmake プロジェクトを subproject として使う - Qiita](https://qiita.com/syoyo/items/ad965b5127188c356074)
 
