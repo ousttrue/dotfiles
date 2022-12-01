@@ -1,3 +1,5 @@
+#red
+
 - [The Programming Language Lua](https://www.lua.org/)
 
 - [GitHub - dibyendumajumdar/ravi: Ravi is a dialect of Lua, featuring limited optional static typing, JIT and AOT compilers](https://github.com/dibyendumajumdar/ravi)
@@ -25,5 +27,3 @@ https://www.lua.org/manual/5.2/readme.html#changes
 https://www.lua.org/manual/5.1/manual.html#7
 - [The LuaJIT Project](https://luajit.org/)
 - [LuaをNiosIIへ移植するメモ：如是我聞～これからＦＰＧＡの話をしよう～：SSブログ](https://j-7system.blog.ss-blog.jp/2012-05-06)
-
-# LanguageServer
