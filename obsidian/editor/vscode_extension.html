@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>package.json - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,38 +212,73 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>vscode extension
-#vscode #LSP</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://github.com/Microsoft/vscode-extension-samples
-	https://github.com/Microsoft/vscode-extension-samples/tree/master/i18n-sample
-		https://qiita.com/satokaz/items/f01ab4fc7f938904f5ae
-
-https://vscode-doc-jp.github.io/docs/extensions/samples.html
-	https://vscode-doc-jp.github.io/docs/extensions/example-hello-world.html
-	https://vscode-doc-jp.github.io/docs/extensions/example-word-count.html
-
-https://vscode-doc-jp.github.io/docs/extensions/debugging-extensions.html
+          <p>[[vscode]]</p>
+<p><a class="reference external" href="https://github.com/Microsoft/vscode-extension-samples">GitHub - microsoft/vscode-extension-samples: Sample code illustrating the VS Code extension API.</a></p>
+<p><a class="reference external" href="https://vscode-doc-jp.github.io/docs/extensions/samples.html">Extension Examples | 非公式 - Visual Studio Code Docs</a>
+- https://vscode-doc-jp.github.io/docs/extensions/example-hello-world.html
+- https://vscode-doc-jp.github.io/docs/extensions/example-word-count.html
+- https://vscode-doc-jp.github.io/docs/extensions/debugging-extensions.html</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/YuichiNukiyama/items/ffcb32188f473b92133d">VS CodeのエクステンションをMarketPlaceに公開する - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/satokaz/items/f01ab4fc7f938904f5ae">Visual Studio Code 拡張機能のメッセージを言語設定に合わせてローカライズしてみる - Qiita</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="package-json">
+<h1>package.json<a class="headerlink" href="#package-json" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="contributes">
+<h2>contributes<a class="headerlink" href="#contributes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/api/references/contribution-points">Contribution Points | Visual Studio Code Extension API</a></p></li>
+</ul>
+<section id="configuration">
+<h3>configuration<a class="headerlink" href="#configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">"contributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"configuration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TypeScript"</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">"typescript.useCodeSnippetsOnMethodSuggest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Complete functions with their parameter signature."</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">"typescript.tsdk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"null"</span><span class="p">],</span><span class="w"></span>
+<span class="w">          </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specifies the folder path containing the tsserver and lib*.d.ts files to use."</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p>[* TextDOcumentContentProvider]
-https://code.visualstudio.com/api/extension-guides/virtual-documents
-[VSCodeに英語翻訳拡張機能を自作する https://cfm-art.sakura.ne.jp/sys/archives/1106]
-https://satopirka.com/2017/12/vscodeのextensionを作った話/
-https://tekunabe.hatenablog.jp/entry/2019/01/12/vscode-l2mdtable</p>
-<p>[* API]
-https://code.visualstudio.com/api/references/vscode-api
-https://code.visualstudio.com/api/references/contribution-points</p>
-<p>[* command]
-https://code.visualstudio.com/api/extension-guides/command</p>
-<p>[* vsce]
-[VS CodeのエクステンションをMarketPlaceに公開する https://qiita.com/YuichiNukiyama/items/ffcb32188f473b92133d]
-$ vsce package</p>
+<p><a class="reference external" href="https://zenn.dev/yhsi/scraps/36dbb868d8322c">VSCode 拡張機能開発について</a></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span>  <span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">vscode</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getConfiguration</span><span class="p">(</span><span class="s2">"luaTestAdapter"</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">section</span><span class="p">);</span>
+  <span class="c1">// ${workspaceFolder} などの展開はここで手で実装するべし？</span>
+</pre></div>
+</div>
+<section id="properties">
+<h4>properties<a class="headerlink" href="#properties" title="このヘッドラインへのパーマリンク">¶</a></h4>
+</section>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="textdocumentcontentprovider">
+<h1>TextDOcumentContentProvider<a class="headerlink" href="#textdocumentcontentprovider" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://code.visualstudio.com/api/extension-guides/virtual-documents">File System API | Visual Studio Code Extension API</a></p>
+<ul class="simple">
+<li><p>[VSCodeに英語翻訳拡張機能を自作する https://cfm-art.sakura.ne.jp/sys/archives/1106]</p></li>
+<li><p>https://satopirka.com/2017/12/vscodeのextensionを作った話/</p></li>
+<li><p>https://tekunabe.hatenablog.jp/entry/2019/01/12/vscode-l2mdtable</p></li>
+</ul>
+</section>
 
         </article>
       </div>
@@ -266,8 +301,34 @@ $ vsce package</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">package.json</a><ul>
+<li><a class="reference internal" href="#contributes">contributes</a><ul>
+<li><a class="reference internal" href="#configuration">configuration</a><ul>
+<li><a class="reference internal" href="#properties">properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#textdocumentcontentprovider">TextDOcumentContentProvider</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
