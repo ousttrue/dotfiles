@@ -54,6 +54,7 @@ function addPath($path) {
     }
 }
 
+insertPath($env:USERPROFILE + "/prefix/bin")
 insertPath($env:USERPROFILE + "\.deno\bin")
 insertPath($env:USERPROFILE + "\.cargo\bin")
 insertPath($env:USERPROFILE + "\go\bin")
