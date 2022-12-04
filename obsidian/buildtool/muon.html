@@ -225,10 +225,23 @@
 <section class="tex2jax_ignore mathjax_ignore" id="windows-build">
 <h1>Windows Build<a class="headerlink" href="#windows-build" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">MUON_PLATFORM_null</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">source/platform</span></code></p>
+<p>このあたり、Winodws版を作る必要あり</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">platform_sources</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span>
+    <span class="s1">'mem.c'</span><span class="p">,</span>
+    <span class="s1">'path.c'</span><span class="p">,</span>
+    <span class="c1"># 'filesystem.c',</span>
+    <span class="c1"># 'run_cmd.c',</span>
+    <span class="c1"># 'term.c',</span>
+    <span class="c1"># 'uname.c',</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <section id="unistd-h">
 <h2>unistd.h<a class="headerlink" href="#unistd-h" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/341817/is-there-a-replacement-for-unistd-h-for-windows-visual-c">c++ - Is there a replacement for unistd.h for Windows (Visual C)? - Stack Overflow</a></p></li>
+<li><p><a class="reference external" href="https://gist.github.com/mbikovitsky/39224cf521bfea7eabe9">Windows unistd.h replacement · GitHub</a></p></li>
 </ul>
 </section>
 <section id="getopt-h">
@@ -273,6 +286,7 @@
 </section>
 <section id="pid-t">
 <h2>pid_t<a class="headerlink" href="#pid-t" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>waitpid</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://tech.ckme.co.jp/cpp/cpp_pid.shtml">C++のTips - Unix系OSでプロセスIDを取得するには？：tech.ckme.co.jp</a></p></li>
 </ul>
@@ -282,6 +296,10 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://qiita.com/ozaki-r/items/a46197d241629fc373a7">format属性 - Qiita</a></p></li>
 </ul>
+</section>
+<section id="dirent-h">
+<h2>dirent.h<a class="headerlink" href="#dirent-h" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://github.com/tronkko/dirent/blob/master/include/dirent.h">dirent/dirent.h at master · tronkko/dirent · GitHub</a></p>
 </section>
 </section>
 
@@ -328,6 +346,7 @@
 <li><a class="reference internal" href="#stdin-fileno">STDIN_FILENO</a></li>
 <li><a class="reference internal" href="#pid-t">pid_t</a></li>
 <li><a class="reference internal" href="#gcc-attribute">gcc: attribute</a></li>
+<li><a class="reference internal" href="#dirent-h">dirent.h</a></li>
 </ul>
 </li>
 </ul>
