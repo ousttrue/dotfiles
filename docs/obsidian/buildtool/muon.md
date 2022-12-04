@@ -6,8 +6,23 @@
 
 `MUON_PLATFORM_null`
 
+`source/platform`
+
+このあたり、Winodws版を作る必要あり
+```
+platform_sources = files(
+    'mem.c',
+    'path.c',
+    # 'filesystem.c',
+    # 'run_cmd.c',
+    # 'term.c',
+    # 'uname.c',
+)
+```
+
 ## unistd.h
 - [c++ - Is there a replacement for unistd.h for Windows (Visual C)? - Stack Overflow](https://stackoverflow.com/questions/341817/is-there-a-replacement-for-unistd-h-for-windows-visual-c)
+- [Windows unistd.h replacement · GitHub](https://gist.github.com/mbikovitsky/39224cf521bfea7eabe9)
 
 ## getopt.h
 - [Visual C/C++用getoptでPOSIX的コマンドラインオプション解析 - 銀の弾丸](https://takamints.hatenablog.jp/entry/2015/04/27/231454)
@@ -32,7 +47,11 @@
 - [compiler errors - STDIN_FILENO undeclared in Windows - Stack Overflow](https://stackoverflow.com/questions/13531677/stdin-fileno-undeclared-in-windows)
 
 ## pid_t
+waitpid
 - [C++のTips - Unix系OSでプロセスIDを取得するには？：tech.ckme.co.jp](https://tech.ckme.co.jp/cpp/cpp_pid.shtml)
 
 ## gcc: attribute
 - [format属性 - Qiita](https://qiita.com/ozaki-r/items/a46197d241629fc373a7)
+
+## dirent.h
+[dirent/dirent.h at master · tronkko/dirent · GitHub](https://github.com/tronkko/dirent/blob/master/include/dirent.h)

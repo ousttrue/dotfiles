@@ -1,7 +1,6 @@
 [[QuestMobileSDK]]
 [[Android]]
 [[android_ndk]]
-[[QuestMobileSDK]]
 [[OpenXR]]
 
 - [Android開発ソフトウェアの設定](https://developer.oculus.com/documentation/native/android/mobile-studio-setup-android/)

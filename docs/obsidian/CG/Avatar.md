@@ -1,4 +1,14 @@
 
+# vroid
+```cardlink
+url: https://6666669.booth.pm/items/4369503
+title: "VRoidカスタムアイテム【バタフライドレス】 - 6666669 - BOOTH"
+description: "ワンピースのカスタムアイテムです。 https://hub.vroid.com/characters/8484419621258126141/models/848338469975867619 （モデル：ブロンズ） ベータ版で製作したものを正式版にコンバートし 加筆修正後カスタムアイテム化しました。 メイン生地3色（赤・紫・青） アクセント1色（青） ブレード2色（金・銀） ■簡単に着せ替えしたい方 レイヤーの表示・非表示のみだけで メイン生地×アクセント有無×ブレード色で 12通りのバリエーションが作れます。 ■もっとアレンジしたい方 生地の陰影・光沢は別レイヤで描いてます。"
+host: 6666669.booth.pm
+image: https://booth.pximg.net/c/620x620/abaa1b2e-abb7-44db-bb10-27f7ff5b9196/i/4369503/63b3cd3f-bdea-4740-91c9-f77ca092cacf_base_resized.jpg
+```
+
+# other
 ```cardlink
 url: https://tkmon044.booth.pm/
 title: "Tkmon's workshop - BOOTH"

@@ -18,3 +18,5 @@
 - [第621回　Ubuntu 20.04 LTSでxrdpを使用する | gihyo.jp](https://gihyo.jp/admin/serial/01/ubuntu-recipe/0621)
 - [CentOS7へRDP接続する方法(xrdpを利用) | SyachikuLOG](https://syachiku.net/centos7xrdp/)
 - `2020` [XRDPでLinuxをRDPサーバーにする | アシアルブログ](https://blog.asial.co.jp/706)
+
+- [第713回　Ubuntu 22.04 LTSの新機能、リモートデスクトップのRDPサポートを使用する | gihyo.jp](https://gihyo.jp/admin/serial/01/ubuntu-recipe/0713)

@@ -3,6 +3,10 @@
 [mruby](https://mruby.org/)
 - [GitHub - mruby/mruby: Lightweight Ruby](https://github.com/mruby/mruby)
 
+# version
+## 3.0
+- @2021 [2021年にmrubyを始める皆さまへ - ローファイ日記](https://udzura.hatenablog.jp/entry/2021/03/11/232423)
+
 # build
 > require Ruby 2.5 or late
 

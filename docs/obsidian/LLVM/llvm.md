@@ -1,5 +1,7 @@
-llvm
-#llvm
+[[mesa]]
+[[crystal]] `14`
+[[zig]] `15`
+[[clang]]
 
 https://qiita.com/Anko_9801/items/df4475fecbddd0d91ccc
 	[LLVMを始めよう！ 〜 LLVM IRの基礎はclangが教えてくれた・Brainf**kコンパイラを作ってみよう 〜 https://itchyny.hatenablog.com/entry/2017/02/27/100000]
