@@ -113,3 +113,6 @@ Host machine cpu: x86_64
 
 meson.build:2:0: ERROR: No host machine compiler for 'src/nvim/main.c'
 ```
+
+# gobject-instrospection
+- [Mesonを使ってGObject Introspection対応のビルドシステムを構築する方法 - 2022-08-17 - ククログ](https://www.clear-code.com/blog/2022/8/17/meson-and-gobject-introspection.html)
