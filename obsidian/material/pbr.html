@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>workspace - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,59 +212,115 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="workspace">
-<h1>workspace<a class="headerlink" href="#workspace" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>.code-workspace</p>
-<p><code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>  
-  <span class="s2">"files.exclude"</span><span class="p">:</span> <span class="p">{</span>  
-    <span class="s2">"**/.git"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>  
-    <span class="s2">"**/.svn"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>  
-    <span class="s2">"**/.hg"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>  
-    <span class="s2">"**/CVS"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>  
-    <span class="s2">"**/.DS_Store"</span><span class="p">:</span> <span class="n">true</span>  
-  <span class="p">}</span>  
-<span class="p">}</span>
+          <p>#cg/pbr</p>
+<p>[[brdf]]
+[[fresnel]]
+[[IBL]]
+[[ArmorPaint]]
+[[radiometry]]</p>
+<p>#cg
+#renderer</p>
+<p>https://hanecci.hatenadiary.org/entry/20131115/p2</p>
+<p>[**  Theory]
+https://learnopengl.com/PBR/Theory
+Phong
+Blinn-Phong
+metallic workflow</p>
+<p>[https://www.youtube.com/watch?v=j-A0mwsJRmk]</p>
+<p>https://github.com/TheEvilBanana/PhysicallyBasedRendering.git
+https://github.com/mebiusbox/docs/blob/master/基礎からはじめる物理ベースレンダリング%20フォトリアル編.pdf
+http://www.pbr-book.org/3ed-2018/contents.html
+http://www.pbr-book.org/3ed-2018/Preface_to_the_Online_Edition.html</p>
+<p>[基礎からはじめる物理ベースレンダリング https://qiita.com/mebiusbox2/items/e7063c5dfe1424e0d01a]</p>
+<p>https://learnopengl.com/PBR/Theory</p>
+<p>https://github.com/mebiusbox/docs/blob/master/CGのための球面調和関数.pdf</p>
+<p>Physically based rendering
+Be based on the microfacet surface model.
+Be energy conserving.
+Use a physically based BRDF.
+originally explored by Disney</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://marmoset.co/posts/basic-theory-of-physically-based-rendering/
+https://gist.github.com/galek/53557375251e1a942dfa
 </pre></div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="extension">
-<h1>Extension<a class="headerlink" href="#extension" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://code.visualstudio.com/api">Extension API | Visual Studio Code Extension API</a></p>
-<ul>
-<li><p><a class="reference external" href="https://github.com/microsoft/vscode-extension-samples">GitHub - microsoft/vscode-extension-samples: Sample code illustrating the VS Code extension API.</a></p></li>
-</ul>
-</li>
-<li><p>@2019 <a class="reference external" href="https://qiita.com/delmontz/items/abd075eacb1302fc184c">まだVSCode拡張機能探しで消耗してるの？　VSCodeの拡張機能は意外と簡単につくれるよ！！ - Qiita</a></p></li>
-</ul>
-<section id="get-started">
-<h2>get started<a class="headerlink" href="#get-started" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://code.visualstudio.com/api/get-started/your-first-extension">Your First Extension | Visual Studio Code Extension API</a></p></li>
-<li><p><a class="reference external" href="https://code.visualstudio.com/api/get-started/extension-anatomy">Extension Anatomy | Visual Studio Code Extension API</a></p></li>
-</ul>
-</section>
-<section id="languageserver">
-<h2>LanguageServer<a class="headerlink" href="#languageserver" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[lsp]]</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="csharp">
-<h1>CSharp<a class="headerlink" href="#csharp" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="xml-comment">
-<h2>xml comment<a class="headerlink" href="#xml-comment" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://stackoverflow.com/questions/34275209/xml-auto-commenting-c-sharp-in-visual-studio-code">xml comments - XML Auto Commenting C# in Visual Studio Code - Stack Overflow</a></p></li>
-</ul>
-</section>
-</section>
+<p>[** lesson]
+https://learnopengl.com/PBR/Theory
+[Framebuffers https://learnopengl.com/Advanced-OpenGL/Framebuffers]</p>
+<p>[* Normal mapping https://learnopengl.com/Advanced-Lighting/Normal-Mapping]
+<code class="docutils literal notranslate"><span class="pre">tangent</span> <span class="pre">space</span></code></p>
+<p>code:normal_map.glsl
+uniform sampler2D normalMap;</p>
+<p>void main()
+{<br/>
+// obtain normal from normal map in range [0,1]
+normal = texture(normalMap, fs_in.TexCoords).rgb;
+// transform normal vector to range [-1,1]
+normal = normalize(normal * 2.0 - 1.0);</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> [...]
+ // proceed with lighting as normal
+</pre></div>
+</div>
+<p>}</p>
+<p>[* The microfacet model]</p>
+<p>[* Cubemaps https://learnopengl.com/Advanced-OpenGL/Cubemaps]
+DirectionalVector -&gt; RGBA</p>
+<p>[* Gamma correction https://learnopengl.com/Advanced-Lighting/Gamma-Correction]</p>
+<blockquote>
+<div><p>apply the inverse of the monitor's gamma to the final output color before displaying to the monitor
+sRGB</p>
+</div></blockquote>
+<p>[* to sRGB]
+<code class="docutils literal notranslate"><span class="pre">GL_SRGB</span></code> and <code class="docutils literal notranslate"><span class="pre">GL_SRGB_ALPHA</span></code></p>
+<p>code:gamma.fs
+float gamma = 2.2;
+vec3 diffuseColor = pow(texture(diffuse, texCoords).rgb, vec3(gamma));</p>
+<p>[* from SRGB to Linear]</p>
+<p>code:gamma.fs
+// apply gamma correction
+float gamma = 2.2;
+FragColor.rgb = pow(fragColor.rgb, vec3(1.0/gamma));</p>
+<p>[** HDR]
+https://learnopengl.com/Advanced-Lighting/HDR</p>
+<blockquote>
+<div><p>to the low dynamic range (LDR) of [0.0, 1.0]. This process of converting HDR values to LDR values is called tone mapping</p>
+</div></blockquote>
+<p>GL_RGB16F, GL_RGBA16F, GL_RGB32F or GL_RGBA32F</p>
+<p>[* Reinhard tone mapping]
+code:tone_mapping.glsl
+void main()
+{<br/>
+const float gamma = 2.2;
+vec3 hdrColor = texture(hdrBuffer, TexCoords).rgb;</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> // reinhard tone mapping
+ vec3 mapped = hdrColor / (hdrColor + vec3(1.0));
+ // gamma correction 
+ mapped = pow(mapped, vec3(1.0 / gamma));
+
+ FragColor = vec4(mapped, 1.0);
+</pre></div>
+</div>
+<p>}</p>
+<p>code:exposure:glsl
+uniform float exposure;</p>
+<p>void main()
+{<br/>
+const float gamma = 2.2;
+vec3 hdrColor = texture(hdrBuffer, TexCoords).rgb;</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> // Exposure tone mapping
+ vec3 mapped = vec3(1.0) - exp(-hdrColor * exposure);
+ // Gamma correction 
+ mapped = pow(mapped, vec3(1.0 / gamma));
+
+ FragColor = vec4(mapped, 1.0);
+</pre></div>
+</div>
+<p>}</p>
 
         </article>
       </div>
@@ -279,7 +335,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/editor/vscode.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/material/pbr.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -287,33 +343,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">workspace</a></li>
-<li><a class="reference internal" href="#extension">Extension</a><ul>
-<li><a class="reference internal" href="#get-started">get started</a></li>
-<li><a class="reference internal" href="#languageserver">LanguageServer</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#csharp">CSharp</a><ul>
-<li><a class="reference internal" href="#xml-comment">xml comment</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
