@@ -9,3 +9,10 @@
 
 
 # jedi
+
+# pygls
+esbonio の JSON-RPC 層
+- https://pygls.readthedocs.io/en/latest/index.html
+
+# python-language-server
+- https://github.com/palantir/python-language-server
