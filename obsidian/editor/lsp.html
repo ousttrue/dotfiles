@@ -246,60 +246,17 @@
 </li>
 <li><p>@2022 <a class="reference external" href="https://future-architect.github.io/articles/20220303a/">Pyright を LSP サーバとした自作 LSP クライアント（実装編） | フューチャー技術ブログ</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://future-architect.github.io/articles/20220302a/">Pyright を LSP サーバとした自作 LSP クライアント（調査編） | フューチャー技術ブログ</a></p></li>
+<li><p>⭐@2021 <a class="reference external" href="https://qiita.com/www-tacos/items/23e63c4572c9f52b9825">VSCode用の言語サーバ拡張機能をPythonでつくってみた - Qiita</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://scrapbox.io/tamago324vim/LSP_%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F%E3%81%84">LSP のクライアントを実装してみたい - MemoBook</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://zenn.dev/monaqa/articles/2021-12-10-satysfi-language-server">SATySFi Language Server を作って快適に執筆してみた話</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://zenn.dev/takl/books/0fe11c6e177223">Language Server Protocol に対応したミニ言語処理系を作る</a></p></li>
 <li><p>@2019 <a class="reference external" href="https://qiita.com/vain0x/items/d050fe7c8b342ed2004e">LSP学習記 #1 - Qiita</a></p></li>
+<li><p>@2018 <a class="reference external" href="https://pillows916.hatenadiary.org/entry/20181116">VSCodeでLSP（クライアント側のサンプルを読む編） - とあるソフトウェアエンジニアの日記</a></p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="client">
 <h1>client<a class="headerlink" href="#client" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>client を開始し、server を起動する。</p>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="kd">function</span> <span class="nx">activate</span><span class="p">(</span><span class="nx">context</span>: <span class="kt">ExtensionContext</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// The server is implemented in node</span>
-	<span class="kd">const</span> <span class="nx">serverModule</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">asAbsolutePath</span><span class="p">(</span>
-		<span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">'server'</span><span class="p">,</span> <span class="s1">'out'</span><span class="p">,</span> <span class="s1">'server.js'</span><span class="p">)</span>
-	<span class="p">);</span>
-	<span class="c1">// The debug options for the server</span>
-	<span class="c1">// --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging</span>
-	<span class="kd">const</span> <span class="nx">debugOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">execArgv</span><span class="o">:</span> <span class="p">[</span><span class="s1">'--nolazy'</span><span class="p">,</span> <span class="s1">'--inspect=6009'</span><span class="p">]</span> <span class="p">};</span>
-
-	<span class="c1">// If the extension is launched in debug mode then the debug server options are used</span>
-	<span class="c1">// Otherwise the run options are used</span>
-	<span class="kd">const</span> <span class="nx">serverOptions</span>: <span class="kt">ServerOptions</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="nx">run</span><span class="o">:</span> <span class="p">{</span> 
-			<span class="nx">module</span>: <span class="kt">serverModule</span><span class="p">,</span> 
-			<span class="nx">transport</span>: <span class="kt">TransportKind.ipc</span> 
-		<span class="p">},</span>
-		<span class="nx">debug</span><span class="o">:</span> <span class="p">{</span>
-			<span class="nx">module</span>: <span class="kt">serverModule</span><span class="p">,</span>
-			<span class="nx">transport</span>: <span class="kt">TransportKind.ipc</span><span class="p">,</span>
-			<span class="nx">options</span>: <span class="kt">debugOptions</span>
-		<span class="p">}</span>
-	<span class="p">};</span>
-
-	<span class="c1">// Options to control the language client</span>
-	<span class="kd">const</span> <span class="nx">clientOptions</span>: <span class="kt">LanguageClientOptions</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="c1">// Register the server for plain text documents</span>
-		<span class="nx">documentSelector</span><span class="o">:</span> <span class="p">[{</span> <span class="nx">scheme</span><span class="o">:</span> <span class="s1">'file'</span><span class="p">,</span> <span class="nx">language</span><span class="o">:</span> <span class="s1">'plaintext'</span> <span class="p">}],</span>
-		<span class="nx">synchronize</span><span class="o">:</span> <span class="p">{</span>
-			<span class="c1">// Notify the server about file changes to '.clientrc files contained in the workspace</span>
-			<span class="nx">fileEvents</span>: <span class="kt">workspace.createFileSystemWatcher</span><span class="p">(</span><span class="s1">'**/.clientrc'</span><span class="p">)</span>
-		<span class="p">}</span>
-	<span class="p">};</span>
-
-	<span class="c1">// Create the language client and start the client.</span>
-	<span class="nx">client</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">LanguageClient</span><span class="p">(</span>
-		<span class="s1">'languageServerExample'</span><span class="p">,</span>
-		<span class="s1">'Language Server Example'</span><span class="p">,</span>
-		<span class="nx">serverOptions</span><span class="p">,</span>
-		<span class="nx">clientOptions</span>
-	<span class="p">);</span>
-
-	<span class="c1">// Start the client. This will also launch the server</span>
-	<span class="nx">client</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-</pre></div>
-</div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">		</span><span class="nt">"vscode-languageclient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.0.0"</span><span class="w"></span>
 <span class="w">	</span><span class="p">},</span><span class="w"></span>
@@ -307,10 +264,12 @@
 </div>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.npmjs.com/package/vscode-languageclient">vscode-languageclient - npm</a></p></li>
+<li><p><a class="reference external" href="https://github.com/microsoft/vscode-languageserver-node">GitHub - microsoft/vscode-languageserver-node: Language server protocol implementation for VSCode. This allows implementing language services in JS/TS running on node.js</a></p></li>
 </ul>
 <section id="serveroptions">
 <h2>ServerOptions<a class="headerlink" href="#serveroptions" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>module</p>
+<section id="module">
+<h3>module<a class="headerlink" href="#module" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>	const serverOptions: ServerOptions = {
 		run: { 
 			module: serverModule, 
@@ -324,7 +283,10 @@
 	};
 </pre></div>
 </div>
-<p>command</p>
+</section>
+<section id="command">
+<h3>command<a class="headerlink" href="#command" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">stdout</span> <span class="pre">&amp;</span> <span class="pre">stdin</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>const serverOptions = {
 	command: "node",
 	args: [
@@ -334,57 +296,41 @@
 };
 </pre></div>
 </div>
+<p>zls</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span>  <span class="kd">let</span> <span class="nx">serverOptions</span>: <span class="kt">ServerOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">command</span>: <span class="kt">zlsPath</span><span class="p">,</span>
+    <span class="nx">args</span>: <span class="kt">debugLog</span> <span class="o">?</span> <span class="p">[</span><span class="s2">"--enable-debug-log"</span><span class="p">]</span> <span class="o">:</span> <span class="p">[]</span>
+  <span class="p">};</span>
+</pre></div>
+</div>
 </section>
-<section id="client-vscode">
-<h2>Client: vscode<a class="headerlink" href="#client-vscode" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="languageclient">
-<h3>LanguageClient<a class="headerlink" href="#languageclient" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<section id="tcp">
+<h3>TCP<a class="headerlink" href="#tcp" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/microsoft/vscode-languageserver-node">GitHub - microsoft/vscode-languageserver-node: Language server protocol implementation for VSCode. This allows implementing language services in JS/TS running on node.js</a></p></li>
-<li><p><a class="reference external" href="https://github.com/itemis/xtext-languageserver-example/blob/master/vscode-extension/src/extension.ts">xtext-languageserver-example/extension.ts at master · itemis/xtext-languageserver-example · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://zenn.dev/takl/books/0fe11c6e177223/viewer/096a43">Language Client を作る｜Language Server Protocol に対応したミニ言語処理系を作る</a></p></li>
+<li><p><a class="reference external" href="https://github.com/palantir/python-language-server/blob/develop/vscode-client/src/extension.ts#L27">python-language-server/extension.ts at develop · palantir/python-language-server · GitHub</a></p></li>
 </ul>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span>	<span class="kd">const</span> <span class="nx">serverOptions</span>: <span class="kt">ServerOptions</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+			<span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Socket</span><span class="p">();</span>
+			<span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">addr</span><span class="p">,</span> <span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+				<span class="nx">resolve</span><span class="p">({</span>
+					<span class="nx">reader</span>: <span class="kt">client</span><span class="p">,</span>
+					<span class="nx">writer</span>: <span class="kt">client</span>
+				<span class="p">});</span>
+			<span class="p">});</span>
+		<span class="p">});</span>
+	<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
-<section id="server">
-<h2>Server<a class="headerlink" href="#server" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="textdocument-didopen">
-<h3>textdocument/didOpen<a class="headerlink" href="#textdocument-didopen" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="languages">
+<h1>Languages<a class="headerlink" href="#languages" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="zig">
+<h2>zig<a class="headerlink" href="#zig" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://tennashi.hatenablog.com/entry/2020/07/25/230916">LSP 実装メモ (Text Document Synchronization <code class="docutils literal notranslate"><span class="pre">textDocument/didOpen</span></code> 編) - あれ</a></p></li>
-</ul>
-</section>
-<section id="textdocument-didchange">
-<h3>textdocument/didChange<a class="headerlink" href="#textdocument-didchange" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://tennashi.hatenablog.com/entry/2020/08/01/201225">LSP 実装メモ (Text Document Synchronization <code class="docutils literal notranslate"><span class="pre">textDocument/didChange</span></code> 編) - あれ</a></p></li>
-</ul>
-</section>
-</section>
-<section id="language-features">
-<h2>Language Features<a class="headerlink" href="#language-features" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>code comprehension features like Hover or Goto Definition.</p></li>
-<li><p>coding features like diagnostics, code complete or code actions.</p></li>
-</ul>
-<section id="textdocument-completion">
-<h3>textDocument/completion<a class="headerlink" href="#textdocument-completion" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a class="reference external" href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_completion">textDocument/completion</a></p>
-</section>
-</section>
-<section id="lsif-language-server-index-format">
-<h2>LSIF: Language Server Index Format<a class="headerlink" href="#lsif-language-server-index-format" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://lsif.dev/">LSIF.dev</a></p>
-<ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://code.visualstudio.com/blogs/2019/02/19/lsif">Language Server Index Format</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://qiita.com/nakario/items/2a73065a1bc1540c1f00">LSPから派生したLanguage Server Index Formatとは何か - Qiita</a></p></li>
-</ul>
-</section>
-<section id="vim">
-<h2>vim<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/w0rp/ale">GitHub - dense-analysis/ale: Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support</a></p></li>
-<li><p><a class="reference external" href="https://github.com/jsfaint/gen_tags.vim">GitHub - jsfaint/gen_tags.vim: Async plugin for vim and neovim to ease the use of ctags/gtags</a></p></li>
+<li><p><a class="reference external" href="https://github.com/zigtools/zls-vscode">GitHub - zigtools/zls-vscode: ZLS Client for VSCode</a></p></li>
 </ul>
 </section>
 <section id="c">
@@ -398,12 +344,32 @@
 <h2>python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>[[python_lsp]]</p>
 </section>
+<section id="sphinx">
+<h2>sphinx<a class="headerlink" href="#sphinx" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/swyddfa/esbonio">GitHub - swyddfa/esbonio: A language server for working with Sphinx projects.</a></p></li>
+</ul>
+</section>
 <section id="csharp">
 <h2>csharp<a class="headerlink" href="#csharp" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/OmniSharp/csharp-language-server-protocol">GitHub - OmniSharp/csharp-language-server-protocol: Language Server Protocol in C#</a></p></li>
 </ul>
 </section>
+<section id="markdown">
+<h2>markdown<a class="headerlink" href="#markdown" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://forest.watch.impress.co.jp/docs/news/1432780.html">「Visual Studio Code」のMarkdown機能が言語サーバーに ～他のエディター、ツールでの活用に道筋 - 窓の杜</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="lsif-language-server-index-format">
+<h1>LSIF: Language Server Index Format<a class="headerlink" href="#lsif-language-server-index-format" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://lsif.dev/">LSIF.dev</a></p>
+<ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://code.visualstudio.com/blogs/2019/02/19/lsif">Language Server Index Format</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/nakario/items/2a73065a1bc1540c1f00">LSPから派生したLanguage Server Index Formatとは何か - Qiita</a></p></li>
+</ul>
 </section>
 
         </article>
@@ -442,27 +408,24 @@
 <li><a class="reference internal" href="#">tutorial</a></li>
 <li><a class="reference internal" href="#impl">impl</a></li>
 <li><a class="reference internal" href="#client">client</a><ul>
-<li><a class="reference internal" href="#serveroptions">ServerOptions</a></li>
-<li><a class="reference internal" href="#client-vscode">Client: vscode</a><ul>
-<li><a class="reference internal" href="#languageclient">LanguageClient</a></li>
+<li><a class="reference internal" href="#serveroptions">ServerOptions</a><ul>
+<li><a class="reference internal" href="#module">module</a></li>
+<li><a class="reference internal" href="#command">command</a></li>
+<li><a class="reference internal" href="#tcp">TCP</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#server">Server</a><ul>
-<li><a class="reference internal" href="#textdocument-didopen">textdocument/didOpen</a></li>
-<li><a class="reference internal" href="#textdocument-didchange">textdocument/didChange</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#language-features">Language Features</a><ul>
-<li><a class="reference internal" href="#textdocument-completion">textDocument/completion</a></li>
+<li><a class="reference internal" href="#languages">Languages</a><ul>
+<li><a class="reference internal" href="#zig">zig</a></li>
+<li><a class="reference internal" href="#c">c++</a></li>
+<li><a class="reference internal" href="#python">python</a></li>
+<li><a class="reference internal" href="#sphinx">sphinx</a></li>
+<li><a class="reference internal" href="#csharp">csharp</a></li>
+<li><a class="reference internal" href="#markdown">markdown</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#lsif-language-server-index-format">LSIF: Language Server Index Format</a></li>
-<li><a class="reference internal" href="#vim">vim</a></li>
-<li><a class="reference internal" href="#c">c++</a></li>
-<li><a class="reference internal" href="#python">python</a></li>
-<li><a class="reference internal" href="#csharp">csharp</a></li>
-</ul>
-</li>
 </ul>
 
           </div>
