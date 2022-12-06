@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>package.json - shell note ドキュメント</title>
+        <title>API - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -221,22 +221,58 @@
           <p>[[vscode]]</p>
 <p><a class="reference external" href="https://github.com/Microsoft/vscode-extension-samples">GitHub - microsoft/vscode-extension-samples: Sample code illustrating the VS Code extension API.</a></p>
 <p><a class="reference external" href="https://vscode-doc-jp.github.io/docs/extensions/samples.html">Extension Examples | 非公式 - Visual Studio Code Docs</a>
-- https://vscode-doc-jp.github.io/docs/extensions/example-hello-world.html
 - https://vscode-doc-jp.github.io/docs/extensions/example-word-count.html
 - https://vscode-doc-jp.github.io/docs/extensions/debugging-extensions.html</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://qiita.com/YuichiNukiyama/items/ffcb32188f473b92133d">VS CodeのエクステンションをMarketPlaceに公開する - Qiita</a></p></li>
 <li><p><a class="reference external" href="https://qiita.com/satokaz/items/f01ab4fc7f938904f5ae">Visual Studio Code 拡張機能のメッセージを言語設定に合わせてローカライズしてみる - Qiita</a></p></li>
 </ul>
+<p>@2021 <a class="reference external" href="https://zenn.dev/yhsi/scraps/36dbb868d8322c">VSCode 拡張機能開発について</a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="api">
+<h1>API<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/api/references/vscode-api">VS Code API | Visual Studio Code Extension API</a></p></li>
+</ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="package-json">
 <h1>package.json<a class="headerlink" href="#package-json" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Extension</span> <span class="pre">Manifest</span></code></p>
+<section id="engines-vscode">
+<h2>engines.vscode<a class="headerlink" href="#engines-vscode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>最低バージョン。開発時のインテリセンスに影響がある。</p>
+</section>
+<section id="main">
+<h2>main<a class="headerlink" href="#main" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">entrypoint</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    "main": "./client/out/extension",
+</pre></div>
+</div>
+</section>
+<section id="activationevents">
+<h2>activationEvents<a class="headerlink" href="#activationevents" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="nt">"activationEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">		</span><span class="s2">"onLanguage:plaintext"</span><span class="w"></span>
+<span class="w">	</span><span class="p">],</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
 <section id="contributes">
 <h2>contributes<a class="headerlink" href="#contributes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">package.json</span></code></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://code.visualstudio.com/api/references/contribution-points">Contribution Points | Visual Studio Code Extension API</a></p></li>
 </ul>
+</section>
+<section id="commands">
+<h2>commands<a class="headerlink" href="#commands" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/api/get-started/extension-anatomy">Extension Anatomy | Visual Studio Code Extension API</a></p></li>
+</ul>
+</section>
 <section id="configuration">
-<h3>configuration<a class="headerlink" href="#configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h2>configuration<a class="headerlink" href="#configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">.settings.json</span></code>
+登録</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">"contributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">"configuration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -258,16 +294,23 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://zenn.dev/yhsi/scraps/36dbb868d8322c">VSCode 拡張機能開発について</a></p>
+<p>取得</p>
 <div class="highlight-ts notranslate"><div class="highlight"><pre><span></span>  <span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">vscode</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getConfiguration</span><span class="p">(</span><span class="s2">"luaTestAdapter"</span><span class="p">);</span>
   <span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">section</span><span class="p">);</span>
   <span class="c1">// ${workspaceFolder} などの展開はここで手で実装するべし？</span>
 </pre></div>
 </div>
-<section id="properties">
-<h4>properties<a class="headerlink" href="#properties" title="このヘッドラインへのパーマリンク">¶</a></h4>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>main<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="activate">
+<h2>activate<a class="headerlink" href="#activate" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>from <code class="docutils literal notranslate"><span class="pre">activation</span> <span class="pre">Event</span></code></p>
+</section>
+<section id="deactivate">
+<h2>deactivate<a class="headerlink" href="#deactivate" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>必須ではない</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="textdocumentcontentprovider">
@@ -278,6 +321,10 @@
 <li><p>https://satopirka.com/2017/12/vscodeのextensionを作った話/</p></li>
 <li><p>https://tekunabe.hatenablog.jp/entry/2019/01/12/vscode-l2mdtable</p></li>
 </ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="languageserver">
+<h1>LanguageServer<a class="headerlink" href="#languageserver" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[lsp]]</p>
 </section>
 
         </article>
@@ -313,17 +360,23 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">package.json</a><ul>
-<li><a class="reference internal" href="#contributes">contributes</a><ul>
-<li><a class="reference internal" href="#configuration">configuration</a><ul>
-<li><a class="reference internal" href="#properties">properties</a></li>
+<li><a class="reference internal" href="#">API</a></li>
+<li><a class="reference internal" href="#package-json">package.json</a><ul>
+<li><a class="reference internal" href="#engines-vscode">engines.vscode</a></li>
+<li><a class="reference internal" href="#main">main</a></li>
+<li><a class="reference internal" href="#activationevents">activationEvents</a></li>
+<li><a class="reference internal" href="#contributes">contributes</a></li>
+<li><a class="reference internal" href="#commands">commands</a></li>
+<li><a class="reference internal" href="#configuration">configuration</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li><a class="reference internal" href="#id1">main</a><ul>
+<li><a class="reference internal" href="#activate">activate</a></li>
+<li><a class="reference internal" href="#deactivate">deactivate</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#textdocumentcontentprovider">TextDOcumentContentProvider</a></li>
+<li><a class="reference internal" href="#languageserver">LanguageServer</a></li>
 </ul>
 
           </div>
