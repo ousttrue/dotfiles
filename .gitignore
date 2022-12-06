@@ -8,3 +8,5 @@ zig-cache
 
 /docs/obsidian/.obsidian/workspace.json
 
+/dot/_version.py
+*.egg-info
