@@ -20,6 +20,10 @@
 - pkg-config
 - cmake
 
+```meson
+some_dep = dependency('some')
+```
+
 ## subprojects
 - [Subprojects](https://mesonbuild.com/Subprojects.html)
 
