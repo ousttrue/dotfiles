@@ -1,8 +1,19 @@
 [[ASTC]]
 [[DXT]]
 [[gpu]]
+[[ktx2]]
 
 - [GitHub - BinomialLLC/basis_universal: Basis Universal GPU Texture Codec](https://github.com/BinomialLLC/basis_universal)
+	- [Home · BinomialLLC/basis_universal Wiki · GitHub](https://github.com/BinomialLLC/basis_universal/wiki)
+
+- @2019 [令和元年に登場したテクスチャフォーマットBasisを試す - Qiita](https://qiita.com/nyamadandan/items/d608ae569788ffb0f40f)
+- https://github.com/KhronosGroup/Basis-Universal-Transcoders
+
+# UASTC
+`8-bpp`
+- [UASTC implementation details · BinomialLLC/basis_universal Wiki · GitHub](https://github.com/BinomialLLC/basis_universal/wiki/UASTC-implementation-details)
+
+# ETC1S
 
 # wasm
 - [basis_universal/webgl at master · BinomialLLC/basis_universal · GitHub](https://github.com/BinomialLLC/basis_universal/tree/master/webgl)
