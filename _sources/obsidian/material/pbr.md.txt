@@ -1,4 +1,6 @@
-#cg/pbr
+---
+aliases: [PhysicallyBasedRendering]
+---
 
 [[brdf]]
 [[fresnel]]
@@ -6,30 +8,22 @@
 [[ArmorPaint]]
 [[radiometry]]
 	
-#cg
-#renderer
 
-https://hanecci.hatenadiary.org/entry/20131115/p2
+# BRDF
+- @2013 [SIGGRAPH 2012 の Disney の物理ベースシェーダの BRDF Explorer 向けのソースコード - OLD hanecci’s blog : 旧 はねっちブログ](https://hanecci.hatenadiary.org/entry/20131115/p2)
 
-[**  Theory]
-https://learnopengl.com/PBR/Theory
-	Phong
-	Blinn-Phong
-	metallic workflow
+# PBR
+- [LearnOpenGL - Theory](https://learnopengl.com/PBR/Theory)
+- [GitHub - TheEvilBanana/PhysicallyBasedRendering](https://github.com/TheEvilBanana/PhysicallyBasedRendering.git)
 
-[https://www.youtube.com/watch?v=j-A0mwsJRmk]
+https://www.youtube.com/watch?v=j-A0mwsJRmk
 
+- https://github.com/mebiusbox/docs/blob/master/基礎からはじめる物理ベースレンダリング%20フォトリアル編.pdf
+- [Physically Based Rendering: From Theory to Implementation](http://www.pbr-book.org/3ed-2018/contents.html)
+- [Preface to the Online Edition](http://www.pbr-book.org/3ed-2018/Preface_to_the_Online_Edition.html)
 
-https://github.com/TheEvilBanana/PhysicallyBasedRendering.git
-https://github.com/mebiusbox/docs/blob/master/基礎からはじめる物理ベースレンダリング%20フォトリアル編.pdf
-http://www.pbr-book.org/3ed-2018/contents.html
-http://www.pbr-book.org/3ed-2018/Preface_to_the_Online_Edition.html
-
-[基礎からはじめる物理ベースレンダリング https://qiita.com/mebiusbox2/items/e7063c5dfe1424e0d01a]
-
-https://learnopengl.com/PBR/Theory
-
-https://github.com/mebiusbox/docs/blob/master/CGのための球面調和関数.pdf
+# IBL
+[[IBL]]
 
 Physically based rendering
 	Be based on the microfacet surface model.

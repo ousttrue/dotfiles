@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>BRDF - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,34 +212,39 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>#cg/pbr</p>
-<p>[[brdf]]
+          <p>[[brdf]]
 [[fresnel]]
 [[IBL]]
 [[ArmorPaint]]
 [[radiometry]]</p>
-<p>#cg
-#renderer</p>
-<p>https://hanecci.hatenadiary.org/entry/20131115/p2</p>
-<p>[**  Theory]
-https://learnopengl.com/PBR/Theory
-Phong
-Blinn-Phong
-metallic workflow</p>
-<p>[https://www.youtube.com/watch?v=j-A0mwsJRmk]</p>
-<p>https://github.com/TheEvilBanana/PhysicallyBasedRendering.git
-https://github.com/mebiusbox/docs/blob/master/基礎からはじめる物理ベースレンダリング%20フォトリアル編.pdf
-http://www.pbr-book.org/3ed-2018/contents.html
-http://www.pbr-book.org/3ed-2018/Preface_to_the_Online_Edition.html</p>
-<p>[基礎からはじめる物理ベースレンダリング https://qiita.com/mebiusbox2/items/e7063c5dfe1424e0d01a]</p>
-<p>https://learnopengl.com/PBR/Theory</p>
-<p>https://github.com/mebiusbox/docs/blob/master/CGのための球面調和関数.pdf</p>
+<section class="tex2jax_ignore mathjax_ignore" id="brdf">
+<h1>BRDF<a class="headerlink" href="#brdf" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2013 <a class="reference external" href="https://hanecci.hatenadiary.org/entry/20131115/p2">SIGGRAPH 2012 の Disney の物理ベースシェーダの BRDF Explorer 向けのソースコード - OLD hanecci’s blog : 旧 はねっちブログ</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pbr">
+<h1>PBR<a class="headerlink" href="#pbr" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learnopengl.com/PBR/Theory">LearnOpenGL - Theory</a></p></li>
+<li><p><a class="reference external" href="https://github.com/TheEvilBanana/PhysicallyBasedRendering.git">GitHub - TheEvilBanana/PhysicallyBasedRendering</a></p></li>
+</ul>
+<p>https://www.youtube.com/watch?v=j-A0mwsJRmk</p>
+<ul class="simple">
+<li><p>https://github.com/mebiusbox/docs/blob/master/基礎からはじめる物理ベースレンダリング%20フォトリアル編.pdf</p></li>
+<li><p><a class="reference external" href="http://www.pbr-book.org/3ed-2018/contents.html">Physically Based Rendering: From Theory to Implementation</a></p></li>
+<li><p><a class="reference external" href="http://www.pbr-book.org/3ed-2018/Preface_to_the_Online_Edition.html">Preface to the Online Edition</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ibl">
+<h1>IBL<a class="headerlink" href="#ibl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[IBL]]</p>
 <p>Physically based rendering
 Be based on the microfacet surface model.
 Be energy conserving.
@@ -321,6 +326,7 @@ vec3 hdrColor = texture(hdrBuffer, TexCoords).rgb;</p>
 </pre></div>
 </div>
 <p>}</p>
+</section>
 
         </article>
       </div>
@@ -343,8 +349,26 @@ vec3 hdrColor = texture(hdrBuffer, TexCoords).rgb;</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">BRDF</a></li>
+<li><a class="reference internal" href="#pbr">PBR</a></li>
+<li><a class="reference internal" href="#ibl">IBL</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
