@@ -1,28 +1,22 @@
 [[streamvr]]
 
-openvr
-#steamvr
+`1.11.11` https://github.com/ValveSoftware/openvr/releases/tag/v1.11.11
+`1.9.16` https://github.com/ValveSoftware/openvr/commit/39205f6b281a6131d1373d0217c1ab9ed19735ea
+`0.9.16` https://github.com/ValveSoftware/openvr/commit/c174bafe1e3d150ff44d23209f89e312bda93189
 
-	`1.11.11` https://github.com/ValveSoftware/openvr/releases/tag/v1.11.11
-	`1.9.16` https://github.com/ValveSoftware/openvr/commit/39205f6b281a6131d1373d0217c1ab9ed19735ea
-	`0.9.16` https://github.com/ValveSoftware/openvr/commit/c174bafe1e3d150ff44d23209f89e312bda93189
-
-	https://github.com/ValveSoftware/openvr
- https://github.com/ValveSoftware/openvr/wiki/API-Documentation
-
-
+https://github.com/ValveSoftware/openvr
+https://github.com/ValveSoftware/openvr/wiki/API-Documentation
 https://github.com/OpenVR-Advanced-Settings/OpenVR-AdvancedSettings
-
 https://github.com/gpsnmeajp/EasyOpenVRUtil/wiki/接続デバイス管理
 
-[* openvr.h]
+# openvr.h
 
 INIT
 vrserver.exe(SteamVR) に接続する。
 無ければ起動する。
 Shutdownはvrserver.exeの停止でアプリはやらなくてよい
 
-code:.cpp
+```cpp
  /** enum values to pass in to VR_Init to identify whether the application will 
  * draw a 3D scene. */
  enum EVRApplicationType
@@ -45,6 +39,7 @@ code:.cpp
 	// Loading the SteamVR Runtime
 	vr::EVRInitError eError = vr::VRInitError_None;	
 	auto vr = vr::VR_Init(&eError, vr::VRApplication_Scene);
+```
 
 	VRApplication_Scene 
 	ApplicationType_Overlay: overlays or the dashboard.

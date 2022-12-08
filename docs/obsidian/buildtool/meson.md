@@ -24,6 +24,14 @@
 some_dep = dependency('some')
 ```
 
+## method
+- pkg-config, cmake, ...
+
+## fallback
+
+## force subproject
+- [How to force meson to use only wrap subproject - Stack Overflow](https://stackoverflow.com/questions/73053163/how-to-force-meson-to-use-only-wrap-subproject)
+
 ## subprojects
 - [Subprojects](https://mesonbuild.com/Subprojects.html)
 
