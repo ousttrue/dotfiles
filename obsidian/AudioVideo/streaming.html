@@ -218,74 +218,10 @@
           </label>
         </div>
         <article role="main">
-          <p>Pixar USD 系列の OpenSource</p>
-<p>[[OpenSubdiv]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://graphics.pixar.com/usd/docs/index.html">USD Home — Universal Scene Description 22.05 documentation</a></p></li>
-<li><p><a class="reference external" href="https://graphics.pixar.com/usd/docs/USD-Tutorials.html">USD Tutorials — Universal Scene Description 22.05 documentation</a></p></li>
-<li><p><a class="reference external" href="https://zenn.dev/remiria">あんどうめぐみ@れみりあさんの記事一覧 | Zenn</a></p></li>
-<li><p><a class="reference external" href="https://developer.nvidia.com/usd">Pixar Universal Scene Description (USD) | NVIDIA Developer</a></p></li>
-<li><p><a class="reference external" href="https://fereria.github.io/reincarnation_tech/11_Pipeline/">Index - Reincarnation+#Tech</a></p></li>
-<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/97710961">Pixar USD介绍 - 知乎</a></p></li>
-</ul>
-<p>[* 2021]
-https://developer.nvidia.com/usd
-Blender-3.0
-https://developer.blender.org/project/view/118/</p>
-<p>[* 2020]
-[USD で usdz データを読むメモ https://qiita.com/syoyo/items/609c050d018e934bc47c]</p>
-<p>[* 2019]
-https://renderman.pixar.com/stories/pixars-usd-pipeline
-[PixarのUSDパイプライン http://kai-tei.daa.jp/2019_1211_12128/]
-https://blogs.unity3d.com/2019/03/28/pixars-universal-scene-description-for-unity-out-in-preview/</p>
-<p>[* 2017]
-https://www.slideshare.net/takahitotejima/usd-79288174
-https://qiita.com/takahito-tejima/items/f820e16869ca4343a600</p>
-<p>[* 2016]
-https://qiita.com/takahito-tejima/items/3c2fa4a4a83aa04b9a0e</p>
-<p>[* unity]
-https://docs.unity3d.com/Packages/com.unity.formats.usd@1.0/manual/index.html
-https://github.com/Unity-Technologies/film-tv-toolbox/tree/master/UsdSamples</p>
-<p>[* blender]
-https://docs.blender.org/manual/en/latest/files/import_export/usd.html
-https://code.blender.org/2019/07/first-steps-with-universal-scene-description/</p>
-<p>[* prebuild]
-https://developer.nvidia.com/usd <code class="docutils literal notranslate"><span class="pre">python3.6</span></code></p>
-<p>[* sample]
-https://github.com/vfxpro99/usd-resources
-https://developer.apple.com/augmented-reality/quick-look/
-http://graphics.pixar.com/usd/downloads.html
-http://graphics.pixar.com/usd/files/SkinningOM.md.html</p>
-<p>[* tools]
-https://github.com/LumaPictures/usd-qt</p>
-<p>code:cube.usda
-#usda 1.0</p>
-<p>def Cube "cube"
-{
-}</p>
-<p>code:ref.usda
-#usda 1.0</p>
-<p>over "refCube" (
-prepend references = @./cube.usda@
-)
-{
-}</p>
-<p>code:move.usda
-#usda 1.0</p>
-<p>over "refCube" (
-prepend references = @./cube.usda@
-)
-{
-double3 xformOp:translate = (0, 1, 0)
-uniform token[] xformOpOrder = ["xformOp:translate"]
-}</p>
-<p>over "refCube2" (
-prepend references = @./cube.usda@
-)
-{
-double3 xformOp:translate = (0, 1, -4)
-uniform token[] xformOpOrder = ["xformOp:translate"]
-}</p>
+          <p>[[RTSP]]
+[[SRT]]
+<code class="docutils literal notranslate"><span class="pre">TCP</span></code>
+[[hls]]</p>
 
         </article>
       </div>
@@ -300,7 +236,7 @@ uniform token[] xformOpOrder = ["xformOp:translate"]
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/pixar/usd.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/AudioVideo/streaming.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
