@@ -1,9 +1,8 @@
+[[Open3D]]
+
 [Azure Kinect DK のドキュメント | Microsoft Docs](https://docs.microsoft.com/ja-jp/azure/Kinect-dk/)
-
-
 - [GitHub - microsoft/Azure-Kinect-Samples: Samples for Azure Kinect](https://github.com/microsoft/Azure-Kinect-Samples)
 
-[[Open3D]]
 
 # k4a
 [Azure-Kinect-Sensor-SDK/usage.md at develop · microsoft/Azure-Kinect-Sensor-SDK · GitHub](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md)
@@ -23,7 +22,7 @@
 -   [[Matroska]] コンテナー形式を使用するセンサー記録ツールと再生リーダー API。
 -   Azure Kinect DK ファームウェア更新ツール。
 
-- [AzureKinect の opencv-kinfu-samples をビルドする - Qiita](https://qiita.com/ousttrue/items/daea793638850965b43f)
+- @2020 [AzureKinect の opencv-kinfu-samples をビルドする - Qiita](https://qiita.com/ousttrue/items/daea793638850965b43f)
 
 # k4abt
 -   体のセグメント化を提供します。
@@ -39,13 +38,6 @@
 - [Azure Kinect のボディ トラッキング結果の取得 | Microsoft Docs](https://docs.microsoft.com/ja-jp/azure/kinect-dk/get-body-tracking-results)
 - [ボディ フレームの Azure Kinect DK データへのアクセス | Microsoft Docs](https://docs.microsoft.com/ja-jp/azure/kinect-dk/access-data-body-frame)
 	
-
-k4abt
-[[AzureKinect]]
-#kinect_azure
-
-k4a の body tracking
-
 https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/index.html
 
 https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.1
