@@ -7,6 +7,14 @@
 - [GitHub Actionsを使ってsetup.cfgをもとに_version.pyを更新する - Qiita](https://qiita.com/gyu-don/items/c047098e1a58dc8d8d96)
 - @2020 [Github Actionsでビルドしてリリースにアップロードしてみた - 二度忘れた事を三度忘れないようにする](https://knhk.hatenablog.com/entry/2020/05/19/173000)
 
+
+# 例
+## trigger: tag => create release
+- @2020 [Github Actionsでビルドしてリリースにアップロードしてみた - 二度忘れた事を三度忘れないようにする](https://knhk.hatenablog.com/entry/2020/05/19/173000)
+
+# artifact
+- [【Github】GitHubActionsで利用するupload-artifactとdownload-artifact - 自由気ままに書いちゃおう](https://www.guri2o1667.work/entry/2022/09/30/%E3%80%90Github%E3%80%91GitHubActions%E3%81%A7%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8Bupload-artifact%E3%81%A8download-artifact)
+
 # runner
 - [About GitHub-hosted runners - GitHub Docs](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners)
 ```yml
