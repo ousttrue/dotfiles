@@ -11,6 +11,7 @@
 
 - @2022 [GTK4 for Graphical User Interfaces](https://ssalewski.de/gtkprogramming.html)
 - @2020 [「GTK 4」が公開、メディア再生サポートなどが加わる | OSDN Magazine](https://mag.osdn.jp/20/12/18/132200)
+- @2020 [bitWalk's: GTK4 を触ってみた (2) ～ Meson でビルド ～](https://bitwalk.blogspot.com/2020/12/gtk4-2-meson.html)
 
 GtkMediaStream
 GtkMediaFile

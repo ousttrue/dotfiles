@@ -66,21 +66,6 @@ https://note.com/npaka/n/nc18d61e25c85
 - [XR_FB_passthrough](https://www.oculus.com/lynx/?u=https%3A%2F%2Fregistry.khronos.org%2FOpenXR%2Fspecs%2F1.0%2Fhtml%2Fxrspec.html%23XR_FB_passthrough&e=AT2UPomIZ9jR7kOdzmMWnGa_G0B-j_Wc6QXVBwNoPRG85qJJ1YKV9kYP1IXaRsRfJgGbEWLpqdVusNU7_-X9tTCbSLGeFpBYwTm1MLD8qCV2xvIrqDNqqBEyoJaMqtPRZSjAxsITjSnDCmk5wA6i9IWoJmPSievmJrOYqw) 
 - [XR_FB_triangle_mesh](https://www.oculus.com/lynx/?u=https%3A%2F%2Fregistry.khronos.org%2FOpenXR%2Fspecs%2F1.0%2Fhtml%2Fxrspec.html%23XR_FB_triangle_mesh&e=AT2UPomIZ9jR7kOdzmMWnGa_G0B-j_Wc6QXVBwNoPRG85qJJ1YKV9kYP1IXaRsRfJgGbEWLpqdVusNU7_-X9tTCbSLGeFpBYwTm1MLD8qCV2xvIrqDNqqBEyoJaMqtPRZSjAxsITjSnDCmk5wA6i9IWoJmPSievmJrOYqw).
 
-# Scene
-- [【Meta Quest 2】最新アプデでMRセットアップ機能が実装 新しいコンテンツが増える？ - MoguLive](https://www.moguravr.com/meta-quest-2-9/)
-
-- xrSample/XrSceneModel
-- [OpenXR Scene Overview](https://developer.oculus.com/documentation/native/android/openxr-scene-overview/)
-- [XR_FB_scene](https://www.oculus.com/lynx/?u=https%3A%2F%2Fregistry.khronos.org%2FOpenXR%2Fspecs%2F1.0%2Fhtml%2Fxrspec.html%23XR_FB_scene&e=AT3BlXnZRaCRe3CYW1HdeKPUir-iED7cVDTAHr6XyLkO37MChTgxY1YrEI7GFnRp17TK4YdZtwvxQm8P4u9abNA9LZPRsf8jKfnIgHGZb1RYPTl0aOvKq-7awsGtsHnUClFcQTbONNOj1wlX721aYOppizfRCy3s0sIO8Q).
-
-# SpatialAnchors
-- [空間アンカーを使うには](https://framesynthesis.jp/tech/unity/oculusquest/#%E7%A9%BA%E9%96%93%E3%82%A2%E3%83%B3%E3%82%AB%E3%83%BC%E3%82%92%E4%BD%BF%E3%81%86%E3%81%AB%E3%81%AF)
-- [# Spatial Anchors Overview](https://developer.oculus.com/documentation/native/android/openxr-lsa-overview/)
-- xrSamples/XrSpatialAnchor
--   XR_FB_spatial_entity
--   XR_FB_spatial_entity_storage
--   XR_FB_spatial_entity_query
--   XR_FB_spatial_entity_container
 
 # SampleXrFramework
 ## XrApp

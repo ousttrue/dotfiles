@@ -1,16 +1,11 @@
 #red
 
-# The OpenXR Loader provided by Khronos
-[[openxr_loader]]
-[[hello_xr]]
+- [OpenXR - Mixed Reality | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/mixed-reality/develop/native/openxr)
 
-- [https://www.khronos.org/files/openxr-10-reference-guide.pdf](https://www.khronos.org/files/openxr-10-reference-guide.pdf)
-- [The OpenXR Specification](https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html)
-
-	
 # Samples
 - [GitHub - THolovacko/bomberman_xr: A native mixed reality Bomberman clone for the Meta Quest 2 and PC](https://github.com/THolovacko/bomberman_xr)
 - [GitHub - janhsimon/openxr-vulkan-example: OpenXR & Vulkan Integration Example](https://github.com/janhsimon/openxr-vulkan-example)
+- [OpenXR-MixedReality/samples/BasicXrApp at main · microsoft/OpenXR-MixedReality · GitHub](https://github.com/microsoft/OpenXR-MixedReality/tree/main/samples/BasicXrApp)
 
 ## クロスプラットフォーム、オプション全部入り
 - [[hello_xr]]
@@ -19,13 +14,30 @@
 - [GitHub - microsoft/OpenXR-MixedReality: OpenXR samples and preview headers for HoloLens and Windows Mixed Reality developers familiar with Visual Studio](https://github.com/microsoft/OpenXR-MixedReality)
 シンプル
 - [OpenXRSamples/SingleFileExample at master · maluoi/OpenXRSamples · GitHub](https://github.com/maluoi/OpenXRSamples/tree/master/SingleFileExample)
-
 ## ?
 vulkan とか必用。ビルド失敗
 - [GitHub - jherico/OpenXR-Samples: Samples for the OpenXR API](https://github.com/jherico/OpenXR-Samples)
 
 ## 未見
 - [GitHub - Meumeu/WiVRn](https://github.com/Meumeu/WiVRn)
+
+# Loader
+
+[[openxr_loader]]
+Chapter 7. [[XrSpace]]
+[[hello_xr]]
+
+- [https://www.khronos.org/files/openxr-10-reference-guide.pdf](https://www.khronos.org/files/openxr-10-reference-guide.pdf)
+- [The OpenXR Specification](https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html)
+	
+#  システム + セッション
+`OpenXR 1.0 コア仕様`
+- [XrInstance](https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#instance)
+- [XrSystemId](https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#system)
+- [XrSession](https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#session)
+
+# 参照スペース (ビュー、ローカル、ステージ)
+- [[XrSpace]]
 
 # Extensions
 - [[openxr_api_layer]]

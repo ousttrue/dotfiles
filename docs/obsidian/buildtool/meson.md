@@ -2,50 +2,150 @@
 [[gst-python]]
 
 - [The Meson Build system](https://mesonbuild.com/)
-- @2022 [Mesonを使ってGObject Introspection対応のビルドシステムを構築する方法 - 2022-08-17 - ククログ](https://www.clear-code.com/blog/2022/8/17/meson-and-gobject-introspection.html)
-- @2022 [Mesonの使い方メモ - はしくれエンジニアもどきのメモ](https://cartman0.hatenablog.com/entry/2022/03/24/Meson%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%83%A1%E3%83%A2)
+	- [Tutorial](https://mesonbuild.com/Tutorial.html)
+	
 - @2019 [［Meson］Meson for C++の苦闘記 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2019/09/20/023511)
 - @2018 [CMakeの代替 (となってほしい)、Mesonチュートリアル - Qiita](https://qiita.com/turenar/items/c727834fbf701beb47ef)
 
 # reference
 - [Reference manual](https://mesonbuild.com/Reference-manual.html)
 
-# python
-## entry_point
+# usage
 
-`mesonbuild.mesonmain:main`
-
-# dependency
-- [Functions](https://mesonbuild.com/Reference-manual_functions.html#dependency)
-- pkg-config
-- cmake
-
-```meson
-some_dep = dependency('some')
+## project
+```meson.build
+project('helloworld', 'c')
 ```
 
-## method
+### default_options
+
+```meson.build
+project( 'calculator', 'cpp', default_options: ['warning_level=3'])
+```
+
+```meson.build
+project('test_project', 'cpp', default_options : ['warning_level=3', 'werror=true', 'cpp_std=c++17'], meson_version : '>=0.50.0')
+```
+
+## executable
+```meson.build
+executable('hello', 'hello.c')
+```
+
+```meson.build
+program(
+    'calculator', ['main.cpp'],
+    include_directories: includes,
+    link_with: perfectcalc_lib)
+```
+
+## library
+```meson.build
+perfectcalc_lib = library(
+    'perfectcalc', ['plus.cpp'],
+    include_directories: includes)
+```
+
+### static
+### shared
+
+## compile options
+### c++
+`c++17`
+### include_directories
+```meson.build
+includes = include_directories('include')
+
+include_dir = include_directories('include', 'oher/include')
+
+# -isystem. system header の警告抑制？
+include_directories('path/to/include', is_system: true)
+```
+
+### definitions
+
+### compiler
+
+```meson.build
+cppcompiler = meson.get_compiler('cpp').get_argument_syntax()
+
+if cppcompiler == 'msvc'
+    # MSVC,clang-cl,icc(windows)用
+    options = ['/std:c++latest']
+elif cppcompiler == 'gcc'
+    # gcc,clang,icc(linux)用
+    options = ['-std=c++2a']
+else
+    # その他
+    options = []
+endif
+
+include_dir = include_directories('include', 'oher/include')
+executable('test_project', 'test.cpp', include_directories : include_dir, cpp_args : options)
+```
+
+## link options
+### lib_directories
+### libs
+
+## install options
+dll lib or bin ?
+
+## message
+```meson.build
+flag=false
+message(flag)
+message('b_asneeded: ', get_option('b_asneeded'))
+```
+
+# target dependencies
+## subproject
+- [Subprojects](https://mesonbuild.com/Subprojects.html)
+```meson.build
+doctest_proj = subproject('doctest')
+doctest_dep = doctest_proj.get_variable('doctest_dep')
+```
+
+## cmake subproject
+- [meson で cmake プロジェクトを subproject として使う - Qiita](https://qiita.com/syoyo/items/ad965b5127188c356074)
+
+## dependency
+```meson.build
+lua_dep = dependency('lua')
+```
+
+### method
 - pkg-config, cmake, ...
 
-## fallback
+### declara_dependency
+pango
+```meson
+libpango_dep = meson.declare_dependency()
+meson.override_dependency('pango', libpango_dep)
+```
 
-## force subproject
+### force subproject
 - [How to force meson to use only wrap subproject - Stack Overflow](https://stackoverflow.com/questions/73053163/how-to-force-meson-to-use-only-wrap-subproject)
 
-## subprojects
-- [Subprojects](https://mesonbuild.com/Subprojects.html)
+## subproject override
 
 ## wrap dependency system
 - [Wrap dependency system manual](https://mesonbuild.com/Wrap-dependency-system-manual.html)
 - [Meson WrapDB packages](https://mesonbuild.com/Wrapdb-projects.html)
 
-## install先
-dll lib or bin ?
+# native-file
+cmake の toochain に相当
+- @2022 [Mesonの使い方メモ - はしくれエンジニアもどきのメモ](https://cartman0.hatenablog.com/entry/2022/03/24/Meson%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%83%A1%E3%83%A2)
 
-## cmake subproject
-- [meson で cmake プロジェクトを subproject として使う - Qiita](https://qiita.com/syoyo/items/ad965b5127188c356074)
+# module
+`import`
+- @2022 [Mesonを使ってGObject Introspection対応のビルドシステムを構築する方法 - 2022-08-17 - ククログ](https://www.clear-code.com/blog/2022/8/17/meson-and-gobject-introspection.html)
 
-## vscode debugger
+# meson のコード
+## entry_point
+`mesonbuild.mesonmain:main`
+
+## vscode launch
 ```json
 {
     // Use IntelliSense to learn about possible attributes.
@@ -69,62 +169,3 @@ dll lib or bin ?
     ]
 }
 ```
-
-## override_dependency
-
-```
-subprojects\pango\pango\meson.build:171:6: ERROR: Tried to override dependency 'pango' which has already been resolved or overridden at D:\ghq\github.com\GNOME\gtk\meson.build:391:
-```
-
-`mesonbuild/interpreter/mesonmain.py`
-```python
-# comment out
-383         if override:
-384             if permissive:
-385                 return
-386             m = 'Tried to override dependency {!r} which has already been resolved or overridden at {}'
-387             location = mlog.get_error_location_string(override.node.filename, override.node.lineno)
-388             raise InterpreterException(m.format(name, location))
-```
-gtk
-```
-pango_dep      = dependency('pango', version: pango_req,
-                            fallback : ['pango', 'libpango_dep'])
-
-pangocairo_dep = dependency('pangocairo', version: pango_req,
-                            fallback : ['pango', 'libpangocairo_dep'])				
-```
-
-pango
-```meson
-libpango_dep = meson.declare_dependency()
-meson.override_dependency('pango', libpango_dep)
-```
-
-# [[GTK4]]
-- [bitWalk's: GTK4 を触ってみた (2) ～ Meson でビルド ～](https://bitwalk.blogspot.com/2020/12/gtk4-2-meson.html)
-
-# Windows
-
-- `PYTHONUTF8=1`  + UTF-8 locale は動く
-- `PYTHONUTF8=1`  + not UTF-8 locale は動かない
-
-```
-The Meson build system
-Version: 0.64.0
-Source dir: C:\Users\oustt\Desktop\neovim-0.8.1
-Build dir: C:\Users\oustt\Desktop\neovim-0.8.1\build
-Build type: native build
-Project name: neovim
-Project version: undefined
-Activating VS 17.4.0
-C++ compiler for the host machine: cl (msvc 19.34.31933 "Microsoft(R) C/C++ Optimizing Compiler Version 19.34.31933 for x64")
-C++ linker for the host machine: link link 14.34.31933.0
-Host machine cpu family: x86_64
-Host machine cpu: x86_64
-
-meson.build:2:0: ERROR: No host machine compiler for 'src/nvim/main.c'
-```
-
-# gobject-instrospection
-- [Mesonを使ってGObject Introspection対応のビルドシステムを構築する方法 - 2022-08-17 - ククログ](https://www.clear-code.com/blog/2022/8/17/meson-and-gobject-introspection.html)

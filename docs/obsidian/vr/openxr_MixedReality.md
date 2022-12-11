@@ -1,13 +1,5 @@
-[[OpenXR]]
+[[XrSpace]]
 
-- seated-scale
-- standing-scale
-- room-scale
-- world-scale
-
-# XrSpace
-`XR_REFERENCE_SPACE_TYPE_STAGE`
-- [xrGetReferenceSpaceBoundsRect](https://registry.khronos.org/OpenXR/specs/1.0/html/xrspec.html#xrGetReferenceSpaceBoundsRect)
 
 # XR_FB_scene, XR_FB_spatial_entity
 
