@@ -221,9 +221,11 @@
           <p><a class="reference external" href="https://gitlab.freedesktop.org/xrdesktop/xrdesktop">Fetching Title#7bn3</a>[[buildtool]]
 [[gst-python]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://mesonbuild.com/">The Meson Build system</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://www.clear-code.com/blog/2022/8/17/meson-and-gobject-introspection.html">Mesonを使ってGObject Introspection対応のビルドシステムを構築する方法 - 2022-08-17 - ククログ</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://cartman0.hatenablog.com/entry/2022/03/24/Meson%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%83%A1%E3%83%A2">Mesonの使い方メモ - はしくれエンジニアもどきのメモ</a></p></li>
+<li><p><a class="reference external" href="https://mesonbuild.com/">The Meson Build system</a></p>
+<ul>
+<li><p><a class="reference external" href="https://mesonbuild.com/Tutorial.html">Tutorial</a></p></li>
+</ul>
+</li>
 <li><p>@2019 <a class="reference external" href="https://onihusube.hatenablog.com/entry/2019/09/20/023511">［Meson］Meson for C++の苦闘記 - 地面を見下ろす少年の足蹴にされる私</a></p></li>
 <li><p>@2018 <a class="reference external" href="https://qiita.com/turenar/items/c727834fbf701beb47ef">CMakeの代替 (となってほしい)、Mesonチュートリアル - Qiita</a></p></li>
 </ul>
@@ -233,43 +235,158 @@
 <li><p><a class="reference external" href="https://mesonbuild.com/Reference-manual.html">Reference manual</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="python">
-<h1>python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="entry-point">
-<h2>entry_point<a class="headerlink" href="#entry-point" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">mesonbuild.mesonmain:main</span></code></p>
+<section class="tex2jax_ignore mathjax_ignore" id="usage">
+<h1>usage<a class="headerlink" href="#usage" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="project">
+<h2>project<a class="headerlink" href="#project" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="nb">project</span><span class="p">(</span><span class="s">'helloworld'</span><span class="p">,</span><span class="w"> </span><span class="s">'c'</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<section id="default-options">
+<h3>default_options<a class="headerlink" href="#default-options" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="nb">project</span><span class="p">(</span><span class="w"> </span><span class="s">'calculator'</span><span class="p">,</span><span class="w"> </span><span class="s">'cpp'</span><span class="p">,</span><span class="w"> </span><span class="n">default_options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s">'warning_level=3'</span><span class="p">])</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="nb">project</span><span class="p">(</span><span class="s">'test_project'</span><span class="p">,</span><span class="w"> </span><span class="s">'cpp'</span><span class="p">,</span><span class="w"> </span><span class="n">default_options</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s">'warning_level=3'</span><span class="p">,</span><span class="w"> </span><span class="s">'werror=true'</span><span class="p">,</span><span class="w"> </span><span class="s">'cpp_std=c++17'</span><span class="p">],</span><span class="w"> </span><span class="n">meson_version</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">'&gt;=0.50.0'</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="dependency">
-<h1>dependency<a class="headerlink" href="#dependency" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="executable">
+<h2>executable<a class="headerlink" href="#executable" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="nb">executable</span><span class="p">(</span><span class="s">'hello'</span><span class="p">,</span><span class="w"> </span><span class="s">'hello.c'</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="n">program</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">'calculator'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s">'main.cpp'</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nb">include_directories</span><span class="p">:</span><span class="w"> </span><span class="n">includes</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">link_with</span><span class="p">:</span><span class="w"> </span><span class="n">perfectcalc_lib</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="library">
+<h2>library<a class="headerlink" href="#library" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="n">perfectcalc_lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">library</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">'perfectcalc'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s">'plus.cpp'</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nb">include_directories</span><span class="p">:</span><span class="w"> </span><span class="n">includes</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<section id="static">
+<h3>static<a class="headerlink" href="#static" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="shared">
+<h3>shared<a class="headerlink" href="#shared" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+</section>
+<section id="compile-options">
+<h2>compile options<a class="headerlink" href="#compile-options" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="c">
+<h3>c++<a class="headerlink" href="#c" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">c++17</span></code></p>
+</section>
+<section id="include-directories">
+<h3>include_directories<a class="headerlink" href="#include-directories" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="n">includes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">include_directories</span><span class="p">(</span><span class="s">'include'</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">include_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">include_directories</span><span class="p">(</span><span class="s">'include'</span><span class="p">,</span><span class="w"> </span><span class="s">'oher/include'</span><span class="p">)</span><span class="w"></span>
+
+<span class="c"># -isystem. system header の警告抑制？</span><span class="w"></span>
+<span class="nb">include_directories</span><span class="p">(</span><span class="s">'path/to/include'</span><span class="p">,</span><span class="w"> </span><span class="n">is_system</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="definitions">
+<h3>definitions<a class="headerlink" href="#definitions" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="compiler">
+<h3>compiler<a class="headerlink" href="#compiler" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="n">cppcompiler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vm">meson</span><span class="p">.</span><span class="n">get_compiler</span><span class="p">(</span><span class="s">'cpp'</span><span class="p">).</span><span class="n">get_argument_syntax</span><span class="p">()</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="n">cppcompiler</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">'msvc'</span><span class="w"></span>
+<span class="w">    </span><span class="c"># MSVC,clang-cl,icc(windows)用</span><span class="w"></span>
+<span class="w">    </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'/std:c++latest'</span><span class="p">]</span><span class="w"></span>
+<span class="k">elif</span><span class="w"> </span><span class="n">cppcompiler</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">'gcc'</span><span class="w"></span>
+<span class="w">    </span><span class="c"># gcc,clang,icc(linux)用</span><span class="w"></span>
+<span class="w">    </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'-std=c++2a'</span><span class="p">]</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="c"># その他</span><span class="w"></span>
+<span class="w">    </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="k">endif</span><span class="w"></span>
+
+<span class="n">include_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">include_directories</span><span class="p">(</span><span class="s">'include'</span><span class="p">,</span><span class="w"> </span><span class="s">'oher/include'</span><span class="p">)</span><span class="w"></span>
+<span class="nb">executable</span><span class="p">(</span><span class="s">'test_project'</span><span class="p">,</span><span class="w"> </span><span class="s">'test.cpp'</span><span class="p">,</span><span class="w"> </span><span class="nb">include_directories</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">include_dir</span><span class="p">,</span><span class="w"> </span><span class="n">cpp_args</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="link-options">
+<h2>link options<a class="headerlink" href="#link-options" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="lib-directories">
+<h3>lib_directories<a class="headerlink" href="#lib-directories" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="libs">
+<h3>libs<a class="headerlink" href="#libs" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+</section>
+<section id="install-options">
+<h2>install options<a class="headerlink" href="#install-options" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>dll lib or bin ?</p>
+</section>
+<section id="message">
+<h2>message<a class="headerlink" href="#message" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="n">flag</span><span class="o">=</span><span class="kc">false</span><span class="w"></span>
+<span class="nb">message</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span><span class="w"></span>
+<span class="nb">message</span><span class="p">(</span><span class="s">'b_asneeded: '</span><span class="p">,</span><span class="w"> </span><span class="nb">get_option</span><span class="p">(</span><span class="s">'b_asneeded'</span><span class="p">))</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="target-dependencies">
+<h1>target dependencies<a class="headerlink" href="#target-dependencies" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="subproject">
+<h2>subproject<a class="headerlink" href="#subproject" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://mesonbuild.com/Reference-manual_functions.html#dependency">Functions</a></p></li>
-<li><p>pkg-config</p></li>
-<li><p>cmake</p></li>
+<li><p><a class="reference external" href="https://mesonbuild.com/Subprojects.html">Subprojects</a></p></li>
 </ul>
-<div class="highlight-meson notranslate"><div class="highlight"><pre><span></span><span class="n">some_dep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">dependency</span><span class="p">(</span><span class="s">'some'</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="n">doctest_proj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">subproject</span><span class="p">(</span><span class="s">'doctest'</span><span class="p">)</span><span class="w"></span>
+<span class="n">doctest_dep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doctest_proj</span><span class="p">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s">'doctest_dep'</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="cmake-subproject">
+<h2>cmake subproject<a class="headerlink" href="#cmake-subproject" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/syoyo/items/ad965b5127188c356074">meson で cmake プロジェクトを subproject として使う - Qiita</a></p></li>
+</ul>
+</section>
+<section id="dependency">
+<h2>dependency<a class="headerlink" href="#dependency" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="n">lua_dep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">dependency</span><span class="p">(</span><span class="s">'lua'</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <section id="method">
-<h2>method<a class="headerlink" href="#method" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>method<a class="headerlink" href="#method" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><p>pkg-config, cmake, ...</p></li>
 </ul>
 </section>
-<section id="fallback">
-<h2>fallback<a class="headerlink" href="#fallback" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="declara-dependency">
+<h3>declara_dependency<a class="headerlink" href="#declara-dependency" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>pango</p>
+<div class="highlight-meson notranslate"><div class="highlight"><pre><span></span><span class="n">libpango_dep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vm">meson</span><span class="p">.</span><span class="n">declare_dependency</span><span class="p">()</span><span class="w"></span>
+<span class="vm">meson</span><span class="p">.</span><span class="n">override_dependency</span><span class="p">(</span><span class="s">'pango'</span><span class="p">,</span><span class="w"> </span><span class="n">libpango_dep</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
 <section id="force-subproject">
-<h2>force subproject<a class="headerlink" href="#force-subproject" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>force subproject<a class="headerlink" href="#force-subproject" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/73053163/how-to-force-meson-to-use-only-wrap-subproject">How to force meson to use only wrap subproject - Stack Overflow</a></p></li>
 </ul>
 </section>
-<section id="subprojects">
-<h2>subprojects<a class="headerlink" href="#subprojects" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://mesonbuild.com/Subprojects.html">Subprojects</a></p></li>
-</ul>
+</section>
+<section id="subproject-override">
+<h2>subproject override<a class="headerlink" href="#subproject-override" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 <section id="wrap-dependency-system">
 <h2>wrap dependency system<a class="headerlink" href="#wrap-dependency-system" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -278,18 +395,29 @@
 <li><p><a class="reference external" href="https://mesonbuild.com/Wrapdb-projects.html">Meson WrapDB packages</a></p></li>
 </ul>
 </section>
-<section id="install">
-<h2>install先<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>dll lib or bin ?</p>
 </section>
-<section id="cmake-subproject">
-<h2>cmake subproject<a class="headerlink" href="#cmake-subproject" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="native-file">
+<h1>native-file<a class="headerlink" href="#native-file" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>cmake の toochain に相当</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/syoyo/items/ad965b5127188c356074">meson で cmake プロジェクトを subproject として使う - Qiita</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://cartman0.hatenablog.com/entry/2022/03/24/Meson%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%83%A1%E3%83%A2">Mesonの使い方メモ - はしくれエンジニアもどきのメモ</a></p></li>
 </ul>
 </section>
-<section id="vscode-debugger">
-<h2>vscode debugger<a class="headerlink" href="#vscode-debugger" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="module">
+<h1>module<a class="headerlink" href="#module" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">import</span></code></p>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://www.clear-code.com/blog/2022/8/17/meson-and-gobject-introspection.html">Mesonを使ってGObject Introspection対応のビルドシステムを構築する方法 - 2022-08-17 - ククログ</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="meson">
+<h1>meson のコード<a class="headerlink" href="#meson" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="entry-point">
+<h2>entry_point<a class="headerlink" href="#entry-point" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mesonbuild.mesonmain:main</span></code></p>
+</section>
+<section id="vscode-launch">
+<h2>vscode launch<a class="headerlink" href="#vscode-launch" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
@@ -314,70 +442,6 @@
 </pre></div>
 </div>
 </section>
-<section id="override-dependency">
-<h2>override_dependency<a class="headerlink" href="#override-dependency" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">subprojects</span>\<span class="n">pango</span>\<span class="n">pango</span>\<span class="n">meson</span><span class="o">.</span><span class="n">build</span><span class="p">:</span><span class="mi">171</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span> <span class="n">ERROR</span><span class="p">:</span> <span class="n">Tried</span> <span class="n">to</span> <span class="n">override</span> <span class="n">dependency</span> <span class="s1">'pango'</span> <span class="n">which</span> <span class="n">has</span> <span class="n">already</span> <span class="n">been</span> <span class="n">resolved</span> <span class="ow">or</span> <span class="n">overridden</span> <span class="n">at</span> <span class="n">D</span><span class="p">:</span>\<span class="n">ghq</span>\<span class="n">github</span><span class="o">.</span><span class="n">com</span>\<span class="n">GNOME</span>\<span class="n">gtk</span>\<span class="n">meson</span><span class="o">.</span><span class="n">build</span><span class="p">:</span><span class="mi">391</span><span class="p">:</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">mesonbuild/interpreter/mesonmain.py</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># comment out</span>
-<span class="mi">383</span>         <span class="k">if</span> <span class="n">override</span><span class="p">:</span>
-<span class="mi">384</span>             <span class="k">if</span> <span class="n">permissive</span><span class="p">:</span>
-<span class="mi">385</span>                 <span class="k">return</span>
-<span class="mi">386</span>             <span class="n">m</span> <span class="o">=</span> <span class="s1">'Tried to override dependency </span><span class="si">{!r}</span><span class="s1"> which has already been resolved or overridden at </span><span class="si">{}</span><span class="s1">'</span>
-<span class="mi">387</span>             <span class="n">location</span> <span class="o">=</span> <span class="n">mlog</span><span class="o">.</span><span class="n">get_error_location_string</span><span class="p">(</span><span class="n">override</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">override</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">lineno</span><span class="p">)</span>
-<span class="mi">388</span>             <span class="k">raise</span> <span class="n">InterpreterException</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">location</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>gtk</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pango_dep</span>      <span class="o">=</span> <span class="n">dependency</span><span class="p">(</span><span class="s1">'pango'</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">pango_req</span><span class="p">,</span>
-                            <span class="n">fallback</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'pango'</span><span class="p">,</span> <span class="s1">'libpango_dep'</span><span class="p">])</span>
-
-<span class="n">pangocairo_dep</span> <span class="o">=</span> <span class="n">dependency</span><span class="p">(</span><span class="s1">'pangocairo'</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">pango_req</span><span class="p">,</span>
-                            <span class="n">fallback</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'pango'</span><span class="p">,</span> <span class="s1">'libpangocairo_dep'</span><span class="p">])</span>				
-</pre></div>
-</div>
-<p>pango</p>
-<div class="highlight-meson notranslate"><div class="highlight"><pre><span></span><span class="n">libpango_dep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vm">meson</span><span class="p">.</span><span class="n">declare_dependency</span><span class="p">()</span><span class="w"></span>
-<span class="vm">meson</span><span class="p">.</span><span class="n">override_dependency</span><span class="p">(</span><span class="s">'pango'</span><span class="p">,</span><span class="w"> </span><span class="n">libpango_dep</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="gtk4">
-<h1>[[GTK4]]<a class="headerlink" href="#gtk4" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://bitwalk.blogspot.com/2020/12/gtk4-2-meson.html">bitWalk's: GTK4 を触ってみた (2) ～ Meson でビルド ～</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="windows">
-<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">PYTHONUTF8=1</span></code>  + UTF-8 locale は動く</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PYTHONUTF8=1</span></code>  + not UTF-8 locale は動かない</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">Meson</span> <span class="n">build</span> <span class="n">system</span>
-<span class="n">Version</span><span class="p">:</span> <span class="mf">0.64.0</span>
-<span class="n">Source</span> <span class="nb">dir</span><span class="p">:</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">oustt</span>\<span class="n">Desktop</span>\<span class="n">neovim</span><span class="o">-</span><span class="mf">0.8.1</span>
-<span class="n">Build</span> <span class="nb">dir</span><span class="p">:</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">oustt</span>\<span class="n">Desktop</span>\<span class="n">neovim</span><span class="o">-</span><span class="mf">0.8.1</span>\<span class="n">build</span>
-<span class="n">Build</span> <span class="nb">type</span><span class="p">:</span> <span class="n">native</span> <span class="n">build</span>
-<span class="n">Project</span> <span class="n">name</span><span class="p">:</span> <span class="n">neovim</span>
-<span class="n">Project</span> <span class="n">version</span><span class="p">:</span> <span class="n">undefined</span>
-<span class="n">Activating</span> <span class="n">VS</span> <span class="mf">17.4.0</span>
-<span class="n">C</span><span class="o">++</span> <span class="n">compiler</span> <span class="k">for</span> <span class="n">the</span> <span class="n">host</span> <span class="n">machine</span><span class="p">:</span> <span class="n">cl</span> <span class="p">(</span><span class="n">msvc</span> <span class="mf">19.34.31933</span> <span class="s2">"Microsoft(R) C/C++ Optimizing Compiler Version 19.34.31933 for x64"</span><span class="p">)</span>
-<span class="n">C</span><span class="o">++</span> <span class="n">linker</span> <span class="k">for</span> <span class="n">the</span> <span class="n">host</span> <span class="n">machine</span><span class="p">:</span> <span class="n">link</span> <span class="n">link</span> <span class="mf">14.34.31933.0</span>
-<span class="n">Host</span> <span class="n">machine</span> <span class="n">cpu</span> <span class="n">family</span><span class="p">:</span> <span class="n">x86_64</span>
-<span class="n">Host</span> <span class="n">machine</span> <span class="n">cpu</span><span class="p">:</span> <span class="n">x86_64</span>
-
-<span class="n">meson</span><span class="o">.</span><span class="n">build</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span> <span class="n">ERROR</span><span class="p">:</span> <span class="n">No</span> <span class="n">host</span> <span class="n">machine</span> <span class="n">compiler</span> <span class="k">for</span> <span class="s1">'src/nvim/main.c'</span>
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="gobject-instrospection">
-<h1>gobject-instrospection<a class="headerlink" href="#gobject-instrospection" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.clear-code.com/blog/2022/8/17/meson-and-gobject-introspection.html">Mesonを使ってGObject Introspection対応のビルドシステムを構築する方法 - 2022-08-17 - ククログ</a></p></li>
-</ul>
 </section>
 
         </article>
@@ -414,25 +478,53 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">reference</a></li>
-<li><a class="reference internal" href="#python">python</a><ul>
-<li><a class="reference internal" href="#entry-point">entry_point</a></li>
+<li><a class="reference internal" href="#usage">usage</a><ul>
+<li><a class="reference internal" href="#project">project</a><ul>
+<li><a class="reference internal" href="#default-options">default_options</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#executable">executable</a></li>
+<li><a class="reference internal" href="#library">library</a><ul>
+<li><a class="reference internal" href="#static">static</a></li>
+<li><a class="reference internal" href="#shared">shared</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compile-options">compile options</a><ul>
+<li><a class="reference internal" href="#c">c++</a></li>
+<li><a class="reference internal" href="#include-directories">include_directories</a></li>
+<li><a class="reference internal" href="#definitions">definitions</a></li>
+<li><a class="reference internal" href="#compiler">compiler</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#link-options">link options</a><ul>
+<li><a class="reference internal" href="#lib-directories">lib_directories</a></li>
+<li><a class="reference internal" href="#libs">libs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-options">install options</a></li>
+<li><a class="reference internal" href="#message">message</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#target-dependencies">target dependencies</a><ul>
+<li><a class="reference internal" href="#subproject">subproject</a></li>
+<li><a class="reference internal" href="#cmake-subproject">cmake subproject</a></li>
 <li><a class="reference internal" href="#dependency">dependency</a><ul>
 <li><a class="reference internal" href="#method">method</a></li>
-<li><a class="reference internal" href="#fallback">fallback</a></li>
+<li><a class="reference internal" href="#declara-dependency">declara_dependency</a></li>
 <li><a class="reference internal" href="#force-subproject">force subproject</a></li>
-<li><a class="reference internal" href="#subprojects">subprojects</a></li>
-<li><a class="reference internal" href="#wrap-dependency-system">wrap dependency system</a></li>
-<li><a class="reference internal" href="#install">install先</a></li>
-<li><a class="reference internal" href="#cmake-subproject">cmake subproject</a></li>
-<li><a class="reference internal" href="#vscode-debugger">vscode debugger</a></li>
-<li><a class="reference internal" href="#override-dependency">override_dependency</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#gtk4">[[GTK4]]</a></li>
-<li><a class="reference internal" href="#windows">Windows</a></li>
-<li><a class="reference internal" href="#gobject-instrospection">gobject-instrospection</a></li>
+<li><a class="reference internal" href="#subproject-override">subproject override</a></li>
+<li><a class="reference internal" href="#wrap-dependency-system">wrap dependency system</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#native-file">native-file</a></li>
+<li><a class="reference internal" href="#module">module</a></li>
+<li><a class="reference internal" href="#meson">meson のコード</a><ul>
+<li><a class="reference internal" href="#entry-point">entry_point</a></li>
+<li><a class="reference internal" href="#vscode-launch">vscode launch</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

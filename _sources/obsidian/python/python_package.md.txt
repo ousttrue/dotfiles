@@ -1,5 +1,5 @@
 ---
-aliases: [setup.py]
+aliases: [setup.py, pyproject.toml]
 ---
 
 [[python]]
@@ -43,6 +43,9 @@ packages = find:
 
 entrypoint
 - [Entry Points - setuptools 65.5.1.post20221111 documentation](https://setuptools.pypa.io/en/latest/userguide/entry_point.html)
+
+# classifiers
+- [分類 · PyPI](https://pypi.org/classifiers/)
 
 # metadata
 ## setup.py

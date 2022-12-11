@@ -1,3 +1,5 @@
+[[markdown]]
+
 # myst-parser
 - [GitHub - executablebooks/MyST-Parser: An extended commonmark compliant parser, with bridges to docutils/sphinx](https://github.com/executablebooks/MyST-Parser)
 

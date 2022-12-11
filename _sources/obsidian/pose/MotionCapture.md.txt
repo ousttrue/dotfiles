@@ -15,7 +15,7 @@ aliases: [pose, tracking]
 	- [[mediapipe]]
 	
 # [[retarget]]
-- [[Rig]]
+- [[pose/Rig]]
 
 # [[procedual_motion]]
 - [[SpringBone]]

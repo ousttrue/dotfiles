@@ -4,7 +4,7 @@
 [[python_cli]]
 [[python_curses]]
 [[doit]]
-[[python_asyncio]]
+[[asyncio]]
 [[python_lsp]]
 [[sphinx]]
 [[ranger]]

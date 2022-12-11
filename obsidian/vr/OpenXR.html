@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>The OpenXR Loader provided by Khronos - shell note ドキュメント</title>
+        <title>Samples - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -219,20 +219,15 @@
         </div>
         <article role="main">
           <p>#red</p>
-<section class="tex2jax_ignore mathjax_ignore" id="the-openxr-loader-provided-by-khronos">
-<h1>The OpenXR Loader provided by Khronos<a class="headerlink" href="#the-openxr-loader-provided-by-khronos" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[openxr_loader]]
-[[hello_xr]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.khronos.org/files/openxr-10-reference-guide.pdf">https://www.khronos.org/files/openxr-10-reference-guide.pdf</a></p></li>
-<li><p><a class="reference external" href="https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html">The OpenXR Specification</a></p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/windows/mixed-reality/develop/native/openxr">OpenXR - Mixed Reality | Microsoft Learn</a></p></li>
 </ul>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="samples">
 <h1>Samples<a class="headerlink" href="#samples" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/THolovacko/bomberman_xr">GitHub - THolovacko/bomberman_xr: A native mixed reality Bomberman clone for the Meta Quest 2 and PC</a></p></li>
 <li><p><a class="reference external" href="https://github.com/janhsimon/openxr-vulkan-example">GitHub - janhsimon/openxr-vulkan-example: OpenXR &amp; Vulkan Integration Example</a></p></li>
+<li><p><a class="reference external" href="https://github.com/microsoft/OpenXR-MixedReality/tree/main/samples/BasicXrApp">OpenXR-MixedReality/samples/BasicXrApp at main · microsoft/OpenXR-MixedReality · GitHub</a></p></li>
 </ul>
 <section id="id1">
 <h2>クロスプラットフォーム、オプション全部入り<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -261,6 +256,31 @@
 <li><p><a class="reference external" href="https://github.com/Meumeu/WiVRn">GitHub - Meumeu/WiVRn</a></p></li>
 </ul>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="loader">
+<h1>Loader<a class="headerlink" href="#loader" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[openxr_loader]]
+Chapter 7. [[XrSpace]]
+[[hello_xr]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.khronos.org/files/openxr-10-reference-guide.pdf">https://www.khronos.org/files/openxr-10-reference-guide.pdf</a></p></li>
+<li><p><a class="reference external" href="https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html">The OpenXR Specification</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id4">
+<h1>システム + セッション<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">OpenXR</span> <span class="pre">1.0</span> <span class="pre">コア仕様</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#instance">XrInstance</a></p></li>
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#system">XrSystemId</a></p></li>
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#session">XrSession</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id5">
+<h1>参照スペース (ビュー、ローカル、ステージ)<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>[[XrSpace]]</p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="extensions">
 <h1>Extensions<a class="headerlink" href="#extensions" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -361,14 +381,16 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">The OpenXR Loader provided by Khronos</a></li>
-<li><a class="reference internal" href="#samples">Samples</a><ul>
+<li><a class="reference internal" href="#">Samples</a><ul>
 <li><a class="reference internal" href="#id1">クロスプラットフォーム、オプション全部入り</a></li>
 <li><a class="reference internal" href="#windows-mixedreality">Windows MixedReality用</a></li>
 <li><a class="reference internal" href="#id2">?</a></li>
 <li><a class="reference internal" href="#id3">未見</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#loader">Loader</a></li>
+<li><a class="reference internal" href="#id4">システム + セッション</a></li>
+<li><a class="reference internal" href="#id5">参照スペース (ビュー、ローカル、ステージ)</a></li>
 <li><a class="reference internal" href="#extensions">Extensions</a></li>
 <li><a class="reference internal" href="#runtime">Runtime</a><ul>
 <li><a class="reference internal" href="#monado">[[monado]]</a></li>
