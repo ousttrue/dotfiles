@@ -72,6 +72,8 @@
   // ${workspaceFolder} などの展開はここで手で実装するべし？
 ```
 
+- [Expose API for variable substitution in contributed configuration · Issue #46471 · microsoft/vscode · GitHub](https://github.com/microsoft/vscode/issues/46471)
+
 # main
 ## activate
 from `activation Event`
