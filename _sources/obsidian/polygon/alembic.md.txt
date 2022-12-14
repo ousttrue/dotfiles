@@ -1,0 +1,1 @@
+- [GitHub - alembic/alembic: Alembic is an open framework for storing and sharing scene data that includes a C++ library, a file format, and client plugins and applications.](https://github.com/alembic/alembic)

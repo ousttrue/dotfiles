@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>bpy.data - shell note ドキュメント</title>
+        <title>Verson - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -223,174 +223,22 @@
 [[bpy_node]]
 [[bpy_material]]
 [[blender_rna]]
-[[blender_tutorial]]</p>
-<p>[[bpy.types.Scene]]</p>
-<section class="tex2jax_ignore mathjax_ignore" id="bpy-data">
-<h1>bpy.data<a class="headerlink" href="#bpy-data" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.data.html">Data Access (bpy.data) — Blender Python API</a></p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#actions</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Action</span><span class="p">(</span><span class="s2">"vrm_simpleviewer_test_motion"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DB820F9308</span><span class="o">&gt;</span>
-<span class="c1">#armatures</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Armature</span><span class="p">(</span><span class="s2">"vrm_simpleviewer_test_motion"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBE6A6B748</span><span class="o">&gt;</span>
-<span class="c1">#brushes</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Add"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC81AA088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Airbrush"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC81A9608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Average"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC81A8B88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Blob"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC81A8108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Blur"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8933588</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Boundary"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8932B08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Clay"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8932088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Clay Strips"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8931608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Clay Thumb"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8930B88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Clone"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8930108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Clone Stroke"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC892B588</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Cloth"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC892AB08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Crease"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC892A088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Darken"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8929608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Draw"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8928B88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Draw Face Sets"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8928108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Draw Sharp"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC891B588</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Draw Weight"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC891AB08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Elastic Deform"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC891A088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Eraser Hard"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8919608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Eraser Point"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8918B88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Eraser Soft"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8918108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Eraser Stroke"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC890B588</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Fill"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC890AB08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Fill Area"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC890A088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Fill/Deepen"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8909608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Flatten/Contrast"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8908B88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Grab"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8908108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Grab Stroke"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88FB588</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Inflate/Deflate"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88FAB08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Ink Pen"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88FA088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Ink Pen Rough"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88F9608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Layer"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88F8B88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Lighten"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88F8108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Marker Bold"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88E7588</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Marker Chisel"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88E6B08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Mask"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88E6088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Mix"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88E5608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Multi-plane Scrape"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88E4B88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Multiply"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88E4108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Multires Displacement Eraser"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88D7588</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Multires Displacement Smear"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88D6B08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Nudge"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88D6088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Paint"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88D5608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Pen"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88D4B88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Pencil"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88D4108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Pencil Soft"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88CF588</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Pinch Stroke"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88CEB08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Pinch/Magnify"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88CE088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Pose"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88CD608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Push Stroke"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88CCB88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Randomize Stroke"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88CC108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Rotate"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88C3588</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Scrape/Peaks"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88C2B08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"SculptDraw"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88C2088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Simplify"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88C1608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Slide Relax"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88C0B88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Smear"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88C0108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Smooth"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88BB588</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Smooth Stroke"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88BAB08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Snake Hook"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88BA088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Soften"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88B9608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Strength Stroke"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88B8B88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Subtract"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC88B8108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"TexDraw"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC889F588</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Thickness Stroke"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC889EB08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Thumb"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC889E088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Tint"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC889D608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Twist Stroke"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC889CB88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Vertex Average"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC889C108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Vertex Blur"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC889B588</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Vertex Draw"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC889AB08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Vertex Replace"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC889A088</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Brush</span><span class="p">(</span><span class="s2">"Vertex Smear"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8899608</span><span class="o">&gt;</span>
-<span class="c1">#cache_files</span>
-<span class="c1">#cameras</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Camera</span><span class="p">(</span><span class="s2">"Camera"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8937A08</span><span class="o">&gt;</span>
-<span class="c1">#collections</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Collection</span><span class="p">(</span><span class="s2">"Collection"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8185F08</span><span class="o">&gt;</span>
-<span class="c1">#curves</span>
-<span class="c1">#fonts</span>
-<span class="c1">#grease_pencils</span>
-<span class="c1">#hair_curves</span>
-<span class="c1">#images</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Image</span><span class="p">(</span><span class="s2">"Render Result"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8882408</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Image</span><span class="p">(</span><span class="s2">"Viewer Node"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8881D08</span><span class="o">&gt;</span>
-<span class="c1">#lattices</span>
-<span class="c1">#libraries</span>
-<span class="c1">#lightprobes</span>
-<span class="c1">#lights</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">PointLight</span><span class="p">(</span><span class="s2">"Light"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC888BE48</span><span class="o">&gt;</span>
-<span class="c1">#linestyles</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">FreestyleLineStyle</span><span class="p">(</span><span class="s2">"LineStyle"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC887F888</span><span class="o">&gt;</span>
-<span class="c1">#masks</span>
-<span class="c1">#materials</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Material</span><span class="p">(</span><span class="s2">"Dots Stroke"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8185908</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Material</span><span class="p">(</span><span class="s2">"Material"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8185788</span><span class="o">&gt;</span>
-<span class="c1">#meshes</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Mesh</span><span class="p">(</span><span class="s2">"Cube"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC894C108</span><span class="o">&gt;</span>
-<span class="c1">#metaballs</span>
-<span class="c1">#movieclips</span>
-<span class="c1">#node_groups</span>
-<span class="c1">#objects</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Object</span><span class="p">(</span><span class="s2">"Camera"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC894D608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Object</span><span class="p">(</span><span class="s2">"Cube"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC894CF08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Object</span><span class="p">(</span><span class="s2">"Light"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC894C808</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Object</span><span class="p">(</span><span class="s2">"vrm_simpleviewer_test_motion"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBE6BFA408</span><span class="o">&gt;</span>
-<span class="c1">#paint_curves</span>
-<span class="c1">#palettes</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Palette</span><span class="p">(</span><span class="s2">"Palette"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC897B9E8</span><span class="o">&gt;</span>
-<span class="c1">#particles</span>
-<span class="c1">#pointclouds</span>
-<span class="c1">#scenes</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Scene</span><span class="p">(</span><span class="s2">"Scene"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC818C088</span><span class="o">&gt;</span>
-<span class="c1">#screens</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Screen</span><span class="p">(</span><span class="s2">"Animation"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8187E88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Screen</span><span class="p">(</span><span class="s2">"Compositing"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8187A08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Screen</span><span class="p">(</span><span class="s2">"Geometry Nodes"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8187408</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Screen</span><span class="p">(</span><span class="s2">"Layout"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8187108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Screen</span><span class="p">(</span><span class="s2">"Modeling"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8186E08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Screen</span><span class="p">(</span><span class="s2">"Rendering"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8186C88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Screen</span><span class="p">(</span><span class="s2">"Scripting"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8186988</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Screen</span><span class="p">(</span><span class="s2">"Sculpting"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8186688</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Screen</span><span class="p">(</span><span class="s2">"Shading"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8186508</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Screen</span><span class="p">(</span><span class="s2">"Texture Paint"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8186208</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Screen</span><span class="p">(</span><span class="s2">"UV Editing"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8186088</span><span class="o">&gt;</span>
-<span class="c1">#shape_keys</span>
-<span class="c1">#sounds</span>
-<span class="c1">#speakers</span>
-<span class="c1">#texts</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">Text</span><span class="p">(</span><span class="s2">"Text"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC87D16C8</span><span class="o">&gt;</span>
-<span class="c1">#textures</span>
-<span class="c1">#volumes</span>
-<span class="c1">#window_managers</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">WindowManager</span><span class="p">(</span><span class="s2">"WinMan"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC819C108</span><span class="o">&gt;</span>
-<span class="c1">#workspaces</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">WorkSpace</span><span class="p">(</span><span class="s2">"Animation"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8197608</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">WorkSpace</span><span class="p">(</span><span class="s2">"Compositing"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC81974C8</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">WorkSpace</span><span class="p">(</span><span class="s2">"Geometry Nodes"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8197388</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">WorkSpace</span><span class="p">(</span><span class="s2">"Layout"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8197248</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">WorkSpace</span><span class="p">(</span><span class="s2">"Modeling"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8197108</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">WorkSpace</span><span class="p">(</span><span class="s2">"Rendering"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8196FC8</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">WorkSpace</span><span class="p">(</span><span class="s2">"Scripting"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8196E88</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">WorkSpace</span><span class="p">(</span><span class="s2">"Sculpting"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8196D48</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">WorkSpace</span><span class="p">(</span><span class="s2">"Shading"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8196C08</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">WorkSpace</span><span class="p">(</span><span class="s2">"Texture Paint"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8196AC8</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">WorkSpace</span><span class="p">(</span><span class="s2">"UV Editing"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8196988</span><span class="o">&gt;</span>
-<span class="c1">#worlds</span>
-<span class="o">&lt;</span><span class="n">bpy_struct</span><span class="p">,</span> <span class="n">World</span><span class="p">(</span><span class="s2">"World"</span><span class="p">)</span> <span class="n">at</span> <span class="mh">0x000001DBC8185A88</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+[[blender_tutorial]]
+[[bpy.data]]
+[[bpy.context.window_manager]]
+[[bpy.types.Scene]]
+[[bpy.types.Object]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="verson">
+<h1>Verson<a class="headerlink" href="#verson" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://docs.blender.org/api/latest/">Blender latest Python API Documentation — Blender Python API</a></p>
 <section id="id1">
-<h2>2.8<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>3.4<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.blender.org/api/3.4/">Blender 3.4 Python API Documentation — Blender Python API</a></p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>2.8<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://sites.google.com/site/matosus304blendernotes/home/blender-python-script">Blender Python Script - mato.sus304 Blender Notes</a></p></li>
 </ul>
@@ -430,9 +278,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">bpy.data</a></li>
-<li><a class="reference internal" href="#version">Version</a><ul>
-<li><a class="reference internal" href="#id1">2.8</a></li>
+<li><a class="reference internal" href="#">Verson</a><ul>
+<li><a class="reference internal" href="#id1">3.4</a></li>
+<li><a class="reference internal" href="#id2">2.8</a></li>
 </ul>
 </li>
 </ul>
