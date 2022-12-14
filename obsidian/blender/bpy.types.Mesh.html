@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>lspprotocol - shell note ドキュメント</title>
+        <title>shapekey - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,72 +212,18 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[python]]</p>
+          <p>[[bpy]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="shapekey">
+<h1>shapekey<a class="headerlink" href="#shapekey" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/ja/3/library/asyncio.html">asyncio --- 非同期 I/O — Python 3.11.0b5 ドキュメント</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/yukimituki11/items/e40d4d5f7cc21e2b7c4b">Blenderでシェイプキー名一覧を取得・一覧から空のシェイプキーを作成 - Qiita</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="lspprotocol">
-<h1>lspprotocol<a class="headerlink" href="#lspprotocol" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/microsoft/lsprotocol">GitHub - microsoft/lsprotocol: Python implementation of the Language Server Protocol.</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="asyncio-protocol">
-<h1>asyncio.protocol<a class="headerlink" href="#asyncio-protocol" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/ja/3/library/asyncio-protocol.html">トランスポートとプロトコル — Python 3.11.0b5 ドキュメント</a></p></li>
-</ul>
-<section id="pygls">
-<h2>pygls<a class="headerlink" href="#pygls" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[lsp]]</p>
-<section id="pygls-protocol-jsonrpcprotocol">
-<h3>pygls.protocol.JsonRpcProtocol<a class="headerlink" href="#pygls-protocol-jsonrpcprotocol" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">fm</span> <span class="o">=</span> <span class="n">FeatureManager</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="pygls-protocol-languageserverprotocol">
-<h3>pygls.protocol.LanguageServerProtocol<a class="headerlink" href="#pygls-protocol-languageserverprotocol" title="このヘッドラインへのパーマリンク">¶</a></h3>
-</section>
-<section id="pygls-server-languageserver">
-<h3>pygls.server.LanguageServer<a class="headerlink" href="#pygls-server-languageserver" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p>workspace management</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@lsp_method</span><span class="p">(</span><span class="n">TEXT_DOCUMENT_DID_OPEN</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">lsp_text_document__did_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">DidOpenTextDocumentParams</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-
-        <span class="sd">"""Puts document to the workspace."""</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">workspace</span><span class="o">.</span><span class="n">put_document</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">text_document</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">get_document</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Document</span><span class="p">:</span>
-		<span class="k">pass</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>user</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="n">LanguageServer</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-    <span class="n">ls</span><span class="o">.</span><span class="n">show_message_log</span><span class="p">(</span><span class="s2">"Validating json..."</span><span class="p">)</span>
-    <span class="n">text_doc</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">workspace</span><span class="o">.</span><span class="n">get_document</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">text_document</span><span class="o">.</span><span class="n">uri</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="subprocesses">
-<h2>Subprocesses<a class="headerlink" href="#subprocesses" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/asyncio-subprocess.html">Subprocesses — Python 3.10.2 documentation</a></p></li>
-</ul>
-</section>
 </section>
 
         </article>
@@ -293,7 +239,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/python/asyncio.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/blender/bpy.types.Mesh.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -301,34 +247,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">lspprotocol</a></li>
-<li><a class="reference internal" href="#asyncio-protocol">asyncio.protocol</a><ul>
-<li><a class="reference internal" href="#pygls">pygls</a><ul>
-<li><a class="reference internal" href="#pygls-protocol-jsonrpcprotocol">pygls.protocol.JsonRpcProtocol</a></li>
-<li><a class="reference internal" href="#pygls-protocol-languageserverprotocol">pygls.protocol.LanguageServerProtocol</a></li>
-<li><a class="reference internal" href="#pygls-server-languageserver">pygls.server.LanguageServer</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#subprocesses">Subprocesses</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
