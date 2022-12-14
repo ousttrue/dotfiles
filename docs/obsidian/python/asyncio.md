@@ -6,6 +6,9 @@ aliases: [pygls]
 
 - [asyncio --- 非同期 I/O — Python 3.11.0b5 ドキュメント](https://docs.python.org/ja/3/library/asyncio.html)
 
+# lspprotocol
+- [GitHub - microsoft/lsprotocol: Python implementation of the Language Server Protocol.](https://github.com/microsoft/lsprotocol)
+
 # asyncio.protocol
 - [トランスポートとプロトコル — Python 3.11.0b5 ドキュメント](https://docs.python.org/ja/3/library/asyncio-protocol.html)
 
