@@ -222,10 +222,15 @@
 <p><a class="reference external" href="https://docs.blender.org/api/latest/bpy.context.html">Context Access (bpy.context) — Blender Python API</a>
 <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.Context.html">Context(bpy_struct) — Blender Python API</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
-<span class="n">scene</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">scene</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span>
 </pre></div>
 </div>
 <p>[[bpy.types.Scene]]</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="nb">object</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span>
+</pre></div>
+</div>
+<p>[[bpy.types.Object]]</p>
 
         </article>
       </div>

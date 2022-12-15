@@ -5,7 +5,15 @@
 
 ```python
 import bpy
-scene = bpy.scene
+scene = bpy.context.scene
 ```
 
 [[bpy.types.Scene]]
+
+```python
+import bpy
+object = bpy.context.active_object
+```
+
+[[bpy.types.Object]]
+

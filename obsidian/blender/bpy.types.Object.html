@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>data block - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,17 +212,49 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[bpy]]
-[[bpy.types.Mesh]]</p>
+          <p>[[bpy]]</p>
+<p><a class="reference external" href="https://docs.blender.org/api/current/bpy.types.Object.html#bpy.types.Object">Object(ID) — Blender Python API</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">active</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span>
 </pre></div>
 </div>
+<section class="tex2jax_ignore mathjax_ignore" id="data-block">
+<h1>data block<a class="headerlink" href="#data-block" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="mesh">
+<h2>Mesh<a class="headerlink" href="#mesh" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[bpy.types.Mesh]]</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mode">
+<h1>mode<a class="headerlink" href="#mode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>context.mode は active_object の mode</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="kn">import</span> <span class="nn">bpy</span>
+ <span class="c1">#現在のモード取得</span>
+ <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">mode</span>
+
+ <span class="c1"># アクティブオブジェクトを設定する</span>
+ <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">view_layer</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="n">obj</span>
+ <span class="c1">#オブジェクトモードに変更</span>
+ <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="s1">'OBJECT'</span><span class="p">,</span><span class="n">toggle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pose">
+<h1>pose<a class="headerlink" href="#pose" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[bpy.types.Pose]]</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">o</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span>
+<span class="n">pose</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">pose</span>
+
+<span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">pose</span><span class="o">.</span><span class="n">bones</span><span class="p">:</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
@@ -245,8 +277,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">data block</a><ul>
+<li><a class="reference internal" href="#mesh">Mesh</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mode">mode</a></li>
+<li><a class="reference internal" href="#pose">pose</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

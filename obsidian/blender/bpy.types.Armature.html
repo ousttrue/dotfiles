@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>POSE mode - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,7 +218,8 @@
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
+          <p>[[bpy]]</p>
+<ul class="simple">
 <li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.types.Armature.html#bpy.types.Armature">Armature(ID) — Blender Python API</a></p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">bone</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">bones</span><span class="p">:</span>
@@ -226,6 +227,24 @@
 </pre></div>
 </div>
 <p>[[bpy.types.Bone]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="pose-mode">
+<h1>POSE mode<a class="headerlink" href="#pose-mode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="k">def</span> <span class="nf">enter_pose</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Object</span><span class="p">):</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">view_layer</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="n">obj</span>
+    <span class="k">if</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">'POSE'</span><span class="p">:</span>
+        <span class="k">yield</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">posemode_toggle</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">view_layer</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="n">obj</span>
+            <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">posemode_toggle</span><span class="p">()</span>        
+                
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
