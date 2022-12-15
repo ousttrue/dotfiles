@@ -9,6 +9,8 @@
 [[bpy.types.Scene]]
 [[bpy.types.Object]]
 
+- @2021 [PythonでBlenderを操作してみる](https://zenn.dev/hotcocoa/articles/5c5ab06c40862b)
+
 # Verson
 [Blender latest Python API Documentation — Blender Python API](https://docs.blender.org/api/latest/)
 
