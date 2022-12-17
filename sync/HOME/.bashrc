@@ -121,13 +121,21 @@ function gs {
     fi
 }
 
-function emg {
+function femg {
     pushd /var/db/repos/gentoo
     local selected
     selected=$(find * -mindepth 1 -maxdepth 1 -type d | fzf --preview "emerge --pretend {}")
     popd
     if [ -n ${selected} ]; then
         sudo emerge -av --autounmask=y --autounmask-license=y --autounmask-write=y ${selected}
+    fi
+}
+
+function fapt {
+    local selected
+    selected=$(apt list|cut -d "/" -f 1| fzf --preview "apt-cache show {}")
+    if [ -n ${selected} ]; then
+        sudo apt install ${selected}
     fi
 }
 
