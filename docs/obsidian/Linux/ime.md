@@ -1,6 +1,6 @@
 (2014)[Nate: IME開発者向けリンク集](https://nathancorvussolis.blogspot.com/2014/10/link-list-for-ime-developers.html)
 
-## [[xorg]] inputmethod
+## [[XWindow]] inputmethod
 ## [[XIM]]
 ## [[uim]]
 ## [[im_module]]

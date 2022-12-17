@@ -1,4 +1,4 @@
-[[xorg]]
+[[XWindow]]
 [[WindowManager]]
 
 - [Qtile – A hackable tiling window manager written in Python | Qtile.org](http://www.qtile.org/)

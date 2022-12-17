@@ -1,3 +1,3 @@
-[[xorg]]
+[[XWindow]]
 
 `setxkbmap -option ctrl:nocaps`

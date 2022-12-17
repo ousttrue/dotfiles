@@ -1,7 +1,7 @@
 #blue
 [[WindowManager]]
 
-[[xorg]]
+[[XWindow]]
 [[statusbar]]
 [[launcher]]
 

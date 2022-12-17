@@ -1,3 +1,7 @@
+---
+aliases: [StaticSiteGenerator]
+---
+
 #red
 
 static site generator
@@ -29,6 +33,10 @@ https://www.staticgen.com/
 - https://themes.getnikola.com/
 
 @2020 [ブログをPelicanからNikolaに移行 | Notes Inegales](https://log.yostos.org/2020/04/26/migrate-to-nikola/)
+
+## frozen-flask
+- [Frozen-Flask — Frozen-Flask 0.15 documentation](https://pythonhosted.org/Frozen-Flask/)
+- [Frozen-Flaskによる静的サイト生成 - Qiita](https://qiita.com/NomuraS/items/1bab07bdfdf33c38eaae)
 
 # Go
 [[golang]]
