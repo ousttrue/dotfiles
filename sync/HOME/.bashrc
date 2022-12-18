@@ -107,14 +107,14 @@ fi
 
 function gg {
     local selected=$(ghq list -p | fzf-tmux --reverse +m)
-    if [ -n ${selected} ]; then
+    if [[ ${selected} =~ [^\s] ]]; then
         z ${selected}
     fi
 }
 
 function gs {
     local selected=$(git branch | fzf)
-    if [ -n ${selected} ]; then
+    if [[ ${selected} =~ [^\s] ]]; then
         git switch ${selected}
     fi
 }
@@ -123,27 +123,27 @@ function femg {
     pushd /var/db/repos/gentoo
     local selected=$(find * -mindepth 1 -maxdepth 1 -type d | fzf --preview "emerge --pretend {}")
     popd
-    if [ -n ${selected} ]; then
+    if [[ ${selected} =~ [^\s] ]]; then
         sudo emerge -av --autounmask=y --autounmask-license=y --autounmask-write=y ${selected}
     fi
 }
 
 function fapt {
     local selected=$(apt list|cut -d "/" -f 1| fzf --preview "apt-cache show {}")
-    if [ -n ${selected} ]; then
+    if [[ ${selected} =~ [^\s] ]]; then
         sudo apt install ${selected}
     fi
 }
 function fapu {
     local selected=$(apt-cache pkgnames| fzf --preview "apt-cache show {}")
-    if [ -n ${selected} ]; then
+    if [[ ${selected} =~ [^\s] ]]; then
         sudo apt uninstall ${selected}
     fi
 }
 
 function pkg {
     local selected = $(pkg-config --list-package-names | fzf --preview "bat ${HOME}/prefix/lib64/pkgconfig/{}.pc")
-    if [ -n ${selected} ]; then
+    if [[ ${selected} =~ [^\s] ]]; then
         bat $HOME/prefix/lib64/pkgconifg/${selected}.pc
     fi
 }
