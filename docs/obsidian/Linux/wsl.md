@@ -1,10 +1,10 @@
 [[wslg]]
 [[Linux]]
 
-# 管理
+# distribution 管理
 
 ```
-wsl --list --verbose
+> wsl --list --verbose
   NAME               STATE           VERSION
 * Arch               Stopped         2
   Ubuntu-CommPrev    Stopped         2
@@ -13,13 +13,13 @@ wsl --list --verbose
 ## 削除
 
 ```
-wsl --unregister
+> wsl --unregister
 ```
 
-# install
+## install
 
 ```
-wsl --list --online
+> wsl --list --online
 インストールできる有効なディストリビューションの一覧を次に示します。
 'wsl --install -d <Distro>' を使用してインストールします。
 
@@ -34,47 +34,37 @@ Ubuntu-18.04    Ubuntu 18.04 LTS
 Ubuntu-20.04    Ubuntu 20.04 LTS
 ```
 
-https://docs.microsoft.com/en-us/windows/wsl/install-win10
-			https://aka.ms/wslstore
-	https://news.mynavi.jp/series/bashonwindows
+## import
+- [WSL で使用する Linux ディストリビューションをインポートする | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/use-custom-distro)
+root file system の tar を import する
 
-	#Ubuntu
-	#openSUSE
-	SLES
-	Kali Linux
-	Debian GNU/Linux
+### arch
+- [WSL にインストール - ArchWiki](https://wiki.archlinux.jp/index.php/WSL_%E3%81%AB%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)
+```
+> wsl --import <DistributionName> <InstallLocation> <FileName> --version 2
+```
 
-	[fcitxで作るWSL日本語開発環境 https://qiita.com/dozo/items/97ac6c80f4cd13b84558]
-	[Windows Subsystem for Linux + X Windowを1.024倍くらい使いこなすための方法 https://qiita.com/nishemon/items/bb3aca972404f68bfcd6]
+### gentoo
+[[gentoo]]
+```
+> wsl --import gentoo ${env:USERPROFILE}\AppData\Local\WSL\Gentoo\ .\stage3-amd64-openrc-20211121T170545Z.tar --version 2
+```
 
-[* articles]
-	[WSL vs VM for 開発作業 https://qiita.com/satoru_takeuchi/items/a54812806bba0eb48f02]
+### ubuntu
+[[Ubuntu]]
+- @2020 [WSL(2)でOSを手動で無限に追加（インポート）する方法 - 技術的な何か。](https://level69.net/archives/27563)
+	- https://cloud-images.ubuntu.com/wsl/
+```
+> wsl --import kinetic C:\Users\oustt\AppData\Local\WSL\kinetic .\ubuntu-kinetic-wsl-amd64-wsl.rootfs.tar --version 2
+```
 
-[* wslconfig]
-	https://linuxfan.info/wslconfig
-	[マルチWSLディストリビューションを制御するコマンド"wslconfig.exe"を試す https://news.mynavi.jp/article/bashonwindows-59/]
-
-code:cli.bat
- > wslconfig /l
- Windows Subsystem for Linux ディストリビューション:
- openSUSE-42 (既定)
-
-
-
-[* WSL-Distribution-Switcher]
-	https://news.mynavi.jp/article/bashonwindows-41/
-
-[* API]
-	https://qiita.com/noumia/items/0d1d5742ec2104431e92
-	https://github.com/noumia/wsl-toyc
-
-WslRegisterDistribution
-
-## ubuntu-21.04
-- [How to install Ubuntu 21.10 on WSL for Windows 10 and 11 | Windows Central](https://www.windowscentral.com/how-install-ubuntu-2110-wsl-windows-10-and-11)
+```
+# adduser -G sudo $myUsername
+# echo -e "[user]\ndefault=$myUsername" >> /etc/wsl.conf
+# passwd $myUsername
+```
 
 # /etc/wsl.conf
-
 ```
 [user]
 default=ousttrue
@@ -84,8 +74,28 @@ hostname=wgentoo
 
 [interop]
 appendWindowsPath = false
+
+[boot]
+systemd=true
 ```
+- @2022 [WSL2+Ubuntu22.04に標準で入ったsystemdを試す - Qiita](https://qiita.com/shigeokamoto/items/ca2211567771cf40a90d)
+- @2022 [「Windows Subsystem for Linux」が「systemd」に対応へ - 窓の杜](https://forest.watch.impress.co.jp/docs/news/1441775.html)
 
 # vscode
 ` /mnt/c/Users/USER_NAME/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code`
 でインストールできる。
+
+## error
+```
+$ code
+<3>WSL (6658) ERROR: UtilConnectUnix:510: connect failed 2
+```
+- @2021 [VSCode/WSL2/Docker の組み合わせで遭遇するエラーとその対策 - Qiita](https://qiita.com/iwaiktos/items/33ab69a42c3a1cc35dfb#3init-4010-error-utilconnecttointeropserver300-connect-failed-2)
+
+# terminal
+- [GitHub - mintty/wsltty: Mintty as a terminal for Bash on Ubuntu on Windows / WSL](https://github.com/mintty/wsltty)
+
+# app launch
+```
+C:\Windows\System32\wsl.exe --distribution kinetic --cd ~ bash --login -i -c "gnome-terminal --geometry=120x60 -- ~/local/bin/attatch_or_start"
+```

@@ -1,3 +1,10 @@
+---
+aliases: [X11, xorg]
+---
+
+[[TerminalEmulator]]
+
+
 #red
 
 [[statusbar]]

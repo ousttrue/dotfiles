@@ -2,7 +2,7 @@ fullscreen の term アプリを `tui` と分類
 
 [[neovim]]
 [[w3m]]
-[[terminal]]
+[[TerminalEmulator]]
 [[escape_sequence]]
 
 - [tui · GitHub Topics · GitHub](https://github.com/topics/tui?l=c%2B%2B)
@@ -46,9 +46,13 @@ fullscreen の term アプリを `tui` と分類
 - [GitHub - jarun/nnn: n³ The unorthodox terminal file manager](https://github.com/jarun/nnn)
 - [GitHub - dylanaraps/fff: 📁 A simple file manager written in bash.](https://github.com/dylanaraps/fff)
 - [[ranger]]
+- [Minase/README_JP.md at master · SAT1226/Minase · GitHub](https://github.com/SAT1226/Minase/blob/master/README_JP.md)
 
 # Grep
 - [GitHub - tjmtmmnk/ilse: TUI grep tool respect for IntelliJ](https://github.com/tjmtmmnk/ilse)
+
+# browser
+- [GitHub - bstff/browst: terminal browser toy, xterm+sixel+gocui+cdp+sdump+tiv](https://github.com/bstff/browst)
 
 # Other
 - [GitHub - sachaos/viddy: 👀 A modern watch command. Time machine and pager etc.](https://github.com/sachaos/viddy)

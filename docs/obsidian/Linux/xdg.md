@@ -1,4 +1,4 @@
-[[xorg]]
+[[XWindow]]
 
 # config
 - `XDG_CONFIG_HOME` => `~/.config`

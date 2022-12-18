@@ -1,4 +1,4 @@
-[[xorg]]
+[[XWindow]]
 [[PulseAudio]]
 [[elogind]]
 

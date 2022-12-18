@@ -51,4 +51,4 @@
 -   Windows: フォントリンク
 -   Linux: [[fontconfig]] によるフォントのリンク
 
-[[fontconfig]] を使う [[terminal]] ならできる。
+[[fontconfig]] を使う [[TerminalEmulator]] ならできる。

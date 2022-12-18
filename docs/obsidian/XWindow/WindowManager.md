@@ -1,3 +1,3 @@
 #red
-[[xorg]]
+[[XWindow]]
 [[wayland]]
