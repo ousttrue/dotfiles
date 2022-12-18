@@ -1,12 +1,9 @@
-#term
-
-alacritty
-#terminal_emulator #rust_app
+[[TerminalEmulator]] [[Rust]]
 
 https://wiki.archlinux.org/title/Alacritty
 https://yukimemi.netlify.app/use-alacritty/
 
-code:alacritty.yml
+```yml
  #shell:
  #  program: /Windows/System32/wsl.exe ~ -d Ubuntu-20.04
  

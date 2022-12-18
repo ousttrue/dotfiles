@@ -19,7 +19,11 @@
 - [MSVC.README.rst · main · GNOME / gobject-introspection · GitLab](https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/MSVC.README.rst)
 
 # GIR
-`XDG_DATA_DIRS=prefix/share` ` + `/gir-1.0`
+`XDG_DATA_DIRS=prefix/share` ` + `/gir-1.0
+
+[[Ubuntu]] では `typelib` が配布されていて、元となる `gir` ファイルは `apt` に含まれていなかった。
+
+- [GitHub - gtk-rs/gir-files](https://github.com/gtk-rs/gir-files)
 
 ## g-ir-scanner
 - [g-ir-scanner(1) — gobject-introspection — Debian experimental — Debian Manpages](https://manpages.debian.org/experimental/gobject-introspection/g-ir-scanner.1.en.html#ENVIRONMENT_VARIABLES)

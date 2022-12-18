@@ -1,12 +1,18 @@
-- [DBus ことはじめ - Qiita](https://qiita.com/byuu/items/c600366b9c138f639863)
+[[Desktop]]
+
+- @2018 [DBus ことはじめ - Qiita](https://qiita.com/byuu/items/c600366b9c138f639863)
 - [D-Bus のはなし｜Wireless・のおと｜サイレックス・テクノロジー株式会社](https://www.silex.jp/blog/wireless/2017/01/d-bus.html)
 
-`apt install dbus-x11`
-`sudo service dbus start`
+```
+apt install dbus-x11
+sudo service dbus start
+```
 
 # session
-`dbus-launch bash`
-`dbus-run-session`
+```
+dbus-launch bash
+dbus-run-session
+```
 
 # command
 
@@ -20,6 +26,10 @@ dbus-send --print-reply --system --dest=org.bluez /org/bluez/hci0 --type=method_
 
 dbus-send --print-reply --system --dest=org.bluez /org/bluez/hci0 --type=method_call org.freedesktop.DBus.Properties.GetAll string:org.bluez.Adapter1
 ```
+
+# WSL
+[[wsl]]
+- @2019 [WSL（CentOS7）でsystemctlを実行するとFailed to get D-Bus connection: Operation not permittedになる - Qiita](https://qiita.com/mzmiyabi/items/fec2c211e0325a5460a8)
 
 # DBus-Next
 [Python DBus-Next Documentation — dbus-next 0.2.3 documentation](https://python-dbus-next.readthedocs.io/en/latest/)

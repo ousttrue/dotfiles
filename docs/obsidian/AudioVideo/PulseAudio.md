@@ -9,5 +9,15 @@
 
 > ユーザーを audio グループに追加する必要はありません。[udev](https://wiki.archlinux.jp/index.php/Udev "Udev") と _logind_ を使用して動的にユーザーに権限が与えられます
 
+
+```
+$ pactl info
+Connection failure: Timeout
+```
+
+```
+$ pactl info
+```
+
 # pavucontrol
 [[gtk]]

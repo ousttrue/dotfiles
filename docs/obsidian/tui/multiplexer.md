@@ -1,4 +1,6 @@
-# CUI
+# TUI
+[[tui]]
+
 [[screen]]
 [[tmux]]
 
@@ -13,6 +15,13 @@
 
 ## python
 [[pymux]]
+
+## mtm
+https://github.com/deadpixi/mtm
+
+
+## dvtm
+https://github.com/martanne/dvtm
 
 # GUI
 [[Konsole]]

@@ -1,4 +1,4 @@
-[[rust]] 製
+[[Rust]] 製
 - [Zellij](https://zellij.dev/)
 
 [[sixel]]

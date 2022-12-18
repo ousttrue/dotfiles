@@ -1,4 +1,4 @@
-[[terminal]]
+[[TerminalEmulator]]
 
 - [Text-Terminal-HOWTO : Terminfo と Termcap (詳細)](https://linuxjf.osdn.jp/JFdocs/Text-Terminal-HOWTO-15.html)
 

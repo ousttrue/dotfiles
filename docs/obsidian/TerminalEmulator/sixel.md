@@ -9,7 +9,7 @@
 
 - [VT330/VT340 Programmer Reference Manual: Chapter 14](https://vt100.net/docs/vt3xx-gp/chapter14.html)
 
-# 対応している [[terminal]]
+# 対応している [[TerminalEmulator]]
 - [[xterm]]
 - [[RLogin]]
 - [[mlterm]]
