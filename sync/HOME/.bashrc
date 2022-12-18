@@ -106,16 +106,14 @@ if which zoxide > /dev/null 2>&1; then
 fi
 
 function gg {
-    local selected
-    selected=$(ghq list -p | fzf-tmux --reverse +m)
+    local selected=$(ghq list -p | fzf-tmux --reverse +m)
     if [ -n ${selected} ]; then
         z ${selected}
     fi
 }
 
 function gs {
-    local selected
-    selected=$(git branch | fzf)
+    local selected=$(git branch | fzf)
     if [ -n ${selected} ]; then
         git switch ${selected}
     fi
@@ -123,8 +121,7 @@ function gs {
 
 function femg {
     pushd /var/db/repos/gentoo
-    local selected
-    selected=$(find * -mindepth 1 -maxdepth 1 -type d | fzf --preview "emerge --pretend {}")
+    local selected=$(find * -mindepth 1 -maxdepth 1 -type d | fzf --preview "emerge --pretend {}")
     popd
     if [ -n ${selected} ]; then
         sudo emerge -av --autounmask=y --autounmask-license=y --autounmask-write=y ${selected}
@@ -132,16 +129,20 @@ function femg {
 }
 
 function fapt {
-    local selected
-    selected=$(apt list|cut -d "/" -f 1| fzf --preview "apt-cache show {}")
+    local selected=$(apt list|cut -d "/" -f 1| fzf --preview "apt-cache show {}")
     if [ -n ${selected} ]; then
         sudo apt install ${selected}
     fi
 }
+function fapu {
+    local selected=$(apt-cache pkgnames| fzf --preview "apt-cache show {}")
+    if [ -n ${selected} ]; then
+        sudo apt uninstall ${selected}
+    fi
+}
 
 function pkg {
-    local selected
-    selected = $(pkg-config --list-package-names | fzf --preview "bat ${HOME}/prefix/lib64/pkgconfig/{}.pc")
+    local selected = $(pkg-config --list-package-names | fzf --preview "bat ${HOME}/prefix/lib64/pkgconfig/{}.pc")
     if [ -n ${selected} ]; then
         bat $HOME/prefix/lib64/pkgconifg/${selected}.pc
     fi
@@ -204,3 +205,10 @@ path_push "$ANDROID_HOME/platform-tools"
 
 export PATH=$(printf %s "$PATH" | awk -v RS=: -v ORS=: '!arr[$0]++')
 
+fix_wsl2_interop() {
+    for i in $(pstree -np -s $$ | grep -o -E '[0-9]+'); do
+        if [[ -e "/run/WSL/${i}_interop" ]]; then
+            export WSL_INTEROP=/run/WSL/${i}_interop
+        fi
+    done
+}

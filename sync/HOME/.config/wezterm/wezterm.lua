@@ -31,7 +31,7 @@ local config = {
   },
 }
 
-config.font_size = 12.0
+config.font_size = 18.0
 config.warn_about_missing_glyphs = false
 config.initial_cols = 100
 config.initial_rows = 50
