@@ -172,6 +172,7 @@ else
 fi
 alias glg='git lga'
 alias gcd='cd $(git rev-parse --show-toplevel)'
+alias groot='cd $(git rev-parse --show-toplevel)'
 alias gst="git status -sb"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
