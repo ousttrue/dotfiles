@@ -1,4 +1,4 @@
-[[X11/RemoteDesktop]]
+[[RemoteDesktop]]
 
 ## RdpProtocol
 - [リモートデスクトッププロトコル（RDP）最新事情［その2］：その知識、ホントに正しい？ Windowsにまつわる都市伝説（29） - ＠IT](https://atmarkit.itmedia.co.jp/ait/articles/1504/13/news019.html)

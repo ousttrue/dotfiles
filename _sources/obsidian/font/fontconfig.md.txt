@@ -1,31 +1,36 @@
-fontconfig
 
-- [Fontconfigでデフォルトのフォントを設定する方法 | 普段使いのArch Linux](https://www.archlinux.site/2017/04/fontconfig.html)
+- @2022  [Arch Linux インストール (7) - 各設定](https://aznote.jakou.com/archlinux/install7.html)
+- @2017 [Fontconfigでデフォルトのフォントを設定する方法 | 普段使いのArch Linux](https://www.archlinux.site/2017/04/fontconfig.html)
 
+# config
+## fonts
 `~/.fonts`
 `/usr/local/share/fonts/`
 
-`sudo fc-cache -fv`
-
-# fonts.conf
+## fonts.conf
 `~/.config/fontconfig/fonts.conf`
 
-# fc-list
+## fc-cache
+`update`
+```
+$ fc-cache -fv
+# or ?
+$ sudo fc-cache -fv
+```
+
+# query
+## fc-list
 [[xresource]]
 
 ```
 xterm*faceName: Monoid:style=Regular:size=12:antialias=false
 xterm*faceNameDoublesize: Yu Gothic:size=10
 ```
-# fc-match
-```
-$  fc-match sans-serif
-ipag.ttf: "IPAGothic" "Regular"
-$  fc-match mono
-ipag.ttf: "IPAGothic" "Regular"
-```
 
-# fc-cache
+## fc-match
 ```
-$ fc-cache -fv
+$ fc-match sans-serif
+ipag.ttf: "IPAGothic" "Regular"
+$ fc-match mono
+ipag.ttf: "IPAGothic" "Regular"
 ```

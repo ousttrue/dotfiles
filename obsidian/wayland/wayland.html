@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Compositor(Server) - shell note ドキュメント</title>
+        <title>dev - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,21 +218,48 @@
           </label>
         </div>
         <article role="main">
-          <p>[[RDP]]
-#red
-[[KMS]]</p>
+          <p>[[wslg]] [[RDP]] [[KMS]]</p>
+<p>#red</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://wayland.freedesktop.org/docs/html/index.html">Wayland</a></p>
 <ul>
 <li><p><a class="reference external" href="https://wiki.gentoo.org/wiki/Wayland_Desktop_Landscape">Wayland Desktop Landscape - Gentoo Wiki</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="https://aznote.jakou.com/prog/wayland/index.html">Wayland プログラミング</a></p></li>
 <li><p>@2016 <a class="reference external" href="https://qiita.com/naohikowatanabe/items/06a8b988b89b4b1ec899">Wayland の Client と Compositor の概念を理解する - Qiita</a></p></li>
 <li><p>@2016 <a class="reference external" href="https://qiita.com/maueki/items/9a3a8791a05c00b34c29">Waylandとは？ - Qiita</a></p></li>
-<li><p>@2014 <a class="reference external" href="http://d.hatena.ne.jp/devm33/20140422/1398182440">Waylandプログラミング入門 - ブログのタイトル</a></p></li>
 <li><p>@2012 <a class="reference external" href="https://qt-labs.jp/2012/12/wayland-overview.html">Wayland Overview – Qt のあれこれ (仮)</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="dev">
+<h1>dev<a class="headerlink" href="#dev" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="compositor">
+<h2>compositor<a class="headerlink" href="#compositor" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2018 <a class="reference external" href="https://qiita.com/maueki/items/34323b2762e3c3342c51">作って学ぶWayland - Qiita</a></p></li>
+</ul>
+</section>
+<section id="client">
+<h2>client<a class="headerlink" href="#client" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2018 [[OpenGLES]] <a class="reference external" href="https://github.com/eyelash/tutorials/blob/master/wayland-egl.c">tutorials/wayland-egl.c at master · eyelash/tutorials · GitHub</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://qiita.com/propella/items/7eab945158e8284bf778">Wayland に EGL で三角を描く - Qiita</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://qiita.com/propella/items/d180dd0425ecd99efd42">Wayland の shm にビットマップで絵を描く - Qiita</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://blog.techlab-xe.net/post-4621/">Wayland を使って描画テスト＆入力 – すらりん日記</a></p></li>
+<li><p>@2014 <a class="reference external" href="http://d.hatena.ne.jp/devm33/20140422/1398182440">Waylandプログラミング入門 - ブログのタイトル</a></p></li>
+<li><p><a class="reference external" href="https://aznote.jakou.com/prog/wayland/index.html">Wayland プログラミング</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="backend">
+<h1>backend<a class="headerlink" href="#backend" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="rdp">
+<h2>RDP<a class="headerlink" href="#rdp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[RDP]]</p>
+<ul class="simple">
+<li><p>@2017 <a class="reference external" href="https://qiita.com/junjihashimoto@github/items/2c37ee557360a6459926">Wayland RDP backend試してみた - Qiita</a></p></li>
+</ul>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="compositor-server">
 <h1>Compositor(Server)<a class="headerlink" href="#compositor-server" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[wayland_compositor]]</p>
@@ -244,7 +271,6 @@
 session
 <code class="docutils literal notranslate"><span class="pre">seatd</span></code></p></li>
 </ul>
-<p>(graphics, input)</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="display">
 <h1>Display<a class="headerlink" href="#display" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -302,7 +328,16 @@ session
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Compositor(Server)</a></li>
+<li><a class="reference internal" href="#">dev</a><ul>
+<li><a class="reference internal" href="#compositor">compositor</a></li>
+<li><a class="reference internal" href="#client">client</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#backend">backend</a><ul>
+<li><a class="reference internal" href="#rdp">RDP</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compositor-server">Compositor(Server)</a></li>
 <li><a class="reference internal" href="#libseat">libseat</a></li>
 <li><a class="reference internal" href="#display">Display</a></li>
 <li><a class="reference internal" href="#input">Input</a></li>

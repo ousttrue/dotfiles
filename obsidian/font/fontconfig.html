@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>fonts.conf - shell note ドキュメント</title>
+        <title>config - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,39 +218,50 @@
           </label>
         </div>
         <article role="main">
-          <p>fontconfig</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.archlinux.site/2017/04/fontconfig.html">Fontconfigでデフォルトのフォントを設定する方法 | 普段使いのArch Linux</a></p></li>
+          <ul class="simple">
+<li><p>@2022  <a class="reference external" href="https://aznote.jakou.com/archlinux/install7.html">Arch Linux インストール (7) - 各設定</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://www.archlinux.site/2017/04/fontconfig.html">Fontconfigでデフォルトのフォントを設定する方法 | 普段使いのArch Linux</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="config">
+<h1>config<a class="headerlink" href="#config" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="fonts">
+<h2>fonts<a class="headerlink" href="#fonts" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">~/.fonts</span></code>
 <code class="docutils literal notranslate"><span class="pre">/usr/local/share/fonts/</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">fc-cache</span> <span class="pre">-fv</span></code></p>
-<section class="tex2jax_ignore mathjax_ignore" id="fonts-conf">
-<h1>fonts.conf<a class="headerlink" href="#fonts-conf" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section id="fonts-conf">
+<h2>fonts.conf<a class="headerlink" href="#fonts-conf" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">~/.config/fontconfig/fonts.conf</span></code></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="fc-list">
-<h1>fc-list<a class="headerlink" href="#fc-list" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="fc-cache">
+<h2>fc-cache<a class="headerlink" href="#fc-cache" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">update</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ fc-cache -fv
+# or ?
+$ sudo fc-cache -fv
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="query">
+<h1>query<a class="headerlink" href="#query" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="fc-list">
+<h2>fc-list<a class="headerlink" href="#fc-list" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>[[xresource]]</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xterm</span><span class="o">*</span><span class="n">faceName</span><span class="p">:</span> <span class="n">Monoid</span><span class="p">:</span><span class="n">style</span><span class="o">=</span><span class="n">Regular</span><span class="p">:</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">:</span><span class="n">antialias</span><span class="o">=</span><span class="n">false</span>
 <span class="n">xterm</span><span class="o">*</span><span class="n">faceNameDoublesize</span><span class="p">:</span> <span class="n">Yu</span> <span class="n">Gothic</span><span class="p">:</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span>
 </pre></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="fc-match">
-<h1>fc-match<a class="headerlink" href="#fc-match" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$  fc-match sans-serif
+<section id="fc-match">
+<h2>fc-match<a class="headerlink" href="#fc-match" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ fc-match sans-serif
 ipag.ttf: "IPAGothic" "Regular"
-$  fc-match mono
+$ fc-match mono
 ipag.ttf: "IPAGothic" "Regular"
 </pre></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="fc-cache">
-<h1>fc-cache<a class="headerlink" href="#fc-cache" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ fc-cache -fv
-</pre></div>
-</div>
 </section>
 
         </article>
@@ -286,10 +297,17 @@ ipag.ttf: "IPAGothic" "Regular"
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">fonts.conf</a></li>
+<li><a class="reference internal" href="#">config</a><ul>
+<li><a class="reference internal" href="#fonts">fonts</a></li>
+<li><a class="reference internal" href="#fonts-conf">fonts.conf</a></li>
+<li><a class="reference internal" href="#fc-cache">fc-cache</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#query">query</a><ul>
 <li><a class="reference internal" href="#fc-list">fc-list</a></li>
 <li><a class="reference internal" href="#fc-match">fc-match</a></li>
-<li><a class="reference internal" href="#fc-cache">fc-cache</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

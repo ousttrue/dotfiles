@@ -223,8 +223,11 @@
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>22.10<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cloud-images.ubuntu.com/">Ubuntu Cloud Images - the official Ubuntu images for public clouds, Openstack, KVM and LXD</a></p></li>
+</ul>
+<section id="kinetic-kudu">
+<h2>22.10 (Kinetic Kudu)<a class="headerlink" href="#kinetic-kudu" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>@2022 <a class="reference external" href="https://tech.buty4649.net/entry/2022/10/21/175745">Ubuntu 22.04 on WSLをUbuntu 22.10にアップグレードした - ぶていのログでぶログ</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0735">第735回　Ubuntu 22.10の変更点 | gihyo.jp</a></p>
@@ -234,9 +237,46 @@
 </li>
 </ul>
 </section>
-<section id="lts">
-<h2>22.04 LTS<a class="headerlink" href="#lts" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="lts-jammy-jellyfish">
+<h2>22.04 LTS (Jammy Jellyfish)<a class="headerlink" href="#lts-jammy-jellyfish" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
+<section id="lts-focal-fossa">
+<h2>20.04 LTS (Focal Fossa)<a class="headerlink" href="#lts-focal-fossa" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="lts-bionic-beaver">
+<h2>18.04 LTS (Bionic Beaver)<a class="headerlink" href="#lts-bionic-beaver" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="apt">
+<h1>apt<a class="headerlink" href="#apt" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<blockquote>
+<div><p>apt-getでパッケージ管理もできますが、 Ubuntu14.04 からaptコマンドが推奨されています。</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference external" href="https://linuxfan.info/ubuntu-switch-archive-mirror-command">【Ubuntu】コマンド一発で「アーカイブミラー」を切り替えるには？【アプデ高速化】 | LFI</a></p></li>
+<li><p><a class="reference external" href="https://pg-fan.com/blog/ubuntu-20-04-apt">ubuntu 20.04 リポジトリ変更 | 好きこそものの上手なれ</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span><span class="o">.</span><span class="n">org</span> <span class="o">-</span><span class="n">e</span> <span class="s1">'s|archive.ubuntu.com|ubuntutym.u-toyama.ac.jp|g'</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+</pre></div>
+</div>
+<section id="apt-file">
+<h2>apt-file<a class="headerlink" href="#apt-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2016 <a class="reference external" href="https://qiita.com/tukiyo3/items/8026ca0adb61cb8dc881">apt-fileコマンドに感動した - Qiita</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dev">
+<h1>dev<a class="headerlink" href="#dev" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install build-essential
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="desktop">
+<h1>desktop<a class="headerlink" href="#desktop" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">ubuntu</span><span class="o">-</span><span class="n">desktop</span><span class="o">-</span><span class="n">minimal</span>
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -273,10 +313,18 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">22.10</a></li>
-<li><a class="reference internal" href="#lts">22.04 LTS</a></li>
+<li><a class="reference internal" href="#kinetic-kudu">22.10 (Kinetic Kudu)</a></li>
+<li><a class="reference internal" href="#lts-jammy-jellyfish">22.04 LTS (Jammy Jellyfish)</a></li>
+<li><a class="reference internal" href="#lts-focal-fossa">20.04 LTS (Focal Fossa)</a></li>
+<li><a class="reference internal" href="#lts-bionic-beaver">18.04 LTS (Bionic Beaver)</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#apt">apt</a><ul>
+<li><a class="reference internal" href="#apt-file">apt-file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dev">dev</a></li>
+<li><a class="reference internal" href="#desktop">desktop</a></li>
 </ul>
 
           </div>
