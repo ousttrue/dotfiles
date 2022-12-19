@@ -8,7 +8,7 @@ aliases: [pose, tracking]
 
 # HandTracking
 - [[XR_EXT_hand_tracking]]
-- [[pose/leapmotion]]
+- [[LeapMotion]]
 
 # 画像処理 
 - [[HumanPoseEstimation]]
