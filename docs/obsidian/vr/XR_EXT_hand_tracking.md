@@ -17,7 +17,7 @@
 
 
 [[mediapipe]]
-[[pose/leapmotion]]
+[[LeapMotion]]
 
 - [Computer Vision Group, Freiburg](https://lmb.informatik.uni-freiburg.de/resources/datasets/RenderedHandposeDataset.en.html)
 - [GitHub - lmb-freiburg/hand3d: Network estimating 3D Handpose from single color images](https://github.com/lmb-freiburg/hand3d)
