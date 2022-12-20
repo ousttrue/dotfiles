@@ -1,3 +1,4 @@
+[[XWindow]]
 
 - @2022  [Arch Linux インストール (7) - 各設定](https://aznote.jakou.com/archlinux/install7.html)
 - @2017 [Fontconfigでデフォルトのフォントを設定する方法 | 普段使いのArch Linux](https://www.archlinux.site/2017/04/fontconfig.html)
@@ -34,3 +35,8 @@ ipag.ttf: "IPAGothic" "Regular"
 $ fc-match mono
 ipag.ttf: "IPAGothic" "Regular"
 ```
+
+# XFT
+- [Xft - Wikipedia](https://ja.wikipedia.org/wiki/Xft)
+- [伝統的なXのテキスト描画 (Xft) | Netsphere Laboratories](https://www.nslabs.jp/x11-draw-m17n-text.rhtml)
+- [X.org Fonts General](https://xpt.sourceforge.net/techdocs/nix/x/fonts/xf18-XorgFontsGeneral/single/)
