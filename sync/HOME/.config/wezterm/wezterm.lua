@@ -31,7 +31,6 @@ local config = {
   },
 }
 
-config.font_size = 18.0
 config.warn_about_missing_glyphs = false
 config.initial_cols = 100
 config.initial_rows = 50
@@ -52,11 +51,13 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   -- Windows
   --
   -- config.default_prog = { "C:/Python310/Scripts/xonsh.exe" }
+  config.font_size = 14.0 -- 4k monitor with DPI scaling
   config.default_prog = { "C:/Program Files/PowerShell/7/pwsh.exe" }
 else
   --
   -- Linux
   --
+  config.font_size = 18.0 -- raw font size
   config.default_prog = { "bash" }
 end
 
