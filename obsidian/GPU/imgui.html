@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,57 +212,74 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>imgui
-#gizmo
-[[nodeeditor]]</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://github.com/ocornut/imgui
-	https://github.com/ocornut/imgui/releases
+          <ul class="simple">
+<li><p>https://github.com/ocornut/imgui</p></li>
+<li><p>@2021 <a class="reference external" href="https://eliasdaler.github.io/using-imgui-with-sfml-pt2/">Using Dear ImGui with modern C++ and STL for creating awesome game dev tools</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://blog.conan.io/2019/06/26/An-introduction-to-the-Dear-ImGui-library.html">An introduction to the Dear ImGui library</a></p></li>
+<li><p>@2018 <a class="reference external" href="http://hikita12312.hatenablog.com/entry/2018/03/17/100535">ImGuiでデバッグツール - 下町のナポレオン</a></p></li>
+<li><p>@2017 <a class="reference external" href="http://any-programming.hatenablog.com/entry/2017/04/26/112929">WindowsでOpenGLES --- imgui導入 - 何でもプログラミング</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://gamedev.stackexchange.com/questions/140693/how-can-i-render-an-opengl-scene-into-an-imgui-window">c++ - How can I render an OpenGL scene into an ImGui window? - Game Development Stack Exchange</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://qiita.com/Ushio/items/446d78c881334919e156">OpenGLやDirectXなGUIにimguiが最強すぎる - Qiita</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://qiita.com/izumin5210/items/26eaed69eea2c4318fcd">最強すぎるGUIことImGuiの見た目もイイ感じにする - Qiita</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>1.89.1<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id2">
+<h2>1.81<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id3">
+<h2>1.80<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>table API</p>
+</section>
+<section id="id4">
+<h2>1.72<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id5">
+<h2>1.71  20190613<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>docking https://github.com/ocornut/imgui/issues/2109</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="api">
+<h1>API<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// window</span>
+<span class="k">if</span><span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">Begin</span><span class="p">()){</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="n">ImGui</span><span class="o">::</span><span class="n">End</span><span class="p">();</span><span class="w"> </span><span class="c1">// begin が true でも end でも呼ばねばならぬ // Window だけ？</span>
+
+<span class="c1">// widgets</span>
+<span class="k">if</span><span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">TreeNode</span><span class="p">()){</span><span class="w"></span>
+<span class="w">	</span><span class="n">ImGui</span><span class="o">::</span><span class="n">EndNode</span><span class="p">();</span><span class="w"> </span><span class="c1">// true の時だけ呼ばねばならぬ</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p>https://github.com/mahilab/mahi-gui</p>
-<p>[* 入力ハンドリング]
-ImGui が消費する
-ImGui の Widgets が消費する
-ImGui の RenderTarget に転送する
-ImGui が消費しない</p>
-<p>[* 1.81]</p>
-<p>[* 1.80]
-table API</p>
-<p>[* 1.72]</p>
-<p>[* 1.71] 20190613
-docking https://github.com/ocornut/imgui/issues/2109</p>
-<p>code:.cpp
-// window
-if(ImGui::Begin()){
-}
-ImGui::End(); // begin が true でも end でも呼ばねばならぬ // Window だけ？</p>
-<p>// widgets
-if(ImGui::TreeNode()){
-ImGui::EndNode(); // true の時だけ呼ばねばならぬ
-}</p>
-<p>[* articles]
-https://blog.conan.io/2019/06/26/An-introduction-to-the-Dear-ImGui-library.html</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://eliasdaler.github.io/using-imgui-with-sfml-pt2/
-[OpenGLやDirectXなGUIにimguiが最強すぎる https://qiita.com/Ushio/items/446d78c881334919e156]
-[最強すぎるGUIことImGuiの見た目もイイ感じにする https://qiita.com/izumin5210/items/26eaed69eea2c4318fcd]
-http://hikita12312.hatenablog.com/entry/2018/03/17/100535
-
-[WindowsでOpenGLES --- imgui導入 http://any-programming.hatenablog.com/entry/2017/04/26/112929]
-
-https://gamedev.stackexchange.com/questions/140693/how-can-i-render-an-opengl-scene-into-an-imgui-window
-</pre></div>
-</div>
-<p>[** widgets]
-[* logger]
-https://github.com/ocornut/imgui/issues/300</p>
-<p>https://github.com/CedricGuillemet/ImGuizmo</p>
-<p>https://github.com/thennequin/ImWindow</p>
+<section id="id6">
+<h2>入力ハンドリング<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>ImGui が消費する</p>
+<ul>
+<li><p>ImGui の Widgets が消費する</p></li>
+<li><p>ImGui の RenderTarget に転送する</p></li>
+</ul>
+</li>
+<li><p>ImGui が消費しない</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="app">
+<h1>App<a class="headerlink" href="#app" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>https://github.com/mahilab/mahi-gui</p></li>
+</ul>
+</section>
 
         </article>
       </div>
@@ -285,8 +302,36 @@ https://github.com/ocornut/imgui/issues/300</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#id1">1.89.1</a></li>
+<li><a class="reference internal" href="#id2">1.81</a></li>
+<li><a class="reference internal" href="#id3">1.80</a></li>
+<li><a class="reference internal" href="#id4">1.72</a></li>
+<li><a class="reference internal" href="#id5">1.71  20190613</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api">API</a><ul>
+<li><a class="reference internal" href="#id6">入力ハンドリング</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#app">App</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
