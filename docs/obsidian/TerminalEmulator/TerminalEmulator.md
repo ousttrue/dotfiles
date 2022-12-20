@@ -15,6 +15,9 @@ aliases: [X端末, xterm]
 ## xterm
 [[TerminalEmulator|xterm]]
 
+## urxvt
+- @2017 [urxvt こと rxvt-unicode を使うことのメモ | Jenemal Notes](http://malkalech.com/urxvt_terminal_emulator)
+
 ## st
 [[simple_terminal|st]]
 
