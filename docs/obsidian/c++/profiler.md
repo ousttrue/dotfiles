@@ -5,7 +5,7 @@ https://bitbucket.org/wolfpld/tracy/src/master/
 
 https://github.com/jonasmr/microprofile
 
-[[imgui]]
+[[GPU/imgui]]
 imgui profiler
 #imgui
 
