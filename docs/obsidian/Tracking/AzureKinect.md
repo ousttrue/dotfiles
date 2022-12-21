@@ -3,7 +3,6 @@
 [Azure Kinect DK のドキュメント | Microsoft Docs](https://docs.microsoft.com/ja-jp/azure/Kinect-dk/)
 - [GitHub - microsoft/Azure-Kinect-Samples: Samples for Azure Kinect](https://github.com/microsoft/Azure-Kinect-Samples)
 
-
 # k4a
 [Azure-Kinect-Sensor-SDK/usage.md at develop · microsoft/Azure-Kinect-Sensor-SDK · GitHub](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md)
 `C:\Program Files\Azure Kinect SDK v1.4.1`
@@ -45,3 +44,27 @@ https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.1
 https://docs.microsoft.com/en-us/azure/kinect-dk/build-first-body-app
 https://docs.microsoft.com/en-us/azure/kinect-dk/body-sdk-setup
 https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples
+
+## Unity
+- [Azure-Kinect-Samples/README.md at master · microsoft/Azure-Kinect-Samples · GitHub](https://github.com/microsoft/Azure-Kinect-Samples/blob/master/body-tracking-samples/sample_unity_bodytracking/README.md)
+```
+> nuget.exe restore
+> MoveLibraryFiles.bat
+```
+- @2021 [AzureKinectのBodyTrackingSDKをUnityプロジェクトに導入する方法 | CitronSeason's Blog](https://citronseason.github.io/%E7%A0%94%E7%A9%B6%E3%83%A1%E3%83%A2/unity/2021/10/26/howToImportAzureKinectBodyTrackingSDKtoUnityProject/)
+- @2021 [Azure Kinect でピクトグラムになってみた初期設定と手順](https://akihiro-document.azurewebsites.net/post/kinect/pictogram2020withazurekinect/)
+```csharp
+ProcessingMode = TrackerProcessingMode.Cpu
+```
+- @2020 [Azure KinectのBodyTracking公式サンプルをUnityで動かしてみる - Qiita](https://qiita.com/drumath2237/items/b92399e71db1074814e3)
+
+### Cuda
+### DirectML
+### Tensor
+
+# tools
+## Viewer
+- [Azure Kinect ビューアー | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/kinect-dk/azure-kinect-viewer#check-device-firmware-version)
+
+# Sample
+- [GitHub - UnaNancyOwen/AzureKinectSample: Sample Program for Azure Kinect Sensor SDK and Azure Kinect Body Tracking SDK](https://github.com/UnaNancyOwen/AzureKinectSample)
