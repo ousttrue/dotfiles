@@ -1,8 +1,16 @@
 #blue
 
+```
 [[zig]] + [[OpenGL]] + [[wasm]]
 [[python]] + [[flask]] + [[Leaflet]]
+```
+
+# OpenXR renderer
+
 [[OpenXR]]
+[[lua]] scripting
+[[Android]]
+[[HandTracking]]
 
 # Update
 - [pysdl2やってみる - Qiita](https://qiita.com/ousttrue/items/6ffc9625c715a85dd3c4)
@@ -26,6 +34,7 @@
 
 - gstreamer(with gir)
 
+```
 # Stream
 - Unity
 - [[spout]]
@@ -76,3 +85,4 @@
 # [[tui]]
 - [GitHub - afify/sfm: simple file manager](https://github.com/afify/sfm)
 - yazls のデバッグツール作りたい
+```
