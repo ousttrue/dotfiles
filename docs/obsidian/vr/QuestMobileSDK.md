@@ -3,6 +3,8 @@
 [[android_ndk]]
 [[OpenXR]]
 
+- [OpenXR Mobile SDK](https://developer.oculus.com/documentation/native/android/mobile-intro/)
+
 - [Android開発ソフトウェアの設定](https://developer.oculus.com/documentation/native/android/mobile-studio-setup-android/)
 
 - Android SDKプラットフォーム、APIレベル26

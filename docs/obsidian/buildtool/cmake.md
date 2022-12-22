@@ -33,6 +33,13 @@
 DCMAKE_TOOLCHAIN_FILE=D:\\AndroidSdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake`
 ```
 
+# fetch content
+`3.11`
+- [FetchContent — CMake 3.25.1 Documentation](https://cmake.org/cmake/help/latest/module/FetchContent.html)
+- @2021 [cmakeでHeader Onlyライブラリをお手軽に使う - toge's diary](https://toge.hatenablog.com/entry/2021/01/27/150632)
+
+## FetchContent_Populate
+
 # cmake UWP build
 
 [* cmake version 3.11.18040201-MSVC_2]
