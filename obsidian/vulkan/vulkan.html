@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>project - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,128 +218,114 @@
           </label>
         </div>
         <article role="main">
-          <p>[[snapdragon]]
-#red
-[[zig]]
-[[QuestMobileSDK]]
-[[AndroidStudio]]
-[[android_ndk]]</p>
-<section class="tex2jax_ignore mathjax_ignore" id="project">
-<h1>project<a class="headerlink" href="#project" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">7.3.1</span></code></p>
-<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="c1">// build.gradle</span>
-<span class="c1">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span>
-
-<span class="n">buildscript</span> <span class="o">{</span>
-
-    <span class="n">repositories</span> <span class="o">{</span>
-       <span class="n">google</span><span class="o">()</span>
-       <span class="n">mavenCentral</span><span class="o">()</span>
-    <span class="o">}</span>
-
-    <span class="n">dependencies</span> <span class="o">{</span>
-        <span class="n">classpath</span> <span class="s1">'com.android.tools.build:gradle:7.3.1'</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="n">allprojects</span> <span class="o">{</span>
-    <span class="n">repositories</span> <span class="o">{</span>
-        <span class="n">google</span><span class="o">()</span>
-        <span class="n">mavenCentral</span><span class="o">()</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="n">task</span> <span class="nf">clean</span><span class="o">(</span><span class="nl">type:</span> <span class="n">Delete</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">delete</span> <span class="n">rootProject</span><span class="o">.</span><span class="na">buildDir</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<section id="app">
-<h2>app<a class="headerlink" href="#app" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="c1">// settings.gradle</span>
-<span class="n">include</span> <span class="s1">':app'</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">/app/build/outputs/apk</span></code></p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lint">
-<h1>lint<a class="headerlink" href="#lint" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <p>[[spir-v]] [[ktx2]] [[VkInstance]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/yoppie_x/items/4ada5a4c12ff9fd057a4">Android Lintと修正方法 - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://vulkan.lunarg.com/">LunarXchange</a></p></li>
 </ul>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://developer.android.com/about/versions?hl=ja">Android Releases  |  Android Developers</a></p>
-<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Android</p></th>
-<th class="head"><p>API level</p></th>
-<th class="head"><p>device</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>13</p></td>
-<td><p></p></td>
-<td><p>beta</p></td>
-</tr>
-<tr class="row-odd"><td><p>12</p></td>
-<td><p>31</p></td>
-<td><p>pixel3a</p></td>
-</tr>
-<tr class="row-even"><td><p>7</p></td>
-<td><p></p></td>
-<td><p>nougat</p></td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><p></p></td>
-<td><p>lolipop</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p></p></td>
-<td><p>ICS</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p></p></td>
-<td><p>gingerbred</p></td>
-</tr>
-</tbody>
-</table></div>
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>1.3<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/67412084/android-studio-error-manifest-merger-failed-apps-targeting-android-12">java - Android Studio error: "Manifest merger failed: Apps targeting Android 12" - Stack Overflow</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://pc.watch.impress.co.jp/docs/news/1383547.html">Vulkan 1.3がリリース。新追加機能はオプションではなく実装を義務付け - PC Watch</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>環境変数<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id2">
+<h2>1.1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://developer.android.com/studio/command-line/variables?hl=ja">環境変数  |  Android デベロッパー  |  Android Developers</a></p></li>
+<li><p>@2018 <a class="reference external" href="https://pc.watch.impress.co.jp/docs/news/1110461.html">グラフィックスAPI「Vulkan」バージョン1.1公開 - PC Watch</a></p></li>
+<li><p>@2018 <a class="reference external" href="https://pc.watch.impress.co.jp/docs/news/1108626.html">グラフィックスAPI「Vulkan」がmacOS/iOSで利用可能に - PC Watch</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="sdkmanager">
-<h1>sdkmanager<a class="headerlink" href="#sdkmanager" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">/opt/android-sdk/tools/bin/sdkmanager</span></code></p>
+<section id="id3">
+<h2>1.0<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/ryotabannai/articles/9a55a051289cd819c96a">sdkmanager で jdk バージョン違いでこけるのを対処する</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://jp.khronos.org/news/press/vulkan-1.0">クロノス・グループ、Vulkan 1.0を発表 - Press Release - Khronos Group</a></p></li>
 </ul>
-<blockquote>
-<div><p>sdkmanager が java8 までしか対応していない</p>
-</div></blockquote>
-<ul class="simple">
-<li><p><a class="reference external" href="https://k11i.biz/blog/2018/06/26/maven-artifacts-for-java9-deprecated-modules/">Java 9 で deprecated になったモジュールによる例外発生の問題にちゃんと対処したい - k11i.biz</a></p></li>
-<li><p><a class="reference external" href="https://www.ninton.co.jp/archives/2723">android: sdkmanagerを起動すると、NoClassDefFoundErrorで起動できない | Ninton</a></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">This</span> <span class="n">has</span> <span class="n">been</span> <span class="n">removed</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">JDK</span> <span class="k">with</span> <span class="n">version</span> <span class="mi">11</span><span class="o">+</span>
-<span class="n">java</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="n">module</span><span class="o">.</span><span class="n">FindException</span><span class="p">:</span> <span class="n">Module</span> <span class="n">java</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">bind</span> <span class="ow">not</span> <span class="n">found</span>
+</section>
+<section id="deprecated">
+<h2>deprecated<a class="headerlink" href="#deprecated" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">VK_DYNAMIC_STATE_RANGE_SIZE</span></code></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cmake">
+<h1>cmake<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">%VULKAN_SDK%</span> <span class="pre">=</span> <span class="pre">D:\VulkanSDK\1.3.236.0</span></code></p>
+<div class="highlight-CMakeLists.txt notranslate"><div class="highlight"><pre><span></span>find_package(Vulkan)
 </pre></div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vulkan-hpp">
+<h1>vulkan.hpp<a class="headerlink" href="#vulkan-hpp" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/joji/items/931d5f4e4ee853d7458c">Androidのlicencesのエラーを解決 - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://github.com/KhronosGroup/Vulkan-Hpp">GitHub - KhronosGroup/Vulkan-Hpp: Open-Source Vulkan C++ API</a></p></li>
 </ul>
+<section id="sample">
+<h2>sample<a class="headerlink" href="#sample" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/SaschaWillems/Vulkan_Test/blob/master/01_triangle/01_triangle.cpp">Vulkan_Test/01_triangle.cpp at master · SaschaWillems/Vulkan_Test · GitHub</a></p></li>
+</ul>
+</section>
+<section id="android">
+<h2>android<a class="headerlink" href="#android" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/IkeikeP/vulkan-hpp-triangle-android">GitHub - IkeikeP/vulkan-hpp-triangle-android: A vulkan-hpp implementation of the popular triangle.</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="samples">
+<h1>samples<a class="headerlink" href="#samples" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/KhronosGroup/Vulkan-Samples">GitHub - KhronosGroup/Vulkan-Samples: One stop solution for all Vulkan samples</a></p></li>
+<li><p><a class="reference external" href="https://github.com/SaschaWillems/Vulkan">GitHub - SaschaWillems/Vulkan: Examples and demos for the new Vulkan API</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tutorial">
+<h1>tutorial<a class="headerlink" href="#tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/KhronosGroup/Vulkan-Guide/blob/master/lang/jp/README-jp.adoc">Vulkan-Guide/README-jp.adoc at master · KhronosGroup/Vulkan-Guide · GitHub</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/nishiki/articles/6237fcd3177def">Vulkan入門で参考になる資料</a></p></li>
+<li><p><a class="reference external" href="https://vulkan-tutorial.com/">Site Unreachable</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="glfw">
+<h1>GLFW<a class="headerlink" href="#glfw" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.glfw.org/docs/3.3/vulkan_guide.html">GLFW: Vulkan guide</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gentoo">
+<h1>Gentoo<a class="headerlink" href="#gentoo" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[Gentoo]]</p>
+<ul class="simple">
+<li><p>@2021 <a class="reference external" href="https://joker1007.hatenablog.com/entry/2021/04/10/223111">Gaming on Gentoo Linux - joker1007’s diary</a></p></li>
+<li><p><a class="reference external" href="https://github.com/SaschaWillems/Vulkan">GitHub - SaschaWillems/Vulkan: Examples and demos for the new Vulkan API</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="direct-display">
+<h1>direct display<a class="headerlink" href="#direct-display" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.wenyanet.com/opensource/ja/60d63a296dc47e20d012d9ed.html">VulkanダイレクトディスプレイにレンダリングするOpenGLサンプル - wenyanet</a>
+[[VK_KHR_display]]</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id4">
+<h1>Android<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[Android]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://source.android.com/docs/core/graphics/implement-vulkan?hl=ja">Vulkan の実装  |  Android オープンソース プロジェクト  |  Android Open Source Project</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="error">
+<h1>error<a class="headerlink" href="#error" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="failed-to-open-json-file">
+<h2>Failed to open JSON file<a class="headerlink" href="#failed-to-open-json-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">validation</span> <span class="n">layer</span><span class="p">:</span> <span class="n">loader_get_json</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="nb">open</span> <span class="n">JSON</span> <span class="n">file</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)</span>\<span class="n">Epic</span> <span class="n">Games</span>\<span class="n">Launcher</span>\<span class="n">Portal</span>\<span class="n">Extras</span>\<span class="n">Overlay</span>\<span class="n">EOSOverlayVkLayer</span><span class="o">-</span><span class="n">Win32</span><span class="o">.</span><span class="n">json</span>
+<span class="n">validation</span> <span class="n">layer</span><span class="p">:</span> <span class="n">loader_get_json</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="nb">open</span> <span class="n">JSON</span> <span class="n">file</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)</span>\<span class="n">Epic</span> <span class="n">Games</span>\<span class="n">Launcher</span>\<span class="n">Portal</span>\<span class="n">Extras</span>\<span class="n">Overlay</span>\<span class="n">EOSOverlayVkLayer</span><span class="o">-</span><span class="n">Win64</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/godotengine/godot/issues/56089">Vulkan: Spurious "Failed to open JSON file" printed due to invalid Vulkan ICD files · Issue #56089 · godotengine/godot · GitHub</a></p>
+</section>
 </section>
 
         </article>
@@ -355,7 +341,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/Android/Android.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/vulkan/vulkan.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -375,14 +361,29 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">project</a><ul>
-<li><a class="reference internal" href="#app">app</a></li>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#id1">1.3</a></li>
+<li><a class="reference internal" href="#id2">1.1</a></li>
+<li><a class="reference internal" href="#id3">1.0</a></li>
+<li><a class="reference internal" href="#deprecated">deprecated</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#lint">lint</a></li>
-<li><a class="reference internal" href="#version">version</a></li>
-<li><a class="reference internal" href="#id1">環境変数</a></li>
-<li><a class="reference internal" href="#sdkmanager">sdkmanager</a></li>
+<li><a class="reference internal" href="#cmake">cmake</a></li>
+<li><a class="reference internal" href="#vulkan-hpp">vulkan.hpp</a><ul>
+<li><a class="reference internal" href="#sample">sample</a></li>
+<li><a class="reference internal" href="#android">android</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#samples">samples</a></li>
+<li><a class="reference internal" href="#tutorial">tutorial</a></li>
+<li><a class="reference internal" href="#glfw">GLFW</a></li>
+<li><a class="reference internal" href="#gentoo">Gentoo</a></li>
+<li><a class="reference internal" href="#direct-display">direct display</a></li>
+<li><a class="reference internal" href="#id4">Android</a></li>
+<li><a class="reference internal" href="#error">error</a><ul>
+<li><a class="reference internal" href="#failed-to-open-json-file">Failed to open JSON file</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

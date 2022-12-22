@@ -1,4 +1,4 @@
-[[Linux]] [[wayland]] [[RDP]]
+[[wsl]] [[Linux]] [[wayland]] [[RDP]]
 
 - [WSL で Linux GUI アプリを実行する | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/gui-apps)
 	- [GitHub - microsoft/wslg: Enabling the Windows Subsystem for Linux to include support for Wayland and X server related scenarios](https://github.com/microsoft/wslg)

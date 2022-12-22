@@ -1,4 +1,4 @@
-[[arm_snapdragon]]
+[[snapdragon]]
 #red
 [[zig]]
 [[QuestMobileSDK]]

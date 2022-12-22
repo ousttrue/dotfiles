@@ -6,6 +6,14 @@
 
 - [OpenGL で SPIR-V のシェーダー – すらりん日記](https://blog.techlab-xe.net/post-4956/)
 
+# glslc
+- @2016 [Vulkan SDK付属のGLSLコンパイラー - syghの新フラグメント置き場](https://sygh.hatenadiary.jp/entry/2016/05/30/232148)
+
+```
+%VULKAN_SDK%/Bin/glslc.exe shader.vert -o vert.spv
+%VULKAN_SDK%/Bin/glslc.exe shader.frag -o frag.spv
+```
+
 # glslang
 - [GitHub - KhronosGroup/glslang: Khronos-reference front end for GLSL/ESSL, partial front end for HLSL, and a SPIR-V generator.](https://github.com/KhronosGroup/glslang)
 
