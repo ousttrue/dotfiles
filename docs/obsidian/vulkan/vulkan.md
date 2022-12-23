@@ -1,4 +1,4 @@
-[[spir-v]] [[ktx2]] [[VkInstance]]
+[[spir-v]] [[ktx2]] [[VkInstance]] [[VkSwapchainKHR]] [[VkPipeLine]] [[VkCommandList]]
 
 - [LunarXchange](https://vulkan.lunarg.com/)
 
