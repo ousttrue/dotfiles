@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>SetConsoleMode - shell note ドキュメント</title>
+        <title>API - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -219,18 +219,26 @@
         </div>
         <article role="main">
           <p>[[conhost]] を代替する新しい API
-[[windows_terminal]]
-[[vt100]]</p>
+Windows10 <code class="docutils literal notranslate"><span class="pre">1903</span></code>
+from <code class="docutils literal notranslate"><span class="pre">17733</span></code> <code class="docutils literal notranslate"><span class="pre">1809</span></code></p>
+<p>[[windows_terminal]] [[vt100]]</p>
 <blockquote>
 <div><p>Windows 疑似コンソールは、疑似コンソール、ConPTY、または Windows PTY とも呼ばれ</p>
 </div></blockquote>
-<p>Windows10 <code class="docutils literal notranslate"><span class="pre">1903</span></code>
-from <code class="docutils literal notranslate"><span class="pre">17733</span></code> <code class="docutils literal notranslate"><span class="pre">1809</span></code></p>
-<section class="tex2jax_ignore mathjax_ignore" id="setconsolemode">
-<h1>SetConsoleMode<a class="headerlink" href="#setconsolemode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="api">
+<h1>API<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="createpseudoconsole">
+<h2>CreatePseudoConsole<a class="headerlink" href="#createpseudoconsole" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/createpseudoconsole">CreatePseudoConsole function - Windows Console | Microsoft Docs</a></p></li>
+</ul>
+</section>
+<section id="setconsolemode">
+<h2>SetConsoleMode<a class="headerlink" href="#setconsolemode" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/setconsolemode">SetConsoleMode 関数 - Windows Console | Microsoft Docs</a></p></li>
 </ul>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="input">
 <h1>Input<a class="headerlink" href="#input" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -247,15 +255,23 @@ from <code class="docutils literal notranslate"><span class="pre">17733</span></
 <p>HOST側
 Client側 =&gt; VT</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/createpseudoconsole">CreatePseudoConsole function - Windows Console | Microsoft Docs</a></p></li>
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions">Using the High-Level Input and Output Functions - Windows Console | Microsoft Docs</a></p></li>
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/creating-a-pseudoconsole-session#preparing-for-creation-of-the-child-process">Creating a Pseudoconsole session - Windows Console | Microsoft Docs</a></p></li>
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/">Console documentation - Windows Console | Microsoft Docs</a></p></li>
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/using-the-console">Using the Console - Windows Console | Microsoft Docs</a></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">cs</span></code></p>
+<ul class="simple">
 <li><p><a class="reference external" href="https://github.com/akobr/ConPty.Sample">GitHub - akobr/ConPty.Sample: Example of usage pseudo console in C#.</a></p></li>
-<li><p><a class="reference external" href="https://github.com/Biswa96/XConPty">GitHub - Biswa96/XConPty: Experiments with Pseudo Console in Windows 10</a></p></li>
-<li><p><a class="reference external" href="https://github.com/microsoft/terminal/tree/master/samples/ConPTY/EchoCon">terminal/samples/ConPTY/EchoCon at main · microsoft/terminal · GitHub</a></p></li>
 <li><p><a class="reference external" href="https://github.com/waf/MiniTerm">GitHub - waf/MiniTerm: Experiments with the new Windows PTY APIs</a></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">c</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/Biswa96/XConPty">GitHub - Biswa96/XConPty: Experiments with Pseudo Console in Windows 10</a></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">cpp</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/microsoft/terminal/tree/master/samples/ConPTY/EchoCon">terminal/samples/ConPTY/EchoCon at main · microsoft/terminal · GitHub</a></p></li>
 </ul>
 </section>
 
@@ -292,7 +308,11 @@ Client側 =&gt; VT</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">SetConsoleMode</a></li>
+<li><a class="reference internal" href="#">API</a><ul>
+<li><a class="reference internal" href="#createpseudoconsole">CreatePseudoConsole</a></li>
+<li><a class="reference internal" href="#setconsolemode">SetConsoleMode</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#input">Input</a></li>
 <li><a class="reference internal" href="#articles">Articles</a></li>
 </ul>
