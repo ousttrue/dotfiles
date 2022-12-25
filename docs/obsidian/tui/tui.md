@@ -4,6 +4,10 @@ fullscreen の term アプリを `tui` と分類
 [[w3m]]
 [[TerminalEmulator]]
 [[escape_sequence]]
+[[curses]]
+[[notcurses]]
+[[prompt_toolkit]]
+[[turbo_vision]]
 
 - [tui · GitHub Topics · GitHub](https://github.com/topics/tui?l=c%2B%2B)
 
@@ -31,6 +35,14 @@ fullscreen の term アプリを `tui` と分類
 - [GitHub - ArthurSonzogni/FTXUI: C++ Functional Terminal User Interface.](https://github.com/ArthurSonzogni/FTXUI)
 
 ## python
+- @2021 [PythonでTUIアプリを作ろう ( その１　TUIアプリとは ) - TORIO's blog](https://rsn604.github.io/it/python%E3%81%A7tui%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8D%E3%81%86%E3%81%9D%E3%81%AE%EF%BC%91-tui%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A8%E3%81%AF/)
+- @2021 [PythonでTUIアプリを作ろう ( その２　TUIライブラリの選択 ) - TORIO's blog](https://rsn604.github.io/it/python%E3%81%A7tui%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8D%E3%81%86%E3%81%9D%E3%81%AE%EF%BC%92-tui%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E9%81%B8%E6%8A%9E/)
+
+- [Introduction - Textual](https://textual.textualize.io/)
+	- @2022 [Textual がスゴイ！Python と CSS でストップウォッチアプリを作ってみた - kakakakakku blog](https://kakakakakku.hatenablog.com/entry/2022/12/01/094625)
+	 - @2021 [textual を触ってみる | KSK Dev](https://site.ksk.dev/try-textual/)
+- [Overview — Urwid 2.1.2](https://urwid.org/)
+- [GitHub - bczsalba/pytermgui: Python TUI framework with mouse support, modular widget system, customizable and rapid terminal markup language and more!](https://github.com/bczsalba/pytermgui)
 - [GitHub - jwlodek/py_cui: A python library for intuitively creating CUI/TUI interfaces with widgets, inspired by gocui.](https://github.com/jwlodek/py_cui)
 
 # git

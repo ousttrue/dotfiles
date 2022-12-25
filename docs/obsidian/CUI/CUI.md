@@ -1,10 +1,6 @@
 [[pty]]
-[[curses]]
-[[notcurses]]
 [[font]]
-[[prompt_toolkit]]
-[[turbo_vision]]
-
+[[tui]]
 
 
 [* pymux]
