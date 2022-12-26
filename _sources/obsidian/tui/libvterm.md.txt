@@ -4,6 +4,21 @@
 - @2018 [golang で libvterm - Qiita](https://qiita.com/mattn/items/5aed718a65d21ca7855c)
 
 # API
+## VTermScreenCallbacks
+```c
+typedef struct {
+  int (*damage)(VTermRect rect, void *user);
+  int (*moverect)(VTermRect dest, VTermRect src, void *user);
+  int (*movecursor)(VTermPos pos, VTermPos oldpos, int visible, void *user);
+  int (*settermprop)(VTermProp prop, VTermValue *val, void *user);
+  int (*bell)(void *user);
+  int (*resize)(int rows, int cols, void *user);
+  int (*sb_pushline)(int cols, const VTermScreenCell *cells, void *user);
+  int (*sb_popline)(int cols, VTermScreenCell *cells, void *user);
+  int (*sb_clear)(void* user);
+} VTermScreenCallbacks;
+```
+
 ## forkpty
 `posix`
 
@@ -18,6 +33,7 @@
 
 ## SDL
 - [GitHub - palomena/sdlterm: SDL2 Terminal Emulator based on libvterm and sdlfox](https://github.com/palomena/sdlterm)
+- [SDL2 terminal emulator using libvterm · GitHub](https://gist.github.com/shimarin/71ace40e7443ed46387a477abf12ea70)
 
 ## qt
 [[qt5]]

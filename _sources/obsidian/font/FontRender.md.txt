@@ -1,10 +1,13 @@
 # freetype2
 - [The FreeType Project](https://freetype.org/)
 
+## OpenGL
+- [GitHub - rougier/freetype-gl: OpenGL text using one vertex buffer, one texture and FreeType](https://github.com/rougier/freetype-gl)
+- @2015 [FreeTypeを使ったOpenGLでのテキスト描画 - CGプログラマーとして、日々記録！](https://blendgimper.hatenablog.jp/entry/2016/01/01/074615)
+
 # stb-truetype
 ## fontstash
-- [GitHub - akrinke/Font-Stash: A dynamic font glyph cache for OpenGL.](https://github.com/akrinke/Font-Stash)
-- [GitHub - memononen/fontstash: Light-weight online font texture atlas builder](https://github.com/memononen/fontstash)
+[[fontstash]]
 
 # rust
 ## fontdue
