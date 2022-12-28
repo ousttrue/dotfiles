@@ -13,9 +13,17 @@
 # usage
 
 ## project
+- [project](https://mesonbuild.com/Reference-manual_functions.html#project)
 ```meson.build
 project('helloworld', 'c')
 ```
+
+### default_options 
+大域設定
+- cpp_std=c++20
+- cpp_args=/utf-8
+- c_args=/utf-8
+
 
 ### default_options
 
@@ -47,7 +55,10 @@ perfectcalc_lib = library(
 ```
 
 ### static
+`static_library`
 ### shared
+
+### 設定でスイッチするには？
 
 ## compile options
 ### c++
@@ -118,6 +129,7 @@ lua_dep = dependency('lua')
 - pkg-config, cmake, ...
 
 ### declara_dependency
+- [declaring](https://mesonbuild.com/Dependencies.html#declaring-your-own)
 pango
 ```meson
 libpango_dep = meson.declare_dependency()
