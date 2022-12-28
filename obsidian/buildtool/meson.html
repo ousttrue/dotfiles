@@ -239,11 +239,23 @@
 <h1>usage<a class="headerlink" href="#usage" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="project">
 <h2>project<a class="headerlink" href="#project" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mesonbuild.com/Reference-manual_functions.html#project">project</a></p></li>
+</ul>
 <div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="nb">project</span><span class="p">(</span><span class="s">'helloworld'</span><span class="p">,</span><span class="w"> </span><span class="s">'c'</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <section id="default-options">
 <h3>default_options<a class="headerlink" href="#default-options" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>大域設定</p>
+<ul class="simple">
+<li><p>cpp_std=c++20</p></li>
+<li><p>cpp_args=/utf-8</p></li>
+<li><p>c_args=/utf-8</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>default_options<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="nb">project</span><span class="p">(</span><span class="w"> </span><span class="s">'calculator'</span><span class="p">,</span><span class="w"> </span><span class="s">'cpp'</span><span class="p">,</span><span class="w"> </span><span class="n">default_options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s">'warning_level=3'</span><span class="p">])</span><span class="w"></span>
 </pre></div>
 </div>
@@ -273,9 +285,13 @@
 </div>
 <section id="static">
 <h3>static<a class="headerlink" href="#static" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">static_library</span></code></p>
 </section>
 <section id="shared">
 <h3>shared<a class="headerlink" href="#shared" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="id2">
+<h3>設定でスイッチするには？<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </section>
 </section>
 <section id="compile-options">
@@ -372,7 +388,10 @@
 </section>
 <section id="declara-dependency">
 <h3>declara_dependency<a class="headerlink" href="#declara-dependency" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>pango</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mesonbuild.com/Dependencies.html#declaring-your-own">declaring</a>
+pango</p></li>
+</ul>
 <div class="highlight-meson notranslate"><div class="highlight"><pre><span></span><span class="n">libpango_dep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vm">meson</span><span class="p">.</span><span class="n">declare_dependency</span><span class="p">()</span><span class="w"></span>
 <span class="vm">meson</span><span class="p">.</span><span class="n">override_dependency</span><span class="p">(</span><span class="s">'pango'</span><span class="p">,</span><span class="w"> </span><span class="n">libpango_dep</span><span class="p">)</span><span class="w"></span>
 </pre></div>
@@ -481,12 +500,14 @@
 <li><a class="reference internal" href="#usage">usage</a><ul>
 <li><a class="reference internal" href="#project">project</a><ul>
 <li><a class="reference internal" href="#default-options">default_options</a></li>
+<li><a class="reference internal" href="#id1">default_options</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#executable">executable</a></li>
 <li><a class="reference internal" href="#library">library</a><ul>
 <li><a class="reference internal" href="#static">static</a></li>
 <li><a class="reference internal" href="#shared">shared</a></li>
+<li><a class="reference internal" href="#id2">設定でスイッチするには？</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#compile-options">compile options</a><ul>
