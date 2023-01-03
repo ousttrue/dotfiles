@@ -58,8 +58,10 @@ cargo build --release --no-default-features --features=x11
 
 - @2018 [LinuxデスクトップのターミナルアプリとしてAlacrittyを使い始めた - ぶていのログでぶログ](https://tech.buty4649.net/entry/2018/07/30/134654)
 
-## zutty
+## other
 - [Zutty - Zero-cost Unicode Teletype](https://tomscii.sig7.se/zutty/)
+- [GitHub - bolner/CRTerm: CRT Terminal emulator (OpenGL)](https://github.com/bolner/CRTerm)
+- [GitHub - refi64/uterm: A WIP terminal emulator, written in C++11 using Skia, libtsm, and GLFW](https://github.com/refi64/uterm)
 
 # libvterm
 ## pangoterm
