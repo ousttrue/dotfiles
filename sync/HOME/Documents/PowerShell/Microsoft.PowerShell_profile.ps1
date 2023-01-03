@@ -61,6 +61,8 @@ insertPath($env:USERPROFILE + "\go\bin")
 insertPath($env:USERPROFILE + "\local\bin")
 addPath($env:USERPROFILE + "\AppData\Local\Programs\Microsoft VS Code")
 addPath("C:\Program Files\Git\usr\bin")
+addPath($env:USERPROFILE + "\local\src\depot_tools")
+
 if($env:JAVA_HOME -ne $null){
     addPath($env:JAVA_HOME + "\bin")
 }
@@ -122,24 +124,31 @@ function gg {
 }
 
 function gs {
-    $dst = $(git branch | fzf).Trim()
+    $dst = $(git branch | fzf)
     if($dst)
     {
-        git switch $dst
+        git switch $dst.Trim()
     }
 }
 function gsf {
-    $dst = $(git branch | fzf).Trim()
+    $dst = $(git branch | fzf)
     if($dst)
     {
-        git switch -f $dst
+        git switch -f $dst.Trim()
     }
 }
 function gsr {
-    $dst = $(git branch -r | fzf).Trim()
+    $dst = $(git branch -r | fzf)
     if($dst)
     {
-        git switch -c $dst $dst
+        git switch -c $dst.Trim() $dst.Trim()
+    }
+}
+function mewrap {
+    $dst = $(meson wrap list| fzf --preview "meson wrap info {}")
+    if($dst)
+    {
+        meson wrap install $dst.Trim()
     }
 }
 del alias:ls  # PowerShell 側の ls を削除
@@ -170,9 +179,10 @@ function dotpull {
     popd
 }
 function apkget {
-    $apk = $(adb shell pm list packages -3 | fzf).Trim()
+    $apk = $(adb shell pm list packages -3 | fzf)
     if($apk && $apk.startswith("package:"))
     {
+        $apk = $apk.Trim()
         $name = $apk.SubString(8)
         echo "name: ${name}"
 
@@ -186,9 +196,10 @@ function apkget {
     }
 }
 
-del alias:mv
-del alias:cp
-del alias:rm
-del alias:rmdir
+Remove-Item alias:mv
+Remove-Item alias:cp
+Remove-Item alias:rm
+Remove-Item alias:rmdir
+Remove-Item alias:diff -force
 Remove-Item -Path Function:\mkdir
 

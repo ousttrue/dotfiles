@@ -9,6 +9,34 @@
 
 # Version
 ## 1.89.1
+## 1.87
+`input queue trickling`
+- [new inputs](https://github.com/ocornut/imgui/wiki#inputs)
+
+### glfw
+
+```cpp
+// Pass in translated ASCII characters for text input.
+// - with glfw you can get those from the callback set in glfwSetCharCallback()
+// - on Windows you can get those using ToAscii+keyboard state, or via the WM_CHAR message
+// FIXME: Should in theory be called "AddCharacterEvent()" to be consistent with new API
+void ImGuiIO::AddInputCharacter(unsigned int c)
+{
+    ImGuiContext& g = *GImGui;
+    IM_ASSERT(&g.IO == this && "Can only add events to current context.");
+    if (c == 0 || !AppAcceptingEvents)
+        return;
+
+    ImGuiInputEvent e;
+    e.Type = ImGuiInputEventType_Text;
+    e.Source = ImGuiInputSource_Keyboard;
+    e.Text.Char = c;
+    g.InputEventsQueue.push_back(e);
+}
+```
+
+# Input
+
 ## 1.81
 ## 1.80
 table API
@@ -17,6 +45,10 @@ table API
 
 ## 1.71  20190613
 docking https://github.com/ocornut/imgui/issues/2109
+
+# Repos
+わいの
+- [GitHub - ousttrue/d3d11_samples: D3D11 sample](https://github.com/ousttrue/d3d11_samples)
 
 # API
 ```c++
@@ -36,6 +68,7 @@ if(ImGui::TreeNode()){
 	- ImGui の Widgets が消費する
 	- ImGui の RenderTarget に転送する
 - ImGui が消費しない
+	- background の 3D シーンに送る
 
 # App
 - https://github.com/mahilab/mahi-gui

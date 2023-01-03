@@ -1,9 +1,8 @@
-wasm debug
-
 [[zig]]
 
 [WebAssembly | MDN](https://developer.mozilla.org/en-US/docs/WebAssembly)
 
+- @2022 [興味のおもむくままにWASM/WASIらへん](https://zenn.dev/newgyu/scraps/ffbce244b960e6)
 
 # Type
 -   `i32`, `i64`, `f32`, `f64`

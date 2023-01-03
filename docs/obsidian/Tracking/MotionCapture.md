@@ -27,3 +27,6 @@ aliases: [pose, tracking]
 - [[VMC]]
 - [[mmd]]
 - [[HumanPoseEstimation]]
+
+# Pose
+- [(無料版有り) 【ポーズ詰め合わせ】Unity Humanoid AnimationClip - PoseCollection - アンテナショップ【ねここや】 - BOOTH](https://necocoya.booth.pm/items/1634088)

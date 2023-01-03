@@ -1,5 +1,5 @@
 # javascript
-[[javascript]]
+[[v8]]
 - [GitHub - markdown-it/markdown-it: Markdown parser, done right. 100% CommonMark support, extensions, syntax plugins & high speed](https://github.com/markdown-it/markdown-it)
 
 - [Markdown-itのプラグインの作り方](https://zenn.dev/mkizka/articles/9d4954d83b8862)

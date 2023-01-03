@@ -1,5 +1,22 @@
 
 ```cardlink
+url: https://booth.pm/ja/items/2692903
+title: "VRChat向け衣装モデル ”Rose Gothic Dress” - おみせです - BOOTH"
+description: "こちらを導入していただくと簡単に着せ替えすることができますのでおすすめです。 とも屋様 キセテネ https://shivi.booth.pm/items/2332420 はみ出したメッシュを削除するツール がとーしょこらのおみせ様 MeshDeleterWithTexture beta https://booth.pm/ja/items/1501527 ■更新履歴 2021年01月22　一部データ不備の修正 2021年01月22　公開 ■概要 VRChatでの利用を想定して作られた衣装モデルです。 ●注意点 事前にUnityのプロジェクト内に導入しておくもの ・VRCSDK"
+host: booth.pm
+image: https://booth.pximg.net/c/620x620/e1da7fe2-4e87-4ba0-85db-2a5eaedc6c78/i/2692903/2187b2e3-d3ee-4a51-a721-37d5795ccb0e_base_resized.jpg
+```
+
+
+```cardlink
+url: https://steller.booth.pm/
+title: "ステラー工房 - BOOTH"
+description: "【VRChat対応 衣装3Dモデル 『スタジャン＆ロングパーカーコーデセット』】(¥ 2,000), 【VRChat対応 オリジナル3Dモデル 『リィンブラウV2 -LynBlau- Ver2.X-』単体版(¥ 3,000), 【VRChat対応 オリジナル3Dモデル 『リィンブラウ -LynBlau-』V1＆V2 フルセット版(¥ 5,000), 【VRChat対応 オリジナル3Dモデル 『ライチ -フルセット版-』v1.1＆V2.0】(¥ 3,500), OculusQuest VRChat対応 3Dモデル 『ソルティ -フルセット版-』v1.91(¥ 1,000)"
+host: steller.booth.pm
+image: https://booth.pximg.net/c/620x620/8dd1ea6b-1c31-4d82-bfec-cbc05177d146/i/3728772/90964a1c-c696-4377-918a-6e124224e12a_base_resized.jpg
+```
+
+```cardlink
 url: https://mukumi.booth.pm/items/2408707
 title: "すずはな suzuhana / オリジナル3Dモデル - もち山金魚 - BOOTH"
 description: "VRChatでの使用を想定した3Dモデルデータです。 VRC_SDK3.0、PhysBoneに対応。 すずらんモチーフの女の子。 背負っているのは大きい園芸ばさみです。 すました感じの表情が設定してあります。 2022.08.04 ver2.21"

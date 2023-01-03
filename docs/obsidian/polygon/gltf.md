@@ -20,3 +20,6 @@ def glb_bytes(json_chunk: bytes, bin_chunk: bytes) -> Iterable[bytes]:
     yield bin_chunk
     yield b'\0' * bin_chunk_padding
 ```
+
+# sample
+- [Graphics Research Samples](https://www.intel.com/content/www/us/en/developer/topic-technology/graphics-research/samples.html)
