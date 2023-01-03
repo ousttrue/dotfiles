@@ -1,11 +1,8 @@
 [Fetching Title#7bn3](https://gitlab.freedesktop.org/xrdesktop/xrdesktop)[[buildtool]]
 [[gst-python]]
 
-- [The Meson Build system](https://mesonbuild.com/)
-	- [Tutorial](https://mesonbuild.com/Tutorial.html)
 	
 - @2019 [［Meson］Meson for C++の苦闘記 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2019/09/20/023511)
-- @2018 [CMakeの代替 (となってほしい)、Mesonチュートリアル - Qiita](https://qiita.com/turenar/items/c727834fbf701beb47ef)
 
 # reference
 - [Reference manual](https://mesonbuild.com/Reference-manual.html)

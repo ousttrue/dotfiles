@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>glslc - shell note ドキュメント</title>
+        <title>GL_ARB_gl_spirv - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,13 +218,16 @@
           </label>
         </div>
         <article role="main">
-          <p>[[OpenGL]] 4.6
-[[WGSL]]
-[[WebGPU]]</p>
-<p><a class="reference external" href="https://jp.khronos.org/news/press/spir-v-opengl-4.6-siggraph-2017">クロノス・グループ、SPIR-V機能を搭載した「OpenGL® 4.6」を発表 - Press Release - Khronos Group</a></p>
+          <p>[[OpenGL]] 4.6 [[OpenGL]]
+[[hlsl]]
+[[WGSL]] [[WebGPU]]</p>
+<p>@2017 <a class="reference external" href="https://jp.khronos.org/news/press/spir-v-opengl-4.6-siggraph-2017">クロノス・グループ、SPIR-V機能を搭載した「OpenGL® 4.6」を発表 - Press Release - Khronos Group</a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="gl-arb-gl-spirv">
+<h1>GL_ARB_gl_spirv<a class="headerlink" href="#gl-arb-gl-spirv" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://blog.techlab-xe.net/post-4956/">OpenGL で SPIR-V のシェーダー – すらりん日記</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://blog.techlab-xe.net/post-4956/">OpenGL で SPIR-V のシェーダー – すらりん日記</a></p></li>
 </ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="glslc">
 <h1>glslc<a class="headerlink" href="#glslc" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -237,9 +240,39 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="glslang">
 <h1>glslang<a class="headerlink" href="#glslang" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">vulkan</span> <span class="pre">SDK</span> <span class="pre">に含まれる</span></code></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/KhronosGroup/glslang">GitHub - KhronosGroup/glslang: Khronos-reference front end for GLSL/ESSL, partial front end for HLSL, and a SPIR-V generator.</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/uechoco@github/items/031f4fe980582ff9234f">glslangValidatorを使ってシェーダの文法チェックをする(4-Ex1.) - Qiita</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://techblog.sega.jp/entry/2017/03/27/100000">Vulkanでシェーダリフレクション(Shader Reflection)を取得してみる - SEGA TECH Blog</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/nishiki/articles/8cfbfed52f13cb">【Vulkan】GLSLレイトレーシングシェーダをランタイムコンパイルしてみる</a></p></li>
+<li><p>@2018 <a class="reference external" href="https://qiita.com/uechoco@github/items/031f4fe980582ff9234f">glslangValidatorを使ってシェーダの文法チェックをする(4-Ex1.) - Qiita</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">glslangValidator</span> <span class="o">-</span><span class="n">G</span> <span class="o">-</span><span class="n">l</span> <span class="o">-</span><span class="n">o</span> <span class="n">shaderVS</span><span class="o">.</span><span class="n">spv</span> <span class="n">vertexShader</span><span class="o">.</span><span class="n">vert</span>
+</pre></div>
+</div>
+<section id="glslang-tshader">
+<h2>glslang::TShader<a class="headerlink" href="#glslang-tshader" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="spirv-cross">
+<h1>SPIRV-Cross<a class="headerlink" href="#spirv-cross" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">reflection</span></code> <code class="docutils literal notranslate"><span class="pre">逆コンパイル</span></code></p>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/nishiki/articles/15df3ab1837df8">【Vulkan】シェーダリフレクションで手動バインディングから解放されたい</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://techblog.sega.jp/entry/2017/03/27/100000">Vulkanでシェーダリフレクション(Shader Reflection)を取得してみる - SEGA TECH Blog</a></p></li>
+<li><p><a class="reference external" href="https://monobook.org/wiki/SPIR-V%E3%81%8B%E3%82%89HLSL%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B">SPIR-VからHLSLを生成する - MonoBook</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="spirv-reflect">
+<h1>SPIRV-Reflect<a class="headerlink" href="#spirv-reflect" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/KhronosGroup/SPIRV-Reflect">GitHub - KhronosGroup/SPIRV-Reflect: SPIRV-Reflect is a lightweight library that provides a C/C++ reflection API for SPIR-V shader bytecode in Vulkan applications.</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hlsl">
+<h1>HLSL<a class="headerlink" href="#hlsl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.shader.jp/?page_id=2176">HLSLからSPIR-Vバイナリを生成する – Shader.jp</a></p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="android">
@@ -283,8 +316,15 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">glslc</a></li>
-<li><a class="reference internal" href="#glslang">glslang</a></li>
+<li><a class="reference internal" href="#">GL_ARB_gl_spirv</a></li>
+<li><a class="reference internal" href="#glslc">glslc</a></li>
+<li><a class="reference internal" href="#glslang">glslang</a><ul>
+<li><a class="reference internal" href="#glslang-tshader">glslang::TShader</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spirv-cross">SPIRV-Cross</a></li>
+<li><a class="reference internal" href="#spirv-reflect">SPIRV-Reflect</a></li>
+<li><a class="reference internal" href="#hlsl">HLSL</a></li>
 <li><a class="reference internal" href="#android">Android</a></li>
 </ul>
 

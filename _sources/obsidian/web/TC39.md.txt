@@ -1,4 +1,4 @@
-[[javascript]]
+[[v8]]
 
 # TC39
 - [TC39 | サイボウズ フロントエンドエキスパートチーム](https://cybozu.github.io/frontend-expert/tags/TC39)

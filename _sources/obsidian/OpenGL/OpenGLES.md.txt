@@ -1,20 +1,40 @@
 ---
 aliases: [EGL]
 ---
-
 #red
-[[vulkan]]
+
+[[OpenGL]] [[vulkan]] [[WebGPU]]
 
 - [OpenGL ES  |  Android デベロッパー  |  Android Developers](https://developer.android.com/guide/topics/graphics/opengl?hl=ja)
 
-# @2007 OpenGL ES 2.0
-- [[Android]] api level 8
+# Version
+|glsl|OpenGLES||
+|-|-|-|
+|#version 320 es|GLES3.2|2015|
+|#version 310 es|GLES3.1|2014|
+|#version 300 es|GLES3.0 WebGL2.0|2012|
+|#version 100 es|GLES2.0 WebGL1.0|2007|
 
-# @2012 OpenGL ES 3.0
+## 3.2
+
+## 3.1
+- [[Android]] api level 21
+
+## 3.0
 - [[Android]] api level 18
 - [[webgl]]
 
-# @2014 OpenGL ES 3.1
-- [[Android]] api level 21
+```c
+#version 300 es
+in vec3 position;
+in vec3 normal;
+in vec4 color;
+uniform mat4 mvpMatrix;
+uniform mat4 mMatrix;
+out vec3 vPosition;
+out vec3 vNormal;
+out vec4 vColor;
+```
 
-# @2015 OpenGL ES 3.2
+## 2.0
+- [[Android]] api level 8

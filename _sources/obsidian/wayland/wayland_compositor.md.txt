@@ -2,7 +2,6 @@
 
 - [[[Wayfire](https://wayfire.org/)]]
 - [GitHub - ec1oud/grefsen: A Qt/Wayland desktop](https://github.com/ec1oud/grefsen)
-- [[qtile]]
 
 - @2017 [作って学ぶWayland - Qiita](https://qiita.com/maueki/items/34323b2762e3c3342c51)
 
@@ -11,9 +10,18 @@
 - [Introduction -](https://way-cooler.org/book/wayland_introduction.html)
 
 ## sway
+[[sway]]
 
 # weston
 - [wayland / weston · GitLab](https://gitlab.freedesktop.org/wayland/weston)
+
+# python
+## newm
+[[python]]
+- [GitHub - jbuchermn/newm: Wayland compositor](https://github.com/jbuchermn/newm)
+
+## qtile
+- [[qtile]]
 
 # backend
 
@@ -22,7 +30,6 @@
 -   wayland
 -   headless
 -   fbdev
--   rdp（リモートデスクトップ）
 
 ## RDP
 [[RDP]]
