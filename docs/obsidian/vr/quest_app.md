@@ -1,6 +1,6 @@
 [[QuestMobileSDK]]
 
-[[quest_MR]]
+[[XrSpace]]
 
 # vnc
 - [WebRTC+WebXR でVRリモートデスクトップ - Qiita](https://qiita.com/binzume/items/52a4f4be5c316753e1b1)
