@@ -1,9 +1,7 @@
-[[snapdragon]]
 #red
-[[zig]]
-[[QuestMobileSDK]]
-[[AndroidStudio]]
-[[android_ndk]]
+[[AndroidStudio]] [[android_sdk]] [[android_ndk]]
+[[QuestMobileSDK]] [[snapdragon]] [[zig]] [[mocopi]]
+[[java]]
 
 # project
 `7.3.1`
@@ -34,6 +32,25 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 ```
+
+フォルダ構成
+
+> `AndroidStudio` で `c++` に `breakpoint` を置きたいので root の子孫の `c++` のソースを配置するべし
+
+> CMakeLists.txt で親ディレクトリに対する `subdirs` を避けるべし。かつ浅めのフォルダに配置
+
+- root/
+	- build.gradle
+	- settigns.gradle 
+	- CMakeLists.txt
+	- app/
+		- build.gradle
+			- src/ 
+				- main/
+					- AndroidManifest.xml
+					- res/
+	- cpp/		
+		- CMakeLists.txt
 
 ## app
 ```groovy

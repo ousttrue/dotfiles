@@ -74,3 +74,14 @@ controller?
 - [OpenXR Scene Overview](https://developer.oculus.com/documentation/native/android/openxr-scene-overview/)
 - [XR_FB_scene](https://www.oculus.com/lynx/?u=https%3A%2F%2Fregistry.khronos.org%2FOpenXR%2Fspecs%2F1.0%2Fhtml%2Fxrspec.html%23XR_FB_scene&e=AT3BlXnZRaCRe3CYW1HdeKPUir-iED7cVDTAHr6XyLkO37MChTgxY1YrEI7GFnRp17TK4YdZtwvxQm8P4u9abNA9LZPRsf8jKfnIgHGZb1RYPTl0aOvKq-7awsGtsHnUClFcQTbONNOj1wlX721aYOppizfRCy3s0sIO8Q).
 
+## PassThrough
+- [パススルー機能を使うには](https://framesynthesis.jp/tech/unity/oculusquest/#%E3%83%91%E3%82%B9%E3%82%B9%E3%83%AB%E3%83%BC%E6%A9%9F%E8%83%BD%E3%82%92%E4%BD%BF%E3%81%86%E3%81%AB%E3%81%AF)
+- xrSamples/XrPassthrough
+- [XR_FB_passthrough](https://www.oculus.com/lynx/?u=https%3A%2F%2Fregistry.khronos.org%2FOpenXR%2Fspecs%2F1.0%2Fhtml%2Fxrspec.html%23XR_FB_passthrough&e=AT2UPomIZ9jR7kOdzmMWnGa_G0B-j_Wc6QXVBwNoPRG85qJJ1YKV9kYP1IXaRsRfJgGbEWLpqdVusNU7_-X9tTCbSLGeFpBYwTm1MLD8qCV2xvIrqDNqqBEyoJaMqtPRZSjAxsITjSnDCmk5wA6i9IWoJmPSievmJrOYqw) 
+- [XR_FB_triangle_mesh](https://www.oculus.com/lynx/?u=https%3A%2F%2Fregistry.khronos.org%2FOpenXR%2Fspecs%2F1.0%2Fhtml%2Fxrspec.html%23XR_FB_triangle_mesh&e=AT2UPomIZ9jR7kOdzmMWnGa_G0B-j_Wc6QXVBwNoPRG85qJJ1YKV9kYP1IXaRsRfJgGbEWLpqdVusNU7_-X9tTCbSLGeFpBYwTm1MLD8qCV2xvIrqDNqqBEyoJaMqtPRZSjAxsITjSnDCmk5wA6i9IWoJmPSievmJrOYqw).
+
+
+
+- [Meta Quest の Mixed Reality 機能 | Knowledge Swimmer メモ](https://knowledge-swimmer.com/meta-quest-mr-scene)
+
+- [Immersed](https://www.oculus.com/experiences/quest/2849273531812512/?locale=ja_JP)

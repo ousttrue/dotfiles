@@ -1,10 +1,10 @@
 Amazon Linux 2
-#WSL #linux
+[[WSL]] [[linux]] [[CentOS]]
 
-CentOS ベース
-	https://qiita.com/YukiMiyatake/items/73c7d6c4f2c9739ebe60
+`amazonlinux:2.0.20200406.0`
 
-[WSL で Amazon Linux 2 を使用する https://qiita.com/noumia/items/9fecd2a7c3ea4acb696e]
+- @2019 [Docker for Windowsで快適な環境を得るまでの そこそこ長い闘い - Qiita](https://qiita.com/YukiMiyatake/items/73c7d6c4f2c9739ebe60)
+- @2018 [WSL で Amazon Linux 2 を使用する - Qiita](https://qiita.com/noumia/items/9fecd2a7c3ea4acb696e)
 
 https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/WSL.html
 https://aws.amazon.com/jp/amazon-linux-2/faqs/

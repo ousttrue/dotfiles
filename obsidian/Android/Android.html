@@ -218,12 +218,10 @@
           </label>
         </div>
         <article role="main">
-          <p>[[snapdragon]]
-#red
-[[zig]]
-[[QuestMobileSDK]]
-[[AndroidStudio]]
-[[android_ndk]]</p>
+          <p>#red
+[[AndroidStudio]] [[android_sdk]] [[android_ndk]]
+[[QuestMobileSDK]] [[snapdragon]] [[zig]] [[mocopi]]
+[[java]]</p>
 <section class="tex2jax_ignore mathjax_ignore" id="project">
 <h1>project<a class="headerlink" href="#project" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">7.3.1</span></code></p>
@@ -254,6 +252,45 @@
 <span class="o">}</span>
 </pre></div>
 </div>
+<p>フォルダ構成</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">AndroidStudio</span></code> で <code class="docutils literal notranslate"><span class="pre">c++</span></code> に <code class="docutils literal notranslate"><span class="pre">breakpoint</span></code> を置きたいので root の子孫の <code class="docutils literal notranslate"><span class="pre">c++</span></code> のソースを配置するべし</p>
+</div></blockquote>
+<blockquote>
+<div><p>CMakeLists.txt で親ディレクトリに対する <code class="docutils literal notranslate"><span class="pre">subdirs</span></code> を避けるべし。かつ浅めのフォルダに配置</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>root/</p>
+<ul>
+<li><p>build.gradle</p></li>
+<li><p>settigns.gradle</p></li>
+<li><p>CMakeLists.txt</p></li>
+<li><p>app/</p>
+<ul>
+<li><p>build.gradle</p>
+<ul>
+<li><p>src/</p>
+<ul>
+<li><p>main/</p>
+<ul>
+<li><p>AndroidManifest.xml</p></li>
+<li><p>res/</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>cpp/</p>
+<ul>
+<li><p>CMakeLists.txt</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <section id="app">
 <h2>app<a class="headerlink" href="#app" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="c1">// settings.gradle</span>
