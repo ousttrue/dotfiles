@@ -27,6 +27,9 @@
 ## LanguageServer
 [[lsp]]
 
+# Settings
+- [VSCodeでファイルを開いた時にタブが上書きされる問題を回避する - Qiita](https://qiita.com/kgoto/items/265e3eb8a82778e33cfe)
+
 # CSharp
 ##  xml comment
 - @2022 [xml comments - XML Auto Commenting C# in Visual Studio Code - Stack Overflow](https://stackoverflow.com/questions/34275209/xml-auto-commenting-c-sharp-in-visual-studio-code)

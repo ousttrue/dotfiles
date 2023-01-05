@@ -1,5 +1,5 @@
 ---
-aliases: [ECMAScrip]
+aliases: [js, ECMAScrip]
 ---
 
 - [ダイジェスト版「コルーチン」とは何だったのか - HackMD](https://hackmd.io/@mametter/S1dw4Xy2V)
