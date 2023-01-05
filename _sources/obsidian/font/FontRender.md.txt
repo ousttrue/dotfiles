@@ -1,3 +1,7 @@
+---
+aliases: [FontAtlas]
+---
+
 [[fontstash]] [[libvterm]]
 
 # freetype2
@@ -16,6 +20,8 @@
 - @2022 [OpenGLで日本語を描画する（FTGL） - やってみる](https://ytyaru.hatenablog.com/entry/2022/05/23/000000)
 
 # stb-truetype
+- [Font atlas packer with stbtruetype.h · GitHub](https://gist.github.com/vassvik/f442a4cc6127bc7967c583a12b148ac9)
+
 ## fontstash
 [[fontstash]]
 
