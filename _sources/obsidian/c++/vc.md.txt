@@ -1,3 +1,5 @@
+#define WINDOWS_LEAN_AND_MEAN
+
 vcruntime
 `Microsoft Visual Studio\2017\edition\VC\Tools\MSVC\lib-version\include`
 `C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vcruntime.h`
