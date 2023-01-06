@@ -12,4 +12,4 @@
 # bvhsender
 - unity アプリ
 
-# unity receiver
+# mocopi Receiver Plugin for Unity

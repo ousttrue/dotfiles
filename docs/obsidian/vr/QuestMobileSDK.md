@@ -29,7 +29,7 @@ aliases: [ovr_openxr_mobile_sdk]
 `1.78` => OpenXR backend ?
 
 # SampleXrFramework
-## XrApp
+[[QuestMobileSDK_XrApp]]
 
 # samples
 - [GitHub - terryky/android_openxr_gles: VR sample applications on Android NDK using OpenXR + OpenGLES. (especially for Meta Quest2)](https://github.com/terryky/android_openxr_gles)
@@ -45,18 +45,6 @@ https://note.com/npaka/n/nc18d61e25c85
 # Quest向け openxr_loader
 - [Build and Run hello_xr Sample App](https://developer.oculus.com/documentation/native/android/mobile-build-run-hello-xr-app/)
 
-# xrSamples
-- [Mobile OpenXR Samples](https://developer.oculus.com/documentation/native/android/mobile-openxr-sample/)
-
-## ovrbuild
-`bin/scripts/build/ovrbuild.py`
-環境変数
-- JAVA_HOME = AndroidStudio_INSTALL/jre
-- ANDROID_HOME = %USERPROFILE%/AppData/Local/Android/sdk
-- ANDROID_NDK_HOME = %ANDROID_HOME%/ndk/NDK_VERSION
-が必用。
-
-`D:\OpenXRMobileSDK\bin\scripts\build\../../../gradlew assembleRelease --daemon -quiet --build-cache --configure-on-demand --parallel -Pshould_install`
 
 # Unity
 - [はじめての Oculus Quest アプリの作成 ｜npaka｜note](https://note.com/npaka/n/n749a134d0c11)
