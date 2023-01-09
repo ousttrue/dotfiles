@@ -2,6 +2,8 @@
 
 - [LunarXchange](https://vulkan.lunarg.com/)
 
+- @2019 [Vulkanの道も一歩から【カウントダウンカレンダー2019冬13日目】 - MIS.W 公式ブログ](https://blog.misw.jp/entry/2019/12/24/000000)
+
 # Version
 ## 1.3
 - @2022 [Vulkan 1.3がリリース。新追加機能はオプションではなく実装を義務付け - PC Watch](https://pc.watch.impress.co.jp/docs/news/1383547.html)

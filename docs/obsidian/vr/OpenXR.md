@@ -6,6 +6,12 @@
 - [GitHub - THolovacko/bomberman_xr: A native mixed reality Bomberman clone for the Meta Quest 2 and PC](https://github.com/THolovacko/bomberman_xr)
 - [GitHub - janhsimon/openxr-vulkan-example: OpenXR & Vulkan Integration Example](https://github.com/janhsimon/openxr-vulkan-example)
 - [OpenXR-MixedReality/samples/BasicXrApp at main · microsoft/OpenXR-MixedReality · GitHub](https://github.com/microsoft/OpenXR-MixedReality/tree/main/samples/BasicXrApp)
+- [Monado / Demos / openxr-simple-example · GitLab](https://gitlab.freedesktop.org/monado/demos/openxr-simple-example)
+
+## android
+- [GitHub - SteakFlavored/ShockVR](https://github.com/SteakFlavored/ShockVR)
+- [GitHub - kghose/hyperquest: Walk around 3D slices of high dimensional objects, "fly" in higher dimensions using hands](https://github.com/kghose/hyperquest)
+- [GitHub - Wesxdz/flit_xr](https://github.com/Wesxdz/flit_xr)
 
 ## クロスプラットフォーム、オプション全部入り
 - [[hello_xr]]
