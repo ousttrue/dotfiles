@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>xrSamples - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,84 +212,22 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[QuestMobileSDK]]</p>
-<section class="tex2jax_ignore mathjax_ignore" id="xrsamples">
-<h1>xrSamples<a class="headerlink" href="#xrsamples" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <p>[[web]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://developer.oculus.com/documentation/native/android/mobile-openxr-sample/">Mobile OpenXR Samples</a></p></li>
+<li><p><a class="reference external" href="https://www.odpt.org/">公共交通オープンデータ協議会 | オープンデータで新しい公共交通サービスを</a></p>
+<ul>
+<li><p><a class="reference external" href="https://www.kotsu.metro.tokyo.jp/pickup_information/news/subway/2019/sub_p_201905318600_h.html">都営交通の運行情報等をオープンデータとして提供開始します ｜ 東京都交通局</a></p></li>
 </ul>
-<section id="ovrbuild">
-<h2>ovrbuild<a class="headerlink" href="#ovrbuild" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">bin/scripts/build/ovrbuild.py</span></code>
-環境変数</p>
-<ul class="simple">
-<li><p>JAVA_HOME = AndroidStudio_INSTALL/jre</p></li>
-<li><p>ANDROID_HOME = %USERPROFILE%/AppData/Local/Android/sdk</p></li>
-<li><p>ANDROID_NDK_HOME = %ANDROID_HOME%/ndk/NDK_VERSION
-が必用。</p></li>
+</li>
+<li><p>@2016 <a class="reference external" href="https://www.mk-mode.com/blog/2016/02/08/fr24-getting-flight-info/">JSON - Flightradar24 から飛行中の航空機情報を取得！ - mk-mode BLOG</a></p></li>
+<li><p><a class="reference external" href="https://ekidata.jp/api/api_line.php">路線API | 駅データ 無料ダウンロード 『駅データ.jp』</a></p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">D:\OpenXRMobileSDK\bin\scripts\build\../../../gradlew</span> <span class="pre">assembleRelease</span> <span class="pre">--daemon</span> <span class="pre">-quiet</span> <span class="pre">--build-cache</span> <span class="pre">--configure-on-demand</span> <span class="pre">--parallel</span> <span class="pre">-Pshould_install</span></code></p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="ovrfw-xrapp">
-<h1>OVRFW::XrApp<a class="headerlink" href="#ovrfw-xrapp" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://developer.oculus.com/documentation/native/android/mobile-physical-tracked-keyboard/#native-integration">Using XrApp</a>
-base class</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">XrApp</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Called when the application initializes.</span>
-<span class="w">    </span><span class="c1">// Must return true if the application initializes successfully.</span>
-<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">AppInit</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">xrJava</span><span class="o">*</span><span class="w"> </span><span class="n">context</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Called when the application shuts down</span>
-<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">AppShutdown</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">xrJava</span><span class="o">*</span><span class="w"> </span><span class="n">context</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">SessionInit</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">SessionEnd</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ovrApplFrameIn</span><span class="o">&amp;</span><span class="w"> </span><span class="n">in</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Render</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ovrApplFrameIn</span><span class="o">&amp;</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">ovrRendererOutput</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">);</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-
-<span class="cp">#if defined(ANDROID)</span>
-
-<span class="cp">#define ENTRY_POINT(appClass)                     \</span>
-<span class="cp">    void android_main(struct android_app* app) {  \</span>
-<span class="cp">        auto appl = std::make_unique&lt;appClass&gt;(); \</span>
-<span class="cp">        appl-&gt;Run(app);                           \</span>
-<span class="cp">    }</span>
-
-<span class="cp">#elif defined(WIN32)</span>
-
-<span class="cp">#define ENTRY_POINT(appClass)                               \</span>
-<span class="cp">    __pragma(comment(linker, "/SUBSYSTEM:WINDOWS"));        \</span>
-<span class="cp">    int APIENTRY WinMain(HINSTANCE, HINSTANCE, PSTR, int) { \</span>
-<span class="cp">        auto appl = std::make_unique&lt;appClass&gt;();           \</span>
-<span class="cp">        appl-&gt;Run();                                        \</span>
-<span class="cp">        return 0;                                           \</span>
-<span class="cp">    }</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">XrApp::MainLoop</span><span class="p">(</span><span class="n">MainLoopContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">loopContext</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">Init</span><span class="p">(</span><span class="n">loopContext</span><span class="p">.</span><span class="n">GetJavaContext</span><span class="p">());</span><span class="w"></span>
-<span class="w">    </span><span class="n">InitSession</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">stageBoundsDirty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">frameCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">loopContext</span><span class="p">.</span><span class="n">ShouldExitMainLoop</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">frameCount</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-
-<span class="w">		</span><span class="c1">// FRAME</span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">EndSession</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">Shutdown</span><span class="p">(</span><span class="n">loopContext</span><span class="p">.</span><span class="n">GetJavaContext</span><span class="p">());</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
 
         </article>
       </div>
@@ -304,7 +242,7 @@ base class</p>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/QuestMobileSDK_XrApp.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/REST.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -312,28 +250,8 @@ base class</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">xrSamples</a><ul>
-<li><a class="reference internal" href="#ovrbuild">ovrbuild</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ovrfw-xrapp">OVRFW::XrApp</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
