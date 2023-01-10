@@ -1,7 +1,10 @@
-clangd
-#vscode
+[[cpp]] [[vscode]]
 
 https://clangd.llvm.org/
+
+# auto include
+[How can I disable auto-includes on completion? · Issue #918 · clangd/clangd · GitHub](https://github.com/clangd/clangd/issues/918)
+
 
 [* compile_commands.json または compile_flags.txt]
 	https://clang.llvm.org/docs/JSONCompilationDatabase.html

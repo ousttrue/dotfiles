@@ -31,6 +31,8 @@ typedef enum XrReferenceSpaceType {
 - 初期位置を原点
 - `seated-scale`
 - 床はわからない
+`XR_REFERENCE_SPACE_TYPE_UNBOUNDED_MSFT`
+`XR_REFERENCE_SPACE_TYPE_LOCAL`
 
 ## Stage
 `XR_REFERENCE_SPACE_TYPE_STAGE`
