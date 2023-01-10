@@ -36,5 +36,9 @@ glm::toMat4
 - [GLM_GTX_transform](https://glm.g-truc.net/0.9.4/api/a00206.html)
 - [https://gameprogrammingunit.web.fc2.com/glm/matrix_transform.htm](https://gameprogrammingunit.web.fc2.com/glm/matrix_transform.htm)
 
+```cpp
+#include <glm/gtx/transform.hpp> 
+```
+
 # SIMD
 - [Advanced Usage](https://glm.g-truc.net/0.9.1/api/a00002.html)
