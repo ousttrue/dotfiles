@@ -13,3 +13,29 @@
 - unity アプリ
 
 # mocopi Receiver Plugin for Unity
+
+# bones
+
+
+|mocopi| vrm | quest body |
+|-|-|-|
+|root|hips|o|
+| torso_1 | spine|o|
+| torso_2 | chest|o|
+| torso_3 | upperChest|
+| torso_4 | |
+| torso_5 | |
+| torso_6 | |
+| torso_7 | |
+| neck_1 | neck|o|
+| neck_2 | |
+| head | head|o|
+| LR shoulder | shoulder |o|
+| LR up_arm | upperArm |o|
+| LR low_arm | lowerArm |o|
+| LR hand | hand |o|
+|  | fingers |o|
+| LR up leg | upperLeg ||
+| LR low leg | lowerLeg ||
+| LR foot | foot ||
+| LR toes | toes ||
