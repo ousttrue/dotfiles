@@ -1,3 +1,5 @@
+[[bluetooth]]
+
 - [GitHub - aarch64-laptops/build: Build an Linux OS based image](https://github.com/aarch64-laptops/build)
 
 # XR
