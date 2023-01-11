@@ -61,7 +61,7 @@ insertPath($env:USERPROFILE + "\go\bin")
 insertPath($env:USERPROFILE + "\local\bin")
 addPath($env:USERPROFILE + "\AppData\Local\Programs\Microsoft VS Code")
 addPath("C:\Program Files\Git\usr\bin")
-addPath($env:USERPROFILE + "\local\src\depot_tools")
+# addPath($env:USERPROFILE + "\local\src\depot_tools")
 
 if($env:JAVA_HOME -ne $null){
     addPath($env:JAVA_HOME + "\bin")
