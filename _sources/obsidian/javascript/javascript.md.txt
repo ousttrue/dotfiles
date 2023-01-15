@@ -21,6 +21,8 @@ aliases: [js, ECMAScrip]
 ## es2015
 
 # implementation
+- [List of ECMAScript engines - Wikipedia](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
+
 ## v8
 `chrome`
 [[v8]] 
@@ -28,6 +30,8 @@ aliases: [js, ECMAScrip]
 ## SpiderMonkey
 `firefox`
 [[SpiderMonkey]]
+
+## Hermes
 
 ## QuickJS
 - [GitHub - bellard/quickjs: Public repository of the QuickJS Javascript Engine. Pull requests are not accepted. Use the mailing list to submit patches.](https://github.com/bellard/quickjs)
@@ -38,6 +42,10 @@ aliases: [js, ECMAScrip]
 - @2021 [QuickJSでお手軽ESP32＋Javascript実行環境 - Qiita](https://qiita.com/poruruba/items/e159464305e5bab6e06e)
 - @2020 [でらうま倶楽部 : 軽量JavaScriptエンジン「QuickJS」を試す。](http://blog.livedoor.jp/tek_nishi/archives/10248161.html)
 - @2020 [C/C++に組み込める軽量JavaScriptエンジン “QuickJS” を試す - Qiita](https://qiita.com/taskie/items/16cdbc69d4fd4a3dccbf)
+
+## Chakra
+- @2016 [ChakraCoreをビルドしてC#から使うはじめの一歩 - ぷろじぇくと、みすじら。](https://www.misuzilla.org/Blog/2016/01/14/GettingStartedWithChakraCoreFromCSharp)
+- [GitHub - chakra-core/ChakraCore: ChakraCore is an open source Javascript engine with a C API.](https://github.com/chakra-core/ChakraCore)
 
 # JSDoc
 - [TypeScript: Documentation - JSDocリファレンス](https://www.typescriptlang.org/ja/docs/handbook/jsdoc-supported-types.html)

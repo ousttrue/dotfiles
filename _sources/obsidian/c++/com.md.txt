@@ -7,3 +7,9 @@ https://docs.microsoft.com/en-us/windows/win32/learnwin32/com-coding-practices
 
 
 	http://schima.hatenablog.com/entry/20090306/1236270094
+
+
+# winrt::com_ptr
+`#include <winrt/base.h>`
+- [WRL から C++/WinRT への移行 - UWP applications | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-wrl)
+`

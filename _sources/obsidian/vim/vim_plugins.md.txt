@@ -17,3 +17,6 @@
 # write
 ## floating window
 - [How to write neovim plugins in Lua | 2n](https://www.2n.pl/blog/how-to-write-neovim-plugins-in-lua)
+
+# task runner
+- [GitHub - stevearc/overseer.nvim: A task runner and job management plugin for Neovim](https://github.com/stevearc/overseer.nvim)

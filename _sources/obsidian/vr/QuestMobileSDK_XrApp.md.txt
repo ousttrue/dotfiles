@@ -72,7 +72,11 @@ GLEW 等に頼らずに OpenGLES 互換？の OpenGL context 自前で初期化�
 ## Android
 `XR_TYPE_GRAPHICS_REQUIREMENTS_OPENGL_ES_KHR`
 
+# EachFrame
+`void XrApp::AppRenderFrame(const OVRFW::ovrApplFrameIn& in, OVRFW::ovrRendererOutput& out)`
+
 # OVRFW::TinyUI
+
 Windows で動くには、`.exe` からの相対パスにリソースの配置が必要
 - font
 - assets

@@ -7,6 +7,8 @@
 - @2021 [プログラミング用フォントの選び方とおすすめ無料フォント](https://pouhon.net/font-programming/4990/)
 - @2021 [フォントに悩むよ、ほんと。｜doorei｜note](https://note.com/doorei/n/n5c039c744b92)
 
+- [GitHub - yuru7/BIZTER: BIZTER は、UI 向けフォント Inter と、ユニバーサルデザインフォントの BIZ UDPゴシックの合成フォントです。](https://github.com/yuru7/BIZTER/)
+
 - alphabet
 - cjk
 - emoji
