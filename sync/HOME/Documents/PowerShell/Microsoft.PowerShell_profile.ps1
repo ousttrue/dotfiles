@@ -61,6 +61,7 @@ insertPath($env:USERPROFILE + "\go\bin")
 insertPath($env:USERPROFILE + "\local\bin")
 addPath($env:USERPROFILE + "\AppData\Local\Programs\Microsoft VS Code")
 addPath("C:\Program Files\Git\usr\bin")
+addPath("C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64")
 # addPath($env:USERPROFILE + "\local\src\depot_tools")
 
 if($env:JAVA_HOME -ne $null){
