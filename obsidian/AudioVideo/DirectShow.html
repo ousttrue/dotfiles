@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>virtualcamera - shell note ドキュメント</title>
+        <title>streams.h - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -222,13 +222,37 @@
 <li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/windows/win32/directshow/directshow-samples">DirectShow サンプル アプリ - Win32 apps | Microsoft Learn</a></p></li>
 <li><p><a class="reference external" href="https://github.com/cplussharp/graph-studio-next">GitHub - cplussharp/graph-studio-next: GraphStudioNext is a tool for developers to build and test DirectShow Graphs</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="streams-h">
+<h1>streams.h<a class="headerlink" href="#streams-h" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/roman380/Windows-classic-samples/tree/directshow/Samples/Win7Samples/multimedia/directshow/baseclasses">Windows-classic-samples/Samples/Win7Samples/multimedia/directshow/baseclasses at directshow · roman380/Windows-classic-samples · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ganboing/sdk71examples/tree/master/multimedia/directshow/baseclasses">sdk71examples/multimedia/directshow/baseclasses at master · ganboing/sdk71examples · GitHub</a></p></li>
+</ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="virtualcamera">
 <h1>virtualcamera<a class="headerlink" href="#virtualcamera" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/HexagramNM/items/2311f025f3af758c83a0">DirectShowで仮想カメラを自作しよう - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/yuya2011/items/9b4eda4a6a8460252fe2">DirectShowによる仮想カメラ開発のメモ - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://alax.info/blog/2161">DirectShow VCam source code – Fooling Around</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://qiita.com/yuya2011/items/9b4eda4a6a8460252fe2">DirectShowによる仮想カメラ開発のメモ - Qiita</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/HexagramNM/items/2311f025f3af758c83a0">DirectShowで仮想カメラを自作しよう - Qiita</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://alax.info/blog/2161">DirectShow VCam source code – Fooling Around</a></p></li>
+<li><p><a class="reference external" href="https://github.com/aricatamoy/svcam">GitHub - aricatamoy/svcam: A simple virtual camera code based on DirectShow filters for Windows. It won't work with Internet Explorer or Metro apps though (which uses Media Foundation, not DirectShow)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/HexagramNM/NMVCamFilter">GitHub - HexagramNM/NMVCamFilter: DirectShowを使った仮想カメラ実装のサンプルです。</a></p></li>
 </ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="interface">
+<h1>interface<a class="headerlink" href="#interface" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="ikspropertyset">
+<h2>IKsPropertySet<a class="headerlink" href="#ikspropertyset" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Get, Set, QuerySupported</p>
+</section>
+<section id="iamstreamconfig">
+<h2>IAMStreamConfig<a class="headerlink" href="#iamstreamconfig" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>GetFormat, GetNumberOfCapabilities, GetStreamCaps, SetFormat</p>
+</section>
+<section id="iamfiltermiscflags">
+<h2>IAMFilterMiscFlags<a class="headerlink" href="#iamfiltermiscflags" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>GetMiscFlags</p>
+</section>
 </section>
 
         </article>
@@ -252,8 +276,31 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">streams.h</a></li>
+<li><a class="reference internal" href="#virtualcamera">virtualcamera</a></li>
+<li><a class="reference internal" href="#interface">interface</a><ul>
+<li><a class="reference internal" href="#ikspropertyset">IKsPropertySet</a></li>
+<li><a class="reference internal" href="#iamstreamconfig">IAMStreamConfig</a></li>
+<li><a class="reference internal" href="#iamfiltermiscflags">IAMFilterMiscFlags</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

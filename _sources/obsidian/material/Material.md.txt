@@ -6,3 +6,5 @@ aliases: [shading, lighting]
 
 # Lighting
 [[IBL]]
+
+[[TexturePainting]]
