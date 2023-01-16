@@ -1,3 +1,10 @@
+[[wsa]]
+[[ArmMac]]
+
+- @2022 [Android Studio on Windows ARM : AndroidStudio](https://www.reddit.com/r/AndroidStudio/comments/ylvnsy/android_studio_on_windows_arm/)
+- @2020 [ARMベースのSurface Pro X買って開発環境構築 - Qiita](https://qiita.com/mfunaki/items/1dc47ab4edb60cef6416)
+
+
 #  Snapdragon 7c Gen2
 `20210525`
 

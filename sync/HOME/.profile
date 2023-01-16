@@ -13,11 +13,13 @@ export _PROFILE_=1
 # fcitx5 --disable=wayland&
 
 # ibus
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export DefaultIMModule=ibus
-ibus-daemon --daemonize --xim --replace
+if which ibus-daemon > /dev/null 2>&1; then
+    export GTK_IM_MODULE=ibus
+    export QT_IM_MODULE=ibus
+    export XMODIFIERS=@im=ibus
+    export DefaultIMModule=ibus
+    ibus-daemon --daemonize --xim --replace
+fi
 
 #
 # term

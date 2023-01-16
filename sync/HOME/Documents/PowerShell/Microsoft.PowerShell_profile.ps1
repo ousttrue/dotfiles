@@ -93,7 +93,12 @@ elseif(Test-Path "C:\Python37")
     addPath("C:\Python37\Scripts")
     addPath("C:\Python37")
 }
-# readline
+elseif(Test-Path "C:\Python311-arm64")
+{
+    addPath("C:\Python311-arm64\Scripts")
+    addPath("C:\Python311-arm64")
+}
+## readline
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2
 Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+b' -Function BackwardChar

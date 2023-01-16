@@ -1,4 +1,5 @@
-[Linux を(わりと)シンプルな構成でビルドして Qemu で起動する https://qiita.com/kaishuu0123/items/33621af2aca44d8d2c72]
-[ビルドしたLinuxカーネルをブートできる最低限の環境を用意する（with Busybox & qemu) http://nullpo-head.hateblo.jp/entry/2015/04/20/172059]
-https://eng-notebook.com/blog-entry-143/
-https://www.aps-web.jp/academy/wr-linux/18673/
+- @2023 [Qemuのしくみ (の一部) - VA Linux エンジニアブログ](https://valinux.hatenablog.com/entry/20230112)
+- @2016 [Linux を(わりと)シンプルな構成でビルドして Qemu で起動する - Qiita](https://qiita.com/kaishuu0123/items/33621af2aca44d8d2c72)
+- [ビルドしたLinuxカーネルをブートできる最低限の環境を用意する（with Busybox & qemu) - 豆腐の豆腐和え](http://nullpo-head.hateblo.jp/entry/2015/04/20/172059)[]()
+- [QEMUにUbuntu Linuxを最小構成（GUIデスクトップなし）でインストール - Engineer's Notebook](https://eng-notebook.com/blog-entry-143/)
+- [QEMUで組み込みLinuxを手早く開発、実機不要の開発フローを学ぶ | APS｜組み込み業界専門メディア](https://www.aps-web.jp/academy/wr-linux/18673/)
