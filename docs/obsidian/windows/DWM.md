@@ -1,4 +1,4 @@
-[[Windows]]
+**[[Windows]]
 
 - [Desktop Window Manager - Win32 apps | Microsoft Learn](https://learn.microsoft.com/en-us/windows/win32/dwm/dwm-overview) 
 
