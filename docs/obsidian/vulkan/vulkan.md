@@ -67,3 +67,6 @@ validation layer: loader_get_json: Failed to open JSON file C:\Program Files (x8
 validation layer: loader_get_json: Failed to open JSON file C:\Program Files (x86)\Epic Games\Launcher\Portal\Extras\Overlay\EOSOverlayVkLayer-Win64.json
 ```
 [Vulkan: Spurious "Failed to open JSON file" printed due to invalid Vulkan ICD files · Issue #56089 · godotengine/godot · GitHub](https://github.com/godotengine/godot/issues/56089)
+
+# app
+- [GitHub - liblava/liblava: Modern and easy-to-use library for Vulkan](https://github.com/liblava/liblava)

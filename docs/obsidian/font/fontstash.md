@@ -9,3 +9,7 @@
  
 # user
 - [GitHub - carld/opengl-ttf-terminal: A terminal window for Linux implemented using libtsm, libsdl, stb_truetype, fontstash](https://github.com/carld/opengl-ttf-terminal)
+
+# github
+- [GitHub - TeamHypersomnia/rectpack2D: A header-only, very efficient 2D rectangle packing library.](https://github.com/TeamHypersomnia/rectpack2D)
+- [GitHub - chinedufn/rectangle-pack: A general purpose, deterministic bin packer designed to conform to any two or three dimensional use case.](https://github.com/chinedufn/rectangle-pack)
