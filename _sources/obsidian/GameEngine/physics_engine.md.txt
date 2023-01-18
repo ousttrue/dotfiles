@@ -22,3 +22,5 @@
 
 # PositionBased
 - [GitHub - jamornsriwasansak/brass-pan: A position-based physics engine](https://github.com/jamornsriwasansak/brass-pan)
+
+- [GitHub - InteractiveComputerGraphics/PositionBasedDynamics: PositionBasedDynamics is a library for the physically-based simulation of rigid bodies, deformable solids and fluids.](https://github.com/InteractiveComputerGraphics/PositionBasedDynamics)
