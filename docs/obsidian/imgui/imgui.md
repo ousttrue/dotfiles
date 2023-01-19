@@ -64,11 +64,14 @@ if(ImGui::TreeNode()){
 ```
 
 ## 入力ハンドリング
-- ImGui が消費する
-	- ImGui の Widgets が消費する
-	- ImGui の RenderTarget に転送する
-- ImGui が消費しない
-	- background の 3D シーンに送る
+### ImGui が消費する
+`io.WantCaptureMouse`
+- ImGui の Widgets が消費する
+`window, item のテスト`
+- ImGui の RenderTarget に転送する
+### ImGui が消費しない
+`!io.WantCaptureMouse`
+- background の 3D シーンに送る
 
 # App
 - https://github.com/mahilab/mahi-gui

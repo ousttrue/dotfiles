@@ -5,7 +5,12 @@
 
 
 # version
-## 3 es
+## 330 core
+```c
+layout(location = 0) in vec3 vertexPosition_modelspace;
+```
+
+## 310 es
 
 ```c
 #version 310 es

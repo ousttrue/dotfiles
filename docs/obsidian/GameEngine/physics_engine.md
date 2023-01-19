@@ -6,6 +6,22 @@ aliases: [RigidBody]
 
 - [GitHub - wbierbower/awesome-physics: 🌌 A collaborative list of awesome software for exploring Physics concepts](https://github.com/wbierbower/awesome-physics)
 
+# pipeline
+## 外力
+重力など
+- 力
+- トルク
+## Collision
+- ブロードフェーズ
+	- Sweep and Prune
+	- AABBt ree
+	- pair を得る
+- ナローフェーズ
+## Solver
+- 速度を得る？
+## Update
+- 速度により、位置を更新する
+
 # Collision
 - [衝突判定編](http://marupeke296.com/COL_main.html)
 - @2020 [剛体シミュレーター | 鈴木　捷世](https://www.resume.id/works/4bc98f3e7b1caf02)
