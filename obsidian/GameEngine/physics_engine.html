@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Collision - shell note ドキュメント</title>
+        <title>pipeline - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -222,8 +222,44 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/wbierbower/awesome-physics">GitHub - wbierbower/awesome-physics: 🌌 A collaborative list of awesome software for exploring Physics concepts</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="collision">
-<h1>Collision<a class="headerlink" href="#collision" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="pipeline">
+<h1>pipeline<a class="headerlink" href="#pipeline" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>外力<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>重力など</p>
+<ul class="simple">
+<li><p>力</p></li>
+<li><p>トルク</p></li>
+</ul>
+</section>
+<section id="collision">
+<h2>Collision<a class="headerlink" href="#collision" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>ブロードフェーズ</p>
+<ul>
+<li><p>Sweep and Prune</p></li>
+<li><p>AABBt ree</p></li>
+<li><p>pair を得る</p></li>
+</ul>
+</li>
+<li><p>ナローフェーズ</p></li>
+</ul>
+</section>
+<section id="solver">
+<h2>Solver<a class="headerlink" href="#solver" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>速度を得る？</p></li>
+</ul>
+</section>
+<section id="update">
+<h2>Update<a class="headerlink" href="#update" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>速度により、位置を更新する</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>Collision<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="http://marupeke296.com/COL_main.html">衝突判定編</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://www.resume.id/works/4bc98f3e7b1caf02">剛体シミュレーター | 鈴木　捷世</a></p></li>
@@ -317,7 +353,14 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Collision</a><ul>
+<li><a class="reference internal" href="#">pipeline</a><ul>
+<li><a class="reference internal" href="#id1">外力</a></li>
+<li><a class="reference internal" href="#collision">Collision</a></li>
+<li><a class="reference internal" href="#solver">Solver</a></li>
+<li><a class="reference internal" href="#update">Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">Collision</a><ul>
 <li><a class="reference internal" href="#aabb">AABB木</a></li>
 </ul>
 </li>

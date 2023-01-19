@@ -302,19 +302,22 @@
 </div>
 <section id="id7">
 <h2>入力ハンドリング<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="imgui">
+<h3>ImGui が消費する<a class="headerlink" href="#imgui" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">io.WantCaptureMouse</span></code></p>
 <ul class="simple">
-<li><p>ImGui が消費する</p>
-<ul>
-<li><p>ImGui の Widgets が消費する</p></li>
+<li><p>ImGui の Widgets が消費する
+<code class="docutils literal notranslate"><span class="pre">window,</span> <span class="pre">item</span> <span class="pre">のテスト</span></code></p></li>
 <li><p>ImGui の RenderTarget に転送する</p></li>
 </ul>
-</li>
-<li><p>ImGui が消費しない</p>
-<ul>
+</section>
+<section id="id8">
+<h3>ImGui が消費しない<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">!io.WantCaptureMouse</span></code></p>
+<ul class="simple">
 <li><p>background の 3D シーンに送る</p></li>
 </ul>
-</li>
-</ul>
+</section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="app">
@@ -374,7 +377,11 @@
 </li>
 <li><a class="reference internal" href="#repos">Repos</a></li>
 <li><a class="reference internal" href="#api">API</a><ul>
-<li><a class="reference internal" href="#id7">入力ハンドリング</a></li>
+<li><a class="reference internal" href="#id7">入力ハンドリング</a><ul>
+<li><a class="reference internal" href="#imgui">ImGui が消費する</a></li>
+<li><a class="reference internal" href="#id8">ImGui が消費しない</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#app">App</a></li>
