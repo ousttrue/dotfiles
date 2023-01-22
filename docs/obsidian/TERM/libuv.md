@@ -27,12 +27,26 @@ int main() {
 
 - [Big Sky :: libuvのループはリファレンスの減少でも止められる。](https://mattn.kaoriya.net/software/lang/c/20111213134522.htm)
 
+# socket
+- [第4回 libuv C10K〜C100K サーバサンプル [C++] | Netsphere Laboratories](https://www.nslabs.jp/libuv-c10k-server.rhtml)
+
 # tty
-## write(vt100 escape sequence)
 - [uv_tty_t — TTY handle — libuv documentation](http://docs.libuv.org/en/v1.x/tty.html)
-- [node.jsを支えるlibuvのチュートリアル"uvbook" :ユーティリティ - 自由課題](https://kimitok.hateblo.jp/entry/2014/04/24/231854)
+
+## write(vt100 escape sequence)
+`stdout`
+- @2014 [node.jsを支えるlibuvのチュートリアル"uvbook" :ユーティリティ - 自由課題](https://kimitok.hateblo.jp/entry/2014/04/24/231854)
+
 ## read
+`stdin`
 - [tty: read callback is called after closing · Issue #2012 · libuv/libuv · GitHub](https://github.com/libuv/libuv/issues/2012)
+
+## ncurses
+- [Event Loops and NCurses – LinuxJedi's /dev/null](https://linuxjedi.co.uk/2020/04/29/event-loops-and-ncurses/)
+
+# process
+[uv_process_t — Process handle — libuv documentation](http://docs.libuv.org/en/v1.x/process.html)
+- [c - libuv: difference between fork and uv_spawn? - Stack Overflow](https://stackoverflow.com/questions/70031085/libuv-difference-between-fork-and-uv-spawn)
 
 # uv_pipe_t
 

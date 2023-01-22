@@ -33,3 +33,8 @@
 # CSharp
 ##  xml comment
 - @2022 [xml comments - XML Auto Commenting C# in Visual Studio Code - Stack Overflow](https://stackoverflow.com/questions/34275209/xml-auto-commenting-c-sharp-in-visual-studio-code)
+
+# snippet
+`%APPDATA%\Code\User\snippets.json`
+
+- @2020 [VSCodeのUser Snippetを活用しよう！ - Qiita](https://qiita.com/282Haniwa/items/82828c6a566e3e7e047d)

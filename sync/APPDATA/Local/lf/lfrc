@@ -1,0 +1,4 @@
+set drawbox
+map <enter> :cmd-enter; open
+cmd open &vim %f%
+

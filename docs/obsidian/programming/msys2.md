@@ -96,3 +96,10 @@ mingw-w64-x86_64-toolchain
 set background=dark
 set t_Co=256
 ```
+
+# macro
+```
+gcc -E -dM -
+```
+
+
