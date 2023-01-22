@@ -1,7 +1,8 @@
 [Fetching Title#7bn3](https://gitlab.freedesktop.org/xrdesktop/xrdesktop)[[buildtool]]
 [[gst-python]]
 
-	
+
+- @2020 [bitWalk's: Vala と Meson とクロスコンパイル](https://bitwalk.blogspot.com/2020/08/vala-meson.html)
 - @2019 [［Meson］Meson for C++の苦闘記 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2019/09/20/023511)
 
 # reference

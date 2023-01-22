@@ -9,21 +9,19 @@
 
 ## Go
 - [GitHub - aaronjanse/3mux: Terminal multiplexer inspired by i3](https://github.com/aaronjanse/3mux)
+- [GitHub - mohemohe/wmux: windowed terminal multiplexer](https://github.com/mohemohe/wmux)
 
-## minimum
+## mtm
+`minimum`
 [[mtm]]
 
 ## python
 [[pymux]]
 
-## mtm
-https://github.com/deadpixi/mtm
-
-
 ## dvtm
 https://github.com/martanne/dvtm
 
 # GUI
-[[Konsole]]
-[[wezterm]]
-[[Terminator]]
+- [[Konsole]]
+- [[wezterm]]
+- [[Terminator]]

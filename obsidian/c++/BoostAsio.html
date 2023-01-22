@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>book - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,115 +212,34 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="book">
-<h1>book<a class="headerlink" href="#book" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <p>[[cpp]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://nikhilm.github.io/uvbook/">Table of Contents — An Introduction to libuv</a></p>
+<li><p><a class="reference external" href="https://think-async.com/Asio/asio-1.24.0/doc/asio/overview.html">Overview</a></p>
 <ul>
-<li><p><a class="reference external" href="http://diary.wshito.com/comp/lisp/uvbook/uvbook-idle-basic/">uvbook -- libuvの仕組みとidle-basicの解説 · wshito's diary</a></p></li>
+<li><p><a class="reference external" href="https://think-async.com/Asio/asio-1.24.0/doc/asio/reference.html">Reference</a></p></li>
 </ul>
 </li>
-<li><p>@2014 <a class="reference external" href="https://kimitok.hateblo.jp/entry/2014/03/30/184206">node.jsを支えるlibuvのチュートリアル"uvbook" :目次 - 自由課題</a></p>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/experimental/networking">Extensions for networking - cppreference.com</a></p></li>
+<li><p>@2018 <a class="reference external" href="https://onihusube.hatenablog.com/entry/2018/05/26/011129">boost.asioのTCP/UDP通信時のBufferに関するメモ - 地面を見下ろす少年の足蹴にされる私</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://qiita.com/legokichi/items/3365b25eea13c0f2bb51">Boost.ASIO で callback | coroutine | future による非同期IO - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://amedama1x1.hatenablog.com/archive/category/Asio">Asio カテゴリーの記事一覧 - あめだまふぁくとりー</a></p>
 <ul>
-<li><p><a class="reference external" href="https://kimitok.hateblo.jp/entry/2014/03/30/185544">node.jsを支えるlibuvのチュートリアル"uvbook" :基礎 - 自由課題</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://amedama1x1.hatenablog.com/entry/2016/08/20/222326">Networking TS の Boost.Asio からの変更点 - その 3: Executor - あめだまふぁくとりー</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">io_service</span> <span class="pre">=&gt;</span> <span class="pre">io_context</span></code></p></li>
 </ul>
 </li>
-<li><p>@2019 <a class="reference external" href="https://blog.kkty.jp/entry/2019/01/11/195601">libuvとは(特にイベントループについて) - kkty’s blog</a></p></li>
+<li><p>@2015 <a class="reference external" href="https://qiita.com/YukiMiyatake/items/5be12ea35894071d8de1">boost.Asioを半年使っわかったこと - Qiita</a></p></li>
+<li><p>@2015 <a class="reference external" href="https://qiita.com/YukiMiyatake/items/f4641c54151a18c362f9">【boost::asio buffers】 boost::asioでセッション管理にはshared_ptrが便利だ - Qiita</a></p></li>
+<li><p>@2011 <a class="reference external" href="https://faithandbrave.hateblo.jp/entry/20110325/1301036991">Boost.Asio ゲームループで非同期操作を行う - Faith and Brave - C++で遊ぼう</a></p></li>
+<li><p>@2011 <a class="reference external" href="https://clown.cube-soft.jp/entry/20110325/1301048795">Boost.Asio リンク集 - Cube Lilac</a></p></li>
 </ul>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;uv.h&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">uv_loop_t</span><span class="w"> </span><span class="o">*</span><span class="n">loop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">uv_loop_t</span><span class="p">));</span><span class="w"></span>
-<span class="w">    </span><span class="n">uv_loop_init</span><span class="p">(</span><span class="n">loop</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Now quitting.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">uv_run</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span><span class="w"> </span><span class="n">UV_RUN_DEFAULT</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">uv_loop_close</span><span class="p">(</span><span class="n">loop</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">loop</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><a class="reference external" href="https://mattn.kaoriya.net/software/lang/c/20111213134522.htm">Big Sky :: libuvのループはリファレンスの減少でも止められる。</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="socket">
-<h1>socket<a class="headerlink" href="#socket" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.nslabs.jp/libuv-c10k-server.rhtml">第4回 libuv C10K〜C100K サーバサンプル [C++] | Netsphere Laboratories</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="tty">
-<h1>tty<a class="headerlink" href="#tty" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="http://docs.libuv.org/en/v1.x/tty.html">uv_tty_t — TTY handle — libuv documentation</a></p></li>
-</ul>
-<section id="write-vt100-escape-sequence">
-<h2>write(vt100 escape sequence)<a class="headerlink" href="#write-vt100-escape-sequence" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">stdout</span></code></p>
-<ul class="simple">
-<li><p>@2014 <a class="reference external" href="https://kimitok.hateblo.jp/entry/2014/04/24/231854">node.jsを支えるlibuvのチュートリアル"uvbook" :ユーティリティ - 自由課題</a></p></li>
-</ul>
-</section>
-<section id="read">
-<h2>read<a class="headerlink" href="#read" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">stdin</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/libuv/libuv/issues/2012">tty: read callback is called after closing · Issue #2012 · libuv/libuv · GitHub</a></p></li>
-</ul>
-</section>
-<section id="ncurses">
-<h2>ncurses<a class="headerlink" href="#ncurses" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://linuxjedi.co.uk/2020/04/29/event-loops-and-ncurses/">Event Loops and NCurses – LinuxJedi's /dev/null</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="process">
-<h1>process<a class="headerlink" href="#process" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="http://docs.libuv.org/en/v1.x/process.html">uv_process_t — Process handle — libuv documentation</a></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/70031085/libuv-difference-between-fork-and-uv-spawn">c - libuv: difference between fork and uv_spawn? - Stack Overflow</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="uv-pipe-t">
-<h1>uv_pipe_t<a class="headerlink" href="#uv-pipe-t" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="uv-poll-t">
-<h1>uv_poll_t<a class="headerlink" href="#uv-poll-t" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>ncurses<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://linuxjedi.co.uk/2020/04/29/event-loops-and-ncurses/">Event Loops and NCurses – LinuxJedi's /dev/null</a></p></li>
-</ul>
-<blockquote>
-<div><p>keyboard/mouse input, resize and refresh handling</p>
-</div></blockquote>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="zig">
-<h1>zig<a class="headerlink" href="#zig" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://gist.github.com/Qix-/a53c46b0ff25a38a24a49c1dcea28d54">Simplistic libuv wrapper example in Zig · GitHub</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="gtk">
-<h1>gtk<a class="headerlink" href="#gtk" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[GTK3]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/derekdai/libuv-glib/blob/master/test-uv-gtk.c">libuv-glib/test-uv-gtk.c at master · derekdai/libuv-glib · GitHub</a></p></li>
-</ul>
-</section>
+<p>https://amedama1x1.hatenablog.com/entry/2014/06/16/210600</p>
 
         </article>
       </div>
@@ -335,7 +254,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/TERM/libuv.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/c++/BoostAsio.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -343,39 +262,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">book</a></li>
-<li><a class="reference internal" href="#socket">socket</a></li>
-<li><a class="reference internal" href="#tty">tty</a><ul>
-<li><a class="reference internal" href="#write-vt100-escape-sequence">write(vt100 escape sequence)</a></li>
-<li><a class="reference internal" href="#read">read</a></li>
-<li><a class="reference internal" href="#ncurses">ncurses</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#process">process</a></li>
-<li><a class="reference internal" href="#uv-pipe-t">uv_pipe_t</a></li>
-<li><a class="reference internal" href="#uv-poll-t">uv_poll_t</a><ul>
-<li><a class="reference internal" href="#id1">ncurses</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#zig">zig</a></li>
-<li><a class="reference internal" href="#gtk">gtk</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

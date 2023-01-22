@@ -8,8 +8,24 @@ fullscreen の term アプリを `tui` と分類
 [[notcurses]]
 [[prompt_toolkit]]
 [[turbo_vision]]
+[[conpty]]
 
 - [tui · GitHub Topics · GitHub](https://github.com/topics/tui?l=c%2B%2B)
+
+- @2022 [Create Graphical Programs in Terminal with FTXUI](https://terminalroot.com/create-graphical-programs-in-terminal-with-ftxui/?utm_source=dlvr.it&utm_medium=twitter)
+
+# stdin
+- rawmode
+- escape sequence
+
+## curses
+
+# SIGWINCH
+
+# stdout
+## curses
+- layout
+
 
 
 # Library

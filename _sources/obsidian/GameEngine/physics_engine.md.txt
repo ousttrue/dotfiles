@@ -6,6 +6,8 @@ aliases: [RigidBody]
 
 - [GitHub - wbierbower/awesome-physics: 🌌 A collaborative list of awesome software for exploring Physics concepts](https://github.com/wbierbower/awesome-physics)
 
+- @2008 [https://cedec.cesa.or.jp/2008/archives/file/pg07.pdf](https://cedec.cesa.or.jp/2008/archives/file/pg07.pdf)
+
 # pipeline
 ## 外力
 重力など
@@ -48,6 +50,12 @@ aliases: [RigidBody]
 
 ## qu3e
 - [GitHub - RandyGaul/qu3e: Lightweight and Simple 3D Open Source Physics Engine in C++](https://github.com/RandyGaul/qu3e)
+
+### scene
+- scene
+	- body(rigid body)
+		- box(cube shape)
+
 
 ## Chrono
 - [GitHub - projectchrono/chrono: High-performance C++ library for multiphysics and multibody dynamics simulations](https://github.com/projectchrono/chrono)

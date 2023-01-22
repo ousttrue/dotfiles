@@ -6,6 +6,10 @@ from `17733` `1809`
 
 > Windows 疑似コンソールは、疑似コンソール、ConPTY、または Windows PTY とも呼ばれ
 
+# escape sequence
+`ENABLE_VIRTUAL_TERMINAL_PROCESSING`
+[コンソールの仮想ターミナル シーケンス - Windows Console | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences)
+
 # API
 ## CreatePseudoConsole
 - [CreatePseudoConsole function - Windows Console | Microsoft Docs](https://docs.microsoft.com/en-us/windows/console/createpseudoconsole)
