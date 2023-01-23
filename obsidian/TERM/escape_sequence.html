@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Control Sequence Introducer (CSI) - shell note ドキュメント</title>
+        <title>ANSI - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -225,12 +225,21 @@
 <li><p><a class="reference external" href="https://www.askapache.com/linux/zen-terminal-escape-codes/">Terminal Escape Code Zen</a></p></li>
 <li><p><a class="reference external" href="https://vorfee.hatenablog.jp/entry/2015/03/17/173635">ターミナルのechoやprintfに256色で色をつける 完全版 - vorfee's Tech Blog</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="ansi">
+<h1>ANSI<a class="headerlink" href="#ansi" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2017 <a class="reference external" href="https://qiita.com/PruneMazui/items/8a023347772620025ad6">ANSIエスケープシーケンス チートシート - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI escape code - Wikipedia</a></p></li>
+</ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="control-sequence-introducer-csi">
 <h1>Control Sequence Introducer (CSI)<a class="headerlink" href="#control-sequence-introducer-csi" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">\e[</span></code></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="linux">
-<h1>Linux<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="c">
+<h1>C<a class="headerlink" href="#c" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
@@ -244,8 +253,8 @@
 </pre></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="windows">
-<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://qiita.com/mod_poppo/items/2ff384530c6f3215c635">Windows向けのプログラムでANSIエスケープシーケンスを使うには - Qiita</a></p></li>
 </ul>
@@ -267,6 +276,7 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>色を変える<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -346,9 +356,13 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Control Sequence Introducer (CSI)</a></li>
+<li><a class="reference internal" href="#">ANSI</a></li>
+<li><a class="reference internal" href="#control-sequence-introducer-csi">Control Sequence Introducer (CSI)</a></li>
+<li><a class="reference internal" href="#c">C</a><ul>
 <li><a class="reference internal" href="#linux">Linux</a></li>
 <li><a class="reference internal" href="#windows">Windows</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#id1">色を変える</a></li>
 <li><a class="reference internal" href="#id2">カーソル移動</a></li>
 <li><a class="reference internal" href="#id3">画面制御</a></li>

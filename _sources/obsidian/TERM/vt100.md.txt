@@ -1,11 +1,30 @@
-- [VT100.net: A parser for DEC’s ANSI-compatible video terminals](https://vt100.net/emu/dec_ansi_parser)
-	- [Contents](https://vt100.net/docs/vt510-rm/contents.html)
-	- [Digital VT100 User Guide: Programmer Information](https://vt100.net/docs/vt100-ug/chapter3.html#S3.3.3)
+[[escape_sequence]] [[xterm]]
 
-- [ANSI escape code - Wikipedia](https://en.wikipedia.org/wiki/ANSI_escape_code)
+[Terminal Emulation – VT100.net](https://vt100.net/emu/)
+	[VT100.net: A parser for DEC’s ANSI-compatible video terminals](https://vt100.net/emu/dec_ansi_parser)
+	[Digital VT100 User Guide](https://vt100.net/docs/vt100-ug/contents.html)
+	[vt510 Contents](https://vt100.net/docs/vt510-rm/contents.html)
+
+[VT100のエスケープシーケンス - BK class](http://bkclass.web.fc2.com/doc_vt100.html#description)
+
+# headless
+## vt100utils
+`linux` rawmode を代替すれば windows でも動きそう
+- [GitHub - Cubified/vt100utils: A single-header C library for encoding, decoding, and doing useful things with ANSI graphics escape sequences.](https://github.com/Cubified/vt100utils)
+
+## pyte
+`linux` `windows`
 - [What is pyte? — pyte 0.8.1-dev documentation](https://pyte.readthedocs.io/en/latest/)
+
+## hl-vt100
+`linux`
+- [mdk/hl-vt100: A headless terminal emulator (ANSI / VT100) in C89 with its Python wrapper. - hl-vt100 - Le Gitea de l'AFPy](https://git.afpy.org/mdk/hl-vt100)
 
 # Windows
 [[windows_terminal]]
 [[conpty]]
+- [Console Virtual Terminal Sequences - Windows Console | Microsoft Learn](https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences)
 - [コンソールの仮想ターミナル シーケンス - Windows Console | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences)
+
+# parser
+- [vt100 — Rust data encoding library // Lib.rs](https://lib.rs/crates/vt100)

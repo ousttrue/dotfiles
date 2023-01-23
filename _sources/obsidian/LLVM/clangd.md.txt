@@ -11,6 +11,8 @@ https://clangd.llvm.org/
   ],
 ```
 
+`CLANGD_FLAGS=--header-insertion=never`
+
 [* compile_commands.json または compile_flags.txt]
 	https://clang.llvm.org/docs/JSONCompilationDatabase.html
 	https://uchan.hateblo.jp/entry/2018/12/29/104132
