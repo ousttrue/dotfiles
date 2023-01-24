@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>pipeline - shell note ドキュメント</title>
+        <title>CollisionDetection - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,121 +218,42 @@
           </label>
         </div>
         <article role="main">
-          <p>剛体シミュレーション</p>
+          <p>[[physics_engine]]</p>
+<p>衝突可能性のあるペアを得る</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="n">AABB</span><span class="w"> </span><span class="o">*</span><span class="n">aabb</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Remove</span><span class="p">(</span><span class="n">AABB</span><span class="w"> </span><span class="o">*</span><span class="n">aabb</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="k">virtual</span><span class="w"> </span><span class="n">ColliderPairList</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">ComputePairs</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">   </span><span class="k">virtual</span><span class="w"> </span><span class="n">Collider</span><span class="w"> </span><span class="o">*</span><span class="nf">Pick</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vec3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">point</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="k">virtual</span><span class="w"> </span><span class="n">Query</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">AABB</span><span class="w"> </span><span class="o">&amp;</span><span class="n">aabb</span><span class="p">,</span><span class="w"> </span><span class="n">ColliderList</span><span class="w"> </span><span class="o">&amp;</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="k">virtual</span><span class="w"> </span><span class="n">RayCastResult</span><span class="w"> </span><span class="nf">RayCast</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Ray3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ray</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="collisiondetection">
+<h1>CollisionDetection<a class="headerlink" href="#collisiondetection" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/wbierbower/awesome-physics">GitHub - wbierbower/awesome-physics: 🌌 A collaborative list of awesome software for exploring Physics concepts</a></p></li>
-<li><p>@2008 <a class="reference external" href="https://cedec.cesa.or.jp/2008/archives/file/pg07.pdf">https://cedec.cesa.or.jp/2008/archives/file/pg07.pdf</a></p></li>
+<li><p>@2014 <a class="reference external" href="https://ftvoid.com/blog/post/407">当たり判定の高速化 ‐ スイープ＆プルーンの使用 | ftvlog</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="pipeline">
-<h1>pipeline<a class="headerlink" href="#pipeline" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>外力<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>重力など</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="aabb-tree">
+<h1>AABB Tree<a class="headerlink" href="#aabb-tree" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>力</p></li>
-<li><p>トルク</p></li>
+<li><p>@2017 <a class="reference external" href="https://www.azurefromthetrenches.com/introductory-guide-to-aabb-tree-collision-detection/">Introductory Guide to AABB Tree Collision Detection – Azure From The Trenches</a></p></li>
+<li><p>@2014 <a class="reference external" href="https://allenchou.net/2014/02/game-physics-broadphase-dynamic-aabb-tree/">Game Physics: Broadphase – Dynamic AABB Tree | Ming-Lun "Allen" Chou | 周明倫</a></p></li>
 </ul>
 </section>
-<section id="collision">
-<h2>Collision<a class="headerlink" href="#collision" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="octtree-quadtree">
+<h1>OctTree / QuadTree<a class="headerlink" href="#octtree-quadtree" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">3D</span></code></p>
 <ul class="simple">
-<li><p>ブロードフェーズ</p>
-<ul>
-<li><p>Sweep and Prune</p></li>
-<li><p>AABBt ree</p></li>
-<li><p>pair を得る</p></li>
-</ul>
-</li>
-<li><p>ナローフェーズ</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Octree">Octree - Wikipedia</a>
+<code class="docutils literal notranslate"><span class="pre">2D</span></code></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Quadtree">Quadtree - Wikipedia</a></p></li>
 </ul>
 </section>
-<section id="solver">
-<h2>Solver<a class="headerlink" href="#solver" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>速度を得る？</p></li>
-</ul>
-</section>
-<section id="update">
-<h2>Update<a class="headerlink" href="#update" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>速度により、位置を更新する</p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>Collision<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="http://marupeke296.com/COL_main.html">衝突判定編</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://www.resume.id/works/4bc98f3e7b1caf02">剛体シミュレーター | 鈴木　捷世</a></p></li>
-<li><p>@2014 <a class="reference external" href="https://ftvoid.com/blog/post/329">当たり判定の高速化 ‐ ブロードフェーズとナローフェーズ | ftvlog</a></p></li>
-<li><p>@2013 <a class="reference external" href="https://qiita.com/edo_m18/items/6051d2d8e422a41d0c13">剛体シミュレーションをまとめてみる - Qiita</a></p></li>
-</ul>
-<section id="aabb">
-<h2>AABB木<a class="headerlink" href="#aabb" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2014 <a class="reference external" href="https://ftvoid.com/blog/post/364">当たり判定の高速化 – AABB木の使用 | ftvlog</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="engine">
-<h1>engine<a class="headerlink" href="#engine" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="joltphysics">
-<h2>JoltPhysics<a class="headerlink" href="#joltphysics" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://jrouwe.github.io/JoltPhysics/md__docs__samples.html">Jolt Physics: Jolt Physics Samples</a></p></li>
-<li><p><a class="reference external" href="https://github.com/jrouwe/JoltPhysics">GitHub - jrouwe/JoltPhysics: A multi core friendly rigid body physics and collision detection library suitable for games and VR applications.</a></p></li>
-</ul>
-</section>
-<section id="bullet-physics">
-<h2>bullet physics<a class="headerlink" href="#bullet-physics" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[bullet]]
-[[easy_physics]]</p>
-</section>
-<section id="mujoco">
-<h2>mujoco<a class="headerlink" href="#mujoco" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/deepmind/mujoco">GitHub - deepmind/mujoco: Multi-Joint dynamics with Contact. A general purpose physics simulator.</a></p></li>
-</ul>
-</section>
-<section id="reactphysics3d">
-<h2>ReactPhysics3D<a class="headerlink" href="#reactphysics3d" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/DanielChappuis/reactphysics3d">GitHub - DanielChappuis/reactphysics3d: Open source C++ physics engine library in 3D</a></p></li>
-</ul>
-</section>
-<section id="qu3e">
-<h2>qu3e<a class="headerlink" href="#qu3e" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/RandyGaul/qu3e">GitHub - RandyGaul/qu3e: Lightweight and Simple 3D Open Source Physics Engine in C++</a></p></li>
-</ul>
-<section id="scene">
-<h3>scene<a class="headerlink" href="#scene" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p>scene</p>
-<ul>
-<li><p>body(rigid body)</p>
-<ul>
-<li><p>box(cube shape)</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<section id="chrono">
-<h2>Chrono<a class="headerlink" href="#chrono" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/projectchrono/chrono">GitHub - projectchrono/chrono: High-performance C++ library for multiphysics and multibody dynamics simulations</a></p></li>
-</ul>
-</section>
-<section id="positionbased">
-<h2>PositionBased<a class="headerlink" href="#positionbased" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/jamornsriwasansak/brass-pan">GitHub - jamornsriwasansak/brass-pan: A position-based physics engine</a></p></li>
-<li><p><a class="reference external" href="https://github.com/InteractiveComputerGraphics/PositionBasedDynamics">GitHub - InteractiveComputerGraphics/PositionBasedDynamics: PositionBasedDynamics is a library for the physically-based simulation of rigid bodies, deformable solids and fluids.</a></p></li>
-</ul>
-</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bsptrees">
+<h1>BSPTrees<a class="headerlink" href="#bsptrees" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 
         </article>
@@ -348,7 +269,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/GameEngine/physics_engine.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/physics/physics_broadphase.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -368,30 +289,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">pipeline</a><ul>
-<li><a class="reference internal" href="#id1">外力</a></li>
-<li><a class="reference internal" href="#collision">Collision</a></li>
-<li><a class="reference internal" href="#solver">Solver</a></li>
-<li><a class="reference internal" href="#update">Update</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id2">Collision</a><ul>
-<li><a class="reference internal" href="#aabb">AABB木</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#engine">engine</a><ul>
-<li><a class="reference internal" href="#joltphysics">JoltPhysics</a></li>
-<li><a class="reference internal" href="#bullet-physics">bullet physics</a></li>
-<li><a class="reference internal" href="#mujoco">mujoco</a></li>
-<li><a class="reference internal" href="#reactphysics3d">ReactPhysics3D</a></li>
-<li><a class="reference internal" href="#qu3e">qu3e</a><ul>
-<li><a class="reference internal" href="#scene">scene</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#chrono">Chrono</a></li>
-<li><a class="reference internal" href="#positionbased">PositionBased</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">CollisionDetection</a></li>
+<li><a class="reference internal" href="#aabb-tree">AABB Tree</a></li>
+<li><a class="reference internal" href="#octtree-quadtree">OctTree / QuadTree</a></li>
+<li><a class="reference internal" href="#bsptrees">BSPTrees</a></li>
 </ul>
 
           </div>
