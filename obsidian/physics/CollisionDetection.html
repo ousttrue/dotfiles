@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>CollisionDetection - shell note ドキュメント</title>
+        <title>BroadPhase - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -219,6 +219,11 @@
         </div>
         <article role="main">
           <p>[[physics_engine]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://marupeke296.com/COL_main.html">衝突判定編</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="broadphase">
+<h1>BroadPhase<a class="headerlink" href="#broadphase" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>衝突可能性のあるペアを得る</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="n">AABB</span><span class="w"> </span><span class="o">*</span><span class="n">aabb</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Remove</span><span class="p">(</span><span class="n">AABB</span><span class="w"> </span><span class="o">*</span><span class="n">aabb</span><span class="p">);</span><span class="w"></span>
@@ -230,21 +235,16 @@
 <span class="w">   </span><span class="k">virtual</span><span class="w"> </span><span class="n">RayCastResult</span><span class="w"> </span><span class="nf">RayCast</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Ray3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ray</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="collisiondetection">
-<h1>CollisionDetection<a class="headerlink" href="#collisiondetection" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2014 <a class="reference external" href="https://ftvoid.com/blog/post/407">当たり判定の高速化 ‐ スイープ＆プルーンの使用 | ftvlog</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="aabb-tree">
-<h1>AABB Tree<a class="headerlink" href="#aabb-tree" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="aabb-tree">
+<h2>AABB Tree<a class="headerlink" href="#aabb-tree" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>@2017 <a class="reference external" href="https://www.azurefromthetrenches.com/introductory-guide-to-aabb-tree-collision-detection/">Introductory Guide to AABB Tree Collision Detection – Azure From The Trenches</a></p></li>
 <li><p>@2014 <a class="reference external" href="https://allenchou.net/2014/02/game-physics-broadphase-dynamic-aabb-tree/">Game Physics: Broadphase – Dynamic AABB Tree | Ming-Lun "Allen" Chou | 周明倫</a></p></li>
+<li><p>@2014 <a class="reference external" href="https://ftvoid.com/blog/post/364">当たり判定の高速化 – AABB木の使用 | ftvlog</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="octtree-quadtree">
-<h1>OctTree / QuadTree<a class="headerlink" href="#octtree-quadtree" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="octtree-quadtree">
+<h2>OctTree / QuadTree<a class="headerlink" href="#octtree-quadtree" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">3D</span></code></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Octree">Octree - Wikipedia</a>
@@ -252,8 +252,15 @@
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Quadtree">Quadtree - Wikipedia</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="bsptrees">
-<h1>BSPTrees<a class="headerlink" href="#bsptrees" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="bsptrees">
+<h2>BSPTrees<a class="headerlink" href="#bsptrees" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="narrowphase">
+<h1>NarrowPhase<a class="headerlink" href="#narrowphase" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2014 <a class="reference external" href="https://ftvoid.com/blog/post/407">当たり判定の高速化 ‐ スイープ＆プルーンの使用 | ftvlog</a></p></li>
+</ul>
 </section>
 
         </article>
@@ -269,7 +276,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/physics/physics_broadphase.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/physics/CollisionDetection.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -289,10 +296,13 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">CollisionDetection</a></li>
+<li><a class="reference internal" href="#">BroadPhase</a><ul>
 <li><a class="reference internal" href="#aabb-tree">AABB Tree</a></li>
 <li><a class="reference internal" href="#octtree-quadtree">OctTree / QuadTree</a></li>
 <li><a class="reference internal" href="#bsptrees">BSPTrees</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#narrowphase">NarrowPhase</a></li>
 </ul>
 
           </div>
