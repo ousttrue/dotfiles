@@ -222,6 +222,26 @@
 <section class="tex2jax_ignore mathjax_ignore" id="os-windows">
 <h1>os.windows<a class="headerlink" href="#os-windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>標準ライブラリ。網羅されていない？</p>
+<section id="how-to-winmain">
+<h2>how to winMain ?<a class="headerlink" href="#how-to-winmain" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="how-to-null-hinstance">
+<h2>how to null hInstance ?<a class="headerlink" href="#how-to-null-hinstance" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>const windowClass: std.os.windows.user32.WNDCLASSEXA = .{
+	.style = std.os.windows.user32.CS_HREDRAW | std.os.windows.user32.CS_VREDRAW,
+	.lpfnWndProc = &amp;std.os.windows.user32.DefWindowProcA,
+	.hInstance = @ptrCast(std.os.windows.HINSTANCE, @alignCast(@alignOf(std.os.windows.HINSTANCE), std.os.windows.kernel32.GetModuleHandleW(null).?)),
+	.hIcon = null,
+	.hCursor = null,
+	.hbrBackground = null,
+	.lpszMenuName = null,
+	.lpszClassName = "cls",
+	.hIconSm = null,
+};
+if (std.os.windows.user32.RegisterClassExA(&amp;windowClass) == 0) {}
+</pre></div>
+</div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="zigwin32">
 <h1>zigwin32<a class="headerlink" href="#zigwin32" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -271,7 +291,11 @@ imgui は <code class="docutils literal notranslate"><span class="pre">@cImport<
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">os.windows</a></li>
+<li><a class="reference internal" href="#">os.windows</a><ul>
+<li><a class="reference internal" href="#how-to-winmain">how to winMain ?</a></li>
+<li><a class="reference internal" href="#how-to-null-hinstance">how to null hInstance ?</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#zigwin32">zigwin32</a></li>
 <li><a class="reference internal" href="#d3d11">d3d11</a></li>
 </ul>
