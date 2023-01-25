@@ -1,3 +1,10 @@
+# Settings
+[VSCode ファイルを新しいタブで開く プレビューモード OFF - しすろぐ](https://syslog.life/2021/02/08/vscode-visualstudiocode-%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB-%E9%96%8B%E3%81%8F-%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%83%A2%E3%83%BC%E3%83%89-%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92/)
+
+```json
+    "workbench.editor.enablePreviewFromQuickOpen": false
+```
+
 # workspace
 
 .code-workspace

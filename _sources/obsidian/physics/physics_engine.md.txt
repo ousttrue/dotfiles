@@ -11,7 +11,7 @@ aliases: [RigidBody]
 - @2008 [https://cedec.cesa.or.jp/2008/archives/file/pg07.pdf](https://cedec.cesa.or.jp/2008/archives/file/pg07.pdf)
 
 # pipeline
-## update velocity
+## update velocity / angular velocity
 重力など
 - 力
 - トルク
@@ -21,7 +21,14 @@ aliases: [RigidBody]
 
 ## ConstraintSolver
 
-## update position
+## update position / rotation
+
+角速度積分
+- [クォータニオンを使った、トラックボール風カメラ制御 - KAYAC engineers' blog](https://techblog.kayac.com/control-camera-using-quaternion)
+```
+orientation += orientation * (angularVelocity * (0.5 * dt))
+```
+
 
 # Implementations
 ## JoltPhysics

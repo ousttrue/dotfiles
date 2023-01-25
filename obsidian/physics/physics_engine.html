@@ -230,8 +230,8 @@
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="pipeline">
 <h1>pipeline<a class="headerlink" href="#pipeline" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="update-velocity">
-<h2>update velocity<a class="headerlink" href="#update-velocity" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="update-velocity-angular-velocity">
+<h2>update velocity / angular velocity<a class="headerlink" href="#update-velocity-angular-velocity" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>重力など</p>
 <ul class="simple">
 <li><p>力</p></li>
@@ -245,8 +245,15 @@
 <section id="constraintsolver">
 <h2>ConstraintSolver<a class="headerlink" href="#constraintsolver" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
-<section id="update-position">
-<h2>update position<a class="headerlink" href="#update-position" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="update-position-rotation">
+<h2>update position / rotation<a class="headerlink" href="#update-position-rotation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>角速度積分</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://techblog.kayac.com/control-camera-using-quaternion">クォータニオンを使った、トラックボール風カメラ制御 - KAYAC engineers' blog</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">orientation</span> <span class="o">+=</span> <span class="n">orientation</span> <span class="o">*</span> <span class="p">(</span><span class="n">angularVelocity</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt</span><span class="p">))</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="implementations">
@@ -330,10 +337,10 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">pipeline</a><ul>
-<li><a class="reference internal" href="#update-velocity">update velocity</a></li>
+<li><a class="reference internal" href="#update-velocity-angular-velocity">update velocity / angular velocity</a></li>
 <li><a class="reference internal" href="#collisiondetection">CollisionDetection</a></li>
 <li><a class="reference internal" href="#constraintsolver">ConstraintSolver</a></li>
-<li><a class="reference internal" href="#update-position">update position</a></li>
+<li><a class="reference internal" href="#update-position-rotation">update position / rotation</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#implementations">Implementations</a><ul>
