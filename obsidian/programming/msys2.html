@@ -237,9 +237,6 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="symlink">
 <h1>symlink<a class="headerlink" href="#symlink" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/nyarla/articles/489394cec0ecb5#3.-msys2-%E7%92%B0%E5%A2%83%E3%81%A7-ntfs-%E3%81%AE-symlink-%E3%81%8C%E4%BD%BF%E3%81%88%E3%82%8B%E6%A7%98%E3%81%AB%E3%81%99%E3%82%8B">Windows 10 Pro で MSYS2 を出来る限り高速化する</a></p></li>
-</ul>
 <p><code class="docutils literal notranslate"><span class="pre">clang64.ini</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSYS</span><span class="o">=</span><span class="n">winsymlinks</span><span class="p">:</span><span class="n">nativestrict</span>
 </pre></div>
@@ -284,23 +281,7 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="pacman">
 <h1>pacman<a class="headerlink" href="#pacman" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">/etc/pacman.conf</span></code></p>
-<p>color と使わない種類をコメントアウト</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Color</span> 
-
-<span class="c1">#[mingw64] </span>
-<span class="c1">#Include = /etc/pacman.d/mirrorlist.mingw64</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pacman --needed -Sy bash pacman pacman-mirrors msys2-runtime
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pacman -Syu
--S sync
--y update
--u upgrade
-</pre></div>
-</div>
+<p>[[pacman]]</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="toolchain">
 <h1>toolchain<a class="headerlink" href="#toolchain" title="このヘッドラインへのパーマリンク">¶</a></h1>

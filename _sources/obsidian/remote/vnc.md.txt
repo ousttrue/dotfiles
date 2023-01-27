@@ -18,7 +18,7 @@ aliases: [RFB]
 
 - `server` `client` [[TigerVNC]]
 - `server` `client` [GitHub - kasmtech/KasmVNC: Modern VNC Server and client, web based and secure](https://github.com/kasmtech/KasmVNC)
-- `server` [[qt5]] [GitHub - aoyiduo/wovnc: WoVNC - http://www.wovnc.com](https://github.com/aoyiduo/wovnc)
+- `server` [[qt]] [GitHub - aoyiduo/wovnc: WoVNC - http://www.wovnc.com](https://github.com/aoyiduo/wovnc)
 - `server` [GitHub - phoboslab/jsmpeg-vnc: A low latency, high framerate screen sharing server for Windows and client for browsers](https://github.com/phoboslab/jsmpeg-vnc)
 - `server` [GitHub - any1/neatvnc: A liberally licensed VNC server library with a clean interface](https://github.com/any1/neatvnc)
 - `server` [[GNOME]]  [Vino - ArchWiki](https://wiki.archlinux.jp/index.php/Vino)

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>yay - shell note ドキュメント</title>
+        <title>update - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -220,6 +220,86 @@
         <article role="main">
           <p>[[PackageManager]]
 [[msys2]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/ohno418/articles/13e3472860881d">Arch Linux: pacmanの設定</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://qiita.com/MoriokaReimen/items/dbe1448ce6c0f80a6ac1">Pacmanの使い方 - Qiita</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pacman --needed -Sy bash pacman pacman-mirrors msys2-runtime
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pacman -Syu
+-S sync
+-y update
+-u upgrade
+</pre></div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="update">
+<h1>update<a class="headerlink" href="#update" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># sync refresh</span>
+$ sudo pacman -Sy
+
+<span class="c1"># sync upgrade</span>
+$ sudo pacman -Su
+
+<span class="c1"># both</span>
+$ sudo pacman -Syu
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="etc-pacman-conf">
+<h1>/etc/pacman.conf<a class="headerlink" href="#etc-pacman-conf" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>color コメントイン</p></li>
+<li><p>使わない種類をコメントアウト</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Color</span> 
+
+<span class="c1">#[mingw64] </span>
+<span class="c1">#Include = /etc/pacman.d/mirrorlist.mingw64</span>
+</pre></div>
+</div>
+<section id="mirror">
+<h2>mirror<a class="headerlink" href="#mirror" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gist.github.com/elvisw/cc00088e9c8fd1c83aca">MSYS2国内源 · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/yumetodo/items/94a80ca9d6171e9352a2">msys2のミラーにjaistを使いたい - Qiita</a>
+<code class="docutils literal notranslate"><span class="pre">/etc/pacman.d/mirrorlist</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pacman-mirrors --fasttrack 5
+$ pacman -Syu
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pacman -g
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="install">
+<h1>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="uninstall">
+<h1>uninstall<a class="headerlink" href="#uninstall" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="search">
+<h1>search<a class="headerlink" href="#search" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># sync search</span>
+$ sudo pacman -Ss vim
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="local">
+<h1>local<a class="headerlink" href="#local" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># query search</span>
+$ sudo pacman -Qs vim
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="local-install">
+<h1>local install<a class="headerlink" href="#local-install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -U
+</pre></div>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="yay">
 <h1>yay<a class="headerlink" href="#yay" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -275,7 +355,17 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">yay</a></li>
+<li><a class="reference internal" href="#">update</a></li>
+<li><a class="reference internal" href="#etc-pacman-conf">/etc/pacman.conf</a><ul>
+<li><a class="reference internal" href="#mirror">mirror</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install">install</a></li>
+<li><a class="reference internal" href="#uninstall">uninstall</a></li>
+<li><a class="reference internal" href="#search">search</a></li>
+<li><a class="reference internal" href="#local">local</a></li>
+<li><a class="reference internal" href="#local-install">local install</a></li>
+<li><a class="reference internal" href="#yay">yay</a></li>
 <li><a class="reference internal" href="#pacseek">pacseek</a></li>
 <li><a class="reference internal" href="#packages">packages</a><ul>
 <li><a class="reference internal" href="#base-devel">base-devel</a></li>

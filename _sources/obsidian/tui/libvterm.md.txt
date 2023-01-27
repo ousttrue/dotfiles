@@ -36,7 +36,7 @@ typedef struct {
 - [SDL2 terminal emulator using libvterm · GitHub](https://gist.github.com/shimarin/71ace40e7443ed46387a477abf12ea70)
 
 ## qt
-[[qt5]]
+[[qt]]
 - [GitHub - jsbronder/sff: A terminal, using libvterm and Qt](https://github.com/jsbronder/sff)
 - [GitHub - ohwgiles/quilte: Lightweight Qt Terminal Emulator](https://github.com/ohwgiles/quilte)
 
