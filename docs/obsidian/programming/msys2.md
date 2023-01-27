@@ -19,9 +19,6 @@ C:/Users /home
 ```
 
 # symlink
-
-- [Windows 10 Pro で MSYS2 を出来る限り高速化する](https://zenn.dev/nyarla/articles/489394cec0ecb5#3.-msys2-%E7%92%B0%E5%A2%83%E3%81%A7-ntfs-%E3%81%AE-symlink-%E3%81%8C%E4%BD%BF%E3%81%88%E3%82%8B%E6%A7%98%E3%81%AB%E3%81%99%E3%82%8B)
-
 `clang64.ini`
 ```
 MSYS=winsymlinks:nativestrict
@@ -56,28 +53,8 @@ MSYSTEM=MSYS
 ```
 
 # pacman
+[[pacman]]
 
-`/etc/pacman.conf`
-
-color と使わない種類をコメントアウト
-
-```
-Color 
-
-#[mingw64] 
-#Include = /etc/pacman.d/mirrorlist.mingw64
-```
-
-```
-$ pacman --needed -Sy bash pacman pacman-mirrors msys2-runtime
-```
-
-```
-$ pacman -Syu
--S sync
--y update
--u upgrade
-```
 
 # toolchain
 ```
@@ -101,5 +78,3 @@ set t_Co=256
 ```
 gcc -E -dM -
 ```
-
-

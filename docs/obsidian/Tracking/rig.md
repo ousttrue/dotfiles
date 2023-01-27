@@ -10,6 +10,9 @@ Constraint 等の二次的なものは [[Secondary]] に切り分ける。
 
 # Blender
 [[blender]]
+
+- @2020 [【Blender】速攻で歩行サイクルアニメーションをつくる｜yugaki｜note](https://note.com/info_/n/ndccf33cd8975)
+
 - [リギングの参考になる無償配布のリグ付きキャラクタモデル < アニメーションとリギング < 知っておきたい機能 | Blender入門(3.0 / 3.1 / 3.2 / 3.3版)](https://blender3d.biz/knowledge_animationandrigging_distributedfreerigmodels.html)
 
 ## Rigify

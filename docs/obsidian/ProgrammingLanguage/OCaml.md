@@ -31,23 +31,27 @@
 
 - @2019 [OPAM、OCaml をアップデートする - ryskosn log](https://ryskosn.hatenadiary.com/entry/2019/03/21/181524)
 
-# Windows
+## windows
+`%LOCALAPPDATA%/Programs/DISKUV~1`
 - [OCaml on Windows · OCaml Tutorials](https://ocaml.org/docs/ocaml-on-windows)
 - @2018 [OcamlをWindowsにインストールする - Qiita](https://qiita.com/angeart/items/ba9721245558781e30d4)
 - @2017 [OCamlをWindowsにインストールする方法 - Haskell勉強会](https://haskell.hatenablog.com/entry/How-to-install-OCaml-on-Windows)
-
-## MinGW
-
-## Cygwin
-- [OCaml for Windows - Installation](https://fdopen.github.io/opam-repository-mingw/installation/)
-
-## Native MS
-
-## diskuv
 [Releases · diskuv/dkml-installer-ocaml](https://github.com/diskuv/dkml-installer-ocaml/releases)
 - [Release v1.1.0_r2 · diskuv/dkml-installer-ocaml · GitHub](https://github.com/diskuv/dkml-installer-ocaml/releases/tag/v1.1.0_r2)
 - [Getting Started with Diskuv OCaml — Diskuv OCaml 1.1.0 documentation](https://diskuv-ocaml.gitlab.io/distributions/dkml/)
 - [GitHub - diskuv/dkml-installer-ocaml: The Windows-friendly distribution of OCaml](https://github.com/diskuv/dkml-installer-ocaml#readme)
+
+## ocaml
+
+```
+> opam switch list-available
+```
+
+## language-server
+
+```
+> opam install ocaml-lsp-server
+```
 
 # esy
 package manager

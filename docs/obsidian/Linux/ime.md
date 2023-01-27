@@ -11,5 +11,5 @@
 
 ## [[skk]]
 
-## [[vim/vim]]
+## [[vim]]
 (2017)[Big Sky :: Vim と日本語入力の話。](https://mattn.kaoriya.net/software/vim/20170905113330.htm)

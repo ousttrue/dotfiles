@@ -10,7 +10,7 @@ ArchLinux
 - appx よくわからず
 
 # pacman
-
+[[[pacman]]]
 - [wsl構築(archlinux) - Qiita](https://qiita.com/Gen-Arch/items/f2921e2b010115aa2495)
 
 # default user の変更

@@ -28,7 +28,7 @@ systemctl start sshd.service
 - sudo
 
 ## pacman
-- [Arch Linux: pacmanの設定](https://zenn.dev/ohno418/articles/13e3472860881d)
+[[pacman]]
 
 # AUR
 - [Arch User Repository - ArchWiki](https://wiki.archlinux.jp/index.php/Arch_User_Repository)

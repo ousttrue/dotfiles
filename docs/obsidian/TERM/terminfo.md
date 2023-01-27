@@ -6,4 +6,3 @@
 - VT102 
 - VT100/ANSI
 
-- [GitHub - antirez/kilo: A text editor in less than 1000 LOC with syntax highlight and search.](https://github.com/antirez/kilo)

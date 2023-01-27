@@ -98,6 +98,9 @@ elseif(Test-Path "C:\Python311-arm64")
     addPath("C:\Python311-arm64\Scripts")
     addPath("C:\Python311-arm64")
 }
+
+addPath($env:USERPROFILE + "\local\nim-1.6.8\bin")
+
 ## readline
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2
 Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine
