@@ -63,7 +63,6 @@ addPath($env:USERPROFILE + "\AppData\Local\Programs\Microsoft VS Code")
 addPath("C:\Program Files\Git\usr\bin")
 addPath("C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64")
 # addPath($env:USERPROFILE + "\local\src\depot_tools")
-
 if($env:JAVA_HOME -ne $null){
     addPath($env:JAVA_HOME + "\bin")
 }
@@ -100,6 +99,12 @@ elseif(Test-Path "C:\Python311-arm64")
 }
 
 addPath($env:USERPROFILE + "\local\nim-1.6.8\bin")
+
+$env:BAZEL_WINSDK_FULL_VERSION="10.0.22000.0"
+$env:BAZEL_VS="C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools"
+$env:BAZEL_VC="C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC"
+# $env:BAZEL_VC_FULL_VERSION="14.29.30133" 2019
+$env:BAZEL_VC_FULL_VERSION="14.34.31933"
 
 ## readline
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2

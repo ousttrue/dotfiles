@@ -1,3 +1,7 @@
+[[HandTracking]]
+
+- @2021 [Bag of Freebies for XR Hand Tracking: Machine Learning & OpenXR](https://www.collabora.com/news-and-blog/blog/2021/06/17/bag-of-freebies-xr-hand-tracking-machine-learning-openxr/)
+
 [[XR_EXT_hand_tracking]]
 
 [The OpenXR Specification](https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html#XR_EXT_hand_tracking)
