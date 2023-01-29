@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>zig - shell note ドキュメント</title>
+        <title>bazelisk - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,19 +212,43 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[buildtool]]</p>
+          <p>[[buildtool]] [[mediapipe]]</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://bazel.build/">Bazel</a></p></li>
 <li><p><a class="reference external" href="https://zenn.dev/kesin11/books/c86010deb5b8008f394f/viewer/9eb544">Bazelの基本的な仕組み｜Bazelの解説（TS, Dockerイメージ、リモートキャッシュ）</a></p></li>
 <li><p><a class="reference external" href="https://www.flywheel.jp/topics/bazel_version_1_1_0/">ビルドツール「Bazel」について | フライウィール</a></p></li>
 <li><p><a class="reference external" href="https://note.com/npaka/n/n898f177e7a9e">Bazel 入門 (1) - 事始め｜npaka｜note</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="bazelisk">
+<h1>bazelisk<a class="headerlink" href="#bazelisk" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/bazelbuild/bazelisk">GitHub - bazelbuild/bazelisk: A user-friendly launcher for Bazel.</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="windows">
+<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://bazel.build/install/windows">Windows への Bazel のインストール</a></p></li>
+<li><p><a class="reference external" href="https://bazel.build/configure/windows#build-c-with-msvc">Windows で Bazel を使用する</a></p></li>
+</ul>
+<div class="highlight-ps notranslate"><div class="highlight"><pre><span></span>$env:BAZEL_WINSDK_FULL_VERSION="10.0.22000.0"
+# 2022
+$env:BAZEL_VS="C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools"
+$env:BAZEL_VC="C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC"
+$env:BAZEL_VC_FULL_VERSION="14.34.31933"
+# 2019
+# $env:BAZEL_VS="C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools"
+# $env:BAZEL_VC="C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC"
+# $env:BAZEL_VC_FULL_VERSION="14.29.30133"
+</pre></div>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="zig">
 <h1>zig<a class="headerlink" href="#zig" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[zig]]</p>
@@ -256,8 +280,26 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">bazelisk</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+<li><a class="reference internal" href="#zig">zig</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

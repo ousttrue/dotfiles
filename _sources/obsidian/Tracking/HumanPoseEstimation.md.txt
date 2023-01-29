@@ -1,6 +1,8 @@
-[Fetching Title#9gdt](https://gitlab.freedesktop.org/xrdesktop/xrdesktop)---
-aliases: [姿勢推定]
 ---
+aliases: [姿勢推定, HPE]
+---
+
+[Fetching Title#9gdt](https://gitlab.freedesktop.org/xrdesktop/xrdesktop)
 
 [[MotionCapture]]
 [[XR_EXT_hand_tracking]]
@@ -9,6 +11,7 @@ aliases: [姿勢推定]
 
 - [human-pose-estimation · GitHub Topics · GitHub](https://github.com/topics/human-pose-estimation)
 - [GitHub - cbsudux/awesome-human-pose-estimation: A collection of awesome resources in Human Pose estimation.](https://github.com/cbsudux/awesome-human-pose-estimation)
+- [GitHub - peabody124/PosePipeline: PosePipe is a human pose estimation (HPE) pipeline to facilitate home movement analysis from videos](https://github.com/peabody124/PosePipeline)
 
 ## 2021
 - [Human Pose Estimation Technology 2021 Guide](https://mobidev.biz/blog/human-pose-estimation-ai-personal-fitness-coach)
