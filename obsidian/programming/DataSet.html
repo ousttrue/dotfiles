@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>example - shell note ドキュメント</title>
+        <title>COCO - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,61 +212,18 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[escape_sequence]] [[xterm]]</p>
-<p><a class="reference external" href="https://vt100.net/emu/">Terminal Emulation – VT100.net</a>
-<a class="reference external" href="https://vt100.net/emu/dec_ansi_parser">VT100.net: A parser for DEC’s ANSI-compatible video terminals</a>
-<a class="reference external" href="https://vt100.net/docs/vt100-ug/contents.html">Digital VT100 User Guide</a>
-<a class="reference external" href="https://vt100.net/docs/vt510-rm/contents.html">vt510 Contents</a></p>
-<p><a class="reference external" href="http://bkclass.web.fc2.com/doc_vt100.html#description">VT100のエスケープシーケンス - BK class</a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="example">
-<h1>example<a class="headerlink" href="#example" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <p>[[DeepLearning]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="coco">
+<h1>COCO<a class="headerlink" href="#coco" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/0x5c/VT100-Examples/blob/master/vt_seq.md">VT100-Examples/vt_seq.md at master · 0x5c/VT100-Examples · GitHub</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="headless">
-<h1>headless<a class="headerlink" href="#headless" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="vt100utils">
-<h2>vt100utils<a class="headerlink" href="#vt100utils" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">linux</span></code> rawmode を代替すれば windows でも動きそう</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/Cubified/vt100utils">GitHub - Cubified/vt100utils: A single-header C library for encoding, decoding, and doing useful things with ANSI graphics escape sequences.</a></p></li>
-</ul>
-</section>
-<section id="pyte">
-<h2>pyte<a class="headerlink" href="#pyte" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">linux</span></code> <code class="docutils literal notranslate"><span class="pre">windows</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://pyte.readthedocs.io/en/latest/">What is pyte? — pyte 0.8.1-dev documentation</a></p></li>
-</ul>
-</section>
-<section id="hl-vt100">
-<h2>hl-vt100<a class="headerlink" href="#hl-vt100" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">linux</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://git.afpy.org/mdk/hl-vt100">mdk/hl-vt100: A headless terminal emulator (ANSI / VT100) in C89 with its Python wrapper. - hl-vt100 - Le Gitea de l'AFPy</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="windows">
-<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[windows_terminal]]
-[[conpty]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences">Console Virtual Terminal Sequences - Windows Console | Microsoft Learn</a></p></li>
-<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences">コンソールの仮想ターミナル シーケンス - Windows Console | Microsoft Docs</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="parser">
-<h1>parser<a class="headerlink" href="#parser" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://lib.rs/crates/vt100">vt100 — Rust data encoding library // Lib.rs</a></p></li>
+<li><p><a class="reference external" href="https://cocodataset.org/">Microsoft <strong>COCO</strong>（Common Objects in Context）</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://atmarkit.itmedia.co.jp/ait/articles/2109/08/news026.html">COCO dataset：セグメンテーションなどに使える大規模なカラー写真の画像データセット：AI・機械学習のデータセット辞典 - ＠IT</a></p></li>
 </ul>
 </section>
 
@@ -283,7 +240,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/TERM/vt100.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/programming/DataSet.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -291,32 +248,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">example</a></li>
-<li><a class="reference internal" href="#headless">headless</a><ul>
-<li><a class="reference internal" href="#vt100utils">vt100utils</a></li>
-<li><a class="reference internal" href="#pyte">pyte</a></li>
-<li><a class="reference internal" href="#hl-vt100">hl-vt100</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#windows">Windows</a></li>
-<li><a class="reference internal" href="#parser">parser</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

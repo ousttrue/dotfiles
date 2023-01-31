@@ -7,6 +7,9 @@
 
 [VT100のエスケープシーケンス - BK class](http://bkclass.web.fc2.com/doc_vt100.html#description)
 
+# example
+- [VT100-Examples/vt_seq.md at master · 0x5c/VT100-Examples · GitHub](https://github.com/0x5c/VT100-Examples/blob/master/vt_seq.md)
+
 # headless
 ## vt100utils
 `linux` rawmode を代替すれば windows でも動きそう

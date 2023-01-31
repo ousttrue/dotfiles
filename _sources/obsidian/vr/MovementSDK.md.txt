@@ -1,3 +1,7 @@
+---
+aliases: [XR_FB_body_tracking]
+---
+
 [[QuestMobileSDK]]
 
 - [Movement SDK for OpenXR](https://developer.oculus.com/documentation/native/android/move-overview/)

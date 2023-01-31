@@ -1,6 +1,11 @@
+[[bazel]]
+
 [GitHub - google/mediapipe: Cross-platform, customizable ML solutions for live and streaming media.](https://github.com/google/mediapipe)
 
 - @2022 [Simple Hand Gesture Recognition Code - Hand tracking - Mediapipe · GitHub](https://gist.github.com/TheJLifeX/74958cc59db477a91837244ff598ef4a)
+
+# Windows
+- @2021 [Windows 10にMediaPipe をインストール (WSL不使用)](http://kunsen.net/2021/01/30/post-3543/) 
 
 # python
 - [MediaPipe in Python - mediapipe](https://google.github.io/mediapipe/getting_started/python)
@@ -12,7 +17,8 @@
 
 # Unity
 - [GitHub - homuler/MediaPipeUnityPlugin: Unity plugin to run MediaPipe graphs](https://github.com/homuler/MediaPipeUnityPlugin)
-- [UnityでMediaPipeを実行してVTuberになる - Qiita](https://qiita.com/yamatohkd/items/b2d9a6055761b0b2c369)
+	- @2022 [【Unity】MediaPipeUnityPluginを使って超簡単に指認識をM1 Macで試す | はるとんのブログ](https://haruton3301.com/articles/unity-mediapipe-sample)
+	- @2020 [UnityでMediaPipeを実行してVTuberになる - Qiita](https://qiita.com/yamatohkd/items/b2d9a6055761b0b2c369)
 
 # solution
 

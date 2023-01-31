@@ -2,7 +2,9 @@
 [[ndk_gdbserver]]
 [[gradle]]
 
-`%ANDROID_HOME%\ndk\25.1.8937393`
+`ANDROID_NDK_HOME=%ANDROID_HOME%\ndk\25.1.8937393`
+
+# %ANDROID_NDK_HOME%/platfomrs
 
 # dev
 ## vscode
