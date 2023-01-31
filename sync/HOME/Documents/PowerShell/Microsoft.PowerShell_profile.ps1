@@ -1,9 +1,9 @@
 $env:HOME = $env:USERPROFILE
 $env:JAVA_HOME = $env:ANDROID_STUDIO_HOME + "\jre";
 
-if($env:TERM_PROGRAM -ne "vscode"){
-    chcp 65001
-}
+#if($env:TERM_PROGRAM -ne "vscode"){
+#    chcp 65001
+#}
 
 function Execute-Command ($commandPath, $commandArguments) 
 { 

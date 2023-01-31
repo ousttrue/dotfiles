@@ -82,3 +82,8 @@ bool enable_virtual_terminal_processing(FILE *stream) {
 
 # ScreenSize
 - [console - Getting terminal size in c for windows? - Stack Overflow](https://stackoverflow.com/questions/6812224/getting-terminal-size-in-c-for-windows)
+
+# Scroll
+
+
+
