@@ -28,6 +28,9 @@ $ sudo pacman -Su
 $ sudo pacman -Syu
 ```
 
+## pacman-key
+- @2020 [1 年ぶりくらいに pacman でパッケージ更新しようとしたらエラーになった](https://zenn.dev/miwarin/articles/e0ca2e9d78a1614fe296)
+
 # /etc/pacman.conf
 
 - color コメントイン
