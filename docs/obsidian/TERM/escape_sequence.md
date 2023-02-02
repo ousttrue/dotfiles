@@ -1,5 +1,7 @@
 [[VT100]] と同じ？
 
+- [GitHub - JustWhit3/osmanip: A library for output stream manipulation using ANSI escape sequences.](https://github.com/JustWhit3/osmanip)
+-
 - [ANSI escape code - Wikipedia](https://en.wikipedia.org/wiki/ANSI_escape_code)
 - [ANSI Escape Sequence](https://paulschou.com/tools/ansi/escape.html)
 - [Terminal Escape Code Zen](https://www.askapache.com/linux/zen-terminal-escape-codes/)
