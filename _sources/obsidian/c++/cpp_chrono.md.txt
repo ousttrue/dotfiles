@@ -10,3 +10,7 @@
 # float, double
 - [duration_castと浮動小数点数型 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2014/02/03/151841)
 - [std::chronoで小数点のdurationを使う - Qiita](https://qiita.com/nichida-dn/items/39c6f5d654992f2e9e40)
+
+```cpp
+using ms_f = std::chrono::duration<float, std::raito<1, 1000>>;
+```
