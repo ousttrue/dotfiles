@@ -65,7 +65,7 @@
 "        \"CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE\": \"\\${workspaceFolder}/build/Release/bin\",",
 "    },",
 "    \"clangd.arguments\": [",
-"        \"--compile-commands-dir=${workspaceFolder}/build\",",
+"        \"--compile-commands-dir=\\${workspaceFolder}/build\",",
 "        \"--header-insertion=never\",",
 "    ],",
 "    \"clangd.fallbackFlags\": [",
