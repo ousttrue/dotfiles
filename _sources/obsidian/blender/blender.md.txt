@@ -3,6 +3,8 @@
 [[blender_addon]]
 [[bpy_addon]]
 
+- [Blender Hack Blog](https://blender-hack.hatenablog.com/)
+
 - [Blenderでお絵描き実験！手書きアニメーターがグリースペンシルに出会って見つけた5つのこと | Vook(ヴック)](https://vook.vc/n/3863)
 
 # Version
