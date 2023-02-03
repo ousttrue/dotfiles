@@ -28,3 +28,6 @@ https://www.f-sp.com/entry/2017/06/30/221124#補間における注意
 ### csharp
 `CompressedQuaternion`
 - [infinity/CompressedQuaternion.h at 5d9f23559d2481708a90b7e28ae0a065ed45c0fe · grserver/infinity · GitHub](https://github.com/grserver/infinity/blob/5d9f23559d2481708a90b7e28ae0a065ed45c0fe/src/engine/shared/library/sharedMath/src/shared/CompressedQuaternion.h)
+
+# glsl
+- [GLSLでクォータニオン(四元数) - Qiita](https://qiita.com/aa_debdeb/items/c34a3088b2d8d3731813)
