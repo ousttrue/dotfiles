@@ -1,5 +1,6 @@
 $env:HOME = $env:USERPROFILE
 $env:JAVA_HOME = $env:ANDROID_STUDIO_HOME + "\jre";
+$env:VCPKG_DISABLE_METRICS = 1
 
 #if($env:TERM_PROGRAM -ne "vscode"){
 #    chcp 65001

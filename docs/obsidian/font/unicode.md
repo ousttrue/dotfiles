@@ -10,3 +10,7 @@ int wcwidth(const wint_t wc);
 
 # C++
 - [C++ UTF-8 codepoint conversion :: zedwood.com](http://www.zedwood.com/article/cpp-utf8-char-to-codepoint)
+
+# codepage
+[[Windows]]
+- [Windows と Unicode とボク](https://zenn.dev/zetamatta/books/b820d588f4856bcf836c)

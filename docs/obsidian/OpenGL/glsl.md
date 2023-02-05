@@ -55,7 +55,6 @@ glCreateVertexArrays => glGenVertexArrays
 ```
 
 
-## 1
 - [GLFW: Getting started](https://www.glfw.org/docs/latest/quick_guide.html#quick_example)
 
 ```c
