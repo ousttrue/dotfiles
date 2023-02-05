@@ -21,3 +21,7 @@
 
 # Mesh
 - [Blender PythonのMeshデータアクセスのチートシート - Qiita](https://qiita.com/kenyoshi17/items/b93bbba6451e3c6017e5)
+
+# source
+## entry point
+- [Blender内部構造(2) メインループ | COLORFUL PICO](https://colorful-pico.net/wp/blender%E5%86%85%E9%83%A8%E6%A7%8B%E9%80%A02-%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%AB%E3%83%BC%E3%83%97/)

@@ -1,5 +1,6 @@
-[【CSS】おしゃれなボックスデザイン（囲み枠）のサンプル30](https://saruwakakun.com/html-css/reference/box)
+- [CSS - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn/CSS)
 
+[【CSS】おしゃれなボックスデザイン（囲み枠）のサンプル30](https://saruwakakun.com/html-css/reference/box)
 
 # Flexbox
 

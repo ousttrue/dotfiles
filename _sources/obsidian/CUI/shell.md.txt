@@ -2,8 +2,10 @@
 
 # 自作
 - [Simple-Cpp-Shell/Simple C++ Shell at master · bcanozter/Simple-Cpp-Shell · GitHub](https://github.com/bcanozter/Simple-Cpp-Shell/tree/master/Simple%20C%2B%2B%20Shell)
-- @2019 [自作シェルでヒストリを扱えるようにする - Kludge Factory](https://tyfkda.github.io/blog/2019/07/24/history-in-shell.html)
 - @2022 [「Shell作れます」と言うために - エムスリーテックブログ](https://www.m3tech.blog/entry/making-nosh)
+- @2021 [Rustで始める自作シェル その1 - ぶていのログでぶログ](https://tech.buty4649.net/entry/2021/12/19/235124)
+- @2019 [自作シェルでヒストリを扱えるようにする - Kludge Factory](https://tyfkda.github.io/blog/2019/07/24/history-in-shell.html)
+- [独自シェルを作ってみよう！](http://kozos.jp/nlsh/)
 
 ## input
 - repl

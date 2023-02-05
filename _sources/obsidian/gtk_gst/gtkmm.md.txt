@@ -12,3 +12,5 @@
 
 # Application
 - [Synfig – Free and open-source animation software](https://www.synfig.org/)
+
+# Build

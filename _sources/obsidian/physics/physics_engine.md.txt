@@ -39,6 +39,10 @@ orientation += orientation * (angularVelocity * (0.5 * dt))
 [[bullet]]
 [[easy_physics]]
 
+### PhysicsEffects
+[GitHub - erwincoumans/PhysicsEffects](https://github.com/erwincoumans/PhysicsEffects)
+- [LT140: PhysicsEffects メモ](http://lt140.blogspot.com/2009/12/physicseffects.html)
+
 ## mujoco
 - [GitHub - deepmind/mujoco: Multi-Joint dynamics with Contact. A general purpose physics simulator.](https://github.com/deepmind/mujoco)
 

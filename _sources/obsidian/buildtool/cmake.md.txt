@@ -68,3 +68,5 @@ code:CmakeLists.txt
 `10.0.14393.0`とSDKバージョンを省略せずに記入する。
 `10.0.`自動で最新版を選択する。
 
+# configure_file
+[[meson]]

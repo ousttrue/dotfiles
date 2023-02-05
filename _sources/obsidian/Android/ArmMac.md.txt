@@ -1,6 +1,7 @@
 ---
 aliases: [M1Mac, M2Mac]
 ---
+[[arm]]
 
 # M2Mac
 
