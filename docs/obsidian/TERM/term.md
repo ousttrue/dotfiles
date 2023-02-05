@@ -10,3 +10,6 @@ aliases: [console]
 
 # Readline
 - [GNU Readline - Wikipedia](https://en.wikipedia.org/wiki/GNU_Readline)
+
+# Windows
+[[conpty]]
