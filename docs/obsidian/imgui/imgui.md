@@ -75,3 +75,6 @@ if(ImGui::TreeNode()){
 
 # App
 - https://github.com/mahilab/mahi-gui
+
+# Timeline
+- [TimeLine tracker. How reduce his code for ImGui · Issue #1014 · ocornut/imgui · GitHub](https://github.com/ocornut/imgui/issues/1014)
