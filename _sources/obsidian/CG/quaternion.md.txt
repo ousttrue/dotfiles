@@ -1,13 +1,5 @@
-quaternion
-#math
-
 [[MeshSync]]
-https://www.f-sp.com/entry/2017/06/30/221124#補間における注意
-
-
-[* 外積]
-
-
+- https://www.f-sp.com/entry/2017/06/30/221124#補間における注意
 
 # 乗算順
 ## unity
@@ -26,8 +18,12 @@ https://www.f-sp.com/entry/2017/06/30/221124#補間における注意
 - https://github.com/unity3d-jp/MeshSync/blob/dev/Plugin/MeshUtils/muQuat32.h
 
 ### csharp
+- [GitHub - mao-test-h/Quaternion32: Quaternionの32bit圧縮](https://github.com/mao-test-h/Quaternion32)
+
 `CompressedQuaternion`
 - [infinity/CompressedQuaternion.h at 5d9f23559d2481708a90b7e28ae0a065ed45c0fe · grserver/infinity · GitHub](https://github.com/grserver/infinity/blob/5d9f23559d2481708a90b7e28ae0a065ed45c0fe/src/engine/shared/library/sharedMath/src/shared/CompressedQuaternion.h)
+
+`https://github.com/mao-test-h/Quaternion32.git?path=Assets/Quaternion32`
 
 # glsl
 - [GLSLでクォータニオン(四元数) - Qiita](https://qiita.com/aa_debdeb/items/c34a3088b2d8d3731813)

@@ -1,16 +1,19 @@
-[https://zenn.dev/saitos/articles/lets_start_godot_engine 今から始める『Godot Engine』]
-[https://qiita.com/halboujp/items/37f9577ac94b5ede3aa7 【Godot Engine】３Dゲームの作り方 - Qiita]
-[https://framesynthesis.jp/tech/godot/vr/ Godot Engine VR開発メモ（Oculus Quest、SteamVR、WebXR対応） - フレームシンセシス]
 
-[** Asset]
-[https://godotassets.io/ Godot Assets]
+- [Godot Engineメモ - フレームシンセシス](https://framesynthesis.jp/tech/godot/)
+- @2020 [今から始める『Godot Engine』](https://zenn.dev/saitos/articles/lets_start_godot_engine)
 
-[https://docs.godotengine.org/ja/stable/tutorials/assetlib/what_is_assetlib.html アセットライブラリについて — Godot Engine (stable)の日本語のドキュメント]
+- [List of features — Godot Engine (latest) documentation in English](https://docs.godotengine.org/en/latest/about/list_of_features.html)
+- [GitHub - godotengine/godot-demo-projects: Demonstration and Template Projects](https://github.com/godotengine/godot-demo-projects)
 
-[https://www.crossroad-tech.com/entry/Importing-assets-on-GodotEngine Godot Engineでアセットをインポートする方法 - CrossRoad]
-[https://godotengine.org/asset-library/asset Godot Asset Library]
+# Version
+## 4
+`devlop`
+- @2023 [Dev snapshot: Godot 4.0 beta 17](https://godotengine.org/article/dev-snapshot-godot-4-0-beta-17/)
+- @2023 [Godot 4.0 Documentation Sprint](https://godotengine.org/article/godot-4-0-docs-sprint/)
+- @2023 [Godot 4 VR開発メモ - フレームシンセシス](https://framesynthesis.jp/tech/godot/vr/)
+- @2022 [Godot 4.0のドキュメンテーション機能を試してみる](https://zenn.dev/slm/articles/dac2d679d2dd6c)
 
-[** Tutorial]
-	https://docs.godotengine.org/ja/stable/community/tutorials.html
-	[https://qiita.com/tomon9086/items/6da6cab0393d392e760d Godot Engine 入門 パート1 - Qiita]
-	
+## 3
+
+# GDNative
+- [Godot Engine向けにVisual StudioでC++のプラグインを作る - Qiita](https://qiita.com/ueshita/items/822e09717f730c211e78)
