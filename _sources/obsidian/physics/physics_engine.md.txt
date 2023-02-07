@@ -31,6 +31,8 @@ orientation += orientation * (angularVelocity * (0.5 * dt))
 
 
 # Implementations
+- [GitHub - DanielChappuis/reactphysics3d: Open source C++ physics engine library in 3D](https://github.com/DanielChappuis/reactphysics3d)
+
 ## JoltPhysics
 - [Jolt Physics: Jolt Physics Samples](https://jrouwe.github.io/JoltPhysics/md__docs__samples.html)
 - [GitHub - jrouwe/JoltPhysics: A multi core friendly rigid body physics and collision detection library suitable for games and VR applications.](https://github.com/jrouwe/JoltPhysics)
