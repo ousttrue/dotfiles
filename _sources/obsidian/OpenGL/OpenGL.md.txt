@@ -1,5 +1,5 @@
 #red
-[[OpenGL_Text]] [[OpenGL_matrix]]
+[[OpenGL_Text]] [[matrix]]
 [[UBO]] [[SSBO]] [[PBO]]
 [[spir-v]] [[OpenGLES]] [[glsl]]
 

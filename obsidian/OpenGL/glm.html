@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>quaternion - shell note ドキュメント</title>
+        <title>rotation - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -228,14 +228,16 @@
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;glm/glm.hpp&gt;</span><span class="cp"></span>
 </pre></div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="quaternion">
-<h1>quaternion<a class="headerlink" href="#quaternion" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="rotation">
+<h1>rotation<a class="headerlink" href="#rotation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="quat">
+<h2>quat<a class="headerlink" href="#quat" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://glm.g-truc.net/0.9.0/api/a00135.html">GLM: glm::gtc::quaternion Namespace Reference</a></p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;glm/gtc/quaternion.hpp&gt;</span><span class="cp"></span>
 
-<span class="n">glm</span><span class="o">::</span><span class="n">quato</span><span class="w"></span>
+<span class="n">glm</span><span class="o">::</span><span class="n">quat</span><span class="w"></span>
 
 <span class="p">{}</span><span class="w"> </span><span class="c1">// {0, 0, 0, 0}</span>
 <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="c1">//</span>
@@ -247,6 +249,28 @@
 <span class="n">glm</span><span class="o">::</span><span class="n">toMat4</span><span class="w"></span>
 </pre></div>
 </div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="translation">
+<h1>translation<a class="headerlink" href="#translation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="mat4-translation">
+<h2>mat4 =&gt; translation<a class="headerlink" href="#mat4-translation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="translation-mat4">
+<h2>translation =&gt; mat4<a class="headerlink" href="#translation-mat4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="scale">
+<h1>scale<a class="headerlink" href="#scale" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="scale-mat4">
+<h2>scale =&gt; mat4<a class="headerlink" href="#scale-mat4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="decompose">
+<h1>decompose<a class="headerlink" href="#decompose" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="projection">
+<h1>projection<a class="headerlink" href="#projection" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="glm-mat4">
 <h1>glm::mat4<a class="headerlink" href="#glm-mat4" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -298,7 +322,21 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">quaternion</a></li>
+<li><a class="reference internal" href="#">rotation</a><ul>
+<li><a class="reference internal" href="#quat">quat</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#translation">translation</a><ul>
+<li><a class="reference internal" href="#mat4-translation">mat4 =&gt; translation</a></li>
+<li><a class="reference internal" href="#translation-mat4">translation =&gt; mat4</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scale">scale</a><ul>
+<li><a class="reference internal" href="#scale-mat4">scale =&gt; mat4</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#decompose">decompose</a></li>
+<li><a class="reference internal" href="#projection">projection</a></li>
 <li><a class="reference internal" href="#glm-mat4">glm::mat4</a></li>
 <li><a class="reference internal" href="#simd">SIMD</a></li>
 </ul>

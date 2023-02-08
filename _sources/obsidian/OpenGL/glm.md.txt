@@ -7,19 +7,19 @@
 - @2020 [glm - グラフィックスプログラミングのためのC++数学系ライブラリー - Qiita](https://qiita.com/usagi/items/f34976a3d3011506ff7d)
 - [GLMのマニュアルがヘボいので自分で書き始めた | 雑記帳](https://blog.miz-ar.info/2018/06/glm-notes/)
 
-
 ```cpp
 #include <glm/glm.hpp>
 ```
 
-# quaternion
 
+# rotation
+## quat
 - [GLM: glm::gtc::quaternion Namespace Reference](https://glm.g-truc.net/0.9.0/api/a00135.html)
 
 ```cpp
 #include <glm/gtc/quaternion.hpp>
 
-glm::quato
+glm::quat
 
 {} // {0, 0, 0, 0}
 {1, 0, 0, 0} //
@@ -31,6 +31,19 @@ glm::quat_identity()
 
 glm::toMat4
 ```
+
+# translation
+## mat4 => translation
+## translation => mat4
+
+# scale
+## scale => mat4
+
+# decompose
+
+# projection
+
+
 
 # glm::mat4
 - [GLM_GTX_transform](https://glm.g-truc.net/0.9.4/api/a00206.html)
