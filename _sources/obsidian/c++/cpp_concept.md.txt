@@ -25,3 +25,10 @@ void f(T& x) {
 template <class T>
 concept Integral = std::is_integral_v<T>;
 ```
+
+# size
+
+```c++
+template<typename T> 
+concept Size4 = sizeof(T) == 4;
+```
