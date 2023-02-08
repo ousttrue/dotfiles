@@ -25,3 +25,19 @@ code:mvp.glsl
      //gl_Position = ProjectionMatrix * ViewMatrix * ModelMatrix * vec4(vPosition, 1);  
      gl_Position = MVPMatrix * vec4(vPosition, 1);
  }                           
+
+```
+列ベクトル
+
+R|T
+-+- => c -s
+0|1    s  c
+```
+
+```
+行ベクトル
+
+R|0
+-+- => c s
+T|1   -s c
+```
