@@ -5,6 +5,13 @@
 [[python]] + [[flask]] + [[Leaflet]]
 ```
 
+# Script
+- [[lsp]]
+- [[dap]]
+- syntax highlight
+- formatter
+- [[libffi]]
+
 # Console
 - asio IO
 - kilo

@@ -24,3 +24,7 @@
 - @2020 [DirectXShaderCompiler 使用時のシェーダーリフレクション – すらりん日記](https://blog.techlab-xe.net/dxc-shader-reflection/)
 - @2020 [glslangとDirectXShaderCompiler - Qiita](https://qiita.com/taqu/items/80c4f218636862e21999)
 
+# Semantics
+- [Semantics - Win32 apps | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/win32/direct3dhlsl/dx-graphics-hlsl-semantics)
+
+## SV system value
