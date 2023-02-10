@@ -32,3 +32,9 @@
 
 # NarrowPhase
 - @2014 [当たり判定の高速化 ‐ スイープ＆プルーンの使用 | ftvlog](https://ftvoid.com/blog/post/407)
+
+# OBB
+`Oriented Bounding Box`
+[[OBB]]
+
+
