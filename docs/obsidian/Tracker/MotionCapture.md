@@ -23,7 +23,7 @@ aliases: [pose, tracking]
 
 # Format
 - [[keyframe]]
-- [[Tracking/bvh]]
+- [[bvh]]
 - [[VMC]]
 - [[mmd]]
 - [[HumanPoseEstimation]]
