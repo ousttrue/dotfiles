@@ -2,6 +2,10 @@
 aliases: [ptk]
 ---
 
+- [GitHub - prompt-toolkit/python-prompt-toolkit: Library for building powerful interactive command line applications in Python](https://github.com/prompt-toolkit/python-prompt-toolkit)
+
+- @2019 [prompt--toolkit を使いこなそう - PythonOsaka](https://scrapbox.io/PythonOsaka/prompt--toolkit_%E3%82%92%E4%BD%BF%E3%81%84%E3%81%93%E3%81%AA%E3%81%9D%E3%81%86)
+
 # Version
 ## 3
 `2019`
@@ -11,8 +15,15 @@ aliases: [ptk]
 
 ## 2
 `2018`
+- @2017 [Xonshを快適にするptk(Python Prompt Toolkit) - Qiita](https://qiita.com/riktor/items/4a90b4e125cd091a9d07)
 
 ## 1
+
+# user
+- [python-prompt-toolkit/PROJECTS.rst at master · prompt-toolkit/python-prompt-toolkit · GitHub](https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/PROJECTS.rst)
+
+- ptpython
+
 
 # print_formatted_text
 

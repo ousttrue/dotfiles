@@ -1,5 +1,5 @@
 # CMakeKits
-`%USERPROFILE%\AppData\Local\CMakeTools\cmake-tools-kits.json`
+	`%LOCALAPPDATA%\CMakeTools\cmake-tools-kits.json`
 - [CMake Kits — CMake Tools 1.4.0 documentation](https://vector-of-bool.github.io/docs/vscode-cmake-tools/kits.html)
 
 ```json

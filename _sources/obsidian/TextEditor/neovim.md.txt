@@ -31,7 +31,12 @@ nvim +Tutor
 - [Learn Neovim The Practical Way. All articles on how to configure and… | by alpha2phi | Medium](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f#545a)
 		- [Neovim for Beginners — init.lua. Let’s start our journey to customize… | by alpha2phi | Medium](https://alpha2phi.medium.com/neovim-for-beginners-init-lua-45ff91f741cb)
 
+# Version
+## 0.8
+### 0.8.3
+
 # build
+- [Building Neovim · neovim/neovim Wiki · GitHub](https://github.com/neovim/neovim/wiki/Building-Neovim#building-on-windows)
 - @2021 [WindowsでのNeovim build方法 - Qiita](https://qiita.com/Elgonian/items/5e0b17c00372782c6d42)
 
 ## depndencies
