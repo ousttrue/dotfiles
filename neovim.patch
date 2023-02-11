@@ -1,13 +1,13 @@
-diff --git CMakeLists.txt CMakeLists.txt
-index 6825ec59c..5a23567f1 100644
---- CMakeLists.txt
-+++ CMakeLists.txt
-@@ -275,7 +275,7 @@ int main(void)
+diff --git src/nvim/CMakeLists.txt src/nvim/CMakeLists.txt
+index 7409a5e5c..023658085 100755
+--- src/nvim/CMakeLists.txt
++++ src/nvim/CMakeLists.txt
+@@ -78,7 +78,7 @@ if(ENABLE_IWYU)
+ endif()
  
  if(MSVC)
-   # XXX: /W4 gives too many warnings. #3241
--  add_compile_options(/W3)
-+  add_compile_options(/W3 /source-charset:utf-8 /wd4244 /wd4267 /wd4996 /wd4566)
-   add_definitions(-D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_DEPRECATE)
-   add_definitions(-DWIN32)
- else()
+-  target_compile_options(main_lib INTERFACE -W3)
++  target_compile_options(main_lib INTERFACE -W3 /source-charset:utf-8 /wd4244 /wd4267 /wd4996 /wd4566)
+ 
+   # Disable warnings that give too many false positives.
+   target_compile_options(main_lib INTERFACE -wd4311 -wd4146)

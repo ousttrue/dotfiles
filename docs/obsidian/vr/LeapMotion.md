@@ -40,6 +40,7 @@ https://developer.leapmotion.com/documentation/v4/index.html
  ## 3
  - [Leap Motion Release Notes — Leap Motion C++ SDK v3.2 Beta documentation](https://developer-archive.leapmotion.com/documentation/cpp/supplements/SDK_Release_Notes.html)
  - [GitHub - leapmotion/LeapC-samples: The LeapSDK LeapC samples configured to build under Visual Studio 2017](https://github.com/leapmotion/LeapC-samples)
+ - [Leap Motion C API: Using LeapC](https://developer-archive.leapmotion.com/documentation/LeapC/a00024.html)
 
  ## 2
  - @2015 [これは快適！ Leap Motion v2で格段に良くなったSkeletal Tracking機能 - Build Insider](https://www.buildinsider.net/small/leapmotionupdate/201507)

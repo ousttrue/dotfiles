@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "doit",
+            "type": "python",
+            "request": "launch",
+            "module": "doit",
+            "args": [
+                "neovim"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
             "name": "build_python",
             "type": "python",
             "request": "launch",

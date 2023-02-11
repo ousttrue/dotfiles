@@ -9,9 +9,14 @@ import urllib.request
 import shutil
 from enum import Enum, auto
 
+
 DOTFILES = pathlib.Path(__file__).absolute().parent.parent
 HOME_DIR = DOTFILES.parent
-GHQ_DIR = HOME_DIR / 'ghq'
+GHQ_ROOT = os.environ.get('GHQ_ROOT')
+if GHQ_ROOT:
+    GHQ_DIR = pathlib.Path(GHQ_ROOT)
+else:
+    GHQ_DIR = HOME_DIR / 'ghq'
 GHQ_GITHUB_DIR = GHQ_DIR / 'github.com'
 SYNC_DIR = DOTFILES / 'sync'
 SYNC_HOME_DIR = SYNC_DIR / 'HOME'
