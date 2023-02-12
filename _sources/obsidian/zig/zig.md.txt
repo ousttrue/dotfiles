@@ -9,6 +9,7 @@
 ## 10.1
 ## 10.0
 async 動かない
+[async/await/suspend/resume · Issue #6025 · ziglang/zig · GitHub](https://github.com/ziglang/zig/issues/6025)
 
 # [[lsp]]
 - [GitHub - zigtools/zls: Zig LSP implementation + Zig Language Server](https://github.com/zigtools/zls)

@@ -218,12 +218,14 @@
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
+          <p>[[glibmm]]</p>
+<ul class="simple">
 <li><p><a class="reference external" href="https://www.gtkmm.org/en/index.html">Features - gtkmm - C++ Interfaces for GTK and GNOME</a></p></li>
 <li><p><a class="reference external" href="https://www.gtk.org/docs/language-bindings/cpp">The GTK Project - A free and open-source cross-platform widget toolkit</a></p></li>
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="gtkmm4">
 <h1>GTKMM4<a class="headerlink" href="#gtkmm4" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">c++17</span></code></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://developer-old.gnome.org/gtkmm-tutorial/unstable/gtkmm-tutorial.html">Programming with gtkmm 4</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://terminalroot.com/how-to-install-gtkmm-4-on-ubuntu-2204/">How to install GTKMM 4 on Ubuntu 22.04</a></p></li>
@@ -234,7 +236,55 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://jitaku.work/it/category/gui/gtkmm/">GTK+3.0 のC++ 言語版 入門。gtkmmをつかった画面遷移などのサンプル</a></p></li>
 <li><p><a class="reference external" href="http://shopping2.gmobb.jp/htdmnr/www08/cpp/gtkmm01.html">gtkmm 3 入門</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gammasoft71/Examples_Gtkmm">GitHub - gammasoft71/Examples_Gtkmm: Shows how to use Gtkmm controls by programming code (c++17).</a></p></li>
+<li><p><a class="reference external" href="https://github.com/zrax/gsshvnc">GitHub - zrax/gsshvnc: A simple VNC client with built-in SSH tunneling</a></p></li>
+<li><p><a class="reference external" href="https://github.com/synfig/synfig">GitHub - synfig/synfig: This is the Official source code repository of the Synfig project</a></p></li>
 </ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hello">
+<h1>Hello<a class="headerlink" href="#hello" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gtkmm/application.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gtkmm/button.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gtkmm/window.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">HelloWorld</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Gtk</span><span class="o">::</span><span class="n">Window</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">HelloWorld</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">m_button</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="s">"Hello World"</span><span class="p">)</span><span class="w"> </span><span class="c1">// creates a new button with label "Hello World".</span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Sets the margin around the button.</span>
+<span class="w">    </span><span class="n">m_button</span><span class="p">.</span><span class="n">set_margin</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// When the button receives the "clicked" signal, it will call the</span>
+<span class="w">    </span><span class="c1">// on_button_clicked() method defined below.</span>
+<span class="w">    </span><span class="n">m_button</span><span class="p">.</span><span class="n">signal_clicked</span><span class="p">().</span><span class="n">connect</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">sigc</span><span class="o">::</span><span class="n">mem_fun</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">HelloWorld</span><span class="o">::</span><span class="n">on_button_clicked</span><span class="p">));</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// This packs the button into the Window (a container).</span>
+<span class="w">    </span><span class="n">set_child</span><span class="p">(</span><span class="n">m_button</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="o">~</span><span class="n">HelloWorld</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="k">protected</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Signal handlers:</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">on_button_clicked</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Hello World"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Member widgets:</span>
+<span class="w">  </span><span class="n">Gtk</span><span class="o">::</span><span class="n">Button</span><span class="w"> </span><span class="n">m_button</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gtk</span><span class="o">::</span><span class="n">Application</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="s">"org.gtkmm.example"</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Shows the window and returns when it is closed.</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">app</span><span class="o">-&gt;</span><span class="n">make_window_and_run</span><span class="o">&lt;</span><span class="n">HelloWorld</span><span class="o">&gt;</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="application">
 <h1>Application<a class="headerlink" href="#application" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -281,6 +331,7 @@
             <ul>
 <li><a class="reference internal" href="#">GTKMM4</a></li>
 <li><a class="reference internal" href="#id1">3</a></li>
+<li><a class="reference internal" href="#hello">Hello</a></li>
 <li><a class="reference internal" href="#application">Application</a></li>
 <li><a class="reference internal" href="#build">Build</a></li>
 </ul>

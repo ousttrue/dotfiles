@@ -416,6 +416,10 @@ pango</p></li>
 <ul class="simple">
 <li><p>@2022 <a class="reference external" href="https://cartman0.hatenablog.com/entry/2022/03/24/Meson%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%83%A1%E3%83%A2">Mesonの使い方メモ - はしくれエンジニアもどきのメモ</a></p></li>
 </ul>
+<section id="default-native-file">
+<h2>default の native-file を固定するべし<a class="headerlink" href="#default-native-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>mingw の <code class="docutils literal notranslate"><span class="pre">ld.exe</span></code> に <code class="docutils literal notranslate"><span class="pre">PATH</span></code> が通って link が失敗する状況があった。</p>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="module">
 <h1>module<a class="headerlink" href="#module" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -538,7 +542,10 @@ pango</p></li>
 <li><a class="reference internal" href="#wrap-dependency-system">wrap dependency system</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#native-file">native-file</a></li>
+<li><a class="reference internal" href="#native-file">native-file</a><ul>
+<li><a class="reference internal" href="#default-native-file">default の native-file を固定するべし</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module">module</a></li>
 <li><a class="reference internal" href="#meson">meson のコード</a><ul>
 <li><a class="reference internal" href="#entry-point">entry_point</a></li>
