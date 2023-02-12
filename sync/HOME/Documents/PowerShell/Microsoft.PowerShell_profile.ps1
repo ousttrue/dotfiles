@@ -107,6 +107,11 @@ $env:BAZEL_VC="C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC
 # $env:BAZEL_VC_FULL_VERSION="14.29.30133" 2019
 $env:BAZEL_VC_FULL_VERSION="14.34.31933"
 
+if (Test-Path "D:/gnome") {
+    insertPath("D:\gnome\bin")
+    $env:PKG_CONFIG_PATH="D:/gnome/lib/pkgconfig;D:/gnome/share/pkgconfig"
+}
+
 ## readline
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2
 Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine

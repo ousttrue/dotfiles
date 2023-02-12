@@ -1,5 +1,5 @@
 # CMakeKits
-	`%LOCALAPPDATA%\CMakeTools\cmake-tools-kits.json`
+- [vscode-cmake-tools/kits.md at main · microsoft/vscode-cmake-tools · GitHub](https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/kits.md)
 - [CMake Kits — CMake Tools 1.4.0 documentation](https://vector-of-bool.github.io/docs/vscode-cmake-tools/kits.html)
 
 ```json
@@ -24,6 +24,13 @@
 ]
 ```
 
+https://github.com/microsoft/vscode-cmake-tools
+`src\kit.ts`
+kit の種類毎に環境変数をセットするなど泥臭い処理をしている。
+
+## User-local kits
+`%LOCALAPPDATA%\CMakeTools\cmake-tools-kits.json`
+ 
 # toolchain
 - [CMAKE_TOOLCHAIN_FILE — CMake 3.25.0 Documentation](https://cmake.org/cmake/help/latest/variable/CMAKE_TOOLCHAIN_FILE.html)
 - [cmake-toolchains(7) — CMake 3.25.0 Documentation](https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html)

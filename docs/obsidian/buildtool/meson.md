@@ -147,6 +147,9 @@ meson.override_dependency('pango', libpango_dep)
 cmake の toochain に相当
 - @2022 [Mesonの使い方メモ - はしくれエンジニアもどきのメモ](https://cartman0.hatenablog.com/entry/2022/03/24/Meson%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%83%A1%E3%83%A2)
 
+## default の native-file を固定するべし
+mingw の `ld.exe` に `PATH` が通って link が失敗する状況があった。
+
 # module
 `import`
 - @2022 [Mesonを使ってGObject Introspection対応のビルドシステムを構築する方法 - 2022-08-17 - ククログ](https://www.clear-code.com/blog/2022/8/17/meson-and-gobject-introspection.html)
