@@ -37,14 +37,6 @@ orientation += orientation * (angularVelocity * (0.5 * dt))
 - [Jolt Physics: Jolt Physics Samples](https://jrouwe.github.io/JoltPhysics/md__docs__samples.html)
 - [GitHub - jrouwe/JoltPhysics: A multi core friendly rigid body physics and collision detection library suitable for games and VR applications.](https://github.com/jrouwe/JoltPhysics)
 
-## bullet physics
-[[bullet]]
-[[easy_physics]]
-
-### PhysicsEffects
-[GitHub - erwincoumans/PhysicsEffects](https://github.com/erwincoumans/PhysicsEffects)
-- [LT140: PhysicsEffects メモ](http://lt140.blogspot.com/2009/12/physicseffects.html)
-
 ## mujoco
 - [GitHub - deepmind/mujoco: Multi-Joint dynamics with Contact. A general purpose physics simulator.](https://github.com/deepmind/mujoco)
 
@@ -61,3 +53,15 @@ orientation += orientation * (angularVelocity * (0.5 * dt))
 - [GitHub - jamornsriwasansak/brass-pan: A position-based physics engine](https://github.com/jamornsriwasansak/brass-pan)
 
 - [GitHub - InteractiveComputerGraphics/PositionBasedDynamics: PositionBasedDynamics is a library for the physically-based simulation of rigid bodies, deformable solids and fluids.](https://github.com/InteractiveComputerGraphics/PositionBasedDynamics)
+
+# BulletPhysics系
+## BulletPhysics
+[[bullet]]
+[[easy_physics]]
+
+## PhysicsEffects
+[GitHub - erwincoumans/PhysicsEffects](https://github.com/erwincoumans/PhysicsEffects)
+- [LT140: PhysicsEffects メモ](http://lt140.blogspot.com/2009/12/physicseffects.html)
+
+## EasyPhysics
+- [ゲーム制作者のための物理シミュレーション　剛体編 - インプレスブックス](https://book.impress.co.jp/books/3282)

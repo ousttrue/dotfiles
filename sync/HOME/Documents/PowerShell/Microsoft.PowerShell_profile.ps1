@@ -55,10 +55,10 @@ function addPath($path) {
     }
 }
 
-insertPath($env:USERPROFILE + "/prefix/bin")
-insertPath($env:USERPROFILE + "\.deno\bin")
-insertPath($env:USERPROFILE + "\.cargo\bin")
-insertPath($env:USERPROFILE + "\go\bin")
+addPath($env:USERPROFILE + "/prefix/bin")
+addPath($env:USERPROFILE + "\.deno\bin")
+addPath($env:USERPROFILE + "\.cargo\bin")
+addPath($env:USERPROFILE + "\go\bin")
 insertPath($env:USERPROFILE + "\local\bin")
 addPath($env:USERPROFILE + "\AppData\Local\Programs\Microsoft VS Code")
 addPath("C:\Program Files\Git\usr\bin")
