@@ -131,4 +131,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 -- packer
-require("plugins").setup()
+-- require("plugins").setup()
+
