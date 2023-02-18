@@ -1,16 +1,16 @@
 local M = {}
 function M.setup()
   local lspconfig = require "lspconfig"
-  local lsp_status = require "lsp-status"
+  --local lsp_status = require "lsp-status"
   local aerial = require "aerial"
   -- local symbols_outline = require "symbols-outline"
-  lsp_status.register_progress()
+  -- lsp_status.register_progress()
   local navic = require "nvim-navic"
   local util = require "lspconfig.util"
 
   local function on_attach(client, bufnr)
     aerial.on_attach(client, bufnr)
-    lsp_status.on_attach(client)
+    -- lsp_status.on_attach(client)
     -- symbols_outline.open_outline()
     navic.attach(client, bufnr)
   end
