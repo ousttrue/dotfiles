@@ -57,6 +57,9 @@ local plugins = {
   {
     "ckipp01/stylua-nvim",
   },
+  {
+    "tpope/vim-fugitive",
+  },
 }
 
 require("lazy").setup(plugins)
