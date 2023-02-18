@@ -1,19 +1,19 @@
 local M = {}
 
 function M.setup()
-  local actions = require "telescope.actions"
+  -- local actions = require "telescope.actions"
   local telescope = require "telescope"
   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-u-to-clear-prompt
-  telescope.setup {
-    defaults = { mappings = { i = {
-      ["<c-[>"] = actions.close,
-      -- clear. not preview scroll
-      ["<C-u>"] = false,
-    } } },
-  }
+  -- telescope.setup {
+  --   defaults = { mappings = { i = {
+  --     ["<c-[>"] = actions.close,
+  --     -- clear. not preview scroll
+  --     ["<C-u>"] = false,
+  --   } } },
+  -- }
   -- telescope.load_extension("ghq")
-  telescope.load_extension "projects"
-  telescope.load_extension "packer"
+  -- telescope.load_extension "projects"
+  -- telescope.load_extension "packer"
 
   local builtin = require "telescope.builtin"
   -- local frecency = require("telescope").extensions.frecency

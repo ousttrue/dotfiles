@@ -54,11 +54,24 @@ local plugins = {
       }
     end,
   },
+  { "ckipp01/stylua-nvim" },
+  { "tpope/vim-fugitive" },
+  { "lukas-reineke/indent-blankline.nvim" },
   {
-    "ckipp01/stylua-nvim",
+    "nvim-telescope/telescope.nvim",
+    -- tag = "0.1.0",
+    -- or                            , branch = '0.1.x',
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = require("config.telescope").setup,
   },
   {
-    "tpope/vim-fugitive",
+    "nvim-treesitter/nvim-treesitter",
+    -- run = function()
+    --   require("nvim-treesitter.install").update { with_sync = true }
+    -- end,
+    config = require("config.nvim-treesitter").setup,
   },
 }
 

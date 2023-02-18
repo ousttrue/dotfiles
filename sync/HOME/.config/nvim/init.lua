@@ -3,24 +3,24 @@ local g = vim.g
 local opt = vim.opt
 
 -- avoid plugins
-vim.api.nvim_set_var('did_install_default_menus', 1)
-vim.api.nvim_set_var('did_install_syntax_menu', 1)
-vim.api.nvim_set_var('did_indent_on', 1)
+vim.api.nvim_set_var("did_install_default_menus", 1)
+vim.api.nvim_set_var("did_install_syntax_menu", 1)
+vim.api.nvim_set_var("did_indent_on", 1)
 --vim.api.nvim_set_var('did_load_filetypes', 1)
 --vim.api.nvim_set_var('did_load_ftplugin', 1)
-vim.api.nvim_set_var('loaded_2html_plugin', 1)
-vim.api.nvim_set_var('loaded_gzip', 1)
-vim.api.nvim_set_var('loaded_man', 1)
-vim.api.nvim_set_var('loaded_matchit', 1)
-vim.api.nvim_set_var('loaded_matchparen', 1)
-vim.api.nvim_set_var('loaded_netrwPlugin', 1)
-vim.api.nvim_set_var('loaded_remote_plugins', 1)
-vim.api.nvim_set_var('loaded_shada_plugin', 1)
-vim.api.nvim_set_var('loaded_spellfile_plugin', 1)
-vim.api.nvim_set_var('loaded_tarPlugin', 1)
-vim.api.nvim_set_var('loaded_tutor_mode_plugin', 1)
-vim.api.nvim_set_var('loaded_zipPlugin', 1)
-vim.api.nvim_set_var('skip_loading_mswin', 1)
+vim.api.nvim_set_var("loaded_2html_plugin", 1)
+vim.api.nvim_set_var("loaded_gzip", 1)
+vim.api.nvim_set_var("loaded_man", 1)
+vim.api.nvim_set_var("loaded_matchit", 1)
+vim.api.nvim_set_var("loaded_matchparen", 1)
+vim.api.nvim_set_var("loaded_netrwPlugin", 1)
+vim.api.nvim_set_var("loaded_remote_plugins", 1)
+vim.api.nvim_set_var("loaded_shada_plugin", 1)
+vim.api.nvim_set_var("loaded_spellfile_plugin", 1)
+vim.api.nvim_set_var("loaded_tarPlugin", 1)
+vim.api.nvim_set_var("loaded_tutor_mode_plugin", 1)
+vim.api.nvim_set_var("loaded_zipPlugin", 1)
+vim.api.nvim_set_var("skip_loading_mswin", 1)
 
 -- Remap leader and local leader to <Space>
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
@@ -131,6 +131,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 -- packer
-require("lazy-plugins")
-colorscheme habamax
-
+require "lazy-plugins"
+vim.cmd [[colorscheme habamax]]
