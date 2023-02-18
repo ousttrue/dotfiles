@@ -69,7 +69,20 @@ local plugins = {
   },
   { "ckipp01/stylua-nvim" },
   { "tpope/vim-fugitive" },
-  { "lukas-reineke/indent-blankline.nvim" },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    dependencies = {
+      "EdenEast/nightfox.nvim",
+    },
+    config = function()
+      require("indent_blankline").setup {
+        -- for example, context is off by default, use this to turn it on
+        show_current_context = true,
+        show_current_context_start = true,
+        show_end_of_line = true,
+      }
+    end,
+  },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -126,6 +139,34 @@ local plugins = {
     "folke/trouble.nvim",
     config = require("config.trouble").setup,
   },
+  {
+    "onsails/lspkind.nvim",
+    config = require("config.lspkind").setup,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    -- tag = "v1.*",
+    config = require("config.LuaSnip").setup,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-vsnip",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+      "hrsh7th/cmp-nvim-lsp-document-symbol",
+      "hrsh7th/cmp-calc",
+      "onsails/lspkind.nvim",
+      "hrsh7th/vim-vsnip",
+      "hrsh7th/vim-vsnip-integ",
+      "rafamadriz/friendly-snippets",
+    },
+    config = require("config.nvim-cmp").setup,
+    event = "InsertEnter",
+  },
+  -- { "hrsh7th/cmp-nvim-lsp",  },
 }
 
 require("lazy").setup(plugins)

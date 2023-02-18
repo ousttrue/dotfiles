@@ -1,1 +1,2 @@
-[【Neovim】toggleterm.nvimとlazygitを組み合わせてgit操作を快適にする](https://zenn.dev/koga1020/articles/524e4c8c80db24)
+- [【Neovim】toggleterm.nvimとlazygitを組み合わせてgit操作を快適にする](https://zenn.dev/koga1020/articles/524e4c8c80db24)
+- [gitsigns - Commentary of Dotfiles](https://coralpink.github.io/commentary/neovim/plugin/gitsigns.html)

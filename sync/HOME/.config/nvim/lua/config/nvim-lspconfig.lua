@@ -8,7 +8,9 @@ function M.setup()
   -- local navic = require "nvim-navic"
   local util = require "lspconfig.util"
 
+  ---@diagnostic disable-next-line
   local function on_attach(client, bufnr)
+    -- print(vim.inspect(client.server_capabilities))
     vim.diagnostic.config {
       virtual_text = false,
     }
@@ -16,6 +18,10 @@ function M.setup()
     -- lsp_status.on_attach(client)
     -- symbols_outline.open_outline()
     -- navic.attach(client, bufnr)
+    if client.server_capabilities.documentFormattingProvider then
+      vim.keymap.set({"n", "v"}, "F", vim.lsp.buf.format, { buffer=bufnr, noremap = true })
+      -- vim.keymap.set("v", "F", vim.lsp.buf.format, { buffer=bufnr, noremap = true })
+    end
   end
 
   -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
@@ -23,6 +29,8 @@ function M.setup()
   -- for k, v in pairs(lsp_status.capabilities) do
   --   capabilities[k] = v
   -- end
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  -- print(vim.inspect(capabilities))
 
   lspconfig.lua_ls.setup {
     cmd = {
@@ -49,11 +57,8 @@ function M.setup()
         },
       },
     },
-    on_attach = function(client, bufnr)
-      client.server_capabilities.document_formatting = false
-      on_attach(client, bufnr)
-    end,
-    -- capabilities = capabilities,
+    on_attach = on_attach,
+    capabilities = capabilities,
   }
 
   lspconfig.clangd.setup {
@@ -64,7 +69,7 @@ function M.setup()
     },
     root_dir = util.root_pattern("build/compile_commands.json", ".git"),
     on_attach = on_attach,
-    -- capabilities = lsp_status.capabilities,
+    capabilities = capabilities,
   }
 
   lspconfig.pyright.setup {
@@ -72,23 +77,23 @@ function M.setup()
       client.server_capabilities.document_formatting = false
       on_attach(client, bufnr)
     end,
-    -- capabilities = lsp_status.capabilities,
+    capabilities = capabilities,
   }
 
   lspconfig.zls.setup {
     cmd = { vim.env.YAZLS_EXE },
     on_attach = on_attach,
-    -- capabilities = lsp_status.capabilities,
+    capabilities = capabilities,
   }
 
   lspconfig.zk.setup {
     on_attach = on_attach,
-    -- capabilities = lsp_status.capabilities,
+    capabilities = capabilities,
   }
 
   lspconfig.groovyls.setup {
     on_attach = on_attach,
-    -- capabilities = lsp_status.capabilities,
+    capabilities = capabilities,
   }
 end
 

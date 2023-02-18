@@ -103,12 +103,8 @@ vim.keymap.set("n", "<C-S-B>", ":make<CR>", { noremap = true })
 
 -- lsp
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { noremap = true })
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { noremap = true })
-vim.keymap.set("v", "<leader>f", vim.lsp.buf.format, { noremap = true })
-vim.keymap.set("n", "<space>f", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
-vim.keymap.set("n", "gf", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })

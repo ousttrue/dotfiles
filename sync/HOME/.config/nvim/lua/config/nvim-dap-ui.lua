@@ -43,12 +43,16 @@ M.setup = function()
   end
 
   vim.api.nvim_set_keymap("n", "<F5>", ":DapContinue<CR>", { silent = true })
-  vim.api.nvim_set_keymap(
+  vim.keymap.set(
     "n",
     "<F6>",
-    ":lua require('dap.ext.vscode').load_launchjs(nil, { lldb = {'c', 'cpp'}})<CR>",
-    { silent = true }
+    -- ":lua require('dap.ext.vscode').load_launchjs(nil, { lldb = {'c', 'cpp'}})<CR>",
+    function()
+      require("dap.ext.vscode").load_launchjs(nil, { lldb = { "c", "cpp" } })
+      require("dapui").toggle()
+    end
   )
+
   vim.api.nvim_set_keymap("n", "<F10>", ":DapStepOver<CR>", { silent = true })
   vim.api.nvim_set_keymap("n", "<F11>", ":DapStepInto<CR>", { silent = true })
   vim.api.nvim_set_keymap("n", "<F12>", ":DapStepOut<CR>", { silent = true })
@@ -70,6 +74,34 @@ M.setup = function()
 
   vim.fn.sign_define("DapBreakpoint", { text = "⛔", texthl = "", linehl = "", numhl = "" })
   vim.fn.sign_define("DapStopped", { text = "👉", texthl = "", linehl = "", numhl = "" })
+
+  require("dapui").setup {
+    icons = { expanded = "", collapsed = "" },
+    layouts = {
+      {
+        elements = {
+          -- { id = "watches", size = 0.20 },
+          { id = "stacks", size = 30 },
+          -- { id = "breakpoints", size = 0.20 },
+          { id = "scopes", size = 30 },
+        },
+        size = 64,
+        position = "right",
+      },
+      -- {
+      --   elements = {
+      --     "repl",
+      --     "console",
+      --   },
+      --   size = 0.20,
+      --   position = "bottom",
+      -- },
+    },
+  }
+
+  require("dap").listeners.before["event_initialized"]["custom"] = function(session, body)
+    require("dapui").open()
+  end
 end
 
 return M
