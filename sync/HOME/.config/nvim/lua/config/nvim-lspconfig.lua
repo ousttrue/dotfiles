@@ -53,7 +53,7 @@ function M.setup()
       client.server_capabilities.document_formatting = false
       on_attach(client, bufnr)
     end,
-    capabilities = capabilities,
+    -- capabilities = capabilities,
   }
 
   lspconfig.clangd.setup {

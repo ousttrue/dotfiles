@@ -6,7 +6,7 @@ function M.setup()
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
         mode = "document_diagnostics",
-        auto_open = false,
+        auto_open = true,
         signs = {
             -- icons / text used for a diagnostic
             error = "",

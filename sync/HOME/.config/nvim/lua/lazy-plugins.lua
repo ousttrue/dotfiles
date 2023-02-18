@@ -21,6 +21,13 @@ local plugins = {
   --     vim.cmd [[colorscheme darcula]]
   --   end,
   -- },
+  {
+    "EdenEast/nightfox.nvim",
+    config = function()
+      -- vim.cmd "colorscheme everforest"
+      vim.cmd "colorscheme nightfox"
+    end,
+  },
   "editorconfig/editorconfig-vim",
   {
     "nvim-lualine/lualine.nvim",
@@ -114,6 +121,10 @@ local plugins = {
       require("lsp_lines").setup()
       -- Disable virtual_text since it's redundant due to lsp_lines.
     end,
+  },
+  {
+    "folke/trouble.nvim",
+    config = require("config.trouble").setup,
   },
 }
 

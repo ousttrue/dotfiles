@@ -140,4 +140,4 @@ vim.keymap.set("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_wo
 
 -- package manager
 require "lazy-plugins"
-vim.cmd [[colorscheme habamax]]
+-- vim.cmd [[colorscheme habamax]]

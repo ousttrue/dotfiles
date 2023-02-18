@@ -1,7 +1,9 @@
 local M = {}
 
 function M.setup()
-    require("gitsigns").setup()
+  ---@diagnostic disable-next-line
+  require("gitsigns").setup {
+  }
 end
 
 return M
