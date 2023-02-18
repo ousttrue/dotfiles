@@ -1,5 +1,7 @@
 [[vscode]]
 
+`%USERPROFILE%\.vscode\extensions`
+
 [GitHub - microsoft/vscode-extension-samples: Sample code illustrating the VS Code extension API.](https://github.com/Microsoft/vscode-extension-samples)
 
 [Extension Examples | 非公式 - Visual Studio Code Docs](https://vscode-doc-jp.github.io/docs/extensions/samples.html)
