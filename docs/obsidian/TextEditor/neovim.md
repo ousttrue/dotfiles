@@ -6,20 +6,28 @@ aliases: [nvim]
 
 - [News - Neovim](https://neovim.io/news/)
 - [Roadmap - Neovim](https://neovim.io/roadmap/)
-
-[[nvim_packer]] [[nvim_lsp]] [[nvim_diagnostics]] [[nvim_tree]] [[nvim_terminal]] 
-[[nvim_lua]] [[vim_plugins]]
-[[treesitter]] [[nvim_floating]] [[vim_snippet]] [[nvim_virtualtext]] [[nvim_keymap]]
-[[nvim_pluginmanager]]
-- [Lsp - Neovim docs](https://neovim.io/doc/user/lsp.html)
-
----
-
 ```sh
 nvim +Tutor
 ```
 
+# Links
+[[nvim_lua]]   [[vim_snippet]]
+## UI
+[[nvim_terminal]] [[nvim_virtualtext]] [[nvim_floating]] [[nvim_keymap]]
+## plugins
+[[nvim_packer]] [[vim_plugins]]
+[[nvim_pluginmanager]]
+## lsp
+- [Lsp - Neovim docs](https://neovim.io/doc/user/lsp.html)
+[[nvim_lsp]] [[nvim_diagnostics]]  
+## ex buffer
+[[nvim_tree]]
+## in buffer
+[[treesitter]]
+
 # articles
+- @2022 [Vimで古代ギリシア語【自作プラグインのすすめ】 - Qiita](https://qiita.com/NI57721/items/06fc78227faaea9bce90)
+- @2022 [今年お世話になった 12 個の Vim (Neovim) プラグインを紹介します](https://zenn.dev/vim_jp/articles/2022-12-12-vim-plugin-thanks#1.-tani%2Fvim-jetpack)
 - @2022 [NeovimをもっとLuaLuaさせた | 点と接線。](https://riq0h.jp/2022/10/21/150848/)
 - [Learn Neovim The Practical Way. All articles on how to configure and… | by alpha2phi | Medium](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f#545a)
 		- [Neovim for Beginners — init.lua. Let’s start our journey to customize… | by alpha2phi | Medium](https://alpha2phi.medium.com/neovim-for-beginners-init-lua-45ff91f741cb)
@@ -85,5 +93,25 @@ lua を快適に編集する
 local opts = { noremap = true, silent = true }
 vim.api.nvim_buf_set_keymap(0, "n", "F", [[<cmd>lua require("stylua-nvim").format_file()<CR>]], opts)
 ```
-
+- lualine
+```lua
+{
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("lualine").setup()
+    end,
+}
+```
 - git
+```lua
+"tpope/vim-fugitive",
+```
+
+## second
+### highlgiht
+### nvim-tree
+### language server
+### vscode task
+### telescope
+### tree-sitter

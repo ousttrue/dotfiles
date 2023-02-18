@@ -132,4 +132,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 -- packer
 require("lazy-plugins")
+colorscheme habamax
 

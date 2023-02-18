@@ -15,12 +15,12 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " " -- make sure to set `mapleader` before lazy so your mappings are correct
 
 local plugins = {
-  { -- colorscheme
-    "blueshirts/darcula",
-    config = function()
-      vim.cmd [[colorscheme darcula]]
-    end,
-  },
+  -- { -- colorscheme
+  --   "blueshirts/darcula",
+  --   config = function()
+  --     vim.cmd [[colorscheme darcula]]
+  --   end,
+  -- },
   "editorconfig/editorconfig-vim",
   {
     "nvim-lualine/lualine.nvim",
