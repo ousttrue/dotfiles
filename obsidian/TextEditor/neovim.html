@@ -223,18 +223,10 @@
 <li><p><a class="reference external" href="https://neovim.io/news/">News - Neovim</a></p></li>
 <li><p><a class="reference external" href="https://neovim.io/roadmap/">Roadmap - Neovim</a></p></li>
 </ul>
-<p>[[nvim_packer]]
-[[nvim_lsp]]
-[[nvim_diagnostics]]
-[[nvim_tree]]
-[[nvim_terminal]]
-[[nvim_lua]]
-[[vim_plugins]]
-[[treesitter]]
-[[nvim_floating]]
-[[vim_snippet]]
-[[nvim_virtualtext]]
-[[nvim_keymap]]</p>
+<p>[[nvim_packer]] [[nvim_lsp]] [[nvim_diagnostics]] [[nvim_tree]] [[nvim_terminal]]
+[[nvim_lua]] [[vim_plugins]]
+[[treesitter]] [[nvim_floating]] [[vim_snippet]] [[nvim_virtualtext]] [[nvim_keymap]]
+[[nvim_pluginmanager]]</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://neovim.io/doc/user/lsp.html">Lsp - Neovim docs</a></p></li>
 </ul>
@@ -245,17 +237,58 @@
 <section class="tex2jax_ignore mathjax_ignore" id="articles">
 <h1>articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://riq0h.jp/2022/10/21/150848/">NeovimをもっとLuaLuaさせた | 点と接線。</a></p></li>
 <li><p><a class="reference external" href="https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f#545a">Learn Neovim The Practical Way. All articles on how to configure and… | by alpha2phi | Medium</a>
 - <a class="reference external" href="https://alpha2phi.medium.com/neovim-for-beginners-init-lua-45ff91f741cb">Neovim for Beginners — init.lua. Let’s start our journey to customize… | by alpha2phi | Medium</a></p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="v0-8-0">
+<h2>v0.8.0<a class="headerlink" href="#v0-8-0" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jp.magicode.io/denx/articles/eb5a9c43526e4592937977bf3a959ad3">Neovim 40個のおすすめオプション</a></p></li>
+<li><p>winbar</p></li>
+<li><p><a class="reference external" href="https://twitter.com/neovim/status/1527849682570977282">https://twitter.com/neovim/status/1527849682570977282</a></p></li>
+</ul>
 <section id="id1">
-<h2>0.8<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="id2">
-<h3>0.8.3<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>0.8.3<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </section>
+</section>
+<section id="v0-7-0">
+<h2>v0.7.0<a class="headerlink" href="#v0-7-0" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>Tree-sitter integration (highlighting, folds)</p></li>
+<li><p>Better file-change detection</p></li>
+<li><p>TUI as a remote UI ($NVIM, --remote)</p></li>
+<li><p>Externalized UI: window layout events, ext_statusline</p></li>
+<li><p>Lua remote plugin host</p></li>
+<li><p>Embed Neovim everywhere</p></li>
+</ul>
+</section>
+<section id="v0-6-0">
+<h2>v0.6.0<a class="headerlink" href="#v0-6-0" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>Unified [[nvim_diagnostics]] API</p></li>
+<li><p>Updated defaults</p></li>
+</ul>
+</section>
+<section id="v0-5-0-2021-07-21">
+<h2>v0.5.0 @2021-07-21<a class="headerlink" href="#v0-5-0-2021-07-21" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://neovim.io/news/2021/07">Neovim News #11 - The Christmas Issue - Neovim</a></p></li>
+<li><p>Expanded Lua API and user config (init.lua)</p></li>
+<li><p>Built-in Language Server Protocol (LSP) support</p></li>
+<li><p>Tree-sitter integration (experimental)</p></li>
+<li><p>Decorations API improvements: extmarks, virtual text, highlights</p></li>
+</ul>
+</section>
+<section id="v0-5-1">
+<h2>v0.5.1<a class="headerlink" href="#v0-5-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>Lua API improvements</p></li>
+<li><p>LSP support improvements (v3.16 spec coverage, configuration)</p></li>
+</ul>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="build">
@@ -271,46 +304,37 @@
 </ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="v0-8-0">
-<h1>v0.8.0<a class="headerlink" href="#v0-8-0" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="first">
+<h2>first<a class="headerlink" href="#first" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>lua を快適に編集する</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://jp.magicode.io/denx/articles/eb5a9c43526e4592937977bf3a959ad3">Neovim 40個のおすすめオプション</a></p></li>
-<li><p>winbar</p></li>
-<li><p><a class="reference external" href="https://twitter.com/neovim/status/1527849682570977282">https://twitter.com/neovim/status/1527849682570977282</a></p></li>
+<li><p>comment</p></li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="v0-7-0">
-<h1>v0.7.0<a class="headerlink" href="#v0-7-0" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span>  <span class="p">{</span>
+    <span class="s2">"numToStr/Comment.nvim"</span><span class="p">,</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+      <span class="nb">require</span><span class="p">(</span><span class="s2">"Comment"</span><span class="p">).</span><span class="n">setup</span><span class="p">()</span>
+      <span class="n">vim</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">nvim_set_keymap</span><span class="p">(</span><span class="s2">"n"</span><span class="p">,</span> <span class="s2">"&lt;C-_&gt;"</span><span class="p">,</span> <span class="s2">"gcc"</span><span class="p">,</span> <span class="p">{})</span>
+      <span class="n">vim</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">nvim_set_keymap</span><span class="p">(</span><span class="s2">"v"</span><span class="p">,</span> <span class="s2">"&lt;C-_&gt;"</span><span class="p">,</span> <span class="s2">"gc"</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="kr">end</span><span class="p">,</span>
+  <span class="p">},</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Tree-sitter integration (highlighting, folds)</p></li>
-<li><p>Better file-change detection</p></li>
-<li><p>TUI as a remote UI ($NVIM, --remote)</p></li>
-<li><p>Externalized UI: window layout events, ext_statusline</p></li>
-<li><p>Lua remote plugin host</p></li>
-<li><p>Embed Neovim everywhere</p></li>
+<li><p>formatter</p></li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="v0-6-0">
-<h1>v0.6.0<a class="headerlink" href="#v0-6-0" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span>  <span class="p">{</span>
+    <span class="s2">"ckipp01/stylua-nvim"</span><span class="p">,</span>
+  <span class="p">},</span>
+
+<span class="kd">local</span> <span class="n">opts</span> <span class="o">=</span> <span class="p">{</span> <span class="n">noremap</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="n">silent</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span>
+<span class="n">vim</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">nvim_buf_set_keymap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">,</span> <span class="s2">"F"</span><span class="p">,</span> <span class="s">[[&lt;cmd&gt;lua require("stylua-nvim").format_file()&lt;CR&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Unified [[nvim_diagnostics]] API</p></li>
-<li><p>Updated defaults</p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="v0-5-0-2021-07-21">
-<h1>v0.5.0 @2021-07-21<a class="headerlink" href="#v0-5-0-2021-07-21" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://neovim.io/news/2021/07">Neovim News #11 - The Christmas Issue - Neovim</a></p></li>
-<li><p>Expanded Lua API and user config (init.lua)</p></li>
-<li><p>Built-in Language Server Protocol (LSP) support</p></li>
-<li><p>Tree-sitter integration (experimental)</p></li>
-<li><p>Decorations API improvements: extmarks, virtual text, highlights</p></li>
-</ul>
-<section id="v0-5-1">
-<h2>v0.5.1<a class="headerlink" href="#v0-5-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>Lua API improvements</p></li>
-<li><p>LSP support improvements (v3.16 spec coverage, configuration)</p></li>
+<li><p>git</p></li>
 </ul>
 </section>
 </section>
@@ -350,21 +374,22 @@
             <ul>
 <li><a class="reference internal" href="#">articles</a></li>
 <li><a class="reference internal" href="#version">Version</a><ul>
-<li><a class="reference internal" href="#id1">0.8</a><ul>
-<li><a class="reference internal" href="#id2">0.8.3</a></li>
+<li><a class="reference internal" href="#v0-8-0">v0.8.0</a><ul>
+<li><a class="reference internal" href="#id1">0.8.3</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#v0-7-0">v0.7.0</a></li>
+<li><a class="reference internal" href="#v0-6-0">v0.6.0</a></li>
+<li><a class="reference internal" href="#v0-5-0-2021-07-21">v0.5.0 &#64;2021-07-21</a></li>
+<li><a class="reference internal" href="#v0-5-1">v0.5.1</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#build">build</a><ul>
 <li><a class="reference internal" href="#depndencies">depndencies</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#v0-8-0">v0.8.0</a></li>
-<li><a class="reference internal" href="#v0-7-0">v0.7.0</a></li>
-<li><a class="reference internal" href="#v0-6-0">v0.6.0</a></li>
-<li><a class="reference internal" href="#v0-5-0-2021-07-21">v0.5.0 &#64;2021-07-21</a><ul>
-<li><a class="reference internal" href="#v0-5-1">v0.5.1</a></li>
+<li><a class="reference internal" href="#setup">Setup</a><ul>
+<li><a class="reference internal" href="#first">first</a></li>
 </ul>
 </li>
 </ul>

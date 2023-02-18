@@ -3,6 +3,7 @@
 # config
 - `XDG_CONFIG_HOME` => `~/.config`
 - `XDG_CACHE_HOME` => `~/.cache`
+- `XDG_DATA_HOME` => `~/.local/share`
 
 # desktop
 - [デスクトップエントリ - ArchWiki](https://wiki.archlinux.jp/index.php/%E3%83%87%E3%82%B9%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA)
