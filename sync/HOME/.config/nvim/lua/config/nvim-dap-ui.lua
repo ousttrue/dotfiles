@@ -6,6 +6,9 @@ M.setup = function()
   --
   --  configurations
   --
+  -- https://zenn.dev/saito9/articles/32c57f776dc369
+  --
+  -- codelldb is executable with tcp connection
   dap.adapters.lldb = function(callback, config)
     local stdout = vim.loop.new_pipe(false)
     local handle

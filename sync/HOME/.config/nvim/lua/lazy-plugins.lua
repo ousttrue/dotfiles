@@ -48,11 +48,7 @@ local plugins = {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-      require("nvim-tree").setup {
-        open_on_setup_file = true,
-      }
-    end,
+    config = require("config.nvim-tree").setup,
   },
   { "ckipp01/stylua-nvim" },
   { "tpope/vim-fugitive" },
@@ -90,6 +86,10 @@ local plugins = {
   --     }
   --   end,
   -- },
+  {
+    "neovim/nvim-lspconfig",
+    config = require("config.nvim-lspconfig").setup,
+  },
 }
 
 require("lazy").setup(plugins)
