@@ -59,11 +59,7 @@ local plugins = {
   { "lukas-reineke/indent-blankline.nvim" },
   {
     "nvim-telescope/telescope.nvim",
-    -- tag = "0.1.0",
-    -- or                            , branch = '0.1.x',
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = require("config.telescope").setup,
   },
   {
@@ -73,6 +69,27 @@ local plugins = {
     -- end,
     config = require("config.nvim-treesitter").setup,
   },
+  {
+    "stevearc/overseer.nvim",
+    config = function()
+      require("overseer").setup()
+      vim.api.nvim_set_keymap("n", "B", ":OverseerRun<CR>", {})
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap" },
+    config = require("config.nvim-dap-ui").setup,
+  },
+  -- {
+  --   "folke/neodev.nvim",
+  --   config = function()
+  --     -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+  --     require("neodev").setup {
+  --       -- add any options here, or leave empty to use the default settings
+  --     }
+  --   end,
+  -- },
 }
 
 require("lazy").setup(plugins)
