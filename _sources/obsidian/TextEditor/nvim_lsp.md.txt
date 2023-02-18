@@ -22,4 +22,7 @@
 	- [nvim-lspconfig/server_configurations.md at master · neovim/nvim-lspconfig · GitHub](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
 
 
+# diagonostics
+- @2022 [NeovimのLSPで誰にどうして怒られたのかを確認するための設定 | DevelopersIO](https://dev.classmethod.jp/articles/eetann-change-neovim-lsp-diagnostics-format/)
+
 # completion, locationlist, definition, hover...
