@@ -9,6 +9,9 @@ function M.setup()
   local util = require "lspconfig.util"
 
   local function on_attach(client, bufnr)
+    vim.diagnostic.config {
+      virtual_text = false,
+    }
     -- aerial.on_attach(client, bufnr)
     -- lsp_status.on_attach(client)
     -- symbols_outline.open_outline()
@@ -22,6 +25,9 @@ function M.setup()
   -- end
 
   lspconfig.lua_ls.setup {
+    cmd = {
+      vim.env.USERPROFILE .. "/.vscode/extensions/sumneko.lua-3.6.11-win32-x64/server/bin/lua-language-server.exe",
+    },
     settings = {
       Lua = {
         runtime = {
@@ -35,6 +41,7 @@ function M.setup()
         workspace = {
           -- Make the server aware of Neovim runtime files
           library = vim.api.nvim_get_runtime_file("", true),
+          checkThirdParty = false,
         },
         -- Do not send telemetry data containing a randomized but unique identifier
         telemetry = {

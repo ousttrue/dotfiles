@@ -1,4 +1,4 @@
-local api = vim.api
+-- local api = vim.api
 local g = vim.g
 local opt = vim.opt
 
@@ -11,8 +11,8 @@ vim.api.nvim_set_var("did_indent_on", 1)
 vim.api.nvim_set_var("loaded_2html_plugin", 1)
 vim.api.nvim_set_var("loaded_gzip", 1)
 vim.api.nvim_set_var("loaded_man", 1)
-vim.api.nvim_set_var("loaded_matchit", 1)
-vim.api.nvim_set_var("loaded_matchparen", 1)
+-- vim.api.nvim_set_var("loaded_matchit", 1)
+-- vim.api.nvim_set_var("loaded_matchparen", 1)
 vim.api.nvim_set_var("loaded_netrwPlugin", 1)
 vim.api.nvim_set_var("loaded_remote_plugins", 1)
 vim.api.nvim_set_var("loaded_shada_plugin", 1)
@@ -54,13 +54,20 @@ opt.backup = false
 opt.hlsearch = true
 opt.hidden = true
 opt.modeline = true
+opt.keywordprg = ":help"
 
--- Highlight on yank
+-- opt.showmatch = true
+-- opt.matchtime = 1
+-- vim.cmd[[
+-- set matchpairs+=<:>
+-- ]]
+
 vim.cmd [[
-augroup YankHighlight
-  autocmd!
-  autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-augroup end
+" " Highlight on yank
+" augroup YankHighlight
+"   autocmd!
+"   autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+" augroup end
 
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 ]]
@@ -77,9 +84,10 @@ vim.keymap.set("n", "<S-F>", "<C-i>", { noremap = true })
 vim.keymap.set("n", "<S-B>", "<C-o>", { noremap = true })
 vim.keymap.set("n", "<C-.>", ":bnext<CR>", { noremap = true })
 vim.keymap.set("n", "<C-,>", ":bprev<CR>", { noremap = true })
-vim.keymap.set("n", "<C-l>", ":bnext<CR>", { noremap = true })
-vim.keymap.set("n", "<C-h>", ":bprev<CR>", { noremap = true })
-vim.keymap.set("n", "<Leader>c", "<C-l>", { noremap = true })
+-- vim.keymap.set("n", "<C-l>", ":bnext<CR>", { noremap = true })initl
+-- vim.keymap.set("n", "<C-h>", ":bprev<CR>", { noremap = true })
+-- vim.keymap.set("n", "<Leader>c", "<C-l>", { noremap = true })
+vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
 vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true })
 
 vim.keymap.set("n", "<Leader>q", "q", { noremap = true })
@@ -125,11 +133,11 @@ vim.keymap.set("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_wo
 -- vim.keymap.set("n", "<space>q", vim.diagnostic.set_loclist, { noremap = true })
 
 -- LSP handlers
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  { virtual_text = true }
-)
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--   vim.lsp.diagnostic.on_publish_diagnostics,
+--   { virtual_text = true }
+-- )
 
--- packer
+-- package manager
 require "lazy-plugins"
 vim.cmd [[colorscheme habamax]]

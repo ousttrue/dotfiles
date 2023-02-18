@@ -31,16 +31,26 @@ local plugins = {
   },
   {
     "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup()
-    end,
+    config = require("config.gitsigns").setup,
   },
   {
     "numToStr/Comment.nvim",
     config = function()
-      require("Comment").setup()
-      vim.api.nvim_set_keymap("n", "<C-_>", "gcc", {})
-      vim.api.nvim_set_keymap("v", "<C-_>", "gc", {})
+      require("Comment").setup {
+        mappings = { basic = false, extra = false },
+      }
+
+      local api = require "Comment.api"
+      local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
+
+      -- Toggle current line (linewise) using C-/
+      vim.keymap.set("n", "<C-_>", api.toggle.linewise.current)
+
+      -- Toggle selection (linewise)
+      vim.keymap.set("x", "<C-_>", function()
+        vim.api.nvim_feedkeys(esc, "nx", false)
+        api.toggle.linewise(vim.fn.visualmode())
+      end)
     end,
   },
   {
@@ -88,7 +98,22 @@ local plugins = {
   -- },
   {
     "neovim/nvim-lspconfig",
-    config = require("config.nvim-lspconfig").setup,
+    config = function()
+      require("config.nvim-lspconfig").setup()
+    end,
+  },
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup()
+    end,
+  },
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+      -- Disable virtual_text since it's redundant due to lsp_lines.
+    end,
   },
 }
 
