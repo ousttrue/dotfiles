@@ -23,7 +23,7 @@ nvim +Tutor
 ## ex buffer
 [[nvim_tree]]
 ## in buffer
-[[treesitter]]
+[[treesitter]] [[nvim_statusline]]
 
 # articles
 - @2022 [Vimで古代ギリシア語【自作プラグインのすすめ】 - Qiita](https://qiita.com/NI57721/items/06fc78227faaea9bce90)
@@ -35,10 +35,10 @@ nvim +Tutor
 # Version
 ## v0.8.0
 - [Neovim 40個のおすすめオプション](https://jp.magicode.io/denx/articles/eb5a9c43526e4592937977bf3a959ad3)
-- winbar
+- filetype.lua
+- @2022 [Neovim 0.8がリリース - filetype.luaのデフォルト有効化など多数の変更 | ソフトアンテナ](https://softantenna.com/blog/neovim-0-8-released/)
+### winbar
 - [https://twitter.com/neovim/status/1527849682570977282](https://twitter.com/neovim/status/1527849682570977282)
-
-### 0.8.3
 
 ## v0.7.0
 - Tree-sitter integration (highlighting, folds)
@@ -70,48 +70,3 @@ nvim +Tutor
 ## depndencies
 - [neovim/CMakeLists.txt at master · neovim/neovim · GitHub](https://github.com/neovim/neovim/blob/master/cmake.deps/CMakeLists.txt)
 
-# Setup
-## first
-lua を快適に編集する
-- comment
-```lua
-  {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-      vim.api.nvim_set_keymap("n", "<C-_>", "gcc", {})
-      vim.api.nvim_set_keymap("v", "<C-_>", "gc", {})
-    end,
-  },
-```
-- formatter
-```lua
-  {
-    "ckipp01/stylua-nvim",
-  },
-
-local opts = { noremap = true, silent = true }
-vim.api.nvim_buf_set_keymap(0, "n", "F", [[<cmd>lua require("stylua-nvim").format_file()<CR>]], opts)
-```
-- lualine
-```lua
-{
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("lualine").setup()
-    end,
-}
-```
-- git
-```lua
-"tpope/vim-fugitive",
-```
-
-## second
-### highlgiht
-### nvim-tree
-### language server
-### vscode task
-### telescope
-### tree-sitter

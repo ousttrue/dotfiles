@@ -232,6 +232,72 @@
 <li><p><a class="reference external" href="https://github.com/TSnake41/raylib-lua">GitHub - TSnake41/raylib-lua: A modern LuaJIT binding for Raylib (also available at https://gitlab.com/TSnake41/raylib-lua)</a></p></li>
 </ul>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="meson">
+<h1>meson<a class="headerlink" href="#meson" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-meson.build notranslate"><div class="highlight"><pre><span></span><span class="nb">project</span><span class="p">(</span><span class="s">'raylib'</span><span class="p">,</span><span class="w"> </span><span class="s">'c'</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="p">:</span><span class="w"> </span><span class="s">'4.2.0'</span><span class="p">)</span><span class="w"></span>
+
+<span class="nb">subdir</span><span class="p">(</span><span class="s">'src/external/glfw'</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vm">meson</span><span class="p">.</span><span class="n">get_compiler</span><span class="p">(</span><span class="s">'c'</span><span class="p">)</span><span class="w"></span>
+<span class="n">winmm_dep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">find_library</span><span class="p">(</span><span class="s">'winmm'</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">raylib_lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">static_library</span><span class="p">(</span><span class="s">'raylib'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="s">'src/rcore.c'</span><span class="p">,</span><span class="w"></span>
+<span class="s">'src/rmodels.c'</span><span class="p">,</span><span class="w"></span>
+<span class="s">'src/rshapes.c'</span><span class="p">,</span><span class="w"></span>
+<span class="s">'src/rtext.c'</span><span class="p">,</span><span class="w"></span>
+<span class="s">'src/rtextures.c'</span><span class="p">,</span><span class="w"></span>
+<span class="s">'src/utils.c'</span><span class="p">,</span><span class="w"></span>
+<span class="s">'src/raudio.c'</span><span class="p">,</span><span class="w"></span>
+<span class="c"># 'src/rglfw.c',</span><span class="w"></span>
+<span class="p">],</span><span class="w"></span>
+<span class="n">c_args</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="s">'-DPLATFORM_DESKTOP=1'</span><span class="p">,</span><span class="w"></span>
+<span class="c"># '-DBUILD_LIBTYPE_SHARED=1',</span><span class="w"></span>
+<span class="p">],</span><span class="w"></span>
+<span class="n">dependencies</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">glfw_dep</span><span class="p">],</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="n">raylib_dep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">declare_dependency</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="nb">include_directories</span><span class="p">:</span><span class="w"> </span><span class="nb">include_directories</span><span class="p">(</span><span class="s">'src'</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="n">link_with</span><span class="p">:</span><span class="w"> </span><span class="n">raylib_lib</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">dependencies</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">glfw_dep</span><span class="p">,</span><span class="w"> </span><span class="n">winmm_dep</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="n">compile_args</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s">'-DPLATFORM_DESKTOP=1'</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c"># '-DUSE_LIBTYPE_SHARED=1',</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-src/external/glfw/meson.build notranslate"><div class="highlight"><pre><span></span>args = [
+  '-D_GLFW_WIN32=1'
+]
+glfw_lib = static_library('glfw', [
+'src/context.c',
+'src/init.c',
+'src/input.c',
+'src/monitor.c',
+'src/vulkan.c',
+'src/window.c',
+'src/win32_init.c',
+'src/win32_joystick.c',
+'src/win32_monitor.c',
+'src/win32_time.c',
+'src/win32_thread.c',
+'src/win32_window.c',
+'src/wgl_context.c',
+'src/egl_context.c',
+'src/osmesa_context.c',
+],
+c_args: args,
+)
+glfw_dep = declare_dependency(
+  include_directories: include_directories('include'),
+  link_with: glfw_lib,
+  compile_args: args,
+  )
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
@@ -268,6 +334,7 @@
             <ul>
 <li><a class="reference internal" href="#">template</a></li>
 <li><a class="reference internal" href="#lua">lua</a></li>
+<li><a class="reference internal" href="#meson">meson</a></li>
 </ul>
 
           </div>

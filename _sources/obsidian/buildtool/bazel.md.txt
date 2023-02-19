@@ -1,5 +1,6 @@
 [[buildtool]] [[mediapipe]]
 
+- @2020 [Bazelの解説（TS, Dockerイメージ、リモートキャッシュ）](https://zenn.dev/kesin11/books/c86010deb5b8008f394f)
 - [Bazel](https://bazel.build/)
 - [Bazelの基本的な仕組み｜Bazelの解説（TS, Dockerイメージ、リモートキャッシュ）](https://zenn.dev/kesin11/books/c86010deb5b8008f394f/viewer/9eb544)
 - [ビルドツール「Bazel」について | フライウィール](https://www.flywheel.jp/topics/bazel_version_1_1_0/)
