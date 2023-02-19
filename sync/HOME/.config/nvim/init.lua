@@ -90,8 +90,30 @@ vim.keymap.set("n", "(", ":bprev<CR>", { noremap = true })
 vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
 vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true })
 
+function close_buffer_or_window()
+  local currentBufNum = vim.fn.bufnr("%")
+  local alternateBufNum = vim.fn.bufnr("#")
+  if vim.fn.buflisted(currentBufNum) then
+    -- buffer 切り替え｀
+    -- if vim.fn.buflisted(alternateBufNum) then
+    --   vim.cmd('buffer #')
+    -- else
+      vim.cmd('bnext')
+    -- end
+    -- 非表示になった buffer を削除
+    vim.cmd("silent bwipeout " .. currentBufNum)
+    --   bwipeoutに失敗した場合はウインドウ上のバッファを復元
+    if vim.fn.bufloaded(currentBufNum) ~= 0 then
+      vim.cmd("buffer " .. currentBufNum)
+    end
+  else
+    -- それ以外 help とか fugitive は window を閉じる
+    vim.cmd('close')
+  end
+end
 vim.keymap.set("n", "<Leader>q", "q", { noremap = true })
-vim.keymap.set("n", "q", ":close<CR>", { noremap = true })
+vim.keymap.set("n", "q", close_buffer_or_window, { noremap = true })
+
 vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
 vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
 vim.keymap.set("n", "[c", ":cp<CR>", { noremap = true })

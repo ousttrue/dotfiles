@@ -8,9 +8,10 @@ function M.setup()
       "builtin",
       "user.cpp_build",
       "user.cpp_configure",
+      "user.cpp_reconfigure",
     }
   }
-  vim.keymap.set("n", "<C-B>", ":OverseerRun<CR>", { noremap = true })
+  vim.keymap.set("n", "<F7>", ":OverseerRun<CR>", { noremap = true })
 end
 
 return M

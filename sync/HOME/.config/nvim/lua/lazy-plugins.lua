@@ -85,8 +85,16 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-frecency.nvim",
+    },
     config = require("config.telescope").setup,
+  },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = require("config.telescope-frecency").setup,
+    dependencies = { "kkharji/sqlite.lua" },
   },
   {
     "nvim-treesitter/nvim-treesitter",
