@@ -1,5 +1,5 @@
 ---
-aliases: [nvim]
+aliases: [neovim]
 ---
 
 #red

@@ -1,4 +1,4 @@
-[[neovim]]
+[[nvim]]
 
 - [GitHub - neovim/libvterm: https://github.com/neovim/neovim/wiki/Deps#forks](https://github.com/neovim/libvterm)
 - @2018 [golang で libvterm - Qiita](https://qiita.com/mattn/items/5aed718a65d21ca7855c)

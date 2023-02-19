@@ -1,6 +1,6 @@
 fullscreen の term アプリを `tui` と分類
 
-[[neovim]]
+[[nvim]]
 [[w3m]]
 [[TerminalEmulator]]
 [[escape_sequence]]

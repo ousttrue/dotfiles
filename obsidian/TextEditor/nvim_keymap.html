@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>vim.api - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -221,7 +221,69 @@
           <p><code class="docutils literal notranslate"><span class="pre">verbose</span></code> で調べる</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://neovim.io/doc/user/map.html#:map-arguments">Map - Neovim docs</a></p></li>
+<li><p><a class="reference external" href="https://wonwon-eater.com/neovim-susume-keymap/#outline__3">[第3回] Neovimのすゝめ – キーマップを作成する │ wonwon eater</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="vim-api">
+<h1>vim.api<a class="headerlink" href="#vim-api" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="vim-api-nvim-set-keymap">
+<h2>vim.api.nvim_set_keymap<a class="headerlink" href="#vim-api-nvim-set-keymap" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="vim-api-nvim-buf-set-keymap">
+<h2>vim.api.nvim_buf_set_keymap<a class="headerlink" href="#vim-api-nvim-buf-set-keymap" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>👇</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vim-keymap-set">
+<h1>vim.keymap.set<a class="headerlink" href="#vim-keymap-set" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>便利関数。lua の関数を直接引数に取れて便利</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>汎用<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="q">
+<h2>q<a class="headerlink" href="#q" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="f">
+<h2>F<a class="headerlink" href="#f" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="k">
+<h2>K<a class="headerlink" href="#k" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="c-e">
+<h2>c-e<a class="headerlink" href="#c-e" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="c-l">
+<h2>c-l<a class="headerlink" href="#c-l" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="c-s">
+<h2>c-s<a class="headerlink" href="#c-s" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="c">
+<h2><code class="docutils literal notranslate"><span class="pre">c-[</span></code><a class="headerlink" href="#c" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id2">
+<h2><code class="docutils literal notranslate"><span class="pre">c-/</span></code><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="prefix">
+<h1>prefix<a class="headerlink" href="#prefix" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="leader">
+<h2><code class="docutils literal notranslate"><span class="pre">&lt;Leader&gt;</span></code><a class="headerlink" href="#leader" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="plug">
+<h2><code class="docutils literal notranslate"><span class="pre">&lt;Plug&gt;</span></code><a class="headerlink" href="#plug" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mapleader</span></code>
+<code class="docutils literal notranslate"><span class="pre">maplocalleader</span></code></p>
+</section>
+<section id="g">
+<h2>g<a class="headerlink" href="#g" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="gf">
+<h3>gf<a class="headerlink" href="#gf" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+</section>
+<section id="z">
+<h2>z<a class="headerlink" href="#z" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
 
         </article>
       </div>
@@ -244,8 +306,50 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">vim.api</a><ul>
+<li><a class="reference internal" href="#vim-api-nvim-set-keymap">vim.api.nvim_set_keymap</a></li>
+<li><a class="reference internal" href="#vim-api-nvim-buf-set-keymap">vim.api.nvim_buf_set_keymap</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#vim-keymap-set">vim.keymap.set</a></li>
+<li><a class="reference internal" href="#id1">汎用</a><ul>
+<li><a class="reference internal" href="#q">q</a></li>
+<li><a class="reference internal" href="#f">F</a></li>
+<li><a class="reference internal" href="#k">K</a></li>
+<li><a class="reference internal" href="#c-e">c-e</a></li>
+<li><a class="reference internal" href="#c-l">c-l</a></li>
+<li><a class="reference internal" href="#c-s">c-s</a></li>
+<li><a class="reference internal" href="#c"><code class="docutils literal notranslate"><span class="pre">c-[</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">c-/</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#prefix">prefix</a><ul>
+<li><a class="reference internal" href="#leader"><code class="docutils literal notranslate"><span class="pre">&lt;Leader&gt;</span></code></a></li>
+<li><a class="reference internal" href="#plug"><code class="docutils literal notranslate"><span class="pre">&lt;Plug&gt;</span></code></a></li>
+<li><a class="reference internal" href="#g">g</a><ul>
+<li><a class="reference internal" href="#gf">gf</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#z">z</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

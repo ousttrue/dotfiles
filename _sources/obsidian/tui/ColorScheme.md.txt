@@ -1,7 +1,7 @@
 [[SyntaxHighlight]]
 [[windows_terminal]]
 [[vim 1]]
-[[neovim]]
+[[nvim]]
 
 # reserved
 1.  black  

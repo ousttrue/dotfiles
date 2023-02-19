@@ -1,4 +1,4 @@
-[[lua]] [[jit]]
+[[lua]] [[JIT]]
 
 - @2022 [LunarML進捗・2022年7月：LuaJIT対応など | 雑記帳](https://blog.miz-ar.info/2022/07/lunarml-progress-jul2022/)
 - @2022 [LuaJITの64ビット整数](https://zenn.dev/mod_poppo/articles/luajit-int64)
