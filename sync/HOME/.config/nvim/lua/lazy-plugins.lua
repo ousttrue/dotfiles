@@ -163,8 +163,14 @@ local plugins = {
       "hrsh7th/vim-vsnip-integ",
       "rafamadriz/friendly-snippets",
     },
-    config = require("config.nvim-cmp").setup,
+    config = function() require("config.nvim-cmp").setup() end,
     event = "InsertEnter",
+  },
+  {
+    'simeji/winresizer'
+  },
+  { 'windwp/nvim-autopairs',
+    config = function() require("nvim-autopairs").setup() end,
   },
   -- { "hrsh7th/cmp-nvim-lsp",  },
 }

@@ -4,6 +4,7 @@ function M.setup()
   -- vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", { noremap = true })
   vim.keymap.set("n", "<Leader>e", ":NvimTreeFindFileToggle<CR>", { noremap = true })
 
+
   require("nvim-tree").setup {
     sync_root_with_cwd = true,
     respect_buf_cwd = true,
@@ -25,6 +26,12 @@ function M.setup()
       --         col = 1,
       --     },
       -- },
+      mappings = {
+        list = {
+          -- remove a default mapping
+          { key = "<C-e>", action = "" },
+        }
+      },
     },
     renderer = {
       indent_width = 1,
