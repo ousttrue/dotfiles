@@ -1,5 +1,6 @@
 local M = {}
 function M.setup()
+  ---@diagnostic disable-next-line
   require("lualine").setup {
     options = {
       globalstatus = true,

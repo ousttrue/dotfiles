@@ -100,6 +100,7 @@ elseif(Test-Path "C:\Python311-arm64")
 }
 
 addPath($env:USERPROFILE + "\local\nim-1.6.8\bin")
+addPath($env:USERPROFILE + "\local\src\nvim-win64\bin")
 
 $env:BAZEL_WINSDK_FULL_VERSION="10.0.22000.0"
 $env:BAZEL_VS="C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools"

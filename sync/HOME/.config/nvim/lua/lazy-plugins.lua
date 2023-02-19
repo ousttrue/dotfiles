@@ -33,8 +33,13 @@ local plugins = {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("lualine").setup()
+      require("config.lualine").setup()
     end,
+  },
+  {
+    "SmiteshP/nvim-navic",
+    dependencies = "neovim/nvim-lspconfig",
+    config = function() require("config.navic").setup() end,
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -68,6 +73,9 @@ local plugins = {
     config = require("config.nvim-tree").setup,
   },
   { "ckipp01/stylua-nvim" },
+  { "averms/black-nvim",
+    -- run = "UpdateRemotePlugins"
+  },
   { "tpope/vim-fugitive" },
   {
     "lukas-reineke/indent-blankline.nvim",
