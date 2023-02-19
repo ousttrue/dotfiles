@@ -1,5 +1,5 @@
 [[vim]]
-[[neovim|nvim]]
+[[nvim|nvim]]
 
 #blue
 

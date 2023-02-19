@@ -1,4 +1,4 @@
-[[neovim]]
+[[nvim]]
 
 - [GitHub - jose-elias-alvarez/null-ls.nvim: Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.](https://github.com/jose-elias-alvarez/null-ls.nvim)
 	- [null-ls.nvim/BUILTINS.md at main · jose-elias-alvarez/null-ls.nvim · GitHub](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md)

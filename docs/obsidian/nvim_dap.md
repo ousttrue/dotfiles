@@ -1,4 +1,4 @@
-[[neovim|nvim]] [[dap]]
+[[nvim|nvim]] [[dap]]
 
 - [GitHub - mfussenegger/nvim-dap: Debug Adapter Protocol client implementation for Neovim](https://github.com/mfussenegger/nvim-dap)
 

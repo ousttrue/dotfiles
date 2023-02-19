@@ -1,4 +1,4 @@
-[[neovim]]
+[[nvim]]
 
 vim
 - [NeoVim使いのためのnvim-lspconfig おすすめキーマッピングの紹介 - アルパカログ](https://alpacat.com/blog/nvim-lspconfig-key-mappings)

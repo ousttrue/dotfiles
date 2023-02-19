@@ -13,7 +13,7 @@ function M.setup()
       update_root = true,
     },
     view = {
-      width = 20,
+      width = 28,
       -- float = {
       --     enable = true,
       --     quit_on_focus_loss = true,

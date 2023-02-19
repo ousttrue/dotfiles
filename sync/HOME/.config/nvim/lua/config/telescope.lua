@@ -20,11 +20,15 @@ function M.setup()
   -- local function frecency_cwd()
   --     frecency.frecency { workspace = "CWD" }
   -- end
-  local function git_files_untracked()
-    builtin.git_files { show_untracked = true }
-  end
 
-  vim.keymap.set("n", "<Leader><Space>", git_files_untracked, { noremap = true })
+  vim.keymap.set('n', '<C-p>', builtin.find_files)
+  vim.keymap.set('n', '<C-P>', builtin.keymaps)
+  vim.keymap.set("n", "<Leader><Space>", function()
+    builtin.git_files {
+      show_untracked = true,
+      file_ignore_patterns = { ".cache" },
+    }
+  end, { noremap = true })
   -- vim.keymap.set("n", "<Leader><Space>", frecency_cwd, { noremap = true })
   vim.keymap.set("n", "<Leader>b", builtin.buffers, { noremap = true })
   vim.keymap.set("n", "<Leader>g", builtin.live_grep, { noremap = true })

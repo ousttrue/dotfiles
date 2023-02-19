@@ -98,8 +98,7 @@ local plugins = {
   {
     "stevearc/overseer.nvim",
     config = function()
-      require("overseer").setup()
-      vim.api.nvim_set_keymap("n", "B", ":OverseerRun<CR>", {})
+      require('config.overseer').setup()
     end,
   },
   {
@@ -172,6 +171,22 @@ local plugins = {
   { 'windwp/nvim-autopairs',
     config = function() require("nvim-autopairs").setup() end,
   },
+  {
+    "akinsho/bufferline.nvim",
+    tag = "v3.*",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function() require("config.bufferline").setup() end,
+  },
+  {
+    "kevinhwang91/nvim-hlslens",
+    config = function() require("config.nvim-hlslens").setup() end,
+  },
+  {
+    "petertriho/nvim-scrollbar",
+    dependencies = "kevinhwang91/nvim-hlslens",
+    config = function() require("config.nvim-scrollbar").setup() end,
+  },
+  { "jghauser/mkdir.nvim", },
   -- { "hrsh7th/cmp-nvim-lsp",  },
 }
 

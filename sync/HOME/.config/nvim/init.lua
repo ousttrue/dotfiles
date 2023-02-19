@@ -80,10 +80,10 @@ vim.keymap.set("i", "<C-j>", "<C-x><C-o>")
 -- inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
 -- ]]
 
-vim.keymap.set("n", "<S-F>", "<C-i>", { noremap = true })
-vim.keymap.set("n", "<S-B>", "<C-o>", { noremap = true })
-vim.keymap.set("n", "<C-.>", ":bnext<CR>", { noremap = true })
-vim.keymap.set("n", "<C-,>", ":bprev<CR>", { noremap = true })
+-- vim.keymap.set("n", "<S-F>", "<C-i>", { noremap = true })
+-- vim.keymap.set("n", "<S-B>", "<C-o>", { noremap = true })
+vim.keymap.set("n", ")", ":bnext<CR>", { noremap = true })
+vim.keymap.set("n", "(", ":bprev<CR>", { noremap = true })
 -- vim.keymap.set("n", "<C-l>", ":bnext<CR>", { noremap = true })initl
 -- vim.keymap.set("n", "<C-h>", ":bprev<CR>", { noremap = true })
 -- vim.keymap.set("n", "<Leader>c", "<C-l>", { noremap = true })
@@ -98,8 +98,9 @@ vim.keymap.set("n", "[c", ":cp<CR>", { noremap = true })
 vim.keymap.set("n", "]c", ":cn<CR>", { noremap = true })
 vim.keymap.set("n", "<S-Tab>", ":cp<CR>", { noremap = true })
 vim.keymap.set("n", "<Tab>", ":cn<CR>", { noremap = true })
+
+-- terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
-vim.keymap.set("n", "<C-S-B>", ":make<CR>", { noremap = true })
 
 -- lsp
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { noremap = true })

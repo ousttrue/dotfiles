@@ -1,4 +1,4 @@
-[[neovim]]
+[[nvim]]
 
 - [Vimの補完を他エディタやIDEのような挙動にするようにする｜yasukotelin｜note](https://note.com/yasukotelin/n/na87dc604e042)
 - [vim-jp » Hack #4: Insert mode補完　導入編](https://vim-jp.org/vim-users-jp/2009/05/01/Hack-4.html)
