@@ -1,3 +1,18 @@
+local function get_home()
+	if vim.fn.has('win32')==1 then
+		return vim.env.USERPROFILE
+	else
+		return vim.env.HOME
+	end
+end
+local function get_suffix()
+	if vim.fn.has('win32')==1 then
+		return '.exe'
+	else
+		return ''
+	end
+end
+
 local M = {}
 function M.setup()
   local lspconfig = require "lspconfig"
@@ -34,7 +49,7 @@ function M.setup()
 
   lspconfig.lua_ls.setup {
     cmd = {
-      vim.env.USERPROFILE .. "/.vscode/extensions/sumneko.lua-3.6.11-win32-x64/server/bin/lua-language-server.exe",
+      get_home() .. "/.vscode/extensions/sumneko.lua-3.6.11-win32-x64/server/bin/lua-language-server.exe",
     },
     settings = {
       Lua = {

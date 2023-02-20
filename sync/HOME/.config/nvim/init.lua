@@ -1,7 +1,21 @@
 -- local api = vim.api
 local g = vim.g
 local opt = vim.opt
-vim.api.nvim_set_var('python3_host_prog', vim.env.USERPROFILE .. '/.local/venv/nvim/Scripts/python.exe')
+local function get_home()
+	if vim.fn.has('win32')==1 then
+		return vim.env.USERPROFILE
+	else
+		return vim.env.HOME
+	end
+end
+local function get_suffix()
+	if vim.fn.has('win32')==1 then
+		return '.exe'
+	else
+		return ''
+	end
+end
+vim.api.nvim_set_var('python3_host_prog', get_home() .. '/.local/venv/nvim/Scripts/python' .. get_suffix())
 
 -- -- avoid plugins
 -- vim.api.nvim_set_var("did_install_default_menus", 1)

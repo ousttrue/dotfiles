@@ -57,11 +57,11 @@ else
   --
   -- Linux
   --
-  if wezterm.gui.screens().main.width > 3500 then
+  --if wezterm.gui.screens().main.width > 3500 then
     config.font_size = 18.0 -- raw font size
-  else
-    config.font_size = 12.0 -- raw font size
-  end
+  --else
+  --  config.font_size = 12.0 -- raw font size
+  --end
   config.default_prog = { "bash" }
 end
 

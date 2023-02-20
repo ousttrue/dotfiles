@@ -6,11 +6,12 @@ window:
   dimensions:
     columns: 120
     lines: 40
+  transparency: 0.8
 
 font:
   normal:
-    family: Cica
-  size: 12
+    family: 'HackGenNerd Console'
+  size: 18
  
 # Colors (Hyper)
 colors:
@@ -43,8 +44,6 @@ colors:
     magenta: '0xcc00ff'
     cyan:    '0x00ffff'
     white:   '0xFFFFFF'
- 
-background_opacity: 0.8
  
 mouse:
   double_click: { threshold: 300 }
