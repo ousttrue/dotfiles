@@ -2,18 +2,18 @@
 local g = vim.g
 local opt = vim.opt
 local function get_home()
-	if vim.fn.has('win32')==1 then
-		return vim.env.USERPROFILE
-	else
-		return vim.env.HOME
-	end
+  if vim.fn.has('win32') == 1 then
+    return vim.env.USERPROFILE
+  else
+    return vim.env.HOME
+  end
 end
 local function get_suffix()
-	if vim.fn.has('win32')==1 then
-		return '.exe'
-	else
-		return ''
-	end
+  if vim.fn.has('win32') == 1 then
+    return '.exe'
+  else
+    return ''
+  end
 end
 vim.api.nvim_set_var('python3_host_prog', get_home() .. '/.local/venv/nvim/Scripts/python' .. get_suffix())
 
@@ -105,10 +105,20 @@ vim.keymap.set("n", "(", ":bprev<CR>", { noremap = true })
 vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
 vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true })
 
+local function close_only_buffer(bufnr)
+  if vim.fn.buflisted(bufnr) then
+    if vim.api.nvim_buf_get_option(bufnr, 'filetype') ~= 'fugitive' then
+      return true
+    end
+  end
+
+  return false
+end
+
 local function close_buffer_or_window()
   local currentBufNum = vim.fn.bufnr("%")
   -- local alternateBufNum = vim.fn.bufnr("#")
-  if vim.fn.buflisted(currentBufNum) then
+  if close_only_buffer(currentBufNum) then
     -- buffer 切り替え｀
     -- if vim.fn.buflisted(alternateBufNum) then
     --   vim.cmd('buffer #')
@@ -144,22 +154,12 @@ vim.keymap.set("n", "<S-Tab>", vim.diagnostic.goto_prev, { noremap = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- lsp
-vim.fn.sign_define(
-  "LspDiagnosticsSignError",
-  { texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError" }
-)
-vim.fn.sign_define(
-  "LspDiagnosticsSignWarning",
-  { texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning" }
-)
-vim.fn.sign_define(
-  "LspDiagnosticsSignHint",
-  { texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint" }
-)
-vim.fn.sign_define(
-  "LspDiagnosticsSignInformation",
-  { texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation" }
-)
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 --   virtual_text = {
 --     prefix = "",

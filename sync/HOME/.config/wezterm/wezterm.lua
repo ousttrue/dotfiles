@@ -18,9 +18,9 @@ local config = {
     --     { key = "s", mods = "LEADER", action = "QuickSelect" },
     --     { key = " ", mods = "LEADER", action = wezterm.action { PasteFrom = "PrimarySelection" } },
     --     { key = "[", mods = "LEADER", action = "ActivateCopyMode" },
-    --     { key = "c", mods = "CTRL|SHIFT", action = wezterm.action { CopyTo = "Clipboard" } },
-    --     -- { key = "v", mods = "CTRL|SHIFT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
-    { key = "Insert", mods = "SHIFT", action = wezterm.action { PasteFrom = "Clipboard" } },
+    { key = "c",      mods = "CTRL|SHIFT", action = wezterm.action { CopyTo = "Clipboard" } },
+    { key = "v",      mods = "CTRL|SHIFT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
+    { key = "Insert", mods = "SHIFT",      action = wezterm.action { PasteFrom = "Clipboard" } },
     -- { key = "v", mods = "CTRL", action = wezterm.action { PasteFrom = "Clipboard" } },
     --     -- tab
     --     { key = "c", mods = "ALT", action = wezterm.action { SpawnTab = "CurrentPaneDomain" } },
