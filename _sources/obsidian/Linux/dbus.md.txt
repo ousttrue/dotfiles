@@ -1,7 +1,21 @@
 [[Desktop]]
 
 - @2018 [DBus ことはじめ - Qiita](https://qiita.com/byuu/items/c600366b9c138f639863)
-- [D-Bus のはなし｜Wireless・のおと｜サイレックス・テクノロジー株式会社](https://www.silex.jp/blog/wireless/2017/01/d-bus.html)
+- @2017 [D-Bus のはなし｜Wireless・のおと｜サイレックス・テクノロジー株式会社](https://www.silex.jp/blog/wireless/2017/01/d-bus.html)
+
+# WSL
+[[systemd]]
+
+
+# busctrl
+- @2022 [D-Busと少し仲良くなろう | スクエニ ITエンジニア ブログ](https://blog.jp.square-enix.com/iteng-blog/posts/00022-get-familiar-with-d-bus/)
+
+```
+$ busctl
+Failed to connect to bus: No such file or directory
+```
+
+# Ubuntu
 
 ```
 apt install dbus-x11

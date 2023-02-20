@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>session - shell note ドキュメント</title>
+        <title>WSL - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -221,12 +221,29 @@
           <p>[[Desktop]]</p>
 <ul class="simple">
 <li><p>@2018 <a class="reference external" href="https://qiita.com/byuu/items/c600366b9c138f639863">DBus ことはじめ - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://www.silex.jp/blog/wireless/2017/01/d-bus.html">D-Bus のはなし｜Wireless・のおと｜サイレックス・テクノロジー株式会社</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://www.silex.jp/blog/wireless/2017/01/d-bus.html">D-Bus のはなし｜Wireless・のおと｜サイレックス・テクノロジー株式会社</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="wsl">
+<h1>WSL<a class="headerlink" href="#wsl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[systemd]]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="busctrl">
+<h1>busctrl<a class="headerlink" href="#busctrl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://blog.jp.square-enix.com/iteng-blog/posts/00022-get-familiar-with-d-bus/">D-Busと少し仲良くなろう | スクエニ ITエンジニア ブログ</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ busctl
+Failed to connect to bus: No such file or directory
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ubuntu">
+<h1>Ubuntu<a class="headerlink" href="#ubuntu" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">dbus</span><span class="o">-</span><span class="n">x11</span>
 <span class="n">sudo</span> <span class="n">service</span> <span class="n">dbus</span> <span class="n">start</span>
 </pre></div>
 </div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="session">
 <h1>session<a class="headerlink" href="#session" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dbus</span><span class="o">-</span><span class="n">launch</span> <span class="n">bash</span>
@@ -247,8 +264,8 @@
 </pre></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="wsl">
-<h1>WSL<a class="headerlink" href="#wsl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>WSL<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[wsl]]</p>
 <ul class="simple">
 <li><p>@2019 <a class="reference external" href="https://qiita.com/mzmiyabi/items/fec2c211e0325a5460a8">WSL（CentOS7）でsystemctlを実行するとFailed to get D-Bus connection: Operation not permittedになる - Qiita</a></p></li>
@@ -278,8 +295,8 @@
 <li><p><a class="reference external" href="https://www.clear-code.com/blog/2020/8/20.html">D-Feetを使ってDBusインターフェースの変更に追従するには - 2020-08-20 - ククログ</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>WSL<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>WSL<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.aise.ics.saitama-u.ac.jp/~gotoh/HowToInstallUbuntu1804OnWSL.html">Ubuntu 18.04のWSL上へのインストールと初期設定</a></p></li>
 <li><p><a class="reference external" href="https://xztaityozx.hatenablog.com/entry/2017/12/01/001544">お前らのWSLはそれじゃダメだ - たいちょーの雑記</a></p></li>
@@ -326,14 +343,17 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">session</a></li>
+<li><a class="reference internal" href="#">WSL</a></li>
+<li><a class="reference internal" href="#busctrl">busctrl</a></li>
+<li><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
+<li><a class="reference internal" href="#session">session</a></li>
 <li><a class="reference internal" href="#command">command</a></li>
-<li><a class="reference internal" href="#wsl">WSL</a></li>
+<li><a class="reference internal" href="#id1">WSL</a></li>
 <li><a class="reference internal" href="#dbus-next">DBus-Next</a></li>
 <li><a class="reference internal" href="#dbus-python">dbus-python</a></li>
 <li><a class="reference internal" href="#service-name-bus-name">service name(bus name)</a></li>
 <li><a class="reference internal" href="#d-feet">D-Feet</a></li>
-<li><a class="reference internal" href="#id1">WSL</a></li>
+<li><a class="reference internal" href="#id2">WSL</a></li>
 <li><a class="reference internal" href="#windows">Windows</a></li>
 </ul>
 
