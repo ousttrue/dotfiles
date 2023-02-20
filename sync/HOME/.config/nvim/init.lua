@@ -1,7 +1,7 @@
 -- local api = vim.api
 local g = vim.g
 local opt = vim.opt
--- vim.api.nvim_set_var('python3_host_prog', 'C:/Python310/python.exe')
+vim.api.nvim_set_var('python3_host_prog', vim.env.USERPROFILE .. '/.local/venv/nvim/Scripts/python.exe')
 
 -- -- avoid plugins
 -- vim.api.nvim_set_var("did_install_default_menus", 1)
@@ -99,7 +99,7 @@ local function close_buffer_or_window()
     -- if vim.fn.buflisted(alternateBufNum) then
     --   vim.cmd('buffer #')
     -- else
-      vim.cmd('bnext')
+    vim.cmd('bnext')
     -- end
     -- 非表示になった buffer を削除
     vim.cmd("silent bwipeout " .. currentBufNum)
@@ -115,21 +115,45 @@ end
 vim.keymap.set("n", "<Leader>q", "q", { noremap = true })
 vim.keymap.set("n", "q", close_buffer_or_window, { noremap = true })
 
-vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
 vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
-vim.keymap.set("n", "[c", ":cp<CR>", { noremap = true })
+vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
 vim.keymap.set("n", "]c", ":cn<CR>", { noremap = true })
-vim.keymap.set("n", "[l", ":lp<CR>", { noremap = true })
+vim.keymap.set("n", "[c", ":cp<CR>", { noremap = true })
 vim.keymap.set("n", "]l", ":ln<CR>", { noremap = true })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true })
+vim.keymap.set("n", "[l", ":lp<CR>", { noremap = true })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true })
-vim.keymap.set("n", "<S-Tab>", ":lprev<CR>", { noremap = true })
-vim.keymap.set("n", "<Tab>", ":lnext<CR>", { noremap = true })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true })
+vim.keymap.set("n", "<Tab>", vim.diagnostic.goto_next, { noremap = true })
+vim.keymap.set("n", "<S-Tab>", vim.diagnostic.goto_prev, { noremap = true })
 
 -- terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- lsp
+vim.fn.sign_define(
+  "LspDiagnosticsSignError",
+  { texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError" }
+)
+vim.fn.sign_define(
+  "LspDiagnosticsSignWarning",
+  { texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning" }
+)
+vim.fn.sign_define(
+  "LspDiagnosticsSignHint",
+  { texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint" }
+)
+vim.fn.sign_define(
+  "LspDiagnosticsSignInformation",
+  { texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation" }
+)
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+--   virtual_text = {
+--     prefix = "",
+--     spacing = 0,
+--   },
+--   signs = true,
+--   underline = true,
+-- })
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { noremap = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })

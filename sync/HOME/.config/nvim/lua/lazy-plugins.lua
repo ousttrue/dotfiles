@@ -73,9 +73,10 @@ local plugins = {
     config = require("config.nvim-tree").setup,
   },
   { "ckipp01/stylua-nvim" },
-  { "averms/black-nvim",
-    -- run = "UpdateRemotePlugins"
-  },
+  -- { "averms/black-nvim",
+  --   -- run = "UpdateRemotePlugins"
+  -- },
+  { 'sbdchd/neoformat' },
   { "tpope/vim-fugitive" },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -138,30 +139,35 @@ local plugins = {
     end,
   },
   {
+    "folke/lsp-colors.nvim",
+    config = require("config.lsp-colors").setup,
+  },
+  {
     "j-hui/fidget.nvim",
     config = function()
       require("fidget").setup()
     end,
   },
-  {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-      -- Disable virtual_text since it's redundant due to lsp_lines.
-    end,
-  },
+  -- {
+  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  --   config = function()
+  --     require("lsp_lines").setup()
+  --     -- Disable virtual_text since it's redundant due to lsp_lines.
+  --   end,
+  -- },
   {
     "folke/trouble.nvim",
-    config = require("config.trouble").setup,
+    config = function() require("config.trouble").setup() end,
+    dependencies = { "nvim-tree/nvim-web-devicons", },
   },
   {
     "onsails/lspkind.nvim",
-    config = require("config.lspkind").setup,
+    config = function() require("config.lspkind").setup() end,
   },
   {
     "L3MON4D3/LuaSnip",
     -- tag = "v1.*",
-    config = require("config.LuaSnip").setup,
+    config = function() require("config.LuaSnip").setup() end,
   },
   {
     "hrsh7th/nvim-cmp",
