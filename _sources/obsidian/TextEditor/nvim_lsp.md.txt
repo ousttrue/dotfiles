@@ -5,6 +5,21 @@
 - [Neovimを一瞬でVSCode並みに便利にする - k0kubun's blog](https://k0kubun.hatenablog.com/entry/neovim-lsp)
 - @2019 [NeovimのBuiltin LSPを使ってみる - Qiita](https://qiita.com/slin/items/2b43925065de3b9a6d3b)
 
+
+# nvim-lspconfig
+- [GitHub - neovim/nvim-lspconfig: Quickstart configurations for the Nvim LSP client](https://github.com/neovim/nvim-lspconfig)
+	- [nvim-lspconfig/server_configurations.md at master · neovim/nvim-lspconfig · GitHub](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
+
+
+# diagonostics
+- @2022 [NeovimのLSPで誰にどうして怒られたのかを確認するための設定 | DevelopersIO](https://dev.classmethod.jp/articles/eetann-change-neovim-lsp-diagnostics-format/)
+
+## gutter
+- [LunarVim/init.lua at 359b6fd8e44bc2ad5088aada3f9c037fb85b19af · LunarVim/LunarVim · GitHub](https://github.com/LunarVim/LunarVim/blob/359b6fd8e44bc2ad5088aada3f9c037fb85b19af/lua/lsp/init.lua#L2)
+
+
+# completion, locationlist, definition, hover...
+
 # mason
 - [GitHub - williamboman/mason.nvim: Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.](https://github.com/williamboman/mason.nvim)
 
@@ -16,13 +31,3 @@
 - @2022 [mason.nvimでFormatter, Linterを自動マッピングする](https://zenn.dev/matcha1024/articles/1a972c6e161ad4)
 - [mason.nvimでインストールするLSP, Formatterを管理したい](https://zenn.dev/sakikagr/scraps/a621c775c89b91)
 - [Neovim x null-ls x cspellの設定詳解](https://zenn.dev/kawarimidoll/articles/ad35f3dc4a5009)
-
-# nvim-lspconfig
-- [GitHub - neovim/nvim-lspconfig: Quickstart configurations for the Nvim LSP client](https://github.com/neovim/nvim-lspconfig)
-	- [nvim-lspconfig/server_configurations.md at master · neovim/nvim-lspconfig · GitHub](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
-
-
-# diagonostics
-- @2022 [NeovimのLSPで誰にどうして怒られたのかを確認するための設定 | DevelopersIO](https://dev.classmethod.jp/articles/eetann-change-neovim-lsp-diagnostics-format/)
-
-# completion, locationlist, definition, hover...

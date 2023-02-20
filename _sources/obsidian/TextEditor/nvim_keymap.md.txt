@@ -35,3 +35,8 @@
 ### gf
 
 ## z
+
+# command
+```
+"<cmd>Neoformat<CR>"
+```
