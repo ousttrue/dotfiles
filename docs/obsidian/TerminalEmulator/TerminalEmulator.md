@@ -10,6 +10,9 @@ aliases: [X端末, xterm]
 |kitty|||||
 |wezterm|~/.config/wezterm/wezterm.lua|X||O|
 
+
+- guake
+
 # XWindow
 [[XWindow]]
 ## xterm

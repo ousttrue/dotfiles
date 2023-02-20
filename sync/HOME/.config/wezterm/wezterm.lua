@@ -32,8 +32,8 @@ local config = {
 }
 
 config.warn_about_missing_glyphs = false
-config.initial_cols = 100
-config.initial_rows = 50
+config.initial_cols = 120
+config.initial_rows = 56
 
 config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
 table.insert(config.keys, { key = "r", mods = "LEADER", action = "ReloadConfiguration" })
@@ -43,7 +43,7 @@ table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { A
 table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
 table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
 table.insert(config.keys, { key = "[", mods = "LEADER", action = "ActivateCopyMode" })
-table.insert(config.keys, { key = 'PageUp', mods = 'SHIFT', action = wezterm.action.ScrollByPage(-1) })
+table.insert(config.keys, { key = 'PageUp', mods = 'SHIFT', action = wezterm.action.ScrollByPage( -1) })
 table.insert(config.keys, { key = 'PageDown', mods = 'SHIFT', action = wezterm.action.ScrollByPage(1) })
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
@@ -57,11 +57,12 @@ else
   --
   -- Linux
   --
-  --if wezterm.gui.screens().main.width > 3500 then
-    config.font_size = 18.0 -- raw font size
-  --else
-  --  config.font_size = 12.0 -- raw font size
-  --end
+  if wezterm.gui == nil or wezterm.gui.screens().main.width > 3500 then
+    -- 14 x 1.5
+    config.font_size = 21.0 -- raw font size
+  else
+    config.font_size = 12.0 -- raw font size
+  end
   config.default_prog = { "bash" }
 end
 

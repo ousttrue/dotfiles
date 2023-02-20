@@ -41,3 +41,8 @@
 
 # powerline
 - [GitHub - ryanoasis/powerline-extra-symbols: Extra glyphs for your powerline separators](https://github.com/ryanoasis/powerline-extra-symbols)
+
+# JetBrains mono
+- [JetBrains Mono: A free and open source typeface for developers | JetBrains: Developer Tools for Professionals and Teams](https://www.jetbrains.com/ja-jp/lp/mono/)
+
+- @2020 [JetBrainsがコーディング用フォントMonoをリリース](https://www.infoq.com/jp/news/2020/03/jetbrains-mono/)
