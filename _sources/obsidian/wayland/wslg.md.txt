@@ -29,3 +29,6 @@ WSL の自動更新が有効になっています。
 - [Buffered keyboard inputs are continue to be dispatched to newly started application in X · Issue #207 · microsoft/wslg · GitHub](https://github.com/microsoft/wslg/issues/207)
 
 @2022 冬。解消した？
+
+# env
+## dbus
