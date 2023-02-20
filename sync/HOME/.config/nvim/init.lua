@@ -147,8 +147,8 @@ vim.keymap.set("n", "]l", ":ln<CR>", { noremap = true })
 vim.keymap.set("n", "[l", ":lp<CR>", { noremap = true })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true })
-vim.keymap.set("n", "<Tab>", vim.diagnostic.goto_next, { noremap = true })
-vim.keymap.set("n", "<S-Tab>", vim.diagnostic.goto_prev, { noremap = true })
+-- vim.keymap.set("n", "<Tab>", vim.diagnostic.goto_next, { noremap = true })
+-- vim.keymap.set("n", "<S-Tab>", vim.diagnostic.goto_prev, { noremap = true })
 
 -- terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
@@ -159,7 +159,9 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-
+vim.diagnostic.config {
+  virtual_text = false,
+}
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 --   virtual_text = {
 --     prefix = "",

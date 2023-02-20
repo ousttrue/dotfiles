@@ -12,11 +12,16 @@
 
 
 # diagonostics
+[Nvim documentation: diagnostic](https://neovim.io/doc/user/diagnostic.html)
+
 - @2022 [NeovimのLSPで誰にどうして怒られたのかを確認するための設定 | DevelopersIO](https://dev.classmethod.jp/articles/eetann-change-neovim-lsp-diagnostics-format/)
+- [Nvim lsp diagnostics - keybindings, signs, virtual texts | SmartTech101](https://smarttech101.com/nvim-lsp-diagnostics-keybindings-signs-virtual-texts/)
 
 ## gutter
 - [LunarVim/init.lua at 359b6fd8e44bc2ad5088aada3f9c037fb85b19af · LunarVim/LunarVim · GitHub](https://github.com/LunarVim/LunarVim/blob/359b6fd8e44bc2ad5088aada3f9c037fb85b19af/lua/lsp/init.lua#L2)
 
+## underline
+- [Reddit - Dive into anything](https://www.reddit.com/r/neovim/comments/lciqhp/disable_annoying_underline_when_make_errors/)
 
 # completion, locationlist, definition, hover...
 
@@ -31,3 +36,4 @@
 - @2022 [mason.nvimでFormatter, Linterを自動マッピングする](https://zenn.dev/matcha1024/articles/1a972c6e161ad4)
 - [mason.nvimでインストールするLSP, Formatterを管理したい](https://zenn.dev/sakikagr/scraps/a621c775c89b91)
 - [Neovim x null-ls x cspellの設定詳解](https://zenn.dev/kawarimidoll/articles/ad35f3dc4a5009)
+

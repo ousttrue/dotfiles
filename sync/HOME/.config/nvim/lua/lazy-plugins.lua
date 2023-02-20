@@ -23,10 +23,18 @@ local plugins = {
   -- },
   {
     "EdenEast/nightfox.nvim",
+    -- "svrana/neosolarized.nvim",
+    -- 'rmehri01/onenord.nvim',
     config = function()
       -- vim.cmd "colorscheme everforest"
       vim.cmd "colorscheme nightfox"
+      -- require('neosolarized').setup({
+      --   comment_italics = true,
+      --   background_set = false,
+      -- })
+      -- require('onenord').setup()
     end,
+    dependencies = { 'tjdevries/colorbuddy.nvim' },
   },
   "editorconfig/editorconfig-vim",
   {
