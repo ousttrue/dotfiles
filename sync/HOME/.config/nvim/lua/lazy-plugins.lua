@@ -145,6 +145,9 @@ local plugins = {
     config = function()
       require("config.nvim-lspconfig").setup()
     end,
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+    },
   },
   {
     "folke/lsp-colors.nvim",
@@ -184,6 +187,7 @@ local plugins = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
+      'hrsh7th/cmp-nvim-lsp',
       "hrsh7th/cmp-nvim-lsp-signature-help",
       "hrsh7th/cmp-nvim-lsp-document-symbol",
       "hrsh7th/cmp-calc",

@@ -4,7 +4,7 @@ M.setup = function()
   local dap = require "dap"
 
   --
-  --  configurations
+  --  lldb
   --
   -- https://zenn.dev/saito9/articles/32c57f776dc369
   --
@@ -42,13 +42,27 @@ M.setup = function()
     end, 100)
   end
 
+  --
+  --  cppvsdbg
+  --
+  dap.adapters.cppvsdbg = {
+    id = 'cppvsdbg',
+    type = 'executable',
+    command = vim.env.USERPROFILE .. '/.vscode/extensions/ms-vscode.cpptools-1.14.3-win32-x64/debugAdapters/vsdbg/bin/vsdbg.exe',
+  }
+
+  --
+  -- keymap
+  --
   vim.api.nvim_set_keymap("n", "<F5>", ":DapContinue<CR>", { silent = true })
   vim.keymap.set(
     "n",
     "<F6>",
-    -- ":lua require('dap.ext.vscode').load_launchjs(nil, { lldb = {'c', 'cpp'}})<CR>",
     function()
-      require("dap.ext.vscode").load_launchjs(nil, { lldb = { "c", "cpp" } })
+      require("dap.ext.vscode").load_launchjs(nil, {
+        lldb = { "c", "cpp" },
+        cppvsdbg = { "c", "cpp" },
+      })
       require("dapui").toggle()
     end
   )

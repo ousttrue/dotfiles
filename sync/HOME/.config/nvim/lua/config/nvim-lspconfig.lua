@@ -1,20 +1,20 @@
 local dot_util = require('dot_util')
 local lspconfig = require "lspconfig"
 local util = require "lspconfig.util"
+local lsp_status = require "lsp-status"
+local navic = require "nvim-navic"
 
 local M = {}
 function M.setup()
-  --local lsp_status = require "lsp-status"
   -- local aerial = require "aerial"
   -- local symbols_outline = require "symbols-outline"
-  -- lsp_status.register_progress()
-  local navic = require "nvim-navic"
+  lsp_status.register_progress()
 
   ---@diagnostic disable-next-line
   local function on_attach(client, bufnr)
     -- print(vim.inspect(client.server_capabilities))
     -- aerial.on_attach(client, bufnr)
-    -- lsp_status.on_attach(client)
+    lsp_status.on_attach(client)
     -- symbols_outline.open_outline()
     navic.attach(client, bufnr)
     if client.server_capabilities.documentFormattingProvider then
@@ -23,13 +23,12 @@ function M.setup()
     end
   end
 
+  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
   -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
-  -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-  -- for k, v in pairs(lsp_status.capabilities) do
-  --   capabilities[k] = v
-  -- end
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
+  for k, v in pairs(lsp_status.capabilities) do
+    capabilities[k] = v
+  end
   -- print(vim.inspect(capabilities))
 
   lspconfig.lua_ls.setup {
@@ -62,7 +61,10 @@ function M.setup()
   }
 
   lspconfig.clangd.setup {
-    cmd = { "C:/Program Files/LLVM/bin/clangd.exe" },
+    cmd = { "C:/Program Files/LLVM/bin/clangd.exe",
+      "--compile-commands-dir=builddir",
+      "--header-insertion=never",
+    },
     -- handlers = lsp_status.extensions.clangd.setup(),
     init_options = {
       clangdFileStatus = true,

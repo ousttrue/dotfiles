@@ -1,6 +1,4 @@
----
-aliases: [mingw]
----
+
 
 [MSYS2](https://www.msys2.org/)
 

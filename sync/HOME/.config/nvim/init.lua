@@ -106,10 +106,14 @@ vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
 vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true })
 
 local function close_only_buffer(bufnr)
-  if vim.fn.buflisted(bufnr) then
-    if vim.api.nvim_buf_get_option(bufnr, 'filetype') ~= 'fugitive' then
-      return true
+  local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
+  for i, t in ipairs({'fugitive', 'help'}) do
+    if filetype == t then
+      return false
     end
+  end
+  if vim.fn.buflisted(bufnr) then
+    return true
   end
 
   return false
