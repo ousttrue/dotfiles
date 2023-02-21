@@ -9,6 +9,7 @@ function M.setup()
   local cmp = require "cmp"
   local lspkind = require "lspkind"
   local luasnip = require "luasnip"
+  local dot_util = require "dot_util"
 
   cmp.setup {
     -- snippet = {
@@ -26,14 +27,14 @@ function M.setup()
       autocomplete = false,
     },
 
-    -- window = {
-    --   completion = cmp.config.window.bordered {
-    --     border = "single",
-    --   },
-    --   documentation = cmp.config.window.bordered {
-    --     border = "single",
-    --   },
-    -- },
+    window = {
+      completion = cmp.config.window.bordered {
+        border = dot_util.border,
+      },
+      documentation = cmp.config.window.bordered {
+        border = dot_util.border,
+      },
+    },
 
     mapping = cmp.mapping.preset.insert {
       ["<Tab>"] = cmp.mapping.select_next_item(),

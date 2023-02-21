@@ -85,7 +85,9 @@ fi
 # rust
 #
 if [ -d ~/.cargo ]; then
-    . "$HOME/.cargo/env"
+    if [ -f ~/.cargo/env ];then
+        . "$HOME/.cargo/env"
+    fi
 fi
 
 #

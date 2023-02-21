@@ -16,4 +16,15 @@ function M.get_suffix()
   end
 end
 
+M.border = {
+  { "┏", "FloatBorder" }, -- upper left
+  { "━", "FloatBorder" }, -- upper
+  { "┓", "FloatBorder" }, -- upper right
+  { "┃", "FloatBorder" }, -- right
+  { "┛", "FloatBorder" }, -- lower right
+  { "━", "FloatBorder" }, -- lower
+  { "┗", "FloatBorder" }, -- lower left
+  { "┃", "FloatBorder" }, -- left
+}
+
 return M

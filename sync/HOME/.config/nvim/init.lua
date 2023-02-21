@@ -1,21 +1,9 @@
 -- local api = vim.api
 local g = vim.g
 local opt = vim.opt
-local function get_home()
-  if vim.fn.has('win32') == 1 then
-    return vim.env.USERPROFILE
-  else
-    return vim.env.HOME
-  end
-end
-local function get_suffix()
-  if vim.fn.has('win32') == 1 then
-    return '.exe'
-  else
-    return ''
-  end
-end
-vim.api.nvim_set_var('python3_host_prog', get_home() .. '/.local/venv/nvim/Scripts/python' .. get_suffix())
+local dot_util = require('dot_util')
+vim.api.nvim_set_var('python3_host_prog',
+  dot_util.get_home() .. '/.local/venv/nvim/Scripts/python' .. dot_util.get_suffix())
 
 -- -- avoid plugins
 -- vim.api.nvim_set_var("did_install_default_menus", 1)
@@ -106,24 +94,28 @@ vim.keymap.set("n", "(", ":bprev<CR>", { noremap = true })
 vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
 vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true })
 
-local function close_only_buffer(bufnr)
+local function should_close(bufnr)
   local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
   for i, t in ipairs({ 'fugitive', 'help' }) do
     if filetype == t then
-      return false
+      return true
     end
   end
-  if vim.fn.buflisted(bufnr) then
+  if vim.api.nvim_win_get_config(0).zindex then
     return true
   end
-
-  return false
+  if vim.fn.buflisted(bufnr) then
+    return false
+  end
+  return true
 end
 
 local function close_buffer_or_window()
   local currentBufNum = vim.fn.bufnr("%")
   -- local alternateBufNum = vim.fn.bufnr("#")
-  if close_only_buffer(currentBufNum) then
+  if should_close(currentBufNum) then
+    vim.cmd('close')
+  else
     -- buffer 切り替え｀
     -- if vim.fn.buflisted(alternateBufNum) then
     --   vim.cmd('buffer #')
@@ -136,13 +128,9 @@ local function close_buffer_or_window()
     if vim.fn.bufloaded(currentBufNum) ~= 0 then
       vim.cmd("buffer " .. currentBufNum)
     end
-  else
-    -- それ以外 help とか fugitive は window を閉じる
-    vim.cmd('close')
   end
 end
-vim.keymap.set("n", "<Leader>q", "q", { noremap = true })
-vim.keymap.set("n", "q", close_buffer_or_window, { noremap = true })
+vim.keymap.set("n", "Q", close_buffer_or_window, { noremap = true })
 
 vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
 vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
@@ -202,16 +190,7 @@ vim.keymap.set("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_wo
 --   vim.lsp.diagnostic.on_publish_diagnostics,
 --   { virtual_text = true }
 -- )
-local border = {
-      {"┏", "FloatBorder"},  -- upper left
-      {"━", "FloatBorder"},  -- upper
-      {"┓", "FloatBorder"},  -- upper right
-      {"┃", "FloatBorder"},  -- right
-      {"┛", "FloatBorder"},  -- lower right
-      {"━", "FloatBorder"},  -- lower
-      {"┗", "FloatBorder"},  -- lower left
-      {"┃", "FloatBorder"},  -- left
-}
+
 local function floating_window()
   local buf = vim.api.nvim_create_buf(false, true)
   -- vim.api.nvim_buf_set_lines(buf, 0, -1, true, { "test", "text" })
@@ -222,7 +201,7 @@ local function floating_window()
     col = 0,
     row = 1,
     anchor = 'NW',
-    border = 'single',
+    border = dot_util.border,
   }
   local win = vim.api.nvim_open_win(buf, 0, opts)
   --  " optional: change highlight, otherwise Pmenu is used

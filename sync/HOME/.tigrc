@@ -1,33 +1,142 @@
-#--------------------------------------------------------------#
-##        tig settings                                        ##
-#--------------------------------------------------------------#
-set main-view  = id:yes date:default,local=yes author commit-title:graph=yes,refs=yes,overflow=false
-set blame-view = date:default id:yes,color line-number:yes,interval=1 text
-set pager-view = text
-set stage-view = text
-set log-view   = text
-set blob-view  = text
-set diff-view  = text:yes,commit-title-overflow=no
-set tab-size = 2
-set ignore-case = true
-set split-view-width = 80%
-set split-view-height = 80%
-set diff-options = -m --first-parent
-set refresh-mode = auto
+#
+# clear all keybinds
+#
+bind main	C	none
+bind status	C	none
+bind stash	A	none
+bind stash	P	none
+bind stash	!	none
+bind refs	C	none
+bind refs	!	none
+bind reflog	C	none
+bind reflog	!	none
 
-#--------------------------------------------------------------#
-##        key bind                                            ##
-#--------------------------------------------------------------#
-# Pで現在のブランチへpush
-bind generic P ?@!git push origin %(repo:head)
+# Normal commands
+# ---------------
 
-# Dでstatus viewのuntracked fileを削除できるようにする
-# https://github.com/jonas/tig/issues/31 見るとおもしろい
-# https://github.com/jonas/tig/issues/393　見るとおもしろい
-bind status D ?@rm %(file)
+# View switching
+bind generic	m	none
+bind generic	d	none
+bind generic	l	none
+bind generic	L	none
+bind generic	t	none
+bind generic	f	none
+bind generic	b	none
+bind generic	r	none
+bind generic	p	none
+bind generic	h	view-help
+bind generic	s	none
+bind generic	S	none
+bind generic	c	none
+bind generic	y	none
+bind generic	g	none
 
-# そのほかのGitコマンド
-bind generic F ?@!git fetch %(remote)
-bind generic U ?@!git pull %(remote)
+# View manipulation
+bind generic	<Enter>	none			# Enter and open selected entry
+bind generic	<Lt>	none			# Go back to the previous view state
+bind generic	<Down>	none			# Move to next
+bind generic	<C-N>	none
+bind generic	J	none
+bind generic	<Up>	none		# Move to previous
+bind generic	<C-P>	none
+bind generic	K	none
+bind generic	,	none			# Move to parent
+bind generic	<Tab>	none		# Move focus to the next view
+bind generic	R	none			# Reload and refresh view
+bind generic	<F5>	none
+bind generic	O	none		# Maximize the current view
+bind generic	q	none		# Close the current view
+bind generic	Q	none			# Close all views and quit
+bind generic	<C-C>	quit			# Close all views and quit
 
-color cursor black white bold
+# View specific
+bind status	u	none		# Stage/unstage changes in file
+bind status	!	none		# Revert changes in file
+bind status	M	none	# Open git-mergetool(1)
+# bind status	???	:toggle status		# Show short or long status labels
+bind stage	u	none		# Stage/unstage current diff (c)hunk
+bind stage	1	none # Stage/unstage current line
+bind stage	2	none	# Stage/unstage part of chunk
+bind stage	!	none	# Revert current diff (c)hunk
+bind stage	\	none	# Split current diff (c)hunk
+bind stage	@	none			# Jump to next (c)hunk
+bind stage	[	none	# Decrease the diff context
+bind stage	]	none	# Increase the diff context
+bind diff	@	none			# Jump to next (c)hunk
+bind diff	[	none	# Decrease the diff context
+bind diff	]	none	# Increase the diff context
+bind pager	@	none			# Jump to next (c)hunk
+bind main	H	none		# Jump to HEAD commit
+bind main	G	none # Toggle revision graph visualization
+bind main	F	none  # Toggle reference display (tags/branches)
+bind reflog	F	none  # Toggle reference display (tags/branches)
+
+# Cursor navigation
+bind generic	j	none
+bind generic	k	none
+bind generic	<C-D>	none
+bind generic	<C-U>	none
+bind generic	<PgDown> none
+bind generic	<Space>	none
+bind generic	<PgUp>	none
+bind generic	-	none
+bind generic	<Home>	none
+bind generic	<End>	none
+
+# Scrolling
+bind generic	|	none
+bind generic	<Left>	none
+bind generic	<Right>	none
+bind generic	<Ins>	none
+bind generic	<C-Y>	none
+bind generic	<Del>	none
+bind generic	<C-E>	none
+bind generic	<SBack>	none
+bind generic	<SFwd>	none
+# bind generic	???	scroll-half-page-up
+# bind generic	???	scroll-half-page-down
+
+# Searching
+bind generic	/	none
+bind generic	?	none
+bind generic	n	none
+bind generic	N	none
+# Navigation keys used while searching
+bind search	<Down>	none
+bind search	<C-N>	none
+bind search	<C-J>	none
+bind search	<Up>	none
+bind search	<C-P>	none
+bind search	<C-K>	none
+bind search	<C-C>	none
+
+# Option manipulation
+bind generic	o	none			# Open the options menu
+# Bindings for toggling settings
+bind generic	I	none	# Toggle ascending/descending sort order
+bind generic	i	none	# Toggle field to sort by
+bind generic	<Hash>	none	# Toggle line numbers
+bind generic	D	none		# Toggle date display
+bind generic	A	none		# Toggle author display
+bind generic	~	none	# Toggle (line) graphics mode
+bind generic	F	none	# Toggle file name display
+# bind generic	???	:toggle show-changes	# Toggle local changes display in the main view
+bind generic	W	none	# Toggle ignoring whitespace in diffs
+# bind generic	???	:toggle commit-order	# Toggle commit ordering
+bind generic	X	none		# Toggle commit ID display
+bind generic	$	none
+						# Toggle highlighting of commit title overflow
+# bind generic	???	:toggle file-size	# Toggle file size format
+# bind generic	???	:toggle status		# Toggle status display
+# bind generic	???	:toggle status-show-untracked-dirs
+						# Toggle display of file in untracked directories
+# bind generic	???	:toggle vertical-split	# Toggle vertical split
+bind generic	%	none
+
+# Misc
+bind generic	e	none			# Open in editor
+bind generic	:	none			# Open the prompt
+bind generic	<C-L>	none		# Redraw the screen
+bind generic	z	none		# Stop all loading views
+bind generic	v	none		# Show Tig version
+
