@@ -11,6 +11,27 @@ function M.setup()
   local luasnip = require "luasnip"
   local dot_util = require "dot_util"
 
+  local function custom_next(fallback)
+    if cmp.visible() then
+      cmp.select_next_item()
+    elseif luasnip.expand_or_jumpable() then
+      luasnip.expand_or_jump()
+    elseif has_words_before() then
+      cmp.complete()
+    else
+      fallback()
+    end
+  end
+  local function custom_prev(fallback)
+    if cmp.visible() then
+      cmp.select_prev_item()
+    elseif luasnip.jumpable( -1) then
+      luasnip.jump( -1)
+    else
+      fallback()
+    end
+  end
+
   cmp.setup {
     -- snippet = {
     --   expand = function(args)
@@ -37,28 +58,10 @@ function M.setup()
     },
 
     mapping = cmp.mapping.preset.insert {
-      ["<Tab>"] = cmp.mapping.select_next_item(),
-      ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-      ["<C-n>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        elseif has_words_before() then
-          cmp.complete()
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-      ["<C-p>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        elseif luasnip.jumpable( -1) then
-          luasnip.jump( -1)
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
+      ["<Tab>"] = cmp.mapping(custom_next, { "i", "s" }),
+      ["<S-Tab>"] = cmp.mapping(custom_prev, { "i", "s" }),
+      ["<C-n>"] = cmp.mapping(custom_next, { "i", "s" }),
+      ["<C-p>"] = cmp.mapping(custom_prev, { "i", "s" }),
       ["<C-b>"] = cmp.mapping.scroll_docs( -4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
