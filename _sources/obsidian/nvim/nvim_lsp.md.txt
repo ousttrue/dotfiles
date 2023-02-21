@@ -10,6 +10,8 @@
 - [GitHub - neovim/nvim-lspconfig: Quickstart configurations for the Nvim LSP client](https://github.com/neovim/nvim-lspconfig)
 	- [nvim-lspconfig/server_configurations.md at master · neovim/nvim-lspconfig · GitHub](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
 
+# hover
+[Neovim LSP Hoverのデザインを変更する](https://zenn.dev/botamotch/scraps/4ce17ce1f311c9)
 
 # diagonostics
 [Nvim documentation: diagnostic](https://neovim.io/doc/user/diagnostic.html)
