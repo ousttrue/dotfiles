@@ -98,14 +98,7 @@ local plugins = {
     dependencies = {
       "EdenEast/nightfox.nvim",
     },
-    config = function()
-      require("indent_blankline").setup {
-        -- for example, context is off by default, use this to turn it on
-        show_current_context = true,
-        show_current_context_start = true,
-        show_end_of_line = true,
-      }
-    end,
+    config = function() require('config.indent-blankline').setup() end,
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -113,11 +106,11 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-frecency.nvim",
     },
-    config = require("config.telescope").setup,
+    config = function() require("config.telescope").setup() end,
   },
   {
     "nvim-telescope/telescope-frecency.nvim",
-    config = require("config.telescope-frecency").setup,
+    config = function() require("config.telescope-frecency").setup() end,
     dependencies = { "kkharji/sqlite.lua" },
   },
   {
@@ -225,6 +218,16 @@ local plugins = {
   },
   { "jghauser/mkdir.nvim", },
   -- { "hrsh7th/cmp-nvim-lsp",  },
+  {
+    "stevearc/aerial.nvim",
+    config = function() require("config.aerial").setup() end,
+  },
+  {
+    "m-demare/hlargs.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function() require("config.hlargs").setup() end,
+  }
+
 }
 
 require("lazy").setup(plugins)
