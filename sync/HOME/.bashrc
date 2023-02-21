@@ -142,9 +142,16 @@ function fapu {
 }
 
 function pkg {
-    local selected = $(pkg-config --list-package-names | fzf --preview "bat ${HOME}/prefix/lib64/pkgconfig/{}.pc")
+    local selected=$(pkg-config --list-package-names | fzf --preview "bat ${HOME}/prefix/lib64/pkgconfig/{}.pc")
     if [[ ${selected} =~ [^\s] ]]; then
         bat $HOME/prefix/lib64/pkgconifg/${selected}.pc
+    fi
+}
+
+function mewrap {
+    local selected=$(meson wrap list| fzf --preview "meson wrap info{}")
+    if [[ ${selected} =~ [^\s] ]]; then
+        meson wrap install $selected
     fi
 }
 

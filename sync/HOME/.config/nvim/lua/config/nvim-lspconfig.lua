@@ -1,8 +1,24 @@
-local dot_util = require('dot_util')
+local dot_util = require "dot_util"
 local lspconfig = require "lspconfig"
 local util = require "lspconfig.util"
 local lsp_status = require "lsp-status"
 local navic = require "nvim-navic"
+
+local function get_lua_ls()
+  if vim.fn.has "win32" == 1 then
+    return dot_util.get_home() .. "/.vscode/extensions/sumneko.lua-3.6.11-win32-x64/server/bin/lua-language-server.exe"
+  else
+    return "lua-language-server"
+  end
+end
+
+local function get_clangd()
+  if vim.fn.has "win32" == 1 then
+    return "C:/Program Files/LLVM/bin/clangd.exe"
+  else
+    return "clangd"
+  end
+end
 
 local M = {}
 function M.setup()
@@ -32,9 +48,7 @@ function M.setup()
   -- print(vim.inspect(capabilities))
 
   lspconfig.lua_ls.setup {
-    cmd = {
-      dot_util.get_home() .. "/.vscode/extensions/sumneko.lua-3.6.11-win32-x64/server/bin/lua-language-server.exe",
-    },
+    cmd = { get_lua_ls() },
     settings = {
       Lua = {
         runtime = {
@@ -61,7 +75,8 @@ function M.setup()
   }
 
   lspconfig.clangd.setup {
-    cmd = { "C:/Program Files/LLVM/bin/clangd.exe",
+    cmd = {
+      get_clangd(),
       "--compile-commands-dir=builddir",
       "--header-insertion=never",
     },
@@ -99,7 +114,11 @@ function M.setup()
   }
 
   lspconfig.omnisharp.setup {
-    cmd = { "dotnet", dot_util.get_home() .. "/.vscode/extensions/ms-dotnettools.csharp-1.25.4-win32-x64/.omnisharp/1.39.4-net6.0/OmniSharp.dll" },
+    cmd = {
+      "dotnet",
+      dot_util.get_home()
+        .. "/.vscode/extensions/ms-dotnettools.csharp-1.25.4-win32-x64/.omnisharp/1.39.4-net6.0/OmniSharp.dll",
+    },
     on_attach = function(client, bufnr)
       client.server_capabilities.semanticTokensProvider = {
         full = vim.empty_dict(),
@@ -180,7 +199,7 @@ function M.setup()
     end,
     capabilities = capabilities,
 
-    root_dir = util.root_pattern('*.sln'),
+    root_dir = util.root_pattern "*.sln",
 
     -- Enables support for reading code style, naming convention and analyzer
     -- settings from .editorconfig.

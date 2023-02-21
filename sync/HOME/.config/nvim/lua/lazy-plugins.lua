@@ -230,8 +230,8 @@ local plugins = {
     "m-demare/hlargs.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function() require("config.hlargs").setup() end,
-  }
-
+  },
+  { 'sheerun/vim-polyglot', }
 }
 
 require("lazy").setup(plugins)
