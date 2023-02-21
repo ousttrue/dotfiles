@@ -106,6 +106,11 @@ function M.setup()
     --       -- end,
     --     },
     --   },
+
+    experimental = {
+      ghost_text = true,
+    },
+
   }
 
   cmp.setup.cmdline({ "/", "?" }, {
@@ -125,12 +130,6 @@ function M.setup()
       { name = "cmdline", keyword_length = 2 },
     }),
   })
-
-  -- cmp.setup {
-  --   -- experimental = {
-  --   --   ghost_text = true,
-  --   -- },
-  -- }
 
   vim.keymap.set("i", "<C-x><C-o>", cmp.complete, { noremap = true })
 end

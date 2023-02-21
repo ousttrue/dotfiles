@@ -1,142 +1,199 @@
 #
 # clear all keybinds
 #
-bind main	C	none
-bind status	C	none
-bind stash	A	none
-bind stash	P	none
-bind stash	!	none
-bind refs	C	none
-bind refs	!	none
-bind reflog	C	none
-bind reflog	!	none
+bind main C none
+bind status C none
+bind stash A none
+bind stash P none
+bind stash ! none
+bind refs C none
+bind refs ! none
+bind reflog C none
+bind reflog ! none
+bind generic m none
+bind generic d none
+bind generic l none
+bind generic L none
+bind generic t none
+bind generic f none
+bind generic b none
+bind generic r none
+bind generic p none
+bind generic h none
+bind generic s none
+bind generic S none
+bind generic c none
+bind generic y none
+bind generic g none
+bind generic <Enter> none
+bind generic <Lt> none
+bind generic <Down> none
+bind generic <C-N> none
+bind generic J none
+bind generic <Up> none
+bind generic <C-P> none
+bind generic K none
+bind generic , none
+bind generic <Tab> none
+bind generic R none
+bind generic <F5> none
+bind generic O none
+bind generic q none
+bind generic Q none
+bind generic <C-C> none
+bind status u none
+bind status ! none
+bind status M none
+bind stage u none
+bind stage 1 none
+bind stage 2 none
+bind stage ! none
+bind stage \ none
+bind stage @ none
+bind stage [ none
+bind stage ] none
+bind diff @ none
+bind diff [ none
+bind diff ] none
+bind pager @ none
+bind main H none
+bind main G none
+bind main F none
+bind reflog F none
+bind generic j none
+bind generic k none
+bind generic <C-D> none
+bind generic <C-U> none
+bind generic <PgDown> none
+bind generic <Space> none
+bind generic <PgUp> none
+bind generic - none
+bind generic <Home> none
+bind generic <End> none
+bind generic | none
+bind generic <Left> none
+bind generic <Right> none
+bind generic <Ins> none
+bind generic <C-Y> none
+bind generic <Del> none
+bind generic <C-E> none
+bind generic <SBack> none
+bind generic <SFwd> none
+bind generic / none
+bind generic ? none
+bind generic n none
+bind generic N none
+bind search <Down> none
+bind search <C-N> none
+bind search <C-J> none
+bind search <Up> none
+bind search <C-P> none
+bind search <C-K> none
+bind search <C-C> none
+bind generic o none
+bind generic I none
+bind generic i none
+bind generic <Hash> none
+bind generic D none
+bind generic A none
+bind generic ~ none
+bind generic F none
+bind generic W none
+bind generic X none
+bind generic $ none
+bind generic % none
+bind generic e none
+bind generic : none
+bind generic <C-L> none
+bind generic z none
+bind generic v none
 
-# Normal commands
-# ---------------
+#
+# bindings
+#
+bind generic <F1> view-help
+bind generic q view-close
+bind generic j move-down
+bind generic k move-up
+bind generic <C-B> scroll-page-up
+bind generic <C-F> scroll-page-down
+bind generic g move-first-line
+bind generic G move-last-line
+bind generic <Enter> enter
+bind generic <Space>s view-status
 
-# View switching
-bind generic	m	none
-bind generic	d	none
-bind generic	l	none
-bind generic	L	none
-bind generic	t	none
-bind generic	f	none
-bind generic	b	none
-bind generic	r	none
-bind generic	p	none
-bind generic	h	view-help
-bind generic	s	none
-bind generic	S	none
-bind generic	c	none
-bind generic	y	none
-bind generic	g	none
+# General colors
+color default                       253         233
+color cursor                        default     237
+color status                        250         235
+color title-focus                   default     238
+color title-blur                    default     238
+color delimiter                     241         default
+color header                        186         236             bold
+color section                       186         default
+color line-number                   102         235
+color id                            208         default
+color date                          67          default
+color author                        135         default
+color mode                          166         default
+color overflow                      241         default
+color directory                     69          default
+color file                          default     default
+color file-size                     default     default
+color grep.file                     166         234
 
-# View manipulation
-bind generic	<Enter>	none			# Enter and open selected entry
-bind generic	<Lt>	none			# Go back to the previous view state
-bind generic	<Down>	none			# Move to next
-bind generic	<C-N>	none
-bind generic	J	none
-bind generic	<Up>	none		# Move to previous
-bind generic	<C-P>	none
-bind generic	K	none
-bind generic	,	none			# Move to parent
-bind generic	<Tab>	none		# Move focus to the next view
-bind generic	R	none			# Reload and refresh view
-bind generic	<F5>	none
-bind generic	O	none		# Maximize the current view
-bind generic	q	none		# Close the current view
-bind generic	Q	none			# Close all views and quit
-bind generic	<C-C>	quit			# Close all views and quit
+# Main view colors
+color graph-commit                  161         default
+color main-head                     144         default         bold
+color main-remote                   81          default
+color main-tracked                  222         default
+color main-tag                      197         default
+color main-local-tag                161         default
+color main-ref                      144         default
 
-# View specific
-bind status	u	none		# Stage/unstage changes in file
-bind status	!	none		# Revert changes in file
-bind status	M	none	# Open git-mergetool(1)
-# bind status	???	:toggle status		# Show short or long status labels
-bind stage	u	none		# Stage/unstage current diff (c)hunk
-bind stage	1	none # Stage/unstage current line
-bind stage	2	none	# Stage/unstage part of chunk
-bind stage	!	none	# Revert current diff (c)hunk
-bind stage	\	none	# Split current diff (c)hunk
-bind stage	@	none			# Jump to next (c)hunk
-bind stage	[	none	# Decrease the diff context
-bind stage	]	none	# Increase the diff context
-bind diff	@	none			# Jump to next (c)hunk
-bind diff	[	none	# Decrease the diff context
-bind diff	]	none	# Increase the diff context
-bind pager	@	none			# Jump to next (c)hunk
-bind main	H	none		# Jump to HEAD commit
-bind main	G	none # Toggle revision graph visualization
-bind main	F	none  # Toggle reference display (tags/branches)
-bind reflog	F	none  # Toggle reference display (tags/branches)
+# Palette colors
+color palette-0                     239         default
+color palette-1                     242         default
+color palette-2                     245         default
+color palette-3                     248         default
+color palette-4                     237         default
+color palette-5                     240         default
+color palette-6                     243         default
+color palette-7                     246         default
+color palette-8                     249         default
+color palette-9                     238         default
+color palette-10                    241         default
+color palette-11                    244         default
+color palette-12                    247         default
+color palette-13                    236         default
 
-# Cursor navigation
-bind generic	j	none
-bind generic	k	none
-bind generic	<C-D>	none
-bind generic	<C-U>	none
-bind generic	<PgDown> none
-bind generic	<Space>	none
-bind generic	<PgUp>	none
-bind generic	-	none
-bind generic	<Home>	none
-bind generic	<End>	none
+# Status view colors
+color status.header                 186         236             bold
+color status.section                186         default
+color stat-staged                   green       default
+color stat-unstaged                 red         default
+color stat-untracked                red         default
 
-# Scrolling
-bind generic	|	none
-bind generic	<Left>	none
-bind generic	<Right>	none
-bind generic	<Ins>	none
-bind generic	<C-Y>	none
-bind generic	<Del>	none
-bind generic	<C-E>	none
-bind generic	<SBack>	none
-bind generic	<SFwd>	none
-# bind generic	???	scroll-half-page-up
-# bind generic	???	scroll-half-page-down
+# Help view colors
+color help.header                   186         236             bold
+color help.section                  186         default
+color help-group                    69          default
+color help-action                   166         default
 
-# Searching
-bind generic	/	none
-bind generic	?	none
-bind generic	n	none
-bind generic	N	none
-# Navigation keys used while searching
-bind search	<Down>	none
-bind search	<C-N>	none
-bind search	<C-J>	none
-bind search	<Up>	none
-bind search	<C-P>	none
-bind search	<C-K>	none
-bind search	<C-C>	none
+# Diff view colors
+color "commit "                     208         234
+color "Refs: "                      197         234
+color "Author: "                    135         default
+color "AuthorDate: "                67          default
+color "Commit: "                    141         default
+color "CommitDate: "                67          default
+color "Merge: "                     161         default
+color "---"                         67          default
+color diff-index                    67          default
+color diff-stat                     166         234
+color diff-add-highlight            10          22
+color diff-del-highlight            9           52
 
-# Option manipulation
-bind generic	o	none			# Open the options menu
-# Bindings for toggling settings
-bind generic	I	none	# Toggle ascending/descending sort order
-bind generic	i	none	# Toggle field to sort by
-bind generic	<Hash>	none	# Toggle line numbers
-bind generic	D	none		# Toggle date display
-bind generic	A	none		# Toggle author display
-bind generic	~	none	# Toggle (line) graphics mode
-bind generic	F	none	# Toggle file name display
-# bind generic	???	:toggle show-changes	# Toggle local changes display in the main view
-bind generic	W	none	# Toggle ignoring whitespace in diffs
-# bind generic	???	:toggle commit-order	# Toggle commit ordering
-bind generic	X	none		# Toggle commit ID display
-bind generic	$	none
-						# Toggle highlighting of commit title overflow
-# bind generic	???	:toggle file-size	# Toggle file size format
-# bind generic	???	:toggle status		# Toggle status display
-# bind generic	???	:toggle status-show-untracked-dirs
-						# Toggle display of file in untracked directories
-# bind generic	???	:toggle vertical-split	# Toggle vertical split
-bind generic	%	none
-
-# Misc
-bind generic	e	none			# Open in editor
-bind generic	:	none			# Open the prompt
-bind generic	<C-L>	none		# Redraw the screen
-bind generic	z	none		# Stop all loading views
-bind generic	v	none		# Show Tig version
-
+# Signature colors
+color "gpg: "                       23          default
+color "Primary key fingerprint: "   23          default
