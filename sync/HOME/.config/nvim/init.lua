@@ -130,7 +130,7 @@ local function close_buffer_or_window()
     end
   end
 end
-vim.keymap.set("n", "Q", close_buffer_or_window, { noremap = true })
+vim.keymap.set("n", "x", close_buffer_or_window, { noremap = true })
 
 vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
 vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
