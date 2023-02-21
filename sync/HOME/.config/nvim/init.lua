@@ -42,6 +42,7 @@ vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
 
+opt.ambiwidth = 'single'
 opt.termguicolors = true -- Enable colors in terminal
 opt.hlsearch = true --Set highlight on search
 opt.number = true --Make line numbers default
@@ -107,7 +108,7 @@ vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true })
 
 local function close_only_buffer(bufnr)
   local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
-  for i, t in ipairs({'fugitive', 'help'}) do
+  for i, t in ipairs({ 'fugitive', 'help' }) do
     if filetype == t then
       return false
     end
@@ -201,6 +202,33 @@ vim.keymap.set("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_wo
 --   vim.lsp.diagnostic.on_publish_diagnostics,
 --   { virtual_text = true }
 -- )
+local border = {
+      {"┏", "FloatBorder"},  -- upper left
+      {"━", "FloatBorder"},  -- upper
+      {"┓", "FloatBorder"},  -- upper right
+      {"┃", "FloatBorder"},  -- right
+      {"┛", "FloatBorder"},  -- lower right
+      {"━", "FloatBorder"},  -- lower
+      {"┗", "FloatBorder"},  -- lower left
+      {"┃", "FloatBorder"},  -- left
+}
+local function floating_window()
+  local buf = vim.api.nvim_create_buf(false, true)
+  -- vim.api.nvim_buf_set_lines(buf, 0, -1, true, { "test", "text" })
+  local opts = {
+    relative = 'cursor',
+    width = 10,
+    height = 2,
+    col = 0,
+    row = 1,
+    anchor = 'NW',
+    border = 'single',
+  }
+  local win = vim.api.nvim_open_win(buf, 0, opts)
+  --  " optional: change highlight, otherwise Pmenu is used
+  -- vim.api.nvim_win_set_option(win, 'winhl', 'Normal:MyHighlight')
+end
+vim.keymap.set("n", "gx", floating_window, { noremap = true })
 
 -- package manager
 require "lazy-plugins"

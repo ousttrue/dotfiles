@@ -55,18 +55,14 @@ M.setup = function()
   --
   -- keymap
   --
-  vim.api.nvim_set_keymap("n", "<F5>", ":DapContinue<CR>", { silent = true })
-  vim.keymap.set(
-    "n",
-    "<F6>",
-    function()
-      require("dap.ext.vscode").load_launchjs(nil, {
-        lldb = { "c", "cpp" },
-        cppvsdbg = { "c", "cpp" },
-      })
-      require("dapui").toggle()
-    end
-  )
+  vim.keymap.set("n", "<F5>", function()
+    require("dap.ext.vscode").load_launchjs(nil, {
+      lldb = { "c", "cpp" },
+      cppvsdbg = { "c", "cpp" },
+    })
+    require("dapui").open()
+    vim.cmd("<cmd>DapContinue<CR>")
+  end, { silent = true })
 
   vim.api.nvim_set_keymap("n", "<F10>", ":DapStepOver<CR>", { silent = true })
   vim.api.nvim_set_keymap("n", "<F11>", ":DapStepInto<CR>", { silent = true })

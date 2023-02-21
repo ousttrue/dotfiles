@@ -1,4 +1,8 @@
-[[conhost]] を代替する新しい API
+---
+aliases: [conhost]
+---
+
+conhost を代替する新しい API
 Windows10 `1903`
 from `17733` `1809`
 
@@ -6,12 +10,15 @@ from `17733` `1809`
 
 > Windows 疑似コンソールは、疑似コンソール、ConPTY、または Windows PTY とも呼ばれ
 
+- [ASCII.jp：Windows 11では標準コンソールの変更が可能になったのでWindows Terminalを設定する (1/2)](https://ascii.jp/elem/000/004/079/4079062/)
+
 # escape sequence
 `ENABLE_VIRTUAL_TERMINAL_INPUT`
 `ENABLE_VIRTUAL_TERMINAL_PROCESSING`
 [コンソールの仮想ターミナル シーケンス - Windows Console | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences)
 
 # API
+[コンソール関数 - Windows Console | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/console/console-functions)
 ## CreatePseudoConsole
 - [CreatePseudoConsole function - Windows Console | Microsoft Docs](https://docs.microsoft.com/en-us/windows/console/createpseudoconsole)
 
@@ -42,3 +49,4 @@ Client側 => VT
 
 `cpp`
 - [terminal/samples/ConPTY/EchoCon at main · microsoft/terminal · GitHub](https://github.com/microsoft/terminal/tree/master/samples/ConPTY/EchoCon)
+
