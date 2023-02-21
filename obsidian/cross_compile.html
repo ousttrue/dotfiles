@@ -247,6 +247,21 @@
 [[meson]]</p></li>
 <li><p><a class="reference external" href="https://mesonbuild.com/Cross-compilation.html">Cross compilation</a></p></li>
 </ul>
+<div class="highlight-meson.ini notranslate"><div class="highlight"><pre><span></span>[binaries]
+c = 'x86_64-w64-mingw32-gcc'
+cpp = 'x86_64-w64-mingw32-g++'
+ar = 'x86_64-w64-mingw32-ar'
+strip = 'x86_64-w64-mingw32-strip'
+windres = 'x86_64-w64-mingw32-windres'
+exe_wrapper = 'wine64'
+
+[host_machine]
+system = 'windows'
+cpu_family = 'x86_64'
+cpu = 'x86_64'
+endian = 'little'
+</pre></div>
+</div>
 </section>
 
         </article>
