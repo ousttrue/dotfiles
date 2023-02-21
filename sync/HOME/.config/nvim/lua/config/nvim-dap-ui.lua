@@ -2,6 +2,7 @@ M = {}
 
 M.setup = function()
   local dap = require "dap"
+  local dot_util = require('dot_util')
 
   --
   --  lldb
@@ -19,7 +20,7 @@ M.setup = function()
       args = { "--port", port },
       detached = true,
     }
-    local exe = vim.env.USERPROFILE .. "/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/adapter/codelldb.exe"
+    local exe = dot_util.get_home() .. "/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/adapter/codelldb.exe"
     handle, pid_or_err = vim.loop.spawn(exe, opts, function(code)
       stdout:close()
       handle:close()
@@ -48,7 +49,7 @@ M.setup = function()
   dap.adapters.cppvsdbg = {
     id = 'cppvsdbg',
     type = 'executable',
-    command = vim.env.USERPROFILE .. '/.vscode/extensions/ms-vscode.cpptools-1.14.3-win32-x64/debugAdapters/vsdbg/bin/vsdbg.exe',
+    command = dot_util.get_home() .. '/.vscode/extensions/ms-vscode.cpptools-1.14.3-win32-x64/debugAdapters/vsdbg/bin/vsdbg.exe',
   }
 
   --

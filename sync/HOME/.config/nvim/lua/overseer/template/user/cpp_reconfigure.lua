@@ -1,5 +1,5 @@
 return {
-  name = "meson reconfigure(wipe)",
+  name = "[meson] reconfigure(wipe)",
   builder = function()
     -- Full path to current file (see :help expand())
     -- local file = vim.fn.expand("%:p")

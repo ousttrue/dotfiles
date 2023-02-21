@@ -1,5 +1,5 @@
 return {
-  name = "meson build",
+  name = "[meson] build",
   builder = function()
     -- Full path to current file (see :help expand())
     -- local file = vim.fn.expand("%:p")
