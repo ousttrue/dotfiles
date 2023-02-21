@@ -29,3 +29,6 @@
 
 # Python
 - @2022 [VSCode + debugpy でPython CLIをターミナルから快適にデバッグする](https://zenn.dev/shun_kashiwa/articles/debug-python-cli-with-debugpy-vscode)
+
+# nvim
+[[nvim_dap]]
