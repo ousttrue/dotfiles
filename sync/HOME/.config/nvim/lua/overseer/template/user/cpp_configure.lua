@@ -5,7 +5,7 @@ return {
     -- local file = vim.fn.expand("%:p")
     return {
       cmd = { "meson" },
-      args = { "setup", "builddir", "--prefix", "prefix" },
+      args = { "setup", "builddir", "--prefix", vim.fn.getcwd() .. "/prefix" },
       components = { { "on_output_quickfix", open = true }, "default" },
     }
   end,

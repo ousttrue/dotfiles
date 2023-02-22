@@ -6,14 +6,14 @@ function M.setup()
 
 
   require("nvim-tree").setup {
-    sync_root_with_cwd = true,
-    respect_buf_cwd = true,
+    -- sync_root_with_cwd = true,
+    -- respect_buf_cwd = true,
     update_focused_file = {
       enable = true,
       update_root = true,
     },
     view = {
-      width = 28,
+      width = 36,
       -- float = {
       --     enable = true,
       --     quit_on_focus_loss = true,
@@ -34,7 +34,7 @@ function M.setup()
       },
     },
     renderer = {
-      indent_width = 1,
+      indent_width = 2,
       icons = {
         glyphs = {
           git = {

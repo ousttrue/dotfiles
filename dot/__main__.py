@@ -45,6 +45,7 @@ def main():
         case "pull":
             with pushd(DOTFILES_ROOT):
                 run("git pull")
+                run("doit")
 
         case "push":
             with pushd(DOTFILES_ROOT):
