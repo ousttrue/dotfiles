@@ -32,6 +32,7 @@ vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
 
+opt.completeopt = "menu,preview"
 opt.ambiwidth = "single"
 opt.termguicolors = true -- Enable colors in terminal
 opt.hlsearch = true --Set highlight on search

@@ -222,9 +222,7 @@ local plugins = {
   { 'sheerun/vim-polyglot', },
   { 'voldikss/vim-floaterm',
     config = function()
-      vim.api.nvim_set_var('floaterm_shell', 'pwsh.exe')
-      vim.keymap.set('n', '<F12>', '<cmd>FloatermToggle<CR>', {})
-      vim.keymap.set("t", "<F12>", '<cmd>FloatermToggle<CR>', { noremap = true })
+      require('config.floaterm').setup()
     end
   },
   { 'vim-denops/denops.vim' },
