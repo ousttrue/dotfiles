@@ -1,11 +1,11 @@
-local dot_util = require "dot_util"
-local lspconfig = require "lspconfig"
-local util = require "lspconfig.util"
-local lsp_status = require "lsp-status"
-local navic = require "nvim-navic"
-
 local M = {}
 function M.setup()
+  local dot_util = require "dot_util"
+  local lspconfig = require "lspconfig"
+  local util = require "lspconfig.util"
+  local lsp_status = require "lsp-status"
+  local navic = require "nvim-navic"
+
   -- local aerial = require "aerial"
   -- local symbols_outline = require "symbols-outline"
   lsp_status.register_progress()
