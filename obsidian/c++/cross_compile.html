@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>impl - shell note ドキュメント</title>
+        <title>args - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,22 +212,56 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[nvim]]</p>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/kawarimidoll/articles/8e58296f5b8118">俺自身がNeovim base16 colorschemeになることだ</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://blog.atusy.net/2022/04/28/vim-colorscheme-by-buffer/">Neovimのカラースキームを編集中のバッファのファイルパスに応じて変える | Atusy's blog</a></p></li>
+          <ul class="simple">
+<li><p>[[mingw]]</p></li>
+<li><p>@2010 <a class="reference external" href="https://maminus.hatenadiary.org/entry/20100129/1264781242">configureのbuild、host、targetの違い - maminusのメモか何か</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="impl">
-<h1>impl<a class="headerlink" href="#impl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="args">
+<h1>args<a class="headerlink" href="#args" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="target">
+<h2>target<a class="headerlink" href="#target" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="host">
+<h2>host<a class="headerlink" href="#host" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="build">
+<h2>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>crosstool の target</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="archlinux">
+<h1>ArchLinux<a class="headerlink" href="#archlinux" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[ArchLinux]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/sainnhe/sonokai">GitHub - sainnhe/sonokai: High Contrast &amp; Vivid Color Scheme based on Monokai Pro</a></p></li>
+<li><p>mingw-w64-binutils</p></li>
+<li><p>mingw-w64-crt</p></li>
+<li><p>mingw-w64-headers</p></li>
+<li><p>mingw-w64-winpthreads</p></li>
+<li><p>mingw-w64-gcc
+[[meson]]</p></li>
+<li><p><a class="reference external" href="https://mesonbuild.com/Cross-compilation.html">Cross compilation</a></p></li>
 </ul>
+<div class="highlight-meson.ini notranslate"><div class="highlight"><pre><span></span>[binaries]
+c = 'x86_64-w64-mingw32-gcc'
+cpp = 'x86_64-w64-mingw32-g++'
+ar = 'x86_64-w64-mingw32-ar'
+strip = 'x86_64-w64-mingw32-strip'
+windres = 'x86_64-w64-mingw32-windres'
+exe_wrapper = 'wine64'
+
+[host_machine]
+system = 'windows'
+cpu_family = 'x86_64'
+cpu = 'x86_64'
+endian = 'little'
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -243,7 +277,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/nvim/nvim_colorscheme.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/c++/cross_compile.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -251,8 +285,30 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">args</a><ul>
+<li><a class="reference internal" href="#target">target</a></li>
+<li><a class="reference internal" href="#host">host</a></li>
+<li><a class="reference internal" href="#build">build</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#archlinux">ArchLinux</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

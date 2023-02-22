@@ -26,6 +26,7 @@ nvim +Tutor
 [[treesitter]] [[nvim_statusline]]
 
 # articles
+- @2023 [Neovimの見た目を削ぎ落とした | 点と接線。](https://riq0h.jp/2023/01/30/134307/)
 - @2022 [vim沼: NeovimのReact、TypeScript、Tailwind CSS用セットアップ](https://zenn.dev/takuya/articles/4472285edbc132)
 - @2022 [Vimで古代ギリシア語【自作プラグインのすすめ】 - Qiita](https://qiita.com/NI57721/items/06fc78227faaea9bce90)
 - @2022 [今年お世話になった 12 個の Vim (Neovim) プラグインを紹介します](https://zenn.dev/vim_jp/articles/2022-12-12-vim-plugin-thanks#1.-tani%2Fvim-jetpack)
