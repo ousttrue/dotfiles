@@ -1,4 +1,7 @@
 [[nvim]]
+
+`scriptnames`
+
 # first
 lua を快適に編集する
 - comment
