@@ -147,6 +147,7 @@ local plugins = {
     end,
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
+      'folke/neodev.nvim',
     },
   },
   {

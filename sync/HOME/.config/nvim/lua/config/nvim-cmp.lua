@@ -76,7 +76,7 @@ function M.setup()
       { group_index = 1, name = "vsnip" },
       { group_index = 1, name = "nvim_lsp_signature_help" },
       { group_index = 1, name = "calc" },
-      { group_index = 1, name = "nvim_lua" },
+      -- { group_index = 1, name = "nvim_lua" },
       { group_index = 2, name = "buffer",
         option = {
           get_bufnrs = function()

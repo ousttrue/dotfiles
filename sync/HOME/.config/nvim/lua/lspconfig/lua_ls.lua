@@ -10,7 +10,13 @@ local function get_lua_ls()
   end
 end
 
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
 local function get_global()
+  return { "vim" }
 end
 
 local function get_library()
@@ -28,7 +34,7 @@ function M.setup(lspconfig, capabilities, on_attach)
         },
         diagnostics = {
           enable = true,
-          globals = { "vim" },
+          globals = get_global(),
         },
         workspace = {
           -- Make the server aware of Neovim runtime files
@@ -38,6 +44,9 @@ function M.setup(lspconfig, capabilities, on_attach)
         -- Do not send telemetry data containing a randomized but unique identifier
         telemetry = {
           enable = false,
+        },
+        completion = {
+          callSnippet = "Replace"
         },
       },
     },

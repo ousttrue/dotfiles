@@ -44,7 +44,7 @@ require'lspconfig'.lua_ls.setup {
 ## nvim API
 [NeoVim API information not working with lua-language-server (sumneko) - Language Server Protocol (LSP) - Neovim Discourse](https://neovim.discourse.group/t/neovim-api-information-not-working-with-lua-language-server-sumneko/2162)
 
-=> [[nvim_cmp]]
+=> [GitHub - folke/neodev.nvim: 💻 Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.](https://github.com/folke/neodev.nvim)
 
 # nvim
 起動速くするには？
