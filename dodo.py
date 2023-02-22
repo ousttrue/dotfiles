@@ -30,13 +30,13 @@ if IS_WINDOWS:
         APPDATA_LOCAL_DIR,
         APPDATA_ROAMING_DIR,
     )
-    import vcenv
-    for k, v in vcenv.get_env().items():
-        if k in os.environ:
-            os.environ[k] += ';' + v
-        else:
-            os.environ[k] = v
-        # print(f'{k} => {os.environ[k]}')
+    # import vcenv
+    # for k, v in vcenv.get_env().items():
+    #     if k in os.environ:
+    #         os.environ[k] += ';' + v
+    #     else:
+    #         os.environ[k] = v
+    #     # print(f'{k} => {os.environ[k]}')
 
 from doit.tools import result_dep
 

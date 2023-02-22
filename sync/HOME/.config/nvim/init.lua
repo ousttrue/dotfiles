@@ -50,7 +50,13 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.list = true
-opt.listchars = "eol:$,tab:>-,trail:~,extends:>,precedes:<"
+opt.listchars = {
+  eol = "$",
+  tab = ">-",
+  trail = "~",
+  extends = ">",
+  precedes = "<",
+}
 opt.belloff = "all"
 opt.swapfile = false
 opt.undofile = false
@@ -58,7 +64,7 @@ opt.backup = false
 opt.hlsearch = true
 opt.hidden = true
 opt.modeline = true
-opt.keywordprg = ":help"
+    opt.keywordprg = ":help"
 
 -- opt.showmatch = true
 -- opt.matchtime = 1

@@ -6,7 +6,7 @@
 - @2019 [NeovimのBuiltin LSPを使ってみる - Qiita](https://qiita.com/slin/items/2b43925065de3b9a6d3b)
 
 # border
-[[nvim_border]]
+[[BoxDrawing]]
 - [:LspInfo window border - Language Server Protocol (LSP) - Neovim Discourse](https://neovim.discourse.group/t/lspinfo-window-border/1566)
 - [neovim - User borders around LSP floating windows - Vi and Vim Stack Exchange](https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows)
 

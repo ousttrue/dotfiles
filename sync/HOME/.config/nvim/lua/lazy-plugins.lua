@@ -235,6 +235,12 @@ local plugins = {
       vim.keymap.set("t", "<F12>", '<cmd>FloatermToggle<CR>', { noremap = true })
     end
   },
+  { 'vim-denops/denops.vim' },
+  { 'vim-denops/denops-helloworld.vim' },
+  { 'vim-skk/skkeleton',
+    dependencies = { 'vim-denops/denops.vim' },
+    config = function() require('config.skkeleton').setup() end,
+  },
 }
 
 require("lazy").setup(plugins)
