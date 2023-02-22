@@ -24,7 +24,7 @@ vim.api.nvim_set_var('python3_host_prog',
 -- vim.api.nvim_set_var("loaded_tutor_mode_plugin", 1)
 -- vim.api.nvim_set_var("loaded_zipPlugin", 1)
 -- vim.api.nvim_set_var("skip_loading_mswin", 1)
-
+--
 -- Remap leader and local leader to <Space>
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
@@ -64,7 +64,7 @@ opt.backup = false
 opt.hlsearch = true
 opt.hidden = true
 opt.modeline = true
-    opt.keywordprg = ":help"
+opt.keywordprg = ":help"
 
 -- opt.showmatch = true
 -- opt.matchtime = 1
@@ -81,6 +81,9 @@ vim.cmd [[
 
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 ]]
+
+vim.keymap.set({ 'i', 'c' }, '<C-e>', '<END>')
+vim.keymap.set({ 'i', 'c' }, '<C-a>', '<HOME>')
 
 -- opt.completeopt = "menuone,noinsert"
 vim.keymap.set("i", "<C-j>", "<C-x><C-o>")
@@ -201,6 +204,7 @@ vim.keymap.set("n", "gn", vim.lsp.buf.rename, { noremap = true })
 vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { noremap = true })
 vim.keymap.set("n", "<f2>", vim.lsp.buf.rename, { noremap = true })
 vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { noremap = true })
+vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { noremap = true })
 vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, { noremap = true })
 vim.keymap.set("n", "ge", vim.diagnostic.open_float, { noremap = true })
 vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, { noremap = true })

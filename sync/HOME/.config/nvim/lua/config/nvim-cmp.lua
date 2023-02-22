@@ -66,12 +66,12 @@ function M.setup()
       ["<C-p>"] = cmp.mapping(custom_prev, { "i", "s" }),
       ["<C-b>"] = cmp.mapping.scroll_docs( -4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-e>"] = cmp.mapping.abort(),
-      ["<C-Space>"] = cmp.mapping.complete(),
-      ["<C-l>"] = cmp.mapping.complete(),
+      ["<C-[>"] = cmp.mapping.abort(),
+      -- ["<C-Space>"] = cmp.mapping.complete(),
+      -- ["<C-l>"] = cmp.mapping.complete(),
       -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       ["<CR>"] = cmp.mapping.confirm { select = true },
-      ["<C-[>"] = cmp.mapping.confirm { select = true },
+      ["<C-e>"] = cmp.mapping.confirm { select = true },
     },
 
     sources = {

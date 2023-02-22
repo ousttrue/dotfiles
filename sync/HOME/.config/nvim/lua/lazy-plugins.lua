@@ -21,15 +21,7 @@ local plugins = {
   --     vim.cmd [[colorscheme darcula]]
   --   end,
   -- },
-  {
-    "EdenEast/nightfox.nvim",
-    -- "svrana/neosolarized.nvim",
-    -- 'rmehri01/onenord.nvim',
-    config = function()
-      require('config.colorscheme').setup()
-    end,
-    dependencies = { 'tjdevries/colorbuddy.nvim' },
-  },
+  require('config.colorscheme').plugin,
   "editorconfig/editorconfig-vim",
   {
     "nvim-lualine/lualine.nvim",
@@ -240,6 +232,27 @@ local plugins = {
   { 'vim-skk/skkeleton',
     dependencies = { 'vim-denops/denops.vim' },
     config = function() require('config.skkeleton').setup() end,
+  },
+  -- {
+  --   'mvllow/modes.nvim',
+  --   tag = 'v0.2.0',
+  --   config = function()
+  --     require('modes').setup()
+  --   end
+  -- },
+  { 'echasnovski/mini.nvim', version = false,
+    config = function()
+      require('mini.surround').setup()
+    end
+  },
+  { 'kevinhwang91/nvim-ufo',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'kevinhwang91/promise-async',
+    },
+    config = function()
+      require('config.nvim-ufo').setup()
+    end,
   },
 }
 

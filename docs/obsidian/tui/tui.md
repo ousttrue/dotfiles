@@ -74,7 +74,7 @@ fullscreen の term アプリを `tui` と分類
 
 # git
 - [GitHub - extrawurst/gitui: Blazing 💥 fast terminal-ui for git written in rust 🦀](https://github.com/extrawurst/gitui)
-- [[tig]]
+- [[git_tui]]
 
 # perf
 - [The Stress Terminal UI: s-tui | s-tui](https://amanusk.github.io/s-tui/)
