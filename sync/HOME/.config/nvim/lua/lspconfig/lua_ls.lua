@@ -10,6 +10,13 @@ local function get_lua_ls()
   end
 end
 
+local function get_global()
+end
+
+local function get_library()
+  return vim.api.nvim_get_runtime_file("", true)
+end
+
 function M.setup(lspconfig, capabilities, on_attach)
   lspconfig.lua_ls.setup {
     cmd = { get_lua_ls() },
@@ -25,7 +32,7 @@ function M.setup(lspconfig, capabilities, on_attach)
         },
         workspace = {
           -- Make the server aware of Neovim runtime files
-          library = vim.api.nvim_get_runtime_file("", true),
+          library = get_library(),
           checkThirdParty = false,
         },
         -- Do not send telemetry data containing a randomized but unique identifier

@@ -179,7 +179,7 @@ local plugins = {
     "L3MON4D3/LuaSnip",
     -- tag = "v1.*",
     config = function() require("config.LuaSnip").setup() end,
-    dependencies = { "rafamadriz/friendly-snippets", },
+    -- dependencies = { "rafamadriz/friendly-snippets", },
   },
   {
     "hrsh7th/nvim-cmp",
@@ -190,6 +190,7 @@ local plugins = {
       'hrsh7th/cmp-nvim-lsp',
       "hrsh7th/cmp-nvim-lsp-signature-help",
       "hrsh7th/cmp-nvim-lsp-document-symbol",
+      "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-calc",
       "onsails/lspkind.nvim",
       -- "hrsh7th/cmp-vsnip",
