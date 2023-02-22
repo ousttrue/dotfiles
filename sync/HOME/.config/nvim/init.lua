@@ -76,7 +76,7 @@ vim.cmd [[
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 ]]
 
-opt.completeopt = "menuone,noinsert"
+-- opt.completeopt = "menuone,noinsert"
 vim.keymap.set("i", "<C-j>", "<C-x><C-o>")
 -- vim.cmd[[
 -- inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
@@ -181,7 +181,7 @@ vim.diagnostic.config {
 --   signs = true,
 --   underline = true,
 -- })
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { noremap = true })
+vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { noremap = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
@@ -190,17 +190,17 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
 vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { noremap = true })
-vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, { noremap = true })
+vim.keymap.set("n", "<Leader>D", vim.lsp.buf.type_definition, { noremap = true })
 vim.keymap.set("n", "gn", vim.lsp.buf.rename, { noremap = true })
-vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { noremap = true })
+vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { noremap = true })
 vim.keymap.set("n", "<f2>", vim.lsp.buf.rename, { noremap = true })
 vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { noremap = true })
-vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { noremap = true })
+vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, { noremap = true })
 vim.keymap.set("n", "ge", vim.diagnostic.open_float, { noremap = true })
-vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, { noremap = true })
-vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, { noremap = true })
-vim.keymap.set("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
--- vim.keymap.set("n", "<space>e", vim.diagnostic.show_line_diagnostics, { noremap = true })
+vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, { noremap = true })
+vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, { noremap = true })
+vim.keymap.set("n", "<Leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
+-- vim.keymap.set("n", "<Leader>e", vim.diagnostic.show_line_diagnostics, { noremap = true })
 -- vim.keymap.set("n", "<space>q", vim.diagnostic.set_loclist, { noremap = true })
 
 -- LSP handlers
