@@ -1,11 +1,9 @@
 [[lua]]
 
-- [GitHub - sumneko/vscode-lua: Release lua-language-server for VSCode](https://github.com/sumneko/vscode-lua)
-- [GitHub - sumneko/lua-language-server at 8132f4c9da02858c23813d15c2cb6ded6df57ea1](https://github.com/sumneko/lua-language-server/tree/8132f4c9da02858c23813d15c2cb6ded6df57ea1)
-
 # vscode
+- [GitHub - sumneko/vscode-lua: Release lua-language-server for VSCode](https://github.com/sumneko/vscode-lua)
 `.vscode/settings.json`
-```json
+	```json
     "Lua.workspace.library": [
         "${3rd}/lovr/library"
     ],
@@ -43,6 +41,10 @@ require'lspconfig'.lua_ls.setup {
 ```
 
 # workspace
+## nvim API
+[NeoVim API information not working with lua-language-server (sumneko) - Language Server Protocol (LSP) - Neovim Discourse](https://neovim.discourse.group/t/neovim-api-information-not-working-with-lua-language-server-sumneko/2162)
+
+=> [[nvim_cmp]]
 
 # nvim
 起動速くするには？

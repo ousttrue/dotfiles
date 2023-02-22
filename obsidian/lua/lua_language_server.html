@@ -219,54 +219,59 @@
         </div>
         <article role="main">
           <p>[[lua]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/sumneko/vscode-lua">GitHub - sumneko/vscode-lua: Release lua-language-server for VSCode</a></p></li>
-<li><p><a class="reference external" href="https://github.com/sumneko/lua-language-server/tree/8132f4c9da02858c23813d15c2cb6ded6df57ea1">GitHub - sumneko/lua-language-server at 8132f4c9da02858c23813d15c2cb6ded6df57ea1</a></p></li>
-</ul>
 <section class="tex2jax_ignore mathjax_ignore" id="vscode">
 <h1>vscode<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    "Lua.workspace.library": [
-        "${3rd}/lovr/library"
-    ],
-    "Lua.workspace.userThirdParty": [
-        "${workspaceFolder}/.vscode/annotations"
-    ],
+<ul>
+<li><p><a class="reference external" href="https://github.com/sumneko/vscode-lua">GitHub - sumneko/vscode-lua: Release lua-language-server for VSCode</a>
+<code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lspconfig">
-<h1>lspconfig<a class="headerlink" href="#lspconfig" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls">nvim-lspconfig/server_configurations.md at master · neovim/nvim-lspconfig · GitHub</a></p></li>
+</li>
 </ul>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="nb">require</span><span class="s1">'lspconfig'</span><span class="p">.</span><span class="n">lua_ls</span><span class="p">.</span><span class="n">setup</span> <span class="p">{</span>
-  <span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">Lua</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="n">runtime</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="c1">-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)</span>
-        <span class="n">version</span> <span class="o">=</span> <span class="s1">'LuaJIT'</span><span class="p">,</span>
-      <span class="p">},</span>
-      <span class="n">diagnostics</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="c1">-- Get the language server to recognize the `vim` global</span>
-        <span class="n">globals</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'vim'</span><span class="p">},</span>
-      <span class="p">},</span>
-      <span class="n">workspace</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="c1">-- Make the server aware of Neovim runtime files</span>
-        <span class="n">library</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">nvim_get_runtime_file</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="kc">true</span><span class="p">),</span>
-      <span class="p">},</span>
-      <span class="c1">-- Do not send telemetry data containing a randomized but unique identifier</span>
-      <span class="n">telemetry</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="n">enable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="p">},</span>
-    <span class="p">},</span>
-  <span class="p">},</span>
-<span class="p">}</span>
+<p>"Lua.workspace.library": [
+        "<span class="math notranslate nohighlight">\({3rd}/lovr/library"
+    ],
+    "Lua.workspace.userThirdParty": [
+        "\)</span>{workspaceFolder}/.vscode/annotations"
+],</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+# lspconfig
+- [nvim-lspconfig/server_configurations.md at master · neovim/nvim-lspconfig · GitHub](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls)
+
+```lua
+require'lspconfig'.lua_ls.setup {
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
 </pre></div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="workspace">
 <h1>workspace<a class="headerlink" href="#workspace" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="nvim-api">
+<h2>nvim API<a class="headerlink" href="#nvim-api" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://neovim.discourse.group/t/neovim-api-information-not-working-with-lua-language-server-sumneko/2162">NeoVim API information not working with lua-language-server (sumneko) - Language Server Protocol (LSP) - Neovim Discourse</a></p>
+<p>=&gt; [[nvim_cmp]]</p>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="nvim">
 <h1>nvim<a class="headerlink" href="#nvim" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -311,8 +316,10 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">vscode</a></li>
-<li><a class="reference internal" href="#lspconfig">lspconfig</a></li>
-<li><a class="reference internal" href="#workspace">workspace</a></li>
+<li><a class="reference internal" href="#workspace">workspace</a><ul>
+<li><a class="reference internal" href="#nvim-api">nvim API</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#nvim">nvim</a></li>
 </ul>
 
@@ -329,5 +336,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/translations.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

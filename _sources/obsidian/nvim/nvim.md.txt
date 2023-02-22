@@ -11,7 +11,7 @@ nvim +Tutor
 ```
 
 # Links
-[[nvim_lua]]   [[vim_snippet]]
+[[nvim_lua]]   [[nvim_snippet]]
 ## UI
 [[nvim_terminal]] [[nvim_virtualtext]] [[nvim_floating]] [[nvim_keymap]]
 ## plugins
