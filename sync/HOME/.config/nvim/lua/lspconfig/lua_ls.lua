@@ -3,11 +3,21 @@ local M = {}
 local dot_util = require('dot_util')
 
 local function get_lua_ls()
-  if vim.fn.has "win32" == 1 then
-    return dot_util.get_home() .. "/.vscode/extensions/sumneko.lua-3.6.11-win32-x64/server/bin/lua-language-server.exe"
+  if vim.fn.has('win32') == 1 then
+    local path = dot_util.get_home() ..
+        "/.vscode/extensions/sumneko.lua-3.6.11-win32-x64/server/bin/lua-language-server.exe"
+    if vim.fn.executable(path) == 1 then
+      return path
+    end
   else
-    return "lua-language-server"
+    local path = dot_util.get_home() ..
+        "/.vscode-server/extensions/sumneko.lua-3.6.11-linux-x64/server/bin/lua-language-server"
+    if vim.fn.executable(path) == 1 then
+      return path
+    end
   end
+
+  return "lua-language-server"
 end
 
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
@@ -51,7 +61,10 @@ function M.setup(lspconfig, capabilities, on_attach)
       },
     },
     capabilities = capabilities,
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = false
+      on_attach(client, bufnr)
+    end,
   }
 end
 

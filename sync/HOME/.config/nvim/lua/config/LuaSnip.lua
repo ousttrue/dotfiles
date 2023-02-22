@@ -1,6 +1,7 @@
 local M = {}
 
 function M.setup()
+    local dot_util = require('dot_util')
   -- Somewhere in your Neovim startup, e.g. init.lua
   -- require("luasnip").config.set_config { -- Setting LuaSnip config
 
@@ -15,7 +16,7 @@ function M.setup()
   -- local path = (vim.env.XDG_CONFIG_HOME or (vim.env.HOME .. "/.config")) .. "/nvim/LuaSnip"
   -- print(path)
   require("luasnip.loaders.from_lua").load {
-    paths = vim.env.XDG_CONFIG_HOME .. '/nvim/LuaSnip',
+    paths = dot_util.get_config_home() .. '/nvim/LuaSnip',
   }
   -- require("luasnip.loaders.from_vscode").lazy_load()
 

@@ -1,9 +1,11 @@
 -- local api = vim.api
 local g = vim.g
 local opt = vim.opt
-local dot_util = require('dot_util')
-vim.api.nvim_set_var('python3_host_prog',
-  dot_util.get_home() .. '/.local/venv/nvim/Scripts/python' .. dot_util.get_suffix())
+local dot_util = require "dot_util"
+vim.api.nvim_set_var(
+  "python3_host_prog",
+  dot_util.get_home() .. "/.local/venv/nvim/Scripts/python" .. dot_util.get_suffix()
+)
 
 -- -- avoid plugins
 -- vim.api.nvim_set_var("did_install_default_menus", 1)
@@ -30,7 +32,7 @@ vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
 
-opt.ambiwidth = 'single'
+opt.ambiwidth = "single"
 opt.termguicolors = true -- Enable colors in terminal
 opt.hlsearch = true --Set highlight on search
 opt.number = true --Make line numbers default
@@ -82,8 +84,8 @@ vim.cmd [[
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 ]]
 
-vim.keymap.set({ 'i', 'c' }, '<C-e>', '<END>')
-vim.keymap.set({ 'i', 'c' }, '<C-a>', '<HOME>')
+vim.keymap.set({ "i", "c" }, "<C-e>", "<END>")
+vim.keymap.set({ "i", "c" }, "<C-a>", "<HOME>")
 
 -- opt.completeopt = "menuone,noinsert"
 vim.keymap.set("i", "<C-j>", "<C-x><C-o>")
@@ -104,8 +106,8 @@ vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
 vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true })
 
 local function should_close(bufnr)
-  local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
-  for i, t in ipairs({ 'fugitive', 'help' }) do
+  local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+  for i, t in ipairs { "fugitive", "help" } do
     if filetype == t then
       return true
     end
@@ -120,16 +122,16 @@ local function should_close(bufnr)
 end
 
 local function close_buffer_or_window()
-  local currentBufNum = vim.fn.bufnr("%")
+  local currentBufNum = vim.fn.bufnr "%"
   -- local alternateBufNum = vim.fn.bufnr("#")
   if should_close(currentBufNum) then
-    vim.cmd('close')
+    vim.cmd "close"
   else
     -- buffer 切り替え｀
     -- if vim.fn.buflisted(alternateBufNum) then
     --   vim.cmd('buffer #')
     -- else
-    vim.cmd('bnext')
+    vim.cmd "bnext"
     -- end
     -- 非表示になった buffer を削除
     vim.cmd("silent bwipeout " .. currentBufNum)
@@ -166,20 +168,16 @@ vim.diagnostic.config {
   virtual_text = false,
 }
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-  border = dot_util.border
-}
-)
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = dot_util.border,
+})
 
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help, {
-  border = dot_util.border
-}
-)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = dot_util.border,
+})
 
 vim.diagnostic.config {
-  float = { border = dot_util.border }
+  float = { border = dot_util.border },
 }
 
 --
@@ -223,12 +221,12 @@ local function floating_window()
   local buf = vim.api.nvim_create_buf(false, true)
   -- vim.api.nvim_buf_set_lines(buf, 0, -1, true, { "test", "text" })
   local opts = {
-    relative = 'cursor',
+    relative = "cursor",
     width = 10,
     height = 2,
     col = 0,
     row = 1,
-    anchor = 'NW',
+    anchor = "NW",
     border = dot_util.border,
   }
   local win = vim.api.nvim_open_win(buf, 0, opts)

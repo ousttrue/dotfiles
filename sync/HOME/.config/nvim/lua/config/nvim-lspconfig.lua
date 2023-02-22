@@ -13,13 +13,10 @@ function M.setup()
   ---@diagnostic disable-next-line
   local function on_attach(client, bufnr)
     -- print(vim.inspect(client.server_capabilities))
-    -- aerial.on_attach(client, bufnr)
     lsp_status.on_attach(client)
-    -- symbols_outline.open_outline()
     navic.attach(client, bufnr)
     if client.server_capabilities.documentFormattingProvider then
       vim.keymap.set({ "n", "v" }, "F", vim.lsp.buf.format, { buffer = bufnr, noremap = true })
-      -- vim.keymap.set("v", "F", vim.lsp.buf.format, { buffer=bufnr, noremap = true })
     end
   end
 

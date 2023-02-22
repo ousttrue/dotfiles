@@ -195,6 +195,9 @@ bind generic <C-B> scroll-page-up
 bind generic <C-F> scroll-page-down
 bind generic g move-first-line
 bind generic G move-last-line
+bind main G move-last-line
+bind generic / search
+bind generic ? search-back
 bind generic <Enter> enter
 bind generic <Space>s view-status
 bind generic <Space>r view-refs

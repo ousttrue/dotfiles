@@ -254,6 +254,10 @@ local plugins = {
       require('config.nvim-ufo').setup()
     end,
   },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = require("config.null-ls").setup,
+  },
 }
 
 require("lazy").setup(plugins)
