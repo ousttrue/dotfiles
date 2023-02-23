@@ -37,13 +37,13 @@ local plugins = {
   --   "osyo-manga/vim-precious",
   --   dependencies = { "Shougo/context_filetype.vim" },
   -- },
-  {
-    "SmiteshP/nvim-navic",
-    dependencies = "neovim/nvim-lspconfig",
-    config = function()
-      require("config.navic").setup()
-    end,
-  },
+  -- {
+  --   "SmiteshP/nvim-navic",
+  --   dependencies = "neovim/nvim-lspconfig",
+  --   config = function()
+  --     require("config.navic").setup()
+  --   end,
+  -- },
   {
     "lewis6991/gitsigns.nvim",
     config = require("config.gitsigns").setup,
@@ -308,6 +308,14 @@ local plugins = {
     "stevearc/dressing.nvim",
     config = function()
       require("dressing").setup()
+    end,
+  },
+  {
+    "hrsh7th/nvim-gtd",
+    config = function()
+      vim.keymap.set("n", "gf", function()
+        require("gtd").exec { command = "edit" }
+      end)
     end,
   },
 }

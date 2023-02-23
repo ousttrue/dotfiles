@@ -25,8 +25,9 @@ require("neodev").setup({
   -- add any options here, or leave empty to use the default settings
 })
 
-local function get_global()
-  return { "vim" }
+local function get_global(d)
+  local globals = { "vim" }
+  return globals
 end
 
 local function get_library()

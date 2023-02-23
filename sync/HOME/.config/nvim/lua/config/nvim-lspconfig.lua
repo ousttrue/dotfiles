@@ -4,7 +4,7 @@ function M.setup()
   local lspconfig = require "lspconfig"
   local util = require "lspconfig.util"
   local lsp_status = require "lsp-status"
-  local navic = require "nvim-navic"
+  -- local navic = require "nvim-navic"
 
   require("lspconfig.ui.windows").default_options.border = dot.border
 
@@ -17,7 +17,7 @@ function M.setup()
   local function on_attach(client, bufnr)
     -- print(vim.inspect(client.server_capabilities))
     lsp_status.on_attach(client)
-    navic.attach(client, bufnr)
+    -- navic.attach(client, bufnr)
     if client.server_capabilities.documentFormattingProvider then
       vim.keymap.set({ "n", "v" }, "F", vim.lsp.buf.format, { buffer = bufnr, noremap = true })
     end
