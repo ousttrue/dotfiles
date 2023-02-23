@@ -21,7 +21,7 @@ local plugins = {
   --     vim.cmd [[colorscheme darcula]]
   --   end,
   -- },
-  require('config.colorscheme').plugin,
+  require("config.colorscheme").plugin,
   "editorconfig/editorconfig-vim",
   {
     "nvim-lualine/lualine.nvim",
@@ -40,7 +40,9 @@ local plugins = {
   {
     "SmiteshP/nvim-navic",
     dependencies = "neovim/nvim-lspconfig",
-    config = function() require("config.navic").setup() end,
+    config = function()
+      require("config.navic").setup()
+    end,
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -77,14 +79,16 @@ local plugins = {
   -- { "averms/black-nvim",
   --   -- run = "UpdateRemotePlugins"
   -- },
-  { 'sbdchd/neoformat' },
+  { "sbdchd/neoformat" },
   { "tpope/vim-fugitive" },
   {
     "lukas-reineke/indent-blankline.nvim",
     dependencies = {
       "EdenEast/nightfox.nvim",
     },
-    config = function() require('config.indent-blankline').setup() end,
+    config = function()
+      require("config.indent-blankline").setup()
+    end,
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -92,11 +96,15 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-frecency.nvim",
     },
-    config = function() require("config.telescope").setup() end,
+    config = function()
+      require("config.telescope").setup()
+    end,
   },
   {
     "nvim-telescope/telescope-frecency.nvim",
-    config = function() require("config.telescope-frecency").setup() end,
+    config = function()
+      require("config.telescope-frecency").setup()
+    end,
     dependencies = { "kkharji/sqlite.lua" },
   },
   {
@@ -109,7 +117,7 @@ local plugins = {
   {
     "stevearc/overseer.nvim",
     config = function()
-      require('config.overseer').setup()
+      require("config.overseer").setup()
     end,
   },
   {
@@ -132,8 +140,8 @@ local plugins = {
       require("config.nvim-lspconfig").setup()
     end,
     dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'folke/neodev.nvim',
+      "hrsh7th/cmp-nvim-lsp",
+      "folke/neodev.nvim",
     },
   },
   {
@@ -155,17 +163,23 @@ local plugins = {
   -- },
   {
     "folke/trouble.nvim",
-    config = function() require("config.trouble").setup() end,
-    dependencies = { "nvim-tree/nvim-web-devicons", },
+    config = function()
+      require("config.trouble").setup()
+    end,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
     "onsails/lspkind.nvim",
-    config = function() require("config.lspkind").setup() end,
+    config = function()
+      require("config.lspkind").setup()
+    end,
   },
   {
     "L3MON4D3/LuaSnip",
     -- tag = "v1.*",
-    config = function() require("config.LuaSnip").setup() end,
+    config = function()
+      require("config.LuaSnip").setup()
+    end,
     -- dependencies = { "rafamadriz/friendly-snippets", },
   },
   {
@@ -174,7 +188,7 @@ local plugins = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
-      'hrsh7th/cmp-nvim-lsp',
+      "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lsp-signature-help",
       "hrsh7th/cmp-nvim-lsp-document-symbol",
       "hrsh7th/cmp-nvim-lua",
@@ -184,52 +198,71 @@ local plugins = {
       -- "hrsh7th/vim-vsnip",
       -- "hrsh7th/vim-vsnip-integ",
     },
-    config = function() require("config.nvim-cmp").setup() end,
+    config = function()
+      require("config.nvim-cmp").setup()
+    end,
     event = "InsertEnter",
   },
   {
-    'simeji/winresizer'
+    "simeji/winresizer",
   },
-  { 'windwp/nvim-autopairs',
-    config = function() require("nvim-autopairs").setup() end,
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup()
+    end,
   },
   {
     "akinsho/bufferline.nvim",
     tag = "v3.*",
     dependencies = "nvim-tree/nvim-web-devicons",
-    config = function() require("config.bufferline").setup() end,
+    config = function()
+      require("config.bufferline").setup()
+    end,
   },
   {
     "kevinhwang91/nvim-hlslens",
-    config = function() require("config.nvim-hlslens").setup() end,
+    config = function()
+      require("config.nvim-hlslens").setup()
+    end,
   },
   {
     "petertriho/nvim-scrollbar",
     dependencies = "kevinhwang91/nvim-hlslens",
-    config = function() require("config.nvim-scrollbar").setup() end,
+    config = function()
+      require("config.nvim-scrollbar").setup()
+    end,
   },
-  { "jghauser/mkdir.nvim", },
+  { "jghauser/mkdir.nvim" },
   -- { "hrsh7th/cmp-nvim-lsp",  },
   {
     "stevearc/aerial.nvim",
-    config = function() require("config.aerial").setup() end,
+    config = function()
+      require("config.aerial").setup()
+    end,
   },
   {
     "m-demare/hlargs.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function() require("config.hlargs").setup() end,
-  },
-  { 'sheerun/vim-polyglot', },
-  { 'voldikss/vim-floaterm',
     config = function()
-      require('config.floaterm').setup()
-    end
+      require("config.hlargs").setup()
+    end,
   },
-  { 'vim-denops/denops.vim' },
-  { 'vim-denops/denops-helloworld.vim' },
-  { 'vim-skk/skkeleton',
-    dependencies = { 'vim-denops/denops.vim' },
-    config = function() require('config.skkeleton').setup() end,
+  { "sheerun/vim-polyglot" },
+  {
+    "voldikss/vim-floaterm",
+    config = function()
+      require("config.floaterm").setup()
+    end,
+  },
+  { "vim-denops/denops.vim" },
+  { "vim-denops/denops-helloworld.vim" },
+  {
+    "vim-skk/skkeleton",
+    dependencies = { "vim-denops/denops.vim" },
+    config = function()
+      require("config.skkeleton").setup()
+    end,
   },
   -- {
   --   'mvllow/modes.nvim',
@@ -238,24 +271,35 @@ local plugins = {
   --     require('modes').setup()
   --   end
   -- },
-  { 'echasnovski/mini.nvim', version = false,
+  {
+    "echasnovski/mini.nvim",
+    version = false,
     config = function()
-      require('mini.surround').setup()
-    end
+      require("mini.surround").setup()
+    end,
   },
-  { 'kevinhwang91/nvim-ufo',
+  {
+    "kevinhwang91/nvim-ufo",
     dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'kevinhwang91/promise-async',
+      "nvim-treesitter/nvim-treesitter",
+      "kevinhwang91/promise-async",
     },
     config = function()
-      require('config.nvim-ufo').setup()
+      require("config.nvim-ufo").setup()
     end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
     config = require("config.null-ls").setup,
   },
+  { "rcarriga/nvim-notify" },
+  {
+    "delphinus/qfheight.nvim",
+    config = function()
+      require("qfheight").setup {}
+    end,
+  },
+  { "stevearc/dressing.nvim" },
 }
 
 require("lazy").setup(plugins)

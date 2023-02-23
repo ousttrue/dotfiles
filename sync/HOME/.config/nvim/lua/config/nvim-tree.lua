@@ -30,6 +30,7 @@ function M.setup()
           -- remove a default mapping
           { key = "<C-e>", action = "" },
           { key = "u", action = "dir_up" },
+          { key = "h", action = "close_node" },
         },
       },
     },

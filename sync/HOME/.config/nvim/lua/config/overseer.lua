@@ -16,7 +16,7 @@ function M.setup()
   vim.keymap.set("n", "<F7>", function()
     vim.cmd [[
 :OverseerRun
-:OverseerOpen
+" :OverseerOpen
     ]]
   end, { noremap = true })
 end

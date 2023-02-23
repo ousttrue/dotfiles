@@ -6,6 +6,8 @@ function M.setup()
   local lsp_status = require "lsp-status"
   local navic = require "nvim-navic"
 
+  require("lspconfig.ui.windows").default_options.border = dot_util.border
+
   -- local aerial = require "aerial"
   -- local symbols_outline = require "symbols-outline"
   lsp_status.register_progress()

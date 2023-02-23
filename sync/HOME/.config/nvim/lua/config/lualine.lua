@@ -7,12 +7,19 @@ function M.setup()
     },
     sections = {
       lualine_a = { "mode" },
-      lualine_b = { "branch", "diff",
+      lualine_b = {
+        "branch",
+        "diff",
         -- "require'lsp-status'.status()",
         "diagnostics",
       },
       lualine_c = { "filename" },
-      lualine_x = { "encoding", "fileformat", "filetype" },
+      lualine_x = {
+        "encoding",
+        "fileformat",
+        "filetype",
+        "overseer",
+      },
       lualine_y = { "progress" },
       lualine_z = { "location" },
     },

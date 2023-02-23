@@ -105,6 +105,7 @@ vim.keymap.set("n", "(", ":bprev<CR>", { noremap = true })
 -- vim.keymap.set("n", "<Leader>c", "<C-l>", { noremap = true })
 vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
 vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true })
+vim.keymap.set("i", "<C-s>", "<ESC>:w<CR>i", { noremap = true })
 
 local function should_close(bufnr)
   local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
