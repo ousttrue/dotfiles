@@ -1,10 +1,10 @@
 -- local api = vim.api
 local g = vim.g
 local opt = vim.opt
-local dot_util = require "dot_util"
+local dot = require "dot"
 vim.api.nvim_set_var(
   "python3_host_prog",
-  dot_util.get_home() .. "/.local/venv/nvim/Scripts/python" .. dot_util.get_suffix()
+  dot.get_home() .. "/.local/venv/nvim/Scripts/python" .. dot.get_suffix()
 )
 
 -- -- avoid plugins
@@ -171,15 +171,15 @@ vim.diagnostic.config {
 }
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = dot_util.border,
+  border = dot.border,
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = dot_util.border,
+  border = dot.border,
 })
 
 vim.diagnostic.config {
-  float = { border = dot_util.border },
+  float = { border = dot.border },
 }
 
 --
@@ -234,7 +234,7 @@ local function floating_window()
     col = 0,
     row = 1,
     anchor = "NW",
-    border = dot_util.border,
+    border = dot.border,
   })
 end
 vim.keymap.set("n", "gx", floating_window, { noremap = true })

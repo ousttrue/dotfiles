@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   local null_ls = require "null-ls"
   local helpers = require "null-ls.helpers"
-  local dot = require "dot_util"
+  local dot = require "dot"
 
   ---@param client table
   ---@param bufnr number

@@ -1,13 +1,13 @@
 local M = {}
 
-local dot_util = require('dot_util')
+local dot = require('dot')
 local util = require "lspconfig.util"
 
 function M.setup(lspconfig, capabilities, on_attach)
   lspconfig.omnisharp.setup {
     cmd = {
       "dotnet",
-      dot_util.get_home()
+      dot.get_home()
       .. "/.vscode/extensions/ms-dotnettools.csharp-1.25.4-win32-x64/.omnisharp/1.39.4-net6.0/OmniSharp.dll",
     },
     on_attach = function(client, bufnr)

@@ -4,7 +4,7 @@ function M.setup()
   local cmp = require "cmp"
   local lspkind = require "lspkind"
   local luasnip = require "luasnip"
-  local dot_util = require "dot_util"
+  local dot = require "dot"
   local feedkeys = require "cmp.utils.feedkeys"
 
   local has_words_before = function()
@@ -52,10 +52,10 @@ function M.setup()
 
     window = {
       completion = cmp.config.window.bordered {
-        border = dot_util.border,
+        border = dot.border,
       },
       documentation = cmp.config.window.bordered {
-        border = dot_util.border,
+        border = dot.border,
       },
     },
 

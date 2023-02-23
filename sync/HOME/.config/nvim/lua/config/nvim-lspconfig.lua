@@ -1,12 +1,12 @@
 local M = {}
 function M.setup()
-  local dot_util = require "dot_util"
+  local dot = require "dot"
   local lspconfig = require "lspconfig"
   local util = require "lspconfig.util"
   local lsp_status = require "lsp-status"
   local navic = require "nvim-navic"
 
-  require("lspconfig.ui.windows").default_options.border = dot_util.border
+  require("lspconfig.ui.windows").default_options.border = dot.border
 
   -- local aerial = require "aerial"
   -- local symbols_outline = require "symbols-outline"
