@@ -71,7 +71,7 @@ function M.setup()
           cmp.close()
         end
         fallback()
-        vim.fn.feedkeys('l')
+        vim.fn.feedkeys "l"
       end,
       -- ["<C-Space>"] = cmp.mapping.complete(),
       -- ["<C-l>"] = cmp.mapping.complete(),
@@ -127,8 +127,36 @@ function M.setup()
     },
   }
 
+  local function command_next(fallback)
+    if cmp.visible() then
+      cmp.select_next_item()
+    else
+      fallback()
+    end
+  end
+
+  local function command_prev(fallback)
+    if cmp.visible() then
+      cmp.select_prev_item()
+    else
+      fallback()
+    end
+  end
+
+  local command_mapping = {
+    ["<Tab>"] = cmp.mapping(custom_next),
+    ["<S-Tab>"] = cmp.mapping(custom_prev),
+    ["<C-n>"] = cmp.mapping(command_next),
+    ["<C-p>"] = cmp.mapping(command_prev),
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-[>"] = cmp.mapping.abort(),
+    ["<CR>"] = cmp.mapping.confirm { select = true },
+    ["<C-e>"] = cmp.mapping.confirm { select = true },
+  }
+
   cmp.setup.cmdline({ "/", "?" }, {
-    mapping = cmp.mapping.preset.cmdline(),
+    mapping = cmp.mapping.preset.cmdline(command_mapping),
     sources = cmp.config.sources({
       { name = "nvim_lsp_document_symbol" },
     }, {
@@ -137,7 +165,7 @@ function M.setup()
   })
 
   cmp.setup.cmdline(":", {
-    mapping = cmp.mapping.preset.cmdline(),
+    mapping = cmp.mapping.preset.cmdline(command_mapping),
     sources = cmp.config.sources({
       { name = "path" },
     }, {
