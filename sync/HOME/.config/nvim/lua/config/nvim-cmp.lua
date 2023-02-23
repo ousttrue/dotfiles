@@ -155,23 +155,23 @@ function M.setup()
   --   ["<C-e>"] = cmp.mapping.confirm { select = true },
   -- }
   --
-  -- cmp.setup.cmdline({ "/", "?" }, {
-  --   mapping = cmp.mapping.preset.cmdline(command_mapping),
-  --   sources = cmp.config.sources({
-  --     { name = "nvim_lsp_document_symbol" },
-  --   }, {
-  --     { name = "buffer" },
-  --   }),
-  -- })
-  --
-  -- cmp.setup.cmdline(":", {
-  --   mapping = cmp.mapping.preset.cmdline(command_mapping),
-  --   sources = cmp.config.sources({
-  --     { name = "path" },
-  --   }, {
-  --     { name = "cmdline", keyword_length = 2 },
-  --   }),
-  -- })
+  cmp.setup.cmdline({ "/", "?" }, {
+    -- mapping = cmp.mapping.preset.cmdline(command_mapping),
+    sources = cmp.config.sources({
+      { name = "nvim_lsp_document_symbol" },
+    }, {
+      { name = "buffer" },
+    }),
+  })
+
+  cmp.setup.cmdline(":", {
+    -- mapping = cmp.mapping.preset.cmdline(command_mapping),
+    sources = cmp.config.sources({
+      { name = "path" },
+    }, {
+      { name = "cmdline", keyword_length = 2 },
+    }),
+  })
 
   vim.keymap.set("i", "<C-x><C-o>", cmp.complete, { noremap = true })
 end
