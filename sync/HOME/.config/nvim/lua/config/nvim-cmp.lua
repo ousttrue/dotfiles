@@ -47,7 +47,7 @@ function M.setup()
     },
 
     completion = {
-      autocomplete = false,
+      autocomplete = true,
     },
 
     window = {

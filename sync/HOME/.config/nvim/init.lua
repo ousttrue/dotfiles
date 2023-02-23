@@ -220,19 +220,21 @@ vim.keymap.set("n", "<Leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_w
 
 local function floating_window()
   local buf = vim.api.nvim_create_buf(false, true)
-  -- vim.api.nvim_buf_set_lines(buf, 0, -1, true, { "test", "text" })
-  local opts = {
-    relative = "cursor",
-    width = 10,
-    height = 2,
+
+  for i, client in ipairs(vim.lsp.get_active_clients()) do
+    vim.api.nvim_buf_set_lines(buf, -1, -1, false, vim.split(vim.inspect(client.server_capabilities), "\n"))
+    -- print(vim.split(vim.inspect(client.server_capabilities), '\n'))
+  end
+
+  local win = vim.api.nvim_open_win(buf, 0, {
+    relative = "win",
+    width = 50,
+    height = 20,
     col = 0,
     row = 1,
     anchor = "NW",
     border = dot_util.border,
-  }
-  local win = vim.api.nvim_open_win(buf, 0, opts)
-  --  " optional: change highlight, otherwise Pmenu is used
-  -- vim.api.nvim_win_set_option(win, 'winhl', 'Normal:MyHighlight')
+  })
 end
 vim.keymap.set("n", "gx", floating_window, { noremap = true })
 

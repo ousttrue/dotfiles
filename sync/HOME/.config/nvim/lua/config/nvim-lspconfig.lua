@@ -10,7 +10,8 @@ function M.setup()
   -- local symbols_outline = require "symbols-outline"
   lsp_status.register_progress()
 
-  ---@diagnostic disable-next-line
+  ---@param client table
+  ---@param bufnr number
   local function on_attach(client, bufnr)
     -- print(vim.inspect(client.server_capabilities))
     lsp_status.on_attach(client)
@@ -28,9 +29,9 @@ function M.setup()
   end
   -- print(vim.inspect(capabilities))
 
-  require('lspconfig.lua_ls').setup(lspconfig, capabilities, on_attach)
-  require('lspconfig.clangd').setup(lspconfig, capabilities, on_attach)
-  require('lspconfig.omnisharp').setup(lspconfig, capabilities, on_attach)
+  require("lspconfig.lua_ls").setup(lspconfig, capabilities, on_attach)
+  require("lspconfig.clangd").setup(lspconfig, capabilities, on_attach)
+  require("lspconfig.omnisharp").setup(lspconfig, capabilities, on_attach)
 
   lspconfig.pyright.setup {
     on_attach = function(client, bufnr)

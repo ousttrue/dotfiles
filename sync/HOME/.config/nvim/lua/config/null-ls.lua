@@ -3,25 +3,51 @@ local M = {}
 function M.setup()
   local null_ls = require "null-ls"
   local helpers = require "null-ls.helpers"
+  local dot = require "dot_util"
+
+  ---@param client table
+  ---@param bufnr number
+  local function on_attach(client, bufnr)
+    local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+    if filetype == "meson" then
+      vim.keymap.set({ "n", "v" }, "F", vim.lsp.buf.format, { buffer = bufnr, noremap = true })
+    end
+  end
 
   null_ls.setup {
-    debug = true,
+    border = dot.border,
+    -- debug = true,
     sources = {
       null_ls.builtins.formatting.stylua,
       -- null_ls.builtins.formatting.yapf,
       -- null_ls.builtins.formatting.cmake_format,
     },
+    on_attach = on_attach,
   }
 
-  local muon_diagnostics = {
+  null_ls.register {
+    method = null_ls.methods.FORMATTING,
+    name = "muon_fmt",
+    filetypes = { "meson" },
+    generator = null_ls.formatter {
+      command = "muon",
+      args = {
+        "fmt",
+        "$FILENAME",
+      },
+      to_stdin = false,
+    },
+  }
+
+  null_ls.register {
     method = null_ls.methods.DIAGNOSTICS,
-    name = "muon",
+    name = "muon_analyze",
     filetypes = { "meson" },
     -- null_ls.generator creates an async source
     -- that spawns the command with the given arguments and options
     generator = null_ls.generator {
       command = "muon",
-      args = { "analyze", "-O", "-", "-l" },
+      args = { "analyze", "-O", "-l" },
       to_stdin = true,
       from_stderr = true,
       -- choose an output format (raw, json, or line)
@@ -48,8 +74,6 @@ function M.setup()
       },
     },
   }
-
-  null_ls.register(muon_diagnostics)
 end
 
 return M
