@@ -9,6 +9,9 @@
 - [GitHub - hrsh7th/nvim-cmp: A completion plugin for neovim coded in Lua.](https://github.com/hrsh7th/nvim-cmp)
 - [nvim-cmpで、タブ補完が必要ない時にEnterを押したらそのまま改行するようにしたい - Qiita](https://qiita.com/tamlog06/items/9e5e895f74750c5a197a)
 
+## formatting
+- [nvim cmp formatting #5 source name as Emoji 📚 - YouTube](https://www.youtube.com/watch?v=8zENSGqOk8w&ab_channel=YukiUthman)
+
 # ddc
 - [自動補完プラグイン ddc.vim + pum.vim](https://zenn.dev/shougo/articles/ddc-vim-pum-vim)
 

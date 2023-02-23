@@ -105,7 +105,7 @@ zls
 - [GitHub - swyddfa/esbonio: A language server for working with Sphinx projects.](https://github.com/swyddfa/esbonio)
 
 ## csharp
-- [GitHub - OmniSharp/csharp-language-server-protocol: Language Server Protocol in C#](https://github.com/OmniSharp/csharp-language-server-protocol)
+[[OmniSharp]]
 
 ## markdown
 - [「Visual Studio Code」のMarkdown機能が言語サーバーに ～他のエディター、ツールでの活用に道筋 - 窓の杜](https://forest.watch.impress.co.jp/docs/news/1432780.html)

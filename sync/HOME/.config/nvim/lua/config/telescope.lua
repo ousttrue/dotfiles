@@ -7,11 +7,18 @@ function M.setup()
   ---@diagnostic disable-next-line
   telescope.setup {
     defaults = {
-      mappings = { i = {
-        ["<c-[>"] = actions.close,
-        -- clear. not preview scroll
-        ["<C-u>"] = false,
-      } } },
+      mappings = {
+        i = {
+          ["<c-[>"] = actions.close,
+          -- clear. not preview scroll
+          ["<C-u>"] = false,
+        },
+      },
+      layout_config = {
+        vertical = { width = 0.95 },
+        -- other layout configuration here
+      },
+    },
   }
 
   -- telescope.load_extension("ghq")
@@ -31,7 +38,7 @@ function M.setup()
       file_ignore_patterns = { ".cache" },
     }
   end
-  vim.keymap.set('n', '<C-P>', builtin.keymaps)
+  vim.keymap.set("n", "<C-P>", builtin.keymaps)
   -- vim.keymap.set("n", "<Leader><Space>", builtin.live_grep, { noremap = true })
   vim.keymap.set("n", "<Leader><Space>", git_files, { noremap = true })
   vim.keymap.set("n", "<Leader>b", builtin.buffers, { noremap = true })
