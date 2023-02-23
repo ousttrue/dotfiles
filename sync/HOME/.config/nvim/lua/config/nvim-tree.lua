@@ -4,7 +4,6 @@ function M.setup()
   -- vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", { noremap = true })
   vim.keymap.set("n", "<Leader>e", ":NvimTreeFindFileToggle<CR>", { noremap = true })
 
-
   require("nvim-tree").setup {
     -- sync_root_with_cwd = true,
     -- respect_buf_cwd = true,
@@ -30,25 +29,25 @@ function M.setup()
         list = {
           -- remove a default mapping
           { key = "<C-e>", action = "" },
-          { key = "u",     action = "dir_up" },
-        }
+          { key = "u", action = "dir_up" },
+        },
       },
     },
     renderer = {
       indent_width = 2,
-      icons = {
-        glyphs = {
-          git = {
-            unstaged = "",
-            staged = "✓",
-            unmerged = "",
-            renamed = "➜",
-            untracked = "ﰂ",
-            deleted = "ﯰ",
-            ignored = "◌",
-          },
-        },
-      },
+      -- icons = {
+      --   glyphs = {
+      --     git = {
+      --       unstaged = "",
+      --       staged = "✓",
+      --       unmerged = "",
+      --       renamed = "➜",
+      --       untracked = "ﰂ",
+      --       deleted = "ﯰ",
+      --       ignored = "◌",
+      --     },
+      --   },
+      -- },
     },
     filters = {
       -- dotfiles = true,
