@@ -1,0 +1,22 @@
+snippet WG
+	[wrap-git]
+	url = ${1}
+	revision = ${2}
+	depth = 1
+	patch_directory = ${3}
+
+	[provide]
+	$3 = $3_dep
+
+snippet WF
+	[wrap-file]
+	directory = ${2}
+	source_url = ${1}
+	source_filename = $1
+	# source_hash =
+	patch_directory = $2
+	# lead_directory_missing = true # 👈 展開すると bin, include, lib のようひとつの root フォルダが無い場合
+
+	[provide]
+	openxr_loader = $2_dep
+

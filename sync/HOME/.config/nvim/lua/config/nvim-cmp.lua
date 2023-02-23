@@ -37,14 +37,9 @@ function M.setup()
   local modes = { "i", "s", "c" }
 
   cmp.setup {
-    -- snippet = {
-    --   expand = function(args)
-    --     vim.fn["vsnip#anonymous"](args.body)
-    --   end,
-    -- },
     snippet = {
       expand = function(args)
-        require("luasnip").lsp_expand(args.body)
+        luasnip.lsp_expand(args.body)
       end,
     },
 
@@ -84,7 +79,7 @@ function M.setup()
 
     sources = {
       { group_index = 1, name = "nvim_lsp" },
-      { group_index = 1, name = "vsnip" },
+      { group_index = 1, name = "luasnip", option = { use_show_condition = false } },
       { group_index = 1, name = "nvim_lsp_signature_help" },
       { group_index = 1, name = "calc" },
       -- { group_index = 1, name = "nvim_lua" },
@@ -107,6 +102,10 @@ function M.setup()
         mode = "symbol",
         maxwidth = 50,
         ellipsis_char = "...",
+        before = function(entry, vim_item)
+          vim_item.menu = entry.source.name
+          return vim_item
+        end,
       },
     },
     experimental = {

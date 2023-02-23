@@ -194,6 +194,7 @@ local plugins = {
       "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-calc",
       "onsails/lspkind.nvim",
+      "saadparwaiz1/cmp_luasnip",
       -- "hrsh7th/cmp-vsnip",
       -- "hrsh7th/vim-vsnip",
       -- "hrsh7th/vim-vsnip-integ",
@@ -318,6 +319,8 @@ local plugins = {
       end)
     end,
   },
+  { "honza/vim-snippets" },
+  { "hrsh7th/vim-vsnip" },
 }
 
 require("lazy").setup(plugins)

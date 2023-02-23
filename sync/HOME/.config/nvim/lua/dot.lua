@@ -48,4 +48,31 @@ M.border = {
   { "│", "FloatBorder" },
 }
 
+---@param str string
+---@param pattern string
+---@return fun(): integer, integer
+function M.gfind(str, pattern)
+  local from_idx = nil
+  local to_idx = 0
+  return function()
+    from_idx, to_idx = string.find(str, pattern, to_idx + 1)
+    return from_idx, to_idx
+  end
+end
+
+---@param str string
+---@param pattern string
+---@return string[]
+function M.split(str, pattern)
+  local p = 1
+  local result = {}
+
+  for f, t in M.gfind(str, pattern) do
+    table.insert(result, string.sub(str, p, f - 1))
+    p = t + 1
+  end
+  table.insert(result, string.sub(str, p, -1))
+  return result
+end
+
 return M
