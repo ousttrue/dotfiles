@@ -292,14 +292,24 @@ local plugins = {
     "jose-elias-alvarez/null-ls.nvim",
     config = require("config.null-ls").setup,
   },
-  { "rcarriga/nvim-notify" },
+  {
+    "rcarriga/nvim-notify",
+    config = function()
+      require("config.nvim-notify").setup()
+    end,
+  },
   {
     "delphinus/qfheight.nvim",
     config = function()
       require("qfheight").setup {}
     end,
   },
-  { "stevearc/dressing.nvim" },
+  {
+    "stevearc/dressing.nvim",
+    config = function()
+      require("dressing").setup()
+    end,
+  },
 }
 
 require("lazy").setup(plugins)

@@ -25,4 +25,7 @@ points.push_back({
 - [非静的メンバ変数の初期化 - cpprefjp C++日本語リファレンス](https://cpprefjp.github.io/lang/cpp11/non_static_data_member_initializers.html)
 - [tuple - cpprefjp C++日本語リファレンス](https://cpprefjp.github.io/reference/tuple/tuple.html)
 
+# Ubuntu
+`sudo apt install build-essential`
+
 # vscode
