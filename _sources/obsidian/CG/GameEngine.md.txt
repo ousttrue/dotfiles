@@ -6,9 +6,10 @@
 
 - [GitHub - skylicht-lab/skylicht-engine: Skylicht Engine is C++ Game Engine based on Irrlicht 3D. We have upgraded to more features. Cross-Platform Framework (Android, IOS, UWP, HTML5)](https://github.com/skylicht-lab/skylicht-engine)
 
+- [GitHub - jmorton06/Lumos: Cross-Platform C++ 2D/3D game engine](https://github.com/jmorton06/Lumos)
+
 # vulkan
 - [GitHub - ajweeks/FlexEngine: Cross-platform game engine with Vulkan backend](https://github.com/ajweeks/FlexEngine)
-
 # raylib
 [[raylib]]
 

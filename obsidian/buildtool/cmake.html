@@ -220,38 +220,7 @@
         <article role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="cmakekits">
 <h1>CMakeKits<a class="headerlink" href="#cmakekits" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/kits.md">vscode-cmake-tools/kits.md at main · microsoft/vscode-cmake-tools · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://vector-of-bool.github.io/docs/vscode-cmake-tools/kits.html">CMake Kits — CMake Tools 1.4.0 documentation</a></p></li>
-</ul>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Clang 12.0.0 x86_64-pc-windows-msvc"</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"compilers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">"C"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\Program Files\\LLVM\\bin\\clang.exe"</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">"CXX"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\Program Files\\LLVM\\bin\\clang++.exe"</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visual Studio Build Tools 2019 Release - amd64"</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"visualStudio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43c71187"</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"visualStudioArchitecture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x64"</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"preferredGenerator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visual Studio 16 2019"</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x64"</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">"toolset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"host=x64"</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="p">]</span><span class="w"></span>
-</pre></div>
-</div>
-<p>https://github.com/microsoft/vscode-cmake-tools
-<code class="docutils literal notranslate"><span class="pre">src\kit.ts</span></code>
-kit の種類毎に環境変数をセットするなど泥臭い処理をしている。</p>
-<section id="user-local-kits">
-<h2>User-local kits<a class="headerlink" href="#user-local-kits" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">%LOCALAPPDATA%\CMakeTools\cmake-tools-kits.json</span></code></p>
-</section>
+<p>[[cmake_kits]]</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="toolchain">
 <h1>toolchain<a class="headerlink" href="#toolchain" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -337,10 +306,7 @@ ENDIF()</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">CMakeKits</a><ul>
-<li><a class="reference internal" href="#user-local-kits">User-local kits</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">CMakeKits</a></li>
 <li><a class="reference internal" href="#toolchain">toolchain</a><ul>
 <li><a class="reference internal" href="#android-ndk">android NDK</a></li>
 </ul>

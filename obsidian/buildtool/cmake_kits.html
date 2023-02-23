@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>vimgrep - shell note ドキュメント</title>
+        <title>User-local kits - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,36 +212,45 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[vim]] [[nvim]]</p>
+          <p>[[cmake]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://vim-jp.org/vim-users-jp/2011/10/20/Hack-237.html">vim-jp » Hack #237: 古い quickfix を参照する</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/yuku_t/items/0c1aff03949cb1b8fe6b">vimgrepとQuickfix知らないVimmerはちょっとこっち来い - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://zenn.dev/tmrekk/articles/4380961a754287">Vim初心者のQuickfixによる検索・置換入門</a></p></li>
-<li><p><a class="reference external" href="https://www.soum.co.jp/misc/vim-no-susume/7/">Vim のすゝめ - QuickFix | 株式会社創夢 — SOUM/misc</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/delphinus/items/45117e5f8c0a3875e2f9">QuickFix を自動で伸縮する（他、色々） - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/kits.md">vscode-cmake-tools/kits.md at main · microsoft/vscode-cmake-tools · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://vector-of-bool.github.io/docs/vscode-cmake-tools/kits.html">CMake Kits — CMake Tools 1.4.0 documentation</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="vimgrep">
-<h1>vimgrep<a class="headerlink" href="#vimgrep" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="quickfix">
-<h1>QuickFix<a class="headerlink" href="#quickfix" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">global</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://vim-jp.org/vimdoc-ja/quickfix.html">quickfix - Vim日本語ドキュメント</a>
-<code class="docutils literal notranslate"><span class="pre">clist</span></code> <code class="docutils literal notranslate"><span class="pre">cnext</span></code> <code class="docutils literal notranslate"><span class="pre">cprevious</span></code> <code class="docutils literal notranslate"><span class="pre">cfirst</span></code> <code class="docutils literal notranslate"><span class="pre">clast</span></code>
-<code class="docutils literal notranslate"><span class="pre">cc</span></code></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="locationlist">
-<h1>LocationList<a class="headerlink" href="#locationlist" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">local</span></code>
-<code class="docutils literal notranslate"><span class="pre">clist</span></code> <code class="docutils literal notranslate"><span class="pre">lnext</span></code> <code class="docutils literal notranslate"><span class="pre">lprev</span></code> <code class="docutils literal notranslate"><span class="pre">lfirst</span></code> <code class="docutils literal notranslate"><span class="pre">llast</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Clang 12.0.0 x86_64-pc-windows-msvc"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"compilers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">"C"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\Program Files\\LLVM\\bin\\clang.exe"</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">"CXX"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\Program Files\\LLVM\\bin\\clang++.exe"</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visual Studio Build Tools 2019 Release - amd64"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"visualStudio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43c71187"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"visualStudioArchitecture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x64"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"preferredGenerator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visual Studio 16 2019"</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x64"</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">"toolset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"host=x64"</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>https://github.com/microsoft/vscode-cmake-tools
+<code class="docutils literal notranslate"><span class="pre">src\kit.ts</span></code>
+kit の種類毎に環境変数をセットするなど泥臭い処理をしている。</p>
+<section id="user-local-kits">
+<h1>User-local kits<a class="headerlink" href="#user-local-kits" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">~/.local/share/CMakeTools/cmake-tools-kits.json</span></code>
+<code class="docutils literal notranslate"><span class="pre">%LOCALAPPDATA%\CMakeTools\cmake-tools-kits.json</span></code></p>
 </section>
 
         </article>
@@ -257,7 +266,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/nvim/nvim_quickfix.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/buildtool/cmake_kits.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -265,26 +274,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">vimgrep</a></li>
-<li><a class="reference internal" href="#quickfix">QuickFix</a></li>
-<li><a class="reference internal" href="#locationlist">LocationList</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
