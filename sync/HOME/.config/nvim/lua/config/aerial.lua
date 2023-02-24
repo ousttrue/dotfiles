@@ -10,7 +10,7 @@ function M.setup()
       vim.keymap.set('n', '[a', '<cmd>AerialPrev<CR>', { buffer = bufnr })
       vim.keymap.set('n', ']a', '<cmd>AerialNext<CR>', { buffer = bufnr })
     end,
-    default_direction = "prefer_right",
+    default_direction = "right",
     -- Options for opening aerial in a floating win
     float = {
       -- Controls border appearance. Passed to nvim_open_win

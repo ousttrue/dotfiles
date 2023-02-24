@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   require("trouble").setup {
     mode = "document_diagnostics",
-    auto_open = true,
+    -- auto_open = true,
     icons = true,
     -- signs = {
     --   -- icons / text used for a diagnostic
