@@ -24,8 +24,12 @@ nvim +Tutor
 [[nvim_tree]]
 ## in buffer
 [[treesitter]] [[nvim_statusline]]
+## filetypes
+[[cpp]] [[lua]]
+[[json]] [[toml]]
 
 # articles
+- @2022 [【Neovim】memolist.vimを使ってメモをとり、telescope-memo.nvimで検索する](https://zenn.dev/koga1020/articles/009766e1bec42c)
 - @2023 [Neovimの見た目を削ぎ落とした | 点と接線。](https://riq0h.jp/2023/01/30/134307/)
 - @2022 [vim沼: NeovimのReact、TypeScript、Tailwind CSS用セットアップ](https://zenn.dev/takuya/articles/4472285edbc132)
 - @2022 [Vimで古代ギリシア語【自作プラグインのすすめ】 - Qiita](https://qiita.com/NI57721/items/06fc78227faaea9bce90)
