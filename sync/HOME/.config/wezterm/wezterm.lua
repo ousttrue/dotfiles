@@ -52,7 +52,8 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   --
   -- config.default_prog = { "C:/Python310/Scripts/xonsh.exe" }
   config.font_size = 14.0 -- 4k monitor with DPI scaling
-  config.default_prog = { "C:/Program Files/PowerShell/7/pwsh.exe" }
+  -- config.default_prog = { "C:/Program Files/PowerShell/7/pwsh.exe" }
+  config.default_prog = { "nyagos.exe" }
 else
   --
   -- Linux

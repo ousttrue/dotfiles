@@ -1,32 +1,28 @@
 -- vim: set ft=lua:
 function nyagos.alias.gg(args)
-  local result = nyagos.eval('ghq list -p| fzf --reverse +m')
+  local result = nyagos.eval "ghq list -p| fzf --reverse +m"
   if result then
-    nyagos.eval('cd '..result)
+    nyagos.eval("cd " .. result)
   end
 end
 
-nyagos.bindkey("C_N",
-  function(this)
-    search_history(this, false)
-  end
-)
+nyagos.bindkey("C_N", function(this)
+  search_history(this, false)
+end)
 
-nyagos.bindkey("C_P",
-  function(this)
-    search_history(this, true)
-  end
-)
+nyagos.bindkey("C_P", function(this)
+  search_history(this, true)
+end)
 
 function search_history(this, is_prev)
   -- カーソル位置が一番左の場合は通常のnext/prev
   if this.pos == 1 then
     if is_prev == true then
-      this:call("PREVIOUS_HISTORY")
+      this:call "PREVIOUS_HISTORY"
     else
-      this:call("NEXT_HISTORY")
+      this:call "NEXT_HISTORY"
     end
-    this:call("BEGINNING_OF_LINE")
+    this:call "BEGINNING_OF_LINE"
     return nil
   end
 
@@ -70,7 +66,7 @@ function search_history(this, is_prev)
   -- 前方一致する履歴を探す
   local matched_string = nil
   for i = hist_pos + 1, #history_uniq do
-    if history_uniq[i]:match('^' .. search_string .. '.*') then
+    if history_uniq[i]:match("^" .. search_string .. ".*") then
       matched_string = history_uniq[i]
       break
     end
@@ -78,19 +74,20 @@ function search_history(this, is_prev)
 
   -- 見つかった履歴を出力
   -- 見つからなければ、検索キーワードを出力
-  this:call("KILL_WHOLE_LINE")
-  if (matched_string ~= nil) then
+  this:call "KILL_WHOLE_LINE"
+  if matched_string ~= nil then
     this:insert(matched_string)
   else
     this:insert(search_string)
   end
-  this:call("BEGINNING_OF_LINE")
+  this:call "BEGINNING_OF_LINE"
   for i = 1, this.pos - 1 do
-    this:call("FORWARD_CHAR")
+    this:call "FORWARD_CHAR"
   end
 end
 
-function nyagos.alias.pipup(args) 
-  nyagos.eval('py -m pip install pip --upgerade')
+function nyagos.alias.pipup(args)
+  nyagos.eval "py -m pip install pip --upgerade"
 end
 
+nyagos.envadd("PATH", "~/.cargo/bin")

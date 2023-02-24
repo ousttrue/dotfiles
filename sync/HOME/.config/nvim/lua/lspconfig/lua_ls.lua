@@ -34,7 +34,7 @@ local function get_library()
   return vim.api.nvim_get_runtime_file("", true)
 end
 
-function M.setup(lspconfig, capabilities, on_attach)
+function M.setup(lspconfig, capabilities, on_init, on_attach)
   lspconfig.lua_ls.setup {
     cmd = { get_lua_ls() },
     settings = {

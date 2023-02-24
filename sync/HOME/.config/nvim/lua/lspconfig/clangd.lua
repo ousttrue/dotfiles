@@ -10,7 +10,11 @@ local function get_clangd()
   end
 end
 
-function M.setup(lspconfig, capabilities, on_attach)
+---@param lspconfig any
+---@param capabilities any
+---@param on_init any
+---@param on_attach any
+function M.setup(lspconfig, capabilities, on_init, on_attach)
   lspconfig.clangd.setup {
     cmd = {
       get_clangd(),

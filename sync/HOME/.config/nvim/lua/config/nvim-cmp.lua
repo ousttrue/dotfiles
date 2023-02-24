@@ -34,6 +34,25 @@ function M.setup()
     end
   end
 
+  local function custom_enter(fallback)
+    -- if cmp.get_active_entry() then
+    if cmp.visible() then
+      cmp.confirm { select = true }
+      local key = vim.api.nvim_replace_termcodes("<CR>", true, false, true)
+      vim.api.nvim_feedkeys(key, "n", false)
+    else
+      fallback()
+    end
+  end
+
+  local function custom_escape(fallback)
+    if cmp.visible() then
+      cmp.close()
+    end
+    fallback()
+    vim.fn.feedkeys "l"
+  end
+
   local modes = { "i", "s", "c" }
 
   cmp.setup {
@@ -63,17 +82,11 @@ function M.setup()
       ["<C-p>"] = cmp.mapping(custom_prev, modes),
       ["<C-b>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-[>"] = function(fallback)
-        if cmp.visible() then
-          cmp.close()
-        end
-        fallback()
-        vim.fn.feedkeys "l"
-      end,
+      ["<C-[>"] = custm_escape,
       -- ["<C-Space>"] = cmp.mapping.complete(),
       -- ["<C-l>"] = cmp.mapping.complete(),
       -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-      ["<CR>"] = cmp.mapping.confirm { select = true },
+      ["<CR>"] = custom_enter,
       ["<C-e>"] = cmp.mapping.confirm { select = true },
     },
 

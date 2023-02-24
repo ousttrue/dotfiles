@@ -12,6 +12,9 @@ function M.setup()
   -- local symbols_outline = require "symbols-outline"
   lsp_status.register_progress()
 
+  ---@param client vim.lsp.client
+  local function on_init(client) end
+
   ---@param client table
   ---@param bufnr number
   local function on_attach(client, bufnr)
@@ -31,9 +34,9 @@ function M.setup()
   end
   -- print(vim.inspect(capabilities))
 
-  require("lspconfig.lua_ls").setup(lspconfig, capabilities, on_attach)
-  require("lspconfig.clangd").setup(lspconfig, capabilities, on_attach)
-  require("lspconfig.omnisharp").setup(lspconfig, capabilities, on_attach)
+  require("lspconfig.lua_ls").setup(lspconfig, capabilities, on_init, on_attach)
+  require("lspconfig.clangd").setup(lspconfig, capabilities, on_init, on_attach)
+  require("lspconfig.omnisharp").setup(lspconfig, capabilities, on_init, on_attach)
 
   lspconfig.gopls.setup {
     on_attach = on_attach,

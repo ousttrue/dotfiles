@@ -9,10 +9,12 @@
 [[BoxDrawing]]
 - [:LspInfo window border - Language Server Protocol (LSP) - Neovim Discourse](https://neovim.discourse.group/t/lspinfo-window-border/1566)
 - [neovim - User borders around LSP floating windows - Vi and Vim Stack Exchange](https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows)
-
 # nvim-lspconfig
 - [GitHub - neovim/nvim-lspconfig: Quickstart configurations for the Nvim LSP client](https://github.com/neovim/nvim-lspconfig)
 	- [nvim-lspconfig/server_configurations.md at master · neovim/nvim-lspconfig · GitHub](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
+
+# ProjectLocal
+- [Project local settings · neovim/nvim-lspconfig Wiki · GitHub](https://github.com/neovim/nvim-lspconfig/wiki/Project-local-settings)
 
 # hover
 [Neovim LSP Hoverのデザインを変更する](https://zenn.dev/botamotch/scraps/4ce17ce1f311c9)

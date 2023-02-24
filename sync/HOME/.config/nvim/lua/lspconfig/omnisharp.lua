@@ -3,7 +3,7 @@ local M = {}
 local dot = require('dot')
 local util = require "lspconfig.util"
 
-function M.setup(lspconfig, capabilities, on_attach)
+function M.setup(lspconfig, capabilities, on_init, on_attach)
   lspconfig.omnisharp.setup {
     cmd = {
       "dotnet",
