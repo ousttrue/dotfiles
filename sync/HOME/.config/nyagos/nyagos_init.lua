@@ -1,6 +1,8 @@
 local M = {}
 
 function M.setup()
+  require("zoxide").setup()
+
   function nyagos.alias.gg(args)
     local result = nyagos.eval "ghq list -p| fzf --reverse +m"
     if result then
@@ -93,6 +95,7 @@ function M.setup()
   end
 
   nyagos.envadd("PATH", "~/.cargo/bin")
+  nyagos.envadd("PATH", "~/local/bin")
   nyagos.envadd("PATH", "C:/Python310/Scripts")
 end
 
