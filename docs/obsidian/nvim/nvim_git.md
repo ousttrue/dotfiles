@@ -5,3 +5,7 @@
 
 # nvim-tree
 [[nvim_filer]]
+
+# status
+- [GitHub - kyoh86/gitstat.nvim: A lua plugin for neovim that shows git-status on the top of the editor.](https://github.com/kyoh86/gitstat.nvim)
+- [GitHub - tamago324/lir-git-status.nvim: Git status integration of lir.nvim](https://github.com/tamago324/lir-git-status.nvim)
