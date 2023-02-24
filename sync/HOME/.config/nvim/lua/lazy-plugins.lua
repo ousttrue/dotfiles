@@ -321,6 +321,8 @@ local plugins = {
   },
   { "honza/vim-snippets" },
   { "hrsh7th/vim-vsnip" },
+  { "cespare/vim-toml" },
+  { "stevearc/stickybuf.nvim" },
 }
 
 require("lazy").setup(plugins)

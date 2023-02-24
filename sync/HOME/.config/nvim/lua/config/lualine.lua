@@ -5,6 +5,11 @@ function M.setup()
     options = {
       globalstatus = true,
     },
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 500,
+    },
     sections = {
       lualine_a = { "mode" },
       lualine_b = {
@@ -27,7 +32,7 @@ function M.setup()
       lualine_b = {
         { "filename", path = 1 },
       },
-      lualine_c = {},
+      lualine_c = { "aerial" },
       lualine_x = {},
       lualine_y = {
         "encoding",
