@@ -11,6 +11,8 @@
 # Version
 
 # ~/.nyagos
+## 4.4.13
+
 ## 4.4
 - @2019 [NYAGOS 4.4.2_0 を公開してしまいました - 標準愚痴出力](https://zetamatta.hatenablog.com/entry/2019/04/04/001721)
 
@@ -21,6 +23,11 @@
 
 ## history
 - @2014 [nyagosでヒストリ補完する - Qiita](https://qiita.com/nocd5/items/7cfc2441868442838148)
+
+# prompt
+- @2017 [Nyagos リポジトリブランチ名表示 プロンプトの一例 - Qiita](https://qiita.com/tsuyoshi_cho/items/d029825b6d8d3688da92)
+- @2016 [【NYAGOS】プロンプトで使える特殊文字と ANSI エスケープシーケンスを Lua でラップする - Tumbling Dice](https://outofmem.hatenablog.com/entry/2016/01/27/014920)
+- @2015 [nyagosスクリプト解説 - CMD.EXEで化けさせず、nyagosの中だけプロンプトをカラー化 - Qiita](https://qiita.com/zetamatta/items/c08586c85fa73c182a7a)
 
 # peco
 - [peco で Docker container ID を選択するやつ。 - Qiita](https://qiita.com/ujiro99@github/items/0f42088559e1085e5c28)

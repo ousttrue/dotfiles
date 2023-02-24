@@ -3,7 +3,7 @@
 # vscode
 - [GitHub - sumneko/vscode-lua: Release lua-language-server for VSCode](https://github.com/sumneko/vscode-lua)
 `.vscode/settings.json`
-	```json
+```json
     "Lua.workspace.library": [
         "${3rd}/lovr/library"
     ],
