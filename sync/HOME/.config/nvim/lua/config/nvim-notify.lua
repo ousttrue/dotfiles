@@ -9,6 +9,7 @@ function M.setup()
       vim.api.nvim_win_set_config(win, { border = dot.border })
     end,
   }
+  vim.notify = require("notify")
 end
 
 return M

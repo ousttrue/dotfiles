@@ -62,6 +62,9 @@ function M.setup(lspconfig, capabilities, on_init, on_attach)
       },
     },
     capabilities = capabilities,
+    on_init = function(client)
+      on_init(client)
+    end,
     on_attach = function(client, bufnr)
       client.server_capabilities.documentFormattingProvider = false
       on_attach(client, bufnr)

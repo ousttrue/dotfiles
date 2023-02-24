@@ -12,8 +12,9 @@ function M.setup()
   -- local symbols_outline = require "symbols-outline"
   lsp_status.register_progress()
 
-  ---@param client vim.lsp.client
-  local function on_init(client) end
+  local function on_init(client)
+    require "notify" "on_init"
+  end
 
   ---@param client table
   ---@param bufnr number
