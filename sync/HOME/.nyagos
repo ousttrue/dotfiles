@@ -6,15 +6,7 @@ function nyagos.alias.gg(args)
   end
 end
 
-nyagos.bindkey("C_N", function(this)
-  search_history(this, false)
-end)
-
-nyagos.bindkey("C_P", function(this)
-  search_history(this, true)
-end)
-
-function search_history(this, is_prev)
+local function search_history(this, is_prev)
   -- カーソル位置が一番左の場合は通常のnext/prev
   if this.pos == 1 then
     if is_prev == true then
@@ -85,6 +77,14 @@ function search_history(this, is_prev)
     this:call "FORWARD_CHAR"
   end
 end
+
+nyagos.bindkey("C_N", function(this)
+  search_history(this, false)
+end)
+
+nyagos.bindkey("C_P", function(this)
+  search_history(this, true)
+end)
 
 function nyagos.alias.pipup(args)
   nyagos.eval "py -m pip install pip --upgerade"
