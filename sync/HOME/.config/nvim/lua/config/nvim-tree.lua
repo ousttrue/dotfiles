@@ -35,7 +35,10 @@ function M.setup()
       },
     },
     renderer = {
-      indent_width = 2,
+      indent_width = 1,
+      indent_markers = {
+        enable = true,
+      },
       -- icons = {
       --   glyphs = {
       --     git = {

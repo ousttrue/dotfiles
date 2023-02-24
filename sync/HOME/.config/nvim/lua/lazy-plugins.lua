@@ -308,7 +308,7 @@ local plugins = {
   {
     "stevearc/dressing.nvim",
     config = function()
-      require("dressing").setup()
+      require("config.dressing").setup()
     end,
   },
   {

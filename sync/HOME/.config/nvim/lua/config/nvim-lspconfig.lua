@@ -35,6 +35,11 @@ function M.setup()
   require("lspconfig.clangd").setup(lspconfig, capabilities, on_attach)
   require("lspconfig.omnisharp").setup(lspconfig, capabilities, on_attach)
 
+  lspconfig.gopls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+
   lspconfig.pyright.setup {
     on_attach = function(client, bufnr)
       client.server_capabilities.document_formatting = false

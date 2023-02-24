@@ -45,6 +45,7 @@ function M.setup()
   end
   vim.keymap.set("n", "<C-P>", builtin.keymaps)
   vim.keymap.set("n", "<Leader><Space>", project_files, { noremap = true })
+  vim.keymap.set("n", ";;", "<cmd>Telescope<CR>", { noremap = true })
   vim.keymap.set("n", "<Leader>b", builtin.buffers, { noremap = true })
   vim.keymap.set("n", "<Leader>h", builtin.help_tags, { noremap = true })
   -- vim.keymap.set("n", "<F3>", ":<C-u>Telescope ghq list<CR>", {})
