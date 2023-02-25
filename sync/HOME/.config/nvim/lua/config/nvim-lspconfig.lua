@@ -18,9 +18,9 @@ function M.setup()
     -- print(vim.inspect(client.server_capabilities))
     lsp_status.on_attach(client)
     -- navic.attach(client, bufnr)
-    if client.server_capabilities.documentFormattingProvider then
-      vim.keymap.set({ "n", "v" }, "F", vim.lsp.buf.format, { buffer = bufnr, noremap = true })
-    end
+    -- if client.server_capabilities.documentFormattingProvider then
+    --   vim.keymap.set({ "n", "v" }, "<Leader>f", vim.lsp.buf.format, { buffer = bufnr, noremap = true })
+    -- end
   end
 
   -- local capabilities = vim.lsp.protocol.make_client_capabilities()

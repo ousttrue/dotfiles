@@ -75,7 +75,7 @@ local plugins = {
     },
     config = require("config.nvim-tree").setup,
   },
-  { "ckipp01/stylua-nvim" },
+  -- { "ckipp01/stylua-nvim" },
   -- { "averms/black-nvim",
   --   -- run = "UpdateRemotePlugins"
   -- },
@@ -114,11 +114,19 @@ local plugins = {
     -- end,
     config = require("config.nvim-treesitter").setup,
   },
+  -- {
+  --   "stevearc/overseer.nvim",
+  --   config = function()
+  --     require("config.overseer").setup()
+  --   end,
+  -- },
   {
-    "stevearc/overseer.nvim",
-    config = function()
-      require("config.overseer").setup()
-    end,
+    "EthanJWright/vs-tasks.nvim",
+    dependencies = {
+      "nvim-lua/popup.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -314,12 +322,12 @@ local plugins = {
   --     "rcarriga/nvim-notify",
   --   },
   -- },
-  {
-    "delphinus/qfheight.nvim",
-    config = function()
-      require("qfheight").setup {}
-    end,
-  },
+  -- {
+  --   "delphinus/qfheight.nvim",
+  --   config = function()
+  --     require("qfheight").setup {}
+  --   end,
+  -- },
   {
     "stevearc/dressing.nvim",
     config = function()
@@ -337,7 +345,7 @@ local plugins = {
   { "honza/vim-snippets" },
   { "hrsh7th/vim-vsnip" },
   { "cespare/vim-toml" },
-  { "stevearc/stickybuf.nvim" },
+  -- { "stevearc/stickybuf.nvim" },
 }
 
 require("lazy").setup(plugins)

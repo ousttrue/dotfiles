@@ -2,10 +2,7 @@
 local g = vim.g
 local opt = vim.opt
 local dot = require "dot"
-vim.api.nvim_set_var(
-  "python3_host_prog",
-  dot.get_home() .. "/.local/venv/nvim/Scripts/python" .. dot.get_suffix()
-)
+vim.api.nvim_set_var("python3_host_prog", dot.get_home() .. "/.local/venv/nvim/Scripts/python" .. dot.get_suffix())
 
 -- -- avoid plugins
 -- vim.api.nvim_set_var("did_install_default_menus", 1)
@@ -104,8 +101,12 @@ vim.keymap.set("n", "(", ":bprev<CR>", { noremap = true })
 -- vim.keymap.set("n", "<C-h>", ":bprev<CR>", { noremap = true })
 -- vim.keymap.set("n", "<Leader>c", "<C-l>", { noremap = true })
 vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
-vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true })
-vim.keymap.set("i", "<C-s>", "<ESC>:w<CR>i", { noremap = true })
+local function format_write()
+  vim.lsp.buf.format { async = false }
+  vim.cmd "normal :w<CR>"
+end
+vim.keymap.set("n", "<C-s>", format_write, { noremap = true })
+vim.keymap.set("i", "<C-s>", format_write, { noremap = true })
 
 local function should_close(bufnr)
   local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")

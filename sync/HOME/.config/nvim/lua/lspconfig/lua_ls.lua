@@ -63,7 +63,9 @@ function M.setup(lspconfig, capabilities, on_attach)
     capabilities = capabilities,
     -- https://github.com/neovim/nvim-lspconfig/wiki/Project-local-settings
     on_init = function(client)
-      vim.notify('lua_ls.init: ' .. client.config.root_dir, vim.log.levels.INFO)
+      -- print(vim.inspect(client.config.capabilities))
+
+      vim.notify("lua_ls.init: " .. client.config.root_dir, vim.log.levels.INFO)
       if vim.endswith(client.config.root_dir, "/dotfiles") then
         client.config.settings.Lua.diagnostics.globals = {
           "vim",
