@@ -4,6 +4,11 @@ local opt = vim.opt
 local dot = require "dot"
 vim.api.nvim_set_var("python3_host_prog", dot.get_home() .. "/.local/venv/nvim/Scripts/python" .. dot.get_suffix())
 
+vim.cmd "tabnew"
+vim.cmd "tabnext"
+vim.cmd "term"
+vim.cmd "tabprev"
+
 -- -- avoid plugins
 -- vim.api.nvim_set_var("did_install_default_menus", 1)
 -- vim.api.nvim_set_var("did_install_syntax_menu", 1)
@@ -79,7 +84,8 @@ vim.cmd [[
 "   autocmd TextYankPost * silent! lua vim.highlight.on_yank()
 " augroup end
 
-autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
+" autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
+autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow
 ]]
 
 vim.keymap.set({ "i", "c" }, "<C-e>", "<END>")
@@ -95,13 +101,14 @@ vim.keymap.set("i", "<C-j>", "<C-x><C-o>")
 
 -- vim.keymap.set("n", "<S-F>", "<C-i>", { noremap = true })
 -- vim.keymap.set("n", "<S-B>", "<C-o>", { noremap = true })
-vim.keymap.set("n", ")", ":bnext<CR>", { noremap = true })
-vim.keymap.set("n", "(", ":bprev<CR>", { noremap = true })
 -- vim.keymap.set("n", "<C-l>", ":bnext<CR>", { noremap = true })initl
 -- vim.keymap.set("n", "<C-h>", ":bprev<CR>", { noremap = true })
 -- vim.keymap.set("n", "<Leader>c", "<C-l>", { noremap = true })
 vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
 local function format_write()
+  if vim.startswith(vim.fn.mode(), "i") then
+    vim.cmd "stopinsert"
+  end
   vim.lsp.buf.format { async = false }
   vim.api.nvim_command "write"
 end
@@ -200,7 +207,7 @@ vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
-vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { noremap = true })
+-- vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { noremap = true })
 vim.keymap.set("n", "<Leader>D", vim.lsp.buf.type_definition, { noremap = true })
 vim.keymap.set("n", "gn", vim.lsp.buf.rename, { noremap = true })
 vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { noremap = true })

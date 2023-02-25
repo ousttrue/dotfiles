@@ -1,4 +1,6 @@
-local M = {}
+local M = {
+  grep_count = 0,
+}
 
 function M.setup()
   local actions = require "telescope.actions"
@@ -47,12 +49,13 @@ function M.setup()
   vim.keymap.set("n", "<Leader><Space>", project_files, { noremap = true })
   vim.keymap.set("n", ";;", function()
     local word = vim.fn.expand "<cword>"
-    if word and #word > 0 then
+    if M.grep_count == 0 or (word and #word > 0) then
       builtin.live_grep()
       vim.cmd("normal! i" .. word)
     else
       builtin.resume()
     end
+    M.grep_count = M.grep_count + 1
   end, { noremap = true })
   vim.keymap.set("n", "<Leader>b", builtin.buffers, { noremap = true })
   vim.keymap.set("n", "<Leader>h", builtin.help_tags, { noremap = true })

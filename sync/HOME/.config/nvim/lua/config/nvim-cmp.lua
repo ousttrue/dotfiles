@@ -82,7 +82,7 @@ function M.setup()
       ["<C-p>"] = cmp.mapping(custom_prev, modes),
       ["<C-b>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-[>"] = custm_escape,
+      ["<C-[>"] = custom_escape,
       -- ["<C-Space>"] = cmp.mapping.complete(),
       -- ["<C-l>"] = cmp.mapping.complete(),
       -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.

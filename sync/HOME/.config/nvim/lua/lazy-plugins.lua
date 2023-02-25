@@ -114,34 +114,28 @@ local plugins = {
     -- end,
     config = require("config.nvim-treesitter").setup,
   },
-  -- {
-  --   "stevearc/overseer.nvim",
-  --   config = function()
-  --     require("config.overseer").setup()
-  --   end,
-  -- },
   {
-    "EthanJWright/vs-tasks.nvim",
-    dependencies = {
-      "nvim-lua/popup.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
+    "stevearc/overseer.nvim",
     config = function()
-      vim.keymap.set("n", "<Leader>ta", function()
-        require("telescope").extensions.vstask.tasks()
-      end)
-      vim.keymap.set("n", "<Leader>ti", function()
-        require("telescope").extensions.vstask.inputs()
-      end)
-      vim.keymap.set("n", "<Leader>th", function()
-        require("telescope").extensions.vstask.history()
-      end)
-      vim.keymap.set("n", "<Leader>tl", function()
-        require("telescope").extensions.vstask.launch()
-      end)
+      require("config.overseer").setup()
     end,
   },
+  {
+    -- amongst your other plugins
+    { "akinsho/toggleterm.nvim", version = "*", config = true },
+  },
+  -- {
+  --   "EthanJWright/vs-tasks.nvim",
+  --   dependencies = {
+  --     "nvim-lua/popup.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim",
+  --     "akinsho/toggleterm.nvim",
+  --   },
+  --   config = function()
+  --     require("config.vs-tasks").setup()
+  --   end,
+  -- },
   {
     "rcarriga/nvim-dap-ui",
     dependencies = { "mfussenegger/nvim-dap" },
@@ -171,12 +165,12 @@ local plugins = {
     "folke/lsp-colors.nvim",
     config = require("config.lsp-colors").setup,
   },
-  {
-    "j-hui/fidget.nvim",
-    config = function()
-      require("fidget").setup()
-    end,
-  },
+  -- {
+  --   "j-hui/fidget.nvim",
+  --   config = function()
+  --     require("fidget").setup()
+  --   end,
+  -- },
   -- {
   --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   --   config = function()
