@@ -127,6 +127,20 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
+    config = function()
+      vim.keymap.set("n", "<Leader>ta", function()
+        require("telescope").extensions.vstask.tasks()
+      end)
+      vim.keymap.set("n", "<Leader>ti", function()
+        require("telescope").extensions.vstask.inputs()
+      end)
+      vim.keymap.set("n", "<Leader>th", function()
+        require("telescope").extensions.vstask.history()
+      end)
+      vim.keymap.set("n", "<Leader>tl", function()
+        require("telescope").extensions.vstask.launch()
+      end)
+    end,
   },
   {
     "rcarriga/nvim-dap-ui",

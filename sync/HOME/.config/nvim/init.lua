@@ -103,7 +103,7 @@ vim.keymap.set("n", "(", ":bprev<CR>", { noremap = true })
 vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
 local function format_write()
   vim.lsp.buf.format { async = false }
-  vim.cmd "normal :w<CR>"
+  vim.api.nvim_command "write"
 end
 vim.keymap.set("n", "<C-s>", format_write, { noremap = true })
 vim.keymap.set("i", "<C-s>", format_write, { noremap = true })
@@ -193,6 +193,7 @@ vim.diagnostic.config {
 -- })
 vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { noremap = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
+vim.keymap.set("n", "F", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
