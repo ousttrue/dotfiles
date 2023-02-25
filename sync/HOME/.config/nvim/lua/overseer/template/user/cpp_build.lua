@@ -10,11 +10,13 @@ local function get_problem_matcher()
     return {
       -- gcc
       -- src/tagtable.cpp|7 col 14| warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
-      { "extract", "^([^|]+)|(%d+) col %d+| (%w+): (.*)", "filename", "lnum", "text" },
+      { "extract", "([^ |]+)|(%d+) col %d+| (%w+): (.*)", "filename", "lnum", "text" },
       -- link
       -- /usr/bin/ld: src/istream.cpp|637| undefined reference to `growbuf_init_without_GC(growbuf*)
-      { "extract", "^[^:]+: ([^|]+)|(%d+)| (%w+): (.*)", "filename", "lnum", "text" },
-      { "extract", "^([^|]+)|(%d+)| (%w+): (.*)", "filename", "lnum", "text" },
+      { "extract", "[^ :]+: ([^|]+)|(%d+)| (%w+): (.*)", "filename", "lnum", "text" },
+      { "extract", "([^ |]+)|(%d+)| (%w+): (.*)", "filename", "lnum", "text" },
+      -- { "extract", "^([^|]+)|(%d+)| (%w+): (.*)", "filename", "lnum", "text" },
+      -- /w3m/builddir/../src/terms.cpp:182: undefined reference to `write1(char)'
     }
   end
 end
@@ -40,9 +42,7 @@ return {
         },
         { "on_output_quickfix", open = true },
         "on_result_diagnostics",
-        { "on_result_diagnostics_quickfix", {
-          open = true,
-        } },
+        { "on_result_diagnostics_quickfix", { open = true } },
       },
     }
   end,
