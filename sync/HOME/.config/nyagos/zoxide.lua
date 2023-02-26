@@ -1,6 +1,6 @@
 -- # pwd based on the value of _ZO_RESOLVE_SYMLINKS.
 local function __zoxide_pwd()
-  return nyagos.exec "pwd -L"
+  return nyagos.eval "pwd -L"
 end
 
 -- cd + custom logic based on the value of _ZO_ECHO.
