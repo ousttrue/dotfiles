@@ -43,12 +43,12 @@ function M.setup()
   }
 
   vim.keymap.set("n", "<Leader>o", "<cmd>OverseerToggle<CR>")
-  vim.keymap.set("n", "<F7>", function()
-    vim.cmd [[
-:OverseerRun
-" :OverseerOpen
-    ]]
-  end, { noremap = true })
+  --   vim.keymap.set("n", "<F7>", function()
+  --     vim.cmd [[
+  -- :OverseerRun
+  -- " :OverseerOpen
+  --     ]]
+  --   end, { noremap = true })
 end
 
 return M

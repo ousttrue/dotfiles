@@ -8,15 +8,15 @@ local function get_problem_matcher()
     }
   else
     return {
-      -- gcc
-      -- src/tagtable.cpp|7 col 14| warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
-      { "extract", "([^ |]+)|(%d+) col %d+| (%w+): (.*)", "filename", "lnum", "text" },
-      -- link
-      -- /usr/bin/ld: src/istream.cpp|637| undefined reference to `growbuf_init_without_GC(growbuf*)
-      { "extract", "[^ :]+: ([^|]+)|(%d+)| (%w+): (.*)", "filename", "lnum", "text" },
-      { "extract", "([^ |]+)|(%d+)| (%w+): (.*)", "filename", "lnum", "text" },
-      -- { "extract", "^([^|]+)|(%d+)| (%w+): (.*)", "filename", "lnum", "text" },
-      -- /w3m/builddir/../src/terms.cpp:182: undefined reference to `write1(char)'
+      -- -- gcc
+      -- -- src/tagtable.cpp|7 col 14| warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+      -- { "extract", "([^ |]+)|(%d+) col %d+| (%w+): (.*)", "filename", "lnum", "text" },
+      -- -- link
+      -- -- /usr/bin/ld: src/istream.cpp|637| undefined reference to `growbuf_init_without_GC(growbuf*)
+      -- { "extract", "[^ :]+: ([^|]+)|(%d+)| (%w+): (.*)", "filename", "lnum", "text" },
+      -- { "extract", "([^ |]+)|(%d+)| (%w+): (.*)", "filename", "lnum", "text" },
+      -- -- { "extract", "^([^|]+)|(%d+)| (%w+): (.*)", "filename", "lnum", "text" },
+      -- -- /w3m/builddir/../src/terms.cpp:182: undefined reference to `write1(char)'
     }
   end
 end
@@ -31,7 +31,7 @@ return {
       args = { "install" },
       cwd = "builddir",
       components = {
-        "default",
+        -- "default",
         {
 
           "on_output_parse",

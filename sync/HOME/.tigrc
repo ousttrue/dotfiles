@@ -203,4 +203,5 @@ bind generic <Space>s view-status
 bind generic <Space>r view-refs
 bind generic f ?git fetch %(remote)
 bind refs C ?git checkout %(branch)
+bind generic ! ?git reset --hard %(commit)
 

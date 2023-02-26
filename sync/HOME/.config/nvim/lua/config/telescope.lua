@@ -45,13 +45,13 @@ function M.setup()
       }
     end
   end
-  vim.keymap.set("n", "<C-P>", builtin.keymaps)
+  -- vim.keymap.set("n", "<C-P>", builtin.keymaps)
   vim.keymap.set("n", "<Leader><Space>", project_files, { noremap = true })
   vim.keymap.set("n", ";;", function()
     local word = vim.fn.expand "<cword>"
     if M.grep_count == 0 or (word and #word > 0) then
       builtin.live_grep()
-      vim.cmd("normal! i" .. word)
+      vim.cmd("normal! i\\b" .. word .. "\\b")
     else
       builtin.resume()
     end

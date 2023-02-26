@@ -354,6 +354,22 @@ local plugins = {
   { "hrsh7th/vim-vsnip" },
   { "cespare/vim-toml" },
   -- { "stevearc/stickybuf.nvim" },
+  { "vim-scripts/a.vim" },
+  -- { "kevinhwang91/nvim-bqf" },
+  -- {
+  --   "https://gitlab.com/yorickpeterse/nvim-pqf.git",
+  --   config = function()
+  --     require("pqf").setup {
+  --       signs = {
+  --         error = "E",
+  --         warning = "W",
+  --         info = "I",
+  --         hint = "H",
+  --       },
+  --       show_multiple_lines = false,
+  --     }
+  --   end,
+  -- },
 }
 
 require("lazy").setup(plugins)

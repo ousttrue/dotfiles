@@ -4,14 +4,16 @@ function M.setup()
   require("bufferline").setup {
     options = {
       ---@param buf_number integer
+      ---@return boolean
       custom_filter = function(buf_number)
-        local name = vim.fn.bufname(buf_number)
-        local tab_num = vim.fn.tabpagenr()
-        if vim.startswith(name, "term:") then
-          return tab_num == 1
-        else
-          return tab_num ~= 1
+        -- local name = vim.fn.bufname(buf_number)
+        -- local tab_num = vim.fn.tabpagenr()
+        local filetype = vim.api.nvim_buf_get_option(buf_number, "filetype")
+        if filetype == "qf" then
+          return false
         end
+
+        return true
       end,
     },
   }

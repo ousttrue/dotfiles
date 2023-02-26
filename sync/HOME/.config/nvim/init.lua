@@ -4,10 +4,10 @@ local opt = vim.opt
 local dot = require "dot"
 vim.api.nvim_set_var("python3_host_prog", dot.get_home() .. "/.local/venv/nvim/Scripts/python" .. dot.get_suffix())
 
-vim.cmd "tabnew"
-vim.cmd "tabnext"
-vim.cmd "term"
-vim.cmd "tabprev"
+-- vim.cmd "tabnew"
+-- vim.cmd "tabnext"
+-- vim.cmd "term"
+-- vim.cmd "tabprev"
 
 -- -- avoid plugins
 -- vim.api.nvim_set_var("did_install_default_menus", 1)
@@ -42,7 +42,7 @@ opt.number = true --Make line numbers default
 -- opt.relativenumber = true --Make relative number default
 opt.mouse = "a" --Enable mouse mode
 opt.breakindent = true --Enable break indent
-opt.ignorecase = true --Case insensitive searching unless /C or capital in search
+opt.ignorecase = false --Case insensitive searching unless /C or capital in search
 opt.smartcase = true -- Smart case
 opt.updatetime = 250 --Decrease update time
 opt.signcolumn = "yes" -- Always show sign column
@@ -77,6 +77,9 @@ opt.keywordprg = ":help"
 -- set matchpairs+=<:>
 -- ]]
 
+vim.keymap.set("n", "<F7>", "<cmd>make<CR>")
+-- vim.keymap.set("n", "<Tab>", "<cmd>cn<CR>", {})
+-- vim.keymap.set("n", "<S-Tab>", "<cmd>cp<CR>", {})
 vim.cmd [[
 " " Highlight on yank
 " augroup YankHighlight
@@ -84,8 +87,8 @@ vim.cmd [[
 "   autocmd TextYankPost * silent! lua vim.highlight.on_yank()
 " augroup end
 
-" autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
-autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow
+autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
+" autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow
 ]]
 
 vim.keymap.set({ "i", "c" }, "<C-e>", "<END>")
@@ -141,7 +144,9 @@ local function close_buffer_or_window()
     -- if vim.fn.buflisted(alternateBufNum) then
     --   vim.cmd('buffer #')
     -- else
-    vim.cmd "bnext"
+    -- vim.cmd "bnext"
+    vim.cmd "BufferLineCycleNext"
+
     -- end
     -- 非表示になった buffer を削除
     vim.cmd("silent bwipeout " .. currentBufNum)
@@ -151,8 +156,8 @@ local function close_buffer_or_window()
     end
   end
 end
-vim.keymap.set("n", "<Leader>q", "q", { noremap = true })
-vim.keymap.set("n", "q", close_buffer_or_window, { noremap = true })
+vim.keymap.set("n", "<C-q>", close_buffer_or_window, { noremap = true })
+vim.keymap.set("n", "Q", close_buffer_or_window, { noremap = true })
 
 vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
 vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })

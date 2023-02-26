@@ -56,6 +56,14 @@ function M.setup()
     filters = {
       -- dotfiles = true,
     },
+    actions = {
+      use_system_clipboard = true,
+      change_dir = {
+        enable = false,
+        global = false,
+        restrict_above_cwd = false,
+      },
+    },
   }
 end
 
