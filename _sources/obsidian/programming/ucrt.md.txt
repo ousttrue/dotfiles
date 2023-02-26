@@ -1,3 +1,5 @@
+[[runtime]]
+
 - [Universal CRT へのコードのアップグレード | Microsoft Learn](https://learn.microsoft.com/ja-jp/cpp/porting/upgrade-your-code-to-the-universal-crt?view=msvc-170)
 - @2021 [msys2でucrtのランタイムを使おう！ようこそucrt64 - Qiita](https://qiita.com/yumetodo/items/d849a6dcf08e0435f815)
 - @2020 [C/C++ developer からみた uCRT のメモ - Qiita](https://qiita.com/syoyo/items/198f91b31c49c5ba68bb)

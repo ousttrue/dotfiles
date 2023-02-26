@@ -18,6 +18,9 @@ noremap <C-p> <cmd>Telescope find_files<cr>
 file_ignore_patterns = { "node_modules" }
 ```
 
+# livegrep
+- [GitHub - nvim-telescope/telescope-live-grep-args.nvim: Live grep with args](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
+
 # keymaps
 [[nvim_keymap]]
 - @2022 [telescope.nvimで作る簡易コマンドパレット（VSCodeのCtrl + Shift + Pっぽいの） | Atusy's blog](https://blog.atusy.net/2022/11/03/telescope-as-command-pallete/)

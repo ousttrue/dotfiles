@@ -9,6 +9,8 @@
 
 # example
 - [VT100-Examples/vt_seq.md at master · 0x5c/VT100-Examples · GitHub](https://github.com/0x5c/VT100-Examples/blob/master/vt_seq.md)
+- [The VTTEST VT100/102 Terminal Emulation Test](https://www.kermitproject.org/vttest.html)
+- [GitHub - martanne/vis: A vi-like editor based on Plan 9's structural regular expressions](https://github.com/martanne/vis)
 
 # headless
 ## vt100utils

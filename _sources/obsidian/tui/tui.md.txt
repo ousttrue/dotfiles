@@ -29,7 +29,6 @@ fullscreen の term アプリを `tui` と分類
 
 
 # Library
-- [GitHub - a-n-t-h-o-n-y/TermOx: C++17 Terminal User Interface(TUI) Library.](https://github.com/a-n-t-h-o-n-y/TermOx)
 - [GitHub - dundalek/notcurses-zig-example: Demo showing how to use Notcurses library for building terminal UIs with Zig](https://github.com/dundalek/notcurses-zig-example)
 
 # languages
@@ -42,8 +41,11 @@ fullscreen の term アプリを `tui` と分類
 - [~leon_plickat/zig-spoon - sourcehut git](https://git.sr.ht/~leon_plickat/zig-spoon)
 
 # c
+- [libtickit](http://www.leonerd.org.uk/code/libtickit/)
+
 - [GitHub - Cubified/tuibox: A single-header terminal UI (TUI) library, capable of creating mouse-driven, interactive applications on the command line.](https://github.com/Cubified/tuibox)
 	- [GitHub - Cubified/vt100utils: A single-header C library for encoding, decoding, and doing useful things with ANSI graphics escape sequences.](https://github.com/Cubified/vt100utils)
+
 
 ## c++
 - [GitHub - a-n-t-h-o-n-y/TermOx: C++17 Terminal User Interface(TUI) Library.](https://github.com/a-n-t-h-o-n-y/TermOx)
