@@ -88,7 +88,7 @@ vim.cmd [[
 "   autocmd TextYankPost * silent! lua vim.highlight.on_yank()
 " augroup end
 
-autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
+" autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 " autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow
 ]]
 
@@ -138,23 +138,20 @@ end
 
 local function close_buffer_or_window()
   local currentBufNum = vim.fn.bufnr "%"
-  -- local alternateBufNum = vim.fn.bufnr("#")
   if should_close(currentBufNum) then
     vim.cmd "close"
   else
     -- buffer 切り替え｀
-    -- if vim.fn.buflisted(alternateBufNum) then
-    --   vim.cmd('buffer #')
-    -- else
-    -- vim.cmd "bnext"
-    vim.cmd "BufferLineCycleNext"
-
-    -- end
-    -- 非表示になった buffer を削除
-    vim.cmd("silent bwipeout " .. currentBufNum)
-    --   bwipeoutに失敗した場合はウインドウ上のバッファを復元
-    if vim.fn.bufloaded(currentBufNum) ~= 0 then
-      vim.cmd("buffer " .. currentBufNum)
+    local alternateBufNum = vim.fn.bufnr "#"
+    if alternateBufNum ~= 1 and vim.fn.buflisted(alternateBufNum) then
+      vim.cmd "buffer #"
+      -- vim.cmd "BufferLineCycleNext"
+      -- 非表示になった buffer を削除
+      vim.cmd("silent bwipeout " .. currentBufNum)
+      --   bwipeoutに失敗した場合はウインドウ上のバッファを復元
+      if vim.fn.bufloaded(currentBufNum) ~= 0 then
+        vim.cmd("buffer " .. currentBufNum)
+      end
     end
   end
 end
@@ -211,8 +208,8 @@ vim.keymap.set("n", "F", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
-vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
+vim.keymap.set("n", "gD", vim.lsp.buf.definition, { noremap = true })
+vim.keymap.set("n", "gd", vim.lsp.buf.declaration, { noremap = true })
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
 -- vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { noremap = true })
 vim.keymap.set("n", "<Leader>D", vim.lsp.buf.type_definition, { noremap = true })
