@@ -14,4 +14,7 @@ setlocal noswapfile nobuflisted
 
 # 関数
 ## bufnr
+- `bufnr %`
+- `bufnr #` alternative buffer(直前のバッファ)
+
 ## bwipeout
