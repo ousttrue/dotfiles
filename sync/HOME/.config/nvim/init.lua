@@ -34,6 +34,7 @@ vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
 
+opt.autowrite = true
 opt.completeopt = "menu,preview"
 opt.ambiwidth = "single"
 opt.termguicolors = true -- Enable colors in terminal
@@ -77,7 +78,7 @@ opt.keywordprg = ":help"
 -- set matchpairs+=<:>
 -- ]]
 
-vim.keymap.set("n", "<F7>", "<cmd>make<CR>")
+vim.keymap.set("n", "<F7>", "<cmd>make!<CR>")
 vim.keymap.set("n", "<F8>", "<cmd>Cfilter / error:/<CR>")
 vim.keymap.set("n", "<Tab>", "<cmd>cn<CR>", {})
 vim.keymap.set("n", "<S-Tab>", "<cmd>cp<CR>", {})
