@@ -373,8 +373,8 @@ local plugins = {
   {
     "Bakudankun/BackAndForward.vim",
     config = function()
-      vim.keymap.set("n", "<C-o>", "<cmd>Back<CR>", {})
-      vim.keymap.set("n", "<C-]>", "<cmd>Forward<CR>", {})
+      vim.keymap.set("n", "<C-p>", "<cmd>Back<CR>", {})
+      vim.keymap.set("n", "<C-n>", "<cmd>Forward<CR>", {})
     end,
   },
 }
