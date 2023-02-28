@@ -34,6 +34,7 @@ vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
 
+opt.autowrite = true
 opt.completeopt = "menu,preview"
 opt.ambiwidth = "single"
 opt.termguicolors = true -- Enable colors in terminal
@@ -77,7 +78,7 @@ opt.keywordprg = ":help"
 -- set matchpairs+=<:>
 -- ]]
 
-vim.keymap.set("n", "<F7>", "<cmd>make<CR>")
+vim.keymap.set("n", "<F7>", "<cmd>make!<CR>")
 vim.keymap.set("n", "<F8>", "<cmd>Cfilter / error:/<CR>")
 vim.keymap.set("n", "<Tab>", "<cmd>cn<CR>", {})
 vim.keymap.set("n", "<S-Tab>", "<cmd>cp<CR>", {})
@@ -142,16 +143,16 @@ local function close_buffer_or_window()
     vim.cmd "close"
   else
     -- buffer 切り替え｀
-    local alternateBufNum = vim.fn.bufnr "#"
-    if alternateBufNum ~= 1 and vim.fn.buflisted(alternateBufNum) then
-      vim.cmd "buffer #"
-      -- vim.cmd "BufferLineCycleNext"
-      -- 非表示になった buffer を削除
-      vim.cmd("silent bwipeout " .. currentBufNum)
-      --   bwipeoutに失敗した場合はウインドウ上のバッファを復元
-      if vim.fn.bufloaded(currentBufNum) ~= 0 then
-        vim.cmd("buffer " .. currentBufNum)
-      end
+    vim.cmd "BufferLineCycleNext"
+    local newBufNum = vim.fn.bufnr "%"
+    if newBufNum == currentBufNum then
+      vim.cmd "enew"
+    end
+    -- 非表示になった buffer を削除
+    vim.cmd("silent bwipeout " .. currentBufNum)
+    --   bwipeoutに失敗した場合はウインドウ上のバッファを復元
+    if vim.fn.bufloaded(currentBufNum) ~= 0 then
+      vim.cmd("buffer " .. currentBufNum)
     end
   end
 end
