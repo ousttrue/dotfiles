@@ -370,6 +370,13 @@ local plugins = {
   --     }
   --   end,
   -- },
+  {
+    "Bakudankun/BackAndForward.vim",
+    config = function()
+      vim.keymap.set("n", "<C-o>", "<cmd>Back<CR>", {})
+      vim.keymap.set("n", "<C-]>", "<cmd>Forward<CR>", {})
+    end,
+  },
 }
 
 require("lazy").setup(plugins)

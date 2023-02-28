@@ -19,7 +19,7 @@ function M.setup()
     -- debug = true,
     sources = {
       null_ls.builtins.formatting.stylua,
-      -- null_ls.builtins.formatting.yapf,
+      null_ls.builtins.formatting.black,
       -- null_ls.builtins.formatting.cmake_format,
     },
     on_attach = on_attach,

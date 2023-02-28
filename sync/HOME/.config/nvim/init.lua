@@ -42,7 +42,7 @@ opt.number = true --Make line numbers default
 -- opt.relativenumber = true --Make relative number default
 opt.mouse = "a" --Enable mouse mode
 opt.breakindent = true --Enable break indent
-opt.ignorecase = false --Case insensitive searching unless /C or capital in search
+opt.ignorecase = true --Case insensitive searching unless /C or capital in search
 opt.smartcase = true -- Smart case
 opt.updatetime = 250 --Decrease update time
 opt.signcolumn = "yes" -- Always show sign column
@@ -78,8 +78,9 @@ opt.keywordprg = ":help"
 -- ]]
 
 vim.keymap.set("n", "<F7>", "<cmd>make<CR>")
--- vim.keymap.set("n", "<Tab>", "<cmd>cn<CR>", {})
--- vim.keymap.set("n", "<S-Tab>", "<cmd>cp<CR>", {})
+vim.keymap.set("n", "<F8>", "<cmd>Cfilter / error:/<CR>")
+vim.keymap.set("n", "<Tab>", "<cmd>cn<CR>", {})
+vim.keymap.set("n", "<S-Tab>", "<cmd>cp<CR>", {})
 vim.cmd [[
 " " Highlight on yank
 " augroup YankHighlight
@@ -93,6 +94,7 @@ autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 vim.keymap.set({ "i", "c" }, "<C-e>", "<END>")
 vim.keymap.set({ "i", "c" }, "<C-a>", "<HOME>")
+vim.cmd "packadd cfilter"
 
 -- opt.completeopt = "menuone,noinsert"
 vim.keymap.set("i", "<C-j>", "<C-x><C-o>")
