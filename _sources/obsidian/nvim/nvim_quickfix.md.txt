@@ -1,5 +1,9 @@
 [[vim]] [[nvim]]
 
+- [Quickfix - Neovim docs](https://neovim.io/doc/user/quickfix.html)
+- [quickfix - Vim日本語ドキュメント](https://vim-jp.org/vimdoc-ja/quickfix.html)
+
+# articles
 - [vim-jp » Hack #237: 古い quickfix を参照する](https://vim-jp.org/vim-users-jp/2011/10/20/Hack-237.html)
 
 - @2021 [VimのQuickFixでジャンプするときに直前のWindowを使う :: biosugar0](https://www.biosugar0.com/posts/2021/07/vim-qfenter/)
@@ -17,7 +21,6 @@ autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 
 # QuickFix
 `global`
-- [quickfix - Vim日本語ドキュメント](https://vim-jp.org/vimdoc-ja/quickfix.html)
 `clist` `cnext` `cprevious` `cfirst` `clast`
 `cc`
 
