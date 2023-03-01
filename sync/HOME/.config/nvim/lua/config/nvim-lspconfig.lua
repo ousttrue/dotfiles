@@ -21,6 +21,7 @@ function M.setup()
     -- if client.server_capabilities.documentFormattingProvider then
     --   vim.keymap.set({ "n", "v" }, "<Leader>f", vim.lsp.buf.format, { buffer = bufnr, noremap = true })
     -- end
+    vim.keymap.set("n", "<C-]>", vim.lsp.buf.definition)
   end
 
   -- local capabilities = vim.lsp.protocol.make_client_capabilities()
