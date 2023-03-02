@@ -7,6 +7,14 @@
 
 - [GitHub - florianblume/qt3d-gizmo: 3D gizmo to attach to Qt3D entities.](https://github.com/florianblume/qt3d-gizmo)
 
+- [GitHub - Decstar77/Opengl-Renderer: A Modern OpenGl Renderer](https://github.com/Decstar77/Opengl-Renderer)
+
+- [gleem (OpenGL Extremely Easy-to-use Manipulators)](http://alumni.media.mit.edu/~kbrussel/gleem/)
+
+- [GitHub - BrutPitt/virtualGizmo3D: Virtual GIZMO - 3D object manipulator / orientator, via mouse, with pan and dolly/zoom features](https://github.com/BrutPitt/virtualGizmo3D)
+
+- [GitHub - kooparse/mogwai: Graphic utility used to manipulate objects in 3D for scene editing (commonly called Gizmo).](https://github.com/kooparse/mogwai)
+
 # tinyGizmo
 - [GitHub - ddiakopoulos/tinygizmo: An simple immediate-mode 3D gimzo/manipulator (translation, rotation, scale widget) in ~1200 LoC](https://github.com/ddiakopoulos/tinygizmo)
 

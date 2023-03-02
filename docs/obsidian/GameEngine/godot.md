@@ -8,6 +8,7 @@
 # Version
 ## 4
 `devlop`
+- @2023 [Godot 4.0 sets sail: All aboard for new horizons](https://godotengine.org/article/godot-4-0-sets-sail/)
 - @2023 [Dev snapshot: Godot 4.0 beta 17](https://godotengine.org/article/dev-snapshot-godot-4-0-beta-17/)
 - @2023 [Godot 4.0 Documentation Sprint](https://godotengine.org/article/godot-4-0-docs-sprint/)
 - @2023 [Godot 4 VR開発メモ - フレームシンセシス](https://framesynthesis.jp/tech/godot/vr/)
