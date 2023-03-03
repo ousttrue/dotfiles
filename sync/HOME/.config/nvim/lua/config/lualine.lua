@@ -1,10 +1,24 @@
 local M = {}
 function M.setup()
+  -- local function qf()
+  --   if vim.api.nvim_buf_get_option(0, "filetype") == "qf" then
+  --     local l = vim.fn.getqflist()
+  --     if #l > 0 then
+  --       return "quickfix: " .. #l
+  --     end
+  --   end
+  -- end
+
   ---@diagnostic disable-next-line
   require("lualine").setup {
     options = {
       globalstatus = true,
+      disabled_filetypes = { -- Filetypes to disable lualine for.
+        statusline = {}, -- only ignores the ft for statusline.
+        winbar = { "qf" }, -- only ignores the ft for winbar.
+      },
     },
+    extensions = {},
     refresh = {
       statusline = 1000,
       tabline = 1000,
@@ -18,9 +32,7 @@ function M.setup()
         -- "require'lsp-status'.status()",
         "diagnostics",
       },
-      lualine_c = {
-        -- "filename"
-      },
+      lualine_c = {},
       lualine_x = {
         "overseer",
       },

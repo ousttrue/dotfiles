@@ -56,6 +56,15 @@ function M.setup()
   vim.keymap.set("n", "<Leader>h", builtin.help_tags, { noremap = true })
   -- vim.keymap.set("n", "<F3>", ":<C-u>Telescope ghq list<CR>", {})
   vim.keymap.set("n", "<leader>g", ":Telescope find_files<cr>" .. "'" .. vim.fn.expand "<cword>")
+
+  -- vim.keymap.set("n", "*", function()
+  --   local word = vim.fn.expand "<cword>"
+  --   builtin.current_buffer_fuzzy_find()
+  --   -- builtin.grep_string { shorten_path = true, word_match = "-w", only_sort_text = true, search = "" }
+  --   if #word > 0 then
+  --     vim.cmd("normal! i" .. word)
+  --   end
+  -- end, { noremap = true })
 end
 
 return M
