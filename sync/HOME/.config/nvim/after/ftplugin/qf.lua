@@ -2,6 +2,4 @@
 vim.keymap.set("n", "p", "<CR>zz<C-w>p", { buffer = 0, noremap = true })
 
 -- winbar
-vim.cmd [[
-setlocal winbar=quickfix:\ %L
-]]
+vim.api.nvim_win_set_option(0, "winbar", "quickfix: %L")
