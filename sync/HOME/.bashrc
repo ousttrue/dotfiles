@@ -108,7 +108,11 @@ if which zoxide > /dev/null 2>&1; then
 fi
 
 function gg {
-    local selected=$(ghq list -p | fzf-tmux --reverse +m)
+    local arg=""
+    if [ $# -gt 0 ]; then
+        arg="-q $*"
+    fi
+    local selected=$(ghq list -p | fzf-tmux ${arg} --reverse +m)
     if [[ ${selected} =~ [^\s] ]]; then
         z ${selected}
     fi
