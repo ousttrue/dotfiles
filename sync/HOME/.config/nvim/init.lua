@@ -79,7 +79,10 @@ opt.keywordprg = ":help"
 -- ]]
 
 vim.keymap.set("n", "<F7>", "<cmd>make!<CR>")
-vim.keymap.set("n", "<F8>", "<cmd>Cfilter / error:/<CR>")
+vim.keymap.set("n", "<F8>", function()
+  vim.cmd "copen"
+  vim.cmd "Cfilter / error:/"
+end)
 vim.keymap.set("n", "<Tab>", "<cmd>cn<CR>", {})
 vim.keymap.set("n", "<S-Tab>", "<cmd>cp<CR>", {})
 vim.cmd [[

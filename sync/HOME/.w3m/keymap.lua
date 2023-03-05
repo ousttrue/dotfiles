@@ -32,6 +32,6 @@ w3m.keymap(";", "MARK_URL")
 -- custom
 w3m.keymap("u", "CURSORLINE_TOP")
 
-w3m.keymap("x", function()
+w3m.keymap("z", function()
   print "HELLO!"
 end)
