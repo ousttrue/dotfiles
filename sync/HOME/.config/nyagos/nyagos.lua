@@ -16,12 +16,14 @@ nyagos = {
 ---@param text string
 function nyagos.fields(text) end
 
+---execute command
 ---@param cmds string|table
 function nyagos.exec(cmds) end
 
 ---@param cmds table
 function nyagos.rawexec(cmds) end
 
+---execute command and return stdout as string
 ---@param cmds string
 ---@return string
 function nyagos.eval(cmds) end

@@ -4,4 +4,5 @@
 - @2022 [alacritty+tmuxもいいけど、weztermがすごい件](https://zenn.dev/yutakatay/articles/wezterm-intro)
 - @2022 [weztermを使ってみる](https://zenn.dev/eetann/scraps/fe0a32896b6de8)
 
+- [weztermのEmojiがなんか思ってたのと違うな...というときの設定の仕方](https://zenn.dev/paiza/articles/9ca689a0365b05)
 
