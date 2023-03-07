@@ -5,12 +5,41 @@ local function get_home()
   return os.getenv "HOME" or os.getenv "USERPROFILE"
 end
 
+local yday = os.date("*t")["yday"]
+
+local themes = {
+  "Afterglow",
+  "Atelier Dune Light (base16)",
+  "Azu (Gogh)",
+  "Belafonte Day",
+  "Black Metal (base16)",
+  "carbonfox",
+  "Chalk",
+  "Ciapre",
+  "DimmedMonokai",
+  "Fahrenheit",
+  "ForestBlue",
+  "Green Screen (base16)",
+  "Hacktober",
+  "idleToes",
+  "Man Page",
+  "MonaLisa",
+  "N0tch2k",
+  "nightfox",
+  "Operator Mono Dark",
+  "Relaxed",
+  "Royal",
+  "Seafoam Pastel",
+  "SeaShells",
+  "vimbones",
+}
+
 local config = {
   use_ime = true,
   enable_kitty_graphics = true,
   -- font
   font = wezterm.font "HackGenNerd Console",
-  -- color_scheme = "OneHalfDark",
+  color_scheme = themes[(yday % #themes) + 1],
   hide_tab_bar_if_only_one_tab = true,
   tab_bar_at_bottom = true,
   -- keybinds
