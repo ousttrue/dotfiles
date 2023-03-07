@@ -3,6 +3,11 @@ local M = {}
 function M.setup()
   require("zoxide").setup()
 
+  -- nyagos.env.prompt = "$L" .. nyagos.getenv "COMPUTERNAME" .. ":$P$G"
+  set {
+    PROMPT = "$s$P",
+  }
+
   function nyagos.alias.gg(args)
     local result = nyagos.eval "ghq list -p| fzf --reverse +m"
     if result then
@@ -97,6 +102,10 @@ function M.setup()
   nyagos.envadd("PATH", "~/.cargo/bin")
   nyagos.envadd("PATH", "~/local/bin")
   nyagos.envadd("PATH", "C:/Python310/Scripts")
+
+  nyagos.complete_for.git = require("completion_git").complete_for
+
+  nyagos.prompt = require("prompt").prompt2
 end
 
 return M
