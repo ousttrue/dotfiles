@@ -94,7 +94,7 @@ function M.setup()
       { group_index = 1, name = "nvim_lsp" },
       { group_index = 1, name = "luasnip", option = { use_show_condition = false } },
       { group_index = 1, name = "nvim_lsp_signature_help" },
-      { group_index = 1, name = "calc" },
+      -- { group_index = 1, name = "calc" },
       -- { group_index = 1, name = "nvim_lua" },
       {
         group_index = 2,
