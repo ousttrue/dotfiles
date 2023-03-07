@@ -33,6 +33,8 @@ vim.api.nvim_set_var("python3_host_prog", dot.get_home() .. "/.local/venv/nvim/S
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
+-- disable netrw's gx mapping.
+g.netrw_nogx = true
 
 opt.autowrite = true
 opt.completeopt = "menu,preview"

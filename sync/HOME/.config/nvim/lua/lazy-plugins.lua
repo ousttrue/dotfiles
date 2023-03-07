@@ -377,6 +377,12 @@ local plugins = {
       vim.keymap.set("n", "<C-n>", "<cmd>Forward<CR>", {})
     end,
   },
+  {
+    "tyru/open-browser.vim",
+    config = function()
+      vim.keymap.set({ "n", "v" }, "gx", "<Plug>(openbrowser-smart-search)")
+    end,
+  },
 }
 
 require("lazy").setup(plugins)
