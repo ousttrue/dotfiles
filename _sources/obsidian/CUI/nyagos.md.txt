@@ -24,10 +24,37 @@
 ## history
 - @2014 [nyagosでヒストリ補完する - Qiita](https://qiita.com/nocd5/items/7cfc2441868442838148)
 
+# Documents
+## install
+- [nyagos/01-Install_en.md at master · nyaosorg/nyagos · GitHub](https://github.com/nyaosorg/nyagos/blob/master/docs/01-Install_en.md)
+- @2019 [Git のセットアップ for Windows & nyagos - 標準愚痴出力](https://zetamatta.hatenablog.com/entry/2019/07/13/113245)
+
+## options(command line)
+- [nyagos/02-Options_en.md at master · nyaosorg/nyagos · GitHub](https://github.com/nyaosorg/nyagos/blob/master/docs/02-Options_en.md)
+## editor(key code)
+- [nyagos/03-Readline_en.md at master · nyaosorg/nyagos · GitHub](https://github.com/nyaosorg/nyagos/blob/master/docs/03-Readline_en.md)
+## builtin command
+- [nyagos/04-Commands_en.md at master · nyaosorg/nyagos · GitHub](https://github.com/nyaosorg/nyagos/blob/master/docs/04-Commands_en.md)
+## .nyagos
+- [nyagos/05-Startup_en.md at master · nyaosorg/nyagos · GitHub](https://github.com/nyaosorg/nyagos/blob/master/docs/05-Startup_en.md)
+- [nyagos customize script(gitのステータスと作業ブランチ名、あと直前のコマンドの状態によって顔文字が変化する) · GitHub](https://gist.github.com/Pctg-x8/cc0462beac7dfedd4abb)
+- [Nyagos リポジトリブランチ名表示 プロンプトの一例 ref: http://qiita.com/tsuyoshi_cho/items/d029825b6d8d3688da92 · GitHub](https://gist.github.com/tsuyoshicho/1e6288193047d782b576d8cf5bf9bc13)
+- [.nyagos · GitHub](https://gist.github.com/hogewest/0ebe5acd5b10cc31c2a6f9195e2290f5)
+	
+## substitution
+- [nyagos/06-Substitution_en.md at master · nyaosorg/nyagos · GitHub](https://github.com/nyaosorg/nyagos/blob/master/docs/06-Substitution_en.md)
+## lua
+- [nyagos/07-LuaFunctions_en.md at master · nyaosorg/nyagos · GitHub](https://github.com/nyaosorg/nyagos/blob/master/docs/07-LuaFunctions_en.md)
+
+
 # prompt
+- @2018 [【NYAGOS】Nyagos のプロンプトに git の現在の branch 名を表示する - Tumbling Dice](https://outofmem.hatenablog.com/entry/2016/01/27/014352)
 - @2017 [Nyagos リポジトリブランチ名表示 プロンプトの一例 - Qiita](https://qiita.com/tsuyoshi_cho/items/d029825b6d8d3688da92)
 - @2016 [【NYAGOS】プロンプトで使える特殊文字と ANSI エスケープシーケンスを Lua でラップする - Tumbling Dice](https://outofmem.hatenablog.com/entry/2016/01/27/014920)
 - @2015 [nyagosスクリプト解説 - CMD.EXEで化けさせず、nyagosの中だけプロンプトをカラー化 - Qiita](https://qiita.com/zetamatta/items/c08586c85fa73c182a7a)
+
+# box
+- [nyagos 4.3でもmigemoでディレクトリ移動したい! - Qiita](https://qiita.com/nocd5/items/1736064cd9ee652d5920)]
 
 # peco
 - [peco で Docker container ID を選択するやつ。 - Qiita](https://qiita.com/ujiro99@github/items/0f42088559e1085e5c28)
