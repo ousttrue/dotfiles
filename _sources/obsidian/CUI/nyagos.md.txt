@@ -53,6 +53,12 @@
 - @2016 [【NYAGOS】プロンプトで使える特殊文字と ANSI エスケープシーケンスを Lua でラップする - Tumbling Dice](https://outofmem.hatenablog.com/entry/2016/01/27/014920)
 - @2015 [nyagosスクリプト解説 - CMD.EXEで化けさせず、nyagosの中だけプロンプトをカラー化 - Qiita](https://qiita.com/zetamatta/items/c08586c85fa73c182a7a)
 
+## escape sequence
+- @2016 [【NYAGOS】プロンプトで使える特殊文字と ANSI エスケープシーケンスを Lua でラップする - Tumbling Dice](https://outofmem.hatenablog.com/entry/2016/01/27/014920)
+
+## nerdfont
+- [bashプロンプトの表示をNerdfontsで格好良くする - Qiita](https://qiita.com/GunseiKPaseri/items/e594c8e261905e3d0281)
+
 # box
 - [nyagos 4.3でもmigemoでディレクトリ移動したい! - Qiita](https://qiita.com/nocd5/items/1736064cd9ee652d5920)]
 
