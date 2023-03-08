@@ -6,6 +6,7 @@ function M.setup()
   local sorters = require "telescope.sorters"
   local builtin = require "telescope.builtin"
   local utils = require "telescope.utils"
+  telescope.load_extension "emoji"
 
   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-u-to-clear-prompt
   ---@diagnostic disable-next-line

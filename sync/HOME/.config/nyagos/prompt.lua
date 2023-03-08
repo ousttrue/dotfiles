@@ -70,26 +70,50 @@ local function fg_bg_attr(fg, bg, attr)
   return str .. "m"
 end
 
----@param fg_left string
----@param bg string
----@param fg_right string
----@return string
-local function sep(fg_left, bg, fg_right)
-  return "$s" .. fg_bg_attr(fg_left, bg) .. SEP .. fg_bg_attr(fg_right, bg) .. "$s"
+local function new_sep(init)
+  local current = init
+  ---@param bg string
+  ---@param fg_right string
+  ---@return string
+  return function(bg, fg_right)
+    local str = "$s" .. fg_bg_attr(V.fg[current], V.bg[bg]) .. SEP .. fg_bg_attr(fg_right, V.bg[bg]) .. "$s"
+    current = bg
+    return str
+  end
 end
+
+local H = {
+  "🐭",
+  "😺",
+}
+
+local yday = os.date("*t")["yday"]
 
 local org_prompter = nyagos.prompt
 function M.prompt2(this)
+  -- local current = "$P"
+  local current = string.gsub(nyagos.getwd(), "\\", "/")
+
+  -- gibhub
+  local github = "/ghq/github.com/"
+  local found = string.find(current, github, 1, true)
+  if found then
+    current = " " .. string.sub(current, found + #github)
+  else
+    current = "$P"
+  end
+
+  local start = "red"
+  local sep = new_sep(start)
+  local prompt = fg_bg_attr(V.fg.white, V.bg[start]) .. H[yday % #H + 1] .. "$s" .. current
+
   local git_branch = getBranch()
-  return org_prompter(
-    fg_bg_attr(V.fg.white, V.bg.red)
-      .. "😺$s"
-      .. this
-      .. sep(V.fg.red, V.bg.yellow, V.fg.black)
-      .. git_branch
-      .. sep(V.fg.yellow, V.bg.default, V.fg.default)
-      .. "$_$$$s"
-  )
+  -- local git_branch = nyagos.eval [[git symbolic-ref --short HEAD]]
+  if git_branch then
+    prompt = prompt .. sep("yellow", V.fg.black) .. git_branch
+  end
+
+  return org_prompter(prompt .. sep("default", V.fg.default) .. "$_$$$s")
 end
 
 ------------------------------------------------

@@ -95,6 +95,7 @@ local plugins = {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-frecency.nvim",
+      "xiyaowong/telescope-emoji.nvim",
     },
     config = function()
       require("config.telescope").setup()

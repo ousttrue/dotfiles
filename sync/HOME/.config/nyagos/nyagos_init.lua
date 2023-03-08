@@ -4,9 +4,9 @@ function M.setup()
   require("zoxide").setup()
 
   -- nyagos.env.prompt = "$L" .. nyagos.getenv "COMPUTERNAME" .. ":$P$G"
-  set {
-    PROMPT = "$P",
-  }
+  -- set {
+  --   PROMPT = "$P",
+  -- }
 
   function nyagos.alias.gg(args)
     local result = nyagos.eval "ghq list -p| fzf --reverse +m"
