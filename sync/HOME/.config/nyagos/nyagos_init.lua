@@ -5,7 +5,7 @@ function M.setup()
 
   -- nyagos.env.prompt = "$L" .. nyagos.getenv "COMPUTERNAME" .. ":$P$G"
   set {
-    PROMPT = "$s$P",
+    PROMPT = "$P",
   }
 
   function nyagos.alias.gg(args)
@@ -15,7 +15,21 @@ function M.setup()
     end
   end
 
+  function nyagos.alias.gs(args)
+    local result = nyagos.eval "git branch| fzf"
+    if result then
+      nyagos.eval("git switch " .. result)
+    end
+  end
+
   function nyagos.alias.gst(args)
+    local result = nyagos.eval "git tag| fzf"
+    if result then
+      nyagos.eval("git switch -c branch_" .. result .. " " .. result)
+    end
+  end
+
+  function nyagos.alias.gt(args)
     nyagos.exec "git status"
   end
 

@@ -1,6 +1,10 @@
 local M = {}
 -- https://gist.github.com/tsuyoshicho/1e6288193047d782b576d8cf5bf9bc13
 
+local V = require "vars"
+
+local SEP = ""
+
 local function split(str, delim)
   local result = {}
   for i in string.gmatch(str, delim) do
@@ -54,16 +58,38 @@ local function getBranch()
   end
 end
 
+---@param fg string
+---@param bg string
+---@param attr string|nil
+---@return string
+local function fg_bg_attr(fg, bg, attr)
+  local str = "$e[" .. fg .. ";" .. bg
+  if attr then
+    str = str .. ";" .. attr
+  end
+  return str .. "m"
+end
+
+---@param fg_left string
+---@param bg string
+---@param fg_right string
+---@return string
+local function sep(fg_left, bg, fg_right)
+  return "$s" .. fg_bg_attr(fg_left, bg) .. SEP .. fg_bg_attr(fg_right, bg) .. "$s"
+end
+
 local org_prompter = nyagos.prompt
 function M.prompt2(this)
-  -- Gitのブランチ名をプロンプトに表示
   local git_branch = getBranch()
-  if git_branch then
-    git_branch = "$e[37;1m$e[33;50;1m(" .. git_branch .. ")$e[37;1m"
-  else
-    git_branch = ""
-  end
-  return org_prompter("$e[36;36;1m" .. this .. "$s" .. git_branch .. "$e[36;36;1m" .. "$_$$$s" .. "$e[37;1m")
+  return org_prompter(
+    fg_bg_attr(V.fg.white, V.bg.red)
+      .. "😺$s"
+      .. this
+      .. sep(V.fg.red, V.bg.yellow, V.fg.black)
+      .. git_branch
+      .. sep(V.fg.yellow, V.bg.default, V.fg.default)
+      .. "$_$$$s"
+  )
 end
 
 ------------------------------------------------
