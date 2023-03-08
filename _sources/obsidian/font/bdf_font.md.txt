@@ -1,5 +1,5 @@
 [[font]]
-[[nerd_font]]
+[[NerdFont]]
 
 > Bitmap Distribution Format
 

@@ -1,6 +1,6 @@
 [[fontforge]]
 [[TerminalEmulator]]
-[[nerd_font]]
+[[NerdFont]]
 [[glyph]]
 
 - @2022 [Introducing Mona Sans and Hubot Sans | The GitHub Blog](https://github.blog/2022-12-02-introducing-mona-sans-and-hubot-sans/)

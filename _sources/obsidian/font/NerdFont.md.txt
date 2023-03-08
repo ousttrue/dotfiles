@@ -1,6 +1,6 @@
-[[fontforge]]
+[[fontforge]] [[powerline]]
 
-- [あらゆる環境で使えるオレオレ NERDFont を手軽に合成する方法 - カラクリスタ・ブログ](https://the.kalaclista.com/posts/2017/12/06/000118/)
+[[ProgramingFont]]
 
 > Unicodeの私用領域(Private Use Area U+E000 ~ U+F8FF)
 

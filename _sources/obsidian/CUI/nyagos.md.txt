@@ -57,7 +57,7 @@
 - @2016 [【NYAGOS】プロンプトで使える特殊文字と ANSI エスケープシーケンスを Lua でラップする - Tumbling Dice](https://outofmem.hatenablog.com/entry/2016/01/27/014920)
 
 ## nerdfont
-- [bashプロンプトの表示をNerdfontsで格好良くする - Qiita](https://qiita.com/GunseiKPaseri/items/e594c8e261905e3d0281)
+[[bash]]
 
 # box
 - [nyagos 4.3でもmigemoでディレクトリ移動したい! - Qiita](https://qiita.com/nocd5/items/1736064cd9ee652d5920)]
