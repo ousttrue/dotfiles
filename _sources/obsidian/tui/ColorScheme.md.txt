@@ -1,6 +1,5 @@
 [[SyntaxHighlight]]
 [[windows_terminal]]
-[[vim 1]]
 [[nvim]]
 
 # reserved
