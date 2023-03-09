@@ -1,4 +1,4 @@
-
+[[pacman]]
 
 [MSYS2](https://www.msys2.org/)
 
@@ -7,7 +7,56 @@
 - @2017 [CmderでMSYS2の環境を構築してみる - zyzyz's Playground](https://zyzyz.github.io/ja/2017/10/Integrate-MSYS2-into-Cmder/)
 - @2016 [MSYS2で快適なターミナル生活 - Qiita](https://qiita.com/Ted-HM/items/4f2feb9fdacb6c72083c)
 
+# MSYSTEM
+## ucrt
+- [msys2でucrtのランタイムを使おう！ようこそucrt64 - Qiita](https://qiita.com/yumetodo/items/d849a6dcf08e0435f815)
+## clang
+- [Msys2のclangを9.0から12.0に更新する | うどんコード](https://udon.little-pear.net/msys2-clang-update-from9-to12/)
+
+# first
+```sh
+$ pacman -S vim python-pip
+```
+
+## /etc/pacman.conf
+```sh
+$ vim /etc/pacman.conf
+```
+`ucrt64` で行こう
+```
+#[clangarm64]
+#Include = /etc/pacman.d/mirrorlist.mingw
+
+#[mingw32]
+#Include = /etc/pacman.d/mirrorlist.mingw
+
+#[mingw64]
+#Include = /etc/pacman.d/mirrorlist.mingw
+
+[ucrt64]
+Include = /etc/pacman.d/mirrorlist.mingw
+
+#[clang32]
+#Include = /etc/pacman.d/mirrorlist.mingw
+
+#[clang64]
+#Include = /etc/pacman.d/mirrorlist.mingw
+
+[msys]
+Include = /etc/pacman.d/mirrorlist.msys
+````
+
+```sh
+$ pacman -Syu
+```
+
+## MSYSTEM=msys で運用
+- msys gcc をデフォルト
+- ucrt clang を meson 開発に使う
+
 # fstab
+これはやめたほうがいいかも。
+msys の uninstaller が `~/.ssh` を消す？
 ```
 # /etc/fstab
 # DO NOT REMOVE NEXT LINE. It remove cygdrive prefix from path
@@ -16,11 +65,6 @@ none / cygdrive binary,posix=0,noacl,user 0 0
 C:/Users /home
 ```
 
-# symlink
-`clang64.ini`
-```
-MSYS=winsymlinks:nativestrict
-```
 
 # $MSYSTEM
 - [Environments - MSYS2](https://www.msys2.org/docs/environments/)
@@ -39,9 +83,17 @@ msys2.exe   --> msys2_shell.cmd -msys
 mingw64.exe --> msys2_shell.cmd -mingw64  
 mingw32.exe --> msys2_shell.cmd -mingw32
 ```
+## toolchain
+```
+mingw-w64-x86_64-toolchain
+```
 
-# /msys2.ini
+## /clang64.ini
+```
+MSYS=winsymlinks:nativestrict
+```
 
+## /msys2.ini
 ```
 #MSYS=winsymlinks:nativestrict
 #MSYS=error_start:mingw64/bin/qtcreator.exe|-debug|<process-id>
@@ -52,18 +104,6 @@ MSYSTEM=MSYS
 
 # pacman
 [[pacman]]
-
-
-# toolchain
-```
-mingw-w64-x86_64-toolchain
-```
-
-# clang
-- [Msys2のclangを9.0から12.0に更新する | うどんコード](https://udon.little-pear.net/msys2-clang-update-from9-to12/)
-
-# ucrt
-- [msys2でucrtのランタイムを使おう！ようこそucrt64 - Qiita](https://qiita.com/yumetodo/items/d849a6dcf08e0435f815)
 
 # vim
 ```vim
