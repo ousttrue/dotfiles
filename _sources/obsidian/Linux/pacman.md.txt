@@ -5,9 +5,6 @@
 - @2016 [Pacmanの使い方 - Qiita](https://qiita.com/MoriokaReimen/items/dbe1448ce6c0f80a6ac1)
 
 
-```
-$ pacman --needed -Sy bash pacman pacman-mirrors msys2-runtime
-```
 
 ```
 $ pacman -Syu
@@ -59,6 +56,10 @@ $ pacman -g
 # install
 
 # uninstall
+
+```
+$ pacman R vim
+```
 
 # search
 ```sh

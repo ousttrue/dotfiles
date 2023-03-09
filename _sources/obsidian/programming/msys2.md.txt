@@ -8,6 +8,9 @@
 - @2016 [MSYS2で快適なターミナル生活 - Qiita](https://qiita.com/Ted-HM/items/4f2feb9fdacb6c72083c)
 
 # MSYSTEM
+## msys
+[[term|console]] アプリはこれで入れるべし
+- @2018 [MSYS2 環境に Go言語(golang) をインストール - takaya030の備忘録](https://takaya030.hatenablog.com/entry/2018/01/18/230105)
 ## ucrt
 - [msys2でucrtのランタイムを使おう！ようこそucrt64 - Qiita](https://qiita.com/yumetodo/items/d849a6dcf08e0435f815)
 ## clang
@@ -15,7 +18,7 @@
 
 # first
 ```sh
-$ pacman -S vim python-pip
+$ pacman -S vim git tmux
 ```
 
 ## /etc/pacman.conf
@@ -54,9 +57,24 @@ $ pacman -Syu
 - msys gcc をデフォルト
 - ucrt clang を meson 開発に使う
 
+# second
+## pacman
+```
+$ pacman gcc unzip make cmake
+```
+
+## pip
+
+## go
+### ghq
+### fzf
+### pacseek
+### nyagos
+
+## rust
+### zoxide
+
 # fstab
-これはやめたほうがいいかも。
-msys の uninstaller が `~/.ssh` を消す？
 ```
 # /etc/fstab
 # DO NOT REMOVE NEXT LINE. It remove cygdrive prefix from path

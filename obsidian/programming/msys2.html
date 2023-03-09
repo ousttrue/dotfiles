@@ -228,6 +228,13 @@
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="msystem">
 <h1>MSYSTEM<a class="headerlink" href="#msystem" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="msys">
+<h2>msys<a class="headerlink" href="#msys" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[term|console]] アプリはこれで入れるべし</p>
+<ul class="simple">
+<li><p>@2018 <a class="reference external" href="https://takaya030.hatenablog.com/entry/2018/01/18/230105">MSYS2 環境に Go言語(golang) をインストール - takaya030の備忘録</a></p></li>
+</ul>
+</section>
 <section id="ucrt">
 <h2>ucrt<a class="headerlink" href="#ucrt" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
@@ -243,7 +250,7 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="first">
 <h1>first<a class="headerlink" href="#first" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pacman -S vim python-pip
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pacman -S vim git tmux
 </pre></div>
 </div>
 <section id="etc-pacman-conf">
@@ -286,10 +293,41 @@
 </ul>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="second">
+<h1>second<a class="headerlink" href="#second" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="pacman">
+<h2>pacman<a class="headerlink" href="#pacman" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pacman gcc unzip make cmake
+</pre></div>
+</div>
+</section>
+<section id="pip">
+<h2>pip<a class="headerlink" href="#pip" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="go">
+<h2>go<a class="headerlink" href="#go" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="ghq">
+<h3>ghq<a class="headerlink" href="#ghq" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="fzf">
+<h3>fzf<a class="headerlink" href="#fzf" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="pacseek">
+<h3>pacseek<a class="headerlink" href="#pacseek" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="nyagos">
+<h3>nyagos<a class="headerlink" href="#nyagos" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+</section>
+<section id="rust">
+<h2>rust<a class="headerlink" href="#rust" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="zoxide">
+<h3>zoxide<a class="headerlink" href="#zoxide" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="fstab">
 <h1>fstab<a class="headerlink" href="#fstab" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>これはやめたほうがいいかも。
-msys の uninstaller が <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> を消す？</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># /etc/fstab</span>
 <span class="c1"># DO NOT REMOVE NEXT LINE. It remove cygdrive prefix from path</span>
 <span class="n">none</span> <span class="o">/</span> <span class="n">cygdrive</span> <span class="n">binary</span><span class="p">,</span><span class="n">posix</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">noacl</span><span class="p">,</span><span class="n">user</span> <span class="mi">0</span> <span class="mi">0</span>
@@ -347,8 +385,8 @@ msys の uninstaller が <code class="docutils literal notranslate"><span class=
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="pacman">
-<h1>pacman<a class="headerlink" href="#pacman" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>pacman<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[pacman]]</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="vim">
@@ -400,6 +438,7 @@ msys の uninstaller が <code class="docutils literal notranslate"><span class=
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">MSYSTEM</a><ul>
+<li><a class="reference internal" href="#msys">msys</a></li>
 <li><a class="reference internal" href="#ucrt">ucrt</a></li>
 <li><a class="reference internal" href="#clang">clang</a></li>
 </ul>
@@ -409,6 +448,22 @@ msys の uninstaller が <code class="docutils literal notranslate"><span class=
 <li><a class="reference internal" href="#msystem-msys">MSYSTEM=msys で運用</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#second">second</a><ul>
+<li><a class="reference internal" href="#pacman">pacman</a></li>
+<li><a class="reference internal" href="#pip">pip</a></li>
+<li><a class="reference internal" href="#go">go</a><ul>
+<li><a class="reference internal" href="#ghq">ghq</a></li>
+<li><a class="reference internal" href="#fzf">fzf</a></li>
+<li><a class="reference internal" href="#pacseek">pacseek</a></li>
+<li><a class="reference internal" href="#nyagos">nyagos</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rust">rust</a><ul>
+<li><a class="reference internal" href="#zoxide">zoxide</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#fstab">fstab</a></li>
 <li><a class="reference internal" href="#id1">$MSYSTEM</a><ul>
 <li><a class="reference internal" href="#toolchain">toolchain</a></li>
@@ -416,7 +471,7 @@ msys の uninstaller が <code class="docutils literal notranslate"><span class=
 <li><a class="reference internal" href="#msys2-ini">/msys2.ini</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#pacman">pacman</a></li>
+<li><a class="reference internal" href="#id2">pacman</a></li>
 <li><a class="reference internal" href="#vim">vim</a></li>
 <li><a class="reference internal" href="#macro">macro</a></li>
 </ul>
