@@ -2,7 +2,23 @@
 local g = vim.g
 local opt = vim.opt
 local dot = require "dot"
-vim.api.nvim_set_var("python3_host_prog", dot.get_home() .. "/.local/venv/nvim/Scripts/python" .. dot.get_suffix())
+
+vim.cmd [[
+if system('uname -a | grep microsoft') != ''
+    let g:clipboard = {
+                \   'name': 'WslClipboard',
+                \   'copy': {
+                \      '+': '/mnt/c/Windows/System32/clip.exe',
+                \      '*': '/mnt/c/Windows/System32/clip.exe',
+                \    },
+                \   'paste': {
+                \      '+': '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe -noprofile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+                \      '*': '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe -noprofile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+                \   },
+                \   'cache_enabled': 0,
+                \ }
+endif
+]]
 
 -- vim.cmd "tabnew"
 -- vim.cmd "tabnext"
