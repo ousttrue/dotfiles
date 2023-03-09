@@ -21,7 +21,14 @@ path_unshift "$HOME/cargo/bin"
 path_unshift "$HOME/local/src/zig"
 if [ -v MSYSTEM ]; then
     # msys
-    path_push "/c/Python310/Scripts"
+    # path_push "/c/Python310/Scripts"
+    true
+else
+    if which powerline-shell > /dev/null 2>&1; then
+        if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+            PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+        fi
+    fi
 fi
 
 UNAME_OS=`uname -o`
@@ -63,12 +70,6 @@ function _update_ps1() {
     # PS1=$(powerline-shell $?)
     PS1="$(powerline-shell $?)\n$ "
 }
-
-if which powerline-shell > /dev/null 2>&1; then
-    if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-        PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-    fi
-fi
 
 #
 # x11
