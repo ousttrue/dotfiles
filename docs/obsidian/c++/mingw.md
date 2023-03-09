@@ -9,3 +9,10 @@
 -   libgcc_s_seh-1.dll
 `-static -lstdc++ -lgcc -lwinpthread` => `static リンク`
 `-static-libgcc`、`-static-libstdc++`
+
+
+[MinGW-w64](https://www.mingw-w64.org/)
+
+
+
+
