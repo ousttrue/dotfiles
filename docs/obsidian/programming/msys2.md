@@ -4,6 +4,7 @@
 
 - @2021 [Windows 10 Pro で MSYS2 を出来る限り高速化する](https://zenn.dev/nyarla/articles/489394cec0ecb5)
 - [Python x64 & MinGW64 環境の構築 | Wizard in the Market](https://fx-kirin.com/python/windows-python-mingw64-environment-build/)
+- @2019 [ちよぶろ。: 最終的にMSYS2へ。](https://chiyosuke.blogspot.com/2019/03/msys2.html)
 - @2017 [CmderでMSYS2の環境を構築してみる - zyzyz's Playground](https://zyzyz.github.io/ja/2017/10/Integrate-MSYS2-into-Cmder/)
 - @2016 [MSYS2で快適なターミナル生活 - Qiita](https://qiita.com/Ted-HM/items/4f2feb9fdacb6c72083c)
 
@@ -15,6 +16,12 @@
 - [msys2でucrtのランタイムを使おう！ようこそucrt64 - Qiita](https://qiita.com/yumetodo/items/d849a6dcf08e0435f815)
 ## clang
 - [Msys2のclangを9.0から12.0に更新する | うどんコード](https://udon.little-pear.net/msys2-clang-update-from9-to12/)
+
+# pty
+[[git_for_windows]]
+```
+MSYS=enable_pcon
+```
 
 # first
 ```sh

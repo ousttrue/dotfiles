@@ -182,6 +182,9 @@ local function close_buffer_or_window()
 end
 vim.keymap.set("n", "<C-q>", close_buffer_or_window, { noremap = true })
 vim.keymap.set("n", "Q", close_buffer_or_window, { noremap = true })
+vim.keymap.set("n", "<C-n>", ":cnewer<CR>", { noremap = true })
+vim.keymap.set("n", "<C-p>", ":colder<CR>", { noremap = true })
+vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true })
 
 vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
 vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
