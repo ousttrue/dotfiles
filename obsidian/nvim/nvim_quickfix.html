@@ -230,11 +230,24 @@
 <li><p>@2021 <a class="reference external" href="https://www.biosugar0.com/posts/2021/07/vim-qfenter/">VimのQuickFixでジャンプするときに直前のWindowを使う :: biosugar0</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://daisuzu.hatenablog.com/entry/2020/12/03/003629">編集を加速するVimのquickfix機能 - daisuzu's notes</a></p></li>
 <li><p>@2013 <a class="reference external" href="https://www.soum.co.jp/misc/vim-no-susume/7/">Vim のすゝめ - QuickFix | 株式会社創夢 — SOUM/misc</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/delphinus/items/45117e5f8c0a3875e2f9">QuickFix を自動で伸縮する（他、色々） - Qiita</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="quickfixcmdpose">
-<h1>QuickFixCmdPose<a class="headerlink" href="#quickfixcmdpose" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="quickfix">
+<h1>QuickFix<a class="headerlink" href="#quickfix" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="errorformat">
+<h2>errorformat<a class="headerlink" href="#errorformat" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>set errorformat=%f:%l%:c\ %t%*[^:]:\ %m,%Dninja: Entering directory\ `%f',%G-%.%#
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>@2012 <a class="reference external" href="https://kannokanno.hatenablog.com/entry/20120804/1344085048">複数行のerrorformatをちょっと勉強した - ぼっち勉強会</a></p></li>
+</ul>
+</section>
+<section id="cwindow-copen-cn-cp-cc">
+<h2>cwindow, copen, cn, cp, cc<a class="headerlink" href="#cwindow-copen-cn-cp-cc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="quickfixcmdpose">
+<h2>QuickFixCmdPose<a class="headerlink" href="#quickfixcmdpose" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>@2016 <a class="reference external" href="https://senooken.jp/post/2016/05/05/">VimのQuickFix-windowを自動で開く設定 – Kenchant</a></p></li>
 </ul>
@@ -242,16 +255,36 @@
 </pre></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="quickfix">
-<h1>QuickFix<a class="headerlink" href="#quickfix" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">global</span></code>
-<code class="docutils literal notranslate"><span class="pre">clist</span></code> <code class="docutils literal notranslate"><span class="pre">cnext</span></code> <code class="docutils literal notranslate"><span class="pre">cprevious</span></code> <code class="docutils literal notranslate"><span class="pre">cfirst</span></code> <code class="docutils literal notranslate"><span class="pre">clast</span></code>
-<code class="docutils literal notranslate"><span class="pre">cc</span></code></p>
+<section id="makeprg">
+<h2>makeprg<a class="headerlink" href="#makeprg" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">command</span> <span class="pre">stdout</span></code></p>
+</section>
+<section id="cexpr">
+<h2>cexpr<a class="headerlink" href="#cexpr" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">string</span> <span class="pre">or</span> <span class="pre">list</span></code></p>
+<ul class="simple">
+<li><p>@2020 <a class="reference external" href="https://skanehira.github.io/blog/posts/20200918-vim-cexpr-quickfix/">Vimで:cexprを使ってgrep結果をquickfixに流す</a></p></li>
+</ul>
+</section>
+<section id="script">
+<h2>script<a class="headerlink" href="#script" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>setqflist</p></li>
+<li><p>getqflist</p></li>
+</ul>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="locationlist">
 <h1>LocationList<a class="headerlink" href="#locationlist" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">local</span></code>
 <code class="docutils literal notranslate"><span class="pre">clist</span></code> <code class="docutils literal notranslate"><span class="pre">lnext</span></code> <code class="docutils literal notranslate"><span class="pre">lprev</span></code> <code class="docutils literal notranslate"><span class="pre">lfirst</span></code> <code class="docutils literal notranslate"><span class="pre">llast</span></code></p>
+<section id="id1">
+<h2>script<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>setloclist</p></li>
+<li><p>getloclist</p></li>
+</ul>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="vimgrep">
 <h1>VimGrep<a class="headerlink" href="#vimgrep" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -260,20 +293,16 @@
 <li><p>@2013 <a class="reference external" href="https://qiita.com/yuku_t/items/0c1aff03949cb1b8fe6b">vimgrepとQuickfix知らないVimmerはちょっとこっち来い - Qiita</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="errorformat-efm">
-<h1>errorformat(efm)<a class="headerlink" href="#errorformat-efm" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>set errorformat=%f:%l%:c\ %t%*[^:]:\ %m,%Dninja: Entering directory\ `%f',%G-%.%#
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="cexpr">
-<h1>cexpr<a class="headerlink" href="#cexpr" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="scripting">
+<h1>scripting<a class="headerlink" href="#scripting" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="async">
+<h2>async<a class="headerlink" href="#async" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[nvim_job]]</p>
 <ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://skanehira.github.io/blog/posts/20200918-vim-cexpr-quickfix/">Vimで:cexprを使ってgrep結果をquickfixに流す</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://phelipetls.github.io/posts/async-make-in-nvim-with-lua/">Asynchronous :make in Neovim with Lua - Phelipe Teles | Phelipe Teles</a></p></li>
+<li><p><a class="reference external" href="https://gist.github.com/yegappan/3b50ec9ea86ad4511d3a213ee39f1ee0">Updating a quickfix/location list asynchronously without interfering with another plugin · GitHub</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="filter">
-<h1>filter<a class="headerlink" href="#filter" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 
         </article>
@@ -310,13 +339,24 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">articles</a></li>
+<li><a class="reference internal" href="#quickfix">QuickFix</a><ul>
+<li><a class="reference internal" href="#errorformat">errorformat</a></li>
+<li><a class="reference internal" href="#cwindow-copen-cn-cp-cc">cwindow, copen, cn, cp, cc</a></li>
 <li><a class="reference internal" href="#quickfixcmdpose">QuickFixCmdPose</a></li>
-<li><a class="reference internal" href="#quickfix">QuickFix</a></li>
-<li><a class="reference internal" href="#locationlist">LocationList</a></li>
-<li><a class="reference internal" href="#vimgrep">VimGrep</a></li>
-<li><a class="reference internal" href="#errorformat-efm">errorformat(efm)</a></li>
+<li><a class="reference internal" href="#makeprg">makeprg</a></li>
 <li><a class="reference internal" href="#cexpr">cexpr</a></li>
-<li><a class="reference internal" href="#filter">filter</a></li>
+<li><a class="reference internal" href="#script">script</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#locationlist">LocationList</a><ul>
+<li><a class="reference internal" href="#id1">script</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#vimgrep">VimGrep</a></li>
+<li><a class="reference internal" href="#scripting">scripting</a><ul>
+<li><a class="reference internal" href="#async">async</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
