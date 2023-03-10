@@ -52,6 +52,7 @@ g.maplocalleader = " "
 -- disable netrw's gx mapping.
 g.netrw_nogx = true
 
+opt.cursorline = true
 opt.autowrite = true
 opt.completeopt = "menu,preview"
 opt.ambiwidth = "single"
@@ -96,7 +97,9 @@ opt.keywordprg = ":help"
 -- set matchpairs+=<:>
 -- ]]
 
-vim.keymap.set("n", "<F7>", "<cmd>make!<CR>")
+vim.keymap.set("n", "<F7>", function()
+  vim.cmd "make!"
+end)
 vim.keymap.set("n", "<F8>", function()
   vim.cmd "copen"
   vim.cmd "Cfilter / error:/"

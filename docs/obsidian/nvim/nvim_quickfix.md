@@ -32,6 +32,12 @@ autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 - [Vim初心者のQuickfixによる検索・置換入門](https://zenn.dev/tmrekk/articles/4380961a754287)
 - @2013 [vimgrepとQuickfix知らないVimmerはちょっとこっち来い - Qiita](https://qiita.com/yuku_t/items/0c1aff03949cb1b8fe6b)
 
+# errorformat(efm)
+
+```
+set errorformat=%f:%l%:c\ %t%*[^:]:\ %m,%Dninja: Entering directory\ `%f',%G-%.%#
+```
+
 # cexpr
 - @2020 [Vimで:cexprを使ってgrep結果をquickfixに流す](https://skanehira.github.io/blog/posts/20200918-vim-cexpr-quickfix/)
 

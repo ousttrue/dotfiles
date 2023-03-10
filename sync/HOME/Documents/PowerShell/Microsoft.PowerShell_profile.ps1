@@ -189,7 +189,7 @@ function glg(){
 function gcd(){
     cd $(git rev-parse --show-toplevel)
 }
-function gst(){
+function gt(){
     git status -sb
 }
 function pipup {

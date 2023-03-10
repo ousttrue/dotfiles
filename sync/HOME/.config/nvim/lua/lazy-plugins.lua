@@ -79,7 +79,7 @@ local plugins = {
   -- { "averms/black-nvim",
   --   -- run = "UpdateRemotePlugins"
   -- },
-  { "sbdchd/neoformat" },
+  -- { "sbdchd/neoformat" },
   { "tpope/vim-fugitive" },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -115,12 +115,12 @@ local plugins = {
     -- end,
     config = require("config.nvim-treesitter").setup,
   },
-  {
-    "stevearc/overseer.nvim",
-    config = function()
-      require("config.overseer").setup()
-    end,
-  },
+  -- {
+  --   "stevearc/overseer.nvim",
+  --   config = function()
+  --     require("config.overseer").setup()
+  --   end,
+  -- },
   {
     -- amongst your other plugins
     { "akinsho/toggleterm.nvim", version = "*", config = true },
@@ -179,13 +179,13 @@ local plugins = {
   --     -- Disable virtual_text since it's redundant due to lsp_lines.
   --   end,
   -- },
-  {
-    "folke/trouble.nvim",
-    config = function()
-      require("config.trouble").setup()
-    end,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
+  -- {
+  --   "folke/trouble.nvim",
+  --   config = function()
+  --     require("config.trouble").setup()
+  --   end,
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- },
   {
     "onsails/lspkind.nvim",
     config = function()
@@ -383,6 +383,9 @@ local plugins = {
     config = function()
       vim.keymap.set({ "n", "v" }, "gx", "<Plug>(openbrowser-smart-search)")
     end,
+  },
+  {
+    "delphinus/vim-auto-cursorline",
   },
 }
 

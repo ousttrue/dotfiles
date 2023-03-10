@@ -33,6 +33,13 @@ function M.setup()
     nyagos.exec "git status"
   end
 
+  function nyagos.alias.mewrap(args)
+    local result = nyagos.eval 'meson wrap list| fzf --preview "meson wrap info{}"'
+    if result then
+      nyagos.exec("meson wrap install " .. result)
+    end
+  end
+
   local function search_history(this, is_prev)
     -- カーソル位置が一番左の場合は通常のnext/prev
     if this.pos == 1 then
@@ -120,6 +127,8 @@ function M.setup()
   nyagos.envadd("PATH", "~/.cargo/bin")
   nyagos.envadd("PATH", "~/local/bin")
   nyagos.envadd("PATH", "C:/Python310/Scripts")
+  -- muon
+  nyagos.envadd("PATH", "D:/msys64/usr/bin")
 
   nyagos.complete_for.git = require("completion_git").complete_for
 

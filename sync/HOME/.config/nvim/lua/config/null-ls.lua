@@ -30,7 +30,7 @@ function M.setup()
     name = "muon_fmt",
     filetypes = { "meson" },
     generator = null_ls.formatter {
-      command = "muon",
+      command = "muon" .. dot.get_suffix(),
       args = {
         "fmt",
         "-i",
