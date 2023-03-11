@@ -53,7 +53,7 @@ g.maplocalleader = " "
 g.netrw_nogx = true
 
 opt.cursorline = true
-opt.autowrite = true
+-- opt.autowrite = true
 opt.completeopt = "menu,preview"
 opt.ambiwidth = "single"
 opt.termguicolors = true -- Enable colors in terminal
@@ -99,16 +99,29 @@ opt.keywordprg = ":help"
 
 vim.keymap.set("n", "<F7>", function()
   -- vim.cmd "make!"
+  vim.cmd "wa"
   local qfu = require "qfu"
   qfu.async_make()
 end)
 
 vim.keymap.set("n", "<F8>", function()
   vim.cmd "copen"
-  vim.cmd "Cfilter / error:/"
+  local qfu = require "qfu"
+  qfu.Qf_filter()
 end)
-vim.keymap.set("n", "<Tab>", "<cmd>cn<CR>", {})
+vim.keymap.set("n", "<C-k>", "<Tab>", { noremap = true })
+vim.keymap.set("n", "<Tab>", function()
+  local items = vim.fn.getqflist()
+  if #items > 1 then
+    vim.cmd "cn"
+  else
+    vim.cmd "cc"
+  end
+end)
 vim.keymap.set("n", "<S-Tab>", "<cmd>cp<CR>", {})
+vim.keymap.set("n", "<C-n>", ":cnewer<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-p>", ":colder<CR>", { noremap = true, silent = true })
+
 vim.cmd [[
 " " Highlight on yank
 " augroup YankHighlight
