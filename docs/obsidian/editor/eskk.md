@@ -15,3 +15,12 @@ code:.vim
  let g:eskk#directory = "~/.config/eskk"
  let g:eskk#dictionary = { 'path': "~/.config/eskk/my_jisyo", 'sorted': 1, 'encoding': 'utf-8',}
  let g:eskk#large_dictionary = {'path': "~/.config/eskk/jisyo", 'sorted': 1, 'encoding': 'utf-8',}
+
+https://github.com/tyru/eskk.vim
+- @2021 https://hakasenote.hnishi.com/2021/20210105-vim-eskk/
+
+```vim
+let g:eskk#directory = "~/.eskk"
+let g:eskk#dictionary = { 'path': "~/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
+let g:eskk#large_dictionary = { 'path': "~/.eskk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
+```

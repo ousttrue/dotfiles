@@ -3,5 +3,5 @@
 
 [[tags]]
 [[plugins]]
-[[YAML front matter]]
+[[frontmatter]]
 [[markdown]]

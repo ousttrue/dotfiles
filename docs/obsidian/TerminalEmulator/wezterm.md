@@ -6,3 +6,10 @@
 
 - [weztermのEmojiがなんか思ってたのと違うな...というときの設定の仕方](https://zenn.dev/paiza/articles/9ca689a0365b05)
 
+
+# font
+[[font]]
+- nerdfont は内蔵されている
+
+- [Fonts - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/fonts.html)
+- [WezTermで日替わりフォントを設定する](https://zenn.dev/htlsne/articles/wezterm-rotate-font)

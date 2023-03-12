@@ -1,3 +1,6 @@
+# lsp
+- [Fetching Title#7ocp](https://code.visualstudio.com/blogs/2022/08/16/markdown-language-server)
+
 # javascript
 [[v8]]
 - [GitHub - markdown-it/markdown-it: Markdown parser, done right. 100% CommonMark support, extensions, syntax plugins & high speed](https://github.com/markdown-it/markdown-it)
@@ -24,3 +27,6 @@ token 位置不明
 - [markdown-it-py — markdown-it-py](https://markdown-it-py.readthedocs.io/en/latest/)
 	- [markdown-it demo](https://markdown-it.github.io/)
 - [GitHub - executablebooks/markdown-it-py: Markdown parser, done right. 100% CommonMark support, extensions, syntax plugins & high speed. Now in Python!](https://github.com/executablebooks/markdown-it-py)
+
+# editor
+- [新しいマークダウンパーサーが必要な理由 | NHN Cloud Meetup](https://meetup-jp.toast.com/3341)
