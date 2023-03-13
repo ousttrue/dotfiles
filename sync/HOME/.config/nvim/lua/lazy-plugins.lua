@@ -180,13 +180,13 @@ local plugins = {
   --     -- Disable virtual_text since it's redundant due to lsp_lines.
   --   end,
   -- },
-  -- {
-  --   "folke/trouble.nvim",
-  --   config = function()
-  --     require("config.trouble").setup()
-  --   end,
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  -- },
+  {
+    "folke/trouble.nvim",
+    config = function()
+      require("config.trouble").setup()
+    end,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
   {
     "onsails/lspkind.nvim",
     config = function()
