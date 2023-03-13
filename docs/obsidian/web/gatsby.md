@@ -5,6 +5,8 @@
 - [https://cam-inc.co.jp/p/techblog/634327895480730665](https://cam-inc.co.jp/p/techblog/634327895480730665)
 - [静的サイトジェネレーター Gatsby - Qiita](https://qiita.com/umamichi/items/9bd08a21fddc71588efc)
 
+[MDX frontmatter in Gatsby - Zach Schnackel](https://zslabs.com/articles/mdx-frontmatter-in-gatsby)
+
 # starter
 - blog starter
 - mdx
@@ -13,6 +15,11 @@
 - [DIRECTORY: ソフトウェア/Gatsby | Ataru Kodaka Site](https://atarukodaka.github.io/software/gatsby)
 - @2021 [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)
 - @2023 [【GatsbyJS製ブログ】MDXを使えるようにする！あと書き方とか！ | Bear-Fruit](https://bear-fruit.online/how-to-use-mdx/)
+- [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)
+
+# toml frontmatter
+[[hugo]]
+- [ブログをHugoからGatsbyに乗り換えた - UKSTUDIO](https://ukstudio.jp/%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92Hugo%E3%81%8B%E3%82%89Gatsby%E3%81%AB%E4%B9%97%E3%82%8A%E6%8F%9B%E3%81%88%E3%81%9F/)
 
 # Version
 - [Release Notes | Gatsby](https://www.gatsbyjs.com/docs/reference/release-notes/)
@@ -42,18 +49,25 @@
 ## 3
 - [Gatsby v2からGatsby v3への移行 - makoのノート](https://mako-note.com/ja/migrating-gatsby-from-v2-to-v3/)
 
-# plugins
-## gatsby-plugin-mdx
-[gatsby-plugin-mdx | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/)
+# API
+- [Gatsby Node APIs | Gatsby](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#onCreateNode)
 
+# plugins
 ## gatsby-source-filesystem
 [gatsby-source-filesystem | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-source-filesystem/?=filesystem)
+- [GatsbyJS ソースプラグインを使用してファイルの内容を取得する](https://ichinari.work/JavaScript_GatsbyJS_20190619/)
+
+## gatsby-plugin-mdx
+[gatsby-plugin-mdx | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/)
+[gatsby-plugin-mdx-frontmatter | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx-frontmatter/)
 
 ## gatsby-transformer-remark
+`古い` => `gatsby-plugin-mdx`
 [gatsby-transformer-remark | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-transformer-remark/)
 
-# gh-pages
-- [How Gatsby Works with GitHub Pages | Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/how-gatsby-works-with-github-pages/)
+## ESLint
+[Using ESLint | Gatsby](https://www.gatsbyjs.com/docs/how-to/custom-configuration/eslint/)
+- [Gatsbyでブログ作る③〜ESLint、Prettier | うさ技術](https://totolog34.com/912/)
 
 # document
 - [Quick Start | Gatsby](https://www.gatsbyjs.com/docs/quick-start/)
@@ -124,6 +138,7 @@ content/blog/new-beginnings/index.md
 ```
 
 ## gh-pages
+- [How Gatsby Works with GitHub Pages | Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/how-gatsby-works-with-github-pages/)
 - [GatsbyとGitHub Pagesで作るMarkdownブログ | Blog](https://kanamesasaki.github.io/blog/20220124-gatsby-blog/)
 
 # impl
@@ -131,3 +146,6 @@ content/blog/new-beginnings/index.md
 - [freks blog](https://blog.freks.jp/)
 - [Neovim の設定を lspconfig + treesitter ベースにした | blog.ojisan.io](https://blog.ojisan.io/neovim-config/)
 
+
+# graphql
+[Customizing the GraphQL Schema | Gatsby](https://www.gatsbyjs.com/docs/reference/graphql-data-layer/schema-customization/)
