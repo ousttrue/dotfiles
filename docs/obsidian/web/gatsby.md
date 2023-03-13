@@ -8,11 +8,13 @@
 [MDX frontmatter in Gatsby - Zach Schnackel](https://zslabs.com/articles/mdx-frontmatter-in-gatsby)
 
 # starter
+- [DIRECTORY: ソフトウェア/Gatsby | Ataru Kodaka Site](https://atarukodaka.github.io/software/gatsby)
 - blog starter
 - mdx
+- gfm
+- [Gatsby.js製のブログでMarkdownからMDXに移行する方法【gatsby-plugin-mdx】 | ベル15の開発ブログ](https://bel-itigo.com/gatsby-migrate-from-markdown-to-mdx/)
 
 # articles
-- [DIRECTORY: ソフトウェア/Gatsby | Ataru Kodaka Site](https://atarukodaka.github.io/software/gatsby)
 - @2021 [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)
 - @2023 [【GatsbyJS製ブログ】MDXを使えるようにする！あと書き方とか！ | Bear-Fruit](https://bear-fruit.online/how-to-use-mdx/)
 - [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)
