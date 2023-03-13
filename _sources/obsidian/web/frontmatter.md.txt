@@ -16,3 +16,9 @@ aliases: [AI, Artificial Intelligence]
 # toml
 	[[hugo]] => [[gatsby]]
 - [Migrate from Hugo to Gatsby | Gatsby](https://www.gatsbyjs.com/blog/2017-11-06-migrate-hugo-gatsby/)
+
+```
++++
+toml = hoge
++++
+```
