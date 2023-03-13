@@ -21,6 +21,10 @@ function M.setup()
       "tsx",
     },
 
+    indent = {
+      enable = true,
+    },
+
     -- Install languages synchronously (only applied to `ensure_installed`)
     -- sync_install = true,
 
