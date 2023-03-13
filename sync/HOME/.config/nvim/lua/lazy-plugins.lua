@@ -160,6 +160,7 @@ local plugins = {
       "hrsh7th/cmp-nvim-lsp",
       "folke/neodev.nvim",
       "rcarriga/nvim-notify",
+      "b0o/schemastore.nvim",
     },
   },
   {

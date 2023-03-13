@@ -21,10 +21,15 @@ function M.setup()
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.black,
       -- null_ls.builtins.formatting.cmake_format,
+      null_ls.builtins.formatting.prettier,
+      null_ls.builtins.diagnostics.eslint,
     },
     on_attach = on_attach,
   }
 
+  --
+  -- muon
+  --
   null_ls.register {
     method = null_ls.methods.FORMATTING,
     name = "muon_fmt",

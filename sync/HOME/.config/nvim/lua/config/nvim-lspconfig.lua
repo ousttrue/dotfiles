@@ -64,6 +64,17 @@ function M.setup()
     on_attach = on_attach,
     capabilities = capabilities,
   }
+
+  lspconfig.jsonls.setup {
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
+        validate = { enable = true },
+      },
+    },
+  }
+
+  lspconfig.tsserver.setup {}
 end
 
 return M

@@ -15,6 +15,10 @@ function M.setup()
       "css",
       "c_sharp",
       "toml",
+
+      "typescript",
+      "javascript",
+      "tsx",
     },
 
     -- Install languages synchronously (only applied to `ensure_installed`)
