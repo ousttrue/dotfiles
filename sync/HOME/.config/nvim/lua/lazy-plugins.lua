@@ -400,6 +400,7 @@ local plugins = {
   --     }
   --   end,
   -- },
+  { "weilbith/nvim-lsp-smag" },
 }
 
 require("lazy").setup(plugins)

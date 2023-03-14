@@ -244,6 +244,7 @@ vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, { noremap
 vim.keymap.set("n", "<Leader>wl", function()
   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end)
+vim.keymap.set("n", "<C-[>", "<cmd>tjump<CR>")
 -- vim.keymap.set("n", "<space>q", vim.diagnostic.set_loclist, { noremap = true })
 
 -- LSP handlers
