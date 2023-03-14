@@ -400,7 +400,12 @@ local plugins = {
   --     }
   --   end,
   -- },
-  { "weilbith/nvim-lsp-smag" },
+  {
+    "weilbith/nvim-lsp-smag",
+    config = function()
+      vim.api.nvim_set_var("lsp_smag_enabled_providers", { "definition" })
+    end,
+  },
 }
 
 require("lazy").setup(plugins)

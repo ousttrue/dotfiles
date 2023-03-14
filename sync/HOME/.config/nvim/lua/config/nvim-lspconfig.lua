@@ -41,7 +41,8 @@ function M.setup()
   }
 
   lspconfig.zls.setup {
-    cmd = { vim.env.YAZLS_EXE },
+    -- cmd = { vim.env.YAZLS_EXE },
+    cmd = { dot.get_home() .. "/.vscode-server/data/User/globalStorage/ziglang.vscode-zig/zls_install/zls" },
     on_attach = on_attach,
     capabilities = capabilities,
   }

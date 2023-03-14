@@ -18,6 +18,13 @@ if system('uname -a | grep microsoft') != ''
                 \   'cache_enabled': 0,
                 \ }
 endif
+
+au! BufNewFile,BufRead,BufEnter *.c setl ts=2 sw=2 expandtab nocindent noautoindent nosmartindent
+au! BufNewFile,BufRead,BufEnter *.cc setl ts=2 sw=2 expandtab nocindent noautoindent nosmartindent
+au! BufNewFile,BufRead,BufEnter *.cpp setl ts=2 sw=2 expandtab nocindent noautoindent nosmartindent
+au! BufNewFile,BufRead,BufEnter *.h setl ts=2 sw=2 expandtab nocindent noautoindent nosmartindent
+au! BufNewFile,BufRead,BufEnter *.hh setl ts=2 sw=2 expandtab nocindent noautoindent nosmartindent
+au! BufNewFile,BufRead,BufEnter *.hpp setl ts=2 sw=2 expandtab nocindent noautoindent nosmartindent
 ]]
 
 -- Remap leader and local leader to <Space>

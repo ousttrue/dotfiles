@@ -23,6 +23,10 @@ function M.setup()
 
     indent = {
       enable = true,
+      disable = {
+        "c",
+        "cpp",
+      },
     },
 
     -- Install languages synchronously (only applied to `ensure_installed`)
