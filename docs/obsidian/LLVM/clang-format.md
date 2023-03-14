@@ -19,6 +19,9 @@ ColumnLimit: 0
 TabWidth: 4
 ```
 
+# BasedOnStyle
+`Mozlilla`
+
 # vscode
 `.vscode/settings.json`
 ```json
