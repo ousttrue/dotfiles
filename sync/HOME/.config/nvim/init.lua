@@ -20,31 +20,6 @@ if system('uname -a | grep microsoft') != ''
 endif
 ]]
 
--- vim.cmd "tabnew"
--- vim.cmd "tabnext"
--- vim.cmd "term"
--- vim.cmd "tabprev"
-
--- -- avoid plugins
--- vim.api.nvim_set_var("did_install_default_menus", 1)
--- vim.api.nvim_set_var("did_install_syntax_menu", 1)
--- vim.api.nvim_set_var("did_indent_on", 1)
--- --vim.api.nvim_set_var('did_load_filetypes', 1)
--- --vim.api.nvim_set_var('did_load_ftplugin', 1)
--- vim.api.nvim_set_var("loaded_2html_plugin", 1)
--- vim.api.nvim_set_var("loaded_gzip", 1)
--- vim.api.nvim_set_var("loaded_man", 1)
--- -- vim.api.nvim_set_var("loaded_matchit", 1)
--- -- vim.api.nvim_set_var("loaded_matchparen", 1)
--- vim.api.nvim_set_var("loaded_netrwPlugin", 1)
--- -- vim.api.nvim_set_var("loaded_remote_plugins", 1)
--- vim.api.nvim_set_var("loaded_shada_plugin", 1)
--- vim.api.nvim_set_var("loaded_spellfile_plugin", 1)
--- vim.api.nvim_set_var("loaded_tarPlugin", 1)
--- vim.api.nvim_set_var("loaded_tutor_mode_plugin", 1)
--- vim.api.nvim_set_var("loaded_zipPlugin", 1)
--- vim.api.nvim_set_var("skip_loading_mswin", 1)
---
 -- Remap leader and local leader to <Space>
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
@@ -244,13 +219,13 @@ vim.diagnostic.config {
 --   signs = true,
 --   underline = true,
 -- })
-vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { noremap = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
 vim.keymap.set("n", "F", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "gD", vim.lsp.buf.definition, { noremap = true })
+
 vim.keymap.set("n", "gd", vim.lsp.buf.declaration, { noremap = true })
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
 -- vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { noremap = true })
@@ -262,10 +237,13 @@ vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { noremap = true })
 vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { noremap = true })
 vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, { noremap = true })
 vim.keymap.set("n", "ge", vim.diagnostic.open_float, { noremap = true })
+-- vim.keymap.set("n", "<Leader>e", vim.diagnostic.show_line_diagnostics, { noremap = true })
+vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { noremap = true })
 vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, { noremap = true })
 vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, { noremap = true })
-vim.keymap.set("n", "<Leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
--- vim.keymap.set("n", "<Leader>e", vim.diagnostic.show_line_diagnostics, { noremap = true })
+vim.keymap.set("n", "<Leader>wl", function()
+  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+end)
 -- vim.keymap.set("n", "<space>q", vim.diagnostic.set_loclist, { noremap = true })
 
 -- LSP handlers
