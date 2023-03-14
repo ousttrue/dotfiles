@@ -236,19 +236,51 @@
 </ul>
 </section>
 <section id="id3">
-<h2>1<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.16<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Go-Module</span></code> 推奨</p>
+<p><code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">get</span></code> の機能変更。<code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">install</span></code> が分離。</p>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/tmk616/articles/383fc3fbb0ec4b">【Go】go getは不要？go installとは？</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">install</span></code>はバイナリ(ライブラリ)をインストール</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">get</span></code>は<code class="docutils literal notranslate"><span class="pre">go.mod</span></code>を編集するだけ</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">mod</span> <span class="pre">tidy</span></code> で <code class="docutils literal notranslate"><span class="pre">go.mod</span></code> の編集はできる。</p>
+</section>
+<section id="id4">
+<h2>1.11<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Go-Module</span></code> 導入</p>
+</section>
+<section id="id5">
+<h2>1<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>@2012</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="gomodule">
 <h1>GOMODULE<a class="headerlink" href="#gomodule" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/nobonobo/articles/4fb018a24f9ee9">Goのプロジェクト構成の基本</a></p></li>
+<li><p>go.mod</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">mkdir</span> <span class="n">hello</span>
+<span class="o">&gt;</span> <span class="n">cd</span> <span class="n">hello</span>
+<span class="n">hello</span><span class="o">&gt;</span> <span class="n">go</span> <span class="n">mod</span> <span class="n">init</span> <span class="n">hello</span>
+<span class="n">hello</span><span class="o">&gt;</span> <span class="n">cat</span> <span class="n">go</span><span class="o">.</span><span class="n">mod</span>
+<span class="n">module</span> <span class="n">hello</span>
+
+<span class="n">go</span> <span class="mf">1.18</span>
+</pre></div>
+</div>
+<section id="gopath">
+<h2>GOPATH<a class="headerlink" href="#gopath" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
 <li><p><a class="reference external" href="https://techblog.kayac.com/migration-gopath-to-go-modules">GOPATHを掃除してGo Modulesに移行しよう - KAYAC engineers' blog</a></p></li>
 </ul>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="tutorial">
 <h1>tutorial<a class="headerlink" href="#tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/tenntenn/items/0e33a4959250d1a55045">Goの初心者が見ると幸せになれる場所　#golang - Qiita</a></p></li>
 <li><p><a class="reference external" href="https://go.dev/tour/welcome/1">A Tour of Go</a></p></li>
 <li><p><a class="reference external" href="https://go.dev/doc/tutorial/create-module">Tutorial: Create a Go module - The Go Programming Language</a></p></li>
 </ul>
@@ -290,10 +322,15 @@
 <li><a class="reference internal" href="#">Version</a><ul>
 <li><a class="reference internal" href="#id1">1.20</a></li>
 <li><a class="reference internal" href="#id2">1.19</a></li>
-<li><a class="reference internal" href="#id3">1</a></li>
+<li><a class="reference internal" href="#id3">1.16</a></li>
+<li><a class="reference internal" href="#id4">1.11</a></li>
+<li><a class="reference internal" href="#id5">1</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#gomodule">GOMODULE</a></li>
+<li><a class="reference internal" href="#gomodule">GOMODULE</a><ul>
+<li><a class="reference internal" href="#gopath">GOPATH</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#tutorial">tutorial</a></li>
 </ul>
 
