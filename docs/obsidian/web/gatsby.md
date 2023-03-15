@@ -151,3 +151,7 @@ content/blog/new-beginnings/index.md
 
 # graphql
 [Customizing the GraphQL Schema | Gatsby](https://www.gatsbyjs.com/docs/reference/graphql-data-layer/schema-customization/)
+
+# MDXRenderer
+- [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)
+- [javascript - How to render MDX with 'gatsby-plugin-mdx' from allMdx query? - Stack Overflow](https://stackoverflow.com/questions/74309351/how-to-render-mdx-with-gatsby-plugin-mdx-from-allmdx-query)

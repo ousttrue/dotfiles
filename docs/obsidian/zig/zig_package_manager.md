@@ -39,6 +39,9 @@ dependency を定義する？
 
 ```
 
+- root に新しいバージョンの `build.zig`があるライブラリを利用可能ぽい。
+[leroycep (leroycep) / Repositories · GitHub](https://github.com/leroycep?tab=repositories)
+
 # libs
 root に `build.zig` があれば動く？
 - [GitHub - InKryption/zig-pm-example-app](https://github.com/InKryption/zig-pm-example-app)
