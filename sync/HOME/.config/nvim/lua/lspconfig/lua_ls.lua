@@ -3,17 +3,17 @@ local M = {}
 local dot = require "dot"
 
 local function get_lua_ls()
+  local LUA_SERVER = "sumneko.lua-3.6.17"
+
+  local path = ""
   if vim.fn.has "win32" == 1 then
-    local path = dot.get_home() .. "/.vscode/extensions/sumneko.lua-3.6.16-win32-x64/server/bin/lua-language-server.exe"
-    if vim.fn.executable(path) == 1 then
-      return path
-    end
+    path = dot.get_home() .. "/.vscode/extensions/" .. LUA_SERVER .. "-win32-x64/server/bin/lua-language-server.exe"
   else
-    local path = dot.get_home()
-      .. "/.vscode-server/extensions/sumneko.lua-3.6.16-linux-x64/server/bin/lua-language-server"
-    if vim.fn.executable(path) == 1 then
-      return path
-    end
+    path = dot.get_home() .. "/.vscode-server/extensions/" .. LUA_SERVER .. "-linux-x64/server/bin/lua-language-server"
+  end
+  print(path)
+  if vim.fn.executable(path) == 1 then
+    return path
   end
 
   return "lua-language-server"
