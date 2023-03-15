@@ -5,26 +5,11 @@ local dot = require "dot"
 
 vim.cmd [[
 if system('uname -a | grep microsoft') != ''
-    let g:clipboard = {
-                \   'name': 'WslClipboard',
-                \   'copy': {
-                \      '+': '/mnt/c/Windows/System32/clip.exe',
-                \      '*': '/mnt/c/Windows/System32/clip.exe',
-                \    },
-                \   'paste': {
-                \      '+': '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe -noprofile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-                \      '*': '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe -noprofile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-                \   },
-                \   'cache_enabled': 0,
-                \ }
-endif
-
-au! BufNewFile,BufRead,BufEnter *.c setl ts=2 sw=2 expandtab nocindent noautoindent nosmartindent
-au! BufNewFile,BufRead,BufEnter *.cc setl ts=2 sw=2 expandtab nocindent noautoindent nosmartindent
-au! BufNewFile,BufRead,BufEnter *.cpp setl ts=2 sw=2 expandtab nocindent noautoindent nosmartindent
-au! BufNewFile,BufRead,BufEnter *.h setl ts=2 sw=2 expandtab nocindent noautoindent nosmartindent
-au! BufNewFile,BufRead,BufEnter *.hh setl ts=2 sw=2 expandtab nocindent noautoindent nosmartindent
-au! BufNewFile,BufRead,BufEnter *.hpp setl ts=2 sw=2 expandtab nocindent noautoindent nosmartindent
+  augroup myYank
+    autocmd!
+    autocmd TextYankPost * :call system('/mnt/c/Windows/System32/clip.exe', @")
+  augroup END
+endif"
 ]]
 
 -- Remap leader and local leader to <Space>
