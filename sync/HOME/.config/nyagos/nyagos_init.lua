@@ -124,11 +124,16 @@ function M.setup()
     nyagos.eval "py -m pip install pip --upgerade"
   end
 
-  nyagos.envadd("PATH", "~/.cargo/bin")
-  nyagos.envadd("PATH", "~/local/bin")
-  nyagos.envadd("PATH", "C:/Python310/Scripts")
-  -- muon
-  nyagos.envadd("PATH", "D:/msys64/usr/bin")
+  if nyagos.env.APPDATA then
+    nyagos.envadd("PATH", "C:\\Python310\\Scripts")
+    -- muon
+    nyagos.envadd("PATH", "D:\\msys64\\usr\\bin")
+    -- zig
+    nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
+  else
+    nyagos.envadd("PATH", "~/.cargo/bin")
+    nyagos.envadd("PATH", "~/local/bin")
+  end
 
   nyagos.complete_for.git = require("completion_git").complete_for
 

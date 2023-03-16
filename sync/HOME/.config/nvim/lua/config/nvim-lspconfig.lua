@@ -40,9 +40,16 @@ function M.setup()
     capabilities = capabilities,
   }
 
+  local zls_path = ""
+  if vim.fn.has "win32" then
+    zls_path = vim.env.APPDATA .. "\\Code\\User\\globalStorage\\ziglang.vscode-zig\\zls_install\\zls.exe"
+  else
+    zls_path = dot.get_home() .. "/.vscode-server/data/User/globalStorage/ziglang.vscode-zig/zls_install/zls"
+  end
+
   lspconfig.zls.setup {
     -- cmd = { vim.env.YAZLS_EXE },
-    cmd = { dot.get_home() .. "/.vscode-server/data/User/globalStorage/ziglang.vscode-zig/zls_install/zls" },
+    cmd = { zls_path },
     on_attach = on_attach,
     capabilities = capabilities,
   }
