@@ -22,14 +22,20 @@
 # diagonostics
 [Nvim documentation: diagnostic](https://neovim.io/doc/user/diagnostic.html)
 
+- [neovim - Nvim lsp - change lspconfig diagnostic message location - Stack Overflow](https://stackoverflow.com/questions/69290794/nvim-lsp-change-lspconfig-diagnostic-message-location)
+
 - @2022 [NeovimのLSPで誰にどうして怒られたのかを確認するための設定 | DevelopersIO](https://dev.classmethod.jp/articles/eetann-change-neovim-lsp-diagnostics-format/)
 - [Nvim lsp diagnostics - keybindings, signs, virtual texts | SmartTech101](https://smarttech101.com/nvim-lsp-diagnostics-keybindings-signs-virtual-texts/)
 
-## gutter
-- [LunarVim/init.lua at 359b6fd8e44bc2ad5088aada3f9c037fb85b19af · LunarVim/LunarVim · GitHub](https://github.com/LunarVim/LunarVim/blob/359b6fd8e44bc2ad5088aada3f9c037fb85b19af/lua/lsp/init.lua#L2)
+## quickfix
+
+## virtualtext
 
 ## underline
 - [Reddit - Dive into anything](https://www.reddit.com/r/neovim/comments/lciqhp/disable_annoying_underline_when_make_errors/)
+
+## gutter
+- [LunarVim/init.lua at 359b6fd8e44bc2ad5088aada3f9c037fb85b19af · LunarVim/LunarVim · GitHub](https://github.com/LunarVim/LunarVim/blob/359b6fd8e44bc2ad5088aada3f9c037fb85b19af/lua/lsp/init.lua#L2)
 
 # completion, locationlist, definition, hover...
 

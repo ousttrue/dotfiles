@@ -1,6 +1,6 @@
 local M = {}
 
-local dot = require('dot')
+local dot = require "dot"
 local util = require "lspconfig.util"
 
 function M.setup(lspconfig, capabilities, on_attach)
@@ -8,7 +8,7 @@ function M.setup(lspconfig, capabilities, on_attach)
     cmd = {
       "dotnet",
       dot.get_home()
-      .. "/.vscode/extensions/ms-dotnettools.csharp-1.25.4-win32-x64/.omnisharp/1.39.4-net6.0/OmniSharp.dll",
+        .. "/.vscode/extensions/ms-dotnettools.csharp-1.25.4-win32-x64/.omnisharp/1.39.4-net6.0/OmniSharp.dll",
     },
     on_attach = function(client, bufnr)
       client.server_capabilities.semanticTokensProvider = {

@@ -84,10 +84,32 @@ end
 
 local H = {
   "🐭",
-  "😺",
+  "🐮",
+  "🐯",
+  "🐰",
+  "🐉",
+  "🐍",
+  "🐴",
+  "🐏",
+  "🐒",
+  "🐔",
+  "🐶",
+  "🐗",
+}
+local F = {
+  "一",
+  "二",
+  "三",
+  "四",
 }
 
-local yday = os.date("*t")["yday"]
+local function get_prefix()
+  local now = os.date "*t"
+  local min = now["hour"] * 60 + now["min"]
+  local index12 = math.floor(now["hour"] / 2)
+  local index = math.floor(min / 30)
+  return H[(index12 % #H) + 1]
+end
 
 local org_prompter = nyagos.prompt
 function M.prompt2(this)
@@ -105,7 +127,7 @@ function M.prompt2(this)
 
   local start = "red"
   local sep = new_sep(start)
-  local prompt = fg_bg_attr(V.fg.white, V.bg[start]) .. H[yday % #H + 1] .. "$s" .. current
+  local prompt = fg_bg_attr(V.fg.white, V.bg[start]) .. get_prefix() .. "$s" .. current
 
   local git_branch = getBranch()
   -- local git_branch = nyagos.eval [[git symbolic-ref --short HEAD]]
