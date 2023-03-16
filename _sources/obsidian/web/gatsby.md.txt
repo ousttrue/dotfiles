@@ -15,6 +15,7 @@
 - [Gatsby.js製のブログでMarkdownからMDXに移行する方法【gatsby-plugin-mdx】 | ベル15の開発ブログ](https://bel-itigo.com/gatsby-migrate-from-markdown-to-mdx/)
 
 # articles
+- [はじめに｜ブログサイトを作りながら学ぶGatsby入門](https://zenn.dev/tomokiya/books/4b13342f6d878b93e06c/viewer/aad1360798a7673ffe02)
 - @2021 [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)
 - @2023 [【GatsbyJS製ブログ】MDXを使えるようにする！あと書き方とか！ | Bear-Fruit](https://bear-fruit.online/how-to-use-mdx/)
 - [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)

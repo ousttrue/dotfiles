@@ -19,6 +19,7 @@
 # Rust
 - [GitHub - kamiyaa/joshuto: ranger-like terminal file manager written in Rust](https://github.com/kamiyaa/joshuto)
 
+
 ## felix
 - [GitHub - kyoheiu/felix: tui file manager with vim-like key mapping](https://github.com/kyoheiu/felix)
 - @2022 [Rust製・自作tuiファイルマネージャーの紹介](https://zenn.dev/kyoheiu/articles/85a2ff86a146b6)
