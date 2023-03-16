@@ -106,9 +106,11 @@ local F = {
 local function get_prefix()
   local now = os.date "*t"
   local min = now["hour"] * 60 + now["min"]
-  local index12 = math.floor(now["hour"] / 2)
+  local hour = (now["hour"] + 1 % 24)
+  local index12 = math.floor(hour / 2)
   local index = math.floor(min / 30)
   return H[(index12 % #H) + 1]
+  -- return string.format("%02d", index12)
 end
 
 local org_prompter = nyagos.prompt
