@@ -77,3 +77,34 @@ cpu_family = 'x86_64'
 cpu = 'x86_64'
 endian = 'little'
 ```
+
+## zig cross
+
+TODO: dll へのリンク
+TODO: zig-0.11 dev 動かん `-Wl,--version`
+
+```zigcc.ini
+[constants]
+common_flags = ['-target', 'x86_64-windows-gnu']
+
+[binaries]
+c = ['zig', 'cc']
+cpp = ['zig', 'c++']
+ar = ['zig', 'ar']
+dlltool = ['zig', 'dlltool']
+lib = ['zig', 'lib']
+ranlib = ['zig', 'ranlib']
+windres = '/mnt/d/llvm-mingw-20230130-ucrt-x86_64/bin/x86_64-w64-mingw32-windres.exe'
+c_ld = 'lld'
+cpp_ld = 'lld'
+
+[built-in options]
+c_args = common_flags
+cpp_args = c_args
+
+[host_machine]
+system = 'windows'
+cpu_family = 'x86_64'
+cpu = 'x86_64'
+endian = 'little'
+```

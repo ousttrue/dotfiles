@@ -29,19 +29,28 @@ function M.async_make()
   M.qflist.title = vim.fn.expandcmd(makeprg)
 
   local function on_event(job_id, data, event)
+    M.status = event
     if event == "stdout" or event == "stderr" then
       if data then
-        vim.list_extend(M.qflist.lines, data)
+        for i, str in ipairs(data) do
+          if string.sub(str, -1) == "\r" then
+            print(string.format("%d: %q => %q", job_id, event, "CR"))
+            str = string.sub(str, 1, #str - 1)
+          end
+          str = string.gsub(str, "\\", "/")
+          print(str)
+          table.insert(M.qflist.lines, str)
+        end
       end
     end
 
     if event == "exit" then
       M.job_id = nil
-      M.status = ""
-      vim.cmd "redrawstatus!"
-      M.setqflist()
-      vim.api.nvim_command "doautocmd QuickFixCmdPost"
     end
+
+    vim.cmd "redrawstatus!"
+    M.setqflist()
+    vim.api.nvim_command "doautocmd QuickFixCmdPost"
   end
 
   M.job_id = vim.fn.jobstart(M.qflist.title, {
