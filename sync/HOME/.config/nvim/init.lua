@@ -11,6 +11,7 @@ if system('uname -a | grep microsoft') != ''
   augroup END
 endif"
 ]]
+vim.keymap.set("n", "P", "O<ESC>P<CR>")
 
 -- Remap leader and local leader to <Space>
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
