@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>prompt - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,22 +212,60 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>PS1
-#cui</p>
-<p>Ubuntus-20.04 LTS
-title + prompt
-<code class="docutils literal notranslate"><span class="pre">\[\e]0;\u@\h:</span> <span class="pre">\w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$</span></code></p>
+          <section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>5<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id2">
+<h2>4.4<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id3">
+<h2>4.2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="prompt">
 <h1>prompt<a class="headerlink" href="#prompt" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[NerdFont]]</p>
 <ul class="simple">
 <li><p>@2020 <a class="reference external" href="https://qiita.com/GunseiKPaseri/items/e594c8e261905e3d0281">bashプロンプトの表示をNerdfontsで格好良くする - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://linuxjf.osdn.jp/JFdocs/Bash-Prompt-HOWTO.html#toc2">Bash Prompt HOWTO</a></p></li>
+</ul>
+<p>Ubuntus-20.04 LTS
+title + prompt
+<code class="docutils literal notranslate"><span class="pre">\[\e]0;\u@\h:</span> <span class="pre">\w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$</span></code></p>
+<ul class="simple">
+<li><p>@2021 <a class="reference external" href="https://zenn.dev/memo/articles/20211004_ps1">bashのプロンプト表示形式を設定する方法</a></p></li>
+</ul>
+<section id="ps1">
+<h2>PS1<a class="headerlink" href="#ps1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="prompt-command">
+<h2>PROMPT_COMMAND<a class="headerlink" href="#prompt-command" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="completion">
+<h1>completion<a class="headerlink" href="#completion" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/tajima_taso/items/a85dbe8ec9a2825973e2">重大な脆弱性(CVE-2017-5932)で少し話題になったbash4.4の補完機能の便利な点 - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="language-server">
+<h1>language-server<a class="headerlink" href="#language-server" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/bash-lsp/bash-language-server">GitHub - bash-lsp/bash-language-server: A language server for Bash</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="formatter">
+<h1>formatter<a class="headerlink" href="#formatter" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>shfmt</p></li>
 </ul>
 </section>
 
@@ -252,8 +290,37 @@ title + prompt
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#id1">5</a></li>
+<li><a class="reference internal" href="#id2">4.4</a></li>
+<li><a class="reference internal" href="#id3">4.2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#prompt">prompt</a><ul>
+<li><a class="reference internal" href="#ps1">PS1</a></li>
+<li><a class="reference internal" href="#prompt-command">PROMPT_COMMAND</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#completion">completion</a></li>
+<li><a class="reference internal" href="#language-server">language-server</a></li>
+<li><a class="reference internal" href="#formatter">formatter</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

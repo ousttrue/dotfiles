@@ -307,6 +307,36 @@
 </pre></div>
 </div>
 </section>
+<section id="zig-cross">
+<h2>zig cross<a class="headerlink" href="#zig-cross" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>TODO: dll へのリンク
+TODO: zig-0.11 dev 動かん <code class="docutils literal notranslate"><span class="pre">-Wl,--version</span></code></p>
+<div class="highlight-zigcc.ini notranslate"><div class="highlight"><pre><span></span>[constants]
+common_flags = ['-target', 'x86_64-windows-gnu']
+
+[binaries]
+c = ['zig', 'cc']
+cpp = ['zig', 'c++']
+ar = ['zig', 'ar']
+dlltool = ['zig', 'dlltool']
+lib = ['zig', 'lib']
+ranlib = ['zig', 'ranlib']
+windres = '/mnt/d/llvm-mingw-20230130-ucrt-x86_64/bin/x86_64-w64-mingw32-windres.exe'
+c_ld = 'lld'
+cpp_ld = 'lld'
+
+[built-in options]
+c_args = common_flags
+cpp_args = c_args
+
+[host_machine]
+system = 'windows'
+cpu_family = 'x86_64'
+cpu = 'x86_64'
+endian = 'little'
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -351,6 +381,7 @@
 <li><a class="reference internal" href="#msys2">msys2</a></li>
 <li><a class="reference internal" href="#zig">zig</a></li>
 <li><a class="reference internal" href="#clang-ucrt-on-linux">clang-ucrt on Linux</a></li>
+<li><a class="reference internal" href="#zig-cross">zig cross</a></li>
 </ul>
 </li>
 </ul>
