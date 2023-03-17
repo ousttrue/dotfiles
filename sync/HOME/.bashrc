@@ -290,7 +290,7 @@ nerdPS1() {
 	local userName="$1"
 	# if userName yourname, use short name
 	if [[ $userName == "ousttrue" ]]; then
-		userName="🥦" # terminalによってはカラーフォント絵文字も使える。自分っぽいものに置き換えよう
+		userName="🐔" # terminalによってはカラーフォント絵文字も使える。自分っぽいものに置き換えよう
 	fi
 
 	local hostName="$2"
@@ -300,6 +300,9 @@ nerdPS1() {
 		hostName="" # \uf878 nf-mdi-monitor 一番ホストっぽかった
 	fi
 	local pwdInfo="$3"
+	# GHQ
+	[[ "$pwdInfo" =~ ^.*/ghq/github.com/(.*)$ ]] && pwdInfo="🐙/${BASH_REMATCH[1]}"
+	# HOME
 	[[ "$pwdInfo" =~ ^"$HOME"(/|$) ]] && pwdInfo="🏠${pwdInfo#$HOME}"
 
 	# (optional) python venv
