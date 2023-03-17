@@ -37,7 +37,7 @@ function M.setup()
   local function custom_enter(fallback)
     -- if cmp.get_active_entry() then
     if cmp.visible() then
-      cmp.confirm { select = true }
+      cmp.confirm { select = false }
       local key = vim.api.nvim_replace_termcodes("<CR>", true, false, true)
       vim.api.nvim_feedkeys(key, "n", false)
     else

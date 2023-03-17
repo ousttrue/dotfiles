@@ -20,6 +20,16 @@ function M.setup()
         },
       },
       file_sorter = sorters.get_generic_fuzzy_sorter,
+      vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--hidden",
+      },
       sorting_strategy = "ascending",
       layout_strategy = "vertical",
       layout_config = {
@@ -48,7 +58,9 @@ function M.setup()
   vim.keymap.set("n", "<Leader><Space>", project_files, { noremap = true })
   vim.keymap.set("n", ";;", function()
     local word = vim.fn.expand "<cword>"
-    builtin.live_grep()
+    builtin.live_grep {
+      cwd = vim.fn.getcwd(),
+    }
     if #word > 0 then
       vim.cmd("normal! i\\b" .. word .. "\\b")
     end

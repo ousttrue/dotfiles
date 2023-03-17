@@ -5,6 +5,9 @@ local qfu = require "qfu"
 
 -- winbar
 qfu.win_id = vim.fn.win_getid()
+
+vim.cmd(string.format("autocmd WinClosed %d once lua reqire('qfu').win_id=nil", qfu.win_id))
+
 qfu.set_status()
 
 vim.keymap.set("n", "<Space>f", qfu.Qf_filter, { buffer = 0 })

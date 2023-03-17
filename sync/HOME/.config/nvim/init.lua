@@ -3,15 +3,15 @@ local g = vim.g
 local opt = vim.opt
 local dot = require "dot"
 
-vim.cmd [[
-if system('uname -a | grep microsoft') != ''
-  augroup myYank
-    autocmd!
-    autocmd TextYankPost * :call system('/mnt/c/Windows/System32/clip.exe', @")
-  augroup END
-endif"
-]]
-vim.keymap.set("n", "P", "O<ESC>P<CR>")
+-- vim.cmd [[
+-- if system('uname -a | grep microsoft') != ''
+--   augroup myYank
+--     autocmd!
+--     autocmd TextYankPost * :call system('/mnt/c/Windows/System32/clip.exe', @")
+--   augroup END
+-- endif"
+-- ]]
+-- vim.keymap.set("n", "P", "O<ESC>P<CR>")
 
 -- Remap leader and local leader to <Space>
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
