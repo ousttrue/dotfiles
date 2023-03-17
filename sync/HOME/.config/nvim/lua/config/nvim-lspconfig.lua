@@ -74,6 +74,8 @@ function M.setup()
   }
 
   lspconfig.tsserver.setup {}
+
+  lspconfig.bashls.setup {}
 end
 
 return M
