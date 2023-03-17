@@ -5,7 +5,7 @@ if which zoxide >/dev/null 2>&1; then
 	eval "$(zoxide init bash)"
 fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-set -euC
+# set -euC
 
 # https://qiita.com/s_h_i_g_e_chan/items/e31920a767589359ea4c
 path_unshift() {
