@@ -6,16 +6,22 @@ local icon = {
   n = "%#DiagnosticInfo# %#Normal#",
 }
 
+local effor_formats = {
+  -- || ../example/main.cpp(533): error C2988:
+}
+
 M.qflist = {
   title = "--",
   lines = { "" },
-  efm = "%Dninja: Entering directory `%f',%f:%l:%c: %t%*[^:]: %m,%Eld%.lld: %trror: undefined symbol: %m%n,%N>>> referenced by %s (%f:%l)Tn,%N>>> %m",
+  efm = "%Dninja: Entering directory `%f',%f:%l:%c: %t%*[^:]: %m,%Eld%.lld: %trror: undefined symbol: %m%n,%N>>> referenced by %s (%f:%l)Tn,%N>>> %m,%f(%l): %t%*[^ ] C%n: %m,%f(%l): %t%*[^ ] %m",
 }
 -- || ld.lld: error: undefined symbol: TabBuffer::eachBuffer(std::function<void (Buffer*)> const&)
 -- || >>> referenced by core.cpp:659 (/home/ousttrue/ghq/github.com/ousttrue/w3m/builddir/../src/core.cpp:659)
 -- || >>>               src/w3m.p/core.cpp.o:(deleteFiles()::$_0::operator()(TabBuffer*) const)
 
 M.status = ""
+
+local dot = require "dot"
 
 function M.async_make()
   M.status = "[prepare...]"
@@ -33,13 +39,16 @@ function M.async_make()
     if event == "stdout" or event == "stderr" then
       if data then
         for i, str in ipairs(data) do
-          if string.sub(str, -1) == "\r" then
-            print(string.format("%d: %q => %q", job_id, event, "CR"))
+          str = dot.cp932_to_utf8(str)
+          if str and string.sub(str, -1) == "\r" then
+            -- print(string.format("%d: %q => %q", job_id, event, "CR"))
             str = string.sub(str, 1, #str - 1)
           end
-          str = string.gsub(str, "\\", "/")
-          print(str)
-          table.insert(M.qflist.lines, str)
+          if str then
+            str = string.gsub(str, "\\", "/")
+            print(str)
+            table.insert(M.qflist.lines, str)
+          end
         end
       end
     end

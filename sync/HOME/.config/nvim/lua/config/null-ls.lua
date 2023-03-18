@@ -1,5 +1,13 @@
 local M = {}
 
+function get_muon()
+  if vim.fn.has "win32" then
+    return "D:\\msys64\\usr\\bin\\muon.exe"
+  else
+    return "muon"
+  end
+end
+
 function M.setup()
   local null_ls = require "null-ls"
   local helpers = require "null-ls.helpers"
@@ -36,7 +44,7 @@ function M.setup()
     name = "muon_fmt",
     filetypes = { "meson" },
     generator = null_ls.formatter {
-      command = "muon" .. dot.get_suffix(),
+      command = get_muon(),
       args = {
         "fmt",
         "-i",
@@ -56,7 +64,7 @@ function M.setup()
     -- that spawns the command with the given arguments and options
     generator = null_ls.generator {
       multiple_files = true,
-      command = "muon",
+      command = get_muon(),
       args = { "analyze", "-O", "-l" },
       to_stdin = true,
       from_stderr = true,

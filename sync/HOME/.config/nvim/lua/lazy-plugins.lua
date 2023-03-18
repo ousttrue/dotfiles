@@ -268,7 +268,7 @@ local plugins = {
       require("config.hlargs").setup()
     end,
   },
-  { "sheerun/vim-polyglot" },
+  -- { "sheerun/vim-polyglot" },
   {
     "voldikss/vim-floaterm",
     config = function()
