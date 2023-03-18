@@ -1,16 +1,9 @@
-[[SSG]]
-
-- [The Fastest Frontend for the Headless Web | Gatsby](https://www.gatsbyjs.com/)
-
-- [https://cam-inc.co.jp/p/techblog/634327895480730665](https://cam-inc.co.jp/p/techblog/634327895480730665)
-- [静的サイトジェネレーター Gatsby - Qiita](https://qiita.com/umamichi/items/9bd08a21fddc71588efc)
-
-[MDX frontmatter in Gatsby - Zach Schnackel](https://zslabs.com/articles/mdx-frontmatter-in-gatsby)
+[[SSG]] [[mdx]]
 
 # starter
 - [DIRECTORY: ソフトウェア/Gatsby | Ataru Kodaka Site](https://atarukodaka.github.io/software/gatsby)
-- blog starter
-- mdx
+- [gatsby-starter-blog | Gatsby](https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-blog)
+- [[mdx]]
 - gfm
 - [Gatsby.js製のブログでMarkdownからMDXに移行する方法【gatsby-plugin-mdx】 | ベル15の開発ブログ](https://bel-itigo.com/gatsby-migrate-from-markdown-to-mdx/)
 
@@ -19,10 +12,11 @@
 - @2021 [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)
 - @2023 [【GatsbyJS製ブログ】MDXを使えるようにする！あと書き方とか！ | Bear-Fruit](https://bear-fruit.online/how-to-use-mdx/)
 - [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)
-
-# toml frontmatter
-[[hugo]]
-- [ブログをHugoからGatsbyに乗り換えた - UKSTUDIO](https://ukstudio.jp/%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92Hugo%E3%81%8B%E3%82%89Gatsby%E3%81%AB%E4%B9%97%E3%82%8A%E6%8F%9B%E3%81%88%E3%81%9F/)
+## impl
+- [Neovimのstatuslineとtablineを自作した](https://ryota2357.com/blog/2023/nvim-custom-statusline-tabline/)
+- [freks blog](https://blog.freks.jp/)
+- [Neovim の設定を lspconfig + treesitter ベースにした | blog.ojisan.io](https://blog.ojisan.io/neovim-config/)
+- [Gatsbyでブログ作る③〜ESLint、Prettier | うさ技術](https://totolog34.com/912/)
 
 # Version
 - [Release Notes | Gatsby](https://www.gatsbyjs.com/docs/reference/release-notes/)
@@ -52,9 +46,6 @@
 ## 3
 - [Gatsby v2からGatsby v3への移行 - makoのノート](https://mako-note.com/ja/migrating-gatsby-from-v2-to-v3/)
 
-# API
-- [Gatsby Node APIs | Gatsby](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#onCreateNode)
-
 # plugins
 ## gatsby-source-filesystem
 [gatsby-source-filesystem | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-source-filesystem/?=filesystem)
@@ -68,91 +59,9 @@
 `古い` => `gatsby-plugin-mdx`
 [gatsby-transformer-remark | Gatsby](https://www.gatsbyjs.com/plugins/gatsby-transformer-remark/)
 
-## ESLint
-[Using ESLint | Gatsby](https://www.gatsbyjs.com/docs/how-to/custom-configuration/eslint/)
-- [Gatsbyでブログ作る③〜ESLint、Prettier | うさ技術](https://totolog34.com/912/)
-
-# document
-- [Quick Start | Gatsby](https://www.gatsbyjs.com/docs/quick-start/)
-
-```
-$ npm init gatsby -y
-$ cd my-gatsby-site
-$ npm run develop
-```
-
-```
-package.json
-gatsby-config.js
-README.md
-package-lock.json
-src/images/icon.png
-src/pages/index.js
-src/pages/404.js
-```
-
-- [Tutorial | Gatsby](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter)
-
-# gatsby-cli
-```shell
-npm install -g gatsby-cli
-```
-
-## minimum
-```sh
-cd sampleapp
-npm i --save react react-dom gatsby
-gatsby develop
-```
-
-## starter
-[gatsby-starter-blog | Gatsby](https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-blog)
-
-```
-npx gatsby new gatsby-starter-blog https://github.com/gatsbyjs/gatsby-starter-blog
-```
-
-```
-+ package.json
-gatsby-node.js
-+ gatsby-config.js
-static/favicon.ico
-static/robots.txt
-+ README.md
-gatsby-ssr.js
-content/blog/my-second-post/index.md
-src/images/profile-pic.png
-+ src/images/gatsby-icon.png
-src/pages/using-typescript.tsx
-+ src/pages/index.js
-s+ rc/pages/404.js
-src/normalize.css
-src/templates/blog-post.js
-src/style.css
-src/components/bio.js
-src/components/seo.js
-src/components/layout.js
-content/blog/hello-world/index.md
-content/blog/hello-world/salty_egg.jpg
-gatsby-browser.js
-LICENSE
-+ package-lock.json
-content/blog/new-beginnings/index.md
-```
-
-## gh-pages
-- [How Gatsby Works with GitHub Pages | Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/how-gatsby-works-with-github-pages/)
-- [GatsbyとGitHub Pagesで作るMarkdownブログ | Blog](https://kanamesasaki.github.io/blog/20220124-gatsby-blog/)
-
-# impl
-- [Neovimのstatuslineとtablineを自作した](https://ryota2357.com/blog/2023/nvim-custom-statusline-tabline/)
-- [freks blog](https://blog.freks.jp/)
-- [Neovim の設定を lspconfig + treesitter ベースにした | blog.ojisan.io](https://blog.ojisan.io/neovim-config/)
-
-
-# graphql
-[Customizing the GraphQL Schema | Gatsby](https://www.gatsbyjs.com/docs/reference/graphql-data-layer/schema-customization/)
-
-# MDXRenderer
-- [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)
-- [javascript - How to render MDX with 'gatsby-plugin-mdx' from allMdx query? - Stack Overflow](https://stackoverflow.com/questions/74309351/how-to-render-mdx-with-gatsby-plugin-mdx-from-allmdx-query)
+# tags
+- tags
+- tag posts
+- post tags
+	- [Creating Tags Pages for Blog Posts | Gatsby](https://www.gatsbyjs.com/docs/adding-tags-and-categories-to-blog-posts/)
+- [How to add tags to your Gatsby MDX Blog](https://cesarvarela.com/blog/how-to-add-tags-to-your-gatsby-mdx-blog)
