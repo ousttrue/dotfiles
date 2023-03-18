@@ -290,6 +290,12 @@ local plugins = {
       require("config.skkeleton").setup()
     end,
   },
+  {
+    "delphinus/skkeleton_indicator.nvim",
+    config = function()
+      require("config.skkeleton_indicator").setup {}
+    end,
+  },
   -- {
   --   'mvllow/modes.nvim',
   --   tag = 'v0.2.0',

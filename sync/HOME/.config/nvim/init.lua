@@ -3,8 +3,6 @@ local g = vim.g
 local opt = vim.opt
 local dot = require "dot"
 
--- http://www.google.com
-
 -- vim.cmd [[
 -- if system('uname -a | grep microsoft') != ''
 --   augroup myYank
