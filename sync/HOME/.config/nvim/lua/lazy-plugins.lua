@@ -109,6 +109,12 @@ local plugins = {
     dependencies = { "kkharji/sqlite.lua" },
   },
   {
+    "renerocksai/telekasten.nvim",
+    config = function()
+      require("config.telekasten").setup()
+    end,
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     -- run = function()
     --   require("nvim-treesitter.install").update { with_sync = true }
@@ -406,6 +412,17 @@ local plugins = {
       vim.api.nvim_set_var("lsp_smag_enabled_providers", { "definition" })
     end,
   },
+  -- {
+  --   "genkiroid/mdlink-vim",
+  --   dependencies = {
+  --     "mattn/webapi-vim",
+  --     "kana/vim-textobj-user",
+  --     "mattn/vim-textobj-url",
+  --   },
+  --   config = function()
+  --     vim.keymap.set("n", "mo", "<cmd>MarkdownLinkOnlyOnCursor<CR>")
+  --   end,
+  -- },
 }
 
 require("lazy").setup(plugins)

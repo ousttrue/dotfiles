@@ -112,33 +112,33 @@ local CP_UTF8 = 65001
 
 local function ToWide(in_Src, codepage)
   if not in_Src then
-    print "ToWide: nil"
+    -- print "ToWide: nil"
     return nil
   end
   -- find out how many characters needed
   local charsneeded = kernel32.MultiByteToWideChar(codepage, 0, in_Src, #in_Src, nil, 0)
   if charsneeded < 0 then
-    print "ToWide: -1"
+    -- print "ToWide: -1"
     return nil
   end
-  print("charsneeded: ", charsneeded)
+  -- print("charsneeded: ", charsneeded)
 
   local buff = ffi.new("uint16_t[?]", charsneeded + 1)
   local charswritten = kernel32.MultiByteToWideChar(codepage, 0, in_Src, #in_Src, buff, charsneeded)
   buff[charswritten] = 0
-  print("ToWide: ", charswritten)
+  -- print("ToWide: ", charswritten)
   return buff
 end
 
 local function ToMultiByte(in_Src, codepage)
   if not in_Src then
-    print "ToMultiByte: nil"
+    -- print "ToMultiByte: nil"
     return nil
   end
   -- find out how many characters needed
   local bytesneeded = kernel32.WideCharToMultiByte(codepage, 0, in_Src, -1, nil, 0, nil, nil)
   if bytesneeded <= 0 then
-    print "ToMultiByte: -1"
+    -- print "ToMultiByte: -1"
     return nil
   end
 
@@ -147,7 +147,7 @@ local function ToMultiByte(in_Src, codepage)
   buff[byteswritten] = 0
 
   local ret = ffi.string(buff, byteswritten - 1)
-  print("ToMultiByte: ", byteswritten)
+  -- print("ToMultiByte: ", byteswritten)
   return ret
 end
 

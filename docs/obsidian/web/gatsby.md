@@ -8,15 +8,11 @@
 - [Gatsby.js製のブログでMarkdownからMDXに移行する方法【gatsby-plugin-mdx】 | ベル15の開発ブログ](https://bel-itigo.com/gatsby-migrate-from-markdown-to-mdx/)
 
 # articles
-- [はじめに｜ブログサイトを作りながら学ぶGatsby入門](https://zenn.dev/tomokiya/books/4b13342f6d878b93e06c/viewer/aad1360798a7673ffe02)
-- @2021 [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)
-- @2023 [【GatsbyJS製ブログ】MDXを使えるようにする！あと書き方とか！ | Bear-Fruit](https://bear-fruit.online/how-to-use-mdx/)
-- [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)
 ## impl
+- [DIRECTORY: ソフトウェア/Gatsby | Ataru Kodaka Site](https://atarukodaka.github.io/software/gatsby)
 - [Neovimのstatuslineとtablineを自作した](https://ryota2357.com/blog/2023/nvim-custom-statusline-tabline/)
 - [freks blog](https://blog.freks.jp/)
 - [Neovim の設定を lspconfig + treesitter ベースにした | blog.ojisan.io](https://blog.ojisan.io/neovim-config/)
-- [Gatsbyでブログ作る③〜ESLint、Prettier | うさ技術](https://totolog34.com/912/)
 
 # Version
 - [Release Notes | Gatsby](https://www.gatsbyjs.com/docs/reference/release-notes/)

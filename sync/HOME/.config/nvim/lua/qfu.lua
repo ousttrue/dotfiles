@@ -13,7 +13,7 @@ local effor_formats = {
 M.qflist = {
   title = "--",
   lines = { "" },
-  efm = "%Dninja: Entering directory `%f',%f:%l:%c: %t%*[^:]: %m,%Eld%.lld: %trror: undefined symbol: %m%n,%N>>> referenced by %s (%f:%l)Tn,%N>>> %m,%f(%l): %t%*[^ ] C%n: %m,%f(%l): %t%*[^ ] %m",
+  efm = "%Dninja: Entering directory `%f',%f:%l:%c: %t%*[^:]: %m,%Eld%.lld: %trror: undefined symbol: %m%n,%N>>> referenced by %s (%f:%l)Tn,%N>>> %m,%f(%l): %t%*[^ ] C%n: %m,%f(%l): fatal %t%*[^ ] C%n: %m,%f(%l): %t%*[^ ] %m",
 }
 -- || ld.lld: error: undefined symbol: TabBuffer::eachBuffer(std::function<void (Buffer*)> const&)
 -- || >>> referenced by core.cpp:659 (/home/ousttrue/ghq/github.com/ousttrue/w3m/builddir/../src/core.cpp:659)
@@ -46,7 +46,7 @@ function M.async_make()
           end
           if str then
             str = string.gsub(str, "\\", "/")
-            print(str)
+            -- print(str)
             table.insert(M.qflist.lines, str)
           end
         end
@@ -85,8 +85,9 @@ function M.get_status()
   local count = {}
   for _, item in ipairs(list) do
     if #item.type > 0 then
-      local current = count[item.type] or 0
-      count[item.type] = current + 1
+      local t = item.type
+      local current = count[t] or 0
+      count[t] = current + 1
     end
   end
 

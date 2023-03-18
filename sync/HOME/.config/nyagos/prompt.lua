@@ -122,7 +122,7 @@ function M.prompt2(this)
   local github = "/ghq/github.com/"
   local found = string.find(current, github, 1, true)
   if found then
-    current = " " .. string.sub(current, found + #github)
+    current = " /" .. string.sub(current, found + #github)
   else
     current = "$P"
   end

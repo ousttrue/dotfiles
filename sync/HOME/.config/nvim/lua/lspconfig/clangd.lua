@@ -26,7 +26,7 @@ function M.setup(lspconfig, capabilities, on_attach)
     },
     root_dir = util.root_pattern("builddir/compile_commands.json", "build/compile_commands.json", ".git"),
     on_attach = function(client, bufnr)
-      vim.keymap.set("n", "[[", function()
+      vim.keymap.set("n", ",,", function()
         vim.cmd "ClangdSwitchSourceHeader"
       end, { noremap = true })
       on_attach(client, bufnr)

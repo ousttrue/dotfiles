@@ -3,6 +3,8 @@ local g = vim.g
 local opt = vim.opt
 local dot = require "dot"
 
+-- http://www.google.com
+
 -- vim.cmd [[
 -- if system('uname -a | grep microsoft') != ''
 --   augroup myYank
@@ -217,9 +219,9 @@ vim.keymap.set("n", "F", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
-vim.keymap.set("n", "gD", vim.lsp.buf.definition, { noremap = true })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
 
-vim.keymap.set("n", "gd", vim.lsp.buf.declaration, { noremap = true })
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
 -- vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { noremap = true })
 vim.keymap.set("n", "<Leader>D", vim.lsp.buf.type_definition, { noremap = true })

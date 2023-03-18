@@ -33,13 +33,14 @@ local themes = {
   "SeaShells",
   "vimbones",
 }
+local color_scheme = themes[(yday % #themes) + 1]
 
 local config = {
   use_ime = true,
   enable_kitty_graphics = true,
   -- font
   font = wezterm.font "HackGenNerd Console",
-  color_scheme = themes[(yday % #themes) + 1],
+  color_scheme = color_scheme,
   hide_tab_bar_if_only_one_tab = true,
   tab_bar_at_bottom = true,
   -- keybinds
@@ -138,6 +139,20 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   return {
     { Text = tab.tab_index + 1 .. ":" .. title },
   }
+end)
+
+wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
+  local zoomed = ""
+  if tab.active_pane.is_zoomed then
+    zoomed = "[Z] "
+  end
+
+  local index = ""
+  if #tabs > 1 then
+    index = string.format("[%d/%d] ", tab.tab_index + 1, #tabs)
+  end
+
+  return color_scheme .. zoomed .. index .. tab.active_pane.title
 end)
 
 return config
