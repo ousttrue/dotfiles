@@ -39,7 +39,9 @@ function M.async_make()
     if event == "stdout" or event == "stderr" then
       if data then
         for i, str in ipairs(data) do
-          str = dot.cp932_to_utf8(str)
+          if vim.fn.has('win32')==1 then
+            str = dot.cp932_to_utf8(str)
+          end
           if str and string.sub(str, -1) == "\r" then
             -- print(string.format("%d: %q => %q", job_id, event, "CR"))
             str = string.sub(str, 1, #str - 1)
