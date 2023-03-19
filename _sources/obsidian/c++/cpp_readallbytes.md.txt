@@ -17,7 +17,7 @@ static std::vector<T> ReadAllBytes(const std::string &filename) {
   }
   std::vector<T> buffer(size);
   ifs.seekg(0, std::ios::beg);
-  ifs.read(buffer.data(), pos);
+  ifs.read((char*)buffer.data(), pos);
   return buffer;
 }
 ```
