@@ -108,12 +108,12 @@ local plugins = {
     end,
     dependencies = { "kkharji/sqlite.lua" },
   },
-  {
-    "renerocksai/telekasten.nvim",
-    config = function()
-      require("config.telekasten").setup()
-    end,
-  },
+  -- {
+  --   "renerocksai/telekasten.nvim",
+  --   config = function()
+  --     require("config.telekasten").setup()
+  --   end,
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     -- run = function()
