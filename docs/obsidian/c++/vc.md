@@ -3,6 +3,16 @@ aliases: [msvc]
 ---
 [[cpp]] [[ifdef]]
 
+# version
+## 2022 17
+`c++23` `std::expected`
+- [Download Visual Studio Tools - Install Free for Windows, Mac, Linux](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022)
+
+## 2019 16
+`c++20`
+## 2017 15
+`c++17` ?
+
 # define
 [Using the Windows Headers - Win32 apps | Microsoft Learn](https://learn.microsoft.com/en-us/windows/win32/winprog/using-the-windows-headers#faster-builds-with-smaller-header-files)
 
