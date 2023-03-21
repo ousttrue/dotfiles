@@ -3,24 +3,16 @@ function M.setup()
   local dot = require "dot"
   local lspconfig = require "lspconfig"
   local util = require "lspconfig.util"
-  local lsp_status = require "lsp-status"
 
   require("lspconfig.ui.windows").default_options.border = dot.border
 
-  lsp_status.register_progress()
-
   ---@param client table
   ---@param bufnr number
-  local function on_attach(client, bufnr)
-    lsp_status.on_attach(client)
-  end
+  local function on_attach(client, bufnr) end
 
   -- local capabilities = vim.lsp.protocol.make_client_capabilities()
   -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
   local capabilities = require("cmp_nvim_lsp").default_capabilities()
-  for k, v in pairs(lsp_status.capabilities) do
-    capabilities[k] = v
-  end
   -- print(vim.inspect(capabilities))
 
   require("lspconfig.lua_ls").setup(lspconfig, capabilities, on_attach)

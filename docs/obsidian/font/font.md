@@ -35,6 +35,11 @@
 - @2021 [新しい日本語フォントがたくさんリリースされてる！ 2021年、日本語の新作フリーフォントのまとめ | コリス](https://coliss.com/articles/freebies/japanese-free-fonts-dec-2021.html)
 - @2009 [serif/sans-serif/monospaceにおける日本語フォントの優先度 - Gマイナー志向](https://matsuu.hatenablog.com/entry/20090701/1246466264)
 
+## BIZ UD系
+- モリサワのBIZ UDゴシック
+- [GitHub - yuru7/udev-gothic: UDEV Gothic は、ユニバーサルデザインフォントのBIZ UDゴシックと、 開発者向けフォントの JetBrains Mono を合成した、プログラミング向けフォントです。](https://github.com/yuru7/udev-gothic)
+- [GitHub - yuru7/BIZTER: BIZTER は、UI 向けフォント Inter と、ユニバーサルデザインフォントの BIZ UDPゴシックの合成フォントです。](https://github.com/yuru7/BIZTER)
+
 ## IBM Plex Sans JP系
 - [IBM Plex Sans JP](https://www.ibm.com/blogs/think/jp-ja/how-ibm-plex-an-opensource-font-was-born/)
 - @2021 [PlemolJPか、それ以外か – プログラミング用フォント徹底比較！](https://pouhon.net/font-plemol/6599/)

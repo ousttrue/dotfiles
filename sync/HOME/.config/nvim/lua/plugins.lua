@@ -255,7 +255,6 @@ function M.setup()
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/nvim-cmp",
-        "nvim-lua/lsp-status.nvim",
       },
       config = require("config.nvim-lspconfig").setup,
     }

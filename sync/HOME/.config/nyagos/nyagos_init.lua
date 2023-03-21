@@ -126,7 +126,7 @@ function M.setup()
 
   if nyagos.env.USERPROFILE then
     nyagos.envadd("PATH", "C:\\Python310\\Scripts")
-    nyagos.envadd("PATH", "C:\\Program Files\\Git\\usr\\bin")
+    -- nyagos.envadd("PATH", "C:\\Program Files\\Git\\usr\\bin")
     -- muon
     -- nyagos.envadd("PATH", "D:\\msys64\\usr\\bin")
     -- zig

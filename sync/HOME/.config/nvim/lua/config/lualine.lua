@@ -31,7 +31,6 @@ function M.setup()
       lualine_a = { "branch" },
       lualine_b = {},
       lualine_c = {
-        "require'lsp-status'.status()",
         -- "diagnostics",
       },
       lualine_x = {
