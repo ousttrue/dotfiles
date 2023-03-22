@@ -130,7 +130,8 @@ function M.setup()
     -- muon
     -- nyagos.envadd("PATH", "D:\\msys64\\usr\\bin")
     -- zig
-    nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
+    -- nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
+    nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
   end
   nyagos.envadd("PATH", "~/.cargo/bin")
   nyagos.envadd("PATH", "~/local/bin")
