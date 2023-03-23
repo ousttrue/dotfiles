@@ -19,6 +19,8 @@ function M.setup(lspconfig, capabilities, on_attach)
       get_clangd(),
       "--compile-commands-dir=builddir",
       "--header-insertion=never",
+      -- "--clang-tidy",
+      "--enable-config",
     },
     -- handlers = lsp_status.extensions.clangd.setup(),
     init_options = {
