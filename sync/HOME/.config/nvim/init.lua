@@ -3,6 +3,10 @@ local g = vim.g
 local opt = vim.opt
 local dot = require "dot"
 
+if vim.fn.has "win32" == 1 then
+  vim.keymap.set("n", "<C-z>", "<Nop>")
+end
+
 -- vim.cmd [[
 -- if system('uname -a | grep microsoft') != ''
 --   augroup myYank

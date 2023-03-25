@@ -1,15 +1,50 @@
 local M = {}
 
 local dot = require "dot"
+local path = require "plenary.path"
+local scandir = require "plenary.scandir"
+local neodev = require "neodev"
+
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+neodev.setup {
+  -- add any options here, or leave empty to use the default settings
+}
+
+local function get_server(dir)
+  for i, e in
+    ipairs(scandir.scan_dir(dir, {
+      depth = 1,
+      add_dirs = true,
+      only_dirs = true,
+      search_pattern = "sumneko",
+    }))
+  do
+    return e .. ""
+  end
+
+  -- print(path.Path)
+  -- local extensions = path.Path:new(dir)
+  -- extensions = path:new(dir)
+  -- print(extensions)
+  -- for e in extensions:iter() do
+  --   print(e)
+  -- end
+
+  -- for k, v in pairs(path) do
+  --   print(k, v)
+  -- end
+  -- local extensions = path.Path:new(dir)
+  -- print(extensions)
+end
 
 local function get_lua_ls()
-  local LUA_SERVER = "sumneko.lua-3.6.17"
+  local LUA_SERVER = "sumneko.lua-3.6.18"
 
   local path = ""
   if vim.fn.has "win32" == 1 then
-    path = dot.get_home() .. "/.vscode/extensions/" .. LUA_SERVER .. "-win32-x64/server/bin/lua-language-server.exe"
+    path = get_server(dot.get_home() .. "/.vscode/extensions") .. "/server/bin/lua-language-server.exe"
   else
-    path = dot.get_home() .. "/.vscode-server/extensions/" .. LUA_SERVER .. "-linux-x64/server/bin/lua-language-server"
+    path = get_server(dot.get_home() .. "/.vscode-server/extensions") .. "/server/bin/lua-language-server"
   end
   print(path)
   if vim.fn.executable(path) == 1 then
@@ -18,11 +53,6 @@ local function get_lua_ls()
 
   return "lua-language-server"
 end
-
--- IMPORTANT: make sure to setup neodev BEFORE lspconfig
-require("neodev").setup {
-  -- add any options here, or leave empty to use the default settings
-}
 
 local function get_global(d)
   local globals = { "vim" }
