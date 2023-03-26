@@ -24,6 +24,7 @@ g.maplocalleader = " "
 -- disable netrw's gx mapping.
 g.netrw_nogx = true
 
+vim.cmd [[execute "set colorcolumn=" . join(range(81, 9999), ',')]]
 opt.cursorline = true
 -- opt.autowrite = true
 opt.completeopt = "menu,preview"

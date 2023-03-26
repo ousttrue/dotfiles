@@ -3,18 +3,18 @@
 [[NerdFont]]
 [[glyph]]
 
+`Monospace` かつ 全角半角比が 2:1 であるフォントが良い
+- @2023 [プログラミング用フォント 2023年版 | Tech控え帳](https://www.chihayafuru.jp/tech/index.php/archives/5952)
+
 - @2022 [Introducing Mona Sans and Hubot Sans | The GitHub Blog](https://github.blog/2022-12-02-introducing-mona-sans-and-hubot-sans/)
 - @2021 [フォントに悩むよ、ほんと。｜doorei｜note](https://note.com/doorei/n/n5c039c744b92)
 - [Font - Commentary of Dotfiles](https://coralpink.github.io/commentary/wezterm/font.html)
-
-- [GitHub - yuru7/BIZTER: BIZTER は、UI 向けフォント Inter と、ユニバーサルデザインフォントの BIZ UDPゴシックの合成フォントです。](https://github.com/yuru7/BIZTER/)
 
 - alphabet
 - cjk
 - emoji
 - nerdfont
 
-- @2019 [SFMono + FiraCode記号リガチャ + NerdFont化 したらイイ感じのプログラミングフォントが爆誕した | Trial and Spiral](https://blog.solunita.net/posts/combine-sfmono-ligaturizer-nerd-font/)
 
 # 欧文
 `等幅` `mono space`
@@ -26,9 +26,15 @@
 
 - [Anonymous Pro - Mark Simonson](https://www.marksimonson.com/fonts/view/anonymous-pro)
 - [[Inconsolata]]
+
+### Fira Code
 - fira mono
-- Source Han Mono
-- Hack
+- [GitHub - tonsky/FiraCode: Free monospaced font with programming ligatures](https://github.com/tonsky/FiraCode/)
+- @2019 [SFMono + FiraCode記号リガチャ + NerdFont化 したらイイ感じのプログラミングフォントが爆誕した | Trial and Spiral](https://blog.solunita.net/posts/combine-sfmono-ligaturizer-nerd-font/)
+
+### Hack
+- @2023 [Ricty を神フォントだと崇める僕が、フリーライセンスのプログラミングフォント「白源」を作った話 - Qiita](https://qiita.com/tawara_/items/374f3ca0a386fab8b305)
+- Cica
 
 # 和文
 - @2023  [フォントオタクなデザイナーが本気で選んだ「美しいフォント」24選【フリー＆有償】 - インターネット・格安SIMのソルディ](https://hikkoshizamurai.jp/soldi/articles/font_select_2017/)
@@ -36,7 +42,7 @@
 - @2009 [serif/sans-serif/monospaceにおける日本語フォントの優先度 - Gマイナー志向](https://matsuu.hatenablog.com/entry/20090701/1246466264)
 
 ## BIZ UD系
-- モリサワのBIZ UDゴシック
+- [モリサワBIZ UD](https://fonts.google.com/specimen/BIZ+UDGothic)
 - [GitHub - yuru7/udev-gothic: UDEV Gothic は、ユニバーサルデザインフォントのBIZ UDゴシックと、 開発者向けフォントの JetBrains Mono を合成した、プログラミング向けフォントです。](https://github.com/yuru7/udev-gothic)
 - [GitHub - yuru7/BIZTER: BIZTER は、UI 向けフォント Inter と、ユニバーサルデザインフォントの BIZ UDPゴシックの合成フォントです。](https://github.com/yuru7/BIZTER)
 
@@ -47,6 +53,7 @@
 ## noto font 系
 - [[source_han|noto]]
 - [[hackgen]]
+- Source Han Mono
 
 ## mplus 系
 - [[mplus]]
@@ -59,21 +66,23 @@
 ## その他
 - [GitHub - fontworks-fonts/DotGothic16: A font file available from Google Fonts.](https://github.com/fontworks-fonts/DotGothic16)
 - [GD-高速道路ゴシックJA - 無料で使える日本語フォント投稿サイト｜フォントフリー](https://fontfree.me/525)
-- [モリサワBIZ UD](https://fonts.google.com/specimen/BIZ+UDGothic)
 
-# 中国語など
+# icon
+## devicon
+- [GitHub - ryanoasis/vim-devicons: Adds file type icons to Vim plugins such as: NERDTree, vim-airline, CtrlP, unite, Denite, lightline, vim-startify and many more](https://github.com/ryanoasis/vim-devicons)
+
+## nerdfont
+- [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/)
+
+## powerline
+- [GitHub - ryanoasis/powerline-extra-symbols: Extra glyphs for your powerline separators](https://github.com/ryanoasis/powerline-extra-symbols)
 
 # other
-
-- [GitHub - tonsky/FiraCode: Free monospaced font with programming ligatures](https://github.com/tonsky/FiraCode/)
 - [C64 TrueType (TTF) Fonts | Style](http://style64.org/c64-truetype)
 - [【中国語フォント】おすすめフリーフォント・PCへの導入方法](http://cn-seminar.com/chinese-font-11257)
 - [世界の文字](http://www.chikyukotobamura.org/muse/wr_europa_4.html)
-- [GitHub - ryanoasis/vim-devicons: Adds file type icons to Vim plugins such as: NERDTree, vim-airline, CtrlP, unite, Denite, lightline, vim-startify and many more](https://github.com/ryanoasis/vim-devicons)
+
 - [GitHub - tomonic-x/Illusion: Programming font for JIS X 0208 with Unicode.](https://github.com/tomonic-x/Illusion)
 - [GNU Unifont Glyphs](http://unifoundry.com/unifont/index.html)
 - [Windows Terminal Cascadia Code | Microsoft Docs](https://docs.microsoft.com/en-us/windows/terminal/cascadia-code)
-- [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher](https://www.nerdfonts.com/)
 - [GitHub - slavfox/Cozette: A bitmap programming font optimized for coziness 💜](https://github.com/slavfox/Cozette)
-# powerline
-- [GitHub - ryanoasis/powerline-extra-symbols: Extra glyphs for your powerline separators](https://github.com/ryanoasis/powerline-extra-symbols)

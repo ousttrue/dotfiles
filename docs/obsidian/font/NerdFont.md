@@ -1,6 +1,6 @@
 [[fontforge]] [[powerline]]
 
-[[ProgramingFont]]
+[[font_monospace]]
 
 > Unicodeの私用領域(Private Use Area U+E000 ~ U+F8FF)
 

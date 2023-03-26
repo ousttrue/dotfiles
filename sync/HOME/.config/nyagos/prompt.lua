@@ -5,6 +5,26 @@ local V = require "vars"
 
 local SEP = ""
 
+local function removeEscapeSequence(src)
+  -- FIXME : なぜか'$e%[(%d+;)+1m'でマッチしない
+  return src:gsub("$e%[%d+;%d+;1m", ""):gsub("$e%[%d+;1m", "")
+end
+local function getStringWidth(src)
+  local width = 0
+  for p, c in utf8.codes(src) do
+    if 0 ~= bit32.band(c, 0x7FFFFF80) then
+      if 0xFF61 <= c and c <= 0xFF9F then
+        width = width + 1
+      else
+        width = width + 2
+      end
+    else
+      width = width + 1
+    end
+  end
+  return width
+end
+
 local function split(str, delim)
   local result = {}
   for i in string.gmatch(str, delim) do
@@ -62,11 +82,8 @@ end
 ---@param bg string
 ---@param attr string|nil
 ---@return string
-local function fg_bg_attr(fg, bg, attr)
+local function fg_bg_attr(fg, bg)
   local str = "$e[" .. fg .. ";" .. bg
-  if attr then
-    str = str .. ";" .. attr
-  end
   return str .. "m"
 end
 
@@ -137,7 +154,8 @@ function M.prompt2(this)
     prompt = prompt .. sep("yellow", V.fg.black) .. git_branch
   end
 
-  return org_prompter(prompt .. sep("default", V.fg.default) .. "$_$$$s")
+  prompt = prompt .. sep("default", V.fg.default) .. "$_$$$s"
+  return org_prompter(prompt)
 end
 
 ------------------------------------------------
@@ -207,31 +225,6 @@ local function getCompressedPath(num)
   end
 
   return path
-end
-
-------------------------------------------------
--- エスケープシーケンスを削除
-local function removeEscapeSequence(src)
-  -- FIXME : なぜか'$e%[(%d+;)+1m'でマッチしない
-  return src:gsub("$e%[%d+;%d+;1m", ""):gsub("$e%[%d+;1m", "")
-end
-------------------------------------------------
--- 文字列の幅を取得
--- 半角文字:1, 全角文字:2 にカウント
-local function getStringWidth(src)
-  local width = 0
-  for p, c in utf8.codes(src) do
-    if 0 ~= bit32.band(c, 0x7FFFFF80) then
-      if 0xFF61 <= c and c <= 0xFF9F then
-        width = width + 1
-      else
-        width = width + 2
-      end
-    else
-      width = width + 1
-    end
-  end
-  return width
 end
 
 ------------------------------------------------
