@@ -72,7 +72,7 @@ opt.keywordprg = ":help"
 
 vim.keymap.set("n", "<F7>", function()
   -- vim.cmd "make!"
-  vim.cmd "wa"
+  -- vim.cmd "wa"
   local qfu = require "qfu"
   qfu.async_make()
 end)
@@ -207,6 +207,44 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 
 vim.diagnostic.config {
   float = { border = dot.border },
+}
+local diag_signs = vim.diagnostic.handlers.signs
+
+local filter_types = {
+  "optional",
+  "string_view",
+  "filesystem",
+  -- c++23
+  "expected",
+}
+local function is_filter(msg)
+  for _, t in ipairs(filter_types) do
+    if msg == string.format("No template named '%s' in namespace 'std'", t) then
+      return true
+    end
+    if msg == string.format("No type named '%s' in namespace 'std'", t) then
+      return true
+    end
+  end
+end
+
+vim.diagnostic.handlers.signs = {
+
+  show = function(namespace, bufnr, diagnostics, opts)
+    -- print(vim.inspect(diagnostics))
+    local filtered = {}
+    for _, d in ipairs(diagnostics) do
+      if is_filter(d.message) then
+        print "skip"
+      else
+        -- print(vim.inspect(d))
+        table.insert(filtered, d)
+      end
+    end
+    diag_signs.show(namespace, bufnr, filtered, opts)
+  end,
+
+  hide = diag_signs.hide,
 }
 
 --
