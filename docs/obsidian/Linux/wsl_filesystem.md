@@ -29,4 +29,8 @@ mount
 - [Get started mounting a Linux disk in WSL 2 | Microsoft Learn](https://learn.microsoft.com/en-us/windows/wsl/wsl2-mount-disk)
 
 ## 列挙
-`GET-CimInstance -query "SELECT * from Win32_DiskDrive"`
+
+```
+GET-CimInstance -query "SELECT * from Win32_DiskDrive"
+```
+

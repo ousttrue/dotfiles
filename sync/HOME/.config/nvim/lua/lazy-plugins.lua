@@ -193,6 +193,18 @@ local plugins = {
     end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
+  -- {
+  --   "glepnir/lspsaga.nvim",
+  --   event = "LspAttach",
+  --   config = function()
+  --     require("config.lspsaga").setup()
+  --   end,
+  --   dependencies = {
+  --     { "nvim-tree/nvim-web-devicons" },
+  --     --Please make sure you install markdown and markdown_inline parser
+  --     { "nvim-treesitter/nvim-treesitter" },
+  --   },
+  -- },
   {
     "onsails/lspkind.nvim",
     config = function()

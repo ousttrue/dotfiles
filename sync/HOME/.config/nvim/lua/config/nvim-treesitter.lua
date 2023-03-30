@@ -10,6 +10,7 @@ function M.setup()
       "python",
       "lua",
       "markdown",
+      "markdown_inline",
       "zig",
       "html",
       "css",
