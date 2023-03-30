@@ -1,4 +1,5 @@
 [[null-ls]]
+[[nvim_diagnostics]]
 
 - @2022 `0.7.2` [Neovim+LSPをなるべく簡単な設定で構築する](https://zenn.dev/botamotch/articles/21073d78bc68bf)
 - [Nvim documentation: lsp](https://neovim.io/doc/user/lsp.html)
@@ -18,14 +19,6 @@
 
 # hover
 [Neovim LSP Hoverのデザインを変更する](https://zenn.dev/botamotch/scraps/4ce17ce1f311c9)
-
-# diagonostics
-[Nvim documentation: diagnostic](https://neovim.io/doc/user/diagnostic.html)
-
-- [neovim - Nvim lsp - change lspconfig diagnostic message location - Stack Overflow](https://stackoverflow.com/questions/69290794/nvim-lsp-change-lspconfig-diagnostic-message-location)
-
-- @2022 [NeovimのLSPで誰にどうして怒られたのかを確認するための設定 | DevelopersIO](https://dev.classmethod.jp/articles/eetann-change-neovim-lsp-diagnostics-format/)
-- [Nvim lsp diagnostics - keybindings, signs, virtual texts | SmartTech101](https://smarttech101.com/nvim-lsp-diagnostics-keybindings-signs-virtual-texts/)
 
 ## quickfix
 
