@@ -214,6 +214,8 @@ local filter_types = {
   "optional",
   "string_view",
   "filesystem",
+  "u8string",
+  "span",
   -- c++23
   "expected",
 }
@@ -223,6 +225,9 @@ local function is_filter(msg)
       return true
     end
     if msg == string.format("No type named '%s' in namespace 'std'", t) then
+      return true
+    end
+    if msg == string.format("No member named '%s' in namespace 'std'", t) then
       return true
     end
   end
