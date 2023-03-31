@@ -33,7 +33,7 @@ function M.setup()
   }
 
   local zls_path = ""
-  if vim.fn.has "win32" then
+  if vim.fn.has("win32")==1 then
     zls_path = vim.env.APPDATA .. "\\Code\\User\\globalStorage\\ziglang.vscode-zig\\zls_install\\zls.exe"
   else
     zls_path = dot.get_home() .. "/.vscode-server/data/User/globalStorage/ziglang.vscode-zig/zls_install/zls"
