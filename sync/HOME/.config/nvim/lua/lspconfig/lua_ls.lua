@@ -41,10 +41,10 @@ local function get_lua_ls()
   local LUA_SERVER = "sumneko.lua-3.6.18"
 
   local path = ""
-  if vim.fn.has "win32" == 1 then
-    path = get_server(dot.get_home() .. "/.vscode/extensions") .. "/server/bin/lua-language-server.exe"
-  else
+  if dot.is_wsl then
     path = get_server(dot.get_home() .. "/.vscode-server/extensions") .. "/server/bin/lua-language-server"
+  else
+    path = get_server(dot.get_home() .. "/.vscode/extensions") .. "/server/bin/lua-language-server" .. dot.get_suffix()
   end
   print(path)
   if vim.fn.executable(path) == 1 then

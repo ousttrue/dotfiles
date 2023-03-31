@@ -1,5 +1,10 @@
 local M = {}
 
+M.is_wsl = (function()
+  local output = vim.fn.systemlist "uname -r"
+  return not not string.find(output[1] or "", "WSL")
+end)()
+
 function M.get_home()
   if vim.fn.has "win32" == 1 then
     return vim.env.USERPROFILE
