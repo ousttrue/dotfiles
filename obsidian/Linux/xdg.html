@@ -230,9 +230,23 @@
 <section class="tex2jax_ignore mathjax_ignore" id="desktop">
 <h1>desktop<a class="headerlink" href="#desktop" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://wiki.archlinux.jp/index.php/%E3%83%87%E3%82%B9%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA">デスクトップエントリ - ArchWiki</a></p></li>
+<li><p><a class="reference external" href="https://wiki.archlinux.jp/index.php/%E3%83%87%E3%82%B9%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA">デスクトップエントリ - ArchWiki</a>
+<code class="docutils literal notranslate"><span class="pre">~/.local/share/applications</span></code></p></li>
 <li><p><a class="reference external" href="https://qiita.com/apu4se/items/ff7efd8d351e09bb9b54">xdg-open で開くアプリを変更する - Qiita</a></p></li>
 </ul>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Desktop Entry]</span><span class="w"></span>
+<span class="na">Name</span><span class="o">=</span><span class="s">WezTerm</span><span class="w"></span>
+<span class="na">Comment</span><span class="o">=</span><span class="s">Wez's Terminal Emulator</span><span class="w"></span>
+<span class="na">Keywords</span><span class="o">=</span><span class="s">shell;prompt;command;commandline;cmd;</span><span class="w"></span>
+<span class="na">Icon</span><span class="o">=</span><span class="s">org.wezfurlong.wezterm</span><span class="w"></span>
+<span class="na">StartupWMClass</span><span class="o">=</span><span class="s">org.wezfurlong.wezterm</span><span class="w"></span>
+<span class="na">TryExec</span><span class="o">=</span><span class="s">wezterm</span><span class="w"></span>
+<span class="na">Exec</span><span class="o">=</span><span class="s">wezterm start --cwd .</span><span class="w"></span>
+<span class="na">Type</span><span class="o">=</span><span class="s">Application</span><span class="w"></span>
+<span class="na">Categories</span><span class="o">=</span><span class="s">System;TerminalEmulator;Utility;</span><span class="w"></span>
+<span class="na">Terminal</span><span class="o">=</span><span class="s">false</span><span class="w"></span>
+</pre></div>
+</div>
 <section id="application-icon">
 <h2>application icon<a class="headerlink" href="#application-icon" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="arabic simple">
