@@ -26,6 +26,8 @@ function M.setup(lspconfig, capabilities, on_attach)
     -- handlers = lsp_status.extensions.clangd.setup(),
     init_options = {
       clangdFileStatus = true,
+      -- fallbackFlags = { "-std=c++2a" },
+      fallbackFlags = { "/std:c++latest" },
     },
     root_dir = util.root_pattern("builddir/compile_commands.json", "build/compile_commands.json", ".git"),
     on_attach = function(client, bufnr)

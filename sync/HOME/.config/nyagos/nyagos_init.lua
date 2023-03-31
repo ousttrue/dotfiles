@@ -7,6 +7,11 @@ function M.setup()
   -- set {
   --   PROMPT = "$P",
   -- }
+  function nyagos.alias.addhere()
+    local here = nyagos.getenv "CD"
+    nyagos.envadd("PATH", here)
+    print(nyagos.getenv "PATH")
+  end
 
   function nyagos.alias.gg(args)
     local result = nyagos.eval "ghq list -p| fzf --reverse +m"
