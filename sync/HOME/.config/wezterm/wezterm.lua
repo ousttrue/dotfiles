@@ -56,6 +56,7 @@ local font_list = {
     return wezterm.font("Fira Code", { weight = "Light", stretch = "Normal", style = "Normal" })
   end,
 }
+
 local today_font = font_list[(yday % #font_list) + 1]
 
 local themes = {
@@ -91,7 +92,6 @@ local config = {
   enable_kitty_graphics = true,
   -- font
   -- font = wezterm.font "HackGenNerd Console",
-  font = today_font(),
   -- font = wezterm.font_with_fallback {
   --   "Fira Code",
   --   "DengXian",
@@ -123,9 +123,13 @@ local config = {
   },
 }
 
+if wezterm.target_triple:find "windows" then
+  config.font = today_font()
+  config.initial_cols = 126
+  config.initial_rows = 56
+end
+
 config.warn_about_missing_glyphs = false
-config.initial_cols = 126
-config.initial_rows = 56
 
 config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
 table.insert(config.keys, { key = "r", mods = "LEADER", action = "ReloadConfiguration" })
@@ -135,8 +139,12 @@ table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { A
 table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
 table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
 table.insert(config.keys, { key = "[", mods = "LEADER", action = "ActivateCopyMode" })
-table.insert(config.keys, { key = "PageUp", mods = "SHIFT", action = wezterm.action.ScrollByPage(-1) })
-table.insert(config.keys, { key = "PageDown", mods = "SHIFT", action = wezterm.action.ScrollByPage(1) })
+--table.insert(config.keys, { key = "PageUp", mods = "SHIFT", action = wezterm.action.ScrollByPage(-1) })
+--table.insert(config.keys, { key = "PageDown", mods = "SHIFT", action = wezterm.action.ScrollByPage(1) })
+
+-- ???
+-- https://github.com/wez/wezterm/discussions/556
+table.insert(config.keys, { key = "/", mods = "CTRL", action = wezterm.action { SendString = "\x1f" } })
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   --
@@ -157,7 +165,7 @@ else
     -- 14 x 1.5
     config.font_size = 21.0 -- raw font size
   else
-    config.font_size = 12.0 -- raw font size
+    config.font_size = 11.0 -- raw font size
   end
   config.default_prog = { "bash" }
 end
