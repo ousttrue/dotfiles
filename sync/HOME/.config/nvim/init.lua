@@ -5,6 +5,8 @@ local dot = require "dot"
 
 if vim.fn.has "win32" == 1 then
   vim.keymap.set("n", "<C-z>", "<Nop>")
+else
+  vim.cmd [[set clipboard+=unnamedplus]]
 end
 
 -- vim.cmd [[

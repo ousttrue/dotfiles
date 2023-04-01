@@ -80,4 +80,9 @@ function M.split(str, pattern)
   return result
 end
 
+function M.which(exe)
+  vim.fn.system(string.format("which %s > /dev/null", exe))
+  return vim.v.shell_error == 0
+end
+
 return M

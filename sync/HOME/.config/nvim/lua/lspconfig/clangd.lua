@@ -1,12 +1,24 @@
 local M = {}
 
+local dot = require "dot"
+
 local util = require "lspconfig.util"
+
+local clangd_list = {
+  "clangd-16",
+  "clangd-15",
+  "clangd",
+}
 
 local function get_clangd()
   if vim.fn.has "win32" == 1 then
     return "C:/Program Files/LLVM/bin/clangd.exe"
   else
-    return "clangd"
+    for _, exe in pairs(clangd_list) do
+      if dot.which(exe) then
+        return exe
+      end
+    end
   end
 end
 
@@ -19,7 +31,7 @@ function M.setup(lspconfig, capabilities, on_attach)
       get_clangd(),
       "--compile-commands-dir=builddir",
       "--header-insertion=never",
-      -- "--clang-tidy",
+      "--clang-tidy",
       "--enable-config",
       -- '--query-driver="C:/Program Files/LLVM/bin/clang-cl.exe"',
     },

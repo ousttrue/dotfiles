@@ -112,6 +112,10 @@ end
 
 function M.set_status(status)
   if M.win_id then
+    if not vim.api.nvim_win_is_valid(M.win_id) then
+      M.win_id = nil
+      return
+    end
     if status then
       M.status = status
     end
