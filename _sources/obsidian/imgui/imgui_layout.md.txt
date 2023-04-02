@@ -8,5 +8,6 @@
 - ImGuiCond_Once: once per session
 
 # imgui.ini
+`const char* io.IniFilename`
 ## save
 ## load
