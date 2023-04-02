@@ -22,6 +22,9 @@ if which ibus-daemon > /dev/null 2>&1; then
 fi
 
 export GLTF_SAMPLE_MODELS="$HOME/ghq/github.com/KhronosGroup/glTF-Sample-Models"
+export VRM_SAMPLES="$HOME/ghq/github.com/madjin/vrm-samples"
+export BVH_SAMPLES="$HOME/ghq/github.com/CreativeInquiry/BVH-Examples"
+export FBX_SAMPLES="$HOME/ghq/github.com/wangii/fbx_samples"
 
 #
 # term
