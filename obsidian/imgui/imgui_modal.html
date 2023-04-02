@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>font - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,58 +212,19 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://wezfurlong.org/wezterm/">wezterm - Wez's Terminal Emulator</a></p>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/htlsne/articles/wezterm-rotate-font">WezTermで日替わりフォントを設定する</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/yutakatay/articles/wezterm-intro">alacritty+tmuxもいいけど、weztermがすごい件</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/eetann/scraps/fe0a32896b6de8">weztermを使ってみる</a></p></li>
-<li><p><a class="reference external" href="https://zenn.dev/paiza/articles/9ca689a0365b05">weztermのEmojiがなんか思ってたのと違うな...というときの設定の仕方</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="font">
-<h1>font<a class="headerlink" href="#font" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[font]]</p>
-<ul class="simple">
-<li><p>nerdfont は内蔵されている</p></li>
-<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/fonts.html">Fonts - Wez's Terminal Emulator</a></p></li>
-<li><p><a class="reference external" href="https://zenn.dev/htlsne/articles/wezterm-rotate-font">WezTermで日替わりフォントを設定する</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="launch-menu">
-<h1>launch_menu<a class="headerlink" href="#launch-menu" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://wezfurlong.org/wezterm/config/launch.html#the-launcher-menu">Launching Programs - Wez's Terminal Emulator</a></p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="p">.</span><span class="n">launch_menu</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="p">{</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">'top'</span> <span class="p">},</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="c1">-- Optional label to show in the launcher. If omitted, a label</span>
-    <span class="c1">-- is derived from the `args`</span>
-    <span class="n">label</span> <span class="o">=</span> <span class="s1">'Bash'</span><span class="p">,</span>
-    <span class="c1">-- The argument array to spawn.  If omitted the default program</span>
-    <span class="c1">-- will be used as described in the documentation above</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">'bash'</span><span class="p">,</span> <span class="s1">'-l'</span> <span class="p">},</span>
+          <p>[[imgui]]</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">ImGui</span><span class="o">::</span><span class="n">OpenPopup</span><span class="p">(</span><span class="s">"Delete?"</span><span class="p">);</span><span class="w"></span>
 
-    <span class="c1">-- You can specify an alternative current working directory;</span>
-    <span class="c1">-- if you don't specify one then a default based on the OSC 7</span>
-    <span class="c1">-- escape sequence will be used (see the Shell Integration</span>
-    <span class="c1">-- docs), falling back to the home directory.</span>
-    <span class="c1">-- cwd = "/some/path"</span>
-
-    <span class="c1">-- You can override environment variables just for this command</span>
-    <span class="c1">-- by setting this here.  It has the same semantics as the main</span>
-    <span class="c1">-- set_environment_variables configuration option described above</span>
-    <span class="c1">-- set_environment_variables = { FOO = "bar" },</span>
-  <span class="p">},</span>
-<span class="p">}</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">BeginPopupModal</span><span class="p">(</span><span class="s">"Delete?"</span><span class="p">,</span><span class="w"> </span>
+<span class="w">						   </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">ImGuiWindowFlags_AlwaysAutoResize</span><span class="p">))</span><span class="w"> </span>
 </pre></div>
 </div>
-</section>
 
         </article>
       </div>
@@ -278,7 +239,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/TerminalEmulator/wezterm.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/imgui/imgui_modal.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -286,25 +247,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">font</a></li>
-<li><a class="reference internal" href="#launch-menu">launch_menu</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
