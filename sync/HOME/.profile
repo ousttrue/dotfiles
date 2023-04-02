@@ -21,6 +21,8 @@ if which ibus-daemon > /dev/null 2>&1; then
     ibus-daemon --daemonize --xim --replace
 fi
 
+export GLTF_SAMPLE_MODELS="$HOME/ghq/github.com/KhronosGroup/glTF-Sample-Models"
+
 #
 # term
 #

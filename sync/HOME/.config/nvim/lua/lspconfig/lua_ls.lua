@@ -46,7 +46,7 @@ local function get_lua_ls()
   else
     path = get_server(dot.get_home() .. "/.vscode/extensions") .. "/server/bin/lua-language-server" .. dot.get_suffix()
   end
-  print(path)
+  -- print(path)
   if vim.fn.executable(path) == 1 then
     return path
   end

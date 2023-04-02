@@ -1,8 +1,43 @@
+---@class wezterm
 local wezterm = require "wezterm"
 
----@return string
+---@return string|nil
 local function get_home()
-  return os.getenv "HOME" or os.getenv "USERPROFILE"
+  local home = os.getenv "HOME"
+  if home then
+    return home
+  end
+  home = os.getenv "USERPROFILE"
+  if home then
+    return home
+  end
+end
+local HOME = get_home()
+if not HOME then
+  return {
+    launch_menu = {
+      {
+        args = { string.format("%q", os.getenv "HOME") },
+      },
+    },
+    keys = { key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
+  }
+end
+
+local function write_dump()
+  wezterm.log_info "write_dump!"
+  local f = io.open(HOME .. "/dotfiles/sync/HOME/.config/wezterm/def.lua", "w")
+  if f then
+    f:write "---@meta\n"
+    f:write "\n"
+    f:write "---@class wezterm\n"
+    f:write "wezterm = {\n"
+    for k, v in pairs(wezterm) do
+      f:write(string.format("  %s = {},\n", k))
+    end
+    f:write "}\n"
+    f:close()
+  end
 end
 
 -- local yday = os.date("*t")["yday"]
@@ -87,6 +122,8 @@ local themes = {
 }
 local color_scheme = themes[(yday % #themes) + 1]
 
+local data = "XXX"
+
 local config = {
   use_ime = true,
   enable_kitty_graphics = true,
@@ -121,6 +158,30 @@ local config = {
     --     { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } },
     --     { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } },
   },
+  launch_menu = {
+    {
+      args = { "top" },
+    },
+    {
+      -- Optional label to show in the launcher. If omitted, a label
+      -- is derived from the `args`
+      label = "XXXBash",
+      -- The argument array to spawn.  If omitted the default program
+      -- will be used as described in the documentation above
+      args = { "bash", "-l" },
+
+      -- You can specify an alternative current working directory;
+      -- if you don't specify one then a default based on the OSC 7
+      -- escape sequence will be used (see the Shell Integration
+      -- docs), falling back to the home directory.
+      -- cwd = "/some/path"
+
+      -- You can override environment variables just for this command
+      -- by setting this here.  It has the same semantics as the main
+      -- set_environment_variables configuration option described above
+      -- set_environment_variables = { FOO = "bar" },
+    },
+  },
 }
 
 if wezterm.target_triple:find "windows" then
@@ -145,6 +206,7 @@ table.insert(config.keys, { key = "[", mods = "LEADER", action = "ActivateCopyMo
 -- ???
 -- https://github.com/wez/wezterm/discussions/556
 table.insert(config.keys, { key = "/", mods = "CTRL", action = wezterm.action { SendString = "\x1f" } })
+table.insert(config.keys, { key = "l", mods = "ALT", action = wezterm.action_callback(write_dump) })
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   --
@@ -153,9 +215,9 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   -- config.default_prog = { "C:/Python310/Scripts/xonsh.exe" }
   config.font_size = 13.0 -- 4k monitor with DPI scaling
   -- config.default_prog = { "C:/Program Files/PowerShell/7/pwsh.exe" }
-  config.default_prog = { get_home() .. "/local/bin/nyagos.exe" }
+  config.default_prog = { HOME .. "/local/bin/nyagos.exe" }
   config.set_environment_variables = {
-    LUA_PATH = get_home() .. "\\.config\\nyagos\\?.lua",
+    LUA_PATH = HOME .. "\\.config\\nyagos\\?.lua",
   }
 else
   --
@@ -176,8 +238,7 @@ end
 
 local function convert_home_dir(path)
   local cwd = path
-  local home = get_home()
-  cwd = cwd:gsub("^" .. home .. "/", "~/")
+  cwd = cwd:gsub("^" .. HOME .. "/", "~/")
   return cwd
 end
 
