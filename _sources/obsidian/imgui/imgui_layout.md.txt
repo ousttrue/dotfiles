@@ -9,5 +9,15 @@
 
 # imgui.ini
 `const char* io.IniFilename`
+- LoadIniSettingsFromDisk()
+- LoadIniSettingsFromMemory()
+- SaveIniSettingsToDisk()
+- SaveIniSettingsToMemory()
+- io.WantSaveIniSettings
+
 ## save
 ## load
+
+# scroll
+## BeginChild
+- ImGui::GetContentRegionAvail
