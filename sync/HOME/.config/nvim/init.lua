@@ -126,15 +126,15 @@ vim.keymap.set("i", "<C-j>", "<C-x><C-o>")
 -- vim.keymap.set("n", "<C-h>", ":bprev<CR>", { noremap = true })
 -- vim.keymap.set("n", "<Leader>c", "<C-l>", { noremap = true })
 vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
-local function format_write()
+local function write_buffer()
   if vim.startswith(vim.fn.mode(), "i") then
     vim.cmd "stopinsert"
   end
-  vim.lsp.buf.format { async = false }
+  -- vim.lsp.buf.format { async = false }
   vim.api.nvim_command "write"
 end
-vim.keymap.set("n", "<C-s>", format_write, { noremap = true })
-vim.keymap.set("i", "<C-s>", format_write, { noremap = true })
+vim.keymap.set("n", "<C-s>", write_buffer, { noremap = true })
+vim.keymap.set("i", "<C-s>", write_buffer, { noremap = true })
 
 local function should_close(bufnr)
   local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
