@@ -212,50 +212,63 @@ vim.diagnostic.config {
 }
 local diag_signs = vim.diagnostic.handlers.signs
 
--- local filter_types = {
---   "optional",
---   "string_view",
---   "filesystem",
---   "u8string",
---   "span",
---   -- c++23
---   "expected",
--- }
--- local function is_filter(msg)
---   for _, t in ipairs(filter_types) do
---     if msg == string.format("No template named '%s' in namespace 'std'", t) then
---       return true
---     end
---     if msg == string.format("No type named '%s' in namespace 'std'", t) then
---       return true
---     end
---     if msg == string.format("No member named '%s' in namespace 'std'", t) then
---       return true
---     end
---     if msg == "Decomposition declarations are a C++17 extension" then
---       return true
---     end
---   end
--- end
---
--- vim.diagnostic.handlers.signs = {
---
---   show = function(namespace, bufnr, diagnostics, opts)
---     -- print(vim.inspect(diagnostics))
---     local filtered = {}
---     for _, d in ipairs(diagnostics) do
---       if is_filter(d.message) then
---         print "skip"
---       else
---         -- print(vim.inspect(d))
---         table.insert(filtered, d)
---       end
---     end
---     diag_signs.show(namespace, bufnr, filtered, opts)
---   end,
---
---   hide = diag_signs.hide,
--- }
+local filter_types = {
+  "optional",
+  "string_view",
+  "filesystem",
+  "u8string",
+  "span",
+  "string_view",
+  -- c++23
+  "expected",
+}
+local filter_template = {
+  "No template named '%s' in namespace 'std'",
+  "No type named '%s' in namespace 'std'",
+  "No member named '%s' in namespace 'std'",
+  "Decomposition declarations are a C++17 extension",
+}
+local prefix_list = {
+  "In included file: ",
+}
+local function starts_with(str, key)
+  return string.sub(str, 1, #key) == key
+end
+local function is_filter(msg)
+  for _, t in ipairs(filter_types) do
+    for _, template in ipairs(filter_template) do
+      if starts_with(msg, string.format(template, t)) then
+        return true
+      end
+      for _, p in ipairs(prefix_list) do
+        if starts_with(msg, string.format(p .. template, t)) then
+          return true
+        end
+      end
+    end
+  end
+end
+
+if vim.fn.has "win32" == 1 then
+  vim.diagnostic.handlers.signs = {
+
+    show = function(namespace, bufnr, diagnostics, opts)
+      -- print(vim.inspect(diagnostics))
+      local filtered = {}
+      for _, d in ipairs(diagnostics) do
+        if is_filter(d.message) then
+          print "skip"
+        else
+          -- print(vim.inspect(d))
+          table.insert(filtered, d)
+        end
+      end
+      diag_signs.show(namespace, bufnr, filtered, opts)
+    end,
+
+    hide = diag_signs.hide,
+  }
+end
 
 --
 --   virtual_text = {
