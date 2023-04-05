@@ -4,6 +4,10 @@
 
 > Unicodeの私用領域(Private Use Area U+E000 ~ U+F8FF)
 
+[あらゆる環境で使えるオレオレ NERDFont を手軽に合成する方法 - カラクリスタ・ブログ](https://the.kalaclista.com/posts/2017/12/06/000118/)
+
+[nerd-fonts/Symbols-1000-em Nerd Font Complete Mono.ttf at master · ryanoasis/nerd-fonts · GitHub](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/NerdFontsSymbolsOnly/complete/Symbols-1000-em%20Nerd%20Font%20Complete%20Mono.ttf)
+
 # fonts
 ## seti-ui: Seti UI
 - a set of icons for Seti UI. https://atom.io/themes/seti-ui
