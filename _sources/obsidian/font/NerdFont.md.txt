@@ -8,6 +8,9 @@
 
 [nerd-fonts/Symbols-1000-em Nerd Font Complete Mono.ttf at master · ryanoasis/nerd-fonts · GitHub](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/NerdFontsSymbolsOnly/complete/Symbols-1000-em%20Nerd%20Font%20Complete%20Mono.ttf)
 
+# font-patcher
+- @2023 [NerdFontとRictyFontを合成するときにエラーが出た話](https://zenn.dev/taktamur/articles/2023-01-07_nerdfont_rictyfont)
+
 # fonts
 ## seti-ui: Seti UI
 - a set of icons for Seti UI. https://atom.io/themes/seti-ui
