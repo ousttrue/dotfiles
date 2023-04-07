@@ -31,3 +31,6 @@
 # Dock
 
 # WindowPosition
+
+# Splitter
+- [Splitter · Issue #319 · ocornut/imgui · GitHub](https://github.com/ocornut/imgui/issues/319)
