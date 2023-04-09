@@ -1,0 +1,368 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
+        <title>Windows Build - shell note ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=fade93df149f7c5fedb3ff897f799dc7d283b420" />
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">shell note  ドキュメント</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">shell note  ドキュメント</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder=検索 name="q" aria-label="検索">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../doit.html">doit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../xonsh.html">xonsh</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../prompt-toolkit/index.html">prompt-toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../prompt-toolkit/examples/index.html">examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/examples/pager.html">pager.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../prompt-toolkit/src/index.html">Source読む</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/input.html">input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/output.html">output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/layout.html">Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/draw.html">draw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/buffer.html">Buffer &lt; BufferControl &lt; Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/keybinding.html">KeyBinding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/application.html">Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/search.html">search</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../prompt-toolkit/projects/index.html">using prompt_toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/projects/ptterm.html">ptterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/projects/pypager.html">pypager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/projects/pyvim.html">pyvim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/projects/ptfm.html">ptfm</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pygments.html">pygments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../wt.html">WindowsTerminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../font/index.html">font</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dotfiles.html">dotfiles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">external</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ousttrue/dotfiles">github</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <p><a class="reference external" href="https://sr.ht/~lattis/muon/">muon: meson implementation in C</a></p>
+<ul class="simple">
+<li><p>[[meson]] の C 実装</p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="windows-build">
+<h1>Windows Build<a class="headerlink" href="#windows-build" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">MUON_PLATFORM_null</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">source/platform</span></code></p>
+<p>このあたり、Winodws版を作る必要あり</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">platform_sources</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span>
+    <span class="s1">'mem.c'</span><span class="p">,</span>
+    <span class="s1">'path.c'</span><span class="p">,</span>
+    <span class="c1"># 'filesystem.c',</span>
+    <span class="c1"># 'run_cmd.c',</span>
+    <span class="c1"># 'term.c',</span>
+    <span class="c1"># 'uname.c',</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<section id="unistd-h">
+<h2>unistd.h<a class="headerlink" href="#unistd-h" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/341817/is-there-a-replacement-for-unistd-h-for-windows-visual-c">c++ - Is there a replacement for unistd.h for Windows (Visual C)? - Stack Overflow</a></p></li>
+<li><p><a class="reference external" href="https://gist.github.com/mbikovitsky/39224cf521bfea7eabe9">Windows unistd.h replacement · GitHub</a></p></li>
+</ul>
+</section>
+<section id="getopt-h">
+<h2>getopt.h<a class="headerlink" href="#getopt-h" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://takamints.hatenablog.jp/entry/2015/04/27/231454">Visual C/C++用getoptでPOSIX的コマンドラインオプション解析 - 銀の弾丸</a></p></li>
+</ul>
+</section>
+<section id="utsname-h">
+<h2>utsname.h<a class="headerlink" href="#utsname-h" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tniessen/iperf-windows/blob/master/win32-compat/sys/utsname.h">iperf-windows/utsname.h at master · tniessen/iperf-windows · GitHub</a></p></li>
+</ul>
+</section>
+<section id="clock-gettime">
+<h2>clock_gettime<a class="headerlink" href="#clock-gettime" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/5404277/porting-clock-gettime-to-windows">c++ - Porting clock_gettime to windows - Stack Overflow</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/ozaki-r/items/fb4a48c2833e4b479ae1">CLOCK_REALTIMEとCLOCK_MONOTONIC - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://sh4869.hatenablog.com/entry/2015/01/06/161910">Windowsでclock_gettimeを使う - Retired Colourman</a></p></li>
+</ul>
+</section>
+<section id="ssize-t">
+<h2>ssize_t<a class="headerlink" href="#ssize-t" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/yamori813/items/5a3b1eb33c360dfd2465">ssize_tについて - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://codom.hatenablog.com/entry/2018/06/19/222336"><code class="docutils literal notranslate"><span class="pre">size_t</span></code>, <code class="docutils literal notranslate"><span class="pre">ssize_t</span></code>とは何か - Read -&gt; Blog</a></p></li>
+<li><p><a class="reference external" href="https://www.wdic.org/w/TECH/ssize_t">ssize_t ‐ 通信用語の基礎知識</a></p></li>
+</ul>
+</section>
+<section id="s-irusr">
+<h2>S_IRUSR<a class="headerlink" href="#s-irusr" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/20773354/migrating-a-c-program-from-linux-to-windows">Migrating a C program from Linux to Windows - Stack Overflow</a></p></li>
+</ul>
+</section>
+<section id="stdin-fileno">
+<h2>STDIN_FILENO<a class="headerlink" href="#stdin-fileno" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/13531677/stdin-fileno-undeclared-in-windows">compiler errors - STDIN_FILENO undeclared in Windows - Stack Overflow</a></p></li>
+</ul>
+</section>
+<section id="pid-t">
+<h2>pid_t<a class="headerlink" href="#pid-t" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>waitpid</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tech.ckme.co.jp/cpp/cpp_pid.shtml">C++のTips - Unix系OSでプロセスIDを取得するには？：tech.ckme.co.jp</a></p></li>
+</ul>
+</section>
+<section id="gcc-attribute">
+<h2>gcc: attribute<a class="headerlink" href="#gcc-attribute" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/ozaki-r/items/a46197d241629fc373a7">format属性 - Qiita</a></p></li>
+</ul>
+</section>
+<section id="dirent-h">
+<h2>dirent.h<a class="headerlink" href="#dirent-h" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://github.com/tronkko/dirent/blob/master/include/dirent.h">dirent/dirent.h at master · tronkko/dirent · GitHub</a></p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2022, ousttrue |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="../../../_sources/obsidian/toolchain/buildtool/muon.md.txt"
+               rel="nofollow">
+              ソースコードを表示
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Windows Build</a><ul>
+<li><a class="reference internal" href="#unistd-h">unistd.h</a></li>
+<li><a class="reference internal" href="#getopt-h">getopt.h</a></li>
+<li><a class="reference internal" href="#utsname-h">utsname.h</a></li>
+<li><a class="reference internal" href="#clock-gettime">clock_gettime</a></li>
+<li><a class="reference internal" href="#ssize-t">ssize_t</a></li>
+<li><a class="reference internal" href="#s-irusr">S_IRUSR</a></li>
+<li><a class="reference internal" href="#stdin-fileno">STDIN_FILENO</a></li>
+<li><a class="reference internal" href="#pid-t">pid_t</a></li>
+<li><a class="reference internal" href="#gcc-attribute">gcc: attribute</a></li>
+<li><a class="reference internal" href="#dirent-h">dirent.h</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/scripts/furo.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    </body>
+</html>

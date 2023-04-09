@@ -21,7 +21,7 @@ aliases: [RFB]
 - `server` [[qt]] [GitHub - aoyiduo/wovnc: WoVNC - http://www.wovnc.com](https://github.com/aoyiduo/wovnc)
 - `server` [GitHub - phoboslab/jsmpeg-vnc: A low latency, high framerate screen sharing server for Windows and client for browsers](https://github.com/phoboslab/jsmpeg-vnc)
 - `server` [GitHub - any1/neatvnc: A liberally licensed VNC server library with a clean interface](https://github.com/any1/neatvnc)
-- `server` [[GNOME]]  [Vino - ArchWiki](https://wiki.archlinux.jp/index.php/Vino)
+- `server` [[gnome]]  [Vino - ArchWiki](https://wiki.archlinux.jp/index.php/Vino)
 
 - `client` [GitHub - zrax/gsshvnc: A simple VNC client with built-in SSH tunneling](https://github.com/zrax/gsshvnc)
 - `client` [[GTK3]]  [GNOME / gtk-vnc · GitLab](https://gitlab.gnome.org/GNOME/gtk-vnc)
