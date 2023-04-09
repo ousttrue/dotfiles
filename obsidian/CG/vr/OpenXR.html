@@ -1,0 +1,459 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
+        <title>Samples - shell note ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=fade93df149f7c5fedb3ff897f799dc7d283b420" />
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">shell note  ドキュメント</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">shell note  ドキュメント</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder=検索 name="q" aria-label="検索">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../doit.html">doit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../xonsh.html">xonsh</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../prompt-toolkit/index.html">prompt-toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../prompt-toolkit/examples/index.html">examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/examples/pager.html">pager.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../prompt-toolkit/src/index.html">Source読む</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/input.html">input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/output.html">output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/layout.html">Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/draw.html">draw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/buffer.html">Buffer &lt; BufferControl &lt; Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/keybinding.html">KeyBinding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/application.html">Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/src/search.html">search</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../prompt-toolkit/projects/index.html">using prompt_toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/projects/ptterm.html">ptterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/projects/pypager.html">pypager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/projects/pyvim.html">pyvim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../prompt-toolkit/projects/ptfm.html">ptfm</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pygments.html">pygments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../wt.html">WindowsTerminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../font/index.html">font</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dotfiles.html">dotfiles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">external</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ousttrue/dotfiles">github</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <p>#red</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/windows/mixed-reality/develop/native/openxr">OpenXR - Mixed Reality | Microsoft Learn</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="samples">
+<h1>Samples<a class="headerlink" href="#samples" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/jglrxavpok/Carrot">GitHub - jglrxavpok/Carrot: (WIP) Small game engine made for fun and educational proposes. Might do something with it later, might not.</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/jglrxavpok/Carrot/blob/55332acf03730d133a813bd2fc572c54ff955037/engine/engine/utils/conversions.h">Carrot/conversions.h at 55332acf03730d133a813bd2fc572c54ff955037 · jglrxavpok/Carrot · GitHub</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/THolovacko/bomberman_xr">GitHub - THolovacko/bomberman_xr: A native mixed reality Bomberman clone for the Meta Quest 2 and PC</a></p></li>
+<li><p><a class="reference external" href="https://github.com/janhsimon/openxr-vulkan-example">GitHub - janhsimon/openxr-vulkan-example: OpenXR &amp; Vulkan Integration Example</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.freedesktop.org/monado/demos/openxr-simple-example">Monado / Demos / openxr-simple-example · GitLab</a></p></li>
+<li><p><a class="reference external" href="https://github.com/amalon/osgXR">GitHub - amalon/osgXR: Virtual Reality with OpenXR and OpenSceneGraph</a></p></li>
+</ul>
+<section id="mixedreality">
+<h2>MixedReality<a class="headerlink" href="#mixedreality" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/microsoft/OpenXR-MixedReality/tree/main/samples/BasicXrApp">OpenXR-MixedReality/samples/BasicXrApp at main · microsoft/OpenXR-MixedReality · GitHub</a></p></li>
+</ul>
+</section>
+<section id="vulkan">
+<h2>vulkan<a class="headerlink" href="#vulkan" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[vulkan]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/jherico/Vulkan">GitHub - jherico/Vulkan: Examples and demos for the Vulkan C++ API</a></p></li>
+<li><p><a class="reference external" href="https://github.com/geefr/vsgvr">GitHub - geefr/vsgvr: OpenXR integration for Vulkan Scene Graph</a></p></li>
+</ul>
+</section>
+<section id="android">
+<h2>android<a class="headerlink" href="#android" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/SteakFlavored/ShockVR">GitHub - SteakFlavored/ShockVR</a></p></li>
+<li><p><a class="reference external" href="https://github.com/kghose/hyperquest">GitHub - kghose/hyperquest: Walk around 3D slices of high dimensional objects, "fly" in higher dimensions using hands</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Wesxdz/flit_xr">GitHub - Wesxdz/flit_xr</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tkoyat/ExtendedReality">GitHub - tkoyat/ExtendedReality: Extended Reality Browser</a></p></li>
+</ul>
+</section>
+<section id="pimax">
+<h2>pimax<a class="headerlink" href="#pimax" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mbucchia/Pimax-OpenXR">GitHub - mbucchia/Pimax-OpenXR: PimaxXR: an unofficial OpenXR runtime for Pimax headsets.</a></p></li>
+</ul>
+</section>
+<section id="id1">
+<h2>クロスプラットフォーム、オプション全部入り<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>[[hello_xr]]</p></li>
+</ul>
+</section>
+<section id="windows-mixedreality">
+<h2>Windows MixedReality用<a class="headerlink" href="#windows-mixedreality" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/microsoft/OpenXR-MixedReality">GitHub - microsoft/OpenXR-MixedReality: OpenXR samples and preview headers for HoloLens and Windows Mixed Reality developers familiar with Visual Studio</a>
+シンプル</p></li>
+<li><p><a class="reference external" href="https://github.com/maluoi/OpenXRSamples/tree/master/SingleFileExample">OpenXRSamples/SingleFileExample at master · maluoi/OpenXRSamples · GitHub</a></p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>?<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>vulkan とか必用。ビルド失敗</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/jherico/OpenXR-Samples">GitHub - jherico/OpenXR-Samples: Samples for the OpenXR API</a></p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>未見<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/Meumeu/WiVRn">GitHub - Meumeu/WiVRn</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="loader">
+<h1>Loader<a class="headerlink" href="#loader" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[openxr_loader]]
+Chapter 7. [[XrSpace]]
+[[hello_xr]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.khronos.org/files/openxr-10-reference-guide.pdf">https://www.khronos.org/files/openxr-10-reference-guide.pdf</a></p></li>
+<li><p><a class="reference external" href="https://microsoft.github.io/OpenXR-MixedReality/openxr_preview/specs/openxr.html">The OpenXR Specification</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id4">
+<h1>システム + セッション<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">OpenXR</span> <span class="pre">1.0</span> <span class="pre">コア仕様</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#instance">XrInstance</a></p></li>
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#system">XrSystemId</a></p></li>
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#session">XrSession</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id5">
+<h1>参照スペース (ビュー、ローカル、ステージ)<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>[[XrSpace]]</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="extensions">
+<h1>Extensions<a class="headerlink" href="#extensions" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>[[openxr_api_layer]]</p></li>
+<li><p><a class="reference external" href="https://github.com/LIV/XREW">GitHub - LIV/XREW: Header Only OpenXR Extension Wrangler</a></p></li>
+<li><p><a class="reference external" href="https://github.khronos.org/OpenXR-Inventory/extension_support.html">OpenXR Runtime Extension Support Report</a></p></li>
+<li><p>[[XR_EXTX_overlay]]</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="runtime">
+<h1>Runtime<a class="headerlink" href="#runtime" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenXR/specs/1.0/loader.html">OpenXR® Loader - Design and Operation [DRAFT] (with all published extensions)</a></p></li>
+<li><p><a class="reference external" href="https://zenn.dev/shiena/articles/openxr-runtime">OpenXRランタイムを実行時に選ぶ</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Ybalrid/OpenXR-API-Layer-Template">GitHub - Ybalrid/OpenXR-API-Layer-Template: A CMake based template repository to create OpenXR layers in C++</a></p></li>
+<li><p><a class="reference external" href="https://chromium.googlesource.com/chromium/src/+/ae4b5702945b407b40fed05de61b52bc9ebe8451/device/vr/openxr/test/fake_openxr_impl_api.cc">device/vr/openxr/test/fake_openxr_impl_api.cc - chromium/src - Git at Google</a></p></li>
+</ul>
+<section id="monado">
+<h2>[[monado]]<a class="headerlink" href="#monado" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="steamvr">
+<h2>[[SteamVR]]<a class="headerlink" href="#steamvr" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://forums.flightsimulator.com/t/dont-set-location-of-openxr-runtime-with-the-registry-use-openxr-loader-specs-instead/323323">Don't set location of OpenXR runtime with the registry, use OpenXR Loader Specs instead - General - Microsoft Flight Simulator Forums</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">XR_RUNTIME_JSON</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/.</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openxr</span><span class="o">/</span><span class="n">runtime</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">steam_runtime</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</section>
+<section id="windows-mixed-reality">
+<h2>Windows Mixed Reality<a class="headerlink" href="#windows-mixed-reality" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/mixed-reality/develop/native/openxr">OpenXR - Mixed Reality | Microsoft Docs</a></p></li>
+<li><p>@201906 <a class="reference external" href="https://playdeck.net/blog/introduction-to-openxr">Introduction to OpenXR - Playdeck Project</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/maluoi/OpenXRSamples">GitHub - maluoi/OpenXRSamples: Concise and documented examples of using OpenXR to build native Mixed Reality applications!</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="godot">
+<h2>[[godot]]<a class="headerlink" href="#godot" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.godotengine.org/ja/stable/tutorials/vr/openxr/index.html">OpenXR plugin — Godot Engine (stable)の日本語のドキュメント</a></p></li>
+<li><p><a class="reference external" href="https://github.com/GodotVR/godot_openxr">GitHub - GodotVR/godot_openxr: OpenXR drivers for the Godot Game Engine</a></p></li>
+<li><p><a class="reference external" href="https://framesynthesis.jp/tech/godot/vr/">Godot Engine VR開発メモ（Quest、Steam VR、WebXR対応） - フレームシンセシス</a></p></li>
+<li><p><a class="reference external" href="https://github.com/CrispyPin/ovr-utils">GitHub - CrispyPin/ovr-utils: Overlay app for OpenVR/SteamVR on Linux/Windows made in Godot</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/CrispyPin/ovr-utils">GitHub - CrispyPin/ovr-utils: Overlay app for OpenVR/SteamVR on Linux/Windows made in Godot</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="quest-native">
+<h2>quest native<a class="headerlink" href="#quest-native" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[QuestMobileSDK]]</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="unity">
+<h1>unity<a class="headerlink" href="#unity" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">XR</span> <span class="n">Management</span> <span class="n">has</span> <span class="n">already</span> <span class="n">initialized</span> <span class="n">an</span> <span class="n">active</span> <span class="n">loader</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">scene</span><span class="o">.</span> <span class="n">Please</span> <span class="n">make</span> <span class="n">sure</span> <span class="n">to</span> <span class="n">stop</span> <span class="nb">all</span> <span class="n">subsystems</span> <span class="ow">and</span> <span class="n">deinitialize</span> <span class="n">the</span> <span class="n">active</span> <span class="n">loader</span> <span class="n">before</span> <span class="n">initializing</span> <span class="n">a</span> <span class="n">new</span> <span class="n">one</span><span class="o">.</span>
+<span class="n">UnityEngine</span><span class="o">.</span><span class="n">XR</span><span class="o">.</span><span class="n">Management</span><span class="o">.</span><span class="n">XRGeneralSettings</span><span class="p">:</span><span class="n">AttemptInitializeXRSDKOnLoad</span> <span class="p">()</span> <span class="p">(</span><span class="n">at</span> <span class="n">Library</span><span class="o">/</span><span class="n">PackageCache</span><span class="o">/</span><span class="n">com</span><span class="o">.</span><span class="n">unity</span><span class="o">.</span><span class="n">xr</span><span class="o">.</span><span class="n">management</span><span class="o">@</span><span class="mf">4.2.0</span><span class="o">/</span><span class="n">Runtime</span><span class="o">/</span><span class="n">XRGeneralSettings</span><span class="o">.</span><span class="n">cs</span><span class="p">:</span><span class="mi">148</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2022, ousttrue |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="../../../_sources/obsidian/CG/vr/OpenXR.md.txt"
+               rel="nofollow">
+              ソースコードを表示
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Samples</a><ul>
+<li><a class="reference internal" href="#mixedreality">MixedReality</a></li>
+<li><a class="reference internal" href="#vulkan">vulkan</a></li>
+<li><a class="reference internal" href="#android">android</a></li>
+<li><a class="reference internal" href="#pimax">pimax</a></li>
+<li><a class="reference internal" href="#id1">クロスプラットフォーム、オプション全部入り</a></li>
+<li><a class="reference internal" href="#windows-mixedreality">Windows MixedReality用</a></li>
+<li><a class="reference internal" href="#id2">?</a></li>
+<li><a class="reference internal" href="#id3">未見</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#loader">Loader</a></li>
+<li><a class="reference internal" href="#id4">システム + セッション</a></li>
+<li><a class="reference internal" href="#id5">参照スペース (ビュー、ローカル、ステージ)</a></li>
+<li><a class="reference internal" href="#extensions">Extensions</a></li>
+<li><a class="reference internal" href="#runtime">Runtime</a><ul>
+<li><a class="reference internal" href="#monado">[[monado]]</a></li>
+<li><a class="reference internal" href="#steamvr">[[SteamVR]]</a></li>
+<li><a class="reference internal" href="#windows-mixed-reality">Windows Mixed Reality</a></li>
+<li><a class="reference internal" href="#godot">[[godot]]</a></li>
+<li><a class="reference internal" href="#quest-native">quest native</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#unity">unity</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/scripts/furo.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    </body>
+</html>
