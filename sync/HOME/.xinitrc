@@ -30,8 +30,8 @@ fi
 
 # exec startlxqt
 # exec openbox-session
-# exec openbox
+exec openbox
 # exec blackbox
 # exec berry
 # exec xterm
-exec qtile start
+# exec qtile start

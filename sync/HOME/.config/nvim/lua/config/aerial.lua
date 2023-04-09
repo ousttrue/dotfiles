@@ -22,8 +22,8 @@ function M.setup()
       --   win    - Opens float centered in the window
       relative = "win",
       anchor = "NE",
-      row = 1,
-      col = 1,
+      -- row = 1,
+      -- col = 1,
 
       -- These control the height of the floating window.
       -- They can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)

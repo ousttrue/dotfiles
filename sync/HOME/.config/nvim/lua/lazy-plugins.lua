@@ -16,13 +16,20 @@ vim.g.mapleader = " " -- make sure to set `mapleader` before lazy so your mappin
 
 local plugins = {
   { "nvim-lua/plenary.nvim" },
-  -- { -- colorscheme
+  -- {
   --   "blueshirts/darcula",
   --   config = function()
   --     vim.cmd [[colorscheme darcula]]
   --   end,
   -- },
-  require("config.colorscheme").plugin,
+  {
+    "EdenEast/nightfox.nvim",
+    config = function()
+      require("nightfox").setup()
+      vim.cmd [[colorscheme nightfox]]
+    end,
+  },
+  -- require("config.colorscheme").plugin,
   "editorconfig/editorconfig-vim",
   {
     "nvim-lualine/lualine.nvim",
@@ -83,9 +90,6 @@ local plugins = {
   { "tpope/vim-fugitive" },
   {
     "lukas-reineke/indent-blankline.nvim",
-    dependencies = {
-      "EdenEast/nightfox.nvim",
-    },
     config = function()
       require("config.indent-blankline").setup()
     end,

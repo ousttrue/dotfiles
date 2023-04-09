@@ -22,6 +22,8 @@ local function get_server(dir)
     return e .. ""
   end
 
+  return ""
+
   -- print(path.Path)
   -- local extensions = path.Path:new(dir)
   -- extensions = path:new(dir)

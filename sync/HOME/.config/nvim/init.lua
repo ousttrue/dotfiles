@@ -337,4 +337,3 @@ vim.keymap.set("n", "gx", floating_window, { noremap = true })
 
 -- package manager
 require "lazy-plugins"
--- vim.cmd [[colorscheme habamax]]
