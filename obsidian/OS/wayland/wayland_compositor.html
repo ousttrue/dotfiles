@@ -218,12 +218,32 @@
           </label>
         </div>
         <article role="main">
-          <p>[[wayland]]</p>
+          <p>[[wayland]]
+[[wayland_client]]</p>
 <ul class="simple">
-<li><p>[[<a class="reference external" href="https://wayfire.org/">Wayfire</a>]]</p></li>
-<li><p><a class="reference external" href="https://github.com/ec1oud/grefsen">GitHub - ec1oud/grefsen: A Qt/Wayland desktop</a></p></li>
-<li><p>@2017 <a class="reference external" href="https://qiita.com/maueki/items/34323b2762e3c3342c51">作って学ぶWayland - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://github.com/okazoh-tk/minic">GitHub - okazoh-tk/minic: Minimal wayland compositor for learning</a></p></li>
 </ul>
+<p>?</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ec1oud/grefsen">GitHub - ec1oud/grefsen: A Qt/Wayland desktop</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Link1J/Awning">GitHub - Link1J/Awning: A Wayland Compositor</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://qiita.com/maueki/items/34323b2762e3c3342c51">作って学ぶWayland - Qiita</a>
+X11上での実行専用。</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;wayland-server.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">wl_display</span><span class="o">*</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wl_display_create</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"hello, wayland</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">wl_display_run</span><span class="p">(</span><span class="n">display</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 <section class="tex2jax_ignore mathjax_ignore" id="wlroots">
 <h1>wlroots<a class="headerlink" href="#wlroots" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
