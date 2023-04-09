@@ -106,7 +106,7 @@ cargo build --release --no-default-features --features=x11
 [[xterm]]
 [[urxvt]]
 
-# [[FontConfig]]
+# [[fontconfig]]
 [[simple_terminal]]
 
 # libvte

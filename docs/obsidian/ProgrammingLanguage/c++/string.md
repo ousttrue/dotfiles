@@ -1,4 +1,4 @@
-[[c++]]  [[font/unicode]]
+[[c++]]  [[unicode]]
 
 - [文字列リテラルと文字リテラル (C++) | Microsoft Learn](https://learn.microsoft.com/ja-jp/cpp/cpp/string-and-character-literals-cpp?view=msvc-170)
 - @2022 [マルチプラットフォーム対応の std::string と std::wstring の間の変換を行うライブラリを作るよ - Qiita](https://qiita.com/javacommons/items/62b40a3b7aa59d9130ae)

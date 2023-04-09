@@ -17,7 +17,7 @@
 [[GeoDjango]]
 
 # Data
-[[GIS/plateau]]
+[[plateau]]
 
 ## 国土地理院
 [https://nlftp.mlit.go.jp/ksj/](http://nlftp.mlit.go.jp/ksj/)

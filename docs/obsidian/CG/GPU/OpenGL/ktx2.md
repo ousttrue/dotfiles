@@ -2,7 +2,7 @@
 aliases: [libktx]
 ---
 
-[[basis]] [[astc]]
+[[Basis]] [[ASTC]]
 
 https://www.khronos.org/ktx/
 

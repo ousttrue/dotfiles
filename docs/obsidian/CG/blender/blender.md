@@ -1,5 +1,5 @@
 [[IsometricRoom]]
-[[blender/AssetBrowser]]
+[[AssetBrowser]]
 [[blender_addon]]
 [[bpy_addon]]
 
