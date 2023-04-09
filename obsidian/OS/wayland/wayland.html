@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>env - shell note ドキュメント</title>
+        <title>driver - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -230,6 +230,20 @@
 <li><p>@2016 <a class="reference external" href="https://qiita.com/maueki/items/9a3a8791a05c00b34c29">Waylandとは？ - Qiita</a></p></li>
 <li><p>@2012 <a class="reference external" href="https://qt-labs.jp/2012/12/wayland-overview.html">Wayland Overview – Qt のあれこれ (仮)</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="driver">
+<h1>driver<a class="headerlink" href="#driver" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>DRM で OpenGL か Vulkan を作って描画したいが、<code class="docutils literal notranslate"><span class="pre">nvidia</span></code> ドライバが無かった。
+<code class="docutils literal notranslate"><span class="pre">xorg</span></code> 向けはあった?</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.gamingonlinux.com/2022/05/nvidia-reveal-a-list-of-issues-with-their-driver-and-wayland/?fbclid=IwAR3bpnk-0N1GkI7RWyz91ndSos64t4gOEwjG0Ryi_41gg5VL-TfBT7-uaYA">NVIDIA reveal a list of issues with their driver and Wayland | GamingOnLinux</a></p></li>
+</ul>
+<section id="ubuntu">
+<h2>ubuntu<a class="headerlink" href="#ubuntu" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://qiita.com/k0kubun/items/c1162098cbd7eba1bed0">NVIDIAドライバーが入っているUbuntuでWaylandを使う - Qiita</a></p></li>
+</ul>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="env">
 <h1>env<a class="headerlink" href="#env" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GDK_BACKEND=wayland</span></code></p>
@@ -333,7 +347,11 @@ session
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">env</a></li>
+<li><a class="reference internal" href="#">driver</a><ul>
+<li><a class="reference internal" href="#ubuntu">ubuntu</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#env">env</a></li>
 <li><a class="reference internal" href="#dev">dev</a><ul>
 <li><a class="reference internal" href="#compositor">compositor</a></li>
 <li><a class="reference internal" href="#client">client</a></li>
