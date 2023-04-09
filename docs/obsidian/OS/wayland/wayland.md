@@ -9,6 +9,13 @@
 - @2016 [Waylandとは？ - Qiita](https://qiita.com/maueki/items/9a3a8791a05c00b34c29)
 - @2012 [Wayland Overview – Qt のあれこれ (仮)](https://qt-labs.jp/2012/12/wayland-overview.html)
 
+# driver
+DRM で OpenGL か Vulkan を作って描画したいが、`nvidia` ドライバが無かった。
+`xorg` 向けはあった?
+- [NVIDIA reveal a list of issues with their driver and Wayland | GamingOnLinux](https://www.gamingonlinux.com/2022/05/nvidia-reveal-a-list-of-issues-with-their-driver-and-wayland/?fbclid=IwAR3bpnk-0N1GkI7RWyz91ndSos64t4gOEwjG0Ryi_41gg5VL-TfBT7-uaYA)
+## ubuntu
+- @2022 [NVIDIAドライバーが入っているUbuntuでWaylandを使う - Qiita](https://qiita.com/k0kubun/items/c1162098cbd7eba1bed0)
+
 # env
 `export GDK_BACKEND=wayland`
 

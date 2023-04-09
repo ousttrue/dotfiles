@@ -4,8 +4,11 @@
 - [GitHub - okazoh-tk/minic: Minimal wayland compositor for learning](https://github.com/okazoh-tk/minic)
 
 ?
+- [GitHub - wiztk/compositor](https://github.com/wiztk/compositor)
+	- 依存 skia
 - [GitHub - ec1oud/grefsen: A Qt/Wayland desktop](https://github.com/ec1oud/grefsen)
 - [GitHub - Link1J/Awning: A Wayland Compositor](https://github.com/Link1J/Awning)
+- [GitHub - st3r4g/swvkc: experimental Wayland Vulkan compositor](https://github.com/st3r4g/swvkc)
 
 - @2017 [作って学ぶWayland - Qiita](https://qiita.com/maueki/items/34323b2762e3c3342c51)
 	X11上での実行専用。
