@@ -30,5 +30,5 @@
 - @2016 [C/C++アプリケーションにmrubyを組み込み機能を拡張させてみる - Qiita](https://qiita.com/drednote/items/5bbd13f150e37a771ac7)
 
 # JIT
-[[JIT]]
+[[jit]]
 - @2017 [mrubyのJITの概要 - Qiita](https://qiita.com/miura1729/items/a1828849ec8fec596e74)

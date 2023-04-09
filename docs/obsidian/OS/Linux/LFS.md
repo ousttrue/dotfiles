@@ -1,5 +1,5 @@
 LinuxFromScratch
-[[linux]]
+[[Linux]]
 
 http://www.linuxfromscratch.org/
 - http://www.linuxfromscratch.org/lfs/view/stable/

@@ -1,5 +1,5 @@
 Amazon Linux 2
-[[WSL]] [[linux]] [[CentOS]]
+[[wsl]] [[Linux]] [[CentOS]]
 
 `amazonlinux:2.0.20200406.0`
 

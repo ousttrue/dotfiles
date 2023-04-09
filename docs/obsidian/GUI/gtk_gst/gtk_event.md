@@ -1,6 +1,6 @@
 - [Gtk – 4.0: Migrating from GTK 3.x to GTK 4](https://docs.gtk.org/gtk4/migrating-3to4.html#stop-using-gtkwidget-event-signals)
 
-[[Gtk3]]
+[[GTK3]]
 
 ```python
 	def on_motion(self, widget, event):
@@ -11,7 +11,7 @@
 
 👇
 
-[[Gtk4]]
+[[GTK4]]
 ```python
 	def on_motion(self, controller, x, y):
 		pass

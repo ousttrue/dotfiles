@@ -1,4 +1,4 @@
-[[BoostAsio]] [[coroutine]] [[JIT]]
+[[BoostAsio]] [[coroutine]] [[jit]]
 
 - [GitHub - onihusube/books](https://github.com/onihusube/books)
 

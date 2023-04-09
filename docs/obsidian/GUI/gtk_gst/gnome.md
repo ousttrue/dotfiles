@@ -3,7 +3,7 @@
 # Version
 ## GNOME43 Guadalajara
 - @202209 [GNOME 43 ”Guadalajara”がリリース、主要コンポーネントの多くがGTK4に移植 | gihyo.jp](https://gihyo.jp/article/2022/09/daily-linux-220922)
-[[gtk4]]
+[[GTK4]]
 
 ## GNOME40
 - @2021 [GNOME 40 とGtk4を体験しました - おもこん](https://toshiocp.com/entry/2021/04/25/214250)

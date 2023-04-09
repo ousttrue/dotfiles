@@ -7,7 +7,7 @@
 [[xfce4]]
 ## 4
 [[GTK4]]
-[[GNOME]]
+[[gnome]]
 
 # QT
 ## 5

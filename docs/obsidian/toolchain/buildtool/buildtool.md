@@ -15,4 +15,4 @@ https://github.com/ranjian0/building_tool
 - [GitHub - apache/buildstream: BuildStream, the software integration tool](https://github.com/apache/buildstream)
 - [BuildStream · PyPI](https://pypi.org/project/BuildStream/)
 
-[[GNOME]]
+[[gnome]]
