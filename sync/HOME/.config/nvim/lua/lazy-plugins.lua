@@ -41,6 +41,30 @@ local plugins = {
     end,
   },
   -- {
+  --   "norcalli/nvim-colorizer.lua",
+  --   config = function()
+  --     require("colorizer").setup {
+  --       "*",
+  --     }
+  --   end,
+  -- },
+  {
+    "uga-rosa/ccc.nvim",
+    config = function()
+      local ccc = require "ccc"
+      -- local mapping = ccc.mapping
+
+      ccc.setup {
+        -- Your preferred settings
+        -- Example: enable highlighter
+        highlighter = {
+          auto_enable = true,
+          lsp = true,
+        },
+      }
+    end,
+  },
+  -- {
   --   "osyo-manga/vim-precious",
   --   dependencies = { "Shougo/context_filetype.vim" },
   -- },

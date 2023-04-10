@@ -10,24 +10,6 @@ aliases: [neovim]
 nvim +Tutor
 ```
 
-# Links
-[[nvim_lua]]   [[nvim_snippet]]
-## UI
-[[nvim_terminal]] [[nvim_virtualtext]] [[nvim_floating]] [[nvim_keymap]]
-## plugins
-[[nvim_packer]] [[vim_plugins]]
-[[nvim_pluginmanager]]
-## lsp
-- [Lsp - Neovim docs](https://neovim.io/doc/user/lsp.html)
-[[nvim_lsp]] [[nvim_lsp]]  
-## ex buffer
-[[nvim_tree]]
-## in buffer
-[[treesitter]] [[nvim_statusline]]
-## filetypes
-[[cpp]] [[lua]]
-[[json]] [[toml]]
-
 # articles
 - @2023 [This Week In Neovim — 16 Jan 2023](https://this-week-in-neovim.org/2023/Jan/16)
 - @2022 [ワシの使っているNeovimプラグインは200個近くあるぞ」を読んで気になったプラグインたち](https://snyt45.com/CjFfFcGf4)
@@ -41,6 +23,8 @@ nvim +Tutor
 		- [Neovim for Beginners — init.lua. Let’s start our journey to customize… | by alpha2phi | Medium](https://alpha2phi.medium.com/neovim-for-beginners-init-lua-45ff91f741cb)
 
 # Version
+## v0.10.0
+## v0.9.0
 ## v0.8.0
 - [Neovim 40個のおすすめオプション](https://jp.magicode.io/denx/articles/eb5a9c43526e4592937977bf3a959ad3)
 - filetype.lua
@@ -78,3 +62,28 @@ nvim +Tutor
 ## depndencies
 - [neovim/CMakeLists.txt at master · neovim/neovim · GitHub](https://github.com/neovim/neovim/blob/master/cmake.deps/CMakeLists.txt)
 
+```sh
+$ cmake -S cmake.deps -B .deps -G Ninja
+$ cmake --build .deps
+$ cmake -S . -B build -G Ninja
+$ cmake --build build
+$ cmake --install --prefix $HOME/local
+```
+
+# Links
+[[nvim_lua]]   [[nvim_snippet]]
+## UI
+[[nvim_terminal]] [[nvim_virtualtext]] [[nvim_floating]] [[nvim_keymap]]
+## plugins
+[[nvim_packer]] [[vim_plugins]]
+[[nvim_pluginmanager]]
+## lsp
+- [Lsp - Neovim docs](https://neovim.io/doc/user/lsp.html)
+[[nvim_lsp]] [[nvim_lsp]]  
+## ex buffer
+[[nvim_tree]]
+## in buffer
+[[treesitter]] [[nvim_statusline]]
+## filetypes
+[[cpp]] [[lua]]
+[[json]] [[toml]]
