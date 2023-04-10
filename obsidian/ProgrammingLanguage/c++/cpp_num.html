@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>io_context - shell note ドキュメント</title>
+        <title>charconv - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,90 +218,19 @@
           </label>
         </div>
         <article role="main">
-          <p>[[cpp]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://think-async.com/Asio/">Asio C++ Library</a></p>
-<ul>
-<li><p><a class="reference external" href="https://think-async.com/Asio/asio-1.24.0/doc/asio/overview.html">Overview</a></p></li>
-<li><p><a class="reference external" href="https://think-async.com/Asio/asio-1.24.0/doc/asio/reference.html">Reference</a></p></li>
-<li><p><a class="reference external" href="https://think-async.com/Asio/asio-1.24.0/doc/asio/examples.html">Examples</a></p></li>
-</ul>
-</li>
-<li><p>@2015 <a class="reference external" href="https://qiita.com/YukiMiyatake/items/5be12ea35894071d8de1">boost.Asioを半年使っわかったこと - Qiita</a></p></li>
-<li><p>@2011 <a class="reference external" href="https://clown.cube-soft.jp/entry/20110325/1301048795">Boost.Asio リンク集 - Cube Lilac</a></p></li>
-<li><p>@2011 <a class="reference external" href="https://faithandbrave.hateblo.jp/entry/20110325/1301036991">Boost.Asio ゲームループで非同期操作を行う - Faith and Brave - C++で遊ぼう</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="io-context">
-<h1>io_context<a class="headerlink" href="#io-context" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="post-dispatch">
-<h2>post / dispatch<a class="headerlink" href="#post-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2011 <a class="reference external" href="https://faithandbrave.hateblo.jp/entry/20110913/1315895805">Boost.Asio postとdispatchの違い - Faith and Brave - C++で遊ぼう</a></p></li>
-</ul>
+          <section class="tex2jax_ignore mathjax_ignore" id="charconv">
+<h1>charconv<a class="headerlink" href="#charconv" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="to-char">
+<h2>to_char,<a class="headerlink" href="#to-char" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="from-char">
+<h2>from_char<a class="headerlink" href="#from-char" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">msvc17</span></code>
+clang, gcc 整数のみ</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="completiontokens">
-<h1>CompletionTokens<a class="headerlink" href="#completiontokens" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="callback">
-<h2>callback<a class="headerlink" href="#callback" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2016 <a class="reference external" href="https://nekko1119.hatenablog.com/entry/2016/04/08/051907">Asioで非同期Http通信 - C++と色々</a></p></li>
-</ul>
-</section>
-<section id="future">
-<h2>future<a class="headerlink" href="#future" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="promise">
-<h2>promise<a class="headerlink" href="#promise" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;asio/experimental/promise.hpp&gt;</span><span class="cp"></span>
-
-<span class="n">asio</span><span class="o">::</span><span class="n">experimental</span><span class="o">::</span><span class="n">use_promise</span><span class="w"></span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>@2017 <a class="reference external" href="https://qiita.com/legokichi/items/3365b25eea13c0f2bb51">Boost.ASIO で callback | coroutine | future による非同期IO - Qiita</a></p></li>
-</ul>
-</section>
-<section id="coroutine">
-<h2>coroutine<a class="headerlink" href="#coroutine" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">c++20</span></code>
-[[cpp_coroutine]]</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="the-networking-ts">
-<h1>The Networking TS<a class="headerlink" href="#the-networking-ts" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/experimental/networking">Extensions for networking - cppreference.com</a></p></li>
-<li><p><a class="reference external" href="https://amedama1x1.hatenablog.com/archive/category/Asio">Asio カテゴリーの記事一覧 - あめだまふぁくとりー</a></p>
-<ul>
-<li><p>@2016 <a class="reference external" href="https://amedama1x1.hatenablog.com/entry/2016/08/20/222326">Networking TS の Boost.Asio からの変更点 - その 3: Executor - あめだまふぁくとりー</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">io_service</span> <span class="pre">=&gt;</span> <span class="pre">io_context</span></code></p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="asio-buffer">
-<h1>asio::buffer<a class="headerlink" href="#asio-buffer" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2018 <a class="reference external" href="https://onihusube.hatenablog.com/entry/2018/05/26/011129">boost.asioのTCP/UDP通信時のBufferに関するメモ - 地面を見下ろす少年の足蹴にされる私</a></p></li>
-<li><p>@2015 <a class="reference external" href="https://qiita.com/YukiMiyatake/items/f4641c54151a18c362f9">【boost::asio buffers】 boost::asioでセッション管理にはshared_ptrが便利だ - Qiita</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="executor">
-<h1>Executor<a class="headerlink" href="#executor" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="asio-thread-pool">
-<h2>asio::thread_pool<a class="headerlink" href="#asio-thread-pool" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/60552069/using-boostasiopost-for-a-function-that-takes-in-parameters">c++ - Using boost::asio::post for a function that takes in parameters - Stack Overflow</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="https">
-<h1>https<a class="headerlink" href="#https" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://eiki.hatenablog.jp/entry/20130617/1371436691">boost::asioでhttps-post - 実践ゲーム製作メモ帳2</a></p></li>
-<li><p><a class="reference external" href="https://github.com/alexandruc/SimpleHttpsClient">GitHub - alexandruc/SimpleHttpsClient: A simple HTTPS client based on Boost Asio.</a></p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="stof-stoi">
+<h1>stof, stoi<a class="headerlink" href="#stof-stoi" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 
         </article>
@@ -317,7 +246,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/c++/BoostAsio.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/c++/cpp_num.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -337,24 +266,12 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">io_context</a><ul>
-<li><a class="reference internal" href="#post-dispatch">post / dispatch</a></li>
+<li><a class="reference internal" href="#">charconv</a><ul>
+<li><a class="reference internal" href="#to-char">to_char,</a></li>
+<li><a class="reference internal" href="#from-char">from_char</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#completiontokens">CompletionTokens</a><ul>
-<li><a class="reference internal" href="#callback">callback</a></li>
-<li><a class="reference internal" href="#future">future</a></li>
-<li><a class="reference internal" href="#promise">promise</a></li>
-<li><a class="reference internal" href="#coroutine">coroutine</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-networking-ts">The Networking TS</a></li>
-<li><a class="reference internal" href="#asio-buffer">asio::buffer</a></li>
-<li><a class="reference internal" href="#executor">Executor</a><ul>
-<li><a class="reference internal" href="#asio-thread-pool">asio::thread_pool</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#https">https</a></li>
+<li><a class="reference internal" href="#stof-stoi">stof, stoi</a></li>
 </ul>
 
           </div>

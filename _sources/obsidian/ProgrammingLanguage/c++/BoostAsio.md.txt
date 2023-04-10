@@ -45,3 +45,8 @@ asio::experimental::use_promise
 # Executor
 ## asio::thread_pool
 - [c++ - Using boost::asio::post for a function that takes in parameters - Stack Overflow](https://stackoverflow.com/questions/60552069/using-boostasiopost-for-a-function-that-takes-in-parameters)
+
+# https
+- [boost::asioでhttps-post - 実践ゲーム製作メモ帳2](https://eiki.hatenablog.jp/entry/20130617/1371436691)
+- [GitHub - alexandruc/SimpleHttpsClient: A simple HTTPS client based on Boost Asio.](https://github.com/alexandruc/SimpleHttpsClient)
+

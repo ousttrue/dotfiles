@@ -1,4 +1,4 @@
-[[Linux]] [[DRM]]
+[[Linux]] [[DRM]] [[term]]
 
 # console
 Linux の X を起動する前の黒い画面
