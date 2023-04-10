@@ -1,18 +1,15 @@
 ///
 /// experimental XSH
 ///
+#include "posix_launch.h"
 #include <array>
 #include <functional>
 #include <iostream>
 #include <span>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <string>
-#include <sys/wait.h>
-#include <unistd.h>
 #include <unordered_map>
 #include <vector>
+// chdir
+#include <unistd.h>
 
 using Args = std::span<std::string_view>;
 using CommandFunc = std::function<bool(Args args)>;
@@ -116,39 +113,7 @@ public:
       }
     }
 
-    return posix_launch(args);
-  }
-
-  bool posix_launch(Args args) {
-    auto pid = fork();
-    if (pid == 0) {
-      // Child process
-      std::vector<std::string> _buffer;
-      for (auto arg : args) {
-        _buffer.push_back({arg.begin(), arg.end()});
-      }
-      std::vector<char *> _args;
-      for (auto b : _buffer) {
-        _args.push_back(b.data());
-      }
-      _args.push_back(0);
-
-      if (execvp(_args[0], _args.data()) == -1) {
-        perror("lsh");
-      }
-      exit(EXIT_FAILURE);
-    } else if (pid < 0) {
-      // Error forking
-      perror("lsh");
-    } else {
-      // Parent process
-      int status;
-      do {
-        waitpid(pid, &status, WUNTRACED);
-      } while (!WIFEXITED(status) && !WIFSIGNALED(status));
-    }
-
-    return 1;
+    return posix::launch(args);
   }
 };
 
@@ -160,11 +125,11 @@ int main(int argc, char **argv) {
   // cd
   dispatcher.add_builtin("cd", [](Args args) {
     if (args.size() < 2) {
-      fprintf(stderr, "lsh: expected argument to \"cd\"\n");
+      fprintf(stderr, "xsh: expected argument to \"cd\"\n");
     } else {
       std::string dir = {args[1].begin(), args[2].end()};
       if (chdir(dir.c_str()) != 0) {
-        perror("lsh");
+        perror("xsh");
       }
     }
     return true;

@@ -8,7 +8,7 @@ executable(
     'xsh',
     [
         'main.cpp',
+        'posix_launch.cpp',
     ],
     install: true,
 )
-
