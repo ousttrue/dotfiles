@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Links - shell note ドキュメント</title>
+        <title>articles - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -226,39 +226,6 @@
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>nvim +Tutor
 </pre></div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="links">
-<h1>Links<a class="headerlink" href="#links" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[nvim_lua]]   [[nvim_snippet]]</p>
-<section id="ui">
-<h2>UI<a class="headerlink" href="#ui" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[nvim_terminal]] [[nvim_virtualtext]] [[nvim_floating]] [[nvim_keymap]]</p>
-</section>
-<section id="plugins">
-<h2>plugins<a class="headerlink" href="#plugins" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[nvim_packer]] [[vim_plugins]]
-[[nvim_pluginmanager]]</p>
-</section>
-<section id="lsp">
-<h2>lsp<a class="headerlink" href="#lsp" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://neovim.io/doc/user/lsp.html">Lsp - Neovim docs</a>
-[[nvim_lsp]] [[nvim_lsp]]</p></li>
-</ul>
-</section>
-<section id="ex-buffer">
-<h2>ex buffer<a class="headerlink" href="#ex-buffer" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[nvim_tree]]</p>
-</section>
-<section id="in-buffer">
-<h2>in buffer<a class="headerlink" href="#in-buffer" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[treesitter]] [[nvim_statusline]]</p>
-</section>
-<section id="filetypes">
-<h2>filetypes<a class="headerlink" href="#filetypes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[cpp]] [[lua]]
-[[json]] [[toml]]</p>
-</section>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="articles">
 <h1>articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -276,6 +243,12 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="v0-10-0">
+<h2>v0.10.0<a class="headerlink" href="#v0-10-0" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="v0-9-0">
+<h2>v0.9.0<a class="headerlink" href="#v0-9-0" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
 <section id="v0-8-0">
 <h2>v0.8.0<a class="headerlink" href="#v0-8-0" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
@@ -337,6 +310,46 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/neovim/neovim/blob/master/cmake.deps/CMakeLists.txt">neovim/CMakeLists.txt at master · neovim/neovim · GitHub</a></p></li>
 </ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cmake -S cmake.deps -B .deps -G Ninja
+$ cmake --build .deps
+$ cmake -S . -B build -G Ninja
+$ cmake --build build
+$ cmake --install --prefix <span class="nv">$HOME</span>/local
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="links">
+<h1>Links<a class="headerlink" href="#links" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[nvim_lua]]   [[nvim_snippet]]</p>
+<section id="ui">
+<h2>UI<a class="headerlink" href="#ui" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[nvim_terminal]] [[nvim_virtualtext]] [[nvim_floating]] [[nvim_keymap]]</p>
+</section>
+<section id="plugins">
+<h2>plugins<a class="headerlink" href="#plugins" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[nvim_packer]] [[vim_plugins]]
+[[nvim_pluginmanager]]</p>
+</section>
+<section id="lsp">
+<h2>lsp<a class="headerlink" href="#lsp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://neovim.io/doc/user/lsp.html">Lsp - Neovim docs</a>
+[[nvim_lsp]] [[nvim_lsp]]</p></li>
+</ul>
+</section>
+<section id="ex-buffer">
+<h2>ex buffer<a class="headerlink" href="#ex-buffer" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[nvim_tree]]</p>
+</section>
+<section id="in-buffer">
+<h2>in buffer<a class="headerlink" href="#in-buffer" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[treesitter]] [[nvim_statusline]]</p>
+</section>
+<section id="filetypes">
+<h2>filetypes<a class="headerlink" href="#filetypes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[cpp]] [[lua]]
+[[json]] [[toml]]</p>
 </section>
 </section>
 
@@ -373,17 +386,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Links</a><ul>
-<li><a class="reference internal" href="#ui">UI</a></li>
-<li><a class="reference internal" href="#plugins">plugins</a></li>
-<li><a class="reference internal" href="#lsp">lsp</a></li>
-<li><a class="reference internal" href="#ex-buffer">ex buffer</a></li>
-<li><a class="reference internal" href="#in-buffer">in buffer</a></li>
-<li><a class="reference internal" href="#filetypes">filetypes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#articles">articles</a></li>
+<li><a class="reference internal" href="#">articles</a></li>
 <li><a class="reference internal" href="#version">Version</a><ul>
+<li><a class="reference internal" href="#v0-10-0">v0.10.0</a></li>
+<li><a class="reference internal" href="#v0-9-0">v0.9.0</a></li>
 <li><a class="reference internal" href="#v0-8-0">v0.8.0</a><ul>
 <li><a class="reference internal" href="#winbar">winbar</a></li>
 </ul>
@@ -396,6 +402,15 @@
 </li>
 <li><a class="reference internal" href="#build">build</a><ul>
 <li><a class="reference internal" href="#depndencies">depndencies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#links">Links</a><ul>
+<li><a class="reference internal" href="#ui">UI</a></li>
+<li><a class="reference internal" href="#plugins">plugins</a></li>
+<li><a class="reference internal" href="#lsp">lsp</a></li>
+<li><a class="reference internal" href="#ex-buffer">ex buffer</a></li>
+<li><a class="reference internal" href="#in-buffer">in buffer</a></li>
+<li><a class="reference internal" href="#filetypes">filetypes</a></li>
 </ul>
 </li>
 </ul>
