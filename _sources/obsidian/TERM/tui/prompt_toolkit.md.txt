@@ -34,3 +34,10 @@ aliases: [ptk]
 
 ## editor
 - @2019 [【Python】prompt-toolkitのtext_before_cursorとget_word_before_cursorの違い(おまけでWORD引数についての説明も) - Qiita](https://qiita.com/tamago324/items/f3d3db0819834a5dd596)
+
+## pymux
+https://github.com/prompt-toolkit/pymux
+	https://githubja.com/jonathanslenders/pymux
+
+https://github.com/prompt-toolkit/python-prompt-toolkit
+https://github.com/prompt-toolkit/pyvim
