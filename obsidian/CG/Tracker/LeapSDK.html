@@ -231,6 +231,82 @@
 </pre></div>
 </div>
 <p>@2019 <code class="docutils literal notranslate"><span class="pre">v4</span></code> <a class="reference external" href="https://qiita.com/moccos/items/0aa986714df58fb837d0">LeapMotion SDK スタートアップ (C API / v4) - Qiita</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="types">
+<h1>types<a class="headerlink" href="#types" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">LeapC.h</span></code></p>
+<section id="leap-tracking-event">
+<h2>LEAP_TRACKING_EVENT<a class="headerlink" href="#leap-tracking-event" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">LEAP_TRACKING_EVENT</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_HAND</span><span class="o">*</span><span class="w"> </span><span class="n">pHands</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">nHands</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="leap-hand">
+<h2>LEAP_HAND<a class="headerlink" href="#leap-hand" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">LEAP_HAND</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_DIGIT</span><span class="w"> </span><span class="n">thumb</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_DIGIT</span><span class="w"> </span><span class="n">index</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_DIGIT</span><span class="w"> </span><span class="n">middle</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_DIGIT</span><span class="w"> </span><span class="n">ring</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_DIGIT</span><span class="w"> </span><span class="n">pinky</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_BONE</span><span class="w"> </span><span class="n">arm</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_PALM</span><span class="w"> </span><span class="n">palm</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="leap-digit">
+<h2>LEAP_DIGIT<a class="headerlink" href="#leap-digit" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>指</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">LEAP_DIGIT</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_BONE</span><span class="w"> </span><span class="n">metacarpal</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_BONE</span><span class="w"> </span><span class="n">proximal</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_BONE</span><span class="w"> </span><span class="n">intermediate</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_BONE</span><span class="w"> </span><span class="n">distal</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="leap-bone">
+<h2>LEAP_BONE<a class="headerlink" href="#leap-bone" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">LEAP_BONE</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_VECTOR</span><span class="w"> </span><span class="n">prev_joint</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_VECTOR</span><span class="w"> </span><span class="n">next_joint</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_QUATERNION</span><span class="w"> </span><span class="n">rotation</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">LEAP_VECTOR</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="leap-palm">
+<h2>LEAP_PALM<a class="headerlink" href="#leap-palm" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">LEAP_PALM</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_VECTOR</span><span class="w"> </span><span class="n">position</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_VECTOR</span><span class="w"> </span><span class="n">stabilized_position</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_VECTOR</span><span class="w"> </span><span class="n">velocity</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_VECTOR</span><span class="w"> </span><span class="n">normal</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_VECTOR</span><span class="w"> </span><span class="n">direction</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_QUATERNION</span><span class="w"> </span><span class="n">orientation</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
 <section id="eleapeventtype">
 <h2>eLeapEventType<a class="headerlink" href="#eleapeventtype" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
@@ -269,7 +345,13 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">LEAP_CONNECTION_MESSAGE</a><ul>
+<li><a class="reference internal" href="#">LEAP_CONNECTION_MESSAGE</a></li>
+<li><a class="reference internal" href="#types">types</a><ul>
+<li><a class="reference internal" href="#leap-tracking-event">LEAP_TRACKING_EVENT</a></li>
+<li><a class="reference internal" href="#leap-hand">LEAP_HAND</a></li>
+<li><a class="reference internal" href="#leap-digit">LEAP_DIGIT</a></li>
+<li><a class="reference internal" href="#leap-bone">LEAP_BONE</a></li>
+<li><a class="reference internal" href="#leap-palm">LEAP_PALM</a></li>
 <li><a class="reference internal" href="#eleapeventtype">eLeapEventType</a></li>
 </ul>
 </li>
