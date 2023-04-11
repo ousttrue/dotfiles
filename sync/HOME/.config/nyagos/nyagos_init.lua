@@ -45,6 +45,10 @@ function M.setup()
     end
   end
 
+  function nyagos.alias.tig(args)
+    nyagos.exec '"C:/Program Files/Git/usr/bin/tig"'
+  end
+
   local function search_history(this, is_prev)
     -- カーソル位置が一番左の場合は通常のnext/prev
     if this.pos == 1 then
