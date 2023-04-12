@@ -15,19 +15,37 @@ void serviceMessageLoop(){
 
 # types
 `LeapC.h`
+```c
+struct LEAP_FRAME_HEADER {
+	void* reserved;
+	int64_t frame_id;
+	int64_t timestamp;
+}
+```
+
 ## LEAP_TRACKING_EVENT
 ```c
-struct LEAP_TRACKING_EVENT
-{
-	LEAP_HAND* pHands;
+struct LEAP_TRACKING_EVENT {
+	LEAP_FRAME_HEADER info;
+	int64_t tracking_frame_id;
 	uint32_t nHands;
+	LEAP_HAND* pHands;
+	float framerate;
 };
 ```
 
 ## LEAP_HAND
 ```c
+enum eLeapHandType {
+  eLeapHandType_Left,
+  eLeapHandType_Right
+};
+
 struct LEAP_HAND
 {
+	uint32_t id;
+	eLeapHandType type;
+
 	LEAP_DIGIT thumb;
 	LEAP_DIGIT index;
 	LEAP_DIGIT middle;
@@ -82,4 +100,12 @@ struct LEAP_PALM
 };
 ```
 
-## eLeapEventType
+# eLeapEventType
+## Connection
+## ConnectionLost
+## Device
+## DeviceFailure
+## DeviceLost
+
+## Tracking
+=> `LEAP_TRACKING_EVENT`

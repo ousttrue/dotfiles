@@ -235,20 +235,37 @@
 <section class="tex2jax_ignore mathjax_ignore" id="types">
 <h1>types<a class="headerlink" href="#types" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">LeapC.h</span></code></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">LEAP_FRAME_HEADER</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">reserved</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">int64_t</span><span class="w"> </span><span class="n">frame_id</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">int64_t</span><span class="w"> </span><span class="n">timestamp</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 <section id="leap-tracking-event">
 <h2>LEAP_TRACKING_EVENT<a class="headerlink" href="#leap-tracking-event" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">LEAP_TRACKING_EVENT</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="n">LEAP_HAND</span><span class="o">*</span><span class="w"> </span><span class="n">pHands</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">LEAP_TRACKING_EVENT</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_FRAME_HEADER</span><span class="w"> </span><span class="n">info</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">int64_t</span><span class="w"> </span><span class="n">tracking_frame_id</span><span class="p">;</span><span class="w"></span>
 <span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">nHands</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">LEAP_HAND</span><span class="o">*</span><span class="w"> </span><span class="n">pHands</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w"> </span><span class="n">framerate</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="leap-hand">
 <h2>LEAP_HAND<a class="headerlink" href="#leap-hand" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">LEAP_HAND</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">eLeapHandType</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">eLeapHandType_Left</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">eLeapHandType_Right</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">LEAP_HAND</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">eLeapHandType</span><span class="w"> </span><span class="n">type</span><span class="p">;</span><span class="w"></span>
+
 <span class="w">	</span><span class="n">LEAP_DIGIT</span><span class="w"> </span><span class="n">thumb</span><span class="p">;</span><span class="w"></span>
 <span class="w">	</span><span class="n">LEAP_DIGIT</span><span class="w"> </span><span class="n">index</span><span class="p">;</span><span class="w"></span>
 <span class="w">	</span><span class="n">LEAP_DIGIT</span><span class="w"> </span><span class="n">middle</span><span class="p">;</span><span class="w"></span>
@@ -307,8 +324,27 @@
 </pre></div>
 </div>
 </section>
-<section id="eleapeventtype">
-<h2>eLeapEventType<a class="headerlink" href="#eleapeventtype" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eleapeventtype">
+<h1>eLeapEventType<a class="headerlink" href="#eleapeventtype" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="connection">
+<h2>Connection<a class="headerlink" href="#connection" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="connectionlost">
+<h2>ConnectionLost<a class="headerlink" href="#connectionlost" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="device">
+<h2>Device<a class="headerlink" href="#device" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="devicefailure">
+<h2>DeviceFailure<a class="headerlink" href="#devicefailure" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="devicelost">
+<h2>DeviceLost<a class="headerlink" href="#devicelost" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="tracking">
+<h2>Tracking<a class="headerlink" href="#tracking" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>=&gt; <code class="docutils literal notranslate"><span class="pre">LEAP_TRACKING_EVENT</span></code></p>
 </section>
 </section>
 
@@ -352,7 +388,15 @@
 <li><a class="reference internal" href="#leap-digit">LEAP_DIGIT</a></li>
 <li><a class="reference internal" href="#leap-bone">LEAP_BONE</a></li>
 <li><a class="reference internal" href="#leap-palm">LEAP_PALM</a></li>
-<li><a class="reference internal" href="#eleapeventtype">eLeapEventType</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#eleapeventtype">eLeapEventType</a><ul>
+<li><a class="reference internal" href="#connection">Connection</a></li>
+<li><a class="reference internal" href="#connectionlost">ConnectionLost</a></li>
+<li><a class="reference internal" href="#device">Device</a></li>
+<li><a class="reference internal" href="#devicefailure">DeviceFailure</a></li>
+<li><a class="reference internal" href="#devicelost">DeviceLost</a></li>
+<li><a class="reference internal" href="#tracking">Tracking</a></li>
 </ul>
 </li>
 </ul>
