@@ -280,7 +280,7 @@ local plugins = {
   },
   {
     "akinsho/bufferline.nvim",
-    tag = "v3.*",
+    -- tag = "v3.*",
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("config.bufferline").setup()
