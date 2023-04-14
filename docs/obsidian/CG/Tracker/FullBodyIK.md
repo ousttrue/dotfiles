@@ -8,10 +8,11 @@
 
 # KOEI
 - @2011 [フルボディIKエンジンの作り方](https://cedil.cesa.or.jp/cedil_sessions/view/613)
+
 - @2011 [［CEDEC 2011］次世代キャラクターアニメーションの基本？　フルボディIKエンジンで自然なモーションを実現する](https://www.4gamer.net/games/000/G000000/20110912065/)
 
 # FABRIK
-`unreal`
+[[UnrealEngine|unreal]]
 
 # HumanIK
 `autodesk`

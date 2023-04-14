@@ -72,9 +72,10 @@ opt.keywordprg = ":help"
 -- set matchpairs+=<:>
 -- ]]
 
-vim.keymap.set("n", "<F7>", function()
+vim.keymap.set({ "n", "i" }, "<F7>", function()
   -- vim.cmd "make!"
   -- vim.cmd "wa"
+  vim.cmd "stopinsert"
   local qfu = require "qfu"
   qfu.async_make()
 end)
