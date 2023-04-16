@@ -36,7 +36,6 @@ character -> pone -> actor
 
 ## VRM
 - [[VRM4U]]
-	- [ControlRigを作成する - VRM4U](https://ruyo.github.io/VRM4U/06_controlrig/)
 
 # Animation
 - [UE5でのアニメーションの流用方法について【Compatible Skeletons, IK Retargeter】 | ドクセル](https://www.docswell.com/s/EpicGamesJapan/KQN3EK-UE5-ShareAnimation#p11)
