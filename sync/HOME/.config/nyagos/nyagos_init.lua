@@ -49,7 +49,7 @@ function M.setup()
     nyagos.exec '"C:/Program Files/Git/usr/bin/tig"'
   end
 
-  function nyagos.alias.tig(args)
+  function nyagos.alias.nvim(args)
     nyagos.exec '"c:/Program Files/Neovim/bin/nvim.exe"'
   end
 

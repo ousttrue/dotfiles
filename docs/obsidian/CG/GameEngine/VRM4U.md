@@ -1,5 +1,8 @@
 [[UnrealEngine|unreal]]
 [[ue_mesh]]
+[[ue_controlrig]]
+
+- [ControlRigを作成する - VRM4U](https://ruyo.github.io/VRM4U/06_controlrig/)
 
 - [VRM4U](https://ruyo.github.io/)
 - [【簡単キャラ自作】VRoidをUnreal Engineで動かす | キシロラボ](https://japanese-rooster.com/game-31)
