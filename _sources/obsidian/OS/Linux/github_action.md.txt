@@ -13,10 +13,10 @@
 - @2020 [Github Actionsでビルドしてリリースにアップロードしてみた - 二度忘れた事を三度忘れないようにする](https://knhk.hatenablog.com/entry/2020/05/19/173000)
 
 # artifact
-- [【Github】GitHubActionsで利用するupload-artifactとdownload-artifact - 自由気ままに書いちゃおう](https://www.guri2o1667.work/entry/2022/09/30/%E3%80%90Github%E3%80%91GitHubActions%E3%81%A7%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8Bupload-artifact%E3%81%A8download-artifact)
+- @2022 [【Github】GitHubActionsで利用するupload-artifactとdownload-artifact - 自由気ままに書いちゃおう](https://www.guri2o1667.work/entry/2022/09/30/%E3%80%90Github%E3%80%91GitHubActions%E3%81%A7%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8Bupload-artifact%E3%81%A8download-artifact)
 
 # runner
-- [About GitHub-hosted runners - GitHub Docs](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners)
+- [About GitHub-hosted runners - GitHub Docs](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)
 ```yml
 jobs:
   Run-npm-on-Ubuntu:
@@ -29,7 +29,7 @@ jobs:
 - `ubuntu-latest`
 
 ## windows
-- `windows-latest`
+- `windows-2022`
 
 `vcvars64.bat`
 - [Meson with MSVC on GitHub Actions](https://dvdhrm.github.io/2021/04/21/meson-msvc-github-actions/)
