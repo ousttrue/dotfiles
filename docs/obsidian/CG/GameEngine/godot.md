@@ -18,3 +18,12 @@
 
 # GDNative
 - [Godot Engine向けにVisual StudioでC++のプラグインを作る - Qiita](https://qiita.com/ueshita/items/822e09717f730c211e78)
+
+# project manager
+- [Using the Project Manager — Godot Engine (stable) documentation in English](https://docs.godotengine.org/en/stable/tutorials/editor/project_manager.html)
+
+# tutorial
+- [Your first 3D game — Godot Engine (stable) documentation in English](https://docs.godotengine.org/en/stable/getting_started/first_3d_game/index.html)
+## Asset Library
+- [About the Asset Library — Godot Engine (stable) documentation in English](https://docs.godotengine.org/en/stable/community/asset_library/what_is_assetlib.html#doc-what-is-assetlib)
+
