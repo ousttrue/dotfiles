@@ -437,7 +437,7 @@ local plugins = {
       vim.keymap.set({ "n", "v" }, "gx", "<Plug>(openbrowser-smart-search)")
     end,
   },
-  { "delphinus/vim-auto-cursorline" },
+  -- { "delphinus/vim-auto-cursorline" },
   -- {
   --   "theHamsta/nvim-semantic-tokens",
   --   config = function()
