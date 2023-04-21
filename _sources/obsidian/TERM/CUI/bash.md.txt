@@ -10,13 +10,28 @@
 
 Ubuntus-20.04 LTS
 title + prompt
-`\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$`
+```sh
+\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$
+```
 
 - @2021 [bashのプロンプト表示形式を設定する方法](https://zenn.dev/memo/articles/20211004_ps1)
 
 ## PS1
 
 ## PROMPT_COMMAND
+
+# git-prompt
+
+```sh
+if [ -e /etc/bash_completion.d/git-prompt ]; then
+    source /etc/bash_completion.d/git-prompt
+	GIT_PS1_SHOWDIRTYSTATE=true
+	GIT_PS1_SHOWSTASHSTATE=true
+	GIT_PS1_SHOWUNTRACKEDFILES=true
+	GIT_PS1_SHOWUPSTREAM="auto"
+	GIT_PS1_SHOWCOLORHINTS=true
+fi
+```
 
 # completion
 - [重大な脆弱性(CVE-2017-5932)で少し話題になったbash4.4の補完機能の便利な点 - Qiita](https://qiita.com/tajima_taso/items/a85dbe8ec9a2825973e2)

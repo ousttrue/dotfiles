@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>VERSION - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -220,26 +220,61 @@
         <article role="main">
           <p>Amazon Linux 2
 [[wsl]] [[Linux]] [[CentOS]]</p>
-<p><code class="docutils literal notranslate"><span class="pre">amazonlinux:2.0.20200406.0</span></code></p>
 <ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://qiita.com/YukiMiyatake/items/73c7d6c4f2c9739ebe60">Docker for Windowsで快適な環境を得るまでの そこそこ長い闘い - Qiita</a></p></li>
+<li><p>https://aws.amazon.com/jp/amazon-linux-2/faqs/</p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>VERSION<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://gallery.ecr.aws/amazonlinux/amazonlinux">ECR Public Gallery - amazonlinux</a>
+Image tags で探せる
+<a class="reference external" href="https://hub.docker.com/_/amazonlinux/">Docker</a></p>
+<section id="id1">
+<h2>2.0.20230320.0<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id2">
+<h2>2.0.20200406.0<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker pull amazonlinux:2.0.20200406.0
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="wsl">
+<h1>WSL<a class="headerlink" href="#wsl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
 <li><p>@2018 <a class="reference external" href="https://qiita.com/noumia/items/9fecd2a7c3ea4acb696e">WSL で Amazon Linux 2 を使用する - Qiita</a></p></li>
 </ul>
-<p>https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/WSL.html
-https://aws.amazon.com/jp/amazon-linux-2/faqs/</p>
-<p>[* adduser, passwd]
-su
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="docker">
+<h1>Docker<a class="headerlink" href="#docker" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://qiita.com/YukiMiyatake/items/73c7d6c4f2c9739ebe60">Docker for Windowsで快適な環境を得るまでの そこそこ長い闘い - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="packages">
+<h1>packages<a class="headerlink" href="#packages" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="adduser-passwd">
+<h2>adduser, passwd<a class="headerlink" href="#adduser-passwd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>su
 <span class="math notranslate nohighlight">\( yum install util-linux
 adduser
 	\)</span> yum install shadow-utils
 passwd
 $ yum install passwd</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
+</section>
+<section id="dotnet">
+<h2>dotnet<a class="headerlink" href="#dotnet" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
+$ yum install dotnet-sdk-2.2
 </pre></div>
 </div>
-<p>$ yum install dotnet-sdk-2.2</p>
-<p>cmake
-https://www.matbra.com/2017/12/07/install-cmake-on-aws-linux.html</p>
+</section>
+<section id="cmake">
+<h2>cmake<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>https://www.matbra.com/2017/12/07/install-cmake-on-aws-linux.html</p></li>
+</ul>
+</section>
+</section>
 
         </article>
       </div>
@@ -262,8 +297,36 @@ https://www.matbra.com/2017/12/07/install-cmake-on-aws-linux.html</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">VERSION</a><ul>
+<li><a class="reference internal" href="#id1">2.0.20230320.0</a></li>
+<li><a class="reference internal" href="#id2">2.0.20200406.0</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#wsl">WSL</a></li>
+<li><a class="reference internal" href="#docker">Docker</a></li>
+<li><a class="reference internal" href="#packages">packages</a><ul>
+<li><a class="reference internal" href="#adduser-passwd">adduser, passwd</a></li>
+<li><a class="reference internal" href="#dotnet">dotnet</a></li>
+<li><a class="reference internal" href="#cmake">cmake</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

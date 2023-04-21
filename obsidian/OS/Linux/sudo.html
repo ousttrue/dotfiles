@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>ubuntu user is default user in cloud-images. - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -221,14 +221,11 @@
           <p>sudo</p>
 <p>https://askubuntu.com/questions/192050/how-to-run-sudo-command-with-no-password</p>
 <p>最後の行に。順番に意味がある？</p>
-<p>code:visudo</p>
-<section class="tex2jax_ignore mathjax_ignore" id="ubuntu-user-is-default-user-in-cloud-images">
-<h1>ubuntu user is default user in cloud-images.<a class="headerlink" href="#ubuntu-user-is-default-user-in-cloud-images" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="it-needs-passwordless-sudo-functionality">
-<h1>It needs passwordless sudo functionality.<a class="headerlink" href="#it-needs-passwordless-sudo-functionality" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>USER_NAME ALL=(ALL) NOPASSWD:ALL</p>
-</section>
+<div class="highlight-visudo notranslate"><div class="highlight"><pre><span></span># ubuntu user is default user in cloud-images.
+# It needs passwordless sudo functionality.
+USER_NAME ALL=(ALL) NOPASSWD:ALL
+</pre></div>
+</div>
 
         </article>
       </div>
@@ -251,25 +248,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">ubuntu user is default user in cloud-images.</a></li>
-<li><a class="reference internal" href="#it-needs-passwordless-sudo-functionality">It needs passwordless sudo functionality.</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
