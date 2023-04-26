@@ -178,6 +178,7 @@ zip の拡張子を変えているぽい？
 ## XrHandsFB
 ## XrKeyboard
 ## XrPassthrough
+[[xr_passthrough]]
 ## XrSceneModel
 ## XrSpaceWarp
 ## XrSpatialAnchor
