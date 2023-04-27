@@ -17,9 +17,16 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+h' -Function BackwardDeleteChar
 Set-PSReadlineKeyHandler -Key 'Ctrl+p' -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key 'Ctrl+n' -Function HistorySearchForward
 Set-PSReadlineKeyHandler -Key 'Ctrl+a' -Function BeginningOfLine
-Set-PSReadlineKeyHandler -Key 'Ctrl+e' -Function EndOfLine
+# Set-PSReadlineKeyHandler -Key 'Ctrl+e' -Function EndOfLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+m' -Function AcceptLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
+
+Import-Module -Name CompletionPredictor
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+
+# ??
+Set-PSReadlineKeyHandler -Chord Ctrl+[ -ScriptBlock { "hello" }
 
 Remove-Item alias:mv
 Remove-Item alias:cp
@@ -27,31 +34,29 @@ Remove-Item alias:rm
 Remove-Item alias:rmdir
 Remove-Item alias:diff -force
 Remove-Item -Path Function:\mkdir
-Remove-Item alias:ls
+
+# Remove-Item alias:ls
+Import-Module -Name Terminal-Icons
+# function ls()
+# {
+#     lsd $args
+# }
+# function ll()
+# {
+#     lsd -l $args
+# }
+# function la()
+# {
+#     lsd -a $args
+# }
 
 # function prompt () {
 #   (Split-Path (Get-Location) -Leaf) + "\n > "
 # }
 function prompt()
 {
-    # ドライブ名は表示してないです
-
-    # ユーザー名を取得
-    $username = $env:UserName
-    # pc の名前を取得 大文字で取得されるので小文字にする
-    $computername = $env:ComputerName.ToLower()
-    # ドライブ名を取得 C とか D とか
-    # $drive = $pwd.Drive.Name
-    # ドライブ名(C:) を除き、ホームディレクトリ(/users/{name}) は ~ に変換したパスを取得
     $path = $pwd.path.Replace($HOME, "~")
-
-    # Write-Host "$username@$computername" -ForegroundColor "DarkGreen" -NoNewLine
-    # Write-Host ":" -NoNewLine
-    Write-Host "$path" -ForegroundColor "DarkBlue"
-
-    Write-Host "$" -ForegroundColor "Default" -NoNewLine
-
-    return " "
+    return "${path}`n$ "
 }
 
 function ExecuteCommand ($commandPath, $commandArguments) 
@@ -234,27 +239,14 @@ function gt()
 {
     git status -sb
 }
-# pipup
-function pipup
-{
-    py -m pip install pip --upgrade
-}
-
-function ls()
-{
-    lsd $args
-}
-function ll()
-{
-    lsd -l $args
-}
-function la()
-{
-    lsd -a $args
-}
 function glg()
 {
     git lga
+}
+# pip
+function pipup()
+{
+    py -m pip install pip --upgrade
 }
 
 function dotpull
