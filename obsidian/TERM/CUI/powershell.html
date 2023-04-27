@@ -218,10 +218,23 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="version">
+          <p>[[dotNET]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id1">
-<h2>7.2<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>7.4<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-74?view=powershell-7.2">What's New in PowerShell 7.4 (preview) - PowerShell | Microsoft Learn</a></p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>7.3<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-73?view=powershell-7.2">What's New in PowerShell 7.3 - PowerShell | Microsoft Learn</a></p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>7.2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-72?view=powershell-7.2">What's New in PowerShell 7.2 - PowerShell | Microsoft Docs</a></p>
 <ul>
@@ -233,8 +246,8 @@
 <div><p>built on .NET 6.0.</p>
 </div></blockquote>
 </section>
-<section id="id2">
-<h2>5.1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id4">
+<h2>5.1<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>windows preinstall</p>
 </section>
 </section>
@@ -246,6 +259,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1</span></code></p></li>
 <li><p>`%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1</p></li>
 </ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; New-Item -path $profile -type file -force
+</pre></div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir %USERPROFILE%\Documents\WindowsPowerShell
 %USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 vim $profile
@@ -255,7 +271,7 @@ vim $profile
 <section id="readline">
 <h2>readline<a class="headerlink" href="#readline" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81">【PowerShell】PsReadLine 設定のススメ - Qiita</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81">【PowerShell】PsReadLine 設定のススメ - Qiita</a></p></li>
 <li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/psreadline/set-psreadlinekeyhandler?view=powershell-7.2">Set-PSReadLineKeyHandler (PSReadLine) - PowerShell | Microsoft Learn</a></p></li>
 <li><p><a class="reference external" href="https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2">about PSReadLine Functions - PowerShell | Microsoft Learn</a></p></li>
 </ul>
@@ -276,8 +292,11 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
 <section id="prompt">
 <h2>prompt<a class="headerlink" href="#prompt" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_prompts?view=powershell-7.3&amp;viewFallbackFrom=powershell-7.1">about Prompts - PowerShell | Microsoft Learn</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://qiita.com/SAITO_Keita/items/47eb86a6d5dc5f928608">PowerShellのprompt関数について - Qiita</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://zenn.dev/kumarstack55/articles/2021-01-24-powershell-prompt">PowerShellでプロンプト表示を変える</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://bayashi.net/diary/2020/0615">Windows PowerShellのプロンプトを変更する</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://sh-yoshida.hatenablog.com/entry/2016/12/20/130000">【PowerShell】 プロンプトの表示を変更する - 1.21 jigowatts</a></p></li>
 </ul>
 </section>
 <section id="vscode">
@@ -287,8 +306,8 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
 </ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id3">
-<h1>型<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id5">
+<h1>型<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="s2">"a"</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
 
 <span class="no">[math]</span><span class="p">::</span><span class="n">pi</span>
@@ -330,8 +349,10 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">7.2</a></li>
-<li><a class="reference internal" href="#id2">5.1</a></li>
+<li><a class="reference internal" href="#id1">7.4</a></li>
+<li><a class="reference internal" href="#id2">7.3</a></li>
+<li><a class="reference internal" href="#id3">7.2</a></li>
+<li><a class="reference internal" href="#id4">5.1</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#settings">settings</a><ul>
@@ -341,7 +362,7 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
 <li><a class="reference internal" href="#vscode">vscode</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id3">型</a></li>
+<li><a class="reference internal" href="#id5">型</a></li>
 </ul>
 
           </div>
