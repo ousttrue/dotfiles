@@ -49,8 +49,15 @@ function M.setup()
     nyagos.exec '"C:/Program Files/Git/usr/bin/tig"'
   end
 
+  local NVIM = ""
+  if nyagos.access(nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe", 4) then
+    NVIM = nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe"
+  elseif nyagos.access(nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe", 4) then
+    NVIM = nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe"
+  end
+
   function nyagos.alias.nvim(args)
-    nyagos.exec '"c:/Program Files/Neovim/bin/nvim.exe"'
+    nyagos.exec(string.format('"%s"', NVIM))
   end
 
   local function search_history(this, is_prev)

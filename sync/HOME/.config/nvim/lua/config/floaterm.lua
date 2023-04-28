@@ -7,6 +7,8 @@ function M.setup()
   end
   vim.keymap.set("n", "<F12>", "<cmd>FloatermToggle<CR>", {})
   vim.keymap.set("t", "<F12>", "<cmd>FloatermToggle<CR>", { noremap = true })
+  vim.keymap.set("n", "<F9>", "<cmd>FloatermToggle<CR>", {})
+  vim.keymap.set("t", "<F9>", "<cmd>FloatermToggle<CR>", { noremap = true })
 end
 
 return M

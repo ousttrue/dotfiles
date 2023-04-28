@@ -3,6 +3,10 @@
 
 - [komorebiを導入してみる](https://zenn.dev/omochice/articles/50f42a3df8f426)
 
+# Version
+## 1803
+Windows 10 April 2018 Update (1803) 
+
 # Customize
 ## powertoys
 
