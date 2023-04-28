@@ -46,6 +46,9 @@ function M.async_make()
     if event == "stdout" or event == "stderr" then
       if data then
         for i, str in ipairs(data) do
+          if str == nil then
+            str = ""
+          end
           if vim.fn.has "win32" == 1 then
             str = to_utf8(str)
           end
