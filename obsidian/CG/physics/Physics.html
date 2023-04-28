@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Blit - shell note ドキュメント</title>
+        <title>質点シミュレーション - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,55 +218,19 @@
           </label>
         </div>
         <article role="main">
-          <p>**[[Windows]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/windows/win32/dwm/dwm-overview">Desktop Window Manager - Win32 apps | Microsoft Learn</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="blit">
-<h1>Blit<a class="headerlink" href="#blit" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>https://github.com/hecomi/uWindowCapture</p></li>
-</ul>
+          <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>質点シミュレーション<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>角速度を扱わない。Spring、Cloth
+[[PointMassSimulation]]</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="desktopduplicatoin">
-<h1>DesktopDuplicatoin<a class="headerlink" href="#desktopduplicatoin" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/windows/win32/direct3ddxgi/desktop-dup-api">デスクトップ重複 API - Win32 apps | Microsoft Learn</a></p></li>
-<li><p><a class="reference external" href="https://github.com/ousttrue/uDesktopDuplication/commit/f6ce875463fe6da3c8e15510dc1fdac2fd3f0700">call AcquireNextFrame on isolated thread · ousttrue/uDesktopDuplication@f6ce875 · GitHub</a></p></li>
-<li><p>https://github.com/hecomi/uDesktopDuplication</p></li>
-<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/win32/direct3ddxgi/desktop-dup-api">Desktop Duplication API - Win32 apps | Microsoft Learn</a>
-<a class="reference external" href="https://docs.microsoft.com/en-us/windows/win32/api/dxgi1_2/nn-dxgi1_2-idxgioutputduplication">IDXGIOutputDuplication (dxgi1_2.h) - Win32 apps | Microsoft Learn</a></p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>剛体シミュレーション<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>角速度、トルク、慣性Inertia
+[[RigidBodySimulation]]</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="windows-graphics-capture">
-<h1>Windows.Graphics.Capture<a class="headerlink" href="#windows-graphics-capture" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[c++winrt]]
-<a class="reference external" href="https://github.com/microsoft/Windows.UI.Composition-Win32-Samples">GitHub - microsoft/Windows.UI.Composition-Win32-Samples: Windows.UI.Composition Win32 Samples</a></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/uwp/api/windows.graphics.capture?view=winrt-22621">Windows.Graphics.Capture Namespace - Windows UWP applications | Microsoft Learn</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://qiita.com/i_saint/items/ad5b0545873d0cff4604">Windows の 3 種類のスクリーンキャプチャ API を検証する - Qiita</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://tips.hecomi.com/entry/2021/03/23/230947">C++ から Windows Graphics Capture API を利用する方法について調べてみた - 凹みTips</a></p></li>
-<li><p>@2019 <a class="reference external" href="https://qiita.com/eguo/items/90604787a6098af404d9">Windows 10のウィンドウキャプチャAPI - Qiita</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="dwmgetdxsharedsurface">
-<h1>DwmGetDxSharedSurface<a class="headerlink" href="#dwmgetdxsharedsurface" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2021 <a class="reference external" href="https://qiita.com/tanakah/items/579e88e285437946fff2">さらにDWMキャプチャを試してみる - Qiita</a></p></li>
-<li><p>@2017 <a class="reference external" href="https://blog.techlab-xe.net/post-5285/">DwmGetDxSharedSurface を使ってみた – すらりん日記</a>
-[[DWM]]</p></li>
-<li><p><a class="reference external" href="https://github.com/notr1ch/DWMCapture/blob/master/DWMCaptureSource.cpp#L117">DWMCapture/DWMCaptureSource.cpp at master · notr1ch/DWMCapture · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/win32/dwm/dwmdxgetwindowsharedsurface">DwmDxGetWindowSharedSurface function - Win32 apps | Microsoft Learn</a></p></li>
-</ul>
-<p><a class="reference external" href="https://github.com/zzy220/dxgidup/stargazers">Page not found · GitHub · GitHub</a>
-動く</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="idxgiswapchain-hook">
-<h1>IDXGISwapChain hook<a class="headerlink" href="#idxgiswapchain-hook" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/mishira/libdeskcap/blob/master/Hook/dxgihookmanager.cpp">Page not found · GitHub · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://niemand.com.ar/2019/01/01/how-to-hook-directx-11-imgui/">How to Hook DirectX 11 + ImGui (Vermintide 2) - Niemand - Cyber Security</a></p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>衝突判定<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[CollisionDetection]]</p>
 </section>
 
         </article>
@@ -282,7 +246,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/OS/windows/DWM.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/CG/physics/Physics.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -302,11 +266,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Blit</a></li>
-<li><a class="reference internal" href="#desktopduplicatoin">DesktopDuplicatoin</a></li>
-<li><a class="reference internal" href="#windows-graphics-capture">Windows.Graphics.Capture</a></li>
-<li><a class="reference internal" href="#dwmgetdxsharedsurface">DwmGetDxSharedSurface</a></li>
-<li><a class="reference internal" href="#idxgiswapchain-hook">IDXGISwapChain hook</a></li>
+<li><a class="reference internal" href="#">質点シミュレーション</a></li>
+<li><a class="reference internal" href="#id2">剛体シミュレーション</a></li>
+<li><a class="reference internal" href="#id3">衝突判定</a></li>
 </ul>
 
           </div>

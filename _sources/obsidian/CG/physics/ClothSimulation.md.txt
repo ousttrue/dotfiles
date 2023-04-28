@@ -2,7 +2,7 @@
 aliases: [Cloth]
 ---
 
-[[physics_engine]]
+[[RigidBodySimulation]]
 
 # mass-spring-damper model
 `質点バネモデル`

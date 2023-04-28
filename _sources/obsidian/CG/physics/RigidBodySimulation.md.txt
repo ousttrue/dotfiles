@@ -1,6 +1,3 @@
----
-aliases: [RigidBody]
----
 
 剛体シミュレーション
 
