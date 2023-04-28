@@ -469,6 +469,7 @@ local plugins = {
   --     vim.keymap.set("n", "mo", "<cmd>MarkdownLinkOnlyOnCursor<CR>")
   --   end,
   -- },
+  { "unblevable/quick-scope" },
 }
 
 require("lazy").setup(plugins)

@@ -70,6 +70,10 @@ function M.setup()
   lspconfig.tsserver.setup {}
 
   lspconfig.bashls.setup {}
+
+  lspconfig.powershell_es.setup {
+    bundle_path = dot.get_home() .. "/.vscode/extensions/ms-vscode.powershell-2023.3.3/modules",
+  }
 end
 
 return M

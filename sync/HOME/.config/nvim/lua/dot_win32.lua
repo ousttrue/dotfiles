@@ -6,7 +6,7 @@ end
 
 function M.get_codepage()
   local ret =
-    vim.fn.system [[pwsh -Command "Get-ItemPropertyValue HKLM:\SYSTEM\CurrentControlSet\Control\Nls\CodePage OEMCP"]]
+    vim.fn.system [[pwsh -NoProfile -Command "Get-ItemPropertyValue HKLM:\SYSTEM\CurrentControlSet\Control\Nls\CodePage OEMCP"]]
   local cp = tonumber(ret)
   return cp
 end

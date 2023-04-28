@@ -12,7 +12,6 @@ nvim +Tutor
 
 # articles
 - @2023 [This Week In Neovim — 16 Jan 2023](https://this-week-in-neovim.org/2023/Jan/16)
-- @2022 [ワシの使っているNeovimプラグインは200個近くあるぞ」を読んで気になったプラグインたち](https://snyt45.com/CjFfFcGf4)
 - @2022 [【Neovim】memolist.vimを使ってメモをとり、telescope-memo.nvimで検索する](https://zenn.dev/koga1020/articles/009766e1bec42c)
 - @2023 [Neovimの見た目を削ぎ落とした | 点と接線。](https://riq0h.jp/2023/01/30/134307/)
 - @2022 [vim沼: NeovimのReact、TypeScript、Tailwind CSS用セットアップ](https://zenn.dev/takuya/articles/4472285edbc132)

@@ -57,7 +57,11 @@ function M.setup()
   end
 
   function nyagos.alias.nvim(args)
-    nyagos.exec(string.format('"%s"', NVIM))
+    local cmd = NVIM
+    for i, arg in ipairs(args) do
+      cmd = cmd .. " " .. arg
+    end
+    nyagos.exec(cmd)
   end
 
   local function search_history(this, is_prev)

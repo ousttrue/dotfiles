@@ -1,5 +1,8 @@
 [[pacman]]
 
+EXTFAT あかん w
+[Installing binutils always can't create items · Issue #2631 · msys2/MSYS2-packages · GitHub](https://github.com/msys2/MSYS2-packages/issues/2631)
+
 [MSYS2](https://www.msys2.org/)
 
 - @2021 [Windows 10 Pro で MSYS2 を出来る限り高速化する](https://zenn.dev/nyarla/articles/489394cec0ecb5)
@@ -67,7 +70,7 @@ $ pacman -Syu
 # second
 ## pacman
 ```
-$ pacman gcc unzip make cmake
+$ pacman -S gcc unzip make cmake
 ```
 
 ## pip
