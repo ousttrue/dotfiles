@@ -57,7 +57,7 @@ function M.setup()
   end
 
   function nyagos.alias.nvim(args)
-    local cmd = NVIM
+    local cmd = string.format('"%s"', NVIM)
     for i, arg in ipairs(args) do
       cmd = cmd .. " " .. arg
     end

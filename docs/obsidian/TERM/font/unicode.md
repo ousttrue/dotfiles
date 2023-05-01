@@ -9,6 +9,7 @@ int wcwidth(const wint_t wc);
 - [Unicodeのgrapheme cluster (書記素クラスタ) | hydroculのメモ](https://hydrocul.github.io/wiki/blog/2015/1025-unicode-grapheme-clusters.html)
 
 # C++
+- @2018 [C++標準化委員会、ついに文字とは何かを理解する: char8_t - Qiita](https://qiita.com/yumetodo/items/54e1a8230dbf513ea85b)
 - [C++ UTF-8 codepoint conversion :: zedwood.com](http://www.zedwood.com/article/cpp-utf8-char-to-codepoint)
 
 # codepage
