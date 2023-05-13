@@ -237,9 +237,13 @@
 <li><p>@2017 <a class="reference external" href="https://qiita.com/hoboaki/items/b188c4495f4708c19002">ユニフォームブロックのメモリレイアウト @ゲームプログラマの小話[開発:グラフィックス] - Qiita</a></p></li>
 </ul>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#version 300 es</span>
-<span class="n">layout</span><span class="w"> </span><span class="p">(</span><span class="n">std140</span><span class="p">)</span><span class="w"> </span><span class="n">uniform</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="n">layout</span><span class="w"> </span><span class="p">(</span><span class="n">std140</span><span class="p">)</span><span class="w"> </span><span class="n">uniform</span><span class="w"> </span><span class="n">TypeName</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
 <span class="w">	</span><span class="n">mat4</span><span class="w"> </span><span class="n">mvp</span><span class="p">;</span><span class="w"> </span>
 <span class="p">}</span><span class="w"> </span><span class="n">mat</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// mat.mvp</span>
+<span class="c1">// or</span>
+<span class="c1">// mvp</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -265,7 +269,10 @@
 </section>
 <section id="upload">
 <h2>upload<a class="headerlink" href="#upload" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// mvpMatrix は 4x4 の行列 gl.bindBuffer(gl.UNIFORM_BUFFER, matrixUBO); gl.bufferData(gl.UNIFORM_BUFFER, mvpMatrix, gl.DYNAMIC_DRAW); gl.bindBuffer(gl.UNIFORM_BUFFER, null);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// mvpMatrix は 4x4 の行列 </span>
+<span class="n">gl</span><span class="p">.</span><span class="n">bindBuffer</span><span class="p">(</span><span class="n">gl</span><span class="p">.</span><span class="n">UNIFORM_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">matrixUBO</span><span class="p">);</span><span class="w"></span>
+<span class="n">gl</span><span class="p">.</span><span class="n">bufferData</span><span class="p">(</span><span class="n">gl</span><span class="p">.</span><span class="n">UNIFORM_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">mvpMatrix</span><span class="p">,</span><span class="w"> </span><span class="n">gl</span><span class="p">.</span><span class="n">DYNAMIC_DRAW</span><span class="p">);</span><span class="w"></span>
+<span class="n">gl</span><span class="p">.</span><span class="n">bindBuffer</span><span class="p">(</span><span class="n">gl</span><span class="p">.</span><span class="n">UNIFORM_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>Lighting in tangent space - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,21 +212,48 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>normalmap
-#blender</p>
+          <p>[[Material|shading]]</p>
 <p>https://learnopengl.com/Advanced-Lighting/Normal-Mapping</p>
-<p>https://docs.blender.org/manual/en/dev/render/blender_render/textures/properties/influence/bump_normal.html
-https://docs.blender.org/manual/ko/dev/render/cycles/nodes/types/vector/normal_map.html</p>
-<p>https://blender.stackexchange.com/questions/13590/how-to-add-a-normal-map-texture-and-a-diffuse-texture-on-a-model-in-cycles</p>
-<p>[* article]
-https://squircleart.github.io/shading/normal-map-generation.html</p>
-<p>[[mikk]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="lighting-in-tangent-space">
+<h1>Lighting in tangent space<a class="headerlink" href="#lighting-in-tangent-space" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mikk-tangent-space">
+<h1>mikk tangent space<a class="headerlink" href="#mikk-tangent-space" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>https://github.com/tcoppex/ext-mikktspace
+<code class="docutils literal notranslate"><span class="pre">blender-2.63a/intern/mikktspace/mikktspace.h</span></code></p></li>
+<li><p>https://github.com/teared/mikktspace-for-houdini</p></li>
+</ul>
+<ul class="simple">
+<li><p>http://www.terathon.com/code/tangent.html</p></li>
+</ul>
+<ul class="simple">
+<li><p>@2015 <a class="reference external" href="http://envgameartist.blogspot.com/2015/09/blog-post_24.html">ノーマルマップとローポリメッシュのタンジェントの計算 ~ 背景アーティストのぶろぐ</a></p></li>
+</ul>
+<section id="xnormal">
+<h2>xNormal<a class="headerlink" href="#xnormal" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>http://www.xnormal.net/</p></li>
+<li><p>@2018 <a class="reference external" href="https://manabuokajima.hatenablog.com/entry/2018/04/24/150442">xNormal でノーマルマップ(など)をベイクする - 写真から寿司を生成するためのメモ</a></p></li>
+</ul>
+<ul class="simple">
+<li><p>@2012 <a class="reference external" href="http://www.perkup.jp/?p=4579">xnormalを使ってみた・・・その2 – PERKUP</a></p></li>
+</ul>
+</section>
+<section id="gltf">
+<h2>glTF<a class="headerlink" href="#gltf" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>https://github.com/KhronosGroup/glTF/issues/1252</p></li>
+<li><p>https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#meshes</p></li>
+</ul>
+</section>
+</section>
 
         </article>
       </div>
@@ -249,8 +276,29 @@ https://squircleart.github.io/shading/normal-map-generation.html</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Lighting in tangent space</a></li>
+<li><a class="reference internal" href="#mikk-tangent-space">mikk tangent space</a><ul>
+<li><a class="reference internal" href="#xnormal">xNormal</a></li>
+<li><a class="reference internal" href="#gltf">glTF</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

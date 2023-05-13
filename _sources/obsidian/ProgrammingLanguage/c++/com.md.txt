@@ -13,3 +13,8 @@ https://docs.microsoft.com/en-us/windows/win32/learnwin32/com-coding-practices
 `#include <winrt/base.h>`
 - [WRL から C++/WinRT への移行 - UWP applications | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-wrl)
 `
+
+# uuidof
+- [__uuidof 演算子 | Microsoft Learn](https://learn.microsoft.com/ja-jp/cpp/cpp/uuidof-operator?view=msvc-170)
+
+# IID_PPV_ARG

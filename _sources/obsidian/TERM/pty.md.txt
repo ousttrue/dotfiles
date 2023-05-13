@@ -1,15 +1,20 @@
-pty
-[PTY を使ってシェルの入出力を好きなようにする https://note.hibariya.org/articles/20150628/pty.html]
+[[TerminalEmulator]] [[tui]] [[conpty]]
 
-https://logmi.jp/tech/articles/321318
-https://logmi.jp/tech/articles/321327
+- @2019 [Terminal curses––Terminalの基礎とRuby、そしてcursesについて - Part1 - ログミーTech](https://logmi.jp/tech/articles/321318)
+- @2019 [Terminal curses––Terminalの基礎とRuby、そしてcursesについて - Part2 - ログミーTech](https://logmi.jp/tech/articles/321327)
+- @2015 [PTY を使ってシェルの入出力を好きなようにする - Hibariya](https://note.hibariya.org/articles/20150628/pty.html)
 
-`vt100`
+# forkpty
+- [forkpty(3) manページ](https://nxmnpg.lemoda.net/ja/3/forkpty)
 
-	SIGNAL 変換
-		0x03 => SIGINT
+# ioctl
 
-#multiplexer
+# termios
+- tcsetattr
+- tcgetattr
 
-[* ConPTY]
-https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/
+# Readline
+- [GNU Readline - Wikipedia](https://en.wikipedia.org/wiki/GNU_Readline)
+
+# Windows
+[[conpty]]

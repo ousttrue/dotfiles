@@ -13,7 +13,7 @@ EXTFAT あかん w
 
 # MSYSTEM
 ## msys
-[[term|console]] アプリはこれで入れるべし
+[[TerminalEmulator|console]] アプリはこれで入れるべし
 - @2018 [MSYS2 環境に Go言語(golang) をインストール - takaya030の備忘録](https://takaya030.hatenablog.com/entry/2018/01/18/230105)
 ## ucrt
 - [msys2でucrtのランタイムを使おう！ようこそucrt64 - Qiita](https://qiita.com/yumetodo/items/d849a6dcf08e0435f815)

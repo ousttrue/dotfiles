@@ -22,6 +22,32 @@ http://lfsbookja.osdn.jp/10.1-sysdja/chapter02/aboutlfs.html マウントポイ�
 ## 3
 - @2002 [ソースファイルからLinux環境を構築しよう！：LFSで作って学ぶLinuxの仕組み（1）（1/3 ページ） - ＠IT](https://atmarkit.itmedia.co.jp/ait/articles/0209/10/news001.html)
 
+# 手順
+- @2020 [Linux From Scratchをqemuで実行する方法](https://zenn.dev/arimax/articles/37e783f3be53a0)
+
+## block device 作成 / mount
+10GBくらい
+- @2017 [【Linux】ディスクイメージをマウントする【ループバックデバイス】 - Man On a Mission](https://oplern.hatenablog.com/entry/2017/06/30/231027)
+```sh
+0
+$ dd if=/dev/zero of=./lfs.bin bs=1G count=10
+$ mkfs.ext4 lfs.bin
+$ mkdir mnt
+$ export LFS=`pwd`/mnt
+$ export LFS_TGT="$(uname -m)-lfs-linux-gnu"
+$ sudo mount -t ext4 -o loop lfs.bin $LFS
+$ sudo chown user:user $LFS
+```
+
+## download sources
+`$LFS/sources`
+- [3.2. All Packages](https://www.linuxfromscratch.org/lfs/view/stable/chapter03/packages.html)
+
+## toolchain 1
+- [[SOLVED] LFS 7.7 GCC-4.9.2 Compile Error](https://www.linuxquestions.org/questions/linux-from-scratch-13/lfs-7-7-gcc-4-9-2-compile-error-4175543098/)
+### glibc
+add `--without-selinux`
+
 # qemu
 [[qemu]]
 - [Linux From Scratchをqemuで実行する方法](https://zenn.dev/arimax/articles/37e783f3be53a0)

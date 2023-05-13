@@ -1,14 +1,21 @@
-normalmap
-#blender
+[[Material|shading]]
 
 https://learnopengl.com/Advanced-Lighting/Normal-Mapping
 
-https://docs.blender.org/manual/en/dev/render/blender_render/textures/properties/influence/bump_normal.html
-https://docs.blender.org/manual/ko/dev/render/cycles/nodes/types/vector/normal_map.html
+# Lighting in tangent space 
 
-https://blender.stackexchange.com/questions/13590/how-to-add-a-normal-map-texture-and-a-diffuse-texture-on-a-model-in-cycles
+# mikk tangent space
+- https://github.com/tcoppex/ext-mikktspace
+`blender-2.63a/intern/mikktspace/mikktspace.h`
+- https://github.com/teared/mikktspace-for-houdini
+* http://www.terathon.com/code/tangent.html
+- @2015 [ノーマルマップとローポリメッシュのタンジェントの計算 ~ 背景アーティストのぶろぐ](http://envgameartist.blogspot.com/2015/09/blog-post_24.html)
 
-[* article]
-https://squircleart.github.io/shading/normal-map-generation.html
+## xNormal
+* http://www.xnormal.net/
+* @2018 [xNormal でノーマルマップ(など)をベイクする - 写真から寿司を生成するためのメモ](https://manabuokajima.hatenablog.com/entry/2018/04/24/150442)
+- @2012 [xnormalを使ってみた・・・その2 – PERKUP](http://www.perkup.jp/?p=4579)
 
-[[mikk]]
+## glTF
+- https://github.com/KhronosGroup/glTF/issues/1252
+- https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#meshes

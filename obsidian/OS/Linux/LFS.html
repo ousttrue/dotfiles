@@ -255,6 +255,46 @@ http://lfsbookja.osdn.jp/10.1-sysdja/chapter06/chapter06.html</p>
 </ul>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="id5">
+<h1>手順<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2020 <a class="reference external" href="https://zenn.dev/arimax/articles/37e783f3be53a0">Linux From Scratchをqemuで実行する方法</a></p></li>
+</ul>
+<section id="block-device-mount">
+<h2>block device 作成 / mount<a class="headerlink" href="#block-device-mount" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>10GBくらい</p>
+<ul class="simple">
+<li><p>@2017 <a class="reference external" href="https://oplern.hatenablog.com/entry/2017/06/30/231027">【Linux】ディスクイメージをマウントする【ループバックデバイス】 - Man On a Mission</a></p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="m">0</span>
+$ dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>./lfs.bin <span class="nv">bs</span><span class="o">=</span>1G <span class="nv">count</span><span class="o">=</span><span class="m">10</span>
+$ mkfs.ext4 lfs.bin
+$ mkdir mnt
+$ <span class="nb">export</span> <span class="nv">LFS</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/mnt
+$ <span class="nb">export</span> <span class="nv">LFS_TGT</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">-lfs-linux-gnu"</span>
+$ sudo mount -t ext4 -o loop lfs.bin <span class="nv">$LFS</span>
+$ sudo chown user:user <span class="nv">$LFS</span>
+</pre></div>
+</div>
+</section>
+<section id="download-sources">
+<h2>download sources<a class="headerlink" href="#download-sources" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">$LFS/sources</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.linuxfromscratch.org/lfs/view/stable/chapter03/packages.html">3.2. All Packages</a></p></li>
+</ul>
+</section>
+<section id="toolchain-1">
+<h2>toolchain 1<a class="headerlink" href="#toolchain-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.linuxquestions.org/questions/linux-from-scratch-13/lfs-7-7-gcc-4-9-2-compile-error-4175543098/">[SOLVED] LFS 7.7 GCC-4.9.2 Compile Error</a></p></li>
+</ul>
+<section id="glibc">
+<h3>glibc<a class="headerlink" href="#glibc" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>add <code class="docutils literal notranslate"><span class="pre">--without-selinux</span></code></p>
+</section>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="qemu">
 <h1>qemu<a class="headerlink" href="#qemu" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[qemu]]</p>
@@ -302,6 +342,15 @@ http://lfsbookja.osdn.jp/10.1-sysdja/chapter06/chapter06.html</p>
 <li><a class="reference internal" href="#id2">10</a></li>
 <li><a class="reference internal" href="#id3">8</a></li>
 <li><a class="reference internal" href="#id4">3</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">手順</a><ul>
+<li><a class="reference internal" href="#block-device-mount">block device 作成 / mount</a></li>
+<li><a class="reference internal" href="#download-sources">download sources</a></li>
+<li><a class="reference internal" href="#toolchain-1">toolchain 1</a><ul>
+<li><a class="reference internal" href="#glibc">glibc</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#qemu">qemu</a></li>

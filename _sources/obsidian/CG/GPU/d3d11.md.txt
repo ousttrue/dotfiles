@@ -16,3 +16,12 @@ https://github.com/microsoft/Xbox-ATG-Samples
 [* d3d11]
 	https://docs.microsoft.com/en-us/windows/desktop/direct3d11/d3d11-graphics-programming-guide-effects
 	https://blogs.msdn.microsoft.com/chuckw/2012/10/23/effects-for-direct3d-11-update/
+
+
+# ID3D11Device
+
+# IDxgiDevice
+
+# IDxgiAdapter
+
+# IDxgiOutput

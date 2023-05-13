@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>forkpty - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,24 +212,44 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>pty
-[PTY を使ってシェルの入出力を好きなようにする https://note.hibariya.org/articles/20150628/pty.html]</p>
-<p>https://logmi.jp/tech/articles/321318
-https://logmi.jp/tech/articles/321327</p>
-<p><code class="docutils literal notranslate"><span class="pre">vt100</span></code></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SIGNAL 変換
-	0x03 =&gt; SIGINT
-</pre></div>
-</div>
-<p>#multiplexer</p>
-<p>[* ConPTY]
-https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/</p>
+          <p>[[TerminalEmulator]] [[tui]] [[conpty]]</p>
+<ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://logmi.jp/tech/articles/321318">Terminal curses––Terminalの基礎とRuby、そしてcursesについて - Part1 - ログミーTech</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://logmi.jp/tech/articles/321327">Terminal curses––Terminalの基礎とRuby、そしてcursesについて - Part2 - ログミーTech</a></p></li>
+<li><p>@2015 <a class="reference external" href="https://note.hibariya.org/articles/20150628/pty.html">PTY を使ってシェルの入出力を好きなようにする - Hibariya</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="forkpty">
+<h1>forkpty<a class="headerlink" href="#forkpty" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nxmnpg.lemoda.net/ja/3/forkpty">forkpty(3) manページ</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ioctl">
+<h1>ioctl<a class="headerlink" href="#ioctl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="termios">
+<h1>termios<a class="headerlink" href="#termios" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>tcsetattr</p></li>
+<li><p>tcgetattr</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="readline">
+<h1>Readline<a class="headerlink" href="#readline" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/GNU_Readline">GNU Readline - Wikipedia</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="windows">
+<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[conpty]]</p>
+</section>
 
         </article>
       </div>
@@ -252,8 +272,28 @@ https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">forkpty</a></li>
+<li><a class="reference internal" href="#ioctl">ioctl</a></li>
+<li><a class="reference internal" href="#termios">termios</a></li>
+<li><a class="reference internal" href="#readline">Readline</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

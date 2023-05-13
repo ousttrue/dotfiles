@@ -6,3 +6,11 @@
 [[gentoo]]
 [[ArchLinux]]
 [[Ubuntu]]
+
+# system
+
+| |lfs| |
+|-|-|-|
+|utils|coreutils|busybox|
+|c|glibc|musl|
+|init| script | systemd |
