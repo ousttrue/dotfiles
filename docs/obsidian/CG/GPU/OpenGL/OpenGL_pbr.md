@@ -39,3 +39,30 @@ executable(
     dependencies: [glad_dep, glfw_dep],
 )
 ```
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/prefix/bin/ibl_specular_textured.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/src/6.pbr/2.2.2.ibl_specular_textured",
+            "environment": [
+                {
+                    "name": "LOGL_ROOT_PATH",
+                    "value": "${workspaceFolder}"
+                }
+            ],
+            "console": "externalTerminal"
+        }
+    ]
+}
+```

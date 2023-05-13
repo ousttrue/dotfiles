@@ -7,7 +7,8 @@ aliases: [PhysicallyBasedRendering]
 [[IBL]]
 [[ArmorPaint]]
 [[radiometry]]
-	
+
+- @2019 [PBRでフォトリアリスティックな床の制作 - Pentacreation BLOG](https://www.pentacreation.com/blog/2019/05/190520.html)
 
 # BRDF
 - @2013 [SIGGRAPH 2012 の Disney の物理ベースシェーダの BRDF Explorer 向けのソースコード - OLD hanecci’s blog : 旧 はねっちブログ](https://hanecci.hatenadiary.org/entry/20131115/p2)

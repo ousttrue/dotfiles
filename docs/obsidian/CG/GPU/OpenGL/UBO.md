@@ -16,9 +16,13 @@ aliases: [[UniformBufferObject]]
 - @2017 [ユニフォームブロックのメモリレイアウト @ゲームプログラマの小話[開発:グラフィックス] - Qiita](https://qiita.com/hoboaki/items/b188c4495f4708c19002)
 ```c
 #version 300 es
-layout (std140) uniform matrix { 
+layout (std140) uniform TypeName { 
 	mat4 mvp; 
 } mat;
+
+// mat.mvp
+// or
+// mvp
 ```
 
 - int, uint, float, bool は 4byte alignment
@@ -37,7 +41,10 @@ glGenBuffers( 1, &ubo );
 ## upload
 
 ```c
-// mvpMatrix は 4x4 の行列 gl.bindBuffer(gl.UNIFORM_BUFFER, matrixUBO); gl.bufferData(gl.UNIFORM_BUFFER, mvpMatrix, gl.DYNAMIC_DRAW); gl.bindBuffer(gl.UNIFORM_BUFFER, null);
+// mvpMatrix は 4x4 の行列 
+gl.bindBuffer(gl.UNIFORM_BUFFER, matrixUBO);
+gl.bufferData(gl.UNIFORM_BUFFER, mvpMatrix, gl.DYNAMIC_DRAW);
+gl.bindBuffer(gl.UNIFORM_BUFFER, null);
 ```
 
 ## block index

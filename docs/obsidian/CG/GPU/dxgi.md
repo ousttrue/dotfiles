@@ -18,3 +18,5 @@ ID3D10Device1::CreateTexture2D
 ID3D10Device1::CreateTexture3D
 ID3D10Device1::CreateBuffer
 `D3D10_RESOURCE_MISC_SHARED_KEYEDMUTEX`
+
+[[d3d_shared_texture]]

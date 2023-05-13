@@ -1,4 +1,7 @@
-fullscreen の term アプリを `tui` と分類
+
+[[CUI]]
+TUI
+[[GUI]]
 
 [[nvim]]
 [[w3m]]
@@ -26,7 +29,15 @@ fullscreen の term アプリを `tui` と分類
 ## curses
 - layout
 
+# keybinding
 
+[[PTY]] で受けられるキーバインド
+
+TERM => [[pty]] => Key
+| key | |
+|  - | - |
+| alt-. |	next tab |
+| alt-, |	prev tab |
 
 # Library
 - [GitHub - dundalek/notcurses-zig-example: Demo showing how to use Notcurses library for building terminal UIs with Zig](https://github.com/dundalek/notcurses-zig-example)

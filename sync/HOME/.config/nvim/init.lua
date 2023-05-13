@@ -65,6 +65,7 @@ opt.hlsearch = true
 opt.hidden = true
 opt.modeline = true
 opt.keywordprg = ":help"
+opt.makeprg = 'meson install -C builddir --tags runtime'
 
 -- opt.showmatch = true
 -- opt.matchtime = 1
