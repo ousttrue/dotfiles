@@ -1,4 +1,4 @@
-
+[[golang]]
 ![[gopher.png]]
 [The Go Gopher - The Go Programming Language](https://go.dev/blog/gopher)
 
