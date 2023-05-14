@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,25 +212,69 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>brdf
-#renderer #BSDF #pbr</p>
-<p>[https://qiita.com/yoship1639/items/633acdc72f241971d172 最近の3DCGで使われる技術や用語をなるべく分かりやすく紹介する - Qiita]</p>
-<p>code:.c
-m = metallic; // 材質の金属度(0~1)
-color = 0; // 色の合計</p>
-<p>for (ライトの数) {
-color += 拡散BRDF() * (1 - m);
-color += 鏡面BRDF() * m;
-}</p>
-<p>return color;</p>
-<p>[https://zenn.dev/mebiusbox/books/619c81d2fbeafd 基礎からはじめる物理ベースレンダリング]
-[https://learnopengl.com/PBR/Theory LearnOpenGL - Theory]</p>
+          <p><code class="docutils literal notranslate"><span class="pre">Bidirectional</span> <span class="pre">Reflectance</span> <span class="pre">Distribution</span> <span class="pre">Function</span></code></p>
+<p>[[IBL]]
+[[renderer]]
+[[BSDF]]
+[[pbr]]
+[[LightProbe]]</p>
+<ul class="simple">
+<li><p>@2021 <a class="reference external" href="https://zenn.dev/mebiusbox/books/619c81d2fbeafd">基礎からはじめる物理ベースレンダリング</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://qiita.com/yoship1639/items/633acdc72f241971d172">最近の3DCGで使われる技術や用語をなるべく分かりやすく紹介する - Qiita</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>1986<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">Rendering</span> <span class="pre">Equation</span></code> T.Kajiya</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="radiance">
+<h1>radiance: 放射輝度<a class="headerlink" href="#radiance" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">L(x,</span> <span class="pre">ω)</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>その他<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Q エネルギー
+Φ = dQ/dt : raidant flux
+Φ/dA = irradiance, radiant exitance, radiosity
+Φ/dω = radiant intensity
+Φ/dω dA =&gt; radiance 👈 これ
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="lambert">
+<h1>Lambert<a class="headerlink" href="#lambert" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="specular">
+<h1>Specular<a class="headerlink" href="#specular" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="phong">
+<h2>Phong<a class="headerlink" href="#phong" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Kd+Ks&lt;=1</span></code> になるようにする
+マテリアルを制限することでできる。</p>
+</section>
+<section id="fresnel">
+<h2>Fresnel<a class="headerlink" href="#fresnel" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="cook-torrance">
+<h3>Cook-Torrance<a class="headerlink" href="#cook-torrance" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+</section>
+<section id="ggx">
+<h2>GGX<a class="headerlink" href="#ggx" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="memo">
+<h1>Memo<a class="headerlink" href="#memo" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[https://learnopengl.com/PBR/Theory LearnOpenGL - Theory]</p>
 <p>bidirectional reflective distribution function</p>
 <p>https://disneyanimation.com/publications/physically-based-shading-at-disney/
 https://dassaultsystemes-technology.github.io/EnterprisePBRShadingModel/spec-2021x.md.html</p>
@@ -266,6 +310,7 @@ lambertian
 http://www.reedbeta.com/blog/hows-the-ndf-really-defined/
 https://agraphicsguy.wordpress.com/2015/11/01/sampling-microfacet-brdf/</p>
 <p>normal distribution function (NDF)</p>
+</section>
 
         </article>
       </div>
@@ -280,7 +325,7 @@ https://agraphicsguy.wordpress.com/2015/11/01/sampling-microfacet-brdf/</p>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/CG/material/brdf.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/CG/material/BRDF.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -288,8 +333,40 @@ https://agraphicsguy.wordpress.com/2015/11/01/sampling-microfacet-brdf/</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#id1">1986</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#radiance">radiance: 放射輝度</a></li>
+<li><a class="reference internal" href="#id2">その他</a></li>
+<li><a class="reference internal" href="#lambert">Lambert</a></li>
+<li><a class="reference internal" href="#specular">Specular</a><ul>
+<li><a class="reference internal" href="#phong">Phong</a></li>
+<li><a class="reference internal" href="#fresnel">Fresnel</a><ul>
+<li><a class="reference internal" href="#cook-torrance">Cook-Torrance</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ggx">GGX</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#memo">Memo</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

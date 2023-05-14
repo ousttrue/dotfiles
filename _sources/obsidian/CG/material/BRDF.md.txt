@@ -1,20 +1,46 @@
-brdf
-#renderer #BSDF #pbr
+`Bidirectional Reflectance Distribution Function`
 
-[https://qiita.com/yoship1639/items/633acdc72f241971d172 最近の3DCGで使われる技術や用語をなるべく分かりやすく紹介する - Qiita]
+[[IBL]]
+[[renderer]]
+[[BSDF]] 
+[[pbr]]
+[[LightProbe]]
 
-code:.c
- m = metallic; // 材質の金属度(0~1)
- color = 0; // 色の合計
- 
- for (ライトの数) {
-     color += 拡散BRDF() * (1 - m);
-     color += 鏡面BRDF() * m;
- }
- 
- return color;
+- @2021 [基礎からはじめる物理ベースレンダリング](https://zenn.dev/mebiusbox/books/619c81d2fbeafd) 
+- @2019 [最近の3DCGで使われる技術や用語をなるべく分かりやすく紹介する - Qiita](https://qiita.com/yoship1639/items/633acdc72f241971d172)
 
-[https://zenn.dev/mebiusbox/books/619c81d2fbeafd 基礎からはじめる物理ベースレンダリング]
+# Version
+## 1986
+`The Rendering Equation` T.Kajiya
+
+# radiance: 放射輝度
+`L(x, ω)`
+
+# その他
+```
+Q エネルギー
+Φ = dQ/dt : raidant flux
+Φ/dA = irradiance, radiant exitance, radiosity
+Φ/dω = radiant intensity
+Φ/dω dA => radiance 👈 これ
+```
+
+# Lambert
+```c
+```
+
+# Specular
+## Phong
+`Kd+Ks<=1` になるようにする
+マテリアルを制限することでできる。
+
+## Fresnel
+### Cook-Torrance
+
+## GGX
+
+# Memo
+
 [https://learnopengl.com/PBR/Theory LearnOpenGL - Theory]
 
 

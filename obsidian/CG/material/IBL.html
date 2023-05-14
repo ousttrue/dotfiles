@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>SphericalHarmonics - shell note ドキュメント</title>
+        <title>Distant light probes - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,13 +212,29 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>IBL</p>
+          <p>Imabe Based Light</p>
+<section class="tex2jax_ignore mathjax_ignore" id="distant-light-probes">
+<h1>Distant light probes<a class="headerlink" href="#distant-light-probes" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>無限遠 cubemap による間接照明</p>
+<p>used to capture lighting information at “infinity”, where parallax can be ignored. Distant probes typically contain the sky, distant landscape features or buildings, etc. They are either captured by the engine or acquired from a camera as high dynamic range images (HDRI).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="local-light-probes">
+<h1>Local light probes<a class="headerlink" href="#local-light-probes" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>used to capture a certain area of the world from a specific point of view. The capture is projected on a cube or sphere depending on the surrounding geometry. Local probes are more accurate than distance probes and are particularly useful to add local reflections to materials.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="planar-reflections">
+<h1>Planar reflections<a class="headerlink" href="#planar-reflections" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>used to capture reflections by rendering the scene mirrored by a plane. This technique works only for flat surfaces such as building floors, roads and water.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="screen-space-reflection">
+<h1>Screen space reflection<a class="headerlink" href="#screen-space-reflection" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>used to capture reflections based on the rendered scene (using the previous frame for instance) by ray-marching in the depth buffer. SSR gives great result but can be very expensive.</p>
 <p>[https://t-pot.com/program/108_RealTimeGI/index.html t-pot『リアルタイム大域照明』]
 https://learnopengl.com/PBR/IBL/Diffuse-irradiance</p>
 <p>[* texture]
@@ -234,6 +250,7 @@ openexr, half</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://blog.nktk-tech.com/2019-03-31-02/">物理ベースにのっとったImage Based Lightingを実装してみた | NKTK-WEBLOG</a></p></li>
 </ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="sphericalharmonics">
 <h1>SphericalHarmonics<a class="headerlink" href="#sphericalharmonics" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -262,8 +279,28 @@ openexr, half</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Distant light probes</a></li>
+<li><a class="reference internal" href="#local-light-probes">Local light probes</a></li>
+<li><a class="reference internal" href="#planar-reflections">Planar reflections</a></li>
+<li><a class="reference internal" href="#screen-space-reflection">Screen space reflection</a></li>
+<li><a class="reference internal" href="#sphericalharmonics">SphericalHarmonics</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
