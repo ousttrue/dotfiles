@@ -1,4 +1,4 @@
-[[unity]]
+[[Unity]]
 
 - @2020 [UnityのノードベースUI構築におけるGraphViewの活用 | CyberAgent](https://creator.game.cyberagent.co.jp/?p=6903)
 - @2020 [【Unity, UIElements】GraphViewと戯れる | VirtualCast Blog](https://virtualcast.jp/blog/2020/04/playwithgraphview/)
