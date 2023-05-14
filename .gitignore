@@ -11,4 +11,4 @@ zig-cache
 /dot/_version.py
 *.egg-info
 .luarc.json
-lua
+/lua/

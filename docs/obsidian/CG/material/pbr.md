@@ -2,7 +2,7 @@
 aliases: [PhysicallyBasedRendering]
 ---
 
-[[brdf]]
+[[BRDF]]
 [[fresnel]]
 [[IBL]]
 [[ArmorPaint]]
