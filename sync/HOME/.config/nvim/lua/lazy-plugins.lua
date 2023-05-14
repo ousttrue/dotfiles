@@ -150,6 +150,10 @@ local plugins = {
     config = require("config.nvim-treesitter").setup,
   },
   -- {
+  --   "nvim-treesitter/playground",
+  --   config = require("config.nvim-treesitter-playground").setup,
+  -- },
+  -- {
   --   "stevearc/overseer.nvim",
   --   config = function()
   --     require("config.overseer").setup()

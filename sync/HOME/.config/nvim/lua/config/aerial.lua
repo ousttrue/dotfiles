@@ -1,14 +1,17 @@
 local M = {}
 
 function M.setup()
-  require('aerial').setup({
-    backends = { "lsp", "treesitter", "markdown", "man" },
+  require("aerial").setup {
+    backends = {
+      ["_"] = { "lsp", "treesitter", "markdown", "man" },
+      toml = { "treesitter" },
+    },
     -- close_automatic_events = { "switch_buffer" },
     -- optionally use on_attach to set keymaps when aerial has attached to a buffer
     on_attach = function(bufnr)
       -- Jump forwards/backwards with '{' and '}'
-      vim.keymap.set('n', '[a', '<cmd>AerialPrev<CR>', { buffer = bufnr })
-      vim.keymap.set('n', ']a', '<cmd>AerialNext<CR>', { buffer = bufnr })
+      vim.keymap.set("n", "[a", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+      vim.keymap.set("n", "]a", "<cmd>AerialNext<CR>", { buffer = bufnr })
     end,
     default_direction = "right",
     -- Options for opening aerial in a floating win
@@ -38,9 +41,9 @@ function M.setup()
         return conf
       end,
     },
-  })
+  }
   -- You probably also want to set a keymap to toggle aerial
-  vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+  vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
 end
 
 return M

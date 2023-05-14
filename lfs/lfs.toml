@@ -1,0 +1,89 @@
+[[builds]]
+name = "binutils"
+sources = [
+"https://sourceware.org/pub/binutils/releases/binutils-2.40.tar.xz",
+]
+task = """
+mkdir -p build
+cd build
+../configure \
+--prefix=$LFS/tools \
+--with-sysroot=$LFS \
+--target=$LFS_TGT \
+--disable-nls \
+--enable-gprofng=no \
+--disable-werror
+
+make -j4
+make install
+"""
+
+[[builds]]
+name = "gcc"
+sources = [
+"https://ftp.gnu.org/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.xz",
+"https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz",
+"https://ftp.gnu.org/gnu/mpc/mpc-1.3.1.tar.gz",
+"https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.0.tar.xz",
+]
+task = """
+rm -rf mpfr-4.2.0 
+tar -xf ../mpfr-4.2.0.tar.xz
+mv mpfr-4.2.0 mpfr
+
+rm -rf gmp-6.2.1
+tar -xf ../gmp-6.2.1.tar.xz
+mv gmp-6.2.1 gmp
+
+rm -rf mpc-1.3.1
+tar -xf ../mpc-1.3.1.tar.gz
+mv  mpc-1.3.1 mpc
+
+case $(uname -m) in
+    x86_64)
+        sed -e '/m64=/s/lib64/lib/'  -i.orig gcc/config/i386/t-linux64
+        ;;
+esac
+
+mkdir -p build
+cd build
+../configure \
+--target=$LFS_TGT \
+--prefix=$LFS/tools \
+--with-glibc-version=2.37 \
+--with-sysroot=$LFS \
+--with-newlib \
+--without-headers \
+--enable-default-pie \
+--enable-default-ssp \
+--disable-nls \
+--disable-shared \
+--disable-multilib \
+--disable-threads \
+--disable-libatomic \
+--disable-libgomp \
+--disable-libquadmath \
+--disable-libssp \
+--disable-libvtv \
+--disable-libstdcxx \
+--enable-languages=c,c++
+
+make -j4
+make install
+cd ..
+cat gcc/limitx.h gcc/glimits.h gcc/limity.h > `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h
+"""
+
+[[builds]]
+name = "kernel-source"
+sources = [
+"https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.1.11.tar.xz",
+]
+
+[[builds]]
+name = "glibc"
+sources = [
+"https://ftp.gnu.org/gnu/glibc/glibc-2.37.tar.xz",
+"https://www.linuxfromscratch.org/patches/lfs/11.3/glibc-2.37-fhs-1.patch",
+]
+
