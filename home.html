@@ -4,7 +4,7 @@
     <title>Home</title>
   </head>
   <body>
-    <pre style="border:solid 1px;">
+    <pre style="border: solid 1px">
 "\C-n":history-search-forward
 "\C-p":history-search-backward
     </pre>
@@ -12,34 +12,47 @@
       <tr>
         <td>Google</td>
         <td>
-          <form action="https://www.google.com/search" method="GET" accept-charset="UTF-8">
-            <input name="as_q" type="text" value=""/>
-            <input name="num" value="50" type="hidden">
+          <form
+            action="https://www.google.com/search"
+            method="GET"
+            accept-charset="UTF-8"
+          >
+            <input name="as_q" type="text" value="" />
+            <input name="num" value="50" type="hidden" />
           </form>
         </td>
       </tr>
       <tr>
         <td>duckduckgo</td>
         <td>
-          <form action="https://duckduckgo.com/" method="GET" accept-charset="UTF-8">
-            <input name="q">
+          <form
+            action="https://duckduckgo.com/"
+            method="GET"
+            accept-charset="UTF-8"
+          >
+            <input name="q" />
           </form>
         </td>
       </tr>
     </table>
 
     <h1>Google Advanced</h1>
-    <form action="https://www.google.com/search" method="GET" name="f" accept-charset="UTF-8">
+    <form
+      action="https://www.google.com/search"
+      method="GET"
+      name="f"
+      accept-charset="UTF-8"
+    >
       <!-- <input name="hl" type="hidden" value="ja"/> -->
       <h2>検索するキーワード</h2>
       <table>
         <tr>
           <td>すべてのキーワードを含む:</td>
-          <td><input name="as_q" type="text" value=""/></td>
+          <td><input name="as_q" type="text" value="" /></td>
         </tr>
         <tr>
           <td>num</td>
-          <td><input name="num" value="50"></td>
+          <td><input name="num" value="50" /></td>
         </tr>
         <!-- <tr> -->
         <!--     <td>語順も含め完全一致:</td> -->
@@ -61,44 +74,33 @@
         <!-- </tr> -->
         <tr>
           <td>検索結果の絞り込み 言語:</td>
-          <td><select name="lr">
-              <option selected="selected" value="">
-              すべての言語
-              </option>
-              <option value="lang_ja">
-              日本語
-              </option>
+          <td>
+            <select name="lr">
+              <option selected="selected" value="">すべての言語</option>
+              <option value="lang_ja">日本語</option>
             </select>
+          </td>
         </tr>
+
         <tr>
           <td>地域:</td>
-          <td><select name="cr">
-              <option selected="selected" value="">
-              すべての地域
-              </option>
-              <option value="countryJP">
-              日本
-              </option>
+          <td>
+            <select name="cr">
+              <option selected="selected" value="">すべての地域</option>
+              <option value="countryJP">日本</option>
             </select>
+          </td>
         </tr>
+
         <tr>
           <td>最終更新日時:</td>
-          <td><select name="as_qdr">
-              <option selected="selected" value="all">
-              指定なし
-              </option>
-              <option value="d">
-              24 時間以内
-              </option>
-              <option value="w">
-              1 週間以内
-              </option>
-              <option value="m">
-              1 か月以内
-              </option>
-              <option value="y">
-              1 年以内
-              </option>
+          <td>
+            <select name="as_qdr">
+              <option selected="selected" value="all">指定なし</option>
+              <option value="d">24 時間以内</option>
+              <option value="w">1 週間以内</option>
+              <option value="m">1 か月以内</option>
+              <option value="y">1 年以内</option>
             </select>
           </td>
         </tr>
@@ -108,72 +110,44 @@
         <!-- </tr> -->
         <tr>
           <td>検索対象の範囲:</td>
-          <td><select name="as_occt">
-              <option value="">
-              ページ全体
-              </option>
-              <option value="title">
-              ページ タイトルのみ
-              </option>
-              <option value="body">
-              ページ本文のみ
-              </option>
-              <option value="url">
-              ページ URL のみ
-              </option>
-              <option value="links">
-              そのページへのリンク内
-              </option>
-            </select></td>
+          <td>
+            <select name="as_occt">
+              <option value="">ページ全体</option>
+              <option value="title">ページ タイトルのみ</option>
+              <option value="body">ページ本文のみ</option>
+              <option value="url">ページ URL のみ</option>
+              <option value="links">そのページへのリンク内</option>
+            </select>
+          </td>
         </tr>
         <tr>
           <td>セーフサーチ</td>
-          <td><select name="safe">
+          <td>
+            <select name="safe">
               <option selected="selected" value="images">
-              不適切な検索結果を表示する
+                不適切な検索結果を表示する
               </option>
-              <option value="active">
-              不適切な検索結果を非表示にする
-              </option>
-            </select></td>
+              <option value="active">不適切な検索結果を非表示にする</option>
+            </select>
+          </td>
         </tr>
         <tr>
           <td>ファイル形式</td>
-          <td><select name="as_filetype">
-              <option selected="selected" value="">
-              すべての形式
-              </option>
-              <option value="pdf">
-              Adobe Acrobat PDF（.pdf）
-              </option>
-              <option value="ps">
-              Adobe PostScript（.ps）
-              </option>
-              <option value="dwf">
-              Autodesk DWF（.dwf）
-              </option>
-              <option value="kml">
-              Google Earth KML（.kml）
-              </option>
-              <option value="kmz">
-              Google Earth KMZ（.kmz）
-              </option>
-              <option value="xls">
-              Microsoft Excel（.xls）
-              </option>
-              <option value="ppt">
-              Microsoft PowerPoint（.ppt）
-              </option>
-              <option value="doc">
-              Microsoft Word（.doc）
-              </option>
-              <option value="rtf">
-              リッチ テキスト形式（.rtf）
-              </option>
-              <option value="swf">
-              Shockwave Flash（.swf）
-              </option>
-            </select></td>
+          <td>
+            <select name="as_filetype">
+              <option selected="selected" value="">すべての形式</option>
+              <option value="pdf">Adobe Acrobat PDF（.pdf）</option>
+              <option value="ps">Adobe PostScript（.ps）</option>
+              <option value="dwf">Autodesk DWF（.dwf）</option>
+              <option value="kml">Google Earth KML（.kml）</option>
+              <option value="kmz">Google Earth KMZ（.kmz）</option>
+              <option value="xls">Microsoft Excel（.xls）</option>
+              <option value="ppt">Microsoft PowerPoint（.ppt）</option>
+              <option value="doc">Microsoft Word（.doc）</option>
+              <option value="rtf">リッチ テキスト形式（.rtf）</option>
+              <option value="swf">Shockwave Flash（.swf）</option>
+            </select>
+          </td>
         </tr>
         <!-- <tr> -->
         <!--     <td>ライセンス</td> -->
@@ -198,155 +172,207 @@
       </table>
       <!-- <input name="tbs" type="hidden" value=""/> -->
       <!-- <input name="gbv" type="hidden" value="1"/> -->
-      <input type="submit" value="search"/>
+      <input type="submit" value="search" />
     </form>
-    <hr>
+    <hr />
 
     <p>
-    <a href=https://docs.ultraleap.com/>ultraleap</a>
-    <a href=https://think-async.com/Asio/asio-1.24.0/doc/asio/reference.html>asio</a>
+      <a href="https://docs.ultraleap.com/">ultraleap</a>
+      <a href="https://think-async.com/Asio/asio-1.24.0/doc/asio/reference.html"
+        >asio</a
+      >
     </p>
 
     <p>
-    <a href=https://mesonbuild.com/>meson</a>
-    <a href=https://developer-old.gnome.org/gtkmm-tutorial/stable/>gtkmm</a>
-    <a href=https://download.gnome.org/sources/>GNOME sources</a>
-    <a href=https://gitlab.gnome.org/GNOME>GNOME glab</a>
-    <a href=https://www.gtk.org/>GTK-4.8</a>
-    <a href=https://blog.gtk.org/>GTK Development Blog</a>
+      <a href="https://mesonbuild.com/">meson</a>
+      <a href="https://developer-old.gnome.org/gtkmm-tutorial/stable/">gtkmm</a>
+      <a href="https://download.gnome.org/sources/">GNOME sources</a>
+      <a href="https://gitlab.gnome.org/GNOME">GNOME glab</a>
+      <a href="https://www.gtk.org/">GTK-4.8</a>
+      <a href="https://blog.gtk.org/">GTK Development Blog</a>
     </p>
 
     <p>
-    <a href=https://www.python.org/>Python-3.10.4</a>
-    <a href=https://peps.python.org/>pep</a>
-    <a href=https://github.com/prompt-toolkit/python-prompt-toolkit>prompt-toolkit</a>
-    <a href=https://pydoit.org/>doit</a>
-    <a href=https://peps.python.org/pep-0567/>PEP-567</a>
-    <a href=https://docutils.sourceforge.io/>docutils</a>
-    <a href=https://xon.sh/>xonsh-0.11.0</a>
-    <a href=https://www.sphinx-doc.org/en/master/>sphinx-4.5</a>
-    <a href=https://getnikola.com/>nikola</a>
-    <a href=https://www.gatsbyjs.com/docs/>gatsby</a>
+      <a href="https://www.python.org/">Python-3.10.4</a>
+      <a href="https://peps.python.org/">pep</a>
+      <a href="https://github.com/prompt-toolkit/python-prompt-toolkit"
+        >prompt-toolkit</a
+      >
+      <a href="https://pydoit.org/">doit</a>
+      <a href="https://peps.python.org/pep-0567/">PEP-567</a>
+      <a href="https://docutils.sourceforge.io/">docutils</a>
+      <a href="https://xon.sh/">xonsh-0.11.0</a>
+      <a href="https://www.sphinx-doc.org/en/master/">sphinx-4.5</a>
+      <a href="https://getnikola.com/">nikola</a>
+      <a href="https://www.gatsbyjs.com/docs/">gatsby</a>
     </p>
 
     <p>
-    <a href=https://json.nlohmann.me/>nlohmann json</a>
-    <a href=https://docs.gl/>docs.GL</a>
-    <a href=https://github.com/KhronosGroup/WebGL/tree/main/specs/latest>WebGL</a>
-    <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray>TypedArray</a>
-    <a href=https://learnopengl.com/>LearnOpenGL</a>
+      <a href="https://json.nlohmann.me/">nlohmann json</a>
+      <a href="https://docs.gl/">docs.GL</a>
+      <a href="https://github.com/KhronosGroup/WebGL/tree/main/specs/latest"
+        >WebGL</a
+      >
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray"
+        >TypedArray</a
+      >
+      <a href="https://learnopengl.com/">LearnOpenGL</a>
 
-    <a href=https://github.com/Zuzu-Typ/PyGLM/wiki>PyGLM</a>
-    <a href=https://learn.microsoft.com/en-us/windows/win32/dxmath/ovw-xnamath-reference-functions-vector3>DirectXMath</a>
+      <a href="https://github.com/Zuzu-Typ/PyGLM/wiki">PyGLM</a>
+      <a
+        href="https://learn.microsoft.com/en-us/windows/win32/dxmath/ovw-xnamath-reference-functions-vector3"
+        >DirectXMath</a
+      >
 
-    <a href=https://github.com/ocornut/imgui>imgui-1.87</imgui>
-    <a href=https://www.glfw.org/docs/latest/>GLFW</a>
+      <a href="https://github.com/ocornut/imgui">imgui-1.87</a>
+      <a href="https://www.glfw.org/docs/latest/">GLFW</a>
 
-    <a href=https://github.com/maluoi/openxr-explorer>openxr-explorer</a>
-    <img width=800 src=https://github.com/KhronosGroup/OpenXR-Docs/raw/main/specification/sources/images/ext_hand_tracking_joint_convention.png>
+      <a href="https://github.com/maluoi/openxr-explorer">openxr-explorer</a>
+      <img width=800
+      src=https://github.com/KhronosGroup/OpenXR-Docs/raw/main/specification/sources/images/ext_hand_tracking_joint_convention.png>
     </p>
 
     <p>
-    <a href=https://github.com/polybar/polybar/wiki/>polybar</a>
+      <a href="https://github.com/polybar/polybar/wiki/">polybar</a>
     </p>
 
     <p>
-    <a href=https://www.lua.org/manual/5.4/>lua-5.4</a>
-    <a href=https://www.lua.org/manual/5.1/>Lua-5.1</a>
-    <a href=https://www.lua.org/pil/26.2.html>C Libraries</a>
-    <a href=https://emmylua.github.io/annotation.html>EmmyLuaAnnotation</a>
-    <a href=https://neovim.io>Neovim-0.8.0</a>
-    <a href=https://neovim.io/doc/user/>neovim help</a>
-    <a href=https://neovim.io/doc/user/lsp.html>nvim lsp</a>
-    <a href=https://github.com/willelz/nvim-lua-guide-ja/blob/master/README.ja.md>lua guide</a>
-    <a href=https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md>server_configurations</a>
-    <a href=https://microsoft.github.io/language-server-protocol/>lsp</a>
-    <a href=https://clang.llvm.org/docs/ClangFormatStyleOptions.html>clang-format</a>
+      <a href="https://www.lua.org/manual/5.4/">lua-5.4</a>
+      <a href="https://www.lua.org/manual/5.1/">Lua-5.1</a>
+      <a href="https://www.lua.org/pil/26.2.html">C Libraries</a>
+      <a href="https://emmylua.github.io/annotation.html">EmmyLuaAnnotation</a>
+      <a href="https://neovim.io">Neovim-0.8.0</a>
+      <a href="https://neovim.io/doc/user/">neovim help</a>
+      <a href="https://neovim.io/doc/user/lsp.html">nvim lsp</a>
+      <a
+        href="https://github.com/willelz/nvim-lua-guide-ja/blob/master/README.ja.md"
+        >lua guide</a
+      >
+      <a
+        href="https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md"
+        >server_configurations</a
+      >
+      <a href="https://microsoft.github.io/language-server-protocol/">lsp</a>
+      <a href="https://clang.llvm.org/docs/ClangFormatStyleOptions.html"
+        >clang-format</a
+      >
     </p>
 
+    <p></p>
+    <p>
+      <a href="https://ziglang.org/">zig-0.9.1</a>
+      <a href="https://ziglang.org/documentation/master/std/#root">std</a>
+      <a href="https://github.com/C-BJ/awesome-zig">awesome-zig</a>
+      <a
+        href="https://www.youtube.com/watch?v=8MbREuiLQrM&ab_channel=ZigSHOWTIME"
+        >Zig Compiler Internals</a
+      >
     </p>
     <p>
-    <a href=https://ziglang.org/>zig-0.9.1</a>
-    <a href=https://ziglang.org/documentation/master/std/#root>std</a>
-    <a href=https://github.com/C-BJ/awesome-zig>awesome-zig</a>
-    <a href=https://www.youtube.com/watch?v=8MbREuiLQrM&ab_channel=ZigSHOWTIME>Zig Compiler Internals</a>
-    </p>
-    <p>
-    <a href=https://www.khronos.org/ktx/>ktx</a>
-    <a href=https://github.com/KhronosGroup/3D-Formats-Guidelines/blob/main/KTXDeveloperGuide.md>KTXDeveloperGuide</a>
-    <a href=https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html>glTF-2.0</a>
-    <a href=https://github.com/KhronosGroup/glTF/tree/main/specification/2.0/schema>schema</a>
-    <a href=https://github.com/KhronosGroup/glTF>glTF(github)</a>
-    </p>
-
-    <p>
-    <a href=https://www.blender.org/>Blender</a>
-    <a href=https://www.youtube.com/watch?v=tVc8PtAH9Rg&ab_channel=Blender>20230228 #219</a>
-    <a href=https://www.youtube.com/watch?v=tnTq49GUguQ&ab_channel=Blender>20220802 #201</a>
-    </p>
-
-    <p>
-    <a href=https://wiki.gentoo.org/wiki/Handbook:AMD64>GentooHandbook</a>
-    <a href=https://wiki.gentoo.org/wiki/Useful_Portage_tools>portage</a>
-    <a href=https://www.linuxfromscratch.org/lfs/view/stable/>LFS-11.3</a>
-    <a href=https://www.archlinux.jp/>ArchLinux</a>
-    <a href=https://wiki.archlinux.jp/index.php/Xorg>Xorg</a>
-    </p>
-
-    <p>
-    <a href=https://www.nerdfonts.com/>NerdFonts</a>
-    <a href=https://www.msys2.org/>msys2</a>
-    <a href=https://github.com/microsoft/vcpkg>vcpkg</a>
-    <a href=https://github.com/awesome-lists/awesome-bash>awesome-bash</a>
-    <a href=https://github.com/tmux/tmux>tmux</a>
-    <a href=https://github.com/b-ryan/powerline-shell>powerline-shell</a>
-    <a href=https://github.com/zellij-org/zellij>zellij</a>
+      <a href="https://www.khronos.org/ktx/">ktx</a>
+      <a
+        href="https://github.com/KhronosGroup/3D-Formats-Guidelines/blob/main/KTXDeveloperGuide.md"
+        >KTXDeveloperGuide</a
+      >
+      <a href="https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html"
+        >glTF-2.0</a
+      >
+      <a
+        href="https://github.com/KhronosGroup/glTF/tree/main/specification/2.0/schema"
+        >schema</a
+      >
+      <a href="https://github.com/KhronosGroup/glTF">glTF(github)</a>
     </p>
 
     <p>
-    <a href=https://docs.microsoft.com/ja-jp/dotnet/core/whats-new/dotnet-6>.NET6</a>
+      <a href="https://www.blender.org/">Blender</a>
+      <a href="https://www.youtube.com/watch?v=tVc8PtAH9Rg&ab_channel=Blender"
+        >20230228 #219</a
+      >
+      <a href="https://www.youtube.com/watch?v=tnTq49GUguQ&ab_channel=Blender"
+        >20220802 #201</a
+      >
+    </p>
+
+    <p>
+      <a href="https://wiki.gentoo.org/wiki/Handbook:AMD64">GentooHandbook</a>
+      <a href="https://wiki.gentoo.org/wiki/Useful_Portage_tools">portage</a>
+      <a href="https://www.linuxfromscratch.org/lfs/view/stable/">LFS-11.3</a>
+      <a href="https://www.archlinux.jp/">ArchLinux</a>
+      <a href="https://wiki.archlinux.jp/index.php/Xorg">Xorg</a>
+    </p>
+
+    <p>
+      <a href="https://www.nerdfonts.com/">NerdFonts</a>
+      <a href="https://www.msys2.org/">msys2</a>
+      <a href="https://github.com/microsoft/vcpkg">vcpkg</a>
+      <a href="https://github.com/awesome-lists/awesome-bash">awesome-bash</a>
+      <a href="https://github.com/tmux/tmux">tmux</a>
+      <a href="https://github.com/b-ryan/powerline-shell">powerline-shell</a>
+      <a href="https://github.com/zellij-org/zellij">zellij</a>
+    </p>
+
+    <p>
+      <a href="https://docs.microsoft.com/ja-jp/dotnet/core/whats-new/dotnet-6"
+        >.NET6</a
+      >
     </p>
 
     <table>
       <tr>
-        <td><a href=https://github.com/ >github</a></td>
+        <td><a href="https://github.com/ ">github</a></td>
         <td>
-          <form action="https://github.com/search" method="GET" accept-charset="UTF-8">
-            <input name="q">
+          <form
+            action="https://github.com/search"
+            method="GET"
+            accept-charset="UTF-8"
+          >
+            <input name="q" />
           </form>
         </td>
       </tr>
       <tr>
         <td>Zenn</td>
         <td>
-          <form action="https://zenn.dev/search" method="GET" accept-charset="UTF-8">
-            <input name="q">
+          <form
+            action="https://zenn.dev/search"
+            method="GET"
+            accept-charset="UTF-8"
+          >
+            <input name="q" />
           </form>
         </td>
       </tr>
       <tr>
         <td>pypi</td>
-        <td>  
-          <form action="https://pypi.org/search/" method="GET" accept-charset="UTF-8">
-            <input name="q">
+        <td>
+          <form
+            action="https://pypi.org/search/"
+            method="GET"
+            accept-charset="UTF-8"
+          >
+            <input name="q" />
           </form>
-      </tr>
-      <tr>
-          <td>JM Project</td>
-          <td>
-              <form method="GET" action="https://linuxjm.osdn.jp/cgi-bin/man.cgi">
-                  <input type="TEXT" name="Pagename">
-                  <nobr><input type="CHECKBOX" name="Sec1" checked="">1</nobr>
-                  <nobr><input type="CHECKBOX" name="Sec2" checked="">2</nobr>
-                  <nobr><input type="CHECKBOX" name="Sec3" checked="">3</nobr>
-                  <nobr><input type="CHECKBOX" name="Sec4" checked="">4</nobr>
-                  <nobr><input type="CHECKBOX" name="Sec5" checked="">5</nobr>
-                  <nobr><input type="CHECKBOX" name="Sec6" checked="">6</nobr>
-                  <nobr><input type="CHECKBOX" name="Sec7" checked="">7</nobr>
-                  <nobr><input type="CHECKBOX" name="Sec8" checked="">8</nobr>
-              </form>
-          </td>
+        </td>
       </tr>
 
+      <tr>
+        <td>JM Project</td>
+        <td>
+          <form method="GET" action="https://linuxjm.osdn.jp/cgi-bin/man.cgi">
+            <input type="TEXT" name="Pagename" />
+            <nobr><input type="CHECKBOX" name="Sec1" checked="" />1</nobr>
+            <nobr><input type="CHECKBOX" name="Sec2" checked="" />2</nobr>
+            <nobr><input type="CHECKBOX" name="Sec3" checked="" />3</nobr>
+            <nobr><input type="CHECKBOX" name="Sec4" checked="" />4</nobr>
+            <nobr><input type="CHECKBOX" name="Sec5" checked="" />5</nobr>
+            <nobr><input type="CHECKBOX" name="Sec6" checked="" />6</nobr>
+            <nobr><input type="CHECKBOX" name="Sec7" checked="" />7</nobr>
+            <nobr><input type="CHECKBOX" name="Sec8" checked="" />8</nobr>
+          </form>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
