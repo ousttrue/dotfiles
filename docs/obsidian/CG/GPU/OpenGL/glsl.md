@@ -4,6 +4,9 @@ https://www.khronos.org/opengl/wiki/Type_Qualifier_(GLSL)
 
 # Version
 - @2017 [OpenGL(GLSL)のvarying,attribute,in,outについて - げぇむぷろぐらみんぐ](http://siguma-sig.hatenablog.com/entry/2017/04/25/203250)
+## 460
+`#version 460 core`
+
 ## 450
 `vulkan` ?
 - @2019 [初めてのVulkanプログラミング step5 vertex シェーダーの作成。 - Qiita](https://qiita.com/tositada_nakada/items/aa34959f2640b22cd489)
