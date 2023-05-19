@@ -16,4 +16,5 @@ https://stedolan.github.io/jq/
 - [JSONマージ・パッチによるJSONドキュメントの更新](https://docs.oracle.com/cd/F19136_01/adjsn/updating-json-document-json-merge-patch.html)
 
 # c++
+- [GitHub - ArthurSonzogni/json-tui: A JSON terminal UI made in C++](https://github.com/ArthurSonzogni/json-tui)
 - @2022 [Big Sky :: RapidJSON や simdjson よりも速いC言語から使えるJSONライブラリ「yyjson」](https://mattn.kaoriya.net/software/lang/c/20220320234556.htm)
