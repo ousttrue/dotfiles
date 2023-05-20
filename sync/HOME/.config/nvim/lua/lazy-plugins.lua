@@ -474,6 +474,7 @@ local plugins = {
   --   end,
   -- },
   { "unblevable/quick-scope" },
+  { "tikhomirov/vim-glsl" },
 }
 
 require("lazy").setup(plugins)

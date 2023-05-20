@@ -8,6 +8,14 @@ function get_muon()
   end
 end
 
+function get_clang_format()
+  if vim.fn.has "win32" == 1 then
+    return "C:/Program Files/LLVM/bin/clang-format.exe"
+  else
+    return "clang-format"
+  end
+end
+
 function M.setup()
   local null_ls = require "null-ls"
   local helpers = require "null-ls.helpers"
@@ -32,6 +40,10 @@ function M.setup()
       null_ls.builtins.formatting.prettier,
       -- null_ls.builtins.diagnostics.eslint,
       null_ls.builtins.formatting.shfmt,
+      null_ls.builtins.formatting.clang_format.with {
+        command = get_clang_format(),
+        filetypes = { "glsl" },
+      },
     },
     on_attach = on_attach,
   }
