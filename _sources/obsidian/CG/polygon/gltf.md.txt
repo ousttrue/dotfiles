@@ -23,3 +23,17 @@ def glb_bytes(json_chunk: bytes, bin_chunk: bytes) -> Iterable[bytes]:
 
 # sample
 - [Graphics Research Samples](https://www.intel.com/content/www/us/en/developer/topic-technology/graphics-research/samples.html)
+
+# Viewer
+## c++
+- [glTF Viewer Tutorial / gltf-viewer · GitLab](https://gitlab.com/gltf-viewer-tutorial/gltf-viewer)
+- [GitHub - syoyo/tinygltf: Header only C++11 tiny glTF 2.0 library](https://github.com/syoyo/tinygltf)
+
+## sokol
+- [GitHub - ukabuer/ModelViewer: GLTF model viewer](https://github.com/ukabuer/ModelViewer)
+
+## webgl
+- [GitHub - KhronosGroup/glTF-Sample-Viewer: Physically-Based Rendering in glTF 2.0 using WebGL](https://github.com/KhronosGroup/glTF-Sample-Viewer)
+
+### three.js
+- [GitHub - donmccurdy/three-gltf-viewer: Drag-and-drop preview for glTF 2.0 models in WebGL using three.js.](https://github.com/donmccurdy/three-gltf-viewer)
