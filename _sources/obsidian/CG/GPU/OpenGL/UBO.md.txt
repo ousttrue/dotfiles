@@ -1,6 +1,7 @@
 ---
 aliases: [[UniformBufferObject]]
 ---
+[[glsl]]
 `Uniform Buffer Object`
 `GL_UNIFORM_BUFFER`
 > D3D の ConstantBuffer に相当する

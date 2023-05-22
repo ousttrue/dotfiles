@@ -2,6 +2,9 @@
 
 https://www.khronos.org/opengl/wiki/Type_Qualifier_(GLSL)
 
+- [The Book of Shaders](https://thebookofshaders.com/?lan=jp)
+- @2014 [GLSLが使いにくい件について - syghの新フラグメント置き場](https://sygh.hatenadiary.jp/entry/2014/07/11/003515)
+
 # Version
 - @2017 [OpenGL(GLSL)のvarying,attribute,in,outについて - げぇむぷろぐらみんぐ](http://siguma-sig.hatenablog.com/entry/2017/04/25/203250)
 ## 460

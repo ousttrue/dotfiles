@@ -16,7 +16,7 @@
 |#version 430|4.3|[[SSBO]], [[OpenGL_compute_shader]]|
 |#version 420|4.2||
 |#version 410|4.1||
-|#version 400|4.0||
+|#version 400|4.0|[[d3d11]]相当|
 |#version 330|3.3||
 |#version 150|3.2||
 |#version 140|3.1|[[UBO]]|

@@ -1,6 +1,10 @@
 [[Material|shading]]
 
-https://learnopengl.com/Advanced-Lighting/Normal-Mapping
+- https://learnopengl.com/Advanced-Lighting/Normal-Mapping
+- [チュートリアル13:法線マッピング](http://www.opengl-tutorial.org/jp/intermediate-tutorials/tutorial-13-normal-mapping/)
+
+# debug shader
+
 
 # Lighting in tangent space 
 
