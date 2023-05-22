@@ -47,14 +47,22 @@ find_package(Vulkan)
 # GLFW
 - [GLFW: Vulkan guide](https://www.glfw.org/docs/3.3/vulkan_guide.html)
 
-# Gentoo
+# Linux
+## Gentoo
 [[gentoo]]
 - @2021 [Gaming on Gentoo Linux - joker1007’s diary](https://joker1007.hatenablog.com/entry/2021/04/10/223111)
 - [GitHub - SaschaWillems/Vulkan: Examples and demos for the new Vulkan API](https://github.com/SaschaWillems/Vulkan)
 
+## Ubuntu
+- @2016 [Ubuntu 16.04 で Vulkan を使う – すらりん日記](https://blog.techlab-xe.net/post-4506/)
+
+## ArchLinux
+- [Vulkan - ArchWiki](https://wiki.archlinux.jp/index.php/Vulkan)
+
 # direct display
 - [VulkanダイレクトディスプレイにレンダリングするOpenGLサンプル - wenyanet](https://www.wenyanet.com/opensource/ja/60d63a296dc47e20d012d9ed.html)
 [[VK_KHR_display]]
+- [「Linuxでアプリから直接画面を表示したい」　インスタンス拡張「VK_KHR_display」を使った、画面占有方法 - ログミーTech](https://logmi.jp/tech/articles/328183)
 
 # Android
 [[Android]]
