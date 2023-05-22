@@ -1,5 +1,5 @@
-
 `Debug Adapter Protocol`
+
 [Official page for Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol/)
 
 - [GitHub - vain0x/debug-adapter-examples: Examples of Debug Adapter Protocol (DAP) implementation](https://github.com/vain0x/debug-adapter-examples)
@@ -27,8 +27,15 @@
  
 - https://github.com/Microsoft/vscode-mock-debug
 
-# Python
+# frontend
+[GitHub - raiguard/pesticide: A TUI front-end for the Debug Adapter Protocol.](https://github.com/raiguard/pesticide)
+## nvim
+[[nvim_dap]]
+
+# backend
+## Python
+[[pdb]]
 - @2022 [VSCode + debugpy でPython CLIをターミナルから快適にデバッグする](https://zenn.dev/shun_kashiwa/articles/debug-python-cli-with-debugpy-vscode)
 
-# nvim
-[[nvim_dap]]
+## gdb
+- @2023 [GNU Debugger "GDB" Adds Support For Microsoft's Debug Adapter Protocol - Phoronix](https://www.phoronix.com/news/GDB-Debug-Adapter-Protocol)
