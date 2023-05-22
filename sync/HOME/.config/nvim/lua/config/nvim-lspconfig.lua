@@ -75,7 +75,7 @@ function M.setup()
     bundle_path = dot.get_home() .. "/.vscode/extensions/ms-vscode.powershell-2023.3.3/modules",
   }
 
-  lspconfig.glslls.setup {}
+  -- lspconfig.glslls.setup {}
 end
 
 return M

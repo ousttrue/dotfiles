@@ -44,6 +44,10 @@ function M.setup()
         command = get_clang_format(),
         filetypes = { "glsl" },
       },
+      null_ls.builtins.diagnostics.glslc.with {
+        -- use opengl instead of vulkan1.0
+        extra_args = { "--target-env=opengl" },
+      },
     },
     on_attach = on_attach,
   }
