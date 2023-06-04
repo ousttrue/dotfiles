@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Metallic - shell note ドキュメント</title>
+        <title>pre-filter (前処理) - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,55 +218,93 @@
           </label>
         </div>
         <article role="main">
-          <p>[[blender]]</p>
+          <p>Imabe Based Light
+[[Lighting]]
+[[HDR]]
+[[BRDF]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://studio.blender.org/training/stylized-character-workflow/base-meshes/">Base Meshes - Stylized Character Workflow - Blender Studio</a></p></li>
-<li><p><a class="reference external" href="https://studio.blender.org/training/stylized-character-workflow/">Stylized Character Workflow - Blender Studio</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://blog.nktk-tech.com/2019-03-31-02/">物理ベースにのっとったImage Based Lightingを実装してみた | NKTK-WEBLOG</a>
+http://technicalartlead.blogspot.com/2017/10/basic-ibl-shaders-in-hlsl.html
+https://qiita.com/kaneta1992/items/df1ae53e352f6813e0cd
+https://shuichi-h.hatenadiary.org/entry/20150717/1437133075]
+http://project-asura.com/blog/archives/3897
+http://project-asura.com/blog/archives/3124</p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="metallic">
-<h1>Metallic<a class="headerlink" href="#metallic" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[fresnel]]</p>
-<section id="brdf">
-<h2>BRDF<a class="headerlink" href="#brdf" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Bidirectional</span> <span class="pre">Reflectance</span> <span class="pre">Distribution</span> <span class="pre">Function</span></code></p>
-<p><a class="reference external" href="https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#appendix-b-brdf-implementation">glTF™ 2.0 Specification: Appendix B: BRDF Implementation</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">material</span> <span class="o">=</span> <span class="n">mix</span><span class="p">(</span><span class="n">dielectric_brdf</span><span class="p">,</span> <span class="n">metal_brdf</span><span class="p">,</span> <span class="n">metallic</span><span class="p">)</span>
-         <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">metallic</span><span class="p">)</span> <span class="o">*</span> <span class="n">dielectric_brdf</span> <span class="o">+</span> <span class="n">metallic</span> <span class="o">*</span> <span class="n">metal_brdf</span>
-</pre></div>
-</div>
-<section id="brdf-diffuse-lambert">
-<h3>拡散BRDF(diffuse: lambert)<a class="headerlink" href="#brdf-diffuse-lambert" title="このヘッドラインへのパーマリンク">¶</a></h3>
-</section>
-<section id="brdf-specular-fresnel">
-<h3>鏡面BRDF(specular: fresnel)<a class="headerlink" href="#brdf-specular-fresnel" title="このヘッドラインへのパーマリンク">¶</a></h3>
-</section>
-</section>
-<section id="conductive-metal">
-<h2>Conductive, Metal(金属、導体)<a class="headerlink" href="#conductive-metal" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>鋼、銅、金、すなわち金属</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 全部 specular</span>
-<span class="n">metal_brdf</span> <span class="o">=</span>
-  <span class="n">conductor_fresnel</span><span class="p">(</span>
-    <span class="n">f0</span> <span class="o">=</span> <span class="n">baseColor</span><span class="p">,</span>
-    <span class="n">bsdf</span> <span class="o">=</span> <span class="n">specular_brdf</span><span class="p">(</span>
-      <span class="n">α</span> <span class="o">=</span> <span class="n">roughness</span> <span class="o">^</span> <span class="mi">2</span><span class="p">))</span>
+<p>https://learnopengl.com/Advanced-OpenGL/Cubemaps
+DirectionalVector -&gt; RGBA</p>
+<section class="tex2jax_ignore mathjax_ignore" id="pre-filter">
+<h1>pre-filter (前処理)<a class="headerlink" href="#pre-filter" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[SphericalHarmonicFunction]]</p>
+<section id="lambert-ibl-irradiance-map">
+<h2>Lambert IBL + Irradiance map<a class="headerlink" href="#lambert-ibl-irradiance-map" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://learnopengl.com/PBR/IBL/Diffuse-irradiance">LearnOpenGL - Diffuse irradiance</a></p>
+<blockquote>
+<div><p>irradiance map</p>
+</div></blockquote>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">vec3</span><span class="w"> </span><span class="n">irradiance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">texture</span><span class="p">(</span><span class="n">irradianceMap</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">).</span><span class="n">rgb</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
-<section id="dielectric">
-<h2>Dielectric(非金属、誘電体、絶縁体、非導体?)<a class="headerlink" href="#dielectric" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ガラス、プラスチック、木材、セラミック、革など</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># diffuse + Specular</span>
-<span class="n">dielectric_brdf</span> <span class="o">=</span>
-  <span class="n">fresnel_mix</span><span class="p">(</span>
-    <span class="n">ior</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">,</span>
-    <span class="n">base</span> <span class="o">=</span> <span class="n">diffuse_brdf</span><span class="p">(</span>
-      <span class="n">color</span> <span class="o">=</span> <span class="n">baseColor</span><span class="p">),</span>
-    <span class="n">layer</span> <span class="o">=</span> <span class="n">specular_brdf</span><span class="p">(</span>
-      <span class="n">α</span> <span class="o">=</span> <span class="n">roughness</span> <span class="o">^</span> <span class="mi">2</span><span class="p">))</span>
+<section id="specular-ibl">
+<h2>Specular IBL<a class="headerlink" href="#specular-ibl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://learnopengl.com/PBR/IBL/Specular-IBL">LearnOpenGL - Specular IBL</a></p>
+<blockquote>
+<div><p>Epic Games' split sum approximation</p>
+</div></blockquote>
+<section id="pre-filtered-environment-map">
+<h3>pre-filtered environment map<a class="headerlink" href="#pre-filtered-environment-map" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>cubemap</p>
+<p>ラフネス値の違いをMipMapで表現</p>
+<blockquote>
+<div><p>the specular part consists of several mip-map levels corresponding to different roughness values of the modeled material</p>
+</div></blockquote>
+</section>
+<section id="brdf-2d-lut-lookuptable">
+<h3>BRDF_2D_LUT(LookUpTable)<a class="headerlink" href="#brdf-2d-lut-lookuptable" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>2D</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">vec2</span><span class="p">(</span><span class="n">NdotV</span><span class="p">,</span><span class="w"> </span><span class="n">roughness</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
+<section id="ggx">
+<h3>GGX<a class="headerlink" href="#ggx" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+</section>
+<section id="tool">
+<h2>Tool<a class="headerlink" href="#tool" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.derkreature.com/iblbaker">IBLBaker — The Kreature Experiment</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/derkreature/IBLBaker">GitHub - derkreature/IBLBaker: Light probe generation and BRDF authoring for physically based shading.</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/KhronosGroup/glTF-IBL-Sampler">GitHub - KhronosGroup/glTF-IBL-Sampler: Sampler to create the glTF sample environments</a></p>
+<ul>
+<li><p>https://github.com/ux3d/glTF-Sample-Environments</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="lightprobe">
+<h1>LightProbe<a class="headerlink" href="#lightprobe" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="distant-light-probes">
+<h2>Distant light probes<a class="headerlink" href="#distant-light-probes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>無限遠 cubemap による間接照明</p>
+<p>used to capture lighting information at “infinity”, where parallax can be ignored. Distant probes typically contain the sky, distant landscape features or buildings, etc. They are either captured by the engine or acquired from a camera as high dynamic range images (HDRI).</p>
+</section>
+<section id="local-light-probes">
+<h2>Local light probes<a class="headerlink" href="#local-light-probes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>used to capture a certain area of the world from a specific point of view. The capture is projected on a cube or sphere depending on the surrounding geometry. Local probes are more accurate than distance probes and are particularly useful to add local reflections to materials.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="planar-reflections">
+<h1>Planar reflections<a class="headerlink" href="#planar-reflections" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>used to capture reflections by rendering the scene mirrored by a plane. This technique works only for flat surfaces such as building floors, roads and water.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="screen-space-reflection">
+<h1>Screen space reflection<a class="headerlink" href="#screen-space-reflection" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>used to capture reflections based on the rendered scene (using the previous frame for instance) by ray-marching in the depth buffer. SSR gives great result but can be very expensive.</p>
 </section>
 
         </article>
@@ -282,7 +320,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/CG/blender/StylizedCharacterWorkflow.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/CG/rendering/IBL.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -302,16 +340,24 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Metallic</a><ul>
-<li><a class="reference internal" href="#brdf">BRDF</a><ul>
-<li><a class="reference internal" href="#brdf-diffuse-lambert">拡散BRDF(diffuse: lambert)</a></li>
-<li><a class="reference internal" href="#brdf-specular-fresnel">鏡面BRDF(specular: fresnel)</a></li>
+<li><a class="reference internal" href="#">pre-filter (前処理)</a><ul>
+<li><a class="reference internal" href="#lambert-ibl-irradiance-map">Lambert IBL + Irradiance map</a></li>
+<li><a class="reference internal" href="#specular-ibl">Specular IBL</a><ul>
+<li><a class="reference internal" href="#pre-filtered-environment-map">pre-filtered environment map</a></li>
+<li><a class="reference internal" href="#brdf-2d-lut-lookuptable">BRDF_2D_LUT(LookUpTable)</a></li>
+<li><a class="reference internal" href="#ggx">GGX</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#conductive-metal">Conductive, Metal(金属、導体)</a></li>
-<li><a class="reference internal" href="#dielectric">Dielectric(非金属、誘電体、絶縁体、非導体?)</a></li>
+<li><a class="reference internal" href="#tool">Tool</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#lightprobe">LightProbe</a><ul>
+<li><a class="reference internal" href="#distant-light-probes">Distant light probes</a></li>
+<li><a class="reference internal" href="#local-light-probes">Local light probes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#planar-reflections">Planar reflections</a></li>
+<li><a class="reference internal" href="#screen-space-reflection">Screen space reflection</a></li>
 </ul>
 
           </div>

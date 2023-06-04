@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Metallic - shell note ドキュメント</title>
+        <title>Fresnel-Schlick - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,61 +212,17 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[blender]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://studio.blender.org/training/stylized-character-workflow/base-meshes/">Base Meshes - Stylized Character Workflow - Blender Studio</a></p></li>
-<li><p><a class="reference external" href="https://studio.blender.org/training/stylized-character-workflow/">Stylized Character Workflow - Blender Studio</a></p></li>
+          <ul class="simple">
+<li><p>@2021 <a class="reference external" href="https://qiita.com/uynet/items/f8b087d47f5cf316eb7e">【Unity , shader】原神の海を再現したい - Qiita</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="metallic">
-<h1>Metallic<a class="headerlink" href="#metallic" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[fresnel]]</p>
-<section id="brdf">
-<h2>BRDF<a class="headerlink" href="#brdf" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Bidirectional</span> <span class="pre">Reflectance</span> <span class="pre">Distribution</span> <span class="pre">Function</span></code></p>
-<p><a class="reference external" href="https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#appendix-b-brdf-implementation">glTF™ 2.0 Specification: Appendix B: BRDF Implementation</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">material</span> <span class="o">=</span> <span class="n">mix</span><span class="p">(</span><span class="n">dielectric_brdf</span><span class="p">,</span> <span class="n">metal_brdf</span><span class="p">,</span> <span class="n">metallic</span><span class="p">)</span>
-         <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">metallic</span><span class="p">)</span> <span class="o">*</span> <span class="n">dielectric_brdf</span> <span class="o">+</span> <span class="n">metallic</span> <span class="o">*</span> <span class="n">metal_brdf</span>
-</pre></div>
-</div>
-<section id="brdf-diffuse-lambert">
-<h3>拡散BRDF(diffuse: lambert)<a class="headerlink" href="#brdf-diffuse-lambert" title="このヘッドラインへのパーマリンク">¶</a></h3>
-</section>
-<section id="brdf-specular-fresnel">
-<h3>鏡面BRDF(specular: fresnel)<a class="headerlink" href="#brdf-specular-fresnel" title="このヘッドラインへのパーマリンク">¶</a></h3>
-</section>
-</section>
-<section id="conductive-metal">
-<h2>Conductive, Metal(金属、導体)<a class="headerlink" href="#conductive-metal" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>鋼、銅、金、すなわち金属</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 全部 specular</span>
-<span class="n">metal_brdf</span> <span class="o">=</span>
-  <span class="n">conductor_fresnel</span><span class="p">(</span>
-    <span class="n">f0</span> <span class="o">=</span> <span class="n">baseColor</span><span class="p">,</span>
-    <span class="n">bsdf</span> <span class="o">=</span> <span class="n">specular_brdf</span><span class="p">(</span>
-      <span class="n">α</span> <span class="o">=</span> <span class="n">roughness</span> <span class="o">^</span> <span class="mi">2</span><span class="p">))</span>
-</pre></div>
-</div>
-</section>
-<section id="dielectric">
-<h2>Dielectric(非金属、誘電体、絶縁体、非導体?)<a class="headerlink" href="#dielectric" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ガラス、プラスチック、木材、セラミック、革など</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># diffuse + Specular</span>
-<span class="n">dielectric_brdf</span> <span class="o">=</span>
-  <span class="n">fresnel_mix</span><span class="p">(</span>
-    <span class="n">ior</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">,</span>
-    <span class="n">base</span> <span class="o">=</span> <span class="n">diffuse_brdf</span><span class="p">(</span>
-      <span class="n">color</span> <span class="o">=</span> <span class="n">baseColor</span><span class="p">),</span>
-    <span class="n">layer</span> <span class="o">=</span> <span class="n">specular_brdf</span><span class="p">(</span>
-      <span class="n">α</span> <span class="o">=</span> <span class="n">roughness</span> <span class="o">^</span> <span class="mi">2</span><span class="p">))</span>
-</pre></div>
-</div>
-</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fresnel-schlick">
+<h1>Fresnel-Schlick<a class="headerlink" href="#fresnel-schlick" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 
         </article>
@@ -282,7 +238,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/CG/blender/StylizedCharacterWorkflow.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/CG/rendering/fresnel.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -290,33 +246,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Metallic</a><ul>
-<li><a class="reference internal" href="#brdf">BRDF</a><ul>
-<li><a class="reference internal" href="#brdf-diffuse-lambert">拡散BRDF(diffuse: lambert)</a></li>
-<li><a class="reference internal" href="#brdf-specular-fresnel">鏡面BRDF(specular: fresnel)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#conductive-metal">Conductive, Metal(金属、導体)</a></li>
-<li><a class="reference internal" href="#dielectric">Dielectric(非金属、誘電体、絶縁体、非導体?)</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
