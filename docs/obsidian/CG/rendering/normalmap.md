@@ -3,6 +3,21 @@
 - https://learnopengl.com/Advanced-Lighting/Normal-Mapping
 - [チュートリアル13:法線マッピング](http://www.opengl-tutorial.org/jp/intermediate-tutorials/tutorial-13-normal-mapping/)
 
+```c
+uniform sampler2D normalMap;  
+
+void main()
+{           
+	// obtain normal from normal map in range [0,1]
+	normal = texture(normalMap, fs_in.TexCoords).rgb;
+	// transform normal vector to range [-1,1]
+	normal = normalize(normal * 2.0 - 1.0);   
+	
+	[...]
+	// proceed with lighting as normal
+}  
+```
+
 # debug shader
 
 

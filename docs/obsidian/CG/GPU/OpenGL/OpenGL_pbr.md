@@ -1,3 +1,6 @@
+[[pbr_memo]]
+[[OpenGL]]
+
 - [LearnOpenGL/src/6.pbr/2.2.2.ibl_specular_textured at master · JoeyDeVries/LearnOpenGL · GitHub](https://github.com/JoeyDeVries/LearnOpenGL/tree/master/src/6.pbr/2.2.2.ibl_specular_textured)
 
 ```meson.build
