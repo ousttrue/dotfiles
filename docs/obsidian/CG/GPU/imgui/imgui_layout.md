@@ -1,4 +1,4 @@
-[[imgui]]
+[[imgui]] 
 
 # 表示位置とサイズ
 - ImGui::SetNextWindowPos()
@@ -29,6 +29,7 @@
 # Load
 
 # Dock
+[[imgui_docking]]
 
 # WindowPosition
 
