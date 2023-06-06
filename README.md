@@ -7,6 +7,8 @@
 
 - from `sync/HOME` to `$HOME` or `%USERPROFILE%`
 - from `sync/APPDATA` to `%USERPROFILE%/AppData`
+  - %ADDDATA% => `%USERPROFILE%/AppData/Roaming`
+  - %LOCALADDDATA% => `%USERPROFILE%/AppData/Local`
 - cargo
 - go
 - pip
