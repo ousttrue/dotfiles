@@ -29,7 +29,7 @@ function M.setup()
         "--line-number",
         "--column",
         "--smart-case",
-        "--hidden",
+        -- "--hidden",
       },
       sorting_strategy = "ascending",
       layout_strategy = "vertical",
