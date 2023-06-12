@@ -15,6 +15,9 @@
 
 - [How to create checkboxes at Inno Setup finished page? - Stack Overflow](https://stackoverflow.com/questions/42836022/how-to-create-checkboxes-at-inno-setup-finished-page/42838072#42838072)
 
+## version
+- @2021 [Inno Setupに新設されたFile Version functions解説 - Qiita](https://qiita.com/tohshima/items/4a9064bb61913142e8bf)
+
 ## 64bit
 - [inno setup の インストーラーの64bit/32bit指定方法 - shikaku's blog](https://blog.systemjp.net/entry/2022/03/21/221842)
 
