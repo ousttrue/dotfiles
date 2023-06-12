@@ -17,3 +17,7 @@
 
 # mini.completion
 - [Neovimの補完にmini.completionを使用する検討](https://zenn.dev/kawarimidoll/scraps/22e2658015caab)
+
+# which
+- [GitHub - folke/which-key.nvim: 💥 Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.](https://github.com/folke/which-key.nvim)
+- [which-key.nvimでデフォルトの入力補完ソースを表示する](https://zenn.dev/kawarimidoll/articles/53e96110ea99e3)

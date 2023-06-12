@@ -3,6 +3,8 @@
 - @2021 [FBXファイルをちょっとだけ理解した - Qiita](https://qiita.com/binzume/items/678baf9a20c6a96a1d81)
 
 # c++
+- [GitHub - ufbx/ufbx: Single source file FBX loader](https://github.com/ufbx/ufbx)
+- [GitHub - jskorepa/fbx: C++ Library for reading and writing FBX files](https://github.com/jskorepa/fbx)
 - [GitHub - nem0/OpenFBX: Lightweight open source FBX importer](https://github.com/nem0/OpenFBX)
 
 # rust
