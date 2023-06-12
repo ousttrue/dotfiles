@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   local cmp = require "cmp"
   local lspkind = require "lspkind"
-  local luasnip = require "luasnip"
+  -- local luasnip = require "luasnip"
   local dot = require "dot"
   local feedkeys = require "cmp.utils.feedkeys"
 
@@ -28,8 +28,8 @@ function M.setup()
   local function custom_prev(fallback)
     if cmp.visible() then
       cmp.select_prev_item()
-    elseif luasnip.jumpable(-1) then
-      luasnip.jump(-1)
+    -- elseif luasnip.jumpable(-1) then
+    --   luasnip.jump(-1)
     else
       fallback()
     end
@@ -93,7 +93,7 @@ function M.setup()
 
     sources = {
       { group_index = 1, name = "nvim_lsp" },
-      { group_index = 1, name = "luasnip", option = { use_show_condition = false } },
+      -- { group_index = 1, name = "luasnip", option = { use_show_condition = false } },
       { group_index = 1, name = "nvim_lsp_signature_help" },
       -- { group_index = 1, name = "calc" },
       -- { group_index = 1, name = "nvim_lua" },

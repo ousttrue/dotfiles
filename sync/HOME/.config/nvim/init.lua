@@ -178,6 +178,7 @@ end
 vim.keymap.set("n", "<C-q>", close_buffer_or_window, { noremap = true })
 vim.keymap.set("n", "Q", close_buffer_or_window, { noremap = true })
 vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true })
+vim.keymap.set("n", ";", "$", { noremap = true })
 
 vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
 vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
@@ -283,7 +284,7 @@ end
 --   underline = true,
 -- })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
-vim.keymap.set("n", "F", vim.lsp.buf.format, { noremap = true })
+vim.keymap.set("n", "ff", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
@@ -340,4 +341,5 @@ end
 vim.keymap.set("n", "gx", floating_window, { noremap = true })
 
 -- package manager
-require "lazy-plugins"
+-- require "lazy-plugins"
+require "lazy-plugins-2"

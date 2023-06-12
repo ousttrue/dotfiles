@@ -57,7 +57,7 @@ function M.setup()
   end
   -- vim.keymap.set("n", "<C-P>", builtin.keymaps)
   vim.keymap.set("n", "<Leader><Space>", project_files, { noremap = true })
-  vim.keymap.set("n", ";;", function()
+  vim.keymap.set("n", "<Leader>g", function()
     local word = vim.fn.expand "<cword>"
     builtin.live_grep {
       cwd = vim.fn.getcwd(),
@@ -70,7 +70,7 @@ function M.setup()
   vim.keymap.set("n", "<Leader>b", builtin.buffers, { noremap = true })
   vim.keymap.set("n", "<Leader>h", builtin.help_tags, { noremap = true })
   -- vim.keymap.set("n", "<F3>", ":<C-u>Telescope ghq list<CR>", {})
-  vim.keymap.set("n", "<leader>g", ":Telescope find_files<cr>" .. "'" .. vim.fn.expand "<cword>")
+  vim.keymap.set("n", "<leader>f", ":Telescope find_files<cr>" .. "'" .. vim.fn.expand "<cword>")
 
   -- vim.keymap.set("n", "*", function()
   --   local word = vim.fn.expand "<cword>"

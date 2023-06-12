@@ -1,5 +1,23 @@
 local M = {}
 
+local function my_on_attach(bufnr)
+  local api = require "nvim-tree.api"
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  -- default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- custom mappings
+  --vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
+  --vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+  vim.keymap.set("n", "<C-e>", function() end, { buffer = bufnr })
+  vim.keymap.set("n", "u", api.tree.change_root_to_parent, { buffer = bufnr })
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, { buffer = bufnr })
+end
+
 function M.setup()
   -- vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", { noremap = true })
   vim.keymap.set("n", "<Leader>e", ":NvimTreeFindFileToggle<CR>", { noremap = true })
@@ -25,14 +43,6 @@ function M.setup()
       --         col = 1,
       --     },
       -- },
-      mappings = {
-        list = {
-          -- remove a default mapping
-          { key = "<C-e>", action = "" },
-          { key = "u", action = "dir_up" },
-          { key = "h", action = "close_node" },
-        },
-      },
     },
     renderer = {
       indent_width = 1,
@@ -64,6 +74,7 @@ function M.setup()
         restrict_above_cwd = false,
       },
     },
+    on_attach = my_on_attach,
   }
 end
 
