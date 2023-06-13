@@ -47,7 +47,4 @@
 # MSI
 
 ## WiXToolset
-- @2021 [wixsharpでインストーラーを作る - Qiita](https://qiita.com/skitoy4321/items/111ca55899473b9c2df4)
-- @2018 [Windows Installer手引書 Part.5 ファイル拡張子の関連付け - Qiita](https://qiita.com/tohshima/items/9c992f16d08f9b3b962d)
-- [WixEditをUIのみで使ってみる - Qiita](https://qiita.com/Bamboooo/items/71b5d2f6cb2df66a5415)
-- [Windows Installer手引書 Part.22 WiX ToolsetのUIを改造する２ - Qiita](https://qiita.com/tohshima/items/9758f947e9567ad6ffa9)
+[[wix]]
