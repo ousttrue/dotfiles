@@ -46,6 +46,13 @@ local plugins = {
       vim.cmd [[colorscheme tokyonight]]
     end,
   },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    -- run = function()
+    --   require("nvim-treesitter.install").update { with_sync = true }
+    -- end,
+    config = require("config.nvim-treesitter").setup,
+  },
   -- git
   { "tpope/vim-fugitive" },
   -- telescope
@@ -123,6 +130,15 @@ local plugins = {
     config = require("config.null-ls").setup,
   },
   -- lsp
+  {
+    "folke/neodev.nvim",
+    config = function()
+      -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+      require("neodev").setup {
+        -- add any options here, or leave empty to use the default settings
+      }
+    end,
+  },
   {
     "neovim/nvim-lspconfig",
     config = function()
