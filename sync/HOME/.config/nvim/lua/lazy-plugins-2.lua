@@ -67,6 +67,12 @@ local plugins = {
     end,
     dependencies = { "kkharji/sqlite.lua" },
   },
+  {
+    "tyru/open-browser.vim",
+    config = function()
+      vim.keymap.set({ "n", "v" }, "gx", "<Plug>(openbrowser-smart-search)")
+    end,
+  },
   -- cmp
   {
     "hrsh7th/nvim-cmp",
