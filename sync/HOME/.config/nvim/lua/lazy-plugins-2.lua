@@ -46,12 +46,23 @@ local plugins = {
       vim.cmd [[colorscheme tokyonight]]
     end,
   },
+  -- treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     -- run = function()
     --   require("nvim-treesitter.install").update { with_sync = true }
     -- end,
     config = require("config.nvim-treesitter").setup,
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "kevinhwang91/promise-async",
+    },
+    config = function()
+      require("config.nvim-ufo").setup()
+    end,
   },
   -- git
   { "tpope/vim-fugitive" },
@@ -78,6 +89,12 @@ local plugins = {
     "tyru/open-browser.vim",
     config = function()
       vim.keymap.set({ "n", "v" }, "gx", "<Plug>(openbrowser-smart-search)")
+    end,
+  },
+  {
+    "voldikss/vim-floaterm",
+    config = function()
+      require("config.floaterm").setup()
     end,
   },
   -- cmp

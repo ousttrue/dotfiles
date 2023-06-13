@@ -34,7 +34,7 @@ prebuilt USD 22.11, Python 3.7
 - https://developer.nvidia.com/usd `python3.6`
 
 # build
-## build_usd.py
+## build_scripts/build_usd.py
 ```.vscode/launch.json
 {
     // Use IntelliSense to learn about possible attributes.
