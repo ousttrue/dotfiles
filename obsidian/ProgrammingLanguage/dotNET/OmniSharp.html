@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -229,6 +229,15 @@
 <li><p><a class="reference external" href="https://github.com/OmniSharp/omnisharp-roslyn/issues/2483">Semantic tokens do not conform to the LSP specification · Issue #2483 · OmniSharp/omnisharp-roslyn · GitHub</a></p></li>
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/48138280/omnisharp-in-vscode-very-slow">c# - OmniSharp in VSCode very slow - Stack Overflow</a></p></li>
 </ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="editorconfig">
+<h1>.editorconfig<a class="headerlink" href="#editorconfig" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[*]</span><span class="w"></span>
+<span class="c1"># https://learn.microsoft.com/ja-jp/dotnet/fundamentals/code-analysis/style-rules/ide0007-ide0008</span><span class="w"></span>
+<span class="na">dotnet_diagnostic.IDE0007.severity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">none</span><span class="w"></span>
+<span class="na">dotnet_diagnostic.IDE0008.severity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">none</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -252,8 +261,25 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">workaround</a></li>
+<li><a class="reference internal" href="#editorconfig">.editorconfig</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
