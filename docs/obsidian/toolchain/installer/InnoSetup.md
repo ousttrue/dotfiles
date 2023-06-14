@@ -1,5 +1,3 @@
-- @2021 [Windowsでインストーラーを作る（下調べ） - うどん戦争](https://heri3x.hatenablog.com/entry/2021/10/27/111552)
-
 # Inno Setup
 [Inno Setup](https://jrsoftware.org/isinfo.php)
 - [Inno Setup Help](https://jrsoftware.org/ishelp/)
@@ -41,10 +39,3 @@
 ## components
 - [pascalscript - How can I add a check box for optional files during install in Inno Setup? - Stack Overflow](https://stackoverflow.com/questions/13502346/how-can-i-add-a-check-box-for-optional-files-during-install-in-inno-setup)
 
-# NSIS
-[NSIS Wiki](https://nsis.sourceforge.io/Main_Page)
-
-# MSI
-
-## WiXToolset
-[[wix]]

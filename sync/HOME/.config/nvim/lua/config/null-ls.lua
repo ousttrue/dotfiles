@@ -36,8 +36,15 @@ function M.setup()
     sources = {
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.black,
+      null_ls.builtins.formatting.xmlformat,
       -- null_ls.builtins.formatting.cmake_format,
-      null_ls.builtins.formatting.prettier,
+      -- null_ls.builtins.formatting.prettier,
+      null_ls.builtins.formatting.tidy.with {
+        command = "C:/Program Files/tidy 5.8.0/bin/tidy.exe",
+      },
+      null_ls.builtins.diagnostics.tidy.with {
+        command = "C:/Program Files/tidy 5.8.0/bin/tidy.exe",
+      },
       -- null_ls.builtins.diagnostics.eslint,
       null_ls.builtins.formatting.shfmt,
       null_ls.builtins.formatting.clang_format.with {
