@@ -63,3 +63,6 @@ dotnet tool install --global wix
 
 - [WiX によるWindowsインストーラー作成](https://www.pahoo.org/e-soul/webtech/cpp01/cpp01-01-02.shtm)
 - @2014 [WixEditを用いたインストーラ | TomoSoft](https://tomosoft.jp/design/?p=3120)
+
+# upgrade
+- [WiX チュートリアル 日本語訳 Lesson 4 アップグレードとモジュラー化](https://wix-tutorial-ja.github.io/ch04/index.html)

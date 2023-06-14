@@ -21,6 +21,13 @@ local plugins = {
     config = require("config.nvim-tree").setup,
   },
   {
+    "petertriho/nvim-scrollbar",
+    dependencies = "kevinhwang91/nvim-hlslens",
+    config = function()
+      require("config.nvim-scrollbar").setup()
+    end,
+  },
+  {
     "nvim-lualine/lualine.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
