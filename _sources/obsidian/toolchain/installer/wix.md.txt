@@ -5,6 +5,8 @@
 - [Windows Installer手引書 Part.22 WiX ToolsetのUIを改造する２ - Qiita](https://qiita.com/tohshima/items/9758f947e9567ad6ffa9)
 - [WiX: 単純な wxs ファイルによるインストーラーのサンプル · GitHub](https://gist.github.com/gocha/0fcd628b527d2034164fa23ebdc90300)
 
+- [[WiX] WiXインストーラーの使用許諾契約の文章を変更する | iPentec](https://www.ipentec.com/document/visual-studio-2017-create-wix-installer-change-license-agreement)
+
 # Version
 ## 4
 - [Get started with WiX | WiX Toolset](https://wixtoolset.org/docs/intro/#nettool)
@@ -29,6 +31,11 @@ dotnet tool install --global wix
 - @2011 [WiXによるインストーラ作成 - torutkのブログ](https://torutk.hatenablog.jp/entry/20110529/p1)
 - @2006 [WiXではじめるWindows Installer作成入門 第3回 (1/2)|CodeZine（コードジン）](https://codezine.jp/article/detail/507)
 
+# XML
+
+- Wix
+	- Product
+
 # 64bit
 - @2023 [windows installer - Wix Toolset - How do I add platforminstaller property to my .wixproj - Stack Overflow](https://stackoverflow.com/questions/64057511/wix-toolset-how-do-i-add-platforminstaller-property-to-my-wixproj)
 - @2023 [windows installer - WiX Heat.exe Win64 Components - Win64="yes" - Stack Overflow](https://stackoverflow.com/questions/22932942/wix-heat-exe-win64-components-win64-yes/24396430#24396430)
@@ -52,6 +59,8 @@ dotnet tool install --global wix
 - [WIX: How to register an Application to a URL Protocol? - Stack Overflow](https://stackoverflow.com/questions/8304851/wix-how-to-register-an-application-to-a-url-protocol)
 
 # WixEdit
+- [WixEdit](https://wixedit.github.io/)
+
 - [WiX によるWindowsインストーラー作成](https://www.pahoo.org/e-soul/webtech/cpp01/cpp01-01-02.shtm)
 - @2014 [WixEditを用いたインストーラ | TomoSoft](https://tomosoft.jp/design/?p=3120)
 

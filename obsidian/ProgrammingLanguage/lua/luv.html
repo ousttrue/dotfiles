@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Inno Setup - shell note ドキュメント</title>
+        <title>nvim - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,62 +218,26 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="inno-setup">
-<h1>Inno Setup<a class="headerlink" href="#inno-setup" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://jrsoftware.org/isinfo.php">Inno Setup</a></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://jrsoftware.org/ishelp/">Inno Setup Help</a></p></li>
-<li><p><a class="reference external" href="http://inno-setup.sidefeed.com/">Inno Setup 日本語 デベロッパーズガイド</a></p></li>
-<li><p><a class="reference external" href="https://biscrat.com/blog/tag/inno-setup/">inno setup | Biscrat Blog</a></p></li>
-<li><p><a class="reference external" href="https://yun-craft.com/software-crafts/inno-setup/inno-setup-4">Inno Setupによるインストーラの簡単な作り方 (4)Inno Setupで使えるウィザード画面の全て | Yu'n Craft</a></p></li>
-<li><p><a class="reference external" href="https://gist.github.com/seraphy/7cccc03142c66217abe89c84b567574c">InnoSetupでインストールするコンポーネントをスクリプトから自動選択する例。 · GitHub</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://qiita.com/wateryinhare62/items/f782f5bdfd5dc2cfc1e8#:~:text=%E6%8B%A1%E5%BC%B5%E5%AD%90%E3%81%AF%E2%80%9C.exe%E2%80%9D%E3%81%A8%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82">Inno Setup覚え書き - Qiita</a></p></li>
-<li><p>@2016 <a class="reference external" href="https://tomosoft.jp/design/?p=6804">Inno Setupによるインストーラの作成 | TomoSoft</a></p></li>
-<li><p>@2012 <a class="reference external" href="https://hibara.org/blog/2012/09/04/how-to-innosetup/">HiBARA Software Blog</a></p></li>
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/42836022/how-to-create-checkboxes-at-inno-setup-finished-page/42838072#42838072">How to create checkboxes at Inno Setup finished page? - Stack Overflow</a></p></li>
+          <ul class="simple">
+<li><p><a class="reference external" href="https://github.com/luvit/luv">GitHub - luvit/luv: Bare libuv bindings for lua</a></p></li>
 </ul>
-<section id="version">
-<h2>version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="nvim">
+<h1>nvim<a class="headerlink" href="#nvim" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[nvim]]</p>
 <ul class="simple">
-<li><p>@2021 <a class="reference external" href="https://qiita.com/tohshima/items/4a9064bb61913142e8bf">Inno Setupに新設されたFile Version functions解説 - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://neovim.io/doc/user/luvref.html">Luvref - Neovim docs</a></p></li>
+<li><p><a class="reference external" href="https://teukka.tech/vimloop.html">🔁 Using LibUV in Neovim</a></p></li>
 </ul>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">uv</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">uv</span>
+</pre></div>
+</div>
 </section>
-<section id="bit">
-<h2>64bit<a class="headerlink" href="#bit" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="filesystem">
+<h1>filesystem<a class="headerlink" href="#filesystem" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://blog.systemjp.net/entry/2022/03/21/221842">inno setup の インストーラーの64bit/32bit指定方法 - shikaku's blog</a></p></li>
+<li><p><a class="reference external" href="https://neovim.io/doc/user/luvref.html#luv-file-system-operations">Luvref - Neovim docs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/aantron/luv/blob/master/docs/filesystem.rst">luv/docs/filesystem.rst at master · aantron/luv · GitHub</a></p></li>
 </ul>
-</section>
-<section id="registory">
-<h2>registory<a class="headerlink" href="#registory" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="extension">
-<h3>extension<a class="headerlink" href="#extension" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="http://blog.livedoor.jp/tamanooboshi/archives/15686009.html">レジストリの作成 : サイコロイドの備忘ログ</a></p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">HKA</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://jrsoftware.org/isfaq.php#assoc">Inno Setup FAQ</a></p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">HKCR</span></code></p>
-<ul class="simple">
-<li><p>「HKCRはHKLM\SOFTWARE\Classes + HKU(ユーザー識別子)\Software\Classes\Applications である」</p></li>
-<li><p><a class="reference external" href="https://srcw.net/wiki/?InnoSetup#v7511abb">InnoSetup - src256 wiki</a></p></li>
-<li><p><a class="reference external" href="https://social.msdn.microsoft.com/Forums/vstudio/en-US/5bd0c6dc-6252-48a1-94a5-e40c948ab9d2/innosetup-file-association-with-multiple-file-extensions?forum=vbgeneral">InnoSetup File Association with Multiple File Extensions</a></p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">HKLM</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.glamenv-septzen.net/view/14">レジストリの直接編集によるファイルの拡張子と関連づけ - Glamenv-Septzen.net</a></p></li>
-<li><p><a class="reference external" href="https://sakura-editor.github.io/help/HLP000375.html">Windows 10 でのファイル拡張子関連付けのための準備作業</a></p></li>
-</ul>
-</section>
-</section>
-<section id="components">
-<h2>components<a class="headerlink" href="#components" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/13502346/how-can-i-add-a-check-box-for-optional-files-during-install-in-inno-setup">pascalscript - How can I add a check box for optional files during install in Inno Setup? - Stack Overflow</a></p></li>
-</ul>
-</section>
 </section>
 
         </article>
@@ -289,7 +253,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/toolchain/installer/InnoSetup.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/lua/luv.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -309,16 +273,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Inno Setup</a><ul>
-<li><a class="reference internal" href="#version">version</a></li>
-<li><a class="reference internal" href="#bit">64bit</a></li>
-<li><a class="reference internal" href="#registory">registory</a><ul>
-<li><a class="reference internal" href="#extension">extension</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#components">components</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">nvim</a></li>
+<li><a class="reference internal" href="#filesystem">filesystem</a></li>
 </ul>
 
           </div>
