@@ -296,13 +296,6 @@ local plugins = {
       require("config.nvim-hlslens").setup()
     end,
   },
-  {
-    "petertriho/nvim-scrollbar",
-    dependencies = "kevinhwang91/nvim-hlslens",
-    config = function()
-      require("config.nvim-scrollbar").setup()
-    end,
-  },
   { "jghauser/mkdir.nvim" },
   -- { "hrsh7th/cmp-nvim-lsp",  },
   {
