@@ -14,6 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   { "nvim-lua/plenary.nvim" },
   {
+    "simeji/winresizer",
+  },
+  {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
