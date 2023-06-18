@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>pdb - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,37 +212,29 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[python]] [[debugger]]</p>
-<section class="tex2jax_ignore mathjax_ignore" id="pdb">
-<h1>pdb<a class="headerlink" href="#pdb" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <p>[[python]] [[tui]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3.10/library/pdb.html">pdb — The Python Debugger — Python 3.10.11 documentation</a></p></li>
-<li><p><a class="reference external" href="https://realpython.com/python-debugging-pdb/">Python Debugging With Pdb – Real Python</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://rsn604.github.io/it/python%E3%81%A7tui%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8D%E3%81%86%E3%81%9D%E3%81%AE%EF%BC%92-tui%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E9%81%B8%E6%8A%9E/">PythonでTUIアプリを作ろう ( その２　TUIライブラリの選択 ) - TORIO's blog</a></p></li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="web-interface">
-<h1>web interface<a class="headerlink" href="#web-interface" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/romanvm/python-web-pdb">GitHub - romanvm/python-web-pdb: Web-based remote UI for Python's PDB debugger</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="pudb">
-<h1>pudb<a class="headerlink" href="#pudb" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[pudb]]</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="dap">
-<h1>dap<a class="headerlink" href="#dap" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[dap]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/microsoft/debugpy">GitHub - microsoft/debugpy: An implementation of the Debug Adapter Protocol for Python</a></p></li>
-</ul>
-</section>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urwid</span>  
+<span class="k">class</span> <span class="nc">MyEdit</span><span class="p">(</span><span class="n">urwid</span><span class="o">.</span><span class="n">Edit</span><span class="p">):</span>  
+    <span class="k">def</span> <span class="nf">keypress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>  
+        <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s1">'enter'</span><span class="p">:</span>  
+            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MyEdit</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">keypress</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>  
+        <span class="k">else</span><span class="p">:</span>  
+            <span class="k">raise</span> <span class="n">urwid</span><span class="o">.</span><span class="n">ExitMainLoop</span><span class="p">()</span>  
+  
+<span class="n">edit</span> <span class="o">=</span> <span class="n">MyEdit</span><span class="p">(</span><span class="sa">u</span><span class="s2">"お名前は? "</span><span class="p">)</span>  
+<span class="n">loop</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">(</span><span class="n">urwid</span><span class="o">.</span><span class="n">Filler</span><span class="p">(</span><span class="n">edit</span><span class="p">))</span>  
+<span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
 
         </article>
       </div>
@@ -257,7 +249,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/toolchain/debugger/python_debugger.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/python/urwid.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -265,27 +257,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">pdb</a></li>
-<li><a class="reference internal" href="#web-interface">web interface</a></li>
-<li><a class="reference internal" href="#pudb">pudb</a></li>
-<li><a class="reference internal" href="#dap">dap</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
