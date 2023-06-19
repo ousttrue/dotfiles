@@ -9,6 +9,9 @@
 - @2011 [Boost.Asio リンク集 - Cube Lilac](https://clown.cube-soft.jp/entry/20110325/1301048795)
 - @2011 [Boost.Asio ゲームループで非同期操作を行う - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/20110325/1301036991)
 
+# thread + callback
+- [asio/asio/src/examples/cpp20/operations/callback_wrapper.cpp at c465349fa5cd91a64bb369f5131ceacab2c0c1c3 · chriskohlhoff/asio · GitHub](https://github.com/chriskohlhoff/asio/blob/c465349fa5cd91a64bb369f5131ceacab2c0c1c3/asio/src/examples/cpp20/operations/callback_wrapper.cpp)
+
 # io_context
 ## post / dispatch
 - @2011 [Boost.Asio postとdispatchの違い - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/20110913/1315895805)
