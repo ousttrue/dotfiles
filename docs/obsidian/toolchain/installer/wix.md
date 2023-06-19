@@ -65,4 +65,9 @@ dotnet tool install --global wix
 - @2014 [WixEditを用いたインストーラ | TomoSoft](https://tomosoft.jp/design/?p=3120)
 
 # upgrade
+- @2019 [[WiX] msi の upgrade 時の話 - Qiita](https://qiita.com/ktbkrjj/items/a210cb524c379feb71cf)
 - [WiX チュートリアル 日本語訳 Lesson 4 アップグレードとモジュラー化](https://wix-tutorial-ja.github.io/ch04/index.html)
+- [バージョンアップしたアプリケーションを配布するインストーラーを WiX で作成する - WiX - ソーサリーフォース](https://sorceryforce.net/ja/tips/wix-installer-update)
+- [How To: インストーラー中に メジャー アップグレードを実装する](http://cml.s10.xrea.com/ej/WiX/major_upgrade.htm)
+- [WiXではじめるWindows Installer作成入門 第6回 (2/2)|CodeZine（コードジン）](https://codezine.jp/article/detail/817?p=2)
+

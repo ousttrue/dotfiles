@@ -11,6 +11,12 @@ aliases: [tonemapping]
 ## 作成
 - https://cycles.wiki.fc2.com/wiki/IBL%20用%20HDRI%20の作り方
 
+## sphere map
+- [GitHub - markpmlim/LightProbes2](https://github.com/markpmlim/LightProbes2)
+
+## equirerectanglar
+- [High-Resolution Light Probe Image Gallery](https://vgl.ict.usc.edu/Data/HighResProbes/)
+
 # Reinhard tone mapping
 
 ```c

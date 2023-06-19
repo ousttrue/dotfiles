@@ -3,6 +3,10 @@
 FK Pose を生成する入力 Rig
 Constraint 等の二次的なものは [[Secondary]] に切り分ける。
 
+# Mox
+- [フリーリグ｜株式会社モックス - 3DCGアニメーションを手付けモーションでより魅力的に。](https://mox-motion.com/freerig/) 
+- @2021 [モモちゃんRig(β) 公開｜株式会社モックス](https://mox-motion.com/blog/momo_rig_information/)
+
 @2020 [アニメーションをやるためのIKとFKの完全ガイド【切り替えるコツと使いこなし技】 | わかすぎものがたり](https://ryowaks.com/ik-fk-for-cg-animator/)
 
 - [Blenderのアーマチュア、ボーン、リグを理解する - 3DCGで何をどう作るか考え中](https://www.yamato-tsukasa.com/entry/b3d-armature-bone-rig-diff)
