@@ -14,6 +14,7 @@ https://learnopengl.com/Advanced-OpenGL/Cubemaps
 DirectionalVector -> RGBA
 
 # pre-filter (前処理)
+- @2001 [An Efficient Representation for Irradiance Environment Maps](http://graphics.stanford.edu/papers/envmap/)
 [[SphericalHarmonicFunction]]
 
 ## Lambert IBL + Irradiance map
@@ -43,23 +44,15 @@ vec2(NdotV, roughness)
 
 ### GGX
 
-
 ## Tool
 - [IBLBaker — The Kreature Experiment](http://www.derkreature.com/iblbaker)
 	- [GitHub - derkreature/IBLBaker: Light probe generation and BRDF authoring for physically based shading.](https://github.com/derkreature/IBLBaker)
 - [GitHub - KhronosGroup/glTF-IBL-Sampler: Sampler to create the glTF sample environments](https://github.com/KhronosGroup/glTF-IBL-Sampler)
 	- https://github.com/ux3d/glTF-Sample-Environments
 
-
 # LightProbe
-## Distant light probes
-無限遠 cubemap による間接照明
+[[LightProbe]]
 
-used to capture lighting information at “infinity”, where parallax can be ignored. Distant probes typically contain the sky, distant landscape features or buildings, etc. They are either captured by the engine or acquired from a camera as high dynamic range images (HDRI).
-    
-## Local light probes
-used to capture a certain area of the world from a specific point of view. The capture is projected on a cube or sphere depending on the surrounding geometry. Local probes are more accurate than distance probes and are particularly useful to add local reflections to materials.
-    
 # Planar reflections
 used to capture reflections by rendering the scene mirrored by a plane. This technique works only for flat surfaces such as building floors, roads and water.
     

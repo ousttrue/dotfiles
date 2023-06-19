@@ -34,6 +34,7 @@ fi
 ```
 
 # completion
+- [bashコマンド補完を自作する bash-completion,complete,compgen - やってみる](https://ytyaru.hatenablog.com/entry/2023/01/09/000000)
 - [重大な脆弱性(CVE-2017-5932)で少し話題になったbash4.4の補完機能の便利な点 - Qiita](https://qiita.com/tajima_taso/items/a85dbe8ec9a2825973e2)
 
 # language-server

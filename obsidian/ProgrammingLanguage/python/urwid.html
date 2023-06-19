@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>Hello - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -220,21 +220,173 @@
         <article role="main">
           <p>[[python]] [[tui]]</p>
 <ul class="simple">
-<li><p>@2021 <a class="reference external" href="https://rsn604.github.io/it/python%E3%81%A7tui%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8D%E3%81%86%E3%81%9D%E3%81%AE%EF%BC%92-tui%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E9%81%B8%E6%8A%9E/">PythonでTUIアプリを作ろう ( その２　TUIライブラリの選択 ) - TORIO's blog</a></p></li>
+<li><p><a class="reference external" href="http://urwid.org/">Overview — Urwid 2.1.2</a></p>
+<ul>
+<li><p><a class="reference external" href="http://urwid.org/tutorial/index.html">Urwid Tutorial — Urwid 2.1.2</a></p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urwid</span>  
-<span class="k">class</span> <span class="nc">MyEdit</span><span class="p">(</span><span class="n">urwid</span><span class="o">.</span><span class="n">Edit</span><span class="p">):</span>  
-    <span class="k">def</span> <span class="nf">keypress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>  
-        <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s1">'enter'</span><span class="p">:</span>  
-            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MyEdit</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">keypress</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>  
-        <span class="k">else</span><span class="p">:</span>  
-            <span class="k">raise</span> <span class="n">urwid</span><span class="o">.</span><span class="n">ExitMainLoop</span><span class="p">()</span>  
-  
-<span class="n">edit</span> <span class="o">=</span> <span class="n">MyEdit</span><span class="p">(</span><span class="sa">u</span><span class="s2">"お名前は? "</span><span class="p">)</span>  
-<span class="n">loop</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">(</span><span class="n">urwid</span><span class="o">.</span><span class="n">Filler</span><span class="p">(</span><span class="n">edit</span><span class="p">))</span>  
+</li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="hello">
+<h1>Hello<a class="headerlink" href="#hello" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="minimum">
+<h2>minimum<a class="headerlink" href="#minimum" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urwid</span>
+<span class="n">loop</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">(</span>
+    <span class="n">urwid</span><span class="o">.</span><span class="n">Filler</span><span class="p">(</span><span class="n">urwid</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s2">"Hello World"</span><span class="p">),</span> <span class="s2">"top"</span><span class="p">),</span>
+<span class="p">)</span>
 <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
+</section>
+<section id="screen">
+<h2>screen<a class="headerlink" href="#screen" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Screen をカスタム。何も起きない</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyScreen</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">screen_size</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">set_mouse_tracking</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get_cols_rows</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">draw_screen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">canvas</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">set_input_timeouts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable</span><span class="p">):</span>
+        <span class="c1"># keys, raw</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</section>
+<section id="urwid-raw-display">
+<h2>urwid.raw_display を参考に<a class="headerlink" href="#urwid-raw-display" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://github.com/urwid/urwid/blob/master/urwid/raw_display.py#L60">urwid/urwid/raw_display.py at master · urwid/urwid · GitHub</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Screen</span><span class="p">(</span><span class="n">BaseScreen</span><span class="p">,</span> <span class="n">RealTerminal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>BaseScreen <a class="reference external" href="https://github.com/urwid/urwid/blob/master/urwid/display_common.py#L906">urwid/urwid/display_common.py at master · urwid/urwid · GitHub</a>
+<code class="docutils literal notranslate"><span class="pre">palette</span></code> 管理？</p></li>
+<li><p>RealTerminal <a class="reference external" href="https://github.com/urwid/urwid/blob/master/urwid/display_common.py#L840">urwid/urwid/display_common.py at master · urwid/urwid · GitHub</a>
+<code class="docutils literal notranslate"><span class="pre">/dev/tty</span></code> ?</p></li>
+</ul>
+<section id="start">
+<h3>start<a class="headerlink" href="#start" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">raw</span></code> モードの開始</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># raw</span>
+        <span class="k">if</span> <span class="n">fd</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">isatty</span><span class="p">(</span><span class="n">fd</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_old_termios_settings</span> <span class="o">=</span> <span class="n">termios</span><span class="o">.</span><span class="n">tcgetattr</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+            <span class="n">tty</span><span class="o">.</span><span class="n">setcbreak</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+
+<span class="c1"># curses</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">curses</span><span class="o">.</span><span class="n">initscr</span><span class="p">()</span>
+        <span class="n">curses</span><span class="o">.</span><span class="n">noecho</span><span class="p">()</span>
+        <span class="n">curses</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">curses</span><span class="o">.</span><span class="n">halfdelay</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># use set_input_timeouts to adjust</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">keypad</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-input">
+<h3>get_input<a class="headerlink" href="#get-input" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="draw-screen">
+<h3>draw_screen<a class="headerlink" href="#draw-screen" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="articles">
+<h1>articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2021 <a class="reference external" href="https://rsn604.github.io/it/python%E3%81%A7tui%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8D%E3%81%86%E3%81%9D%E3%81%AE%EF%BC%92-tui%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E9%81%B8%E6%8A%9E/">PythonでTUIアプリを作ろう ( その２　TUIライブラリの選択 ) - TORIO's blog</a></p></li>
+<li><p><a class="reference external" href="https://seriot.ch/urwid/">Urwid Examples</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Screen<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Screen(BaseScreen,</span> <span class="pre">RealTerminal)</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="windows">
+<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>素では動かないようだが、動かす手段はありそう。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/urwid/urwid/issues/447">partial native Windows support via windows-curses · Issue #447 · urwid/urwid · GitHub</a></p></li>
+</ul>
+<section id="id2">
+<h2>Screen を改造する<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="urwid-raw-display-screen">
+<h3>urwid.raw_display.Screen<a class="headerlink" href="#urwid-raw-display-screen" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>WSL
+<code class="docutils literal notranslate"><span class="pre">fcntl</span></code> などで動かない</p>
+</section>
+<section id="urwid-curses-display-screen">
+<h3>urwid.curses_display.Screen<a class="headerlink" href="#urwid-curses-display-screen" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="https://pypi.org/project/windows-curses/">windows-curses · PyPI</a>
+に依存する様子。
+import urwid.curses_display</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># https://github.com/urwid/urwid/issues/447</span>
+<span class="c1">#</span>
+<span class="k">class</span> <span class="nc">CustomCurses</span><span class="p">(</span><span class="n">urwid</span><span class="o">.</span><span class="n">curses_display</span><span class="o">.</span><span class="n">Screen</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kvargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kvargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">tty_signal_keys</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">intr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">quit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">susp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fileno</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="k">pass</span>  <span class="c1"># no signals on Windows; not needed for resize</span>
+
+    <span class="k">def</span> <span class="nf">_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_start</span><span class="p">()</span>
+        <span class="kn">import</span> <span class="nn">curses</span>
+
+        <span class="c1"># halfdelay() seems unnecessary and causes everything to slow down a lot.</span>
+        <span class="n">curses</span><span class="o">.</span><span class="n">nocbreak</span><span class="p">()</span>  <span class="c1"># exits halfdelay mode</span>
+        <span class="c1"># keypad(1) is needed, or we get no special keys (cursor keys, etc.)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">keypad</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_getch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wait_tenths</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">wait_tenths</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getch_nodelay</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">nodelay</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">getch</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_getch_nodelay</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">nodelay</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">getch</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="raw">
+<h3>raw<a class="headerlink" href="#raw" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mhils/urwid/tree/win32-rawdisplay">GitHub - mhils/urwid at win32-rawdisplay</a></p></li>
+</ul>
+</section>
+<section id="conpty">
+<h3>conpty バージョン作れないか？<a class="headerlink" href="#conpty" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>out は VT100 互換なので raw</p></li>
+<li><p>in は Win32API</p></li>
+</ul>
+</section>
+</section>
+</section>
 
         </article>
       </div>
@@ -257,8 +409,46 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Hello</a><ul>
+<li><a class="reference internal" href="#minimum">minimum</a></li>
+<li><a class="reference internal" href="#screen">screen</a></li>
+<li><a class="reference internal" href="#urwid-raw-display">urwid.raw_display を参考に</a><ul>
+<li><a class="reference internal" href="#start">start</a></li>
+<li><a class="reference internal" href="#get-input">get_input</a></li>
+<li><a class="reference internal" href="#draw-screen">draw_screen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#articles">articles</a></li>
+<li><a class="reference internal" href="#id1">Screen</a></li>
+<li><a class="reference internal" href="#windows">Windows</a><ul>
+<li><a class="reference internal" href="#id2">Screen を改造する</a><ul>
+<li><a class="reference internal" href="#urwid-raw-display-screen">urwid.raw_display.Screen</a></li>
+<li><a class="reference internal" href="#urwid-curses-display-screen">urwid.curses_display.Screen</a></li>
+<li><a class="reference internal" href="#raw">raw</a></li>
+<li><a class="reference internal" href="#conpty">conpty バージョン作れないか？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

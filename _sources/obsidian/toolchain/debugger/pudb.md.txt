@@ -21,3 +21,13 @@
 `n`
 `s`
 
+# Windows
+[[urwid]] の Screen を差し替えれば動きそう。
+```python
+import urwid.raw_display
+import win_screen
+urwid.raw_display.Screen = win_screen.Screen
+
+import pudb.run
+pudb.run.main()
+```

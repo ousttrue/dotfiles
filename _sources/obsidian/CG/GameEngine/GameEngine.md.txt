@@ -19,3 +19,6 @@
 
 ## fude
 - @2020 [シングルバイナリで動くゲームエンジンの fude というのを作っている - ブログのおんがえし](https://ongaeshi.hatenablog.com/entry/2020/02/09/212839)
+
+# u3d
+- [GitHub - u3d-community/U3D: Open-source, cross-platform 2D and 3D game engine built in C++](https://github.com/u3d-community/U3D)

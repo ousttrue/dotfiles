@@ -243,6 +243,18 @@
 <p><code class="docutils literal notranslate"><span class="pre">n</span></code>
 <code class="docutils literal notranslate"><span class="pre">s</span></code></p>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="windows">
+<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[urwid]] の Screen を差し替えれば動きそう。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urwid.raw_display</span>
+<span class="kn">import</span> <span class="nn">win_screen</span>
+<span class="n">urwid</span><span class="o">.</span><span class="n">raw_display</span><span class="o">.</span><span class="n">Screen</span> <span class="o">=</span> <span class="n">win_screen</span><span class="o">.</span><span class="n">Screen</span>
+
+<span class="kn">import</span> <span class="nn">pudb.run</span>
+<span class="n">pudb</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
@@ -280,6 +292,7 @@
 <li><a class="reference internal" href="#">breakpoint</a></li>
 <li><a class="reference internal" href="#run">run</a></li>
 <li><a class="reference internal" href="#stepin-stepout">stepin / stepout</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
 </ul>
 
           </div>
