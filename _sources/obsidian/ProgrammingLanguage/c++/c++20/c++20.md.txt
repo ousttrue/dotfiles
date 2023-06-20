@@ -1,0 +1,5 @@
+[[cpp_coroutine]]
+[[cpp_module]]
+[[cpp_ranges]]
+
+- @2021 [ゲーム開発者のための C++11〜C++20 技術書典 10 Ver.](https://zenn.dev/tetsurom/books/cpp11-cpp20-for-game-developers)

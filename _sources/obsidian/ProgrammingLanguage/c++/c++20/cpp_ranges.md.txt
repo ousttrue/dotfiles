@@ -1,0 +1,1 @@
+- @2022 [view の書き方を一歩ずつ](https://zenn.dev/acd1034/articles/220916-how-to-write-views)
