@@ -387,6 +387,38 @@ import urwid.curses_display</p>
 </section>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="urwid-mainloop">
+<h1>urwid.MainLoop<a class="headerlink" href="#urwid-mainloop" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>こっちも改造必要</p>
+<section id="event-loop">
+<h2>event_loop<a class="headerlink" href="#event-loop" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="selecteventloop">
+<h3>SelectEventLoop<a class="headerlink" href="#selecteventloop" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>socket 専用なので動かない</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="s1">'hook_event_loop'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">event_loop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"screen object passed </span><span class="si">{</span><span class="n">screen</span><span class="si">!r}</span><span class="s2"> does not support external event loops"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">event_loop</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">event_loop</span> <span class="o">=</span> <span class="n">SelectEventLoop</span><span class="p">()</span> <span class="c1"># これ動かない</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_loop</span> <span class="o">=</span> <span class="n">event_loop</span>
+</pre></div>
+</div>
+</section>
+<section id="asyncioeventloop">
+<h3>AsyncioEventLoop<a class="headerlink" href="#asyncioeventloop" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/3/library/asyncio-platforms.html">プラットフォームでのサポート — Python 3.11.4 ドキュメント</a></p>
+<ul class="simple">
+<li><p>add_reader, add_writer</p></li>
+</ul>
+</section>
+<section id="gevent">
+<h3>gevent?<a class="headerlink" href="#gevent" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="https://github.com/what-studio/urwid-geventloop">GitHub - what-studio/urwid-geventloop: Event loop based on gevent for urwid.</a></p>
+</section>
+</section>
+<section id="watch-pipe">
+<h2>watch_pipe<a class="headerlink" href="#watch-pipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
 
         </article>
       </div>
@@ -442,6 +474,16 @@ import urwid.curses_display</p>
 <li><a class="reference internal" href="#conpty">conpty バージョン作れないか？</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#urwid-mainloop">urwid.MainLoop</a><ul>
+<li><a class="reference internal" href="#event-loop">event_loop</a><ul>
+<li><a class="reference internal" href="#selecteventloop">SelectEventLoop</a></li>
+<li><a class="reference internal" href="#asyncioeventloop">AsyncioEventLoop</a></li>
+<li><a class="reference internal" href="#gevent">gevent?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#watch-pipe">watch_pipe</a></li>
 </ul>
 </li>
 </ul>

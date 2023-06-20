@@ -140,3 +140,25 @@ class CustomCurses(urwid.curses_display.Screen):
 ### conpty バージョン作れないか？
 - out は VT100 互換なので raw
 - in は Win32API
+
+# urwid.MainLoop
+こっちも改造必要
+## event_loop
+### SelectEventLoop
+socket 専用なので動かない
+```python
+        if not hasattr(screen, 'hook_event_loop') and event_loop is not None:
+            raise NotImplementedError(f"screen object passed {screen!r} does not support external event loops")
+        if event_loop is None:
+            event_loop = SelectEventLoop() # これ動かない
+        self.event_loop = event_loop
+```
+
+### AsyncioEventLoop
+[プラットフォームでのサポート — Python 3.11.4 ドキュメント](https://docs.python.org/ja/3/library/asyncio-platforms.html)
+- add_reader, add_writer
+
+### gevent?
+[GitHub - what-studio/urwid-geventloop: Event loop based on gevent for urwid.](https://github.com/what-studio/urwid-geventloop)
+
+## watch_pipe
