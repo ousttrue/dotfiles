@@ -221,7 +221,11 @@
           <p>[[c++20]]</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://cpprefjp.github.io/lang/cpp20/coroutines.html">コルーチン - cpprefjp C++日本語リファレンス</a></p></li>
+<li><p><a class="reference external" href="https://think-async.com/Asio/">Asio C++ Library</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://qiita.com/tan-y/items/ae54153ec3eb42f80638">C++ でコルーチン (async/await 準備編) - Qiita</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://qiita.com/tyanmahou/items/522ea1c592db3468940c">[コルーチン]operator co_await と await_transform - Qiita</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://www.docswell.com/s/yohhoy/L57EJK-cpp20coro#p29">20分くらいでわかった気分になれるC++20コルーチン | ドクセル</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/Fuyutsubaki/items/a4c9921587ce53d95e55">C++20のコルーチン for アプリケーション - Qiita</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://logicalbeat.jp/blog/5014/">【C＋＋】C＋＋のコルーチンを気軽に試してみる – 株式会社ロジカルビート</a></p></li>
 <li><p>@2018 <a class="reference external" href="https://qiita.com/yohhoy/items/aeb3c01d02d0f640c067">C++コルーチン拡張メモ - Qiita</a></p></li>
 </ul>
@@ -236,9 +240,54 @@
 <p>とあるときに
 <code class="docutils literal notranslate"><span class="pre">R::promise_type</span></code> が <code class="docutils literal notranslate"><span class="pre">Promise型</span></code>
 関数 body で <code class="docutils literal notranslate"><span class="pre">co_await</span></code>, <code class="docutils literal notranslate"><span class="pre">co_return</span></code>, <code class="docutils literal notranslate"><span class="pre">co_yield</span></code> を使うことができる。</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="awaiter">
+<h1>awaiter<a class="headerlink" href="#awaiter" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>@2021 <a class="reference external" href="https://qiita.com/tan-y/items/ae54153ec3eb42f80638">C++ でコルーチン (async/await 準備編) - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/tyanmahou/items/522ea1c592db3468940c">[コルーチン]operator co_await と await_transform - Qiita</a></p></li>
 </ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>struct awaiter {
+	bool await_ready() const noexcept { return true;}
+
+	void await_suspend(std::coroutine_handle&lt;promise_type&gt;)
+	{
+		// something with promise         
+		futureを作ってスレッドを開始する？
+	}
+
+	void await_suspend(std::coroutine_handle&lt;promise_type2&gt;)
+	{
+		// something with promise2         
+	}
+
+	void await_resume() {}        
+};
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">co_await</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Type</span><span class="o">&amp;</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">awaiter</span><span class="p">{};</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Type</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">co_await</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="w">     </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="n">awaiter</span><span class="p">{};</span><span class="w"></span>
+<span class="w">     </span><span class="p">}</span><span class="w"> </span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">promise_type</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 他のメソッド省略…</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">await_transform</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Type</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">awaiter</span><span class="p">{};</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="generator">
 <h1>generator<a class="headerlink" href="#generator" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -294,6 +343,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">promise_type</a></li>
+<li><a class="reference internal" href="#awaiter">awaiter</a></li>
 <li><a class="reference internal" href="#generator">generator</a></li>
 <li><a class="reference internal" href="#task">task</a></li>
 </ul>

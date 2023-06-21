@@ -2,7 +2,11 @@
 
 - [コルーチン - cpprefjp C++日本語リファレンス](https://cpprefjp.github.io/lang/cpp20/coroutines.html)
 
+- [Asio C++ Library](https://think-async.com/Asio/)
+- @2021 [C++ でコルーチン (async/await 準備編) - Qiita](https://qiita.com/tan-y/items/ae54153ec3eb42f80638)
+- @2021 [[コルーチン]operator co_await と await_transform - Qiita](https://qiita.com/tyanmahou/items/522ea1c592db3468940c)
 - @2021 [20分くらいでわかった気分になれるC++20コルーチン | ドクセル](https://www.docswell.com/s/yohhoy/L57EJK-cpp20coro#p29)
+- @2020 [C++20のコルーチン for アプリケーション - Qiita](https://qiita.com/Fuyutsubaki/items/a4c9921587ce53d95e55)
 - @2020 [【C＋＋】C＋＋のコルーチンを気軽に試してみる – 株式会社ロジカルビート](https://logicalbeat.jp/blog/5014/)
 - @2018 [C++コルーチン拡張メモ - Qiita](https://qiita.com/yohhoy/items/aeb3c01d02d0f640c067)
 
@@ -18,10 +22,52 @@ R some_routine()
 `R::promise_type` が `Promise型`
 関数 body で `co_await`, `co_return`, `co_yield` を使うことができる。
 
+# awaiter
+- [[コルーチン]operator co_await と await_transform - Qiita](https://qiita.com/tyanmahou/items/522ea1c592db3468940c)
 
+```c++
+struct awaiter {
+	bool await_ready() const noexcept { return true;}
 
+	void await_suspend(std::coroutine_handle<promise_type>)
+	{
+		// something with promise         
+		futureを作ってスレッドを開始する？
+	}
 
-- @2021 [C++ でコルーチン (async/await 準備編) - Qiita](https://qiita.com/tan-y/items/ae54153ec3eb42f80638)
+	void await_suspend(std::coroutine_handle<promise_type2>)
+	{
+		// something with promise2         
+	}
+
+	void await_resume() {}        
+};
+```
+
+```c++
+auto operator co_await(const Type&)
+{
+    return awaiter{};
+} 
+
+struct Type
+{
+     auto operator co_await() const
+     {
+         return awaiter{};
+     } 
+};
+
+struct promise_type
+{
+    // 他のメソッド省略…
+
+    auto await_transform(const Type&) const
+    {
+        return awaiter{};
+    }
+};
+```
 
 # generator
 [[c++23]]

@@ -2,4 +2,16 @@
 [[cpp_module]]
 [[cpp_ranges]]
 
+- [C++20 の新機能 - C++ の歩き方 | cppmap](https://cppmap.github.io/standardization/cpp20/)
 - @2021 [ゲーム開発者のための C++11〜C++20 技術書典 10 Ver.](https://zenn.dev/tetsurom/books/cpp11-cpp20-for-game-developers)
+
+- [指示付き初期化 - cpprefjp C++日本語リファレンス](https://cpprefjp.github.io/lang/cpp20/designated_initialization.html)
+```cpp
+points.push_back({
+	.x=1,
+	.y=2,
+});
+```
+
+# coroutine
+[[cpp_coroutine]]
