@@ -65,7 +65,7 @@ opt.hlsearch = true
 opt.hidden = true
 opt.modeline = true
 opt.keywordprg = ":help"
-opt.makeprg = 'meson install -C builddir --tags runtime'
+opt.makeprg = "meson install -C builddir --tags runtime"
 
 -- opt.showmatch = true
 -- opt.matchtime = 1
@@ -73,7 +73,7 @@ opt.makeprg = 'meson install -C builddir --tags runtime'
 -- set matchpairs+=<:>
 -- ]]
 
-opt.makeprg = 'meson install -C builddir --tags runtime'
+opt.makeprg = "meson install -C builddir --tags runtime"
 
 vim.keymap.set({ "n", "i" }, "<F7>", function()
   -- vim.cmd "make!"
@@ -195,6 +195,7 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- lsp
+vim.lsp.set_log_level "off"
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
