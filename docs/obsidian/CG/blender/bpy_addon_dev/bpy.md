@@ -1,5 +1,5 @@
 [[bpy_template_list]]
-[[bpy_types_panel]]
+[[bpy.types.Panel]]
 [[bpy_node]]
 [[bpy_material]]
 [[blender_rna]]

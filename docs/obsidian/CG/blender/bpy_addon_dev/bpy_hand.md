@@ -1,8 +1,7 @@
 bpy hand
-#bpy #bpy_armature
 https://twitter.com/kiofwjjptyq08cz/status/1131168550968672257
 
-code:.py
+```python
  import bpy
  from mathutils import Vector
  from typing import NamedTuple
