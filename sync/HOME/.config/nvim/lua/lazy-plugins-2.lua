@@ -76,6 +76,7 @@ local plugins = {
   },
   -- git
   { "tpope/vim-fugitive" },
+  { "rbong/vim-flog" },
   -- telescope
   {
     "nvim-telescope/telescope.nvim",

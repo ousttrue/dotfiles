@@ -1,5 +1,5 @@
 [[IsometricRoom]]
-[[AssetBrowser]]
+[[AssetLibrary]]
 [[blender_addon]]
 [[bpy_addon]]
 
@@ -16,12 +16,27 @@
 - [Blender Launcher](https://dotbow.github.io/Blender-Launcher/)
 - [Demo Files — blender.org](https://www.blender.org/download/demo-files/)
 
-# workspace
-- [Blender Python APIによるUIレイアウト、Workspaceの制御方法の調査 - Qiita](https://qiita.com/kenyoshi17/items/c30cbfc5e92e07423e91)
-
-# Mesh
-- [Blender PythonのMeshデータアクセスのチートシート - Qiita](https://qiita.com/kenyoshi17/items/b93bbba6451e3c6017e5)
-
 # source
 ## entry point
 - [Blender内部構造(2) メインループ | COLORFUL PICO](https://colorful-pico.net/wp/blender%E5%86%85%E9%83%A8%E6%A7%8B%E9%80%A02-%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%AB%E3%83%BC%E3%83%97/)
+
+
+modeling tutorial
+[** 建築物]
+[* SF廊下]
+https://dskjal.com/blender/architecture-modeling-tips.html
+
+https://ranjian0.github.io/building_tools/
+[https://www.youtube.com/watch?v=rB1fm4I_bW4]
+
+[** 部屋]
+https://www.3d-beginner.com/entry/2019/05/18/173000
+
+[* Archimesh]
+https://styly.cc/ja/tips/arch-mesh/
+https://www.pentacreation.com/blog/2020/01/200129.html
+https://yukke4198blog.com/entry/2021/03/01/071657
+
+[** 家具]
+
+[** 持ち物]
