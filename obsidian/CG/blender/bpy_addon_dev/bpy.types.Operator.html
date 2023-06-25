@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../../genindex.html" /><link rel="search" title="検索" href="../../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Verson - shell note ドキュメント</title>
+        <title>Operator - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
@@ -218,34 +218,87 @@
           </label>
         </div>
         <article role="main">
-          <p>[[bpy_addon]]
-[[bpy_template_list]]
-[[bpy.types.Panel]]
-[[bpy_node]]
-[[bpy_material]]
-[[blend_file]]
-[[blender]]
-[[bpy.data]]
-[[bpy.context.window_manager]]
-[[bpy.types.Scene]]
-[[bpy.types.Object]]</p>
+          <p>[[bpy_addon]]</p>
 <ul class="simple">
-<li><p>@2021 <a class="reference external" href="https://zenn.dev/hotcocoa/articles/5c5ab06c40862b">PythonでBlenderを操作してみる</a></p></li>
+<li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.types.Operator.html">Operator(bpy_struct) — Blender Python API</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="verson">
-<h1>Verson<a class="headerlink" href="#verson" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://docs.blender.org/api/latest/">Blender latest Python API Documentation — Blender Python API</a></p>
-<section id="id1">
-<h2>3.4<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="operator">
+<h1>Operator<a class="headerlink" href="#operator" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ObjectMoveX</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="c1"># Unique identifier for buttons and menu items to reference.</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">"object.move_x"</span>
+    <span class="c1"># Display name in the interface.</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">"Move X by One"</span>
+    <span class="c1"># Enable undo for the operator.</span>
+    <span class="n">bl_options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"REGISTER"</span><span class="p">,</span> <span class="s2">"UNDO"</span><span class="p">}</span>
+
+    <span class="c1"># execute() is called when running the operator.</span>
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+
+        <span class="c1"># The original script</span>
+        <span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+        <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mf">1.0</span>
+
+        <span class="c1"># Lets Blender know the operator finished successfully.</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"FINISHED"</span><span class="p">}</span>
+</pre></div>
+</div>
+<section id="operatorproperty">
+<h2>OperatorProperty<a class="headerlink" href="#operatorproperty" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.blender.org/api/3.4/">Blender 3.4 Python API Documentation — Blender Python API</a></p></li>
+<li><p><a class="reference external" href="https://colorful-pico.net/introduction-to-addon-development-in-blender/2.8/html/chapter_02/03_Use_Operator_Property.html">2-3. オペレータプロパティを活用する | はじめてのBlenderアドオン開発</a></p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>2.8<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="invoke-execute">
+<h2>invoke と execute<a class="headerlink" href="#invoke-execute" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>execute で property をセットアップして、invoke で実行する</p>
+</section>
+<section id="poll">
+<h2>poll<a class="headerlink" href="#poll" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">edit</span> <span class="pre">mode</span></code> など状況を限定できる</p>
+</section>
+<section id="attributes">
+<h2>attributes<a class="headerlink" href="#attributes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="bl-options">
+<h3>bl_options<a class="headerlink" href="#bl-options" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://sites.google.com/site/matosus304blendernotes/home/blender-python-script">Blender Python Script - mato.sus304 Blender Notes</a></p></li>
+<li><p>UNDO</p></li>
+<li><p>REGISTER</p></li>
+<li><p>GRAB_CURSOR</p></li>
+<li><p>BLOCKING</p></li>
 </ul>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="register">
+<h1>register<a class="headerlink" href="#register" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>class 登録</p></li>
+<li><p>menu 登録の両方が必要？(search に表示されない)</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>種類<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="exporter">
+<h2>Exporter<a class="headerlink" href="#exporter" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ExportOBJ</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">,</span> <span class="n">ExportHelper</span><span class="p">):</span>
+    <span class="sd">"""Save a Wavefront OBJ File"""</span> 
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">"export_scene.obj"</span> <span class="c1"># 命名規則は？</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s1">'Export OBJ'</span>
+    <span class="n">bl_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'PRESET'</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="importer">
+<h2>Importer<a class="headerlink" href="#importer" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ImportOBJ</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">,</span> <span class="n">ImportHelper</span><span class="p">):</span>
+    <span class="sd">"""Load a Wavefront OBJ File"""</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">"import_scene.obj"</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">"Import OBJ"</span>
+    <span class="n">bl_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'PRESET'</span><span class="p">,</span> <span class="s1">'UNDO'</span><span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -262,7 +315,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../../_sources/obsidian/CG/blender/bpy_addon_dev/bpy.md.txt"
+            | <a class="muted-link" href="../../../../_sources/obsidian/CG/blender/bpy_addon_dev/bpy.types.Operator.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -282,9 +335,20 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Verson</a><ul>
-<li><a class="reference internal" href="#id1">3.4</a></li>
-<li><a class="reference internal" href="#id2">2.8</a></li>
+<li><a class="reference internal" href="#">Operator</a><ul>
+<li><a class="reference internal" href="#operatorproperty">OperatorProperty</a></li>
+<li><a class="reference internal" href="#invoke-execute">invoke と execute</a></li>
+<li><a class="reference internal" href="#poll">poll</a></li>
+<li><a class="reference internal" href="#attributes">attributes</a><ul>
+<li><a class="reference internal" href="#bl-options">bl_options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#register">register</a></li>
+<li><a class="reference internal" href="#id1">種類</a><ul>
+<li><a class="reference internal" href="#exporter">Exporter</a></li>
+<li><a class="reference internal" href="#importer">Importer</a></li>
 </ul>
 </li>
 </ul>

@@ -218,50 +218,11 @@
           </label>
         </div>
         <article role="main">
-          <p>bpy.types.Panel
-[[bpy]]</p>
+          <p>[[bpy]]</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.blender.org/api/current/info_quickstart.html#example-panel">Quickstart — Blender Python API</a></p></li>
 <li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.types.Panel.html">Panel(bpy_struct) — Blender Python API</a></p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
-
-
-<span class="k">class</span> <span class="nc">HelloWorldPanel</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Panel</span><span class="p">):</span>
-    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">"OBJECT_PT_hello_world"</span>
-    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">"Hello World"</span>
-    <span class="n">bl_space_type</span> <span class="o">=</span> <span class="s1">'PROPERTIES'</span>
-    <span class="n">bl_region_type</span> <span class="o">=</span> <span class="s1">'WINDOW'</span>
-    <span class="n">bl_context</span> <span class="o">=</span> <span class="s2">"object"</span>
-
-    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">"Hello World"</span><span class="p">)</span>
-
-
-<span class="k">class</span> <span class="nc">SomePanel</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Panel</span><span class="p">):</span> 
-     <span class="n">bl_space_type</span> <span class="o">=</span> <span class="s2">"VIEW_3D"</span>
-     <span class="n">bl_region_type</span> <span class="o">=</span> <span class="s2">"UI"</span> <span class="c1"># 右上のパネル</span>
-     <span class="n">bl_category</span> <span class="o">=</span> <span class="s2">"TAB_NAME"</span> <span class="c1"># 勝手に決めてよい</span>
-     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">"SECTION_NAME"</span> <span class="c1"># 開閉するところの名前。勝手に決めてよい</span>
-
-<span class="k">class</span> <span class="nc">BodyRatiosPanel</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Panel</span><span class="p">):</span>
-     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">"OBJECT_PT_body_ratios"</span>
-     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">"body ratios"</span>
-     <span class="n">bl_space_type</span> <span class="o">=</span> <span class="s2">"VIEW_3D"</span>
-     <span class="n">bl_region_type</span> <span class="o">=</span> <span class="s2">"TOOLS"</span>
-     <span class="n">bl_category</span> <span class="o">=</span> <span class="s2">"Body Ratios"</span>
- 
-     <span class="nd">@classmethod</span>
-     <span class="k">def</span> <span class="nf">poll</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-         <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
-             <span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">select</span><span class="p">:</span>
-                 <span class="k">return</span> <span class="kc">True</span>
-         <span class="k">return</span> <span class="kc">False</span>
- 
-     <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_context</span><span class="p">):</span>
-         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">"Hello World"</span><span class="p">)</span>
-</pre></div>
-</div>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="x">
@@ -282,24 +243,73 @@
 <li><p><a class="reference external" href="https://en.blender.org/index.php/Dev:Py/Scripts/Cookbook/Code_snippets/Interface">Dev:Py/Scripts/Cookbook/Code snippets/Interface - BlenderWiki</a></p></li>
 <li><p>https://blenderartists.org/t/how-to-make-a-value-slider/663324/3</p></li>
 </ul>
+<section id="id2">
+<h2>場所<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <section id="bl-space-type">
-<h2>bl_space_type<a class="headerlink" href="#bl-space-type" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>bl_space_type<a class="headerlink" href="#bl-space-type" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy_types_enum_items/space_type_items.html#rna-enum-space-type-items">Space Type Items — Blender Python API</a></p></li>
 </ul>
 </section>
 <section id="bl-region-type">
-<h2>bl_region_type<a class="headerlink" href="#bl-region-type" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>bl_region_type<a class="headerlink" href="#bl-region-type" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy_types_enum_items/region_type_items.html#rna-enum-region-type-items">Region Type Items — Blender Python API</a></p></li>
 </ul>
 </section>
-<section id="bl-context">
-<h2>bl_context<a class="headerlink" href="#bl-context" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
 <section id="bl-category">
-<h2>bl_category<a class="headerlink" href="#bl-category" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>bl_category<a class="headerlink" href="#bl-category" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </section>
+</section>
+<section id="id3">
+<h2>表示<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="bl-label">
+<h3>bl_label<a class="headerlink" href="#bl-label" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>名前</p>
+</section>
+<section id="bl-context">
+<h3>bl_context<a class="headerlink" href="#bl-context" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blender.stackexchange.com/questions/73145/when-declaring-a-panel-what-does-the-bl-context-value-need-to-be">python - When declaring a panel, what does the 'bl_context' value need to be? - Blender Stack Exchange</a></p></li>
+<li><p>object</p></li>
+<li><p>material</p></li>
+<li><p>armature_edit</p></li>
+</ul>
+<p>細かく制御したいときは、<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">poll</span></code> を使う</p>
+</section>
+</section>
+<section id="code">
+<h2>code<a class="headerlink" href="#code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+
+<span class="k">class</span> <span class="nc">HelloWorldPanel</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Panel</span><span class="p">):</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">"OBJECT_PT_hello_world"</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">"Hello World"</span>
+    <span class="n">bl_space_type</span> <span class="o">=</span> <span class="s1">'PROPERTIES'</span>
+    <span class="n">bl_region_type</span> <span class="o">=</span> <span class="s1">'WINDOW'</span>
+    <span class="n">bl_context</span> <span class="o">=</span> <span class="s2">"object"</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">poll</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Armature</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">"Hello World"</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="icon">
+<h1>icon<a class="headerlink" href="#icon" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gist.github.com/eliemichel/251731e6cc711340dfefe90fe7e38ac9">blender-icon-list.py · GitHub</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="layout">
+<h1>layout<a class="headerlink" href="#layout" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.types.UILayout.html">UILayout(bpy_struct) — Blender Python API</a></p></li>
+</ul>
 </section>
 
         </article>
@@ -341,12 +351,22 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#panel">Panel</a><ul>
+<li><a class="reference internal" href="#id2">場所</a><ul>
 <li><a class="reference internal" href="#bl-space-type">bl_space_type</a></li>
 <li><a class="reference internal" href="#bl-region-type">bl_region_type</a></li>
-<li><a class="reference internal" href="#bl-context">bl_context</a></li>
 <li><a class="reference internal" href="#bl-category">bl_category</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#id3">表示</a><ul>
+<li><a class="reference internal" href="#bl-label">bl_label</a></li>
+<li><a class="reference internal" href="#bl-context">bl_context</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code">code</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#icon">icon</a></li>
+<li><a class="reference internal" href="#layout">layout</a></li>
 </ul>
 
           </div>

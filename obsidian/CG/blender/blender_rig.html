@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>PEP561 - shell note ドキュメント</title>
+        <title>CustomShape - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,60 +218,39 @@
           </label>
         </div>
         <article role="main">
-          <p>[[python]]
-<code class="docutils literal notranslate"><span class="pre">python-3.5</span></code></p>
-<p><a class="reference external" href="https://docs.python.org/ja/3/library/typing.html">typing --- 型ヒントのサポート — Python 3.10.0b2 ドキュメント</a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="pep561">
-<h1>PEP561<a class="headerlink" href="#pep561" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://blog.ymyzk.com/2018/09/creating-packages-using-pep-561/">PEP 561 に準拠した型ヒントを含むパッケージの作り方 – ymyzk’s blog</a>
-<a class="reference external" href="https://www.python.org/dev/peps/pep-0484"><strong>PEP 484</strong></a>, <a class="reference external" href="https://www.python.org/dev/peps/pep-0526"><strong>PEP 526</strong></a>, <a class="reference external" href="https://www.python.org/dev/peps/pep-0544"><strong>PEP 544</strong></a>, <a class="reference external" href="https://www.python.org/dev/peps/pep-0586"><strong>PEP 586</strong></a>, <a class="reference external" href="https://www.python.org/dev/peps/pep-0589"><strong>PEP 589</strong></a>, <a class="reference external" href="https://www.python.org/dev/peps/pep-0591"><strong>PEP 591</strong></a>, <a class="reference external" href="https://www.python.org/dev/peps/pep-0612"><strong>PEP 612</strong></a> and <a class="reference external" href="https://www.python.org/dev/peps/pep-0613"><strong>PEP 613</strong></a></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="type-checker-module-resolution-order">
-<h1>Type Checker Module Resolution Order<a class="headerlink" href="#type-checker-module-resolution-order" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ol class="arabic simple">
-<li><p>user code</p></li>
-<li><p>stub</p></li>
-<li><p>stub package(<code class="docutils literal notranslate"><span class="pre">-stub</span></code> <code class="docutils literal notranslate"><span class="pre">*.pyi</span></code>)</p></li>
-<li><p>inline package(annotation <code class="docutils literal notranslate"><span class="pre">py.typed</span></code>)</p></li>
-<li><p>typeshed
-<code class="docutils literal notranslate"><span class="pre">typings/bpy</span></code></p></li>
-</ol>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>実装<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="from-python">
-<h2>from python コード<a class="headerlink" href="#from-python" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">inspect.signature</span></code></p>
+          <p>[[rig]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="customshape">
+<h1>CustomShape<a class="headerlink" href="#customshape" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://blog.amedama.jp/entry/2016/10/31/225219">Python: inspect.signature() で関数のシグネチャを調べる - CUBE SUGAR CONTAINER</a>
-lsp に任せればよい</p></li>
+<li><p><a class="reference external" href="https://github.com/waylow/boneWidget">GitHub - waylow/boneWidget: Blender add-on for making bone shape</a></p></li>
 </ul>
 </section>
-<section id="native-module">
-<h2>native module<a class="headerlink" href="#native-module" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="finger">
+<h1>Finger<a class="headerlink" href="#finger" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>native module を作成する前の情報にアクセスしたい</p></li>
-<li><p>GOBJECT GIR</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=wBfSA1mDATY&amp;ab_channel=MKGraphics">Blender 3.4 Hand &amp; Finger Rig | Tutorial 3 - YouTube</a></p></li>
+<li><p><a class="reference external" href="https://dskjal.com/blender/finger-rig.html">Blender で指のリグ</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Jetpack-Crow/autogrip">GitHub - Jetpack-Crow/autogrip</a></p></li>
+<li><p><a class="reference external" href="https://twitter.com/Bookyakuno/status/1464862521115176960">ツイート / Twitter</a></p></li>
+<li><p><a class="reference external" href="https://bookyakuno.com/control-fingers-with-only-two-rigs/">2つのリグのみで手の指を動かす【リグの作り方 / Blender】 – 忘却まとめ</a></p></li>
 </ul>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="implementation">
-<h1>Implementation<a class="headerlink" href="#implementation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="axis">
+<h1>Axis<a class="headerlink" href="#axis" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="http://www.mypy-lang.org/">mypy - Optional Static Typing for Python</a></p></li>
-<li><p><a class="reference external" href="https://github.com/google/pytype">GitHub - google/pytype: A static type analyzer for Python code</a></p></li>
-<li><p><a class="reference external" href="https://github.com/facebook/pyre-check">GitHub - facebook/pyre-check: Performant type-checking for python.</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">numpy-stubs</span></code></p></li>
-<li><p><a class="reference external" href="https://github.com/pygobject/pygobject-stubs">GitHub - pygobject/pygobject-stubs: PEP 561 Typing Stubs for PyGObject</a></p></li>
+<li><p><a class="reference external" href="https://dskjal.com/blender/local-axis-setting.html">ボーンのローカル回転軸設定</a></p></li>
+<li><p><a class="reference external" href="https://note.com/info_/n/n5b7e732f7e74">【Blender】検証と考察：ボーンの適切な軸方向、回転軸｜yugaki</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YAxis</span> <span class="pre">=</span> <span class="pre">head</span> <span class="pre">-&gt;</span> <span class="pre">tail</span></code></p></li>
 </ul>
-<section id="articles">
-<h2>articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://docs.google.com/presentation/d/1kxX5_bL1Rv-sW7zJDBSve9g69A_AJbAEvMXkhlMrBR4/htmlpresent">型ヒントの5年間を振り返る - Google スライド</a>
-(2021)<a class="reference external" href="https://tatsuno-system.co.jp/2021/02/03/blog_python-function-annotations/">Pythonでも型を意識したプログラミングを！ 型アノテーションを使おう | 株式会社龍野情報システム</a>
-(2015)<a class="reference external" href="https://qiita.com/t2y/items/f95f6efe163b29be59af">[翻訳] PEP 0484 -- 型ヒント (Type Hints) - Qiita</a></p>
+<section id="logic">
+<h2>logic<a class="headerlink" href="#logic" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">vec_roll_to_mat3_normalized</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">nor</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">roll</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">r_mat</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]);</span><span class="w"></span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>docutils: ソースが長大すぎて pyright が動作しない。</p></li>
-<li><p>windows-curses: native extension</p></li>
+<li><p><a class="reference external" href="https://github.com/dfelinto/blender/blob/master/source/blender/blenkernel/intern/armature.c#L2084">blender/source/blender/blenkernel/intern/armature.c at master · dfelinto/blender · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://github.com/artellblender/empties_to_bones/blob/master/empties_to_bones.py#L49">empties_to_bones/empties_to_bones.py at master · artellblender/empties_to_bones · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://community.khronos.org/t/how-to-calculate-the-bone-direction-and-roll-from-matrix-and-vice-versa-gltf-importer/109473/3">How to calculate the bone direction and roll from matrix and vice versa (glTF importer)? - glTF - Khronos Forums</a></p></li>
 </ul>
 </section>
 </section>
@@ -289,7 +268,7 @@ lsp に任せればよい</p></li>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/python/pyi.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/CG/blender/blender_rig.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -309,15 +288,10 @@ lsp に任せればよい</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">PEP561</a></li>
-<li><a class="reference internal" href="#type-checker-module-resolution-order">Type Checker Module Resolution Order</a></li>
-<li><a class="reference internal" href="#id1">実装</a><ul>
-<li><a class="reference internal" href="#from-python">from python コード</a></li>
-<li><a class="reference internal" href="#native-module">native module</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#implementation">Implementation</a><ul>
-<li><a class="reference internal" href="#articles">articles</a></li>
+<li><a class="reference internal" href="#">CustomShape</a></li>
+<li><a class="reference internal" href="#finger">Finger</a></li>
+<li><a class="reference internal" href="#axis">Axis</a><ul>
+<li><a class="reference internal" href="#logic">logic</a></li>
 </ul>
 </li>
 </ul>

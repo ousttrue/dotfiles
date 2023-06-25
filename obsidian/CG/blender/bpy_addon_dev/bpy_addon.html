@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../../genindex.html" /><link rel="search" title="検索" href="../../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Verson - shell note ドキュメント</title>
+        <title>path - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
@@ -218,33 +218,162 @@
           </label>
         </div>
         <article role="main">
-          <p>[[bpy_addon]]
-[[bpy_template_list]]
-[[bpy.types.Panel]]
-[[bpy_node]]
-[[bpy_material]]
-[[blend_file]]
-[[blender]]
-[[bpy.data]]
-[[bpy.context.window_manager]]
-[[bpy.types.Scene]]
-[[bpy.types.Object]]</p>
+          <p>[[blender]]</p>
+<p><code class="docutils literal notranslate"><span class="pre">timeline</span></code> のところに <code class="docutils literal notranslate"><span class="pre">info</span></code> を表示しておく</p>
+<section class="tex2jax_ignore mathjax_ignore" id="path">
+<h1>path<a class="headerlink" href="#path" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>@2021 <a class="reference external" href="https://zenn.dev/hotcocoa/articles/5c5ab06c40862b">PythonでBlenderを操作してみる</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="verson">
-<h1>Verson<a class="headerlink" href="#verson" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://docs.blender.org/api/latest/">Blender latest Python API Documentation — Blender Python API</a></p>
-<section id="id1">
-<h2>3.4<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.blender.org/api/3.4/">Blender 3.4 Python API Documentation — Blender Python API</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%APPDATA%/Blender</span> <span class="pre">Foundation/Blender/2.79/scripts/addons/ADDON_NAME.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%APPDATA%/Blender</span> <span class="pre">Foundation/Blender/2.79/scripts/addons/ADDON_NAME/__init__.py</span></code></p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>2.8<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="bl-info">
+<h1>bl_info<a class="headerlink" href="#bl-info" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://sites.google.com/site/matosus304blendernotes/home/blender-python-script">Blender Python Script - mato.sus304 Blender Notes</a></p></li>
+<li><p><a class="reference external" href="https://docs.blender.org/manual/en/latest/advanced/scripting/addon_tutorial.html">Add-on Tutorial — Blender Manual</a></p></li>
+<li><p><a class="reference external" href="https://wiki.blender.org/wiki/Process/Addons/Guidelines/metainfo">Process/Addons/Guidelines/metainfo - Blender Developer Wiki</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://note.com/kageji/n/ncbacc5428a55">Blender addonを作ろう｜Kageji</a></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bl_info</span> <span class="o">=</span> <span class="p">{</span>
+ 	<span class="c1"># blender addon panel に表示</span>
+     <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"addons name"</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="id1">
+<h2>登録に関する情報<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="support">
+<h3>support<a class="headerlink" href="#support" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>"TESTING" # TESTING は 3.5 で廃止</p></li>
+<li><p>"COMMUNITY": default</p></li>
+<li><p>"OFFICIAL"</p></li>
+</ul>
+<p>つまり書かなくて良い。</p>
+</section>
+<section id="category">
+<h3>category<a class="headerlink" href="#category" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>3D View Add Mesh Add Curve Animation Compositing Development Game Engine Import-Export Lighting Material Mesh Node Object Paint Physics Render Rigging Scene Sequencer System Text Editor UV UserInterface</p>
+</section>
+<section id="blender">
+<h3>blender<a class="headerlink" href="#blender" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">(major,</span> <span class="pre">minor,</span> <span class="pre">patch)</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id2">
+<h2>パネルに表示する情報<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="description">
+<h3>description<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">text</span></code>
+自由に書いて良い</p>
+</section>
+<section id="location">
+<h3>location<a class="headerlink" href="#location" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">text</span></code>
+UIのアクセス方法。自由に書いて良い</p>
+</section>
+<section id="author">
+<h3>author<a class="headerlink" href="#author" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">text</span></code></p>
+</section>
+<section id="version">
+<h3>version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">(major,</span> <span class="pre">minor,</span> <span class="pre">patch)</span></code></p>
+</section>
+<section id="warning">
+<h3>warning<a class="headerlink" href="#warning" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">text</span></code>
+自由に書いて良い</p>
+</section>
+<section id="wiki-url">
+<h3>wiki_url<a class="headerlink" href="#wiki-url" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">text</span></code></p>
+</section>
+<section id="tracker-url">
+<h3>tracker_url<a class="headerlink" href="#tracker-url" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">text</span></code></p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="class">
+<h1>class<a class="headerlink" href="#class" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="operator">
+<h2>Operator<a class="headerlink" href="#operator" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[bpy.types.Operator]]</p>
+</section>
+<section id="panel">
+<h2>Panel<a class="headerlink" href="#panel" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[bpy.types.Panel]]</p>
+</section>
+<section id="property">
+<h2>Property<a class="headerlink" href="#property" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[bpy.types.ProertyGroup]]</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="register-unregister">
+<h1>register/unregister<a class="headerlink" href="#register-unregister" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 作ったクラスを格納</span>
+<span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">KJ_Monkey_Panel</span><span class="p">,</span><span class="n">KJ_Create_Monkey</span><span class="p">]</span>
+
+<span class="c1"># belnderに登録する関数</span>
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+   <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
+       <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+   <span class="c1"># メニュー関数はappendする</span>
+   <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">VIEW3D_MT_mesh_add</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menu_monkey</span><span class="p">)</span>
+
+<span class="c1"># belnderから登録解除する関数</span>
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+   <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
+       <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+   <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">VIEW3D_MT_mesh_add</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">menu_monkey</span><span class="p">)</span>
+
+<span class="c1"># pythonファイルを実行するおまじない</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+   <span class="n">register</span><span class="p">()</span>
+</pre></div>
+</div>
+<section id="menu">
+<h2>Menu<a class="headerlink" href="#menu" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">メニュー登録も必須！</span></code>
+[[bpy_menu]]</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tools">
+<h1>tools<a class="headerlink" href="#tools" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="watch">
+<h2>watch<a class="headerlink" href="#watch" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/SaitoTsutomu/items/5872c5e0358394360697">Blender 3.5で、addonにTestingを復活させる方法 - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/SaitoTsutomu/items/6b8e6e734c99be6eeb5e">Blenderのアドオン作成のメモ - Qiita</a></p></li>
+</ul>
+</section>
+<section id="blender-development">
+<h2>Blender Development<a class="headerlink" href="#blender-development" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>debugger ?</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.omusubi-tech.com/?p=422">【Blender】アドオン開発環境構築 | ツクロウヤ</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="lsp">
+<h1>LSP<a class="headerlink" href="#lsp" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dungeonneko.hatenablog.com/entry/2021/04/05/002319">VSCodeでBlenderスクリプト編集環境準備 - Hello World / plɹoM ollǝH</a></p></li>
+</ul>
+<section id="fake-bpy-module">
+<h2>fake-bpy-module<a class="headerlink" href="#fake-bpy-module" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/nutti/fake-bpy-module">GitHub - nutti/fake-bpy-module: Fake Blender Python API module collection for the code completion.</a></p></li>
+</ul>
+</section>
+<section id="fake-bpy">
+<h2>fake-bpy<a class="headerlink" href="#fake-bpy" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://colorful-pico.net/introduction-to-addon-development-in-blender/2.8/html/chapter_04/03_Code_Complete_Blender_API.html">4-3. BlenderのAPIをコード補完する | はじめてのBlenderアドオン開発</a></p></li>
 </ul>
 </section>
 </section>
@@ -262,7 +391,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../../_sources/obsidian/CG/blender/bpy_addon_dev/bpy.md.txt"
+            | <a class="muted-link" href="../../../../_sources/obsidian/CG/blender/bpy_addon_dev/bpy_addon.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -282,9 +411,44 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Verson</a><ul>
-<li><a class="reference internal" href="#id1">3.4</a></li>
-<li><a class="reference internal" href="#id2">2.8</a></li>
+<li><a class="reference internal" href="#">path</a></li>
+<li><a class="reference internal" href="#bl-info">bl_info</a><ul>
+<li><a class="reference internal" href="#id1">登録に関する情報</a><ul>
+<li><a class="reference internal" href="#support">support</a></li>
+<li><a class="reference internal" href="#category">category</a></li>
+<li><a class="reference internal" href="#blender">blender</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">パネルに表示する情報</a><ul>
+<li><a class="reference internal" href="#description">description</a></li>
+<li><a class="reference internal" href="#location">location</a></li>
+<li><a class="reference internal" href="#author">author</a></li>
+<li><a class="reference internal" href="#version">version</a></li>
+<li><a class="reference internal" href="#warning">warning</a></li>
+<li><a class="reference internal" href="#wiki-url">wiki_url</a></li>
+<li><a class="reference internal" href="#tracker-url">tracker_url</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#class">class</a><ul>
+<li><a class="reference internal" href="#operator">Operator</a></li>
+<li><a class="reference internal" href="#panel">Panel</a></li>
+<li><a class="reference internal" href="#property">Property</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#register-unregister">register/unregister</a><ul>
+<li><a class="reference internal" href="#menu">Menu</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tools">tools</a><ul>
+<li><a class="reference internal" href="#watch">watch</a></li>
+<li><a class="reference internal" href="#blender-development">Blender Development</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lsp">LSP</a><ul>
+<li><a class="reference internal" href="#fake-bpy-module">fake-bpy-module</a></li>
+<li><a class="reference internal" href="#fake-bpy">fake-bpy</a></li>
 </ul>
 </li>
 </ul>
