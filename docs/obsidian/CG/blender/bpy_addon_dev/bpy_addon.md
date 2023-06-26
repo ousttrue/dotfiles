@@ -115,3 +115,7 @@ debugger ?
 - [GitHub - nutti/fake-bpy-module: Fake Blender Python API module collection for the code completion.](https://github.com/nutti/fake-bpy-module)
 ## fake-bpy
 - [4-3. BlenderのAPIをコード補完する | はじめてのBlenderアドオン開発](https://colorful-pico.net/introduction-to-addon-development-in-blender/2.8/html/chapter_04/03_Code_Complete_Blender_API.html)
+
+# reload
+- [Python で from import を reload する。 - graphics.hatenablog.com](https://graphics.hatenablog.com/entry/2017/12/03/004714#%E3%81%9D%E3%82%82%E3%81%9D%E3%82%82%E3%81%AA%E3%82%93%E3%81%A7-reload-%E3%81%99%E3%82%8B%E3%81%AE%E3%81%8B)
+reimport してから from import するべし
