@@ -220,39 +220,39 @@
         <article role="main">
           <p>bpy hand
 https://twitter.com/kiofwjjptyq08cz/status/1131168550968672257</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="kn">import</span> <span class="nn">bpy</span>
- <span class="kn">from</span> <span class="nn">mathutils</span> <span class="kn">import</span> <span class="n">Vector</span>
- <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
- 
- 
- <span class="k">class</span> <span class="nc">Bone</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
-     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-     <span class="n">length</span><span class="p">:</span> <span class="nb">float</span>
- 
- 
- <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
-     <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">view_layer</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="n">obj</span>
-     <span class="n">obj</span><span class="o">.</span><span class="n">select_set</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
- 
- 
- <span class="k">def</span> <span class="nf">get_or_create_bone</span><span class="p">(</span><span class="n">armature</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Armature</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-     <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">armature</span><span class="o">.</span><span class="n">edit_bones</span><span class="p">:</span>
-         <span class="k">return</span> <span class="n">armature</span><span class="o">.</span><span class="n">edit_bones</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-     <span class="k">return</span> <span class="n">armature</span><span class="o">.</span><span class="n">edit_bones</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
- 
- 
- <span class="k">class</span> <span class="nc">Hand</span><span class="p">:</span>
-     <span class="sd">'''</span>
-<span class="sd">     手首から指: 10</span>
-<span class="sd">     指: 5-3-2</span>
-<span class="sd">     親指: 5-4-3</span>
-<span class="sd">     '''</span>
- 
-     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-         <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span>
-         <span class="bp">self</span><span class="o">.</span><span class="n">suffix</span> <span class="o">=</span> <span class="n">suffix</span>
- 
-     <span class="k">def</span> <span class="nf">create_finger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">armature</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Armature</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">from</span> <span class="nn">mathutils</span> <span class="kn">import</span> <span class="n">Vector</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+
+
+<span class="k">class</span> <span class="nc">Bone</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">length</span><span class="p">:</span> <span class="nb">float</span>
+
+
+<span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">view_layer</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="n">obj</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">select_set</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_or_create_bone</span><span class="p">(</span><span class="n">armature</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Armature</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">armature</span><span class="o">.</span><span class="n">edit_bones</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">armature</span><span class="o">.</span><span class="n">edit_bones</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">armature</span><span class="o">.</span><span class="n">edit_bones</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Hand</span><span class="p">:</span>
+    <span class="sd">'''</span>
+<span class="sd">    手首から指: 10</span>
+<span class="sd">    指: 5-3-2</span>
+<span class="sd">    親指: 5-4-3</span>
+<span class="sd">    '''</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suffix</span> <span class="o">=</span> <span class="n">suffix</span>
+
+    <span class="k">def</span> <span class="nf">create_finger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">armature</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Armature</span><span class="p">,</span>
                        <span class="n">hand</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">EditBone</span><span class="p">,</span> <span class="n">offset</span><span class="p">:</span> <span class="n">Vector</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                        <span class="n">proximal_length</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">intermediate_length</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                        <span class="n">distal_length</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
@@ -309,29 +309,28 @@ https://twitter.com/kiofwjjptyq08cz/status/1131168550968672257</p>
                             <span class="mi">2</span><span class="p">)</span>
  
  
- <span class="k">def</span> <span class="nf">get_or_create_armature</span><span class="p">():</span>
-     <span class="n">active</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span>
-     <span class="k">if</span> <span class="n">active</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">active</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Armature</span><span class="p">):</span>
-         <span class="nb">print</span><span class="p">(</span><span class="s1">'found'</span><span class="p">)</span>
-         <span class="k">return</span> <span class="n">active</span>
- 
-     <span class="nb">print</span><span class="p">(</span><span class="s1">'create'</span><span class="p">)</span>
-     <span class="c1"># data</span>
-     <span class="n">data</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">armatures</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Armature"</span><span class="p">)</span>
-     <span class="c1"># obj</span>
-     <span class="n">obj</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Armature"</span><span class="p">,</span> <span class="n">object_data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-     <span class="c1"># link</span>
-     <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
- 
-     <span class="k">return</span> <span class="n">obj</span>
- 
- 
- <span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
-     <span class="nb">print</span><span class="p">(</span><span class="s1">'## start ##'</span><span class="p">)</span>
-     <span class="n">obj</span> <span class="o">=</span> <span class="n">get_or_create_armature</span><span class="p">()</span>
-     <span class="n">hand</span> <span class="o">=</span> <span class="n">Hand</span><span class="p">(</span><span class="mf">0.15</span> <span class="o">/</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">'.L'</span><span class="p">)</span>
-     <span class="n">hand</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_or_create_armature</span><span class="p">():</span>
+    <span class="n">active</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span>
+    <span class="k">if</span> <span class="n">active</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">active</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Armature</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'found'</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">active</span>
 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'create'</span><span class="p">)</span>
+    <span class="c1"># data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">armatures</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Armature"</span><span class="p">)</span>
+    <span class="c1"># obj</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Armature"</span><span class="p">,</span> <span class="n">object_data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+    <span class="c1"># link</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">obj</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'## start ##'</span><span class="p">)</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">get_or_create_armature</span><span class="p">()</span>
+    <span class="n">hand</span> <span class="o">=</span> <span class="n">Hand</span><span class="p">(</span><span class="mf">0.15</span> <span class="o">/</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">'.L'</span><span class="p">)</span>
+    <span class="n">hand</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </pre></div>
 </div>
 
