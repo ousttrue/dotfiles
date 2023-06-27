@@ -82,20 +82,20 @@ local plugins = {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-frecency.nvim",
+      -- "nvim-telescope/telescope-frecency.nvim",
       "xiyaowong/telescope-emoji.nvim",
     },
     config = function()
       require("config.telescope").setup()
     end,
   },
-  {
-    "nvim-telescope/telescope-frecency.nvim",
-    config = function()
-      require("config.telescope-frecency").setup()
-    end,
-    dependencies = { "kkharji/sqlite.lua" },
-  },
+  -- {
+  --   "nvim-telescope/telescope-frecency.nvim",
+  --   config = function()
+  --     require("config.telescope-frecency").setup()
+  --   end,
+  --   dependencies = { "kkharji/sqlite.lua" },
+  -- },
   {
     "tyru/open-browser.vim",
     config = function()

@@ -2,39 +2,39 @@ bpy hand
 https://twitter.com/kiofwjjptyq08cz/status/1131168550968672257
 
 ```python
- import bpy
- from mathutils import Vector
- from typing import NamedTuple
- 
- 
- class Bone(NamedTuple):
-     name: str
-     length: float
- 
- 
- def activate(obj):
-     bpy.context.view_layer.objects.active = obj
-     obj.select_set(True)
- 
- 
- def get_or_create_bone(armature: bpy.types.Armature, name: str):
-     if name in armature.edit_bones:
-         return armature.edit_bones[name]
-     return armature.edit_bones.new(name)
- 
- 
- class Hand:
-     '''
-     手首から指: 10
-     指: 5-3-2
-     親指: 5-4-3
-     '''
- 
-     def __init__(self, scale: float, suffix: str):
-         self.scale = scale
-         self.suffix = suffix
- 
-     def create_finger(self, armature: bpy.types.Armature,
+import bpy
+from mathutils import Vector
+from typing import NamedTuple
+
+
+class Bone(NamedTuple):
+    name: str
+    length: float
+
+
+def activate(obj):
+    bpy.context.view_layer.objects.active = obj
+    obj.select_set(True)
+
+
+def get_or_create_bone(armature: bpy.types.Armature, name: str):
+    if name in armature.edit_bones:
+        return armature.edit_bones[name]
+    return armature.edit_bones.new(name)
+
+
+class Hand:
+    '''
+    手首から指: 10
+    指: 5-3-2
+    親指: 5-4-3
+    '''
+
+    def __init__(self, scale: float, suffix: str):
+        self.scale = scale
+        self.suffix = suffix
+
+    def create_finger(self, armature: bpy.types.Armature,
                        hand: bpy.types.EditBone, offset: Vector, name: str,
                        proximal_length: float, intermediate_length: float,
                        distal_length: float):
@@ -91,26 +91,26 @@ https://twitter.com/kiofwjjptyq08cz/status/1131168550968672257
                             2)
  
  
- def get_or_create_armature():
-     active = bpy.context.active_object
-     if active and isinstance(active.data, bpy.types.Armature):
-         print('found')
-         return active
- 
-     print('create')
-     # data
-     data = bpy.data.armatures.new(name="Armature")
-     # obj
-     obj = bpy.data.objects.new(name="Armature", object_data=data)
-     # link
-     bpy.context.scene.collection.objects.link(obj)
- 
-     return obj
- 
- 
- def run():
-     print('## start ##')
-     obj = get_or_create_armature()
-     hand = Hand(0.15 / 20, '.L')
-     hand.create(obj)
+def get_or_create_armature():
+    active = bpy.context.active_object
+    if active and isinstance(active.data, bpy.types.Armature):
+        print('found')
+        return active
 
+    print('create')
+    # data
+    data = bpy.data.armatures.new(name="Armature")
+    # obj
+    obj = bpy.data.objects.new(name="Armature", object_data=data)
+    # link
+    bpy.context.scene.collection.objects.link(obj)
+
+    return obj
+
+
+def run():
+    print('## start ##')
+    obj = get_or_create_armature()
+    hand = Hand(0.15 / 20, '.L')
+    hand.create(obj)
+```
