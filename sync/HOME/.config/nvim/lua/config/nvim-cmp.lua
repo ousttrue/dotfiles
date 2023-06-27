@@ -15,11 +15,11 @@ function M.setup()
   local function custom_next(fallback)
     if cmp.visible() then
       cmp.select_next_item()
-    -- https://www.reddit.com/r/neovim/comments/z9os8x/strange_behaviour_cursor_jumping_with_tabkey/
-    -- elseif luasnip.expand_or_jumpable() then
-    --   luasnip.expand_or_jump()
-    --   -- elseif has_words_before() then
-    --   --   cmp.complete()
+      -- https://www.reddit.com/r/neovim/comments/z9os8x/strange_behaviour_cursor_jumping_with_tabkey/
+      -- elseif luasnip.expand_or_jumpable() then
+      --   luasnip.expand_or_jump()
+      --   -- elseif has_words_before() then
+      --   --   cmp.complete()
     else
       fallback()
     end
@@ -28,8 +28,8 @@ function M.setup()
   local function custom_prev(fallback)
     if cmp.visible() then
       cmp.select_prev_item()
-    -- elseif luasnip.jumpable(-1) then
-    --   luasnip.jump(-1)
+      -- elseif luasnip.jumpable(-1) then
+      --   luasnip.jump(-1)
     else
       fallback()
     end
@@ -64,7 +64,7 @@ function M.setup()
     },
 
     completion = {
-      -- autocomplete = true,
+      autocomplete = false,
     },
 
     window = {
