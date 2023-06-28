@@ -224,6 +224,11 @@
 <li><p>VIEW3D_MT_object</p></li>
 <li><p>VIEW3D_MT_mesh_add</p></li>
 </ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">OPERATORS</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">op</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">)</span>
+</pre></div>
+</div>
 
         </article>
       </div>

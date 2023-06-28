@@ -219,7 +219,8 @@
         </div>
         <article role="main">
           <p>[[rig]]
-[[blender]]</p>
+[[blender]]
+[[bpy.types.Bone]]</p>
 <ul class="simple">
 <li><p>@2020 <a class="reference external" href="https://note.com/info_/n/ndccf33cd8975">【Blender】速攻で歩行サイクルアニメーションをつくる｜yugaki｜note</a></p></li>
 </ul>
@@ -227,9 +228,69 @@
 <h1>create<a class="headerlink" href="#create" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="bone">
 <h2>bone構築<a class="headerlink" href="#bone" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>部位</p></th>
+<th class="head"><p>X+</p></th>
+<th class="head"><p>roll</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>胴体(hips-spine-neck-head)</p></td>
+<td><p>前屈</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>左腕(shoulder-upper-lower)</p></td>
+<td><p>肘の曲がる方向</p></td>
+<td><p>+90</p></td>
+</tr>
+<tr class="row-even"><td><p>右腕(shoulder-upper-lower)</p></td>
+<td><p>肘の曲がる方向</p></td>
+<td><p>-90</p></td>
+</tr>
+<tr class="row-odd"><td><p>手指(hand-index, middle, ring, little)</p></td>
+<td><p>指の曲がる方向</p></td>
+<td><p>180</p></td>
+</tr>
+<tr class="row-even"><td><p>左親指</p></td>
+<td><p>指の曲がる方向</p></td>
+<td><p>-90</p></td>
+</tr>
+<tr class="row-odd"><td><p>右親指</p></td>
+<td><p>指の曲がる方向</p></td>
+<td><p>+90</p></td>
+</tr>
+<tr class="row-even"><td><p>足(upper-lower-foot</p></td>
+<td><p>膝の曲がる方向</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>つま先(upper-lower-foot</p></td>
+<td><p>膝の曲がる方向</p></td>
+<td><p>180</p></td>
+</tr>
+</tbody>
+</table></div>
+<section id="roll">
+<h3>roll<a class="headerlink" href="#roll" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><p>足の roll は左に +x ?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl-R</span></code></p></li>
+<li><p><a class="reference external" href="http://24ka.blog.fc2.com/blog-entry-1290.html">boneのロール角度を変更する（blender→MMD）-Cobweb of にーしか</a></p></li>
+<li><p><a class="reference external" href="https://dskjal.com/blender/local-axis-setting.html">ボーンのローカル回転軸設定</a></p></li>
+<li><p><a class="reference external" href="https://note.com/info_/n/n5b7e732f7e74">【Blender】検証と考察：ボーンの適切な軸方向、回転軸｜yugaki</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YAxis</span> <span class="pre">=</span> <span class="pre">head</span> <span class="pre">-&gt;</span> <span class="pre">tail</span></code></p></li>
 </ul>
+</section>
+<section id="logic">
+<h3>logic<a class="headerlink" href="#logic" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">vec_roll_to_mat3_normalized</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">nor</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">roll</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">r_mat</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]);</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/dfelinto/blender/blob/master/source/blender/blenkernel/intern/armature.c#L2084">blender/source/blender/blenkernel/intern/armature.c at master · dfelinto/blender · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://github.com/artellblender/empties_to_bones/blob/master/empties_to_bones.py#L49">empties_to_bones/empties_to_bones.py at master · artellblender/empties_to_bones · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://community.khronos.org/t/how-to-calculate-the-bone-direction-and-roll-from-matrix-and-vice-versa-gltf-importer/109473/3">How to calculate the bone direction and roll from matrix and vice versa (glTF importer)? - glTF - Khronos Forums</a></p></li>
+</ul>
+</section>
 </section>
 <section id="customshape">
 <h2>customshape<a class="headerlink" href="#customshape" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -241,6 +302,32 @@
 </li>
 <li><p><a class="reference external" href="https://note.com/info_/n/n43e63ad9fec3">【Blender】ボーングループとカスタムシェイプ｜yugaki</a></p></li>
 </ul>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>bone</p></th>
+<th class="head"><p>shape</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>root</p></td>
+<td><p>root</p></td>
+<td><p>replace</p></td>
+</tr>
+<tr class="row-odd"><td><p>hips</p></td>
+<td><p>pyramid</p></td>
+<td><p>replace</p></td>
+</tr>
+<tr class="row-even"><td><p>spine</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>chest</p></td>
+<td><p>chest</p></td>
+<td><p>replace</p></td>
+</tr>
+</tbody>
+</table></div>
 </section>
 <section id="root">
 <h2>root<a class="headerlink" href="#root" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -295,6 +382,10 @@
 <li><p><a class="reference external" href="https://note.com/info_/n/nb0ee9f7d2d0a">【Blender】シンプルなボーンとリグのつくり方｜yugaki｜note</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=NPmhARRFYDk&amp;ab_channel=%E3%81%8B%E3%82%93%E3%81%9F%E3%81%9F">[blender] インポートしたVRMをリグ化するスクリプト（説明欄からダウンロードできます） - YouTube</a></p></li>
 </ul>
+<p>構築済</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://studio.blender.org/training/animation-fundamentals/5d69ab4dea6789db11ee65d1/">Animation Fundamentals Rigs v1.0 - Animation Fundamentals - Blender Studio</a></p></li>
+</ul>
 </section>
 <section id="autorig">
 <h2>autorig<a class="headerlink" href="#autorig" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -335,7 +426,11 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">create</a><ul>
-<li><a class="reference internal" href="#bone">bone構築</a></li>
+<li><a class="reference internal" href="#bone">bone構築</a><ul>
+<li><a class="reference internal" href="#roll">roll</a></li>
+<li><a class="reference internal" href="#logic">logic</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#customshape">customshape</a></li>
 <li><a class="reference internal" href="#root">root</a></li>
 <li><a class="reference internal" href="#ik">足IK</a></li>
