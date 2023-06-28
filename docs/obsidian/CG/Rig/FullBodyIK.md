@@ -1,4 +1,4 @@
-[[IK]]
+[[InverseKinematics]]
 
 - @2020 [フルボディIKのデモプログラムを作りました | gyojirのblog](https://blog.gyojir.com/posts/zE0WNjSHa)
 

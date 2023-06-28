@@ -40,25 +40,65 @@ void vec_roll_to_mat3_normalized(const float nor[3], const float roll, float r_m
 	- [GitHub - waylow/boneWidget: Blender add-on for making bone shape](https://github.com/waylow/boneWidget)
 - [【Blender】ボーングループとカスタムシェイプ｜yugaki](https://note.com/info_/n/n43e63ad9fec3)
 
-|bone|shape||
-|-|-|-|
-|root|root|replace|
-|hips|pyramid|replace|
-|spine|||
-|chest|chest|replace|
+## picker
+[【Rigi Picker】 Rigify や自分のリグのボーン選択を補助するピッカーアドオン【Blenderアドオン】 - Bookyakuno - BOOTH](https://bookyakuno.booth.pm/items/2385943)
 
-
-## root
-十字Shape
+## IK switch
+- Limit Location
+- [Blender で IK/FK 一致スクリプトを書く](https://dskjal.com/blender/ik-fk-snap.html)
+- [Blender で IK-FK 切り替えスイッチ](https://dskjal.com/blender/IK-FK-switch.html)
+- [BlenderでIK/FKスイッチを作る方法 | 3DCG school](https://3dcg-school.pro/blender-ik-fk-switching/)
+	driver: influence
+ 
+# constraint
+## bone constraint
+- @2022 [Blenderボーンコンストレイントを名前基準で一括設定 - Qiita](https://qiita.com/yukimituki11/items/0a9f864271046cdc996e)
+- @2021 [【Blender3.0】コンストレイントでアニメーション作業を効率化！！ | CGbox](https://cgbox.jp/2021/12/28/blender-constraint/)
 
 ## 足IK
 - @2020 [【Blender】シンプルなボーンとリグのつくり方｜yugaki](https://note.com/info_/n/nb0ee9f7d2d0a)
+- @2020 [【Blender】改良）シンプルなボーンとリグのつくり方｜yugaki](https://note.com/info_/n/n1e04f3db69e7)
+- 膝1cm前進
+- target,  not connect, parent = root
+- poleTarget, not connect, parent = root
+- chain2
+- pollAngle-90
 
-## 指まとめて曲げる
+# specific
+## root
+- 十字Shape
+- ik target を乗せる
+
+## InvertedPelvis
+- [骨盤のボーン配置](https://dskjal.com/blender/rigging-pelvis.html)
+
+## reverse foot
+- [Blender でリバースフットリグを組む](https://dskjal.com/blender/reverse-foot-rig.html)
+- [#08 リバースフットリグで足先を動かそう！ [Blender Rig道] - YouTube](https://www.youtube.com/watch?v=hmjGLL2i3-A&ab_channel=Yonaoshi3D)
+- @2020 [＜Blender＞リバースフットリグってなんなんな｜ななっしゅ](https://note.com/nanash_/n/n3fd0d0219543)
+- @2018 [アニメーション練習用リグ 配布（Blender 簡易リバースフット付き） | k.m-Z blog](http://flash.zzz.heavy.jp/?eid=585145)
+- [エコなリバースフットリグ | 株式会社ヘキサドライブ | HEXADRIVE | ゲーム制作を中心としたコンテンツクリエイト会社](https://hexadrive.jp/hexablog/creative/25546/)
+- [【blender】　汎用人型リグ/リバースフット部分の構造セットアップ解説 | TOY-BOX](https://toy-box.link/2019/09/24/post-1536.html)
+- [リバースフットリグ　左足だけ設定 | 「Promised 君の空へ」制作中](https://ameblo.jp/promised-kiminosorae/entry-12494496130.html)
+- [キャラクターリグ(8) - リバースフット - - メモ帳](http://sakana0147.blog53.fc2.com/blog-entry-864.html)
+- [Blenderでビーチサンダルのモデリング | 三次のおやつブログ](https://tonakai1070.com/blender_beach_sandals)
+
+## 指まとめて 曲げる/広げる
+- [＜Blender＞トランスフォーム変換と位置制限｜ななっしゅ](https://note.com/nanash_/n/nb1b6e4a02580)
 - shape paddle
 - rock scale: xz
 - constraint
 	- copy rotation [rigging - How to rig the fingers - Blender Stack Exchange](https://blender.stackexchange.com/questions/162255/how-to-rig-the-fingers)
+
+## 親指
+- [ロボットハンドモデリングの親指の関節問題 | 三次のおやつブログ](https://tonakai1070.com/blender_manipulator_thumb)
+
+## 球体関節
+- [＃005「脇」をガン見して球体関節モデリングを研究する - YouTube](https://www.youtube.com/watch?v=RA-v2-SVHiA&ab_channel=onitikuTRAIN)
+- [桃プリンと愉快なBlender (@momojiri@pawoo.net) - Pawoo](https://pawoo.net/@momojiri)
+
+## メカ
+- [ロボット開発への妄想を具現化　Blenderで作るメカニカルな動きの表現 | Vook(ヴック)](https://vook.vc/n/3854)
 
 # download
 - [リギングの参考になる無償配布のリグ付きキャラクタモデル < アニメーションとリギング < 知っておきたい機能 | Blender入門(3.0 / 3.1 / 3.2 / 3.3版)](https://blender3d.biz/knowledge_animationandrigging_distributedfreerigmodels.html)
@@ -79,10 +119,12 @@ void vec_roll_to_mat3_normalized(const float nor[3], const float roll, float r_m
 
 # addon
 ### Rigify
-[[Rigify]]
+[[blender_rig]]
 
 - [【Blender】シンプルなボーンとリグのつくり方｜yugaki｜note](https://note.com/info_/n/nb0ee9f7d2d0a)
 - [[blender] インポートしたVRMをリグ化するスクリプト（説明欄からダウンロードできます） - YouTube](https://www.youtube.com/watch?v=NPmhARRFYDk&ab_channel=%E3%81%8B%E3%82%93%E3%81%9F%E3%81%9F)
+- [Blender / Rigifyでリグを組む基礎 | アニログ](https://3dcg.comaroku.com/blender-rigfy-setup/)
+- [Blenderのリグ生成アドオンRigifyを完全に理解する | 3DCG school](https://3dcg-school.pro/blender-rigify-tutorial/)
 
 構築済
 - [Animation Fundamentals Rigs v1.0 - Animation Fundamentals - Blender Studio](https://studio.blender.org/training/animation-fundamentals/5d69ab4dea6789db11ee65d1/)

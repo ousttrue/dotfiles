@@ -1,3 +1,5 @@
+- [GUILTY GEAR Xrd開発スタッフが送るアニメ調キャラモデリングTIPS](https://www.slideshare.net/ASW_Yokohama/guilty-gear-xrdtips-124324946)
+
 # 脚
 - [にゃんたろう さんのイラスト一覧 - ニコニコ静画 (イラスト)](https://seiga.nicovideo.jp/user/illust/2849610) 
 	- [【ＭＭＤモデル配布】脚 / にゃんたろう さんのイラスト - ニコニコ静画 (イラスト)](https://seiga.nicovideo.jp/seiga/im5164519)

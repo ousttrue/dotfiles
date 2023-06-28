@@ -20,7 +20,7 @@
 
 - [Pose Library — Blender Manual](https://docs.blender.org/manual/en/latest/animation/armatures/properties/pose_library.html)
 	[Converting Old Pose Libraries](https://docs.blender.org/manual/en/latest/animation/armatures/posing/editing/pose_library.html#old-pose-library)
-- [[rig_mox]]
+- [[rig]]
 
 - @2018 [ポーズライブラリのポーズリストを一気にモーフに焼き付けるアドオン:Poselib2Morph | soramame式](http://mrsoramame.jpn.org/archives/612) 
 - @2015 https://www.blendernation.com/2015/10/06/add-on-pose-lib-preview-makes-pose-switching-easy-and-fast/
