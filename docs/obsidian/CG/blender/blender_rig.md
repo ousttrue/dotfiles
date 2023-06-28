@@ -1,15 +1,52 @@
 [[rig]]
 [[blender]]
+[[bpy.types.Bone]]
 
 - @2020 [【Blender】速攻で歩行サイクルアニメーションをつくる｜yugaki｜note](https://note.com/info_/n/ndccf33cd8975)
 # create
 ## bone構築
-- 足の roll は左に +x ?
+
+|部位|X+|roll|
+| - |  - |  - |
+|胴体(hips-spine-neck-head)|前屈|
+|左腕(shoulder-upper-lower)|肘の曲がる方向|+90|
+|右腕(shoulder-upper-lower)|肘の曲がる方向|-90|
+|手指(hand-index, middle, ring, little)|指の曲がる方向|180|
+|左親指|指の曲がる方向|-90|
+|右親指|指の曲がる方向|+90|
+|足(upper-lower-foot|膝の曲がる方向|
+|つま先(upper-lower-foot|膝の曲がる方向|180|
+
+### roll
+- `Ctrl-R`
+- [boneのロール角度を変更する（blender→MMD）-Cobweb of にーしか](http://24ka.blog.fc2.com/blog-entry-1290.html)
+- [ボーンのローカル回転軸設定](https://dskjal.com/blender/local-axis-setting.html)
+- [【Blender】検証と考察：ボーンの適切な軸方向、回転軸｜yugaki](https://note.com/info_/n/n5b7e732f7e74)
+
+- `YAxis = head -> tail`
+
+### logic
+```c
+void vec_roll_to_mat3_normalized(const float nor[3], const float roll, float r_mat[3][3]);
+```
+- [blender/source/blender/blenkernel/intern/armature.c at master · dfelinto/blender · GitHub](https://github.com/dfelinto/blender/blob/master/source/blender/blenkernel/intern/armature.c#L2084) 
+
+- [empties_to_bones/empties_to_bones.py at master · artellblender/empties_to_bones · GitHub](https://github.com/artellblender/empties_to_bones/blob/master/empties_to_bones.py#L49)
+
+- [How to calculate the bone direction and roll from matrix and vice versa (glTF importer)? - glTF - Khronos Forums](https://community.khronos.org/t/how-to-calculate-the-bone-direction-and-roll-from-matrix-and-vice-versa-gltf-importer/109473/3)
 
 ## customshape
 - [GitHub - BlenderDefender/BoneWidget: Blender addon for easy custom bone shapes](https://github.com/BlenderDefender/boneWidget)
 	- [GitHub - waylow/boneWidget: Blender add-on for making bone shape](https://github.com/waylow/boneWidget)
 - [【Blender】ボーングループとカスタムシェイプ｜yugaki](https://note.com/info_/n/n43e63ad9fec3)
+
+|bone|shape||
+|-|-|-|
+|root|root|replace|
+|hips|pyramid|replace|
+|spine|||
+|chest|chest|replace|
+
 
 ## root
 十字Shape
@@ -46,5 +83,8 @@
 
 - [【Blender】シンプルなボーンとリグのつくり方｜yugaki｜note](https://note.com/info_/n/nb0ee9f7d2d0a)
 - [[blender] インポートしたVRMをリグ化するスクリプト（説明欄からダウンロードできます） - YouTube](https://www.youtube.com/watch?v=NPmhARRFYDk&ab_channel=%E3%81%8B%E3%82%93%E3%81%9F%E3%81%9F)
+
+構築済
+- [Animation Fundamentals Rigs v1.0 - Animation Fundamentals - Blender Studio](https://studio.blender.org/training/animation-fundamentals/5d69ab4dea6789db11ee65d1/)
 
 ### autorig
