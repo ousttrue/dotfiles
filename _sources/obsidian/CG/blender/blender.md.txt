@@ -2,10 +2,11 @@
 [[AssetLibrary]]
 [[blender_addon]]
 [[bpy_addon]]
+[[greacepencil]]
 
 - [Blender Hack Blog](https://blender-hack.hatenablog.com/)
 
-- [Blenderでお絵描き実験！手書きアニメーターがグリースペンシルに出会って見つけた5つのこと | Vook(ヴック)](https://vook.vc/n/3863)
+- [「雑貨であふれる賑やかなキッチン」をBlenderで作ってみた｜kirillovlov](https://note.com/kirillovlov/n/n4677b51753fc)
 
 # Version
 ## 3.4
