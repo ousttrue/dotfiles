@@ -1,6 +1,7 @@
 [[rig]]
 [[blender]]
 [[bpy.types.Bone]]
+[[mox_rig]]
 
 - @2020 [【Blender】速攻で歩行サイクルアニメーションをつくる｜yugaki｜note](https://note.com/info_/n/ndccf33cd8975)
 # create
@@ -102,7 +103,6 @@ void vec_roll_to_mat3_normalized(const float nor[3], const float roll, float r_m
 
 # download
 - [リギングの参考になる無償配布のリグ付きキャラクタモデル < アニメーションとリギング < 知っておきたい機能 | Blender入門(3.0 / 3.1 / 3.2 / 3.3版)](https://blender3d.biz/knowledge_animationandrigging_distributedfreerigmodels.html)
-- [フリーリグ｜株式会社モックス - 3DCGアニメーションを手付けモーションでより魅力的に。](https://mox-motion.com/freerig/)
 - [【Blenderフリーリグ】素体モデル『SOTA』 - コマット通販 - BOOTH](https://booth.pm/ja/items/2165393)
 - [Blender Animation Rig Lisks /Blenderで使用できるフリーのリグ付きモデルリンク集 | ohweb](https://ohweb.work/blender-animation-rig-lisks/)
 - [Red-Nelb Rig Blender 2.8x - CG Cookie | Learn Blender, Online Tutorials and Feedback](https://cgcookie.com/downloads/red-nelb-rig-blender-2-8x?utm_source=blendernation&utm_content=red-nelb-rig-blender-2-8x)
