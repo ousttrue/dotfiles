@@ -57,3 +57,51 @@ pyramid
 - layer2 に隠蔽
 - IK
 - foot.offset
+
+# 構築手順
+- root
+- COG
+	- tail 40cm
+	- connected: False
+	- parent: root
+	- spine の位置
+- pelvis
+	- connected: False
+	- parent: COG
+	- tail: hips.head
+- hips:
+	- parent: pelvis
+	- lock
+- spine
+	- inherit rotation: false
+
+## LegIK
+- add: LegIK.L
+	- from: lowerLeg.tail
+	- connected: False
+	- parent: root
+- add: LegPole.L 
+	- from: upperLeg.tail
+	- connected: False
+	- parent: LegIK.L
+- LowerLeg.L: constraint: IK
+	- target: LegIK.L
+	- pole: LegPole.L
+	- pole angle: -90
+	- chain: 2
+- 膝10cm前進
+- copy: foot.L
+	- connected: False
+	- parent: LegIK.L
+- Foot.L: constraint: copy rotation
+
+## ArmIK
+- copy: hand.L to ArmIK.L
+	- connected: False
+	- parent: COG
+	- roll: 0 ?
+- add: ArmPole.L 
+	- connected: False
+	- parent.ArmIK.L
+- LowerArm: constraint: IK 
+- Hand: constraint: copy rotation 
