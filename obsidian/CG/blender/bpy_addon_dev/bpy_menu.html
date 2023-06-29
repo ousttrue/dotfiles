@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../../genindex.html" /><link rel="search" title="検索" href="../../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>menu に追加。 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,22 +212,21 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
           <p>[[bpy_addon]]</p>
-<ul class="simple">
-<li><p>VIEW3D_MT_view</p></li>
-<li><p>VIEW3D_MT_object</p></li>
-<li><p>VIEW3D_MT_mesh_add</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">layout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span>
-    <span class="n">layout</span><span class="o">.</span><span class="n">separator</span><span class="p">()</span>
-    <span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s2">"node.duplicate_move"</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">"My new context menu item"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Operator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+	<span class="n">bl_idname</span> <span class="o">=</span> <span class="n">armature</span><span class="o">.</span><span class="n">add_humanoid</span>
+
+<span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span>
+		<span class="n">MESH_OT_add_helix</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> 
+		<span class="n">text</span><span class="o">=</span><span class="s2">"Helix"</span><span class="p">,</span> 
+		<span class="n">icon</span><span class="o">=</span><span class="s1">'MESH_CUBE'</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">NODE_MT_context_menu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">draw_menu</span><span class="p">)</span>
@@ -236,6 +235,51 @@
     <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">NODE_MT_context_menu</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">draw_menu</span><span class="p">)</span>
 </pre></div>
 </div>
+<section id="menu">
+<h1>menu に追加。<a class="headerlink" href="#menu" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_to_menu</span><span class="p">(</span><span class="n">menu</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">op</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="s2">"bl_icon"</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">op</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="n">op</span><span class="o">.</span><span class="n">bl_icon</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">op</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">)</span>
+
+    <span class="nb">getattr</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="p">,</span> <span class="n">menu</span><span class="p">)</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="n">menu_func</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">VIEW3D_MT_armature_add</span></code> (Add - Armature に追加する)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VIEW3D_MT_mesh_add</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VIEW3D_MT_view</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VIEW3D_MT_object</span></code></p></li>
+</ul>
+</section>
+<section id="submenu">
+<h1>submenu<a class="headerlink" href="#submenu" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/nutti/items/3f75f34adab99a805a35">[Blender] プラグインでサブメニューを作成する方法 - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>MENU<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.types.Menu.html">Menu(bpy_struct) — Blender Python API</a></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>import bpy
+
+class BasicMenu(bpy.types.Menu):
+    bl_idname = "OBJECT_MT_select_test"
+    bl_label = "Select"
+
+    def draw(self, context):
+        layout = self.layout
+
+        layout.operator("object.select_all", text="Select/Deselect All").action = 'TOGGLE'
+        layout.operator("object.select_all", text="Inverse").action = 'INVERT'
+        layout.operator("object.select_random", text="Random")```
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
@@ -258,8 +302,26 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">menu に追加。</a></li>
+<li><a class="reference internal" href="#submenu">submenu</a></li>
+<li><a class="reference internal" href="#id1">MENU</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
