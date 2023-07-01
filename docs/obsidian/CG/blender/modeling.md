@@ -10,3 +10,24 @@
 
 # room
 - [作成した3Dモデルの中にthree.jsで影をつける方法](https://zenn.dev/kaito_takase/articles/c96c2ed77fbaee)
+
+# 練習
+- 続けられるように部品化して、部分ごとにアップデートしていく方式にしてみる
+- 全部1weight でロボットとかドールみたいな感じにする
+- hips - spine - chest - neck -head
+	- upper-lower-hand
+		- thumb0,1,2
+		- index0,1,2
+		- middle0,1,2
+		- ring0,1,2
+		- little0,1,2
+	- upper-lower-foot-toe
+shoulder 捨てる
+部品わけ。交換可能ように大きめに球体関節いれておく
+- Hips-Spine-Chest-Neck	
+- 球？ Head
+- 球 Arm
+	- Hand-fingers
+- 球 Leg 
+	- Foot-Toe		
+- 素の glTF エクスポーターで有効な要素を使う
