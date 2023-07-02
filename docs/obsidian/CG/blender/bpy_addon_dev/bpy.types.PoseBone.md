@@ -22,3 +22,8 @@ for b in obj.pose.bones:
         #b.lock_rotation[2]=True
         print(b.name, [l for l in b.lock_rotation])
 ```
+
+# constraint
+## driver
+- [スクリプトからドライバーをつける&IK/FK切り替えスイッチの自動セットアップ](https://dskjal.com/blender/add-driver-with-python.html)
+- [Adding driver to pose bone constraint through Python - Game Engine / Game Engine Support and Discussion - Blender Artists Community](https://blenderartists.org/t/adding-driver-to-pose-bone-constraint-through-python/570419)

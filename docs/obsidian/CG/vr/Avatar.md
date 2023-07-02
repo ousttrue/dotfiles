@@ -172,3 +172,7 @@ description: "8/4追記　PB対応完了しました。 ・PBの導入方法に�
 host: dokuganp.booth.pm
 image: https://booth.pximg.net/c/620x620/90445b2e-c4c2-44eb-abdf-53229c1b1090/i/3645493/81bf8421-55fa-4f56-b274-a5ab1cbea064_base_resized.jpg
 ```
+
+https://froginyata.booth.pm/
+
+[オリジナル３Dモデル 【ソア】 - Soa - hir - BOOTH](https://hir.booth.pm/items/2643399)

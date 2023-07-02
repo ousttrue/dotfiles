@@ -8,6 +8,12 @@
 - [【身体の描き方】画力と表現力が劇的に上がる「神技作画」 | イラスト・マンガ描き方ナビ](https://www.clipstudio.net/oekaki/archives/152526)
 - [意外と知らないお尻の描き方 ～ステップアップ！イラストを上手く描くコツ！～ | いちあっぷ](https://ichi-up.net/2022/05) 
 
+## 靴
+- [スニーカーを作ってみよう!【Blender】 - YouTube](https://www.youtube.com/watch?v=QMhK0yW94QY&ab_channel=Jump%21Jun3Dch)
+
+ # 手
+ - [匠メカハンドシリーズ 『13cmサイズロボット用ハンド・角指①』について – アワートレジャー](http://ourtreasure.co.jp/2017/08/25/%E5%8C%A0%E3%83%A1%E3%82%AB%E3%83%8F%E3%83%B3%E3%83%89%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E3%80%8E13cm%E3%82%B5%E3%82%A4%E3%82%BA%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E7%94%A8%E3%83%8F%E3%83%B3-2/)
+ 
 # room
 - [作成した3Dモデルの中にthree.jsで影をつける方法](https://zenn.dev/kaito_takase/articles/c96c2ed77fbaee)
 
