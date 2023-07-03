@@ -25,3 +25,8 @@ def enter_pose(obj: bpy.types.Object):
             bpy.ops.object.posemode_toggle()        
                 
 ```
+
+# Snap
+カーソルによるハックでできる。
+バグ仕様みたいな。
+- [rigging - Snapping Bones to Bones (In Other Armature) - Blender Stack Exchange](https://blender.stackexchange.com/questions/194024/snapping-bones-to-bones-in-other-armature)
