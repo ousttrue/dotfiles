@@ -1,4 +1,5 @@
 [[MotionCapture|pose]]
+[[blender_rig]]
 
 FK Pose を生成する入力 Rig
 

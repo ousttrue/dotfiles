@@ -37,3 +37,6 @@ shoulder 捨てる
 - 球 Leg 
 	- Foot-Toe		
 - 素の glTF エクスポーターで有効な要素を使う
+
+# 球体関節
+- [＃005「脇」をガン見して球体関節モデリングを研究する - YouTube](https://www.youtube.com/watch?v=RA-v2-SVHiA&ab_channel=onitikuTRAIN)
