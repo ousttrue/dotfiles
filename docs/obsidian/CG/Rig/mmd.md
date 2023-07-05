@@ -18,3 +18,13 @@
 [GitHub - errno-mmd/VMD-Lifting: VMD-Lifting is a fork of 'Lifting from the Deep' that outputs estimated 3D pose data to a VMD file](https://github.com/errno-mmd/VMD-Lifting)
 
 [GitHub - errno-mmd/smoothvmd: make VMD motion smooth and slim](https://github.com/errno-mmd/smoothvmd)
+
+# Model
+## 原神
+- [【原神】公式MMDモデル配布一覧（3.0～3.8） 原神 | HoYoLAB](https://www.hoyolab.com/article/7165347)
+
+## Nikke
+- [勝利の女神：NIKKE｜背中で魅せるガンガールRPG](https://nikke-jp.com/mmd.html)
+
+## 幻塔
+- [Tower of Fantasy（幻塔）公式サイト —未来を共に駆けるオープンワールドRPG](https://www.toweroffantasy-global.com/news-detail.html)
