@@ -1,4 +1,5 @@
 [[bpy]]
+[[bpy.props]]
 
 `class` に属性を登録する
 
@@ -7,8 +8,4 @@
 
 # bpy.types.PropertyGroup
 - [PropertyGroup(bpy_struct) — Blender Python API](https://docs.blender.org/api/current/bpy.types.PropertyGroup.html)
-
-
-# bpy.props
-- [Property Definitions (bpy.props) — Blender Python API](https://docs.blender.org/api/current/bpy.props.html)
 

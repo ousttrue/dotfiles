@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,13 +212,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[bpy]]</p>
+          <p>[[bpy]]
+[[bpy.props]]</p>
 <p><code class="docutils literal notranslate"><span class="pre">class</span></code> に属性を登録する</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://bluebirdofoz.hatenablog.com/entry/2019/11/12/090304">Blender2.8でUIパネルに自作のプロパティを追加する - MRが楽しい</a></p></li>
@@ -228,12 +229,6 @@
 <h1>bpy.types.PropertyGroup<a class="headerlink" href="#bpy-types-propertygroup" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.types.PropertyGroup.html">PropertyGroup(bpy_struct) — Blender Python API</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="bpy-props">
-<h1>bpy.props<a class="headerlink" href="#bpy-props" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.props.html">Property Definitions (bpy.props) — Blender Python API</a></p></li>
 </ul>
 </section>
 
@@ -258,25 +253,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">bpy.types.PropertyGroup</a></li>
-<li><a class="reference internal" href="#bpy-props">bpy.props</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
