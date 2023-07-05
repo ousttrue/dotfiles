@@ -7,10 +7,18 @@ active = bpy.context.active_object
 ```
 
 # data block
+`ID` タイプ？
+```python
+obj.data
+```
+
 ## Mesh
 [[bpy.types.Mesh]]
 
-# mode
+## Armature
+[[bpy.types.Armature]]
+
+# active_object
 context.mode は active_object の mode
 
 ```python
@@ -24,16 +32,11 @@ context.mode は active_object の mode
  bpy.ops.object.mode_set('OBJECT',toggle=False)
  ```
 
-# pose
-[[bpy.types.Pose]]
-
+# select
 ```python
-o = bpy.context.active_object
-pose = o.pose
-
-for b in pose.bones:
-	print(b)
+bpy.context.selected_objects
 ```
+
 
 # custom property
 - [Blenderのカスタムプロパティの使い方 - Qiita](https://qiita.com/SaitoTsutomu/items/b6cfd5aeb760d49ea657)

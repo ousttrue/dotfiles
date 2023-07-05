@@ -1,4 +1,5 @@
 - [GUILTY GEAR Xrd開発スタッフが送るアニメ調キャラモデリングTIPS](https://www.slideshare.net/ASW_Yokohama/guilty-gear-xrdtips-124324946)
+- [キャラクターモデリングを始めた頃の自分に教えたいこと(Blender)｜リオ](https://note.com/rio_vroidmmd/n/n101d56cded12)
 
 # 脚
 - [にゃんたろう さんのイラスト一覧 - ニコニコ静画 (イラスト)](https://seiga.nicovideo.jp/user/illust/2849610) 
