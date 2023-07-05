@@ -23,8 +23,17 @@
 ## 原神
 - [【原神】公式MMDモデル配布一覧（3.0～3.8） 原神 | HoYoLAB](https://www.hoyolab.com/article/7165347)
 
+## 崩壊3rd
+- [まとめ　崩壊3rdのMMDモデル　2023/2/21最新化 崩壊3rd | HoYoLAB](https://www.hoyolab.com/article/1640795)
+
 ## Nikke
 - [勝利の女神：NIKKE｜背中で魅せるガンガールRPG](https://nikke-jp.com/mmd.html)
 
 ## 幻塔
 - [Tower of Fantasy（幻塔）公式サイト —未来を共に駆けるオープンワールドRPG](https://www.toweroffantasy-global.com/news-detail.html)
+
+## hololive
+- [MMDホロライブ](https://www.mmd.hololive.tv/)
+
+## アニエス
+- @2015 [アニエスのハイクオリティMMDモデル無料配布！｜ブレイブリーセカンド｜SQUARE ENIX](https://www.jp.square-enix.com/game/material/b2nd/mmd-download.html)
