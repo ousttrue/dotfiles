@@ -225,13 +225,21 @@
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="data-block">
 <h1>data block<a class="headerlink" href="#data-block" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">ID</span></code> タイプ？</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
 <section id="mesh">
 <h2>Mesh<a class="headerlink" href="#mesh" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>[[bpy.types.Mesh]]</p>
 </section>
+<section id="armature">
+<h2>Armature<a class="headerlink" href="#armature" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[bpy.types.Armature]]</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="mode">
-<h1>mode<a class="headerlink" href="#mode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="active-object">
+<h1>active_object<a class="headerlink" href="#active-object" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>context.mode は active_object の mode</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="kn">import</span> <span class="nn">bpy</span>
  <span class="c1">#現在のモード取得</span>
@@ -244,14 +252,9 @@
 </pre></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="pose">
-<h1>pose<a class="headerlink" href="#pose" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[bpy.types.Pose]]</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">o</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span>
-<span class="n">pose</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">pose</span>
-
-<span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">pose</span><span class="o">.</span><span class="n">bones</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<section class="tex2jax_ignore mathjax_ignore" id="select">
+<h1>select<a class="headerlink" href="#select" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">selected_objects</span>
 </pre></div>
 </div>
 </section>
@@ -297,10 +300,11 @@
             <ul>
 <li><a class="reference internal" href="#">data block</a><ul>
 <li><a class="reference internal" href="#mesh">Mesh</a></li>
+<li><a class="reference internal" href="#armature">Armature</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#mode">mode</a></li>
-<li><a class="reference internal" href="#pose">pose</a></li>
+<li><a class="reference internal" href="#active-object">active_object</a></li>
+<li><a class="reference internal" href="#select">select</a></li>
 <li><a class="reference internal" href="#custom-property">custom property</a></li>
 </ul>
 

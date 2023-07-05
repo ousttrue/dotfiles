@@ -8,6 +8,18 @@ for bone in a.bones:
 ```
 [[bpy.types.Bone]]
 
+# pose
+[[bpy.types.Pose]]
+
+`Armature.pose` ではなく `obj.pose` であることに注意。
+```python
+o = bpy.context.active_object
+pose = o.pose
+
+for b in pose.bones:
+	print(b)
+```
+
 # POSE mode
 
 ```python
