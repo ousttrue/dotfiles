@@ -1,4 +1,4 @@
-[[bpy_addon]]
+[[bl_info]]
 
 - [Operator(bpy_struct) — Blender Python API](https://docs.blender.org/api/current/bpy.types.Operator.html)
 
@@ -28,7 +28,31 @@ class ObjectMoveX(bpy.types.Operator):
 - [2-3. オペレータプロパティを活用する | はじめてのBlenderアドオン開発](https://colorful-pico.net/introduction-to-addon-development-in-blender/2.8/html/chapter_02/03_Use_Operator_Property.html)
 
 ## invoke と execute
-execute で property をセットアップして、invoke で実行する
+invoke: property をsetup して実行
+execute: 設定済みの property 使って実行
+
+```python
+class SimpleMouseOperator(bpy.types.Operator):
+    """ This operator shows the mouse location,
+        this string is used for the tooltip and API docs
+    """
+    bl_idname = "wm.mouse_position"
+    bl_label = "Invoke Mouse Operator"
+
+    x: bpy.props.IntProperty()
+    y: bpy.props.IntProperty()
+
+    def invoke(self, context, event):
+        self.x = event.mouse_x
+        self.y = event.mouse_y
+        return self.execute(context)
+
+    def execute(self, context):
+        # rather than printing, use the report function,
+        # this way the message appears in the header,
+        self.report({'INFO'}, "Mouse coords are %d %d" % (self.x, self.y))
+        return {'FINISHED'}
+```
 
 ## poll
 `edit mode` など状況を限定できる

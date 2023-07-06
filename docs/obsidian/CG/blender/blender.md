@@ -1,7 +1,7 @@
 [[IsometricRoom]]
 [[AssetLibrary]]
 [[blender_addon]]
-[[bpy_addon]]
+[[bl_info]]
 [[greacepencil]]
 
 - [Blender Hack Blog](https://blender-hack.hatenablog.com/)

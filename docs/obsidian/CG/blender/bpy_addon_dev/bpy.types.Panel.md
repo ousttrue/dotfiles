@@ -42,9 +42,9 @@ import bpy
 
 class HelloWorldPanel(bpy.types.Panel):
     bl_idname = "OBJECT_PT_hello_world"
-    bl_label = "Hello World"
     bl_space_type = 'PROPERTIES'
     bl_region_type = 'WINDOW'
+    bl_label = "Hello World"
     bl_context = "object"
 
     @classmethod
@@ -60,3 +60,5 @@ class HelloWorldPanel(bpy.types.Panel):
 
 # layout
 - [UILayout(bpy_struct) — Blender Python API](https://docs.blender.org/api/current/bpy.types.UILayout.html)
+- [python - How to use template_any_ID() into Ui Layout? - Blender Stack Exchange](https://blender.stackexchange.com/questions/214038/how-to-use-template-any-id-into-ui-layout)
+
