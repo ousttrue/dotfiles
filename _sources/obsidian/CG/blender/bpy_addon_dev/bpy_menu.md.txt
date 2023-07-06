@@ -1,4 +1,4 @@
-[[bpy_addon]]
+[[bl_info]]
 
 
 ```python

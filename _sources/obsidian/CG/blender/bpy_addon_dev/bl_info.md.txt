@@ -1,4 +1,4 @@
-[[blender]]
+[[bpy]]
 
 `timeline` のところに `info` を表示しておく
 
@@ -14,8 +14,9 @@
 
 ```python
 bl_info = {
- 	# blender addon panel に表示
-     "name": "addons name",
+	# 必須
+	"name": "addons name",
+	"version": (3,0,0),
 }
 ```
 
@@ -118,4 +119,17 @@ debugger ?
 
 # reload
 - [Python で from import を reload する。 - graphics.hatenablog.com](https://graphics.hatenablog.com/entry/2017/12/03/004714#%E3%81%9D%E3%82%82%E3%81%9D%E3%82%82%E3%81%AA%E3%82%93%E3%81%A7-reload-%E3%81%99%E3%82%8B%E3%81%AE%E3%81%8B)
-reimport してから from import するべし
+
+```python
+if "bpy" in locals():
+    import importlib
+	# reload してから from import するべし
+    importlib.reload(humanoid_parts_properties)  # type: ignore
+    importlib.reload(humanoid_parts_panels)  # type: ignore
+    importlib.reload(humanoid_parts_search)  # type:ignore
+
+import bpy  # type: ignore
+from .humanoid_parts_properties import HumanoidProperties
+from .humanoid_parts_panels import HumanoidPartsAssemblePanel
+from .humanoid_parts_search import HumanoidPartsSearch
+```

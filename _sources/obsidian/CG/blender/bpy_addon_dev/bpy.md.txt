@@ -1,4 +1,4 @@
-[[bpy_addon]]
+[[bl_info]]
 [[bpy_template_list]]
 [[bpy.types.Panel]]
 [[bpy_node]]
