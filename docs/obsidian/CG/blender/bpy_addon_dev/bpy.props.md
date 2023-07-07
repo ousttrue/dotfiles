@@ -9,10 +9,50 @@
 
 # float
 ## floatVector
+```python
+bpy.types.Scene.my_vector = bpy.props.FloatVectorProperty(
+		default=(1, 1, 1), 
+		subtype='DIRECTION')
 
+class OP:
+    scale: bpy.props.FloatVectorProperty(  # type: ignore
+        name="拡大率",
+        description="複製したオブジェクトの拡大率を設定します",
+        default=(1.0, 1.0, 1.0),
+        subtype="XYZ",
+        unit="LENGTH",
+    )
+    rotation: bpy.props.FloatVectorProperty(  # type: ignore
+        name="回転角度",
+        description="複製したオブジェクトの回転角度を設定します",
+        default=(0.0, 0.0, 0.0),
+        subtype="AXISANGLE",
+        unit="ROTATION",
+    )
+    offset: bpy.props.FloatVectorProperty(  # type: ignore
+        name="オフセット",
+        description="複製したオブジェクトの配置位置からのオフセットを設定します",
+        default=(0.0, 0.0, 0.0),
+        subtype="TRANSLATION",
+        unit="LENGTH",
+    )
+```
+	
 # string
 
 # enum
+```python
+def location_list_fn(scene, context):
+    items = [("3D_CURSOR", "3Dカーソル", "3Dカーソル上に配置します"), ("ORIGIN", "原点", "原点に配置します")]
+    items.extend([("OBJ_" + o.name, o.name, "オブジェクトに配置します") for o in bpy.data.objects])
+
+    return items
+
+class OP:
+    location: bpy.props.EnumProperty(  # type: ignore
+        name="配置位置", description="複製したオブジェクトの配置位置", items=location_list_fn
+    )
+```
 
 # pointer
 
