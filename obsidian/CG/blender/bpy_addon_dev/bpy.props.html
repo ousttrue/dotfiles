@@ -237,6 +237,34 @@
 <h1>float<a class="headerlink" href="#float" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="floatvector">
 <h2>floatVector<a class="headerlink" href="#floatvector" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Scene</span><span class="o">.</span><span class="n">my_vector</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatVectorProperty</span><span class="p">(</span>
+		<span class="n">default</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> 
+		<span class="n">subtype</span><span class="o">=</span><span class="s1">'DIRECTION'</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">OP</span><span class="p">:</span>
+    <span class="n">scale</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatVectorProperty</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">"拡大率"</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">"複製したオブジェクトの拡大率を設定します"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+        <span class="n">subtype</span><span class="o">=</span><span class="s2">"XYZ"</span><span class="p">,</span>
+        <span class="n">unit</span><span class="o">=</span><span class="s2">"LENGTH"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">rotation</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatVectorProperty</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">"回転角度"</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">"複製したオブジェクトの回転角度を設定します"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+        <span class="n">subtype</span><span class="o">=</span><span class="s2">"AXISANGLE"</span><span class="p">,</span>
+        <span class="n">unit</span><span class="o">=</span><span class="s2">"ROTATION"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">offset</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatVectorProperty</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">"オフセット"</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">"複製したオブジェクトの配置位置からのオフセットを設定します"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+        <span class="n">subtype</span><span class="o">=</span><span class="s2">"TRANSLATION"</span><span class="p">,</span>
+        <span class="n">unit</span><span class="o">=</span><span class="s2">"LENGTH"</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="string">
@@ -244,6 +272,18 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="enum">
 <h1>enum<a class="headerlink" href="#enum" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">location_list_fn</span><span class="p">(</span><span class="n">scene</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"3D_CURSOR"</span><span class="p">,</span> <span class="s2">"3Dカーソル"</span><span class="p">,</span> <span class="s2">"3Dカーソル上に配置します"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"ORIGIN"</span><span class="p">,</span> <span class="s2">"原点"</span><span class="p">,</span> <span class="s2">"原点に配置します"</span><span class="p">)]</span>
+    <span class="n">items</span><span class="o">.</span><span class="n">extend</span><span class="p">([(</span><span class="s2">"OBJ_"</span> <span class="o">+</span> <span class="n">o</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">"オブジェクトに配置します"</span><span class="p">)</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">items</span>
+
+<span class="k">class</span> <span class="nc">OP</span><span class="p">:</span>
+    <span class="n">location</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">EnumProperty</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">"配置位置"</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"複製したオブジェクトの配置位置"</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">location_list_fn</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="pointer">
 <h1>pointer<a class="headerlink" href="#pointer" title="このヘッドラインへのパーマリンク">¶</a></h1>

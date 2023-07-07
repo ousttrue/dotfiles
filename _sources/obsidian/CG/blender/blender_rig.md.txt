@@ -37,9 +37,11 @@ void vec_roll_to_mat3_normalized(const float nor[3], const float roll, float r_m
 - [How to calculate the bone direction and roll from matrix and vice versa (glTF importer)? - glTF - Khronos Forums](https://community.khronos.org/t/how-to-calculate-the-bone-direction-and-roll-from-matrix-and-vice-versa-gltf-importer/109473/3)
 
 ## customshape
+- [【Blender】ボーングループとカスタムシェイプ｜yugaki](https://note.com/info_/n/n43e63ad9fec3)
+
 - [GitHub - BlenderDefender/BoneWidget: Blender addon for easy custom bone shapes](https://github.com/BlenderDefender/boneWidget)
 	- [GitHub - waylow/boneWidget: Blender add-on for making bone shape](https://github.com/waylow/boneWidget)
-- [【Blender】ボーングループとカスタムシェイプ｜yugaki](https://note.com/info_/n/n43e63ad9fec3)
+- [GitHub - LesFeesSpeciales/blender-rigging-scripts: Addons to automate rigging tasks in Blender.](https://github.com/LesFeesSpeciales/blender-rigging-scripts/tree/master)
 
 ## picker
 [【Rigi Picker】 Rigify や自分のリグのボーン選択を補助するピッカーアドオン【Blenderアドオン】 - Bookyakuno - BOOTH](https://bookyakuno.booth.pm/items/2385943)
