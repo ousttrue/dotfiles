@@ -385,15 +385,20 @@ UIのアクセス方法。自由に書いて良い</p>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">"bpy"</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
     <span class="kn">import</span> <span class="nn">importlib</span>
-	<span class="c1"># reload してから from import するべし</span>
-    <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">humanoid_parts_properties</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
-    <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">humanoid_parts_panels</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
-    <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">humanoid_parts_search</span><span class="p">)</span>  <span class="c1"># type:ignore</span>
+
+    <span class="n">local_map</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">reload</span><span class="p">(</span><span class="n">module_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">module</span> <span class="o">=</span> <span class="n">local_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">module</span><span class="p">:</span>
+            <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">module_name</span><span class="si">}</span><span class="s1"> is not in locals'</span><span class="p">)</span>
+
+    <span class="n">reload</span><span class="p">(</span><span class="s2">"hoge"</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">bpy</span>  <span class="c1"># type: ignore</span>
-<span class="kn">from</span> <span class="nn">.humanoid_parts_properties</span> <span class="kn">import</span> <span class="n">HumanoidProperties</span>
-<span class="kn">from</span> <span class="nn">.humanoid_parts_panels</span> <span class="kn">import</span> <span class="n">HumanoidPartsAssemblePanel</span>
-<span class="kn">from</span> <span class="nn">.humanoid_parts_search</span> <span class="kn">import</span> <span class="n">HumanoidPartsSearch</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">hoge</span>
 </pre></div>
 </div>
 </section>

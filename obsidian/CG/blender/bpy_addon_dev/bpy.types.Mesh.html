@@ -219,6 +219,20 @@
         </div>
         <article role="main">
           <p>[[bpy]]</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_obj</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Object</span>
+	<span class="n">mesh</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Mesh</span> <span class="o">=</span> <span class="n">mesh_obj</span><span class="o">.</span><span class="n">data</span>
+		<span class="n">vertex</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">MeshVertex</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+	<span class="n">group</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">VertexGroup</span> <span class="o">=</span> <span class="n">mesh_obj</span><span class="o">.</span><span class="n">groups</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.types.Mesh.html">Mesh(ID) — Blender Python API</a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.types.MeshVertex.html">MeshVertex(bpy_struct) — Blender Python API</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.types.VertexGroup.html#bpy.types.VertexGroup">VertexGroup(bpy_struct) — Blender Python API</a></p></li>
+</ul>
 <section class="tex2jax_ignore mathjax_ignore" id="mesh">
 <h1>Mesh<a class="headerlink" href="#mesh" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="from-pydata">
@@ -227,9 +241,39 @@
 <li><p><a class="reference external" href="https://qiita.com/kenyoshi17/items/b93bbba6451e3c6017e5">Blender PythonのMeshデータアクセスのチートシート - Qiita</a></p></li>
 </ul>
 </section>
+<section id="separate">
+<h2>separate<a class="headerlink" href="#separate" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.ops.mesh.html">Mesh Operators — Blender Python API</a></p></li>
+</ul>
+<p>実行後は、<code class="docutils literal notranslate"><span class="pre">context.selected_objects</span></code> で分割された Object にアクセスできるぽい</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blender.stackexchange.com/questions/42385/scritping-rename-while-using-bpy-ops-mesh-separatetype-material">scripting - Scritping: rename while using bpy.ops.mesh.separate(type='MATERIAL') - Blender Stack Exchange</a></p></li>
+</ul>
+</section>
+<section id="bmesh">
+<h2>BMesh<a class="headerlink" href="#bmesh" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[BMesh]]</p>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="vertex">
 <h1>Vertex<a class="headerlink" href="#vertex" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="selection">
+<h2>selection<a class="headerlink" href="#selection" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blender.stackexchange.com/questions/43127/how-do-i-select-specific-vertices-in-blender-using-python-script">How do I select specific vertices in blender using python script? - Blender Stack Exchange</a></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="n">mode</span> <span class="o">=</span> <span class="s1">'OBJECT'</span><span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="n">mode</span> <span class="o">=</span> <span class="s1">'EDIT'</span><span class="p">)</span> 
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">select_mode</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"VERT"</span><span class="p">)</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">select_all</span><span class="p">(</span><span class="n">action</span> <span class="o">=</span> <span class="s1">'DESELECT'</span><span class="p">)</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="n">mode</span> <span class="o">=</span> <span class="s1">'OBJECT'</span><span class="p">)</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">select</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># only object mode</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="n">mode</span> <span class="o">=</span> <span class="s1">'EDIT'</span><span class="p">)</span> 
+</pre></div>
+</div>
+</section>
 <section id="shapekey">
 <h2>Shapekey<a class="headerlink" href="#shapekey" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
@@ -239,7 +283,7 @@
 <section id="vertexgroup">
 <h2>VertexGroup<a class="headerlink" href="#vertexgroup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://note.com/replicorn/n/n8f7f3ec49d65">Fetching Title#o46m</a></p></li>
+<li><p><a class="reference external" href="https://note.com/replicorn/n/n8f7f3ec49d65">頂点グループを調べる｜Hajime Saito</a></p></li>
 <li><p><a class="reference external" href="https://bluebirdofoz.hatenablog.com/entry/2019/07/02/091942">Blenderで利用可能なpythonスクリプトを作る その２０（頂点グループの追加と削除） - MRが楽しい</a></p></li>
 </ul>
 </section>
@@ -302,9 +346,12 @@
             <ul>
 <li><a class="reference internal" href="#">Mesh</a><ul>
 <li><a class="reference internal" href="#from-pydata">from_pydata</a></li>
+<li><a class="reference internal" href="#separate">separate</a></li>
+<li><a class="reference internal" href="#bmesh">BMesh</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#vertex">Vertex</a><ul>
+<li><a class="reference internal" href="#selection">selection</a></li>
 <li><a class="reference internal" href="#shapekey">Shapekey</a></li>
 <li><a class="reference internal" href="#vertexgroup">VertexGroup</a></li>
 </ul>

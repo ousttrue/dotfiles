@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../../genindex.html" /><link rel="search" title="検索" href="../../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>all_objects - shell note ドキュメント</title>
+        <title>scene - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
@@ -219,24 +219,52 @@
         </div>
         <article role="main">
           <p>[[blender]]
-[[bpy]]</p>
+[[bpy]]
+[[bpy.types.Scene]]</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.blender.org/api/current/bpy.types.Collection.html#bpy.types.Collection">Collection(ID) — Blender Python API</a></p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">collection</span>
-</pre></div>
-</div>
-<ul class="simple">
 <li><p><a class="reference external" href="https://dskjal.com/blender/how-to-use-collection.html#move-collection">Blender 2.83 のコレクション・ビューレイヤー操作</a></p></li>
 <li><p><a class="reference external" href="https://cgworld.jp/regular/202101-ggblender-05.html">ベテランジェネラリストのBlender基礎レッスン 第5回：Blenderのシーン構成（2）Collection</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="all-objects">
-<h1>all_objects<a class="headerlink" href="#all-objects" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="scene">
+<h1>scene<a class="headerlink" href="#scene" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">scene</span></code> は collection の木で構築される</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">collection</span>
+</pre></div>
+</div>
+<section id="collection">
+<h2>collection の親子<a class="headerlink" href="#collection" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">child_collection</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="objects">
+<h1>objects<a class="headerlink" href="#objects" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[bpy.types.Object]]</p>
+<section id="empty">
+<h2>empty に対する親子との違い<a class="headerlink" href="#empty" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>empty の親に対する操作は子供に影響しない(可視性など)</p></li>
+<li><p>collection に対する操作はメンバーに影響する(可視性など)</p></li>
+</ul>
+</section>
+<section id="collection-object">
+<h2>collection に object を入れる<a class="headerlink" href="#collection-object" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">collection</span>
+<span class="c1"># ではなく</span>
+<span class="n">collection</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="all-objects">
+<h2>all_objects<a class="headerlink" href="#all-objects" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>再帰的な列挙</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">collection</span><span class="o">.</span><span class="n">all_objects</span><span class="p">:</span>
 	<span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="instance">
 <h1>instance<a class="headerlink" href="#instance" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -278,7 +306,16 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">all_objects</a></li>
+<li><a class="reference internal" href="#">scene</a><ul>
+<li><a class="reference internal" href="#collection">collection の親子</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#objects">objects</a><ul>
+<li><a class="reference internal" href="#empty">empty に対する親子との違い</a></li>
+<li><a class="reference internal" href="#collection-object">collection に object を入れる</a></li>
+<li><a class="reference internal" href="#all-objects">all_objects</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#instance">instance</a></li>
 </ul>
 

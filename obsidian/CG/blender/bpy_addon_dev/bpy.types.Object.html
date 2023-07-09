@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../../genindex.html" /><link rel="search" title="検索" href="../../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>data block - shell note ドキュメント</title>
+        <title>構造 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
@@ -223,6 +223,20 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">active</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span>
 </pre></div>
 </div>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>構造<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[bpy.types.Collection]]</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 本体</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span>
+<span class="c1"># outliner</span>
+<span class="n">collection</span><span class="o">.</span><span class="n">objects</span>
+<span class="c1"># parent</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">parent</span>
+<span class="c1"># children</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">children</span>
+</pre></div>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="data-block">
 <h1>data block<a class="headerlink" href="#data-block" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">ID</span></code> タイプ？</p>
@@ -237,26 +251,6 @@
 <h2>Armature<a class="headerlink" href="#armature" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>[[bpy.types.Armature]]</p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="active-object">
-<h1>active_object<a class="headerlink" href="#active-object" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>context.mode は active_object の mode</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="kn">import</span> <span class="nn">bpy</span>
- <span class="c1">#現在のモード取得</span>
- <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">mode</span>
-
- <span class="c1"># アクティブオブジェクトを設定する</span>
- <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">view_layer</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="n">obj</span>
- <span class="c1">#オブジェクトモードに変更</span>
- <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="s1">'OBJECT'</span><span class="p">,</span><span class="n">toggle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="select">
-<h1>select<a class="headerlink" href="#select" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">selected_objects</span>
-</pre></div>
-</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="custom-property">
 <h1>custom property<a class="headerlink" href="#custom-property" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -298,13 +292,12 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">data block</a><ul>
+<li><a class="reference internal" href="#">構造</a></li>
+<li><a class="reference internal" href="#data-block">data block</a><ul>
 <li><a class="reference internal" href="#mesh">Mesh</a></li>
 <li><a class="reference internal" href="#armature">Armature</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#active-object">active_object</a></li>
-<li><a class="reference internal" href="#select">select</a></li>
 <li><a class="reference internal" href="#custom-property">custom property</a></li>
 </ul>
 

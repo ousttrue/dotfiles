@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../../genindex.html" /><link rel="search" title="検索" href="../../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Screen ? Context - shell note ドキュメント</title>
+        <title>Object - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
@@ -221,30 +221,47 @@
           <p>[[bpy]]</p>
 <p><a class="reference external" href="https://docs.blender.org/api/latest/bpy.context.html">Context Access (bpy.context) — Blender Python API</a>
 <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.Context.html">Context(bpy_struct) — Blender Python API</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
-<span class="n">scene</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span>
-</pre></div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="screen-context">
-<h1>Screen ? Context<a class="headerlink" href="#screen-context" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>https://docs.blender.org/api/latest/bpy.context.html#screen-context
-[[bpy.types.Scene]]</p>
-<section id="active-object">
-<h2>active object<a class="headerlink" href="#active-object" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="object">
+<h1>Object<a class="headerlink" href="#object" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[bpy.types.Object]]</p>
+<section id="active">
+<h2>active<a class="headerlink" href="#active" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">readonly</span></code>
+<code class="docutils literal notranslate"><span class="pre">view_layer.objects.active</span></code> へのショートカットか？</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span>
 </pre></div>
 </div>
-<p>[[bpy.types.Object]]</p>
+<section id="mode">
+<h3>mode<a class="headerlink" href="#mode" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://toofu0.hatenablog.com/entry/2020/10/10/033418">【Blender】【Python】bpy.ops.object.mode_set が context is incorrect で失敗する - ゲーム作りが大好きな人のブログ</a></p></li>
+<li><p><a class="reference external" href="https://toofu0.hatenablog.com/entry/2020/10/10/033418">【Blender】【Python】bpy.ops.object.mode_set が context is incorrect で失敗する - ゲーム作りが大好きな人のブログ</a>
+context.mode は active_object の mode</p></li>
 </ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="kn">import</span> <span class="nn">bpy</span>
+ <span class="c1">#現在のモード取得</span>
+ <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">mode</span>
+
+ <span class="c1"># アクティブオブジェクトを設定する</span>
+ <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">view_layer</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="n">obj</span>
+ <span class="c1">#オブジェクトモードに変更</span>
+ <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="s1">'OBJECT'</span><span class="p">,</span><span class="n">toggle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
-<section id="selected-objects">
-<h2>selected objects<a class="headerlink" href="#selected-objects" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="selected">
+<h2>selected<a class="headerlink" href="#selected" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">selected_objects</span>
 </pre></div>
 </div>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="viewlayer">
+<h1>ViewLayer<a class="headerlink" href="#viewlayer" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">writable</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">view_layer</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -280,11 +297,15 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Screen ? Context</a><ul>
-<li><a class="reference internal" href="#active-object">active object</a></li>
-<li><a class="reference internal" href="#selected-objects">selected objects</a></li>
+<li><a class="reference internal" href="#">Object</a><ul>
+<li><a class="reference internal" href="#active">active</a><ul>
+<li><a class="reference internal" href="#mode">mode</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#selected">selected</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#viewlayer">ViewLayer</a></li>
 </ul>
 
           </div>

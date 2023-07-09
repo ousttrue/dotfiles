@@ -298,11 +298,28 @@ execute: 設定済みの property 使って実行</p>
 <h1>register<a class="headerlink" href="#register" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p>class 登録</p></li>
-<li><p>menu 登録の両方が必要？(search に表示されない)</p></li>
+</ul>
+<section id="menu">
+<h2>menu 登録<a class="headerlink" href="#menu" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id1">
+<h3>3.0<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bpy.types.TOPBAR_MT_blender_system</span></code></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>種類<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id2">
+<h3>2.9<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bpy.types.TOPBAR_MT_app_system</span></code>
+<code class="docutils literal notranslate"><span class="pre">blender-2.9</span></code> から menu 登録しないと <code class="docutils literal notranslate"><span class="pre">F3</span></code> 検索で表示されない</p></li>
+<li><p><a class="reference external" href="https://wiki.blender.jp/Dev:JA/Ref/Release_Notes/2.90/Python_API">Dev:JA/Ref/Release Notes/2.90/Python API - wiki</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/63863764/unable-to-find-custom-blender-operator-in-f3-operator-search-blender-2-9">python - Unable to find custom Blender operator in F3 operator search (Blender 2.9) - Stack Overflow</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>種類<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="exporter">
 <h2>Exporter<a class="headerlink" href="#exporter" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ExportOBJ</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">,</span> <span class="n">ExportHelper</span><span class="p">):</span>
@@ -368,8 +385,15 @@ execute: 設定済みの property 使って実行</p>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#register">register</a></li>
-<li><a class="reference internal" href="#id1">種類</a><ul>
+<li><a class="reference internal" href="#register">register</a><ul>
+<li><a class="reference internal" href="#menu">menu 登録</a><ul>
+<li><a class="reference internal" href="#id1">3.0</a></li>
+<li><a class="reference internal" href="#id2">2.9</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">種類</a><ul>
 <li><a class="reference internal" href="#exporter">Exporter</a></li>
 <li><a class="reference internal" href="#importer">Importer</a></li>
 </ul>

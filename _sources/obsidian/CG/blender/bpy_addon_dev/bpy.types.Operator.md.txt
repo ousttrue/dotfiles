@@ -66,7 +66,16 @@ class SimpleMouseOperator(bpy.types.Operator):
 
 # register
 - class 登録
-- menu 登録の両方が必要？(search に表示されない)
+
+## menu 登録
+### 3.0
+- `bpy.types.TOPBAR_MT_blender_system`
+
+### 2.9
+- `bpy.types.TOPBAR_MT_app_system`
+`blender-2.9` から menu 登録しないと `F3` 検索で表示されない
+- [Dev:JA/Ref/Release Notes/2.90/Python API - wiki](https://wiki.blender.jp/Dev:JA/Ref/Release_Notes/2.90/Python_API)
+- [python - Unable to find custom Blender operator in F3 operator search (Blender 2.9) - Stack Overflow](https://stackoverflow.com/questions/63863764/unable-to-find-custom-blender-operator-in-f3-operator-search-blender-2-9)
 
 # 種類
 ## Exporter
