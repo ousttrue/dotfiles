@@ -123,13 +123,18 @@ debugger ?
 ```python
 if "bpy" in locals():
     import importlib
-	# reload してから from import するべし
-    importlib.reload(humanoid_parts_properties)  # type: ignore
-    importlib.reload(humanoid_parts_panels)  # type: ignore
-    importlib.reload(humanoid_parts_search)  # type:ignore
+
+    local_map = locals()
+
+    def reload(module_name: str):
+        module = local_map.get(module_name)
+        if module:
+            importlib.reload(module)
+        else:
+            print(f'{module_name} is not in locals')
+
+    reload("hoge")
 
 import bpy  # type: ignore
-from .humanoid_parts_properties import HumanoidProperties
-from .humanoid_parts_panels import HumanoidPartsAssemblePanel
-from .humanoid_parts_search import HumanoidPartsSearch
+from . import hoge
 ```
