@@ -10,3 +10,6 @@
 ## .NET Core 3.1
 @20221213 終了
 - @2022 [「.NET Core 3.1」のサポートは2022年12月13日で終了 - 窓の杜](https://forest.watch.impress.co.jp/docs/news/1456802.html)
+
+# update
+-  [.NET アップグレード アシスタントをインストールする方法 - .NET Core | Microsoft Learn](https://learn.microsoft.com/ja-jp/dotnet/core/porting/upgrade-assistant-install)

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>ID3D11Texture2D - shell note ドキュメント</title>
+        <title>ID3D11Texture2D: create - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,16 +218,50 @@
           </label>
         </div>
         <article role="main">
-          <p><code class="docutils literal notranslate"><span class="pre">D3D10_RESOURCE_MISC_SHARED_KEYEDMUTEX</span></code></p>
-<section class="tex2jax_ignore mathjax_ignore" id="id3d11texture2d">
-<h1>ID3D11Texture2D<a class="headerlink" href="#id3d11texture2d" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="createtexture">
-<h2>CreateTexture:<a class="headerlink" href="#createtexture" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>D3D11_RESOURCE_MISC_SHARED</p>
+          <p>[[spout]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="id3d11texture2d-create">
+<h1>ID3D11Texture2D: create<a class="headerlink" href="#id3d11texture2d-create" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="d3d11-resource-misc-shared">
+<h2>D3D11_RESOURCE_MISC_SHARED<a class="headerlink" href="#d3d11-resource-misc-shared" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
-<section id="id3d11device-opensharedresource">
-<h2>ID3D11Device::OpenSharedResource<a class="headerlink" href="#id3d11device-opensharedresource" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="d3d11-resource-misc-shared-keyedmutex">
+<h2>D3D11_RESOURCE_MISC_SHARED_KEYEDMUTEX<a class="headerlink" href="#d3d11-resource-misc-shared-keyedmutex" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">windows8</span></code></p>
+<blockquote>
+<div><p><strong>D3D11_RESOURCE_MISC_SHARED</strong> and <strong>D3D11_RESOURCE_MISC_SHARED_KEYEDMUTEX</strong> are mutually exclusive.</p>
+</div></blockquote>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">dstDesc</span><span class="p">.</span><span class="n">MiscFlags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D3D11_RESOURCE_MISC_SHARED_KEYEDMUTEX</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">D3D11_RESOURCE_MISC_SHARED_NTHANDLE</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://shobomaru.wordpress.com/2012/11/17/interop-direct3d-and-direct2d-directwrite/">Direct3DとDirect2D/DirectWriteの連携 | shobomalog</a></p></li>
+<li><p>IDXGIKeyedMutex::AcquireSync</p></li>
+<li><p>IDXGIKeyedMutex::ReleaseSync</p></li>
+</ul>
 </section>
+<section id="createsharedhandle">
+<h2>CreateSharedHandle<a class="headerlink" href="#createsharedhandle" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="idxgiresource1">
+<h3>IDXGIResource1<a class="headerlink" href="#idxgiresource1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">			</span><span class="n">HANDLE</span><span class="w"> </span><span class="n">handle</span><span class="p">;</span><span class="w"></span>
+<span class="w">			</span><span class="k">auto</span><span class="w"> </span><span class="n">hr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">otherResource</span><span class="o">-&gt;</span><span class="n">CreateSharedHandle</span><span class="p">(</span><span class="nb">NULL</span><span class="w"> </span><span class="c1">//&amp;secAttr</span>
+<span class="w">				</span><span class="p">,</span><span class="w"> </span><span class="n">DXGI_SHARED_RESOURCE_READ</span><span class="w"></span>
+<span class="w">				</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="n">c_str</span><span class="p">()</span><span class="w"> </span><span class="c1">// 👈 named</span>
+<span class="w">				</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">handle</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="idxgiresource">
+<h3>IDXGIResource<a class="headerlink" href="#idxgiresource" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">GetSharedHandle</span><span class="p">(</span><span class="o">&amp;</span><span class="n">handle</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id3d11device-opensharedresource">
+<h1>ID3D11Device::OpenSharedResource<a class="headerlink" href="#id3d11device-opensharedresource" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ID3D11Device1::OpenSharedResourceByName メソッドを呼び出して共有リソースに名前でアクセスする場合は、リソース名が必要です。 代わりに ID3D11Device1::OpenSharedResource1</p>
 </section>
 
         </article>
@@ -263,11 +297,17 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">ID3D11Texture2D</a><ul>
-<li><a class="reference internal" href="#createtexture">CreateTexture:</a></li>
-<li><a class="reference internal" href="#id3d11device-opensharedresource">ID3D11Device::OpenSharedResource</a></li>
+<li><a class="reference internal" href="#">ID3D11Texture2D: create</a><ul>
+<li><a class="reference internal" href="#d3d11-resource-misc-shared">D3D11_RESOURCE_MISC_SHARED</a></li>
+<li><a class="reference internal" href="#d3d11-resource-misc-shared-keyedmutex">D3D11_RESOURCE_MISC_SHARED_KEYEDMUTEX</a></li>
+<li><a class="reference internal" href="#createsharedhandle">CreateSharedHandle</a><ul>
+<li><a class="reference internal" href="#idxgiresource1">IDXGIResource1</a></li>
+<li><a class="reference internal" href="#idxgiresource">IDXGIResource</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3d11device-opensharedresource">ID3D11Device::OpenSharedResource</a></li>
 </ul>
 
           </div>
