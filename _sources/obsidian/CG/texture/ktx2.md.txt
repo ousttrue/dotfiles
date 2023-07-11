@@ -2,9 +2,12 @@
 aliases: [libktx]
 ---
 
-[[Basis]] [[ASTC]]
+[[Basisu]] [[ASTC]]
 
 https://www.khronos.org/ktx/
+
+# ktx-software
+## 4.2.1
 
 # libktx
 [libktx - The KTX Library: Introduction](https://github.khronos.org/KTX-Software/libktx/)

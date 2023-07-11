@@ -1,3 +1,5 @@
+`basis universal`
+
 [[ASTC]]
 [[DXT]]
 [[gpu]]
@@ -9,6 +11,9 @@
 - @2019 [令和元年に登場したテクスチャフォーマットBasisを試す - Qiita](https://qiita.com/nyamadandan/items/d608ae569788ffb0f40f)
 - @2019 [Basis Universal Texture Format Introduction](https://pixel.engineer/posts/basis-universal-texture-format-introduction/)
 - https://github.com/KhronosGroup/Basis-Universal-Transcoders
+
+# Version
+## 1.16
 
 # UASTC
 `8-bpp`
