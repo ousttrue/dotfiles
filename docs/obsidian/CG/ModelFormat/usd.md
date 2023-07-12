@@ -1,3 +1,5 @@
+- [GitHub - matiascodesal/awesome-usd: A curated list of awesome Universal Scene Description (USD) resources and projects](https://github.com/matiascodesal/awesome-usd)
+
 - @2022 [Index - Reincarnation+#Tech](https://fereria.github.io/reincarnation_tech/11_Pipeline/)
 - @2020 [USD で usdz データを読むメモ - Qiita](https://qiita.com/syoyo/items/609c050d018e934bc47c)
 - @2019 [Pixar's RenderMan | Stories | Pixar's USD Pipeline](https://renderman.pixar.com/stories/pixars-usd-pipeline)
@@ -15,7 +17,9 @@ http://graphics.pixar.com/usd/downloads.html
 http://graphics.pixar.com/usd/files/SkinningOM.md.html
 
 # apps
-https://github.com/LumaPictures/usd-qt
+- [GitHub - cpichard/usdtweak: Universal Scene Description standalone editor](https://github.com/cpichard/usdtweak)
+- https://github.com/LumaPictures/usd-qt
+- [GitHub - dreamworksanimation/usdmanager: USD Manager](https://github.com/dreamworksanimation/usdmanager)
 
 ## Blender-3.0
 https://developer.blender.org/project/view/118/
@@ -32,6 +36,11 @@ https://docs.unity3d.com/Packages/com.unity.formats.usd@1.0/manual/index.html
 prebuilt USD 22.11, Python 3.7
 - [Pixar Universal Scene Description (USD) | NVIDIA Developer](https://developer.nvidia.com/usd)
 - https://developer.nvidia.com/usd `python3.6`
+
+# UsdSkel
+- [UsdSkelについて - Reincarnation+#Tech](https://fereria.github.io/reincarnation_tech_bk/11_Pipeline/01_USD/30_Programming/01_Python/05_usdSkel/)
+- [UsdSkel のメモ - Qiita](https://qiita.com/syoyo/items/94b9a43a6a6e3c251664)
+- https://github.com/meshula/usdskelutil
 
 # build
 ## build_scripts/build_usd.py
@@ -66,6 +75,7 @@ prebuilt USD 22.11, Python 3.7
 
 ## vs2022 対応のためには boost-1.78 が必要
 `--toolset=v143`
+[[boost]]
 
 ## dependencies
 [[OpenSubdiv]]
