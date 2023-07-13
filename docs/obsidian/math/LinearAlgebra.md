@@ -4,6 +4,23 @@ aliases: [cpp_math]
 
 数学ライブラリ
 
+$$
+\begin{pmatrix}
+m11 & m12 & m13 \\
+m21 & m22 & m23 \\
+m31 & m32 & m33 \\
+\end{pmatrix}
+\begin{pmatrix}
+ x \\ y \\ z 
+\end{pmatrix}
+$$
+
+|正則行列|非正則行列|
+|-|-|
+|固有値|特異値|
+
+=> KerA + ImA, Rank
+
 # C
 - [GitHub - ebassi/graphene: A thin layer of graphic data types](https://github.com/ebassi/graphene)
 
