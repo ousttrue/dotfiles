@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>pipeline - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,115 +212,18 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>剛体シミュレーション</p>
+          <p>[[SecondaryMotion]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/wbierbower/awesome-physics">GitHub - wbierbower/awesome-physics: 🌌 A collaborative list of awesome software for exploring Physics concepts</a></p></li>
-<li><p>@2013  <a class="reference external" href="https://qiita.com/edo_m18/items/6051d2d8e422a41d0c13">剛体シミュレーションをまとめてみる - Qiita</a></p>
-<ul>
-<li><p>@2013 <a class="reference external" href="https://qiita.com/edo_m18/items/f7698c5bd262df4f9cf3">自作2D物理エンジンを作った話 - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://github.com/pafuhana1213/KawaiiPhysics">GitHub - pafuhana1213/KawaiiPhysics: KawaiiPhysics : Simple fake Physics for UnrealEngine4 &amp; 5</a></p></li>
+<li><p><a class="reference external" href="https://github.com/SPARK-inc/SPCRJointDynamics">GitHub - SPARK-inc/SPCRJointDynamics: 布風骨物理エンジン</a></p></li>
+<li><p><a class="reference external" href="https://github.com/unity3d-jp/UnityChanSpringBone">GitHub - unity3d-jp/UnityChanSpringBone: UnityChan Sping Bone System for lightweight secondary animations</a></p></li>
 </ul>
-</li>
-<li><p>@2008 <a class="reference external" href="https://cedec.cesa.or.jp/2008/archives/file/pg07.pdf">https://cedec.cesa.or.jp/2008/archives/file/pg07.pdf</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="pipeline">
-<h1>pipeline<a class="headerlink" href="#pipeline" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="update-velocity-angular-velocity">
-<h2>update velocity / angular velocity<a class="headerlink" href="#update-velocity-angular-velocity" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>重力など</p>
-<ul class="simple">
-<li><p>力</p></li>
-<li><p>トルク</p></li>
-</ul>
-</section>
-<section id="collisiondetection">
-<h2>CollisionDetection<a class="headerlink" href="#collisiondetection" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[CollisionDetection]]</p>
-</section>
-<section id="constraintsolver">
-<h2>ConstraintSolver<a class="headerlink" href="#constraintsolver" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="update-position-rotation">
-<h2>update position / rotation<a class="headerlink" href="#update-position-rotation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>角速度積分</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://techblog.kayac.com/control-camera-using-quaternion">クォータニオンを使った、トラックボール風カメラ制御 - KAYAC engineers' blog</a></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">orientation</span> <span class="o">+=</span> <span class="n">orientation</span> <span class="o">*</span> <span class="p">(</span><span class="n">angularVelocity</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt</span><span class="p">))</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="implementations">
-<h1>Implementations<a class="headerlink" href="#implementations" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/DanielChappuis/reactphysics3d">GitHub - DanielChappuis/reactphysics3d: Open source C++ physics engine library in 3D</a></p></li>
-</ul>
-<section id="joltphysics">
-<h2>JoltPhysics<a class="headerlink" href="#joltphysics" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://jrouwe.github.io/JoltPhysics/md__docs__samples.html">Jolt Physics: Jolt Physics Samples</a></p></li>
-<li><p><a class="reference external" href="https://github.com/jrouwe/JoltPhysics">GitHub - jrouwe/JoltPhysics: A multi core friendly rigid body physics and collision detection library suitable for games and VR applications.</a></p></li>
-</ul>
-</section>
-<section id="mujoco">
-<h2>mujoco<a class="headerlink" href="#mujoco" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/deepmind/mujoco">GitHub - deepmind/mujoco: Multi-Joint dynamics with Contact. A general purpose physics simulator.</a></p></li>
-</ul>
-</section>
-<section id="reactphysics3d">
-<h2>ReactPhysics3D<a class="headerlink" href="#reactphysics3d" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/DanielChappuis/reactphysics3d">GitHub - DanielChappuis/reactphysics3d: Open source C++ physics engine library in 3D</a></p></li>
-</ul>
-</section>
-<section id="qu3e">
-<h2>qu3e<a class="headerlink" href="#qu3e" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/RandyGaul/qu3e">GitHub - RandyGaul/qu3e: Lightweight and Simple 3D Open Source Physics Engine in C++</a></p></li>
-</ul>
-</section>
-<section id="chrono">
-<h2>Chrono<a class="headerlink" href="#chrono" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/projectchrono/chrono">GitHub - projectchrono/chrono: High-performance C++ library for multiphysics and multibody dynamics simulations</a></p></li>
-</ul>
-</section>
-<section id="positionbased">
-<h2>PositionBased<a class="headerlink" href="#positionbased" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/jamornsriwasansak/brass-pan">GitHub - jamornsriwasansak/brass-pan: A position-based physics engine</a></p></li>
-<li><p><a class="reference external" href="https://github.com/InteractiveComputerGraphics/PositionBasedDynamics">GitHub - InteractiveComputerGraphics/PositionBasedDynamics: PositionBasedDynamics is a library for the physically-based simulation of rigid bodies, deformable solids and fluids.</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="bulletphysics">
-<h1>BulletPhysics系<a class="headerlink" href="#bulletphysics" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>BulletPhysics<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[bullet]]
-[[easy_physics]]</p>
-</section>
-<section id="physicseffects">
-<h2>PhysicsEffects<a class="headerlink" href="#physicseffects" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://github.com/erwincoumans/PhysicsEffects">GitHub - erwincoumans/PhysicsEffects</a></p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://lt140.blogspot.com/2009/12/physicseffects.html">LT140: PhysicsEffects メモ</a></p></li>
-</ul>
-</section>
-<section id="easyphysics">
-<h2>EasyPhysics<a class="headerlink" href="#easyphysics" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://book.impress.co.jp/books/3282">ゲーム制作者のための物理シミュレーション　剛体編 - インプレスブックス</a></p></li>
-</ul>
-</section>
-</section>
 
         </article>
       </div>
@@ -335,7 +238,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/CG/physics/RigidBodySimulation.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/math/physics/SpringBone.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -343,45 +246,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">pipeline</a><ul>
-<li><a class="reference internal" href="#update-velocity-angular-velocity">update velocity / angular velocity</a></li>
-<li><a class="reference internal" href="#collisiondetection">CollisionDetection</a></li>
-<li><a class="reference internal" href="#constraintsolver">ConstraintSolver</a></li>
-<li><a class="reference internal" href="#update-position-rotation">update position / rotation</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#implementations">Implementations</a><ul>
-<li><a class="reference internal" href="#joltphysics">JoltPhysics</a></li>
-<li><a class="reference internal" href="#mujoco">mujoco</a></li>
-<li><a class="reference internal" href="#reactphysics3d">ReactPhysics3D</a></li>
-<li><a class="reference internal" href="#qu3e">qu3e</a></li>
-<li><a class="reference internal" href="#chrono">Chrono</a></li>
-<li><a class="reference internal" href="#positionbased">PositionBased</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#bulletphysics">BulletPhysics系</a><ul>
-<li><a class="reference internal" href="#id1">BulletPhysics</a></li>
-<li><a class="reference internal" href="#physicseffects">PhysicsEffects</a></li>
-<li><a class="reference internal" href="#easyphysics">EasyPhysics</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
