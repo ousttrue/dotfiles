@@ -1,10 +1,12 @@
-[[zig]]
+[[zig]] [[zon]]
 
 [Package Manager · GitHub](https://github.com/ziglang/zig/projects/4)
 
-@2023 02/13[Zig tips: v0.11 std.build API / package manager changes | Hexops' devlog](https://devlog.hexops.com/2023/zig-0-11-breaking-build-changes/)
-@2023 02/03  [introduce Zig Object Notation and use it for the build manifest file (build.zig.zon) by andrewrk · Pull Request #14523 · ziglang/zig · GitHub](https://github.com/ziglang/zig/pull/14523)
-@2023 01/11 [Package Manager MVP by andrewrk · Pull Request #14265 · ziglang/zig · GitHub](https://github.com/ziglang/zig/pull/14265)
+- @2023 06/28 [Zig Package Manager -- WTF is Zon - Zig NEWS](https://zig.news/edyu/zig-package-manager-wtf-is-zon-558e)
+- @2023 06/01 [build.zig.zonを使ったZigの新しいパッケージ管理 (Nightly)](https://zenn.dev/funatsufumiya/articles/7760a4688be3a5)
+- @2023 02/13[Zig tips: v0.11 std.build API / package manager changes | Hexops' devlog](https://devlog.hexops.com/2023/zig-0-11-breaking-build-changes/)
+- @2023 02/03  [introduce Zig Object Notation and use it for the build manifest file (build.zig.zon) by andrewrk · Pull Request #14523 · ziglang/zig · GitHub](https://github.com/ziglang/zig/pull/14523)
+- @2023 01/11 [Package Manager MVP by andrewrk · Pull Request #14265 · ziglang/zig · GitHub](https://github.com/ziglang/zig/pull/14265)
 
 # build.zig.zon
 `Zig Object Notation`

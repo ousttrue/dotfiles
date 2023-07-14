@@ -30,6 +30,7 @@ if IS_WINDOWS:
         APPDATA_LOCAL_DIR,
         APPDATA_ROAMING_DIR,
     )
+
     # import vcenv
     # for k, v in vcenv.get_env().items():
     #     if k in os.environ:
@@ -479,7 +480,8 @@ if not IS_WINDOWS:
 # https://github.com/ziglang/zig/wiki/Building-Zig-on-Windows
 #
 # master
-ZIG_BUILD_VERSION = "1430+ce6de2df8"
+ZIG_BUILD_VERSION = "3991+3ec337484"
+# ZIG_BUILD_VERSION = "1430+ce6de2df8"
 # ZIG_BUILD_VERSION = '2351+b64a1d5ab'
 # ZIG_BUILD_VERSION = '3027+0e26c6149'
 # ZIG_BUILD_VERSION = '3431+4a4f3c50c'

@@ -1,6 +1,9 @@
 # CMakeKits
 [[cmake_kits]]
 
+# Version
+## 3.25
+
 # toolchain
 - [CMAKE_TOOLCHAIN_FILE — CMake 3.25.0 Documentation](https://cmake.org/cmake/help/latest/variable/CMAKE_TOOLCHAIN_FILE.html)
 - [cmake-toolchains(7) — CMake 3.25.0 Documentation](https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html)
