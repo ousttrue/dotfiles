@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../../genindex.html" /><link rel="search" title="検索" href="../../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Component - shell note ドキュメント</title>
+        <title>Button - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
@@ -218,28 +218,29 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="component">
-<h1>Component<a class="headerlink" href="#component" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ftxui/dom/component.hpp&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
 <section id="button">
-<h2>Button<a class="headerlink" href="#button" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h1>Button<a class="headerlink" href="#button" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 <section id="checkbox-radiobox">
-<h2>Checkbox/Radiobox<a class="headerlink" href="#checkbox-radiobox" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h1>Checkbox/Radiobox<a class="headerlink" href="#checkbox-radiobox" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 <section id="slider">
-<h2>Slider<a class="headerlink" href="#slider" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h1>Slider<a class="headerlink" href="#slider" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 <section id="input">
-<h2>Input<a class="headerlink" href="#input" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h1>Input<a class="headerlink" href="#input" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 <section id="menu-selector">
-<h2>Menu(Selector)<a class="headerlink" href="#menu-selector" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h1>Menu(Selector)<a class="headerlink" href="#menu-selector" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p>entry は <code class="docutils literal notranslate"><span class="pre">std::string</span></code> <code class="docutils literal notranslate"><span class="pre">std::span&lt;T&gt;</span></code> + transform にしたい</p></li>
 </ul>
 </section>
 <section id="renderer">
-<h2>Renderer<a class="headerlink" href="#renderer" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h1>Renderer<a class="headerlink" href="#renderer" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>描画のみ。OnEvent が無い</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="w"> </span><span class="nf">Renderer</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="n">Element</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">render</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">Impl</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ComponentBase</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -268,13 +269,13 @@
 </div>
 </section>
 <section id="ftxui-componentbase">
-<h2>ftxui::ComponentBase<a class="headerlink" href="#ftxui-componentbase" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>OnEventでイベントハンドリングできる</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Element</span><span class="w"> </span><span class="nf">Render</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w"></span>
+<h1>ftxui::ComponentBase<a class="headerlink" href="#ftxui-componentbase" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://arthursonzogni.github.io/FTXUI/component__base_8hpp_source.html">FTXUI: include/ftxui/component/component_base.hpp Source File</a>
+OnEventでイベントハンドリングできる</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w">	    </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Element</span><span class="w"> </span><span class="nf">Render</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">OnEvent</span><span class="p">(</span><span class="n">ftxui</span><span class="o">::</span><span class="n">Event</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="screeninteractive">
 <h1>ScreenInteractive<a class="headerlink" href="#screeninteractive" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -298,6 +299,58 @@
 <li><p>maybe</p></li>
 </ul>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="splitter">
+<h1>Splitter<a class="headerlink" href="#splitter" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">"ftxui/component/component.hpp"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"ftxui/component/screen_interactive.hpp"</span><span class="c1"> // for ScreenInteractive</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Splitter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">ComponentBase</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">m_left_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Component</span><span class="w"> </span><span class="n">m_center</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">      </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Renderer</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">text</span><span class="p">(</span><span class="s">"center"</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">center</span><span class="p">;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Component</span><span class="w"> </span><span class="n">m_left</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">      </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Renderer</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">text</span><span class="p">(</span><span class="s">"left"</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">center</span><span class="p">;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Component</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">      </span><span class="n">ResizableSplitLeft</span><span class="p">(</span><span class="n">m_left</span><span class="p">,</span><span class="w"> </span><span class="n">m_center</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m_left_size</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OnQuit</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Element</span><span class="w"> </span><span class="nf">Render</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">container</span><span class="o">-&gt;</span><span class="n">Render</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">OnEvent</span><span class="p">(</span><span class="n">ftxui</span><span class="o">::</span><span class="n">Event</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">Character</span><span class="p">(</span><span class="sc">'q'</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">OnQuit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">OnQuit</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">ArrowLeft</span><span class="w"> </span><span class="o">||</span><span class="w"></span>
+<span class="w">        </span><span class="n">event</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">Character</span><span class="p">(</span><span class="sc">'h'</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">m_left_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">m_left_size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">ArrowRight</span><span class="w"> </span><span class="o">||</span><span class="w"></span>
+<span class="w">        </span><span class="n">event</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">Character</span><span class="p">(</span><span class="sc">'l'</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">m_left_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">ftxui</span><span class="o">::</span><span class="n">Terminal</span><span class="o">::</span><span class="n">Size</span><span class="p">().</span><span class="n">dimx</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">m_left_size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">component</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Make</span><span class="o">&lt;</span><span class="n">Splitter</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">ScreenInteractive</span><span class="o">::</span><span class="n">Fullscreen</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">component</span><span class="o">-&gt;</span><span class="n">OnQuit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">screen</span><span class="p">.</span><span class="n">ExitLoopClosure</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">screen</span><span class="p">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">component</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -333,22 +386,20 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Component</a><ul>
-<li><a class="reference internal" href="#button">Button</a></li>
+<li><a class="reference internal" href="#">Button</a></li>
 <li><a class="reference internal" href="#checkbox-radiobox">Checkbox/Radiobox</a></li>
 <li><a class="reference internal" href="#slider">Slider</a></li>
 <li><a class="reference internal" href="#input">Input</a></li>
 <li><a class="reference internal" href="#menu-selector">Menu(Selector)</a></li>
 <li><a class="reference internal" href="#renderer">Renderer</a></li>
 <li><a class="reference internal" href="#ftxui-componentbase">ftxui::ComponentBase</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#screeninteractive">ScreenInteractive</a><ul>
 <li><a class="reference internal" href="#screeninteractive-fullscreen">ScreenInteractive::Fullscreen</a></li>
 <li><a class="reference internal" href="#screeninteractive-fitcomponent">ScreenInteractive::FitComponent</a></li>
 <li><a class="reference internal" href="#screeninteractive-terminaloutput">ScreenInteractive::TerminalOutput</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#splitter">Splitter</a></li>
 </ul>
 
           </div>

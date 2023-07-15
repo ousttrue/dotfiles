@@ -8,23 +8,14 @@
 `c++17`
 - [FTXUI: Main Page](https://arthursonzogni.github.io/FTXUI/#build-cmake)
 
+# Screen(cell grid)
+[[ftxui_screen]]
+
 # Element(dom)
-- layout widget
-
-```cpp
-screen.Loop(ftxui::Renderer([&] { return document; }));
-```
-
-## ToStr / Printt
-### ToString
-- https://arthursonzogni.github.io/FTXUI/#module-screen
-
-### Print
-- [FTXUI: Main Page](https://arthursonzogni.github.io/FTXUI/)
+[[ftxui_element]]
 
 # Component
-インタラクション
-[[fxtui_component]]
+[[ftxui_component]]
 
 # App
 - [GitHub - ArthurSonzogni/json-tui: A JSON terminal UI made in C++](https://github.com/ArthurSonzogni/json-tui)
