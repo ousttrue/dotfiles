@@ -1,3 +1,12 @@
+# Version
+## 15.0.0
+
+## 2.0
+ハングルの大移動
+
+# block
+- [ブロック (Unicode) - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF_(Unicode))
+
 # wcwidth
 ```c
 #include <wchar.h> 
