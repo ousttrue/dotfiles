@@ -194,6 +194,7 @@ alias gt="git status -sb"
 alias luamake=/home/ousttrue/ghq/github.com/sumneko/lua-language-server/3rd/luamake/luamake
 
 alias eau='emerge -av --autounmask=y --autounmask-write=y'
+alias rf='rg --files .'
 
 if which vim >/dev/null 2>&1; then
 	export EDITOR=vim

@@ -1,4 +1,7 @@
-# Component
+```cpp
+#include <ftxui/dom/component.hpp>
+```
+
 ## Button
 
 ## Checkbox/Radiobox
@@ -40,9 +43,10 @@ Component Renderer(std::function<Element()> render) {
 ```
 
 ## ftxui::ComponentBase
+[FTXUI: include/ftxui/component/component_base.hpp Source File](https://arthursonzogni.github.io/FTXUI/component__base_8hpp_source.html)
 OnEventでイベントハンドリングできる
 ```cpp
-    ftxui::Element Render() override;
+	    ftxui::Element Render() override;
     bool OnEvent(ftxui::Event) override;
 ```
 
@@ -57,3 +61,55 @@ loop で component を Rendering する。
 
 ## ScreenInteractive::TerminalOutput
 - maybe
+
+# Splitter
+
+```cpp
+#include "ftxui/component/component.hpp"
+#include "ftxui/component/screen_interactive.hpp" // for ScreenInteractive
+
+class Splitter : public ftxui::ComponentBase {
+
+  int m_left_size = 20;
+
+  ftxui::Component m_center =
+      ftxui::Renderer([] { return ftxui::text("center") | ftxui::center; });
+  ftxui::Component m_left =
+      ftxui::Renderer([] { return ftxui::text("left") | ftxui::center; });
+  ftxui::Component container =
+      ResizableSplitLeft(m_left, m_center, &m_left_size);
+
+public:
+  std::function<void()> OnQuit;
+
+  ftxui::Element Render() override { return container->Render(); }
+  bool OnEvent(ftxui::Event event) override {
+    if (event == ftxui::Event::Character('q')) {
+      if (OnQuit) {
+        OnQuit();
+      }
+    }
+
+    if (event == ftxui::Event::ArrowLeft ||
+        event == ftxui::Event::Character('h')) {
+      m_left_size = std::max(2, m_left_size - 1);
+      return true;
+    }
+
+    if (event == ftxui::Event::ArrowRight ||
+        event == ftxui::Event::Character('l')) {
+      m_left_size = std::min(ftxui::Terminal::Size().dimx - 3, m_left_size + 1);
+      return true;
+    }
+
+    return false;
+  }
+};
+
+int main() {
+  auto component = ftxui::Make<Splitter>();
+  auto screen = ftxui::ScreenInteractive::Fullscreen();
+  component->OnQuit = screen.ExitLoopClosure();
+  screen.Loop(component);
+}
+```
