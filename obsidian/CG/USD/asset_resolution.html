@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>plugin load - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,23 +218,40 @@
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
-<li><p><a class="reference external" href="https://www.boost.org/">Boost C++ Libraries</a></p></li>
+          <p>[[usd]]
+[[usd_plugin]]</p>
+<p><code class="docutils literal notranslate"><span class="pre">ar</span></code>
+<a class="reference external" href="https://openusd.org/dev/api/ar_page_front.html">Universal Scene Description: Ar: Asset Resolution</a></p>
+<p>https://wiki.aswf.io/display/WGUSD/USD+Projects+and+Resources#USDProjectsandResources-AssetResolvers</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://j-cube.jp/solutions/multiverse/docs/setup/asset-resolver.html">Asset Resolution | Multiverse</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>1.82<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="plugin-load">
+<h1>plugin load<a class="headerlink" href="#plugin-load" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="get">
+<h2>get<a class="headerlink" href="#get" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">stage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pxr</span><span class="o">::</span><span class="n">UsdStage</span><span class="o">::</span><span class="n">CreateInMemory</span><span class="p">();</span><span class="w"></span>
+
+<span class="n">CreateInMemory</span><span class="p">(</span><span class="s">"tmp.usda"</span><span class="p">,</span><span class="w"> </span><span class="n">load</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">SdfFileFormat</span><span class="o">::</span><span class="n">FindByExtension</span><span class="p">(</span><span class="s">"usda"</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">return</span><span class="w"> </span><span class="n">ArGetResolver</span><span class="p">().</span><span class="n">GetExtension</span><span class="p">(</span><span class="n">assetPath</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="env">
-<h1>Env<a class="headerlink" href="#env" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">mesonbuild/dependencies/boost.py</span></code></p>
-<section id="boost-root">
-<h2>BOOST_ROOT<a class="headerlink" href="#boost-root" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="boost-includedir-and-boost-librarydir">
-<h2>BOOST_INCLUDEDIR and BOOST_LIBRARYDIR<a class="headerlink" href="#boost-includedir-and-boost-librarydir" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="register">
+<h2>register<a class="headerlink" href="#register" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">ArGetResolver</span><span class="p">()</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"></span>
+<span class="n">PlugRegistry</span><span class="o">::</span><span class="n">GetAllDerivedTypes</span><span class="p">(</span><span class="n">TfType</span><span class="w"> </span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">TfType</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="n">result</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">PlugPlugin</span><span class="o">::</span><span class="n">_RegisterAllPlugins</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">base</span><span class="p">.</span><span class="n">GetAllDerivedTypes</span><span class="p">(</span><span class="n">result</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -251,7 +268,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/c++/boost.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/CG/USD/asset_resolution.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -271,13 +288,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">1.82</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#env">Env</a><ul>
-<li><a class="reference internal" href="#boost-root">BOOST_ROOT</a></li>
-<li><a class="reference internal" href="#boost-includedir-and-boost-librarydir">BOOST_INCLUDEDIR and BOOST_LIBRARYDIR</a></li>
+<li><a class="reference internal" href="#">plugin load</a><ul>
+<li><a class="reference internal" href="#get">get</a></li>
+<li><a class="reference internal" href="#register">register</a></li>
 </ul>
 </li>
 </ul>

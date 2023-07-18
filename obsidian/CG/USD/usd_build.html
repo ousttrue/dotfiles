@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>dependency - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,24 +218,95 @@
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
-<li><p><a class="reference external" href="https://www.boost.org/">Boost C++ Libraries</a></p></li>
+          <p><a class="reference external" href="https://github.com/PixarAnimationStudios/OpenUSD">GitHub - PixarAnimationStudios/OpenUSD: Universal Scene Description</a></p>
+<ul class="simple">
+<li><p>@2017 <a class="reference external" href="https://qiita.com/takahito-tejima/items/f820e16869ca4343a600">Pixar USD の Windows ビルド方法（2017/9 版） - Qiita</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>1.82<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="dependency">
+<h1>dependency<a class="headerlink" href="#dependency" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="boost">
+<h2>boost<a class="headerlink" href="#boost" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>[[boost]]</p></li>
+<li><p>https://mesonbuild.com/Dependencies.html#boost</p></li>
+</ul>
+<section id="vs2022-boost-1-78">
+<h3>vs2022 対応のためには boost-1.78 が必要<a class="headerlink" href="#vs2022-boost-1-78" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">--toolset=v143</span></code></p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="env">
-<h1>Env<a class="headerlink" href="#env" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">mesonbuild/dependencies/boost.py</span></code></p>
-<section id="boost-root">
-<h2>BOOST_ROOT<a class="headerlink" href="#boost-root" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="tbb">
+<h2>TBB<a class="headerlink" href="#tbb" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>[[IntelTBB]]</p></li>
+<li><p>tbb2019_20190410oss_win.zip</p></li>
+</ul>
 </section>
-<section id="boost-includedir-and-boost-librarydir">
-<h2>BOOST_INCLUDEDIR and BOOST_LIBRARYDIR<a class="headerlink" href="#boost-includedir-and-boost-librarydir" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="pxr-static">
+<h1>PXR_STATIC<a class="headerlink" href="#pxr-static" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>plugin が動かなくなる？</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="optional-dependencies">
+<h1>Optional dependencies<a class="headerlink" href="#optional-dependencies" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>[[OpenSubdiv]]</p></li>
+<li><p>[[ptex]]</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>構成<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>plugin の基盤</p>
+<ul class="simple">
+<li><p>usd</p>
+<ul>
+<li><p>usd_sdf</p>
+<ul>
+<li><p>usd_ar</p>
+<ul>
+<li><p>base/usd_plug</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>各種プラグイン</p>
+<ul class="simple">
+<li><p>usdGeom</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="build-scripts-build-usd-py">
+<h1>build_scripts/build_usd.py<a class="headerlink" href="#build-scripts-build-usd-py" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-.vscode/launch.json notranslate"><div class="highlight"><pre><span></span>{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "build_usd.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/build_scripts/build_usd.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "D:/pixar_usd",
+                "--dry_run",
+                "--no-python",
+                "--no-examples",
+                "--no-tools",
+                "--no-tutorials",
+                "--no-imaging",
+            ],
+            "justMyCode": true
+        }
+    ]
+}
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -251,7 +322,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/c++/boost.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/CG/USD/usd_build.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -271,15 +342,18 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">1.82</a></li>
+<li><a class="reference internal" href="#">dependency</a><ul>
+<li><a class="reference internal" href="#boost">boost</a><ul>
+<li><a class="reference internal" href="#vs2022-boost-1-78">vs2022 対応のためには boost-1.78 が必要</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#env">Env</a><ul>
-<li><a class="reference internal" href="#boost-root">BOOST_ROOT</a></li>
-<li><a class="reference internal" href="#boost-includedir-and-boost-librarydir">BOOST_INCLUDEDIR and BOOST_LIBRARYDIR</a></li>
+<li><a class="reference internal" href="#tbb">TBB</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#pxr-static">PXR_STATIC</a></li>
+<li><a class="reference internal" href="#optional-dependencies">Optional dependencies</a></li>
+<li><a class="reference internal" href="#id1">構成</a></li>
+<li><a class="reference internal" href="#build-scripts-build-usd-py">build_scripts/build_usd.py</a></li>
 </ul>
 
           </div>
