@@ -61,3 +61,34 @@ plugin の基盤
     ]
 }
 ```
+
+
+
+# c++20
+わりとこわれる w
+
+## stb
+	subprojects\usd\pxr\imaging\hio\stb\stb_image.h:4552
+ ```c
+typedef struct
+{
+   stbi__context *s;
+   stbi_uc *idata, *expanded, *out;
+   int depth;
+   float gamma = 0;
+} stbi__png;
+```
+
+
+## std::shared_ptr::unique
+```
+usd_usdImaging_dep = dependency(
+    'usd_usdImaging',
+    default_options: ['cpp_std=c++17'],
+)
+```
+
+## C5232
+`operator==`
+スタックオーバーフロー
+`subprojects\usd\pxr\base\tf\weakPtrFacade.h`

@@ -9,6 +9,11 @@ https://wiki.aswf.io/display/WGUSD/USD+Projects+and+Resources#USDProjectsandReso
 - [Asset Resolution | Multiverse](https://j-cube.jp/solutions/multiverse/docs/setup/asset-resolver.html)
 
 
+# resolver
+- [GitHub - LumaPictures/usd-uri-resolver: Pluggable URI ArResolver for USD](https://github.com/LumaPictures/usd-uri-resolver)
+
+_uriResolvers
+
 # plugin load
 
 ## get

@@ -8,6 +8,7 @@
 
 -  [USD Terms and Concepts — Universal Scene Description 23.05 documentation](https://openusd.org/release/glossary.html)
 
+- [Book of USD - Getting Started with Universal Scene Description (USD)](https://remedy-entertainment.github.io/USDBook/index.html)
 - @2022 [GitHub - ft-lab/Documents_USD: USDについての学習メモ](https://github.com/ft-lab/Documents_USD/tree/master)
 - @2022 [Index - Reincarnation+#Tech](https://fereria.github.io/reincarnation_tech/11_Pipeline/)
 - @2020 [USD で usdz データを読むメモ - Qiita](https://qiita.com/syoyo/items/609c050d018e934bc47c)
@@ -40,25 +41,7 @@ http://graphics.pixar.com/usd/downloads.html
 http://graphics.pixar.com/usd/files/SkinningOM.md.html
 
 # apps
-- [GitHub - cpichard/usdtweak: Universal Scene Description standalone editor](https://github.com/cpichard/usdtweak)
-- https://github.com/LumaPictures/usd-qt
-- [GitHub - dreamworksanimation/usdmanager: USD Manager](https://github.com/dreamworksanimation/usdmanager)
-
-## Blender-3.0
-https://developer.blender.org/project/view/118/
-- @2021 [あんどうめぐみ@れみりあさんの記事一覧 | Zenn](https://zenn.dev/remiria)
-https://docs.blender.org/manual/en/latest/files/import_export/usd.html
-https://code.blender.org/2019/07/first-steps-with-universal-scene-description/
-
-## unity
-- @2019 _[Pixar's Universal Scene Description for Unity out in Preview | Unity Blog](https://blogs.unity3d.com/2019/03/28/pixars-universal-scene-description-for-unity-out-in-preview/)
-https://github.com/Unity-Technologies/film-tv-toolbox/tree/master/UsdSamples
-https://docs.unity3d.com/Packages/com.unity.formats.usd@1.0/manual/index.html
-
-## omniverse
-prebuilt USD 22.11, Python 3.7
-- [Pixar Universal Scene Description (USD) | NVIDIA Developer](https://developer.nvidia.com/usd)
-- https://developer.nvidia.com/usd `python3.6`
+[[usd_app]]
 
 # UsdSkel
 - [UsdSkelについて - Reincarnation+#Tech](https://fereria.github.io/reincarnation_tech_bk/11_Pipeline/01_USD/30_Programming/01_Python/05_usdSkel/)
