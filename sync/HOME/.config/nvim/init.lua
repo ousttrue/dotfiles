@@ -344,3 +344,10 @@ vim.keymap.set("n", "gx", floating_window, { noremap = true })
 -- package manager
 -- require "lazy-plugins"
 require "lazy-plugins-2"
+
+function COPY_PATH()
+  vim.cmd [[
+  let @* = expand('%:.')
+  let @" = expand('%:.')
+  ]]
+end

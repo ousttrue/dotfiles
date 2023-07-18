@@ -8,9 +8,12 @@
 - [OpenSubdiv Overview](https://graphics.pixar.com/opensubdiv/overview.html)
 - [GitHub - PixarAnimationStudios/OpenSubdiv: An Open-Source subdivision surface library.](https://github.com/PixarAnimationStudios/OpenSubdiv)
 
-- [OpenSubdiv で mesh smooth のメモ - Qiita](https://qiita.com/syoyo/items/8f7ceed1f339a531b342)
+- @2019 [OpenSubdiv で mesh smooth のメモ - Qiita](https://qiita.com/syoyo/items/8f7ceed1f339a531b342)
+- @2020 [自前で Catmull-Clark, Loop subdivision surface を C++11 実装するための事前調査メモ - Qiita](https://qiita.com/syoyo/items/66d6e2a6bffe0a99f307)
 
 # MinimumBuild
+- OpenGL ローダーのせいでビルドしずらい w
+- あと osd_stringify
 
 # API
 ## Sdc
