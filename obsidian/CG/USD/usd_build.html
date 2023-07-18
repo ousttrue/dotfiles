@@ -308,6 +308,40 @@
 </pre></div>
 </div>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="c-20">
+<h1>c++20<a class="headerlink" href="#c-20" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>わりとこわれる w</p>
+<section id="stb">
+<h2>stb<a class="headerlink" href="#stb" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>subprojects\usd\pxr\imaging\hio\stb\stb_image.h:4552
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">stbi__context</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">stbi_uc</span><span class="w"> </span><span class="o">*</span><span class="n">idata</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">expanded</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">out</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">depth</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">gamma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">stbi__png</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="std-shared-ptr-unique">
+<h2>std::shared_ptr::unique<a class="headerlink" href="#std-shared-ptr-unique" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usd_usdImaging_dep</span> <span class="o">=</span> <span class="n">dependency</span><span class="p">(</span>
+    <span class="s1">'usd_usdImaging'</span><span class="p">,</span>
+    <span class="n">default_options</span><span class="p">:</span> <span class="p">[</span><span class="s1">'cpp_std=c++17'</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="c5232">
+<h2>C5232<a class="headerlink" href="#c5232" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">operator==</span></code>
+スタックオーバーフロー
+<code class="docutils literal notranslate"><span class="pre">subprojects\usd\pxr\base\tf\weakPtrFacade.h</span></code></p>
+</section>
+</section>
 
         </article>
       </div>
@@ -354,6 +388,12 @@
 <li><a class="reference internal" href="#optional-dependencies">Optional dependencies</a></li>
 <li><a class="reference internal" href="#id1">構成</a></li>
 <li><a class="reference internal" href="#build-scripts-build-usd-py">build_scripts/build_usd.py</a></li>
+<li><a class="reference internal" href="#c-20">c++20</a><ul>
+<li><a class="reference internal" href="#stb">stb</a></li>
+<li><a class="reference internal" href="#std-shared-ptr-unique">std::shared_ptr::unique</a></li>
+<li><a class="reference internal" href="#c5232">C5232</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
