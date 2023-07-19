@@ -1,5 +1,5 @@
 [[usd]]
-[[usd_plugin]]
+[[usd_plug]]
 
 `ar`
 [Universal Scene Description: Ar: Asset Resolution](https://openusd.org/dev/api/ar_page_front.html)

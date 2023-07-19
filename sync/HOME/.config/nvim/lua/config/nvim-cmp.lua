@@ -57,15 +57,15 @@ function M.setup()
   local modes = { "i", "s", "c" }
 
   cmp.setup {
-    snippet = {
-      expand = function(args)
-        luasnip.lsp_expand(args.body)
-      end,
-    },
+    -- snippet = {
+    --   expand = function(args)
+    --     luasnip.lsp_expand(args.body)
+    --   end,
+    -- },
 
-    completion = {
-      autocomplete = false,
-    },
+    -- completion = {
+    --   autocomplete = false,
+    -- },
 
     window = {
       completion = cmp.config.window.bordered {
