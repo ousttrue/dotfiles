@@ -6,3 +6,7 @@ https://openusd.org/dev/api/hd_storm_page_front.html
 
 # glslfx
 
+# HdstRenderDelegate
+これが実態。
+`usd_hdSt.dll` に入っている。
+`hdStorm.dll` はこれを呼び出しているだけ

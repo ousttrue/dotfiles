@@ -2,6 +2,10 @@
 - @2021 [USD は手書きするもの - Qiita](https://qiita.com/takahito-tejima/items/ee0332bfb5c9baed3b09)
 - [Documents_USD/doc/usd_usda.md at master · ft-lab/Documents_USD · GitHub](https://github.com/ft-lab/Documents_USD/blob/master/doc/usd_usda.md)
 
+
+# usdc
+[USD Terms and Concepts — Universal Scene Description 23.05 documentation](https://openusd.org/release/glossary.html#crate-file-format)
+
 # schema
 usda に記述できる要素
 - generatedSchema.usda

@@ -1,6 +1,7 @@
 [[usd_build]]
 [[asset_resolution]]
 [[usd_imaging]]
+[[usd_app]]
 
 [USD Home — Universal Scene Description 23.05 documentation](https://openusd.org/release/index.html)
 
