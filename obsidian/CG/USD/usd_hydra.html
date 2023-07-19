@@ -256,6 +256,70 @@
 <li><p>UsdImaging</p></li>
 <li><p>Imaging(Hydra)</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">TfToken&amp;</span> <span class="pre">rendererPluginId</span></code> でレンダラーをスイッチする。
+<code class="docutils literal notranslate"><span class="pre">HD_DEFAULT_RENDERER</span></code></p>
+<p>HdRendererPluginRegistry.GetDefaultPluginId</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// id==null で入ってくる</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">UsdImagingGLEngine::SetRendererPlugin</span><span class="p">(</span><span class="n">TfToken</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">id</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">TfToken</span><span class="w"> </span><span class="n">HdRendererPluginRegistry</span><span class="o">::</span><span class="n">GetDefaultPluginId</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">gpuEnabled</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hfpluginregistory">
+<h1>HfPluginRegistory<a class="headerlink" href="#hfpluginregistory" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>discover</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"></span>
+<span class="nf">HfPluginRegistry::_DiscoverPlugins</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+
+<span class="n">TfType</span><span class="o">::</span><span class="n">Find</span><span class="o">&lt;</span><span class="n">HdRendererPlugin</span><span class="o">&gt;</span><span class="p">()</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">TfToken</span><span class="w"> </span>
+<span class="nf">HdRendererPluginRegistry::GetDefaultPluginId</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">gpuEnabled</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Get all the available plugins to see if any of them is supported on this</span>
+<span class="w">    </span><span class="c1">// platform and use the first one as the default.</span>
+<span class="w">    </span><span class="c1">// </span>
+<span class="w">    </span><span class="c1">// Important note, we want to avoid loading plugins as much as possible, </span>
+<span class="w">    </span><span class="c1">// we would prefer to only load plugins when the user asks for them.  So</span>
+<span class="w">    </span><span class="c1">// we will only load plugins until we find the first one that works.</span>
+<span class="w">    </span><span class="n">HfPluginDescVector</span><span class="w"> </span><span class="n">pluginDescriptors</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">GetPluginDescs</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pluginDescriptors</span><span class="p">);</span><span class="w"> </span><span class="c1">// 👉discover</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// シングルトンの初期化</span>
+<span class="w">    </span><span class="n">HdRendererPluginRegistry</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">().</span><span class="n">AddPluginReference</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"></span>
+<span class="n">HfPluginRegistry</span><span class="o">::</span><span class="n">AddPluginReference</span><span class="p">(</span><span class="n">HfPluginBase</span><span class="w"> </span><span class="o">*</span><span class="n">plugin</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// hdStorm を登録</span>
+</pre></div>
+</div>
+<section id="id1">
+<h2>登録<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>型で登録して</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">HdRendererPluginRegistry</span><span class="o">::</span><span class="n">Define</span><span class="o">&lt;</span><span class="n">HdTinyRendererPlugin</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>取得<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>文字列で取得する</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c1">// Get the renderer plugin and create a new render delegate and index.</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TfToken</span><span class="w"> </span><span class="nf">tinyRendererPluginId</span><span class="p">(</span><span class="s">"HdTinyRendererPlugin"</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">HdRendererPlugin</span><span class="w"> </span><span class="o">*</span><span class="n">rendererPlugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HdRendererPluginRegistry</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">GetRendererPlugin</span><span class="p">(</span><span class="n">tinyRendererPluginId</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">TF_VERIFY</span><span class="p">(</span><span class="n">rendererPlugin</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -301,6 +365,11 @@
 </li>
 <li><a class="reference internal" href="#hdrenderindex">HdRenderIndex</a></li>
 <li><a class="reference internal" href="#usdimagingglengine">UsdImagingGLEngine</a></li>
+<li><a class="reference internal" href="#hfpluginregistory">HfPluginRegistory</a><ul>
+<li><a class="reference internal" href="#id1">登録</a></li>
+<li><a class="reference internal" href="#id2">取得</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

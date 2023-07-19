@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -223,6 +223,12 @@
 <p><a class="reference external" href="https://openusd.org/dev/api/hd_st_page_front.html">Universal Scene Description: HdSt : Rendering functionality for HdStorm</a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="glslfx">
 <h1>glslfx<a class="headerlink" href="#glslfx" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hdstrenderdelegate">
+<h1>HdstRenderDelegate<a class="headerlink" href="#hdstrenderdelegate" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>これが実態。
+<code class="docutils literal notranslate"><span class="pre">usd_hdSt.dll</span></code> に入っている。
+<code class="docutils literal notranslate"><span class="pre">hdStorm.dll</span></code> はこれを呼び出しているだけ</p>
 </section>
 
         </article>
@@ -246,8 +252,25 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">glslfx</a></li>
+<li><a class="reference internal" href="#hdstrenderdelegate">HdstRenderDelegate</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

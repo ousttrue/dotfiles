@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>ArchiMesh - shell note ドキュメント</title>
+        <title>usdc - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,20 +218,38 @@
           </label>
         </div>
         <article role="main">
-          <p>建築モデリング</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://knb-mayumi.com/category/blender%e3%81%a7%e9%83%a8%e5%b1%8b%e3%81%ae%e4%bd%9c%e3%82%8a%e6%96%b9/">blenderで部屋の作り方 | 神部まゆみのブログ</a></p></li>
-<li><p><a class="reference external" href="https://cgworld.jp/regular/202210-blender-gakuen03.html">初心者歓迎！Blender学園 3時間目：Blenderでシンプルな部屋を作ってみよう</a></p></li>
+          <ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://qiita.com/syoyo/items/643e73570ec4994acca3">USD(Universal Scene Description)のデータ構造のメモ(書き始め) - Qiita</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://qiita.com/takahito-tejima/items/ee0332bfb5c9baed3b09">USD は手書きするもの - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ft-lab/Documents_USD/blob/master/doc/usd_usda.md">Documents_USD/doc/usd_usda.md at master · ft-lab/Documents_USD · GitHub</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="archimesh">
-<h1>ArchiMesh<a class="headerlink" href="#archimesh" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[ArchiMesh]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="usdc">
+<h1>usdc<a class="headerlink" href="#usdc" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://openusd.org/release/glossary.html#crate-file-format">USD Terms and Concepts — Universal Scene Description 23.05 documentation</a></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="building-tools">
-<h1>building_tools<a class="headerlink" href="#building-tools" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="schema">
+<h1>schema<a class="headerlink" href="#schema" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>usda に記述できる要素</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://ranjian0.github.io/building_tools/">🏠 Fast building exteriors in Blender ⚡️ | [“Building Tools”]</a></p></li>
-<li><p><a class="reference external" href="https://github.com/ranjian0/building_tools">building_tools</a></p></li>
+<li><p>generatedSchema.usda</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="def-over-class">
+<h1>def, over, class<a class="headerlink" href="#def-over-class" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://remedy-entertainment.github.io/USDBook/terminology/specifier.html">Specifier - Getting Started with Universal Scene Description (USD)</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="composition">
+<h1>composition<a class="headerlink" href="#composition" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[usd_composition]]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vim">
+<h1>vim<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ColinKennedy/vim-usd-complete">GitHub - ColinKennedy/vim-usd-complete: Vim tags for writing Pixar USD files</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ColinKennedy/tree-sitter-usd">GitHub - ColinKennedy/tree-sitter-usd: USD file grammar parser</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ColinKennedy/vim-usd-auto-formatter">GitHub - ColinKennedy/vim-usd-auto-formatter: A Vim plugin that automatically reformats Pixar USD files</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ColinKennedy/vim-usd-goto">GitHub - ColinKennedy/vim-usd-goto: A Vim plugin that makes Vim's "gf" command work with Pixar's USD files</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ColinKennedy/usd_cpp_utilities">GitHub - ColinKennedy/usd_cpp_utilities: A collection of production-ish USD helper libraries</a></p></li>
 </ul>
 </section>
 
@@ -248,7 +266,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/CG/blender/architecture.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/CG/USD/usda.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -268,8 +286,11 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">ArchiMesh</a></li>
-<li><a class="reference internal" href="#building-tools">building_tools</a></li>
+<li><a class="reference internal" href="#">usdc</a></li>
+<li><a class="reference internal" href="#schema">schema</a></li>
+<li><a class="reference internal" href="#def-over-class">def, over, class</a></li>
+<li><a class="reference internal" href="#composition">composition</a></li>
+<li><a class="reference internal" href="#vim">vim</a></li>
 </ul>
 
           </div>

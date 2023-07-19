@@ -2,6 +2,9 @@
 - https://github.com/LumaPictures/usd-qt
 - [GitHub - dreamworksanimation/usdmanager: USD Manager](https://github.com/dreamworksanimation/usdmanager)
 
+# tinyusdz
+- [GitHub - syoyo/tinyusdz: Tiny, dependency-free USDZ/USDA/USDC library written in C++14](https://github.com/syoyo/tinyusdz)
+
 # Blender-3.0
 https://developer.blender.org/project/view/118/
 - @2021 [あんどうめぐみ@れみりあさんの記事一覧 | Zenn](https://zenn.dev/remiria)
