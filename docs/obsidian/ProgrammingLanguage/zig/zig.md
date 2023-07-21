@@ -3,11 +3,14 @@
 [Home ⚡ Zig Programming Language](https://ziglang.org/)
 
 - [GitHub - nrdmn/awesome-zig](https://github.com/nrdmn/awesome-zig)
+- [[全編無料] 他言語習得者がとりあえず使えるようになるZig](https://zenn.dev/drumato/books/learn-zig-to-be-a-beginner)
 
 # Version
-## 11 development
-## 10.1
-## 10.0
+## 0.11 development
+- [0.11.0 Milestone · GitHub](https://github.com/ziglang/zig/milestone/17)
+
+## 0.10.1
+## 0.10.0
 async 動かない
 [async/await/suspend/resume · Issue #6025 · ziglang/zig · GitHub](https://github.com/ziglang/zig/issues/6025)
 

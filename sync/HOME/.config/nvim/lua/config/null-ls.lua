@@ -16,6 +16,39 @@ function get_clang_format()
   end
 end
 
+local uv = vim.uv
+
+-- .. "/.vscode/extensions/ms-dotnettools.csharp-1.25.4-win32-x64/.omnisharp/1.39.4-net6.0/OmniSharp.dll",
+local function enum_dir(dir)
+  local t = {}
+  local d = uv.fs_scandir(dir)
+  if d then
+    while true do
+      local fs = uv.fs_scandir_next(d)
+      if not fs then
+        break
+      end
+      table.insert(t, fs)
+    end
+  end
+  return t
+end
+
+-- return "C:/Program Files/tidy 5.8.0/bin/tidy.exe"
+function get_tidy()
+  if vim.fn.has "win32" == 1 then
+    local where = "C:/Program Files"
+    for i, e in ipairs(enum_dir(where)) do
+      if string.find(e, "^tidy") then
+        local ret = where .. "/" .. e .. "/bin/tidy.exe"
+        return ret
+      end
+    end
+  else
+    return "clang-format"
+  end
+end
+
 function M.setup()
   local null_ls = require "null-ls"
   local helpers = require "null-ls.helpers"
@@ -36,14 +69,14 @@ function M.setup()
     sources = {
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.black,
-      null_ls.builtins.formatting.xmlformat,
+      -- null_ls.builtins.formatting.xmlformat,
       -- null_ls.builtins.formatting.cmake_format,
-      -- null_ls.builtins.formatting.prettier,
-      null_ls.builtins.formatting.tidy.with {
-        command = "C:/Program Files/tidy 5.8.0/bin/tidy.exe",
-      },
+      null_ls.builtins.formatting.prettier,
+      -- null_ls.builtins.formatting.tidy.with {
+      --   command = get_tidy(),
+      -- },
       null_ls.builtins.diagnostics.tidy.with {
-        command = "C:/Program Files/tidy 5.8.0/bin/tidy.exe",
+        command = get_tidy(),
       },
       -- null_ls.builtins.diagnostics.eslint,
       null_ls.builtins.formatting.shfmt,
