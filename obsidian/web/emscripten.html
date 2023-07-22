@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>meson - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,13 +212,78 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
           <p>[[wasm]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developer.mozilla.org/ja/docs/WebAssembly/C_to_Wasm">C/C++ から WebAssembly へのコンパイル - WebAssembly | MDN</a></p></li>
+<li><p><a class="reference external" href="https://future-architect.github.io/articles/20230517a/">WebAssemblyとEmscriptenに入門した | フューチャー技術ブログ</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="meson">
+<h1>meson<a class="headerlink" href="#meson" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[meson]]</p>
+<section id="cross-file">
+<h2>cross-file<a class="headerlink" href="#cross-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://github.com/mesonbuild/meson/blob/master/cross/wasm.txt">meson/cross/wasm.txt at master · mesonbuild/meson · GitHub</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">binaries</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="s1">'emcc'</span>
+<span class="n">cpp</span> <span class="o">=</span> <span class="s1">'em++'</span>
+<span class="n">ar</span> <span class="o">=</span> <span class="s1">'emar'</span>
+
+<span class="p">[</span><span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">options</span><span class="p">]</span>
+<span class="n">c_args</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">c_link_args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'-sEXPORT_ALL=1'</span><span class="p">]</span>
+<span class="n">cpp_args</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">cpp_link_args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'-sEXPORT_ALL=1'</span><span class="p">]</span>
+<span class="n">default_library</span> <span class="o">=</span> <span class="s1">'static'</span>
+
+<span class="p">[</span><span class="n">host_machine</span><span class="p">]</span>
+<span class="n">system</span> <span class="o">=</span> <span class="s1">'emscripten'</span>
+<span class="n">cpu_family</span> <span class="o">=</span> <span class="s1">'wasm32'</span>
+<span class="n">cpu</span> <span class="o">=</span> <span class="s1">'wasm32'</span>
+<span class="n">endian</span> <span class="o">=</span> <span class="s1">'little'</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">,</span> <span class="s1">'cpp'</span><span class="p">)</span>
+
+<span class="n">executable</span><span class="p">(</span>
+    <span class="s1">'hello'</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">'main.cpp'</span><span class="p">],</span>
+    <span class="n">install</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="n">name_suffix</span><span class="p">:</span> <span class="s1">'html'</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="opengl">
+<h1>OpenGL<a class="headerlink" href="#opengl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>window platform と webgl2</p>
+<section id="glfw3">
+<h2>GLFW3 ?<a class="headerlink" href="#glfw3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">-sUSE_GLFW=3</span></code>
+<a class="reference external" href="https://gist.github.com/ousttrue/0f3a11d5d28e365b129fe08f18f4e141">emscripten glfw3 or webgl sample · GitHub</a>
+<code class="docutils literal notranslate"><span class="pre">imgui/examples/example_glfw_opengl3/main.cpp</span></code> などを見ると良い。</p>
+</section>
+<section id="sdl2">
+<h2>SDL2 ?<a class="headerlink" href="#sdl2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">-sUSE_SDL=2</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/erik-larsen/emscripten-sdl2-ogles2/tree/master">GitHub - erik-larsen/emscripten-sdl2-ogles2: C++/SDL2/OpenGLES2 samples running in the browser via Emscripten</a></p></li>
+<li><p><a class="reference external" href="https://github.com/redblobgames/helloworld-sdl2-opengl-emscripten">GitHub - redblobgames/helloworld-sdl2-opengl-emscripten: Basic program that uses SDL2+OpenGL, compiling both locally and via emscripten</a></p></li>
+</ul>
+</section>
+<section id="glew">
+<h2>glew ?<a class="headerlink" href="#glew" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="imgui">
+<h2>imgui ?<a class="headerlink" href="#imgui" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
 
         </article>
       </div>
@@ -241,8 +306,34 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">meson</a><ul>
+<li><a class="reference internal" href="#cross-file">cross-file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#opengl">OpenGL</a><ul>
+<li><a class="reference internal" href="#glfw3">GLFW3 ?</a></li>
+<li><a class="reference internal" href="#sdl2">SDL2 ?</a></li>
+<li><a class="reference internal" href="#glew">glew ?</a></li>
+<li><a class="reference internal" href="#imgui">imgui ?</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
