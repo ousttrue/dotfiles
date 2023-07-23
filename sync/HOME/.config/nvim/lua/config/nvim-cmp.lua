@@ -136,7 +136,7 @@ function M.setup()
     }),
   })
 
-  cmp.setup.cmdline(":", {
+  cmp.setup.cmdline({":", "Create file"}, {
     -- mapping = cmp.mapping.preset.cmdline(command_mapping),
     sources = cmp.config.sources({
       { name = "path" },

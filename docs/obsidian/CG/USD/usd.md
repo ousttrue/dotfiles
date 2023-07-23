@@ -17,6 +17,11 @@
 - @2017 [ピクサー USD 入門 新たなコンテンツパイプラインを構築する](https://www.slideshare.net/takahitotejima/usd-79288174)
 - @2016 [USD (ユニバーサルシーンディスクリプション） - Qiita](https://qiita.com/takahito-tejima/items/3c2fa4a4a83aa04b9a0e)
 
+# Tutorial
+- [USD Tutorials — Universal Scene Description 23.05 documentation](https://openusd.org/release/tut_usd_tutorials.html)
+`extras/usd/tutorials`
+- [Hello World - Creating Your First USD Stage — Universal Scene Description 23.05 documentation](https://openusd.org/release/tut_helloworld.html)
+
 # API
 - [Universal Scene Description: Universal Scene Description (USD)](https://openusd.org/dev/api/index.html)
 

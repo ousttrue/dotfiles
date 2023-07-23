@@ -107,6 +107,9 @@ void main()
 }
 ```
 
+# Extensions
+## gl_VertexIndex
+
 # compile
 [Example/GLSL Shader Compile Error Testing - OpenGL Wiki](https://www.khronos.org/opengl/wiki/Example/GLSL_Shader_Compile_Error_Testing)
 
