@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Xform - shell note ドキュメント</title>
+        <title>UsdGeom - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -221,18 +221,29 @@
           <ul class="simple">
 <li><p><a class="reference external" href="https://qiita.com/takahito-tejima/items/54eccf9b93d6e386186e">UsdGeomImageable 完全に理解した - Qiita</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="xform">
-<h1>Xform<a class="headerlink" href="#xform" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">root</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stage</span> <span class="o">=</span> <span class="n">Usd</span><span class="o">.</span><span class="n">Stage</span><span class="o">.</span><span class="n">CreateNew</span><span class="p">(</span><span class="s1">'HelloWorld.usda'</span><span class="p">)</span>
+</pre></div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="usdgeom">
+<h1>UsdGeom<a class="headerlink" href="#usdgeom" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="xform">
+<h2>Xform<a class="headerlink" href="#xform" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>いわゆる <code class="docutils literal notranslate"><span class="pre">empty</span></code> のこと？</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.sidefx.com/ja/docs/houdini/nodes/lop/createxform.html">Xform</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ft-lab/Documents_USD/blob/master/doc/usd_prim_transform.md">Documents_USD/doc/usd_prim_transform.md at master · ft-lab/Documents_USD · GitHub</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ft-lab/Documents_USD/blob/master/doc/usd_prim_transform.md">Documents_USD/doc/usd_prim_transform.md at master · ft-lab/Documents_USD · GitHub</a></p></li>
 </ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xformPrim</span> <span class="o">=</span> <span class="n">UsdGeom</span><span class="o">.</span><span class="n">Xform</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="n">stage</span><span class="p">,</span> <span class="s1">'/hello'</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="primtive">
-<h1>primtive<a class="headerlink" href="#primtive" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="sphere">
 <h2>Sphere<a class="headerlink" href="#sphere" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spherePrim</span> <span class="o">=</span> <span class="n">UsdGeom</span><span class="o">.</span><span class="n">Sphere</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="n">stage</span><span class="p">,</span> <span class="s1">'/hello/world'</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="cube">
 <h2>Cube<a class="headerlink" href="#cube" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -272,8 +283,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Xform</a></li>
-<li><a class="reference internal" href="#primtive">primtive</a><ul>
+<li><a class="reference internal" href="#">UsdGeom</a><ul>
+<li><a class="reference internal" href="#xform">Xform</a></li>
 <li><a class="reference internal" href="#sphere">Sphere</a></li>
 <li><a class="reference internal" href="#cube">Cube</a></li>
 </ul>

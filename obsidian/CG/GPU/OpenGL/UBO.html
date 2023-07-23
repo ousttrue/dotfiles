@@ -259,6 +259,17 @@
 <section id="std430">
 <h2>std430<a class="headerlink" href="#std430" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
+<section id="version420">
+<h2>version420<a class="headerlink" href="#version420" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Shared set between most vertex shaders</span>
+<span class="n">layout</span><span class="p">(</span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">binding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">uniform</span><span class="w"> </span><span class="n">ViewUniforms</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">mat4</span><span class="w"> </span><span class="n">view</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">mat4</span><span class="w"> </span><span class="n">proj</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">view</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="c">
 <h1>C<a class="headerlink" href="#c" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -328,6 +339,7 @@
 <li><a class="reference internal" href="#">memory layout</a><ul>
 <li><a class="reference internal" href="#std140">std140</a></li>
 <li><a class="reference internal" href="#std430">std430</a></li>
+<li><a class="reference internal" href="#version420">version420</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#c">C</a><ul>

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>無限平面 - shell note ドキュメント</title>
+        <title>Normalized Device Coordinate (NDC) - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -218,22 +218,42 @@
           </label>
         </div>
         <article role="main">
-          <p>[[OpenGL]]</p>
+          <section class="tex2jax_ignore mathjax_ignore" id="normalized-device-coordinate-ndc">
+<h1>Normalized Device Coordinate (NDC)<a class="headerlink" href="#normalized-device-coordinate-ndc" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://shikihuiku.github.io/post/projection_matrix/">Projection Matrixについて | shikihuiku – 色不異空 – Real-time rendering topics in Japanese.</a></p>
+<section id="opengl">
+<h2>OpenGL<a class="headerlink" href="#opengl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[OpenGL]]</p>
+<p><code class="docutils literal notranslate"><span class="pre">gl_Position</span></code> =&gt; xyzw =&gt; w で割った値(正規化デバイス座標)を -1 ~ 1 でクリップする</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://madebyevan.com/shaders/grid/">Anti-Aliased Grid Shader - Made by Evan</a></p></li>
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/24772598/drawing-a-grid-in-a-webgl-fragment-shader">Drawing a grid in a WebGL fragment shader - Stack Overflow</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-1</span> <span class="pre">≤</span> <span class="pre">x</span> <span class="pre">≤</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-1</span> <span class="pre">≤</span> <span class="pre">y</span> <span class="pre">≤</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-1</span> <span class="pre">≤</span> <span class="pre">z</span> <span class="pre">≤</span> <span class="pre">1</span></code></p></li>
+<li><p><a class="reference external" href="https://marina.sys.wakayama-u.ac.jp/~tokoi/?date=20090829">床井研究室 - 第５回 座標変換</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>無限平面<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://houz67890.hatenablog.com/entry/2023/04/17/122215">【ゲーム制作】No.12: 無限平面の描画(Direct3D11) - houz67890のブログ</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="depth">
-<h1>depth<a class="headerlink" href="#depth" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h3>深度値の書き込み値<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="http://akasuku.blog.jp/archives/70170885.html">glOrtho()のnear/farとz値、デプスバッファ値の関係 : あかすくぱるふぇ</a></p>
+<blockquote>
+<div><p>OpenGLは手前側がz軸の正方向なので、正負が入れ替わるのですね。<br/>
+一方、デプスバッファの値（デプス値）は、前方面のデプス値が0, 後方面のデプス値が1となるように書き込まれます。</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">gl_FragDepth</span></code></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://qiita.com/aa_debdeb/items/3306ecee493603ac0dd0">【WebGL2】gl_FragDepthを使ってフラグメントシェーダーで深度を書き込む - Qiita</a></p></li>
 </ul>
+</section>
+</section>
+<section id="directx">
+<h2>DirectX<a class="headerlink" href="#directx" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/windows/win32/direct3d9/viewports-and-clipping#set-up-the-viewport-for-clipping">ビューポートとクリッピング (Direct3D 9) - Win32 apps | Microsoft Learn</a></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-1</span> <span class="pre">≤</span> <span class="pre">x</span> <span class="pre">≤</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-1</span> <span class="pre">≤</span> <span class="pre">y</span> <span class="pre">≤</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">≤</span> <span class="pre">z</span> <span class="pre">≤</span> <span class="pre">1</span></code></p></li>
+</ul>
+<p><a class="reference external" href="http://marupeke296.com/DXG_No70_perspective.html">その70 完全ホワイトボックスなパースペクティブ射影変換行列</a></p>
+</section>
 </section>
 
         </article>
@@ -249,7 +269,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/grid.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/ProjectionMatrix.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -269,8 +289,14 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">無限平面</a></li>
-<li><a class="reference internal" href="#depth">depth</a></li>
+<li><a class="reference internal" href="#">Normalized Device Coordinate (NDC)</a><ul>
+<li><a class="reference internal" href="#opengl">OpenGL</a><ul>
+<li><a class="reference internal" href="#id1">深度値の書き込み値</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#directx">DirectX</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

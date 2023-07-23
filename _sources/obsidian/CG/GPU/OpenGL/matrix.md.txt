@@ -1,6 +1,6 @@
-opengl matrix
-#opengl
-	http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/
+[[opengl]]
+[[ProjectionMatrix]]
+[Tutorial 3 : Matrices](http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/)
 
 code:glm.cpp
  #include <glm/gtc/matrix_transform.hpp> 

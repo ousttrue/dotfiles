@@ -9,3 +9,10 @@ Y-up ?
 
 # matrix
 - [pxrUSD の Matrix は row-major であるので注意 - Qiita](https://qiita.com/syoyo/items/061e38489a52c7cb4b90)
+
+
+# UsdStage
+`root`
+- [Universal Scene Description: UsdStage Class Reference](https://openusd.org/release/api/class_usd_stage.html)
+[[usd_prim]]
+
