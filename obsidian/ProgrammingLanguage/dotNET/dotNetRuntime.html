@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>.NET Core 3.0以降 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,17 +212,95 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
           <p>[[dotNET]]</p>
-<p>https://learn.microsoft.com/ja-jp/dotnet/core/tutorials/netcore-hosting</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/dotnet/core/tutorials/netcore-hosting">カスタム .NET ランタイム ホストを作成する - .NET | Microsoft Learn</a></p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/core/tutorials/netcore-hosting">Write a custom .NET runtime host - .NET | Microsoft Learn</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="net-core-3-0">
+<h1>.NET Core 3.0以降<a class="headerlink" href="#net-core-3-0" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://qiita.com/yaegaki/items/245709cacc956e9d55aa">2019年10月版 .NET Coreが動くまで - Qiita</a></p></li>
+<li><p>@2017 <a class="reference external" href="http://yfakariya.blogspot.com/2017/03/net-core.html">主に技術日記: .NET Coreが動くまで</a></p></li>
+<li><p><a class="reference external" href="https://github.com/dotnet/samples/tree/main/core/hosting">samples/core/hosting at main · dotnet/samples · GitHub</a></p></li>
 <li><p><a class="reference external" href="https://github.com/dotnet/samples/blob/97a47512f2df268b2c3f4cdd0b31092f3b49514d/core/hosting/HostWithHostFxr/readme.md#L11">samples/readme.md at 97a47512f2df268b2c3f4cdd0b31092f3b49514d · dotnet/samples · GitHub</a>[]</p></li>
 </ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ dotnet list reference
+プロジェクト参照
+--------
+src/NativeHost/*.csproj
+src/DotNetLib/*.csproj
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;ClInclude</span> <span class="na">Include=</span><span class="s">"inc.vs\nethost.h"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ClInclude</span> <span class="na">Include=</span><span class="s">"inc\coreclr_delegates.h"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ClInclude</span> <span class="na">Include=</span><span class="s">"inc\hostfxr.h"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+</pre></div>
+</div>
+<section id="nethost">
+<h2>nethost<a class="headerlink" href="#nethost" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">nethost</span></code>は<code class="docutils literal notranslate"><span class="pre">hostfxr</span></code>のパスを取得するためだけのライブラリです</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>libnethost.lib</p>
+<ul>
+<li><p>C:/Program Files/dotnet/packs/Microsoft.NETCore.App.Host.win-x64/7.0.5/runtimes/win-x64/native/libnethost.lib</p></li>
+</ul>
+</li>
+<li><p>nethost.dll</p></li>
+<li><p><a class="reference external" href="https://github.com/dotnet/runtime/issues/71056"><code class="docutils literal notranslate"><span class="pre">libnethost.lib</span></code> appears to be built with LTCG, making it unusable with non-MSVC toolchains · Issue #71056 · dotnet/runtime · GitHub</a></p></li>
+<li><p>https://www.nuget.org/packages/runtime.win-x86.Microsoft.NETCore.DotNetAppHost/3.0.1</p></li>
+<li><p><a class="reference external" href="https://github.com/dotnet/announcements/issues/217">.NET Package Maintenance (deprecation) · Issue #217 · dotnet/announcements · GitHub</a></p></li>
+</ul>
+</section>
+<section id="hostfxr">
+<h2>hostfxr<a class="headerlink" href="#hostfxr" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>get_hostfxr_path</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C:/Program</span> <span class="pre">Files/dotnet/host/fxr/7.0.5/hostfxr.dll</span></code></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>.NET Core 3.0 より前<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/dotnet/runtime/blob/main/src/coreclr/hosts/inc/coreclrhost.h"><code class="docutils literal notranslate"><span class="pre">coreclrhost.h</span></code></a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="coreclr">
+<h1>CoreCLR<a class="headerlink" href="#coreclr" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<blockquote>
+<div><p>ホスティング API は、その名の通り CoreCLR（.NET Core のランタイム）をプロセスにロードして、実行するための API です。.NET Core のプログラムを実行する場合、このホスティング API を何らかの形で実行する必要があります。</p>
+</div></blockquote>
+<p>.NET Core の場合、以下の 4 つの関数が定義されています。ここで、文字列は、Windows の場合は ANSI、それ以外の場合は UTF-8 で渡します。</p>
+<section id="coreclr-initialize">
+<h2>coreclr_initialize<a class="headerlink" href="#coreclr-initialize" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="coreclr-shutdown">
+<h2>coreclr_shutdown<a class="headerlink" href="#coreclr-shutdown" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="coreclr-create-delegate">
+<h2>coreclr_create_delegate<a class="headerlink" href="#coreclr-create-delegate" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="coreclr-execute-assembly">
+<h2>coreclr_execute_assembly<a class="headerlink" href="#coreclr-execute-assembly" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="app">
+<h1>app<a class="headerlink" href="#app" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/masahiro-furuichi/items/ff3a1abf25a64cef7cdd">CefSharpでカスタムWebブラウザを作る - Qiita</a></p></li>
+</ul>
+</section>
 
         </article>
       </div>
@@ -237,7 +315,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/dotNET/dotNETHost.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/dotNET/dotNetRuntime.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -245,8 +323,37 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">.NET Core 3.0以降</a><ul>
+<li><a class="reference internal" href="#nethost">nethost</a></li>
+<li><a class="reference internal" href="#hostfxr">hostfxr</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">.NET Core 3.0 より前</a></li>
+<li><a class="reference internal" href="#coreclr">CoreCLR</a><ul>
+<li><a class="reference internal" href="#coreclr-initialize">coreclr_initialize</a></li>
+<li><a class="reference internal" href="#coreclr-shutdown">coreclr_shutdown</a></li>
+<li><a class="reference internal" href="#coreclr-create-delegate">coreclr_create_delegate</a></li>
+<li><a class="reference internal" href="#coreclr-execute-assembly">coreclr_execute_assembly</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#app">app</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
