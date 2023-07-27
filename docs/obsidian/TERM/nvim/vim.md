@@ -10,3 +10,6 @@ vim
 
 vim 文字コード
 `ga` でカーソル上の文字のコードが分かる
+
+# replace
+- [Vimでs/正規表現/関数/ substituteで置換後文字列を関数にする方法 | コマンドの達人](https://life-is-command.com/vim-sub-replace-expression/)
