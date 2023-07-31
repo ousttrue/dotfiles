@@ -18,3 +18,5 @@
 - @2016 [Kilo - 1000行以下のコードで実装された超コンパクトなテキストエディタ | ソフトアンテナ](https://softantenna.com/blog/kilo/)
 
 - [GitHub - antirez/kilo: A text editor in less than 1000 LOC with syntax highlight and search.](https://github.com/antirez/kilo)
+
+[GitHub - csb6/editorial: A TUI text editor written in C++](https://github.com/csb6/editorial)
