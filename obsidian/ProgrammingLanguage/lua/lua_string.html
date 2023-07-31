@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>sample - shell note ドキュメント</title>
+        <title>string.find - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,102 +218,32 @@
           </label>
         </div>
         <article role="main">
-          <p>[[Linux]]</p>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/snowcait/scraps/9d9c47dc4d0414">GitHub Actions のベストプラクティス</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="sample">
-<h1>sample<a class="headerlink" href="#sample" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/simonritchie/items/629a02fc1ad0fd02d267">入門 GitHub Actions（Pythonライブラリ・Lint・テスト・PyPIアップロード・バッジ設定） - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/gyu-don/items/c047098e1a58dc8d8d96">GitHub Actionsを使ってsetup.cfgをもとに_version.pyを更新する - Qiita</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://knhk.hatenablog.com/entry/2020/05/19/173000">Github Actionsでビルドしてリリースにアップロードしてみた - 二度忘れた事を三度忘れないようにする</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>例<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="trigger-tag-create-release">
-<h2>trigger: tag =&gt; create release<a class="headerlink" href="#trigger-tag-create-release" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://knhk.hatenablog.com/entry/2020/05/19/173000">Github Actionsでビルドしてリリースにアップロードしてみた - 二度忘れた事を三度忘れないようにする</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="artifact">
-<h1>artifact<a class="headerlink" href="#artifact" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://www.guri2o1667.work/entry/2022/09/30/%E3%80%90Github%E3%80%91GitHubActions%E3%81%A7%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8Bupload-artifact%E3%81%A8download-artifact">【Github】GitHubActionsで利用するupload-artifactとdownload-artifact - 自由気ままに書いちゃおう</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="runner">
-<h1>runner<a class="headerlink" href="#runner" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources">About GitHub-hosted runners - GitHub Docs</a></p></li>
-</ul>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>jobs:
-  Run-npm-on-Ubuntu:
-    name: Run npm on Ubuntu
-    runs-on: ubuntu-latest
+          <p>[[lua]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="string-find">
+<h1>string.find<a class="headerlink" href="#string-find" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="nb">string.find</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">pattern</span> <span class="p">[,</span> <span class="n">init</span> <span class="p">[,</span> <span class="n">plain</span><span class="p">]])</span>
 </pre></div>
 </div>
-<section id="ubuntu">
-<h2>ubuntu<a class="headerlink" href="#ubuntu" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.blog/changelog/2022-08-09-github-actions-ubuntu-22-04-is-now-generally-available-on-github-hosted-runners/">GitHub Actions: Ubuntu 22.04 is now generally available on GitHub-hosted runners | GitHub Changelog</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ubuntu-latest</span></code></p></li>
+<li><p>return nil if not found</p></li>
+<li><p>return index</p></li>
 </ul>
 </section>
-<section id="windows">
-<h2>windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="string-match-s-pattern-init">
+<h1>string.match(s, pattern[, init])<a class="headerlink" href="#string-match-s-pattern-init" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">windows-2022</span></code></p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">vcvars64.bat</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://dvdhrm.github.io/2021/04/21/meson-msvc-github-actions/">Meson with MSVC on GitHub Actions</a></p></li>
+<li><p>return nil if not found</p></li>
+<li><p>return captured</p></li>
+<li><p>return all if no capture</p></li>
 </ul>
 </section>
-<section id="matrix">
-<h2>matrix<a class="headerlink" href="#matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs">Using a matrix for your jobs - GitHub Docs</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://www.clear-code.com/blog/2020/1/23.html">GitHub Actionsを使ったパッケージ作成の自動化 - 2020-01-23 - ククログ</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="docker">
-<h1>docker<a class="headerlink" href="#docker" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[docker]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/suzuki0430/items/d625f8b57ae317ae7d66">【GitHub Actions】Dockerコンテナを実行してみた - Qiita</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="action">
-<h1>action<a class="headerlink" href="#action" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id2">
-<h2>docker<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action">Creating a Docker container action - GitHub Docs</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="pull-request-check">
-<h1>pull request check<a class="headerlink" href="#pull-request-check" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>name: Test
-
-on:
-  pull_request: # 👈
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-jobs:
-  build_linux:
-    name: unittest
-    runs-on: ubuntu-20.04
-    permissions:
-      contents: read # 👈
-      checks: write # 👈
-      pull-requests: write # 👈 ?
+<section class="tex2jax_ignore mathjax_ignore" id="string-gmatch">
+<h1>string.gmatch<a class="headerlink" href="#string-gmatch" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">"from=world, to=Lua"</span>
+<span class="kr">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="kr">in</span> <span class="nb">string.gmatch</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">"(%w+)=(%w+)"</span><span class="p">)</span> <span class="kr">do</span>
+	<span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+<span class="kr">end</span>
 </pre></div>
 </div>
 </section>
@@ -331,7 +261,7 @@ jobs:
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/OS/Linux/github_action.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/lua/lua_string.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -351,24 +281,9 @@ jobs:
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">sample</a></li>
-<li><a class="reference internal" href="#id1">例</a><ul>
-<li><a class="reference internal" href="#trigger-tag-create-release">trigger: tag =&gt; create release</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#artifact">artifact</a></li>
-<li><a class="reference internal" href="#runner">runner</a><ul>
-<li><a class="reference internal" href="#ubuntu">ubuntu</a></li>
-<li><a class="reference internal" href="#windows">windows</a></li>
-<li><a class="reference internal" href="#matrix">matrix</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#docker">docker</a></li>
-<li><a class="reference internal" href="#action">action</a><ul>
-<li><a class="reference internal" href="#id2">docker</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#pull-request-check">pull request check</a></li>
+<li><a class="reference internal" href="#">string.find</a></li>
+<li><a class="reference internal" href="#string-match-s-pattern-init">string.match(s, pattern[, init])</a></li>
+<li><a class="reference internal" href="#string-gmatch">string.gmatch</a></li>
 </ul>
 
           </div>

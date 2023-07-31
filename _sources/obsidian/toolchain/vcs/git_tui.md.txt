@@ -1,5 +1,7 @@
 [[git]] [[tui]]
 
+- [GitHubのTUIツールを作った](https://zenn.dev/skanehira/articles/2021-02-22-go-github-tui)
+
 # tig
 - [Introduction · Tig - Text-mode interface for Git](https://jonas.github.io/tig/)
 
@@ -26,6 +28,15 @@
 - [tig-colors-neonwolf-256.tigrc · main · Dan Church / tig-colors-neonwolf · GitLab](https://gitlab.com/h3xx/tig-colors-neonwolf/-/blob/main/tig-colors-neonwolf-256.tigrc)
 - [tig-theme-molokai-like/molokai-like-theme.tigrc at master · edentsai/tig-theme-molokai-like · GitHub](https://github.com/edentsai/tig-theme-molokai-like/blob/master/colors/molokai-like-theme.tigrc)
 
-# keybinding
+## keybinding
 - h でヘルプ
 - [tigのキーバインドを変更して高速に大量のgitログを確認する | Act as Professional](https://hiroki.jp/2012/05/30/4182/)
+
+# gitui
+- [GitHub - extrawurst/gitui: Blazing 💥 fast terminal-ui for git written in rust 🦀](https://github.com/extrawurst/gitui)
+
+# lazygit
+- [[おすすめ]ターミナルでの作業効率が爆上げするTUIツール5選 - Qiita](https://qiita.com/gorilla0513/items/2bb416e371c43d6d88fc)
+
+# git-tui
+- [Releases · ArthurSonzogni/git-tui](https://github.com/ArthurSonzogni/git-tui/releases)
