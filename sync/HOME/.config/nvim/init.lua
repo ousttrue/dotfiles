@@ -44,7 +44,7 @@ opt.signcolumn = "yes" -- Always show sign column
 opt.clipboard = "unnamedplus" -- Access system clipboard
 opt.laststatus = 3
 opt.winbar = "%f"
-opt.fileformats = 'unix'
+opt.fileformats = 'unix,dos,mac'
 
 opt.tabstop = 4
 opt.softtabstop = 4
