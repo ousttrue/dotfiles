@@ -45,3 +45,22 @@ jobs:
 # action
 ## docker
 - [Creating a Docker container action - GitHub Docs](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action)
+
+# pull request check
+```yml
+name: Test
+
+on:
+  pull_request: # 👈
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build_linux:
+    name: unittest
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: read # 👈
+      checks: write # 👈
+      pull-requests: write # 👈 ?
+```

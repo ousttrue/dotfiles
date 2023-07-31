@@ -2,6 +2,7 @@
 aliases: [js, ECMAScrip]
 ---
 
+- [JavaScript Primer - 迷わないための入門書 #jsprimer](https://jsprimer.net/)
 - [ダイジェスト版「コルーチン」とは何だったのか - HackMD](https://hackmd.io/@mametter/S1dw4Xy2V)
 
 # Version
