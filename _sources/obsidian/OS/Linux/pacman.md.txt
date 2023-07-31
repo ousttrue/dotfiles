@@ -78,11 +78,15 @@ $ sudo pacman -Qs vim
 $ sudo pacman -U
 ```
 
-# yay
+# tool
+## yay
 - [GitHub - Jguer/yay: Yet another Yogurt - An AUR Helper written in Go](https://github.com/Jguer/yay)
 
-# pacseek
+## pacseek
 - [GitHub - moson-mo/pacseek: A terminal user interface for searching and installing Arch Linux packages](https://github.com/moson-mo/pacseek)
+
+## cylon
+- [GitHub - gavinlyonsrepo/cylon: A Terminal user interface for maintaining an Arch Linux distribution.](https://github.com/gavinlyonsrepo/cylon)
 
 # packages
 ## base-devel

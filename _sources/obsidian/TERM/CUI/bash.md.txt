@@ -1,5 +1,8 @@
 # Version 
 ## 5
+- @2019 [bash 5.0がリリースされた話 - Qiita](https://qiita.com/ryuichi1208/items/9f0b42517a51ccd34243)
+- @2019 [「GNU Bash 5.0」リリース、10年ぶりのメジャーバージョンアップ － Publickey](https://www.publickey1.jp/blog/19/gnu_bash_5010.html)
+
 ## 4.4
 ## 4.2
 
