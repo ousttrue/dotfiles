@@ -50,7 +50,9 @@ function M.setup()
   end
 
   local NVIM = ""
-  if nyagos.access(nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe", 4) then
+  if nyagos.access(nyagos.env.USERPROFILE .. "/local/bin/nvim.exe", 4) then
+    NVIM = nyagos.env.USERPROFILE .. "/local/bin/nvim.exe"
+  elseif nyagos.access(nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe", 4) then
     NVIM = nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe"
   elseif nyagos.access(nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe", 4) then
     NVIM = nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe"

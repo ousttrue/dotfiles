@@ -85,7 +85,7 @@ vim.keymap.set({ "n", "i" }, "<F7>", function()
 end)
 
 vim.keymap.set("n", "<F8>", function()
-  vim.cmd "copen"
+  vim.cmd "bel copen"
   local qfu = require "qfu"
   qfu.Qf_filter()
 end)

@@ -188,6 +188,13 @@ local plugins = {
       require("config.aerial").setup()
     end,
   },
+  -- nu
+  {
+    "LhKipp/nvim-nu",
+    config = function()
+      require("nu").setup {}
+    end,
+  },
 }
 
 require("lazy").setup(plugins)

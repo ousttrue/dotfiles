@@ -144,7 +144,7 @@ local config = {
     --     { key = "r", mods = "LEADER", action = "ReloadConfiguration" },
     --     { key = "q", mods = "LEADER", action = wezterm.action { CloseCurrentTab = { confirm = false } } },
     --     { key = "c", mods = "LEADER", action = "ShowLauncher" },
-    --     { key = "s", mods = "LEADER", action = "QuickSelect" },
+    { key = " ", mods = "CTRL|SHIFT", action = "QuickSelect" },
     --     { key = " ", mods = "LEADER", action = wezterm.action { PasteFrom = "PrimarySelection" } },
     --     { key = "[", mods = "LEADER", action = "ActivateCopyMode" },
     { key = "c", mods = "CTRL|SHIFT", action = wezterm.action { CopyTo = "Clipboard" } },

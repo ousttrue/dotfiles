@@ -71,3 +71,5 @@
 
 # zoxide
 - @2023 [つかさのほえほえ日記: zoxide+nyagosでディレクトリ移動](http://hoehoetukasa.blogspot.com/2023/01/zoxidenyagos.html)
+
+# vcenv

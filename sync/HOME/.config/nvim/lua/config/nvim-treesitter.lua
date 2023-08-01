@@ -17,6 +17,7 @@ function M.setup()
       "css",
       "c_sharp",
       "toml",
+      "nu",
 
       "typescript",
       "javascript",

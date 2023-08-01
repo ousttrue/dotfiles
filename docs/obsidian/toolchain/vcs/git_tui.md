@@ -1,6 +1,11 @@
 [[git]] [[tui]]
 
 - [GitHubのTUIツールを作った](https://zenn.dev/skanehira/articles/2021-02-22-go-github-tui)
+- [git-branch-deleter — Rust application // Lib.rs](https://lib.rs/crates/git-branch-deleter)
+- [GitHub - rgburke/grv: GRV is a terminal interface for viewing git repositories](https://github.com/rgburke/grv)
+
+# gitone
+- [Termina上でGitのログ表示を最高に見やすくするTUIアプリ「gitone」を作った - Qiita](https://qiita.com/yasukotelin/items/6fdeac0921ee55dd1c52)
 
 # tig
 - [Introduction · Tig - Text-mode interface for Git](https://jonas.github.io/tig/)

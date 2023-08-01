@@ -97,4 +97,5 @@ function nyagos.getviewwidth() end
 function nyagos.elevated() end
 
 ---@param path string
-function nyagos.access(path) end
+---@param mode integer
+function nyagos.access(path, mode) end
