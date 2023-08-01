@@ -235,6 +235,72 @@
 <li><p>@2023 <a class="reference external" href="https://zenn.dev/paiza/articles/9ca689a0365b05">weztermのEmojiがなんか思ってたのと違うな...というときの設定の仕方</a></p></li>
 </ul>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="gui">
+<h1>GUI<a class="headerlink" href="#gui" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/config/default_gui_startup_args.html">default_gui_startup_args - Wez's Terminal Emulator</a></p>
+<section id="startup">
+<h2>startup<a class="headerlink" href="#startup" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="local">
+<h3>local<a class="headerlink" href="#local" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">wezterm</span>
+</pre></div>
+</div>
+</section>
+<section id="wsl">
+<h3>wsl<a class="headerlink" href="#wsl" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; wezterm start wsl ??
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tab">
+<h2>tab<a class="headerlink" href="#tab" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="s2">"c"</span><span class="p">,</span> <span class="n">mods</span> <span class="o">=</span> <span class="s2">"ALT"</span><span class="p">,</span> <span class="n">action</span> <span class="o">=</span> <span class="n">wezterm</span><span class="p">.</span><span class="n">action</span> 
+	<span class="p">{</span> 
+		<span class="n">SpawnTab</span> <span class="o">=</span> <span class="s2">"CurrentPaneDomain"</span> 
+	<span class="p">}</span>
+<span class="p">}</span> 
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="multiplexer">
+<h1>Multiplexer<a class="headerlink" href="#multiplexer" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/multiplexing.html">Multiplexing - Wez's Terminal Emulator</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Win32GUi =&gt; local (cmd)
+         =&gt; WSL(unix domain ?) &lt;= SSH
+
+XGUI =&gt; local &lt;= SSH
+WayLandGUI =&gt; local
+
+OSXGUI =&gt; local &lt;= SSH
+</pre></div>
+</div>
+<section id="domain">
+<h2>domain<a class="headerlink" href="#domain" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/config/default_domain.html">default_domain - Wez's Terminal Emulator</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/MuxDomain/index.html">object: MuxDomain - Wez's Terminal Emulator</a></p></li>
+<li><p>start</p></li>
+<li><p>connect</p></li>
+</ul>
+<section id="id1">
+<h3>local<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="ssh">
+<h3>ssh<a class="headerlink" href="#ssh" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="id2">
+<h3>wsl<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="p">.</span><span class="n">default_domain</span> <span class="o">=</span> <span class="s1">'WSL:Ubuntu-18.04'</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/WslDomain.html">object: WslDomain - Wez's Terminal Emulator</a></p>
+</section>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="launch-menu">
 <h1>launch_menu<a class="headerlink" href="#launch-menu" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="https://wezfurlong.org/wezterm/config/launch.html#the-launcher-menu">Launching Programs - Wez's Terminal Emulator</a></p>
@@ -264,6 +330,21 @@
 <span class="p">}</span>
 </pre></div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="copymode">
+<h1>CopyMode<a class="headerlink" href="#copymode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/copymode.html">Copy Mode - Wez's Terminal Emulator</a></p></li>
+<li><p>q</p></li>
+<li><p>y: yank.</p></li>
+<li><p>v: visual</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="quickselectmode">
+<h1>QuickSelectMode<a class="headerlink" href="#quickselectmode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/quickselect.html">quick select mode</a></p></li>
+</ul>
 </section>
 
         </article>
@@ -300,7 +381,27 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">font</a></li>
+<li><a class="reference internal" href="#gui">GUI</a><ul>
+<li><a class="reference internal" href="#startup">startup</a><ul>
+<li><a class="reference internal" href="#local">local</a></li>
+<li><a class="reference internal" href="#wsl">wsl</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tab">tab</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multiplexer">Multiplexer</a><ul>
+<li><a class="reference internal" href="#domain">domain</a><ul>
+<li><a class="reference internal" href="#id1">local</a></li>
+<li><a class="reference internal" href="#ssh">ssh</a></li>
+<li><a class="reference internal" href="#id2">wsl</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#launch-menu">launch_menu</a></li>
+<li><a class="reference internal" href="#copymode">CopyMode</a></li>
+<li><a class="reference internal" href="#quickselectmode">QuickSelectMode</a></li>
 </ul>
 
           </div>

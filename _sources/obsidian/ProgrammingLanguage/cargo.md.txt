@@ -1,3 +1,7 @@
+[[Rust]]
+
+[CargoでインストールしたRustパッケージをupdateする | Htkyama Blog](https://blog.htkyama.org/cargo_update)
+
 # Windows
 ## openssl
 

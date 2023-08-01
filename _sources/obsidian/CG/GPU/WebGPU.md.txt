@@ -7,12 +7,21 @@
 - [WebGPU Samples](https://austin-eng.com/webgpu-samples/)
 
 # chrome
-`Chrome-102以降`: chrome://flags/#enable-unsafe-webgpu を`Enabled`に切り替える
-`Chrome-101以前`: Origin Trialによって使用可能
+## 113
+- @2023 [WebGPUとC++でブラウザ上に三角ポリゴン描画してみる](https://zenn.dev/kd_gamegikenblg/articles/a5a8effe43bf3c)
+
+## 102以降: chrome://flags/#enable-unsafe-webgpu を`Enabled`に切り替える
+
+## Chrome-101以前
+Origin Trialによって使用可能
 
 - [Google Developers Japan: Chrome 94 ベータ版: WebCodecs、WebGPU、スケジューリングなど](https://developers-jp.googleblog.com/2021/09/chrome-94-webcodecswebgpu.html)
 
 - @2019 [[忙しい人向け] 100行から始めるWebGPU（GLSL版） - Qiita](https://qiita.com/cx20/items/67f4e70b36e06ef77900)
+
+## 2017
+- [Apple、WebGPUという新しい3Dグラフィックス標準を提案](https://www.infoq.com/jp/news/2017/02/webgpu/)
+
 
 # firefox
 `Firefox: firefox-nightly`

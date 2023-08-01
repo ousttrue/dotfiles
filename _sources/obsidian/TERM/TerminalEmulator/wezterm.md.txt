@@ -14,6 +14,59 @@
 
 - @2023 [weztermのEmojiがなんか思ってたのと違うな...というときの設定の仕方](https://zenn.dev/paiza/articles/9ca689a0365b05)
 
+# GUI
+[default_gui_startup_args - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/config/default_gui_startup_args.html)
+
+## startup
+### local
+```
+> wezterm
+```
+
+### wsl
+```
+> wezterm start wsl ??
+```
+
+## tab
+```lua
+{ key = "c", mods = "ALT", action = wezterm.action 
+	{ 
+		SpawnTab = "CurrentPaneDomain" 
+	}
+} 
+```
+
+# Multiplexer
+- [Multiplexing - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/multiplexing.html)
+
+```
+Win32GUi => local (cmd)
+         => WSL(unix domain ?) <= SSH
+
+XGUI => local <= SSH
+WayLandGUI => local
+
+OSXGUI => local <= SSH
+```
+
+## domain
+[default_domain - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/config/default_domain.html)
+
+- [object: MuxDomain - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/MuxDomain/index.html)
+- start
+- connect
+### local
+
+### ssh
+
+### wsl
+```lua
+config.default_domain = 'WSL:Ubuntu-18.04'
+```
+
+[object: WslDomain - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/WslDomain.html)
+
 # launch_menu
 [Launching Programs - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/launch.html#the-launcher-menu)
 
@@ -43,3 +96,12 @@ config.launch_menu = {
   },
 }
 ```
+
+# CopyMode
+- [Copy Mode - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/copymode.html)
+- q
+- y: yank.
+- v: visual
+
+# QuickSelectMode
+- [quick select mode](https://wezfurlong.org/wezterm/quickselect.html)
