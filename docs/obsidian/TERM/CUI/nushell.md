@@ -4,6 +4,7 @@
 	- [Nu map from other shells and domain specific languages | Nushell](https://www.nushell.sh/book/nushell_map.html)
 - [GitHub - nushell/nushell: A new type of shell](https://github.com/nushell/nushell)
 
+- @2023 [Nushell入門](https://zenn.dev/hkawa/books/610c7f5c3bce09)
 
 # Version
 ## 0.83.1
@@ -29,7 +30,13 @@
 ## env.nu
 
 # pipeline
-## grid
+- [Pipelines | Nushell](https://www.nushell.sh/book/pipelines.html)
+## list
+
+## str
+
+## op
+### grid
 - [grid | Nushell](https://www.nushell.sh/commands/docs/grid.html)
 
 # tools
