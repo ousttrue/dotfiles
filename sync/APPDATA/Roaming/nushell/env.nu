@@ -92,8 +92,8 @@ $env.PROMPT_COMMAND_RIGHT = {|| create_right_prompt }
 # The prompt indicators are environmental variables that represent
 # the state of the prompt
 $env.PROMPT_INDICATOR = {|| "> " }
-$env.PROMPT_INDICATOR_VI_INSERT = {|| " : " }
-$env.PROMPT_INDICATOR_VI_NORMAL = {|| " > " }
+$env.PROMPT_INDICATOR_VI_INSERT = {|| ": " }
+$env.PROMPT_INDICATOR_VI_NORMAL = {|| "> " }
 $env.PROMPT_MULTILINE_INDICATOR = {|| "::: " }
 
 # Specifies how environment variables are:
@@ -130,7 +130,7 @@ def ll [] { ls -l | where name !~ 'NTUSER.DAT' | where name !~ 'Microsoft.' }
 
 # ghq go
 def-env gg [] {
-    ghq list --full-path | fzf --preview $"bat --color=always --style=header,grid --line-range :80 (ghq root)/{}/README.*" | decode utf-8 | str trim | cd $in
+    ghq list --full-path | fzf --preview $"bat --color=always --style=header,grid --line-range :80 {}/README.*" | decode utf-8 | str trim | cd $in
 }
 
 # git switch

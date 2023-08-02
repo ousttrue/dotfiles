@@ -431,6 +431,13 @@ $env.config = {
             event: { send: clearscreen }
         }
         {
+            name: vi_cut_line_from_start
+            modifier: control
+            keycode: char_u
+            mode: [vi_insert]
+            event: { edit: cutfromstart }
+        }
+        {
             name: search_history
             modifier: control
             keycode: char_r
