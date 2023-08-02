@@ -1,3 +1,5 @@
+[[FTXUI]]
+
 # hello
 [[ftxui_screen]]
 ## Renderer
@@ -140,3 +142,15 @@ ftxui::Component Custom(const std::string &label) {
 
 ## collabsible
 [FTXUI: examples/component/collapsible.cpp](https://arthursonzogni.github.io/FTXUI/examples_2component_2collapsible_8cpp-example.html)
+
+# ScreenInteractive
+loop で component を Rendering する。
+## ScreenInteractive::Fullscreen
+- https://arthursonzogni.github.io/FTXUI/examples_2component_2resizable_split_8cpp-example.html
+
+## ScreenInteractive::FitComponent
+- button
+- composition
+
+## ScreenInteractive::TerminalOutput
+- maybe

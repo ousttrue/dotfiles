@@ -218,26 +218,10 @@
           </label>
         </div>
         <article role="main">
-          <p>[[FTXUI]]</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ftxui/screen/screen.hpp&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="w"> </span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">ftxui</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Screen</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="w"></span>
-<span class="w">	  </span><span class="n">Dimension</span><span class="o">::</span><span class="n">Fixed</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="w"> </span>
-<span class="w">	  </span><span class="n">Dimension</span><span class="o">::</span><span class="n">Fixed</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span><span class="w"></span>
-<span class="w"> </span>
-<span class="w">  </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">pixel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">screen</span><span class="p">.</span><span class="n">PixelAt</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">pixel</span><span class="p">.</span><span class="n">character</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">U</span><span class="sc">'A'</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">pixel</span><span class="p">.</span><span class="n">bold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">pixel</span><span class="p">.</span><span class="n">foreground_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="o">::</span><span class="n">Blue</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">screen</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
+          <p>[[nushell]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/hkawa/articles/e151d2a40cb2ac">Nushellのカスタムメニュー</a></p></li>
+</ul>
 
         </article>
       </div>
@@ -252,7 +236,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../../_sources/obsidian/TERM/tui/ftxui/ftxui_screen.md.txt"
+            | <a class="muted-link" href="../../../../_sources/obsidian/TERM/shell/nu/nu_menu.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
