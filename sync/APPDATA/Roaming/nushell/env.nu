@@ -2,7 +2,7 @@
 #
 # version = 0.83.1
 
-def create_left_prompt [] {
+def get_dir [] {
     mut home = ""
     try {
         if $nu.os-info.name == "windows" {
@@ -11,44 +11,87 @@ def create_left_prompt [] {
             $home = $env.HOME
         }
     }
-
-    let dir = ([
-        ($env.PWD | str substring 0..($home | str length) | str replace --string $home "~"),
+ # 
+    let path = [
+        ($env.PWD | str substring 0..($home | str length) | str replace --string $home "🏠"),
         ($env.PWD | str substring ($home | str length)..)
-    ] | str join)
+    ] | str join
+
 
     let path_color = (if (is-admin) { ansi red_bold } else { ansi green_bold })
-    let separator_color = (if (is-admin) { ansi light_red_bold } else { ansi light_green_bold })
-    let path_segment = $"($path_color)($dir)"
+    # let separator_color = (if (is-admin) { ansi light_red_bold } else { ansi light_blue_bold })
 
-    $path_segment | str replace --all --string (char path_sep) $"($separator_color)/($path_color)"
+    let path = $path | str replace --all --string (char path_sep) "/"
+
+    let path = $path | str replace --string "github.com" " "
+
+    $path
 }
 
-def create_right_prompt [] {
-    # create a right prompt in magenta with green separators and am/pm underlined
-    let time_segment = ([
-        (ansi reset)
-        (ansi magenta)
-        (date now | date format '%Y/%m/%d %r')
-    ] | str join | str replace --all "([/:])" $"(ansi green)${1}(ansi magenta)" |
-        str replace --all "([AP]M)" $"(ansi magenta_underline)${1}")
+def create_left_prompt [] {
 
     let last_exit_code = if ($env.LAST_EXIT_CODE != 0) {([
         (ansi rb)
         ($env.LAST_EXIT_CODE)
     ] | str join)
-    } else { "" }
+    } else { "0" }
 
-    ([$last_exit_code, (char space), $time_segment] | str join)
+    $"(get_dir)\n($last_exit_code)"
+}
+
+# Install:
+# Replace create_left_prompt function of your ~/.config/nushell/env.nu to below code.
+
+# let path_color = ansi {fg: "#9ba9c7" bg: "#022d8b"}
+# let path_tail_color = ansi {fg: "#022d8b" bg: "#7fffd4"}
+# let lang_color  = ansi {fg: "#00008b" bg: "#7fffd4"}
+# let lang_tail_color = ansi {fg: "#7fffd4" bg: "#ca3ac3"}
+# let git_color = ansi {fg: yellow bg: "#ca3ac3"}
+# let git_tail_color = ansi {fg: "#ca3ac3"}
+# $env.USR_DEF_PROMPT = ""
+# let lang_list = ({"tsconfig.*": "\u{e628} " 
+#                 "*.sh": "$"
+#                 "*.c": "C"
+#                 "*.cc": "\u{e61d} "
+#                 "package.json":"\u{e60c} "} | transpose file symbol)
+# let reset = ansi reset
+#
+# def create_left_prompt [] {
+#     # let prompt = $"($path_color)($path_info)($path_tail_color)($git_color)($git_info)($env.USR_DEF_PROMPT)($reset)($git_tail_color)($reset)\n($cmd_status)"
+#     # $prompt
+#     
+#     $"($path_info)"
+# }
+
+def create_right_prompt [] {
+    # create a right prompt in magenta with green separators and am/pm underlined
+    # let time_segment = ([
+    #     (ansi reset)
+    #     (ansi magenta)
+    #     (date now | date format '%Y/%m/%d %r')
+    # ] | str join | str replace --all "([/:])" $"(ansi green)${1}(ansi magenta)" |
+    #     str replace --all "([AP]M)" $"(ansi magenta_underline)${1}")
+
+    let g = gstat
+    if ($g.repo_name != 'no_repository') {
+        if (($g.branch == 'master') or ($g.branch == 'main')) {
+            $" (ansi green)($g.branch)"
+        } else {
+            $" (ansi red)($g.branch)"
+        }
+    } else {
+        ""
+    }
 }
 
 # Use nushell functions to define your right and left prompt
+# $env.PROMPT_COMMAND = {|| create_left_prompt }
 $env.PROMPT_COMMAND = {|| create_left_prompt }
-# $env.PROMPT_COMMAND_RIGHT = {|| create_right_prompt }
+$env.PROMPT_COMMAND_RIGHT = {|| create_right_prompt }
 
 # The prompt indicators are environmental variables that represent
 # the state of the prompt
-$env.PROMPT_INDICATOR = {|| " > " }
+$env.PROMPT_INDICATOR = {|| "> " }
 $env.PROMPT_INDICATOR_VI_INSERT = {|| " : " }
 $env.PROMPT_INDICATOR_VI_NORMAL = {|| " > " }
 $env.PROMPT_MULTILINE_INDICATOR = {|| "::: " }

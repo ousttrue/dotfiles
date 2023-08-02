@@ -1,4 +1,4 @@
-[[CUI]] [[tui]]
+[[shell]] [[tui]]
 
 # lazygit
 - [GitHub - jesseduffield/lazygit: simple terminal UI for git commands](https://github.com/jesseduffield/lazygit)

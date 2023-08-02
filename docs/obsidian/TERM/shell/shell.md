@@ -1,5 +1,11 @@
 - [GitHub - alebcay/awesome-shell: A curated list of awesome command-line frameworks, toolkits, guides and gizmos. Inspired by awesome-php.](https://github.com/alebcay/awesome-shell)
 
+# 必須
+- z
+- gg
+- ls
+- nvim
+
 # 自作
 - @2022 [「Shell作れます」と言うために - エムスリーテックブログ](https://www.m3tech.blog/entry/making-nosh)
 - @2021 [Rustで始める自作シェル その1 - ぶていのログでぶログ](https://tech.buty4649.net/entry/2021/12/19/235124)
