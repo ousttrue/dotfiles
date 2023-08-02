@@ -1,31 +1,30 @@
-```cpp
-#include <ftxui/dom/component.hpp>
-```
-
-## Button
-
-## Checkbox/Radiobox
-
-## Slider
-
-## Input
-
-## Menu(Selector)
-- entry は `std::string` `std::span<T>` + transform にしたい
-
+# hello
+[[ftxui_screen]]
 ## Renderer
 描画のみ。OnEvent が無い
 ```cpp
-Component Renderer(std::function<Element()> render) {
-  class Impl : public ComponentBase {
-   public:
-    explicit Impl(std::function<Element()> render)
-        : render_(std::move(render)) {}
-    Element Render() override { return render_(); }
-    std::function<Element()> render_;
-  };
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/screen_interactive.hpp>
 
-  return Make<Impl>(std::move(render));
+int main() {
+
+  auto screen = ftxui::ScreenInteractive::Fullscreen();
+
+  auto component = ftxui::Renderer([]() { return ftxui::text("hello"); });
+
+  auto event_component = CatchEvent(component, [&](ftxui::Event event) {
+    if (event == ftxui::Event::Character('q') ||
+        event == ftxui::Event::Escape) {
+      screen.ExitLoopClosure()();
+      return true;
+    }
+
+    return false;
+  });
+
+  screen.Loop(event_component);
+
+  return 0;
 }
 ```
 
@@ -42,6 +41,17 @@ Component Renderer(std::function<Element()> render) {
   });
 ```
 
+# widgets
+## Button
+
+## Checkbox/Radiobox
+
+## Slider
+
+## Input
+
+
+
 ## ftxui::ComponentBase
 [FTXUI: include/ftxui/component/component_base.hpp Source File](https://arthursonzogni.github.io/FTXUI/component__base_8hpp_source.html)
 OnEventでイベントハンドリングできる
@@ -50,17 +60,6 @@ OnEventでイベントハンドリングできる
     bool OnEvent(ftxui::Event) override;
 ```
 
-# ScreenInteractive
-loop で component を Rendering する。
-## ScreenInteractive::Fullscreen
-- https://arthursonzogni.github.io/FTXUI/examples_2component_2resizable_split_8cpp-example.html
-
-## ScreenInteractive::FitComponent
-- button
-- composition
-
-## ScreenInteractive::TerminalOutput
-- maybe
 
 # Splitter
 
@@ -113,3 +112,31 @@ int main() {
   screen.Loop(component);
 }
 ```
+
+# ContainerBase: ComponentBase
+navigation(select 制御)がある
+
+## Container
+```c++
+  auto composition = Container::Horizontal({leftpane, rightpane});
+```
+
+## container item
+
+```c++
+ftxui::Component Custom(const std::string &label) {
+  return ftxui::Renderer([label](bool focused) {
+    auto e = ftxui::text(label);
+    if (focused) {
+      e = e | ftxui::inverted;
+    }
+    return e;
+  });
+}
+```
+
+## Menu(Selector)
+- entry は `std::string` `std::span<T>` + transform にしたい
+
+## collabsible
+[FTXUI: examples/component/collapsible.cpp](https://arthursonzogni.github.io/FTXUI/examples_2component_2collapsible_8cpp-example.html)
