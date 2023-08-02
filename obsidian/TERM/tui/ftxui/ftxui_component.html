@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../../genindex.html" /><link rel="search" title="検索" href="../../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Button - shell note ドキュメント</title>
+        <title>hello - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
@@ -218,40 +218,34 @@
           </label>
         </div>
         <article role="main">
-          <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ftxui/dom/component.hpp&gt;</span><span class="cp"></span>
-</pre></div>
-</div>
-<section id="button">
-<h1>Button<a class="headerlink" href="#button" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section id="checkbox-radiobox">
-<h1>Checkbox/Radiobox<a class="headerlink" href="#checkbox-radiobox" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section id="slider">
-<h1>Slider<a class="headerlink" href="#slider" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section id="input">
-<h1>Input<a class="headerlink" href="#input" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section id="menu-selector">
-<h1>Menu(Selector)<a class="headerlink" href="#menu-selector" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>entry は <code class="docutils literal notranslate"><span class="pre">std::string</span></code> <code class="docutils literal notranslate"><span class="pre">std::span&lt;T&gt;</span></code> + transform にしたい</p></li>
-</ul>
-</section>
+          <section class="tex2jax_ignore mathjax_ignore" id="hello">
+<h1>hello<a class="headerlink" href="#hello" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[ftxui_screen]]</p>
 <section id="renderer">
-<h1>Renderer<a class="headerlink" href="#renderer" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>Renderer<a class="headerlink" href="#renderer" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>描画のみ。OnEvent が無い</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="w"> </span><span class="nf">Renderer</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="n">Element</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">render</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">Impl</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ComponentBase</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Impl</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="n">Element</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">render</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">render_</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">render</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="w">    </span><span class="n">Element</span><span class="w"> </span><span class="n">Render</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">render_</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="n">Element</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">render_</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ftxui/component/component.hpp&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ftxui/component/screen_interactive.hpp&gt;</span><span class="cp"></span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">Make</span><span class="o">&lt;</span><span class="n">Impl</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">render</span><span class="p">));</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">ScreenInteractive</span><span class="o">::</span><span class="n">Fullscreen</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">component</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Renderer</span><span class="p">([]()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">text</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">event_component</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CatchEvent</span><span class="p">(</span><span class="n">component</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="n">ftxui</span><span class="o">::</span><span class="n">Event</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">Character</span><span class="p">(</span><span class="sc">'q'</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"></span>
+<span class="w">        </span><span class="n">event</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">Escape</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">screen</span><span class="p">.</span><span class="n">ExitLoopClosure</span><span class="p">()();</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">screen</span><span class="p">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">event_component</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
@@ -268,36 +262,29 @@
 </pre></div>
 </div>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="widgets">
+<h1>widgets<a class="headerlink" href="#widgets" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="button">
+<h2>Button<a class="headerlink" href="#button" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="checkbox-radiobox">
+<h2>Checkbox/Radiobox<a class="headerlink" href="#checkbox-radiobox" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="slider">
+<h2>Slider<a class="headerlink" href="#slider" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="input">
+<h2>Input<a class="headerlink" href="#input" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
 <section id="ftxui-componentbase">
-<h1>ftxui::ComponentBase<a class="headerlink" href="#ftxui-componentbase" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>ftxui::ComponentBase<a class="headerlink" href="#ftxui-componentbase" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://arthursonzogni.github.io/FTXUI/component__base_8hpp_source.html">FTXUI: include/ftxui/component/component_base.hpp Source File</a>
 OnEventでイベントハンドリングできる</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w">	    </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Element</span><span class="w"> </span><span class="nf">Render</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">OnEvent</span><span class="p">(</span><span class="n">ftxui</span><span class="o">::</span><span class="n">Event</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="screeninteractive">
-<h1>ScreenInteractive<a class="headerlink" href="#screeninteractive" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>loop で component を Rendering する。</p>
-<section id="screeninteractive-fullscreen">
-<h2>ScreenInteractive::Fullscreen<a class="headerlink" href="#screeninteractive-fullscreen" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>https://arthursonzogni.github.io/FTXUI/examples_2component_2resizable_split_8cpp-example.html</p></li>
-</ul>
-</section>
-<section id="screeninteractive-fitcomponent">
-<h2>ScreenInteractive::FitComponent<a class="headerlink" href="#screeninteractive-fitcomponent" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>button</p></li>
-<li><p>composition</p></li>
-</ul>
-</section>
-<section id="screeninteractive-terminaloutput">
-<h2>ScreenInteractive::TerminalOutput<a class="headerlink" href="#screeninteractive-terminaloutput" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>maybe</p></li>
-</ul>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="splitter">
@@ -352,6 +339,40 @@ OnEventでイベントハンドリングできる</p>
 </pre></div>
 </div>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="containerbase-componentbase">
+<h1>ContainerBase: ComponentBase<a class="headerlink" href="#containerbase-componentbase" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>navigation(select 制御)がある</p>
+<section id="container">
+<h2>Container<a class="headerlink" href="#container" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">composition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Container</span><span class="o">::</span><span class="n">Horizontal</span><span class="p">({</span><span class="n">leftpane</span><span class="p">,</span><span class="w"> </span><span class="n">rightpane</span><span class="p">});</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="container-item">
+<h2>container item<a class="headerlink" href="#container-item" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">ftxui</span><span class="o">::</span><span class="n">Component</span><span class="w"> </span><span class="nf">Custom</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">label</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">Renderer</span><span class="p">([</span><span class="n">label</span><span class="p">](</span><span class="kt">bool</span><span class="w"> </span><span class="n">focused</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">text</span><span class="p">(</span><span class="n">label</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">focused</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ftxui</span><span class="o">::</span><span class="n">inverted</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="menu-selector">
+<h2>Menu(Selector)<a class="headerlink" href="#menu-selector" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>entry は <code class="docutils literal notranslate"><span class="pre">std::string</span></code> <code class="docutils literal notranslate"><span class="pre">std::span&lt;T&gt;</span></code> + transform にしたい</p></li>
+</ul>
+</section>
+<section id="collabsible">
+<h2>collabsible<a class="headerlink" href="#collabsible" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://arthursonzogni.github.io/FTXUI/examples_2component_2collapsible_8cpp-example.html">FTXUI: examples/component/collapsible.cpp</a></p>
+</section>
+</section>
 
         </article>
       </div>
@@ -386,20 +407,26 @@ OnEventでイベントハンドリングできる</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Button</a></li>
+<li><a class="reference internal" href="#">hello</a><ul>
+<li><a class="reference internal" href="#renderer">Renderer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#widgets">widgets</a><ul>
+<li><a class="reference internal" href="#button">Button</a></li>
 <li><a class="reference internal" href="#checkbox-radiobox">Checkbox/Radiobox</a></li>
 <li><a class="reference internal" href="#slider">Slider</a></li>
 <li><a class="reference internal" href="#input">Input</a></li>
-<li><a class="reference internal" href="#menu-selector">Menu(Selector)</a></li>
-<li><a class="reference internal" href="#renderer">Renderer</a></li>
 <li><a class="reference internal" href="#ftxui-componentbase">ftxui::ComponentBase</a></li>
-<li><a class="reference internal" href="#screeninteractive">ScreenInteractive</a><ul>
-<li><a class="reference internal" href="#screeninteractive-fullscreen">ScreenInteractive::Fullscreen</a></li>
-<li><a class="reference internal" href="#screeninteractive-fitcomponent">ScreenInteractive::FitComponent</a></li>
-<li><a class="reference internal" href="#screeninteractive-terminaloutput">ScreenInteractive::TerminalOutput</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#splitter">Splitter</a></li>
+<li><a class="reference internal" href="#containerbase-componentbase">ContainerBase: ComponentBase</a><ul>
+<li><a class="reference internal" href="#container">Container</a></li>
+<li><a class="reference internal" href="#container-item">container item</a></li>
+<li><a class="reference internal" href="#menu-selector">Menu(Selector)</a></li>
+<li><a class="reference internal" href="#collabsible">collabsible</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

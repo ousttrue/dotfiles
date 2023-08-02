@@ -17,3 +17,15 @@ int main(void) {
   return EXIT_SUCCESS;
 }
 ```
+
+# ScreenInteractive
+loop で component を Rendering する。
+## ScreenInteractive::Fullscreen
+- https://arthursonzogni.github.io/FTXUI/examples_2component_2resizable_split_8cpp-example.html
+
+## ScreenInteractive::FitComponent
+- button
+- composition
+
+## ScreenInteractive::TerminalOutput
+- maybe

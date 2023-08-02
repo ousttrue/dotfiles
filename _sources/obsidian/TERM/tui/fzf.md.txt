@@ -8,3 +8,24 @@
 
 # python
 - [GitHub - nk412/pyfzf: A python wrapper for fzf](https://github.com/nk412/pyfzf)
+
+# preview
+- [fzfのpreview関連のオプション調べてみた](https://zenn.dev/eetann/articles/2022-08-27-fzf-preview)
+
+## git switch
+- @2022 [fzf で git log を見ながらブランチ移動する](https://zenn.dev/yamo/articles/5c90852c9c64ab)
+
+# key
+## ctrl-t
+```sh
+export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
+```
+
+## ctrl-r
+history
+
+## alt-c
+chdir
+
+## **tab
