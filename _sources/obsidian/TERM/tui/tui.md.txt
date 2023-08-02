@@ -1,5 +1,5 @@
 
-[[CUI]]
+[[shell]]
 TUI
 [[GUI]]
 

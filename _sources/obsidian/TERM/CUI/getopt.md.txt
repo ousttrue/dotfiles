@@ -1,4 +1,4 @@
-[[CUI]]
+[[shell]]
 
 - [GitHub - adishavit/argh: Argh! A minimalist argument handler.](https://github.com/adishavit/argh)
 - [GitHub - jarro2783/cxxopts: Lightweight C++ command line option parser](https://github.com/jarro2783/cxxopts)
