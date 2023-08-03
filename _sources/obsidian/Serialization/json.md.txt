@@ -15,6 +15,11 @@ https://stedolan.github.io/jq/
 # json merge patch
 - [JSONマージ・パッチによるJSONドキュメントの更新](https://docs.oracle.com/cd/F19136_01/adjsn/updating-json-document-json-merge-patch.html)
 
-# c++
+# App
+- [JSONの処理で使えそうなコマンドラインツール（json.tool, jo, jq, jid, gron, jp, json-server, json2csv, jsondiffpatch） - もた日記](https://wonderwall.hatenablog.com/entry/2018/07/22/231500)
+## gron
+## jq
+## json-tui
 - [GitHub - ArthurSonzogni/json-tui: A JSON terminal UI made in C++](https://github.com/ArthurSonzogni/json-tui)
+# c++
 - @2022 [Big Sky :: RapidJSON や simdjson よりも速いC言語から使えるJSONライブラリ「yyjson」](https://mattn.kaoriya.net/software/lang/c/20220320234556.htm)
