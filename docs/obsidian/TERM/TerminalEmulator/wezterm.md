@@ -20,12 +20,12 @@
 ## startup
 ### local
 ```
-> wezterm
+> wezterm-gui start --domain local 
 ```
 
 ### wsl
 ```
-> wezterm start wsl ??
+> wezterm-gui start --domain WSL:Ubuntu-22.04
 ```
 
 ## tab

@@ -295,4 +295,6 @@ wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
   )
 end)
 
+-- config.default_domain = 'WSL:Ubuntu-22.04'
+
 return config
