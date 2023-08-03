@@ -1,5 +1,8 @@
 [[FTXUI]]
 
+Component のツリーはイベントを伝搬する。
+`Renderer` の第１引数に `子Component` を指定できる。
+
 # hello
 [[ftxui_screen]]
 ## Renderer
