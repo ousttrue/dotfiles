@@ -1,5 +1,6 @@
 [[WebM]]
 
+- @2023 [WebPとAVIF Web編 - Chienomi](https://chienomi.org/articles/technology/202307-webp-avif-onweb.html)
 - [BlenderでアニメーションをWebpで保存する - Qiita](https://qiita.com/SaitoTsutomu/items/499c7307bdcdfb2f1662)
 
 # 可逆
