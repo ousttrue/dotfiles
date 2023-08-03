@@ -165,6 +165,8 @@ function M.setup()
   nyagos.complete_for.git = require("completion_git").complete_for
 
   nyagos.prompt = require("prompt").prompt2
+
+  nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
 end
 
 return M

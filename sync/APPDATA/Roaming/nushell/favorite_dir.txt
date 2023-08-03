@@ -1,0 +1,2 @@
+~/Desktop
+$env.GLTF_SAMPLE_MODELS

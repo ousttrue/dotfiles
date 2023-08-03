@@ -284,7 +284,8 @@ wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
   -- end
 
   return string.format(
-    "%d [%s][%s] %s%s%s",
+    "%s: %d [%s][%s] %s%s%s",
+    pane.domain_name,
     yday,
     today_font().font[1].family,
     color_scheme,

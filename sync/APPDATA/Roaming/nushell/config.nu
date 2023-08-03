@@ -174,6 +174,8 @@ let light_theme = {
     shape_vardecl: purple
 }
 
+let fv_list_file = $nu.default-config-dir + "/favorite_dir.txt" # full path
+
 # External completer example
 # let carapace_completer = {|spans|
 #     carapace $spans.0 nushell $spans | from json
@@ -347,6 +349,32 @@ $env.config = {
                 description_text: yellow
             }
         }
+        #
+        {
+        # メニュー名称を設定
+        name: fv_menu
+        # trueの場合、メニュー起動時に`source`に基づきリスト作成
+        only_buffer_difference: true 
+        marker: "# "
+        type: {
+          # メニューのレイアウト
+          layout: list
+          page_size: 10
+        }
+        style: {
+            # メニューリストの通常文字色
+            text: green
+            # メニュー選択時の文字色
+            selected_text: green_reverse
+            # description(optional)があれば、その文字色で表示
+            description_text: yellow
+        }
+        source: { |buffer, position|
+            # ここでは、$fv_list_fileに記載のディレクトリストをメニュー項目としている。
+            open $fv_list_file | lines
+            | each { |it| {value: $it} }
+        }
+      }
     ]
 
     keybindings: [
@@ -811,6 +839,20 @@ $env.config = {
             keycode: char_c
             mode: emacs
             event: {edit: capitalizechar}
+        }
+#
+        {
+          # 作成したメニュー名を指定
+          name: fv_menu
+          # キーの修飾キー(alt/ctrl/shft/control | alt/control | shift)
+          modifier: control
+          # キー名称(char_文字, TAB, backspace, insertなど)
+          # keybindings listenコマンドで確認できる
+          keycode: char_t
+          # 編集モード(vi挿入モード:vi_insertなど)で使用できるか決める
+          mode: [emacs, vi_normal, vi_insert] # Options: emacs vi_normal vi_insert
+          # キー押下時に、menuイベント及び、メニュー名称を送信する。
+          event: { send: menu name: fv_menu }
         }
     ]
 }
