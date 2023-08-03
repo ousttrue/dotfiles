@@ -43,19 +43,24 @@ def create_left_prompt [] {
         }
     }
 
+    def branch_name [stat] {
+        let g = gstat
+        if ($g.repo_name != 'no_repository') {
+            if (($g.branch == 'master') or ($g.branch == 'main')) {
+                (push $stat $" ($g.branch)" white green)
+            } else {
+                (push $stat $" ($g.branch)" white red) 
+            }
+        } else {
+            $stat
+        }
+    }
+
     let stat = {
         text: $"(ansi {fg:black bg:yellow})(get_dir)"
         bg: yellow
     }
-
-    let g = gstat
-    if ($g.repo_name != 'no_repository') {
-        let stat = if (($g.branch == 'master') or ($g.branch == 'main')) {
-            (push $stat $" ($g.branch)" white green)
-        } else {
-            (push $stat $" ($g.branch)" white red) 
-        }
-    }
+    let stat = (branch_name $stat)
     let stat = (push $stat "" default default)
 
     $"($stat.text)\n($last_exit_code)"
