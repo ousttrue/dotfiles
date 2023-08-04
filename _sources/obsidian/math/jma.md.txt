@@ -6,6 +6,10 @@
 - [GitHub - 9SQ/jma-amedas2geojson: 気象庁のアメダスCSVデータからGeoJSONを生成する](https://github.com/9SQ/jma-amedas2geojson)
 - [気象庁 Japan Meteorological Agency](https://www.data.jma.go.jp/developer/gis.html)
 - [気象庁の台風位置表から GeoJSON を作成する - Qiita](https://qiita.com/mg_kudo/items/d490f7b47f44e74e8b8e)
+
+# weathercode
+- [GitHub - ciscorn/jma-weather-images: 気象庁のテロップ番号に対応する画像を、基本天気画像の組み合わせによって合成するだけ](https://github.com/ciscorn/jma-weather-images)
+
 # area
 ## centers
 ```nu

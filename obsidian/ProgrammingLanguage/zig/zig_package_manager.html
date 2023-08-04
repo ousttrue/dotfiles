@@ -218,8 +218,26 @@
           </label>
         </div>
         <article role="main">
-          <p>[[zig]] [[zon]]</p>
+          <p>[[zig]] [[zon]]
+[[zig_build_sytem]]</p>
 <p><a class="reference external" href="https://github.com/ziglang/zig/projects/4">Package Manager · GitHub</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ziglang.org/download/0.11.0/release-notes.html#Package-Management">0.11.0 Release Notes ⚡ The Zig Programming Language</a></p></li>
+</ul>
+<section id="build-zig-zon">
+<h1>build.zig.zon<a class="headerlink" href="#build-zig-zon" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="p">.{</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"my_package_name"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"0.1.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.{</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">dep_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.{</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"https://link.to/dependency.tar.gz"</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"12200f41f9804eb9abff259c5d0d84f27caa0a25e0f72451a0243a806c8f94fdc433"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>@2023 06/28 <a class="reference external" href="https://zig.news/edyu/zig-package-manager-wtf-is-zon-558e">Zig Package Manager -- WTF is Zon - Zig NEWS</a></p></li>
 <li><p>@2023 06/01 <a class="reference external" href="https://zenn.dev/funatsufumiya/articles/7760a4688be3a5">build.zig.zonを使ったZigの新しいパッケージ管理 (Nightly)</a></p></li>
@@ -227,8 +245,9 @@
 <li><p>@2023 02/03  <a class="reference external" href="https://github.com/ziglang/zig/pull/14523">introduce Zig Object Notation and use it for the build manifest file (build.zig.zon) by andrewrk · Pull Request #14523 · ziglang/zig · GitHub</a></p></li>
 <li><p>@2023 01/11 <a class="reference external" href="https://github.com/ziglang/zig/pull/14265">Package Manager MVP by andrewrk · Pull Request #14265 · ziglang/zig · GitHub</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="build-zig-zon">
-<h1>build.zig.zon<a class="headerlink" href="#build-zig-zon" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>build.zig.zon<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Zig</span> <span class="pre">Object</span> <span class="pre">Notation</span></code>
 dependency を定義する？</p>
 <section id="definition">
@@ -252,9 +271,10 @@ dependency を定義する？</p>
 <span class="w">        </span><span class="p">.</span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="c1">// the same as passing `-Dtarget=&lt;...&gt;` to the library's build.zig script</span>
 <span class="w">        </span><span class="p">.</span><span class="n">optimize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">optimize</span><span class="p">,</span><span class="w"> </span><span class="c1">// ditto for `-Doptimize=&lt;...&gt;`</span>
 <span class="w">    </span><span class="p">});</span><span class="w"></span>
-<span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">foo_mod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">example_dep</span><span class="p">.</span><span class="n">module</span><span class="p">(</span><span class="s">"foo"</span><span class="p">);</span><span class="w"> </span><span class="c1">// &lt;== as declared in the build.zig of the dependency</span>
-<span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">bar_mod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">example_dep</span><span class="p">.</span><span class="n">artifact</span><span class="p">(</span><span class="s">"bar"</span><span class="p">);</span><span class="w"> </span><span class="c1">// &lt;== ditto</span>
 <span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">baz_mod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">example_dep</span><span class="p">.</span><span class="n">artifact</span><span class="p">(</span><span class="s">"baz"</span><span class="p">);</span><span class="w"> </span><span class="c1">// &lt;== ditto</span>
+<span class="w">    </span><span class="n">exe</span><span class="p">.</span><span class="n">linkLibrary</span><span class="p">(</span><span class="n">baz_mod</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">foo_mod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">example_dep</span><span class="p">.</span><span class="n">module</span><span class="p">(</span><span class="s">"foo"</span><span class="p">);</span><span class="w"> </span><span class="c1">// &lt;== as declared in the build.zig of the dependency</span>
+<span class="w">    </span><span class="n">exe</span><span class="p">.</span><span class="n">addModule</span><span class="p">(</span><span class="s">"example-lib"</span><span class="p">,</span><span class="w"> </span><span class="n">foo_mod</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -308,7 +328,8 @@ dependency を定義する？</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">build.zig.zon</a><ul>
+<li><a class="reference internal" href="#">build.zig.zon</a></li>
+<li><a class="reference internal" href="#id1">build.zig.zon</a><ul>
 <li><a class="reference internal" href="#definition">definition</a></li>
 <li><a class="reference internal" href="#use">use</a></li>
 </ul>

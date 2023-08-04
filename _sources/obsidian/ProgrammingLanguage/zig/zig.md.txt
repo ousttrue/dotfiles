@@ -6,8 +6,11 @@
 - [[全編無料] 他言語習得者がとりあえず使えるようになるZig](https://zenn.dev/drumato/books/learn-zig-to-be-a-beginner)
 
 # Version
-## 0.11 development
-- [0.11.0 Milestone · GitHub](https://github.com/ziglang/zig/milestone/17)
+## 0.12 development
+- [[zig_build_sytem]] [0.11.0 Release Notes ⚡ The Zig Programming Language](https://ziglang.org/download/0.11.0/release-notes.html#Build-System)
+
+## 0.11
+- @202308 [0.11.0 Milestone · GitHub](https://github.com/ziglang/zig/milestone/17)
 
 ## 0.10.1
 ## 0.10.0
