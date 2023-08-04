@@ -2,7 +2,7 @@ local M = {}
 
 local dot = require "dot"
 local util = require "lspconfig.util"
-local uv = vim.uv
+local uv = vim.loop
 
 -- .. "/.vscode/extensions/ms-dotnettools.csharp-1.25.4-win32-x64/.omnisharp/1.39.4-net6.0/OmniSharp.dll",
 local function enum_dir(dir)
