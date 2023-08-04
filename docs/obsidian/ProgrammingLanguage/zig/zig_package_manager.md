@@ -1,6 +1,25 @@
 [[zig]] [[zon]]
+[[zig_build_sytem]]
 
 [Package Manager · GitHub](https://github.com/ziglang/zig/projects/4)
+
+- [0.11.0 Release Notes ⚡ The Zig Programming Language](https://ziglang.org/download/0.11.0/release-notes.html#Package-Management)
+
+## build.zig.zon
+
+```zig
+.{
+    .name = "my_package_name",
+    .version = "0.1.0",
+    .dependencies = .{
+        .dep_name = .{
+            .url = "https://link.to/dependency.tar.gz",
+            .hash = "12200f41f9804eb9abff259c5d0d84f27caa0a25e0f72451a0243a806c8f94fdc433",
+        },
+    },
+}
+```
+
 
 - @2023 06/28 [Zig Package Manager -- WTF is Zon - Zig NEWS](https://zig.news/edyu/zig-package-manager-wtf-is-zon-558e)
 - @2023 06/01 [build.zig.zonを使ったZigの新しいパッケージ管理 (Nightly)](https://zenn.dev/funatsufumiya/articles/7760a4688be3a5)
@@ -34,11 +53,10 @@ dependency を定義する？
         .target = target, // the same as passing `-Dtarget=<...>` to the library's build.zig script
         .optimize = optimize, // ditto for `-Doptimize=<...>`
     });
-    const foo_mod = example_dep.module("foo"); // <== as declared in the build.zig of the dependency
-    const bar_mod = example_dep.artifact("bar"); // <== ditto
     const baz_mod = example_dep.artifact("baz"); // <== ditto
-
-
+    exe.linkLibrary(baz_mod);
+    const foo_mod = example_dep.module("foo"); // <== as declared in the build.zig of the dependency
+    exe.addModule("example-lib", foo_mod);
 ```
 
 - root に新しいバージョンの `build.zig`があるライブラリを利用可能ぽい。

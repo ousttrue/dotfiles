@@ -185,7 +185,7 @@ local config = {
 }
 
 if wezterm.target_triple:find "windows" then
-  config.font = today_font()
+  -- config.font = today_font()
   config.initial_cols = 126
   config.initial_rows = 56
 end
@@ -285,10 +285,9 @@ wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
   -- end
 
   return string.format(
-    "%s: %d [%s][%s] %s%s%s",
+    "%s: %d [%s] %s%s%s",
     pane.domain_name,
     yday,
-    today_font().font[1].family,
     color_scheme,
     zoomed,
     index,
