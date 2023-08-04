@@ -214,8 +214,8 @@ $env.config = {
     # Behavior without this configuration point will be to "humanize" the datetime display,
     # showing something like "a day ago."
     datetime_format: {
-        # normal: '%a, %d %b %Y %H:%M:%S %z'    # shows up in displays of variables or other datetime's outside of tables
-        # table: '%m/%d/%y %I:%M:%S%p'          # generally shows up in tabular outputs such as ls. commenting this out will change it to the default human readable datetime format
+        normal: '%m-%d %H:%M'    # shows up in displays of variables or other datetime's outside of tables
+        table: '%m-%d %H:%M'          # generally shows up in tabular outputs such as ls. commenting this out will change it to the default human readable datetime format
     }
 
     explore: {
@@ -848,7 +848,7 @@ $env.config = {
           modifier: control
           # キー名称(char_文字, TAB, backspace, insertなど)
           # keybindings listenコマンドで確認できる
-          keycode: char_t
+          keycode: char_x
           # 編集モード(vi挿入モード:vi_insertなど)で使用できるか決める
           mode: [emacs, vi_normal, vi_insert] # Options: emacs vi_normal vi_insert
           # キー押下時に、menuイベント及び、メニュー名称を送信する。
