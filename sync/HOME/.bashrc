@@ -22,7 +22,7 @@ path_push "$HOME/.deno/bin"
 path_unshift "$HOME/.local/bin"
 path_unshift "$HOME/local/bin"
 path_unshift "$HOME/go/bin"
-path_unshift "$HOME/cargo/bin"
+path_unshift "$HOME/.cargo/bin"
 path_unshift "$HOME/local/src/zig"
 if [ -v MSYSTEM ]; then
 	# msys

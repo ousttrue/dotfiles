@@ -29,12 +29,12 @@ export FBX_SAMPLES="$HOME/ghq/github.com/wangii/fbx_samples"
 #
 # term
 #
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
-fi
-
 if [ -f ~/.cargo/env ];then
     . "$HOME/.cargo/env"
+fi
+
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
 fi
 
 alias luamake=/home/ousttrue/ghq/github.com/sumneko/lua-language-server/3rd/luamake/luamake
