@@ -194,7 +194,10 @@ config.warn_about_missing_glyphs = false
 
 config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
 table.insert(config.keys, { key = "r", mods = "LEADER", action = "ReloadConfiguration" })
-table.insert(config.keys, { key = "c", mods = "ALT", action = wezterm.action { SpawnTab = "CurrentPaneDomain" } })
+table.insert(config.keys, { key = "c", mods = "ALT", action = wezterm.action.SpawnCommandInNewTab{
+  domain='CurrentPaneDomain',
+  cwd = '/home/ousttrue',
+} })
 table.insert(config.keys, { key = ",", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
 table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
 table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
@@ -215,11 +218,11 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   -- config.default_prog = { "C:/Python310/Scripts/xonsh.exe" }
   config.font_size = 13.0 -- 4k monitor with DPI scaling
   -- config.default_prog = { "C:/Program Files/PowerShell/7/pwsh.exe", "-nologo" }
-  -- config.default_prog = { HOME .. "/local/bin/nyagos.exe" }
-  -- config.set_environment_variables = {
-  --   LUA_PATH = HOME .. "\\.config\\nyagos\\?.lua",
-  -- }
-  config.default_prog = { HOME .. "/.cargo/bin/nu.exe" }
+  config.default_prog = { HOME .. "/local/bin/nyagos.exe" }
+  config.set_environment_variables = {
+    LUA_PATH = HOME .. "\\.config\\nyagos\\?.lua",
+  }
+  -- config.default_prog = { HOME .. "/.cargo/bin/nu.exe" }
 else
   --
   -- Linux
@@ -233,6 +236,15 @@ else
   config.default_prog = { "bash" }
 end
 
+local wsl_domains = wezterm.default_wsl_domains()
+
+for idx, dom in ipairs(wsl_domains) do
+  if dom.name == 'WSL:kinetic' then
+    dom.default_prog = { '/bin/bash', '--login', '-i', }
+  end
+end
+config.wsl_domains = wsl_domains
+  
 local function basename(s)
   return string.gsub(s, "(.*[/\\])(.*)", "%2")
 end
@@ -284,15 +296,7 @@ wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
   --   keys = keys .. "," .. k
   -- end
 
-  return string.format(
-    "%s: %d [%s] %s%s%s",
-    pane.domain_name,
-    yday,
-    color_scheme,
-    zoomed,
-    index,
-    tab.active_pane.title
-  )
+  return string.format("%s: %d [%s] %s%s%s", pane.domain_name, yday, color_scheme, zoomed, index, tab.active_pane.title)
 end)
 
 -- config.default_domain = 'WSL:Ubuntu-22.04'
