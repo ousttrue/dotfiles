@@ -16,11 +16,19 @@ local function get_color_scheme()
   local sys = dot.get_system()
   if sys == "wsl" then
     return {
-      "paulfrische/reddish.nvim",
+      -- "paulfrische/reddish.nvim",
+      -- "jeetsukumaran/vim-nefertiti",
+      -- "xero/miasma.nvim",
+      -- "savq/melange-nvim",
+      "santigo-zero/jetjbp.nvim",
       lazy = false,
       priority = 1000,
       config = function()
-        vim.cmd [[colorscheme reddish]]
+        -- vim.cmd [[colorscheme reddish]]
+        -- vim.cmd [[colorscheme nefertiti]]
+        -- vim.cmd [[colorscheme miasma]]
+        -- vim.cmd [[colorscheme melange]]
+        vim.cmd [[colorscheme jetjbp]]
       end,
     }
   else

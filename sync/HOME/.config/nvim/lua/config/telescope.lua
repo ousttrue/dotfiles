@@ -21,6 +21,7 @@ function M.setup()
         },
       },
       file_sorter = sorters.get_generic_fuzzy_sorter,
+      -- initial_mode = "normal",
 
       vimgrep_arguments = {
         "rg",
@@ -59,6 +60,7 @@ function M.setup()
     end
   end
   -- vim.keymap.set("n", "<C-P>", builtin.keymaps)
+
   vim.keymap.set("n", "<Leader><Space>", project_files, { noremap = true })
   vim.keymap.set("n", "<Leader>g", function()
     local word = vim.fn.expand "<cword>"
