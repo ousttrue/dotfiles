@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>実機 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,14 +212,56 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[NerdFont]]</p>
-<p><a class="reference external" href="https://github.com/coreyja/devicon-lookup">GitHub - coreyja/devicon-lookup: Prepend the correct devicon to the beginning of each filename</a></p>
+          <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>実機<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[vt100]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://vt100.net/emu/">Terminal Emulation – VT100.net</a></p>
+<ul>
+<li><p><a class="reference external" href="https://vt100.net/docs/vt100-ug/contents.html">Digital VT100 User Guide</a></p></li>
+<li><p><a class="reference external" href="https://vt100.net/docs/vt510-rm/contents.html">vt510 Contents</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="emulator">
+<h1>Emulator<a class="headerlink" href="#emulator" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[TerminalEmulator]]
+[[pty]]</p>
+<p><code class="docutils literal notranslate"><span class="pre">teletypewriter</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="term">
+<h1>TERM<a class="headerlink" href="#term" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>端末の種類を示す環境変数。[[vt100]] のデータベース。
+[[terminfo]]
+[[curses]]
+[[ncurses]]</p>
+<section id="xterm">
+<h2>XTERM<a class="headerlink" href="#xterm" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">xterm-256color</span></code>
+[[TerminalEmulator]]</p>
+</section>
+<section id="console">
+<h2>console<a class="headerlink" href="#console" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Linux の起動画面
+<code class="docutils literal notranslate"><span class="pre">/dev/console</span></code></p>
+</section>
+<section id="framebuffer">
+<h2>framebuffer<a class="headerlink" href="#framebuffer" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[framebuffer]]</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tui">
+<h1>TUI<a class="headerlink" href="#tui" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>text の cell / grid
+[[tui]]</p>
+</section>
 
         </article>
       </div>
@@ -234,7 +276,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/TERM/devicon.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/TERM/TERM.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -242,8 +284,32 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">実機</a></li>
+<li><a class="reference internal" href="#emulator">Emulator</a></li>
+<li><a class="reference internal" href="#term">TERM</a><ul>
+<li><a class="reference internal" href="#xterm">XTERM</a></li>
+<li><a class="reference internal" href="#console">console</a></li>
+<li><a class="reference internal" href="#framebuffer">framebuffer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tui">TUI</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

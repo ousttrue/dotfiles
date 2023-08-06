@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>escape sequence - shell note ドキュメント</title>
+        <title>Windows - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -228,6 +228,39 @@ from <code class="docutils literal notranslate"><span class="pre">17733</span></
 <ul class="simple">
 <li><p><a class="reference external" href="https://ascii.jp/elem/000/004/079/4079062/">ASCII.jp：Windows 11では標準コンソールの変更が可能になったのでWindows Terminalを設定する (1/2)</a></p></li>
 </ul>
+<section id="windows">
+<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/mod_poppo/items/2ff384530c6f3215c635">Windows向けのプログラムでANSIエスケープシーケンスを使うには - Qiita</a></p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// stream に対してANSIエスケープシーケンスを有効化</span>
+<span class="c1">// 成功すれば true, 失敗した場合は false を返す </span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">enable_virtual_terminal_processing</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">	</span><span class="n">HANDLE</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">HANDLE</span><span class="p">)</span><span class="n">_get_osfhandle</span><span class="p">(</span><span class="n">_fileno</span><span class="p">(</span><span class="n">stream</span><span class="p">));</span><span class="w"> </span>
+<span class="w">	</span><span class="n">DWORD</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">GetConsoleMode</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mode</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">		</span><span class="c1">// 失敗 </span>
+<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span>
+<span class="w">	</span><span class="p">}</span><span class="w"> </span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">SetConsoleMode</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ENABLE_VIRTUAL_TERMINAL_PROCESSING</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">		</span><span class="c1">// 失敗 </span>
+<span class="w">		</span><span class="c1">// 古いWindowsコンソールの場合は GetLastError() == ERROR_INVALID_PARAMETER</span>
+<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span>
+<span class="w">	</span><span class="p">}</span><span class="w"> </span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Windows<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[windows_terminal]]
+[[conpty]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences">Console Virtual Terminal Sequences - Windows Console | Microsoft Learn</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences">コンソールの仮想ターミナル シーケンス - Windows Console | Microsoft Docs</a></p></li>
+</ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="escape-sequence">
 <h1>escape sequence<a class="headerlink" href="#escape-sequence" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">ENABLE_VIRTUAL_TERMINAL_INPUT</span></code>
@@ -283,6 +316,7 @@ Client側 =&gt; VT</p>
 <p><code class="docutils literal notranslate"><span class="pre">cpp</span></code></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/microsoft/terminal/tree/master/samples/ConPTY/EchoCon">terminal/samples/ConPTY/EchoCon at main · microsoft/terminal · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://github.com/0x5c/VT100-Examples/blob/master/vt_seq.md">VT100-Examples/vt_seq.md at master · 0x5c/VT100-Examples · GitHub</a></p></li>
 </ul>
 </section>
 
@@ -319,7 +353,9 @@ Client側 =&gt; VT</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">escape sequence</a></li>
+<li><a class="reference internal" href="#">Windows</a></li>
+<li><a class="reference internal" href="#id1">Windows</a></li>
+<li><a class="reference internal" href="#escape-sequence">escape sequence</a></li>
 <li><a class="reference internal" href="#api">API</a><ul>
 <li><a class="reference internal" href="#createpseudoconsole">CreatePseudoConsole</a></li>
 <li><a class="reference internal" href="#setconsolemode">SetConsoleMode</a></li>

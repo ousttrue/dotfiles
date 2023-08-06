@@ -12,6 +12,33 @@ from `17733` `1809`
 
 - [ASCII.jp：Windows 11では標準コンソールの変更が可能になったのでWindows Terminalを設定する (1/2)](https://ascii.jp/elem/000/004/079/4079062/)
 
+## Windows
+- [Windows向けのプログラムでANSIエスケープシーケンスを使うには - Qiita](https://qiita.com/mod_poppo/items/2ff384530c6f3215c635)
+
+```c
+// stream に対してANSIエスケープシーケンスを有効化
+// 成功すれば true, 失敗した場合は false を返す 
+bool enable_virtual_terminal_processing(FILE *stream) { 
+	HANDLE handle = (HANDLE)_get_osfhandle(_fileno(stream)); 
+	DWORD mode = 0;
+	if (!GetConsoleMode(handle, &mode)) { 
+		// 失敗 
+		return false; 
+	} 
+	if (!SetConsoleMode(handle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING)) { 
+		// 失敗 
+		// 古いWindowsコンソールの場合は GetLastError() == ERROR_INVALID_PARAMETER
+		return false; 
+	} 
+	return true; 
+}
+```
+
+# Windows
+[[windows_terminal]]
+[[conpty]]
+- [Console Virtual Terminal Sequences - Windows Console | Microsoft Learn](https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences)
+- [コンソールの仮想ターミナル シーケンス - Windows Console | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences)
 # escape sequence
 `ENABLE_VIRTUAL_TERMINAL_INPUT`
 `ENABLE_VIRTUAL_TERMINAL_PROCESSING`
@@ -49,4 +76,5 @@ Client側 => VT
 
 `cpp`
 - [terminal/samples/ConPTY/EchoCon at main · microsoft/terminal · GitHub](https://github.com/microsoft/terminal/tree/master/samples/ConPTY/EchoCon)
+- [VT100-Examples/vt_seq.md at master · 0x5c/VT100-Examples · GitHub](https://github.com/0x5c/VT100-Examples/blob/master/vt_seq.md)
 

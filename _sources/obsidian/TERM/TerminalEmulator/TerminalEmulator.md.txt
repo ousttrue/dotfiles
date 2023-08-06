@@ -1,6 +1,8 @@
 ---
 aliases: [X端末, xterm]
 ---
+主に [[pty]] の GUI アプリ。
+
 [[fontconfig]] [[TerminalGraphics]]
 
 |app|config|xresources|fontconfig|sixel|

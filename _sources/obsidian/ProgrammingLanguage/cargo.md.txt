@@ -2,6 +2,12 @@
 
 [CargoでインストールしたRustパッケージをupdateする | Htkyama Blog](https://blog.htkyama.org/cargo_update)
 
+```
+cargo install cargo-update
+cargo install-update -a
+```
+
+
 # Windows
 ## openssl
 

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>example - shell note ドキュメント</title>
+        <title>VTTest - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,25 +218,103 @@
           </label>
         </div>
         <article role="main">
-          <p>[[escape_sequence]] [[xterm]]</p>
-<p><a class="reference external" href="https://vt100.net/emu/">Terminal Emulation – VT100.net</a>
-<a class="reference external" href="https://vt100.net/emu/dec_ansi_parser">VT100.net: A parser for DEC’s ANSI-compatible video terminals</a>
-<a class="reference external" href="https://vt100.net/docs/vt100-ug/contents.html">Digital VT100 User Guide</a>
-<a class="reference external" href="https://vt100.net/docs/vt510-rm/contents.html">vt510 Contents</a></p>
-<p><a class="reference external" href="http://bkclass.web.fc2.com/doc_vt100.html#description">VT100のエスケープシーケンス - BK class</a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="example">
-<h1>example<a class="headerlink" href="#example" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <p>[[TERM]]
+[[conpty]]
+[[curses]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="vttest">
+<h1>VTTest<a class="headerlink" href="#vttest" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/0x5c/VT100-Examples/blob/master/vt_seq.md">VT100-Examples/vt_seq.md at master · 0x5c/VT100-Examples · GitHub</a></p></li>
 <li><p><a class="reference external" href="https://www.kermitproject.org/vttest.html">The VTTEST VT100/102 Terminal Emulation Test</a></p></li>
-<li><p><a class="reference external" href="https://github.com/martanne/vis">GitHub - martanne/vis: A vi-like editor based on Plan 9's structural regular expressions</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="headless">
-<h1>headless<a class="headerlink" href="#headless" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="escapesequence">
+<h1>EscapeSequence<a class="headerlink" href="#escapesequence" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="http://bkclass.web.fc2.com/doc_vt100.html#description">VT100のエスケープシーケンス - BK class</a></p></li>
+<li><p><a class="reference external" href="https://www.askapache.com/linux/zen-terminal-escape-codes/">Terminal Escape Code Zen</a></p></li>
+<li><p><a class="reference external" href="https://vorfee.hatenablog.jp/entry/2015/03/17/173635">ターミナルのechoやprintfに256色で色をつける 完全版 - vorfee's Tech Blog</a></p></li>
+</ul>
+<section id="ansi">
+<h2>ANSI<a class="headerlink" href="#ansi" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2017 <a class="reference external" href="https://qiita.com/PruneMazui/items/8a023347772620025ad6">ANSIエスケープシーケンス チートシート - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI escape code - Wikipedia</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI escape code - Wikipedia</a></p></li>
+<li><p><a class="reference external" href="https://paulschou.com/tools/ansi/escape.html">ANSI Escape Sequence</a></p></li>
+</ul>
+</section>
+<section id="control-sequence-introducer-csi">
+<h2>Control Sequence Introducer (CSI)<a class="headerlink" href="#control-sequence-introducer-csi" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">\e[</span></code></p>
+</section>
+<section id="id1">
+<h2>色を変える<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://misc.flogisoft.com/bash/tip_colors_and_formatting">bash:tip_colors_and_formatting - FLOZz' MISC</a></p></li>
+</ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">\e</span></code>はキーボードのESCキーを表しており、<code class="docutils literal notranslate"><span class="pre">\e</span></code>の代わりに<code class="docutils literal notranslate"><span class="pre">\033</span></code>（8進数形式のESC）や<code class="docutils literal notranslate"><span class="pre">\0x1b</span></code>、<code class="docutils literal notranslate"><span class="pre">\0x1B</span></code>、<code class="docutils literal notranslate"><span class="pre">\x1b</span></code>、<code class="docutils literal notranslate"><span class="pre">\x1B</span></code></p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">e</span><span class="p">[</span><span class="mi">31</span><span class="n">m</span>
+
+<span class="c1"># 31: 色</span>
+<span class="c1"># m: 終了</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>カーソル移動<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/PruneMazui/items/8a023347772620025ad6">ANSIエスケープシーケンス チートシート - Qiita</a></p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>画面制御<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ns.kogakuin.ac.jp/~cu40887/handouts/escape.html">付録　エスケープシーケンス　プログラミング</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/clearing-the-screen">画面をクリアする - Windows Console | Microsoft Docs</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="n">J</span>
+
+<span class="c1"># 2J: 画面クリア</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">e</span><span class="p">[</span><span class="n">K</span>
+
+<span class="c1"># K: カーソル位置から右をクリア</span>
+</pre></div>
+</div>
+</section>
+<section id="screensize">
+<h2>ScreenSize<a class="headerlink" href="#screensize" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/6812224/getting-terminal-size-in-c-for-windows">console - Getting terminal size in c for windows? - Stack Overflow</a></p></li>
+</ul>
+</section>
+<section id="scroll">
+<h2>Scroll<a class="headerlink" href="#scroll" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="decode">
+<h1>Decode<a class="headerlink" href="#decode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>pty の stdout に出力された vt100 を解釈して screen を構築する</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://vt100.net/emu/dec_ansi_parser">VT100.net: A parser for DEC’s ANSI-compatible video terminals</a></p></li>
+<li><p><a class="reference external" href="https://lib.rs/crates/vt100">vt100 — Rust data encoding library // Lib.rs</a></p></li>
+</ul>
+<section id="libvterm">
+<h2>libvterm<a class="headerlink" href="#libvterm" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[libvterm]]</p>
+</section>
+<section id="mtm">
+<h2>mtm<a class="headerlink" href="#mtm" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>decode は自前。Encode は [[curses]]
+[[mtm]]</p>
+</section>
 <section id="vt100utils">
 <h2>vt100utils<a class="headerlink" href="#vt100utils" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">linux</span></code> rawmode を代替すれば windows でも動きそう</p>
+<p><code class="docutils literal notranslate"><span class="pre">linux</span></code> rawmode を代替すれば windows でも動きそう
+Encode もできる</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/Cubified/vt100utils">GitHub - Cubified/vt100utils: A single-header C library for encoding, decoding, and doing useful things with ANSI graphics escape sequences.</a></p></li>
 </ul>
@@ -256,20 +334,37 @@
 </ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="windows">
-<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[windows_terminal]]
-[[conpty]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="encode">
+<h1>Encode<a class="headerlink" href="#encode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>色のついた文字を出力したりする</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences">Console Virtual Terminal Sequences - Windows Console | Microsoft Learn</a></p></li>
-<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences">コンソールの仮想ターミナル シーケンス - Windows Console | Microsoft Docs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/JustWhit3/osmanip">GitHub - JustWhit3/osmanip: A cross-platform library for output stream manipulation using ANSI escape sequences.</a></p></li>
+</ul>
+<section id="c">
+<h2>C<a class="headerlink" href="#c" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>isatty <code class="docutils literal notranslate"><span class="pre">Linux</span></code></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isatty</span><span class="p">(</span><span class="n">fileno</span><span class="p">(</span><span class="n">stdout</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">		</span><span class="n">fputs</span><span class="p">(</span><span class="s">"Detected a TTY</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">stderr</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="n">fputs</span><span class="p">(</span><span class="s">"</span><span class="se">\033</span><span class="s">[31mRED </span><span class="se">\033</span><span class="s">[32mGREEN </span><span class="se">\033</span><span class="s">[34mBLUE</span><span class="se">\033</span><span class="s">[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">stdout</span><span class="p">);</span><span class="w"> </span>
+<span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">		</span><span class="n">fputs</span><span class="p">(</span><span class="s">"Not a TTY</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">stderr</span><span class="p">);</span><span class="w"> </span>
+<span class="w">	</span><span class="p">}</span><span class="w"> </span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="keyinput">
+<h1>KeyInput<a class="headerlink" href="#keyinput" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="libtermkey">
+<h2>libtermkey<a class="headerlink" href="#libtermkey" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/martanne/vis">GitHub - martanne/vis: A vi-like editor based on Plan 9's structural regular expressions</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="parser">
-<h1>parser<a class="headerlink" href="#parser" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://lib.rs/crates/vt100">vt100 — Rust data encoding library // Lib.rs</a></p></li>
-</ul>
 </section>
 
         </article>
@@ -305,15 +400,33 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">example</a></li>
-<li><a class="reference internal" href="#headless">headless</a><ul>
+<li><a class="reference internal" href="#">VTTest</a></li>
+<li><a class="reference internal" href="#escapesequence">EscapeSequence</a><ul>
+<li><a class="reference internal" href="#ansi">ANSI</a></li>
+<li><a class="reference internal" href="#control-sequence-introducer-csi">Control Sequence Introducer (CSI)</a></li>
+<li><a class="reference internal" href="#id1">色を変える</a></li>
+<li><a class="reference internal" href="#id2">カーソル移動</a></li>
+<li><a class="reference internal" href="#id3">画面制御</a></li>
+<li><a class="reference internal" href="#screensize">ScreenSize</a></li>
+<li><a class="reference internal" href="#scroll">Scroll</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#decode">Decode</a><ul>
+<li><a class="reference internal" href="#libvterm">libvterm</a></li>
+<li><a class="reference internal" href="#mtm">mtm</a></li>
 <li><a class="reference internal" href="#vt100utils">vt100utils</a></li>
 <li><a class="reference internal" href="#pyte">pyte</a></li>
 <li><a class="reference internal" href="#hl-vt100">hl-vt100</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#windows">Windows</a></li>
-<li><a class="reference internal" href="#parser">parser</a></li>
+<li><a class="reference internal" href="#encode">Encode</a><ul>
+<li><a class="reference internal" href="#c">C</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#keyinput">KeyInput</a><ul>
+<li><a class="reference internal" href="#libtermkey">libtermkey</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
