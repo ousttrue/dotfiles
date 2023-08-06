@@ -6,7 +6,7 @@ TUI
 [[nvim]]
 [[w3m]]
 [[TerminalEmulator]]
-[[escape_sequence]]
+[[vt100]]
 [[curses]]
 [[notcurses]]
 [[prompt_toolkit]]
