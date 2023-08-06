@@ -550,3 +550,5 @@ if $nu.os-info.name == "windows" {
     $env.Path += $";(get_home)\\.cargo\\bin"
     $env.Path += $";(get_home)\\local\\bin"
 }
+
+$env.FZF_DEFAULT_OPTS = "--preview 'bat --color=always {}'"
