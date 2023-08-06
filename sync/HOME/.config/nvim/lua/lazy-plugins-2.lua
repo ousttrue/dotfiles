@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+local dot = require "dot"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
     "git",
@@ -11,7 +12,32 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local function get_color_scheme()
+  local sys = dot.get_system()
+  if sys == "wsl" then
+    return {
+      "paulfrische/reddish.nvim",
+      lazy = false,
+      priority = 1000,
+      config = function()
+        vim.cmd [[colorscheme reddish]]
+      end,
+    }
+  else
+    return {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+      config = function()
+        vim.cmd [[colorscheme tokyonight]]
+      end,
+    }
+  end
+end
+
 local plugins = {
+  get_color_scheme(),
   { "nvim-lua/plenary.nvim" },
   {
     "simeji/winresizer",
@@ -59,15 +85,6 @@ local plugins = {
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("config.bufferline").setup()
-    end,
-  },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-    config = function()
-      vim.cmd [[colorscheme tokyonight]]
     end,
   },
   -- treesitter
