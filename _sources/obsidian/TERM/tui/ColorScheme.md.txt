@@ -1,6 +1,18 @@
 [[SyntaxHighlight]]
 [[windows_terminal]]
-[[nvim]]
+[[nvim_colorscheme]]
+[[wezterm]]
+# memo
+環境別にしてみる
+- @2023 [Vim / NeovimでOS別に設定を切り替える](https://zenn.dev/grtw2116/articles/83b0e7daa6e0b7)
+## Windows
+Dark blue
+## WSL
+Dark red
+## Linux
+Dark green
+## OSX
+Light
 
 # reserved
 1.  black  

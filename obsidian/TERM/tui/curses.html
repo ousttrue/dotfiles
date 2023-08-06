@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>[[python_curses]] - shell note ドキュメント</title>
+        <title>Implementation - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,23 +218,94 @@
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://logmi.jp/tech/articles/321318">Terminal curses––Terminalの基礎とRuby、そしてcursesについて - Part1 - ログミーTech</a></p>
-<section id="python-curses">
-<h1>[[python_curses]]<a class="headerlink" href="#python-curses" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://docs.python.org/3/howto/curses.html">Curses Programming with Python — Python 3.10.2 documentation</a>
-Windows版には含まれない。
-[[conpty]]
+          <ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://logmi.jp/tech/articles/321318">Terminal curses––Terminalの基礎とRuby、そしてcursesについて - Part1 - ログミーTech</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="implementation">
+<h1>Implementation<a class="headerlink" href="#implementation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="pdcurses">
+<h2>PDCurses<a class="headerlink" href="#pdcurses" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[pdcurses]]</p>
+<section id="windows-pty">
+<h3>windows pty<a class="headerlink" href="#windows-pty" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>[[conpty]]
 [[windows_terminal]]</p>
+</section>
+</section>
+<section id="ncurses">
+<h2>NCurses<a class="headerlink" href="#ncurses" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[ncurses]]</p>
+</section>
+<section id="python">
+<h2>python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[python_curses]]</p>
+<p>Windows版の標準ライブラリには含まれない。
+<a class="reference external" href="https://docs.python.org/3/howto/curses.html">Curses Programming with Python — Python 3.10.2 documentation</a></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/UniCurses/">UniCurses · PyPI</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/windows-curses/">windows-curses · PyPI</a></p></li>
 </ul>
 </section>
-<section id="pdcurses">
-<h1>PDCurses<a class="headerlink" href="#pdcurses" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[pdcurses]]</p>
-<p>NCurses</p>
-<p>[[ncurses]]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="man">
+<h1>man<a class="headerlink" href="#man" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ncurses</span><span class="o">-</span><span class="n">doc</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="color">
+<h1>color<a class="headerlink" href="#color" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>２系統のAPIがある？</p>
+<section id="alloc-pair">
+<h2>alloc_pair<a class="headerlink" href="#alloc-pair" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">alloc_pair</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fg</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bg</span><span class="p">);</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">find_pair</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fg</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bg</span><span class="p">);</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">free_pair</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">pair</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="init-pair">
+<h2>init_pair<a class="headerlink" href="#init-pair" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="init">
+<h1>init<a class="headerlink" href="#init" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.koeki-prj.org/roy/~yuuji/2016/pe/11/curses.html">Programming Essentials - curses library</a></p></li>
+<li><p>initscr</p>
+<ul>
+<li><p>noecho</p></li>
+<li><p>cbreak</p></li>
+</ul>
+</li>
+<li><p>endwin</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="stdscr">
+<h1>stdscr<a class="headerlink" href="#stdscr" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="http://hp.vector.co.jp/authors/VA022047/linux/ncurses.html">ncursesの使い方</a></p></li>
+<li><p><a class="reference external" href="https://dev.grapecity.co.jp/support/powernews/column/clang/048/page02.htm">もう一度基礎からC言語 第48回 特殊な画面制御～GCCの画面制御ライブラリ ncursesライブラリの関数</a></p></li>
+<li><p>getch</p></li>
+<li><p>move</p></li>
+<li><p>addch</p></li>
+<li><p>insch</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="window-pad">
+<h1>Window &amp; Pad<a class="headerlink" href="#window-pad" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://ytyaru.hatenablog.com/entry/2023/01/23/000000">window/padには謎のクセがある。 - やってみる</a></p>
+<section id="window">
+<h2>Window<a class="headerlink" href="#window" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="pad">
+<h2>Pad<a class="headerlink" href="#pad" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://linux.die.net/man/3/newpad">newpad(3): create/display curses pads - Linux man page</a></p></li>
+<li><p>newpad</p></li>
+<li><p>delpad</p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -270,8 +341,28 @@ Windows版には含まれない。
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">[[python_curses]]</a></li>
-<li><a class="reference internal" href="#pdcurses">PDCurses</a></li>
+<li><a class="reference internal" href="#">Implementation</a><ul>
+<li><a class="reference internal" href="#pdcurses">PDCurses</a><ul>
+<li><a class="reference internal" href="#windows-pty">windows pty</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ncurses">NCurses</a></li>
+<li><a class="reference internal" href="#python">python</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#man">man</a></li>
+<li><a class="reference internal" href="#color">color</a><ul>
+<li><a class="reference internal" href="#alloc-pair">alloc_pair</a></li>
+<li><a class="reference internal" href="#init-pair">init_pair</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#init">init</a></li>
+<li><a class="reference internal" href="#stdscr">stdscr</a></li>
+<li><a class="reference internal" href="#window-pad">Window &amp; Pad</a><ul>
+<li><a class="reference internal" href="#window">Window</a></li>
+<li><a class="reference internal" href="#pad">Pad</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

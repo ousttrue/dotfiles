@@ -21,6 +21,9 @@
 ## dvtm
 https://github.com/martanne/dvtm
 
+# vim
+[GitHub - yazgoo/vmux: helper for multiplexing terminals with vim/neovim](https://github.com/yazgoo/vmux)
+
 # GUI
 - [[Konsole]]
 - [[wezterm]]
