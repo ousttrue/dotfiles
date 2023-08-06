@@ -11,6 +11,10 @@ neodev.setup {
 }
 
 local function get_server(dir)
+  if not dot.exists(dir) then
+    return ""
+  end
+
   for i, e in
     ipairs(scandir.scan_dir(dir, {
       depth = 1,

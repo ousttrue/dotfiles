@@ -463,6 +463,7 @@ let api = {
     khronos: {
         gl: "https://github.com/KhronosGroup/OpenGL-Registry/raw/main/xml/gl.xml"
     }
+    nerd: "https://github.com/ryanoasis/nerd-fonts/raw/master/glyphnames.json"
 }
 
 def emoji_category [] {

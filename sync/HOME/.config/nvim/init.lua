@@ -94,7 +94,7 @@ vim.keymap.set("n", "<Tab>", function()
   local items = vim.fn.getqflist()
   if #items > 1 then
     vim.cmd "cn"
-  else
+  elseif #items == 1 then
     vim.cmd "cc"
   end
 end)

@@ -1,9 +1,20 @@
 local M = {}
 
-M.is_wsl = (function()
-  local output = vim.fn.systemlist "uname -r"
-  return not not string.find(output[1] or "", "WSL")
-end)()
+function M.get_system()
+  if vim.fn.has "wsl" ~= 0 then
+    return "wsl"
+  elseif vim.fn.has "win64" ~= 0 then
+    return "windows"
+  elseif vim.fn.has "mac" ~= 0 then
+    return "mac"
+  elseif vim.fn.has "linux" ~= 0 then
+    return "linux"
+  end
+end
+
+function M.is_wsl()
+  return M.get_system() == "wsl"
+end
 
 function M.get_home()
   if vim.fn.has "win32" == 1 then
@@ -83,6 +94,12 @@ end
 function M.which(exe)
   vim.fn.system(string.format("which %s > /dev/null", exe))
   return vim.v.shell_error == 0
+end
+
+function M.exists(path)
+  if vim.loop.fs_stat(path) then
+    return true
+  end
 end
 
 return M

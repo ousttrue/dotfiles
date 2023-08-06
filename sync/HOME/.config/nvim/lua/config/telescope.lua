@@ -21,6 +21,7 @@ function M.setup()
         },
       },
       file_sorter = sorters.get_generic_fuzzy_sorter,
+
       vimgrep_arguments = {
         "rg",
         "--color=never",
@@ -29,7 +30,9 @@ function M.setup()
         "--line-number",
         "--column",
         "--smart-case",
-        -- "--hidden",
+        "--hidden",
+        "--glob",
+        "!.git",
       },
       sorting_strategy = "ascending",
       layout_strategy = "vertical",
