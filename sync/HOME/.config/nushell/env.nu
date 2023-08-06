@@ -192,8 +192,8 @@ def get_day [] {
 
 def week [] {
     let week_day = date now | date format "%w" | into int
-    let mon = date now | $in - 1day * ($week_day - 1) | date format "%Y-%m-%d"
-    let week = seq date --begin-date $mon --days 14
+    let mon = date now | $in - 1day * ($week_day + 7) | date format "%Y-%m-%d"
+    let week = seq date --begin-date $mon --days 13
 
     $week | each {|d| date to-record | {
         today: ($d | get_day)
