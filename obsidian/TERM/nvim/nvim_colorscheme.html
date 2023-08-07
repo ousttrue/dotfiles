@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>仕組み - shell note ドキュメント</title>
+        <title>TreeSitter - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -220,36 +220,100 @@
         <article role="main">
           <p>[[nvim]]
 [[lsp]]
-[[treesitter]]</p>
+[[ColorScheme]]</p>
 <ul class="simple">
-<li><p>@2022  <a class="reference external" href="https://zenn.dev/botamotch/scraps/a9a64e9924564e">treesitter colorscheme</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://blog.atusy.net/2022/04/28/vim-colorscheme-by-buffer/">Neovimのカラースキームを編集中のバッファのファイルパスに応じて変える | Atusy's blog</a></p></li>
-<li><p>@2019 <a class="reference external" href="https://qiita.com/sff1019/items/3f73856b78d7fa2731c7">vimのカラースキームの設定・編集方法（初心者〜上級者） - Qiita</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>仕組み<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="k">g</span>:colors_name
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="base16">
-<h1>base16<a class="headerlink" href="#base16" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="treesitter">
+<h1>TreeSitter<a class="headerlink" href="#treesitter" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[treesitter]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://tinted-theming.github.io/base16-gallery/">Base16 Gallery</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/kawarimidoll/articles/8e58296f5b8118">俺自身がNeovim base16 colorschemeになることだ</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="impl">
-<h1>impl<a class="headerlink" href="#impl" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/sainnhe/sonokai">GitHub - sainnhe/sonokai: High Contrast &amp; Vivid Color Scheme based on Monokai Pro</a></p></li>
+<li><p><a class="reference external" href="https://zenn.dev/vim_jp/articles/2022-12-25-vim-nvim-treesitter-2022-changes">2022年の nvim-treesitter の変更・新機能を振り返る</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/hachy/scraps/88d761f329a9c8">自作のVim colorschemeをTreesitterに対応させる</a></p></li>
+<li><p>@2022  <a class="reference external" href="https://zenn.dev/botamotch/scraps/a9a64e9924564e">treesitter colorscheme</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/psyashes/items/1e1716a59a0dc22ea204">君はまだVimの真の美しさを知らない - Qiita</a></p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="create">
 <h1>create<a class="headerlink" href="#create" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://medium.com/eureka-engineering/recommend-generating-own-colorsheme-3114abe3e1d">Vimカラースキーム自作のすすめ | Eureka Engineering</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://qiita.com/slin/items/be6dddbdb49a790692ba">お手軽カラースキーム制作 - Qiita</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://qiita.com/sff1019/items/3f73856b78d7fa2731c7">vimのカラースキームの設定・編集方法（初心者〜上級者） - Qiita</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://rhysd.hatenablog.com/entry/2016/12/17/191158">フルスクラッチからさいきょうの Vim カラースキームをつくろう！ - はやくプログラムになりたい</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://cocopon.me/blog/2016/02/iceberg/">自作Vimカラースキーム「Iceberg」の配色戦略 - ここぽんのーと</a></p></li>
+<li><p>@2013 <a class="reference external" href="https://thinca.hatenablog.com/entry/20130410/1365530054">カラースキームを作ってみよう - 永遠に未完成</a></p></li>
+<li><p>@2013 <a class="reference external" href="https://itchyny.hatenablog.com/entry/20130315/1363317786">Vimのカラースキーム/シンタックスファイルは自作しよう - プログラムモグモグ</a></p></li>
+</ul>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- 定義開始</span>
+<span class="n">vim</span><span class="p">.</span><span class="n">o</span><span class="p">.</span><span class="n">background</span> <span class="o">=</span> <span class="s2">"dark"</span>
+<span class="n">vim</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="n">colors_name</span> <span class="o">=</span> <span class="s2">"THEME_NAME"</span>
+<span class="n">vim</span><span class="p">.</span><span class="n">cmd</span><span class="p">(</span><span class="s2">"hi clear"</span><span class="p">)</span>
+
+<span class="c1">-- 適用</span>
+<span class="n">vim</span><span class="p">.</span><span class="n">cmd</span><span class="s">[[colorscheme THEME_NAME]]</span>
+</pre></div>
+</div>
+<section id="id1">
+<h2>ファイル配置に制約あり？<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="service">
+<h2>service<a class="headerlink" href="#service" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="vim">
+<h3>vim<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://mswift42.github.io/themecreator/#">ThemeCreator</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>調べる<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">nvim-0.9.0</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://vi.stackexchange.com/questions/39781/how-to-get-the-highlight-group-of-the-word-under-the-cursor-in-neovim-with-trees">syntax highlighting - How to get the highlight group of the word under the cursor in Neovim with Treesitter installed? - Vi and Vim Stack Exchange</a>
+<code class="docutils literal notranslate"><span class="pre">Inspect</span></code></p></li>
+<li><p>@2013 <a class="reference external" href="https://rcmdnk.com/blog/2013/12/01/computer-vim/">Vimでハイライト表示を調べる</a></p></li>
+<li><p><a class="reference external" href="https://howpon.com/21776#i-5">Vim – シンタックスハイライトの設定方法【文字の色の変更も】 | Howpon[ハウポン]</a></p></li>
+<li><p><a class="reference external" href="https://hail2u.net/blog/software/vim-show-highlight-group-name-under-cursor.html">Vimでカーソル下のハイライト・グループ名を知る</a></p></li>
+</ul>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="p">:</span>echo synIDattr<span class="p">(</span>synID<span class="p">(</span>line<span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="k">col</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="m">1</span><span class="p">),</span> <span class="s2">"name"</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>確認<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>下記コマンドで、現在有効な全てのハイライトグループを確認できる。</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="p">:</span>source $VIMRUNTIME<span class="sr">/syntax/</span>hitest.<span class="k">vim</span>
+</pre></div>
+</div>
+</section>
+<section id="colortemplate">
+<h2>colortemplate<a class="headerlink" href="#colortemplate" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://github.com/lifepillar/vim-colortemplate">GitHub - lifepillar/vim-colortemplate: The Toolkit for Vim Color Scheme Designers!</a></p>
+</section>
+<section id="lush">
+<h2>lush<a class="headerlink" href="#lush" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
 <li><p><a class="reference external" href="https://github.com/rktjmp/lush.nvim">GitHub - rktjmp/lush.nvim: Create Neovim themes with real-time feedback, export anywhere.</a></p></li>
 </ul>
+</section>
+<section id="base16">
+<h2>base16<a class="headerlink" href="#base16" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tinted-theming.github.io/base16-gallery/">Base16 Gallery</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/kawarimidoll/articles/8e58296f5b8118">俺自身がNeovim base16 colorschemeになることだ</a></p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>構成<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>UI部品とシンタックスハイライトの２部構成となる</p>
+<section id="ui">
+<h3>UI部品<a class="headerlink" href="#ui" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="syntaxhighlight">
+<h3>SyntaxHighlight<a class="headerlink" href="#syntaxhighlight" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+</section>
 </section>
 
         </article>
@@ -285,10 +349,25 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">仕組み</a></li>
+<li><a class="reference internal" href="#">TreeSitter</a></li>
+<li><a class="reference internal" href="#create">create</a><ul>
+<li><a class="reference internal" href="#id1">ファイル配置に制約あり？</a></li>
+<li><a class="reference internal" href="#service">service</a><ul>
+<li><a class="reference internal" href="#vim">vim</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">調べる</a></li>
+<li><a class="reference internal" href="#id3">確認</a></li>
+<li><a class="reference internal" href="#colortemplate">colortemplate</a></li>
+<li><a class="reference internal" href="#lush">lush</a></li>
 <li><a class="reference internal" href="#base16">base16</a></li>
-<li><a class="reference internal" href="#impl">impl</a></li>
-<li><a class="reference internal" href="#create">create</a></li>
+<li><a class="reference internal" href="#id4">構成</a><ul>
+<li><a class="reference internal" href="#ui">UI部品</a></li>
+<li><a class="reference internal" href="#syntaxhighlight">SyntaxHighlight</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
           </div>
