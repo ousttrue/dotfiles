@@ -45,7 +45,8 @@ local function get_color_scheme()
 end
 
 local plugins = {
-  get_color_scheme(),
+  { "kihachi2000/yash.nvim" },
+  -- get_color_scheme(),
   { "nvim-lua/plenary.nvim" },
   {
     "simeji/winresizer",

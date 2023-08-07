@@ -1,0 +1,2 @@
+require("fuga").setup()
+
