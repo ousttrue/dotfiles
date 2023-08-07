@@ -50,15 +50,47 @@ local wsl_color = {
   func = "#fd9e3c",
 }
 
+local lin_color = {
+  bg = "#e7f6fa",
+  bg2 = "#def0f9",
+  comment = "#7db2c7",
+  nontext = "#bfdeeb",
+
+  -- literal: 0, nil, true, false, ""
+  -- メイン
+  literal = "#65bfc5",
+
+  -- keyword: const let local public function, bracket
+  -- 地味
+  keyword = "#9da0dd",
+  -- user identifier: type, variable
+  -- 濃い
+  user = "#51afe0",
+  -- filed
+  -- 中
+  field = "#6e97ce",
+  -- function: def, call
+  -- 薄い
+  func = "#917eee",
+}
+
 local color = {}
-if dot.is_wsl then
+local sys = dot.get_system()
+if sys == "wsl" then
   color = wsl_color
+elseif sys == "linux" then
+  color = lin_color
 else
   color = win_color
 end
 
 function M.setup()
-  vim.o.background = "dark"
+  if sys == "linux" then
+    vim.o.background = "light"
+  else
+    vim.o.background = "dark"
+  end
+
   vim.cmd.highlight "clear"
   vim.g.colors_name = "fuga"
 
@@ -68,6 +100,7 @@ function M.setup()
   vim.api.nvim_set_hl(0, "Pmenu", { fg = color.literal, bg = color.bg })
   vim.api.nvim_set_hl(0, "CursorLine", { underline = true })
   vim.api.nvim_set_hl(0, "NonText", { fg = color.nontext })
+  vim.api.nvim_set_hl(0, "Directory", { fg = color.keyword })
 
   vim.api.nvim_set_hl(0, "FoldColumn", { bg = color.bg2 })
   vim.api.nvim_set_hl(0, "SignColumn", { bg = color.bg2 })
