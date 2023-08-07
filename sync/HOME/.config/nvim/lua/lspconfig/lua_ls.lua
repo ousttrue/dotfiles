@@ -10,11 +10,20 @@ neodev.setup {
   -- add any options here, or leave empty to use the default settings
 }
 
-local function get_server(dir)
+local function get_extensions()
+  if dot.is_wsl then
+    return dot.get_home() .. "/.vscode-server/extensions"
+  else
+    return dot.get_home() .. "/.vscode/extensions"
+  end
+end
+
+local function get_dir()
+  local dir = get_extensions()
   if not dot.exists(dir) then
+  print("not found:", dir)
     return ""
   end
-
   for i, e in
     ipairs(scandir.scan_dir(dir, {
       depth = 1,
@@ -26,32 +35,22 @@ local function get_server(dir)
     return e .. ""
   end
 
+  print("not found sumneko in:", dir)
   return ""
+end
 
-  -- print(path.Path)
-  -- local extensions = path.Path:new(dir)
-  -- extensions = path:new(dir)
-  -- print(extensions)
-  -- for e in extensions:iter() do
-  --   print(e)
-  -- end
-
-  -- for k, v in pairs(path) do
-  --   print(k, v)
-  -- end
-  -- local extensions = path.Path:new(dir)
-  -- print(extensions)
+local function get_server()
+  local path = get_dir() .. "/server/bin/lua-language-server"
+  if dot.get_system() == "windows" then
+    path = path .. dot.get_suffix()
+  end
+  return path
 end
 
 local function get_lua_ls()
   local LUA_SERVER = "sumneko.lua-3.6.18"
 
-  local path = ""
-  if dot.is_wsl then
-    path = get_server(dot.get_home() .. "/.vscode-server/extensions") .. "/server/bin/lua-language-server"
-  else
-    path = get_server(dot.get_home() .. "/.vscode/extensions") .. "/server/bin/lua-language-server" .. dot.get_suffix()
-  end
+  local path = get_server()
   -- print(path)
   if vim.fn.executable(path) == 1 then
     return path

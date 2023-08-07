@@ -12,9 +12,7 @@ function M.get_system()
   end
 end
 
-function M.is_wsl()
-  return M.get_system() == "wsl"
-end
+M.is_wsl = M.get_system() == "wsl"
 
 function M.get_home()
   if vim.fn.has "win32" == 1 then
