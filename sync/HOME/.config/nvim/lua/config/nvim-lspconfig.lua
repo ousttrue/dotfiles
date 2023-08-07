@@ -8,7 +8,9 @@ function M.setup()
 
   ---@param client table
   ---@param bufnr number
-  local function on_attach(client, bufnr) end
+  local function on_attach(client, bufnr)
+    client.server_capabilities.semanticTokensProvider = nil
+  end
 
   -- local capabilities = vim.lsp.protocol.make_client_capabilities()
   -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..

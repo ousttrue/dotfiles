@@ -12,41 +12,62 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local function get_color_scheme()
-  local sys = dot.get_system()
-  if sys == "wsl" then
-    return {
-      -- "paulfrische/reddish.nvim",
-      -- "jeetsukumaran/vim-nefertiti",
-      -- "xero/miasma.nvim",
-      -- "savq/melange-nvim",
-      "santigo-zero/jetjbp.nvim",
-      lazy = false,
-      priority = 1000,
-      config = function()
-        -- vim.cmd [[colorscheme reddish]]
-        -- vim.cmd [[colorscheme nefertiti]]
-        -- vim.cmd [[colorscheme miasma]]
-        -- vim.cmd [[colorscheme melange]]
-        vim.cmd [[colorscheme jetjbp]]
-      end,
-    }
-  else
-    return {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {},
-      config = function()
-        vim.cmd [[colorscheme tokyonight]]
-      end,
-    }
-  end
-end
-
 local plugins = {
-  { "kihachi2000/yash.nvim" },
-  -- get_color_scheme(),
+  --   {
+  --     "uga-rosa/ccc.nvim",
+  --     config = function()
+  --       local ccc = require "ccc"
+  --       local mapping = ccc.mapping
+  --
+  --       ccc.setup {
+  --         -- Your preferred settings
+  --         -- Example: enable highlighter
+  --         highlighter = {
+  --           auto_enable = true,
+  --           lsp = true,
+  --         },
+  --       }
+  --     end,
+  --   },
+  -- {
+  --   "ziontee113/color-picker.nvim",
+  --   config = function()
+  --     require "color-picker"
+  --   end,
+  -- },
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
+  {
+    "uga-rosa/ccc.nvim",
+    config = function()
+      vim.opt.termguicolors = true
+
+      local ccc = require "ccc"
+      local mapping = ccc.mapping
+
+      ccc.setup {
+        -- Your preferred settings
+        -- Example: enable highlighter
+        -- highlighter = {
+        --   auto_enable = true,
+        --   lsp = true,
+        -- },
+      }
+
+      vim.keymap.set("n", "gc", ":CccPick<CR>")
+    end,
+  },
+  -- {
+  --   "max397574/colortils.nvim",
+  --   -- cmd = "Colortils",
+  --   config = function()
+  --     require("colortils").setup()
+  --   end,
+  -- },
   { "nvim-lua/plenary.nvim" },
   {
     "simeji/winresizer",

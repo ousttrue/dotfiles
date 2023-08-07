@@ -353,5 +353,4 @@ function COPY_PATH()
   ]]
 end
 
--- require("colors.fuga").setup()
 vim.cmd [[colorscheme fuga]]

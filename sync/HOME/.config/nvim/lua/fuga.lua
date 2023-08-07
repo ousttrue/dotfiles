@@ -1,95 +1,71 @@
 local M = {}
 
-local c = {
-  asagao = "#2663a4",
-  ajisai = "#5373ae",
-  tsuyukusa = "#3b91c2",
-  konpeki = "#219dd0",
-  amairo = "#4dbde3",
-  tsukiyo = "#407587",
-  kujaku = "#1d9ea3",
-  shinkai = "#6c88af",
-  syoro = "#388679",
-  shinryoku = "#13815e",
-  chikurin = "#a4b974",
-  fuyusyogun = "#6f8696",
-  kirisame = "#828083",
-  takessumi = "#4e4e4e",
-  tsutsuji = "#d6336c",
-  kosumosu = "#ef829f",
-  momiji = "#de5743",
-  muraskishikibu = "#6c509a",
-  yamabudo = "#8d387c",
-  yuyake = "#f9983a",
-  fuyugaki = "#f06e3a",
-  inaho = "#9b7939",
-  tsukushi = "#8c6663",
-  yamaguri = "#56514e",
-}
+local color = {
+  fg = "#bababa",
+  bg = "#323838",
+  bg2 = "#363636",
 
-local highlight = {
-  ColorColumn = { fg = c.yamaguri, bg = c.momiji },
-  Cursor = { fg = c.takessumi },
-  Directory = { fg = c.tsuyukusa },
-  ErrorMsg = { fg = "white", bg = c.kosumosu },
-  WinSeparator = { fg = c.shinryoku, bg = c.chikurin },
-  Folded = { fg = c.yamabudo, bg = "LightGrey" },
-  FoldColumn = { fg = c.yamabudo, bg = "LightGrey" },
-  SignColumn = { fg = c.tsukiyo, bg = "white" },
-  LineNr = { fg = c.amairo, bold = true },
-  CursorLineNr = { fg = c.tsutsuji, bold = true },
-  MatchParen = { fg = "white", bg = c.muraskishikibu },
-  MoreMsg = { fg = c.shinryoku },
-  NonText = { fg = c.muraskishikibu, bold = true },
-  Normal = { fg = c.tsukiyo, bg = "white" },
-  Pmenu = { fg = "white", bg = c.ajisai },
-  PmenuSel = { fg = "white", bg = c.konpeki },
-  Question = { fg = c.shinryoku },
-  Search = { fg = c.tsukiyo, bg = c.kosumosu },
-  StatusLine = { fg = "white", bg = c.shinkai },
-  StatusLineNC = { fg = "black", bg = c.fuyusyogun },
-  TabLine = { fg = c.shinkai },
-  Title = { fg = c.yamabudo, bold = true },
-  Visual = { fg = c.yuyake, bg = c.fuyusyogun },
-  WarningMsg = { fg = c.tsutsuji },
-  --
-  Comment = { fg = c.syoro },
-  Constant = { fg = c.kujaku },
-  Identifier = { fg = c.asagao },
-  Statement = { fg = c.takessumi },
-  PreProc = { fg = c.kosumosu },
-  Type = { fg = c.fuyugaki },
-  Special = { fg = c.inaho },
-  Underlined = { fg = c.ajisai, underline = true },
-  Error = { fg = c.yamabudo },
-  Todo = { fg = c.yuyake },
-}
+  comment = "#707070",
+  nontext = "#4f4f4f",
 
-local function set_hl(tbl)
-  for group, conf in pairs(tbl) do
-    vim.api.nvim_set_hl(0, group, conf)
-  end
-end
+  -- keyword: const let local public function, bracket
+  keyword = "#cc7b7e",
+  -- literal: 0, nil, true, false, ""
+  literal = "#84995e",
+  -- function: def, call
+  func = "#44a189",
+  -- param
+  param = "#b381b4",
+  -- user identifier: type, variable
+  user = "#119fba",
+  -- filed
+  field = "#b58959",
+}
 
 function M.setup()
-  vim.g.colors_name = "fuga"
-  -- vim.g.colors_name = "colorshizuku"
-
-  -- print(vim.g.colors_name)
-  if vim.fn.exists "syntax_on" then
-    vim.cmd "syntax reset"
-  end
-  vim.cmd.highlight "clear"
   vim.o.background = "dark"
-  -- vim.o.background = "light"
-  -- vim.g.terminal_color_0 = "#123456"
-  vim.api.nvim_set_hl(0, "LineNr", { fg = "#000000", bg = "#ffffff" })
+  vim.cmd.highlight "clear"
+  vim.g.colors_name = "fuga"
 
-  -- set_hl(highlight)
-  -- vim.cmd "hi clear"
-  -- vim.g.colors_name = ""
-  -- vim.cmd [[colorscheme fuga]]
+  vim.api.nvim_set_hl(0, "Normal", { fg = color.fg, bg = color.bg })
+  vim.api.nvim_set_hl(0, "Cursor", { reverse = true })
+  vim.api.nvim_set_hl(0, "ColorColumn", { bg = color.bg2 })
+  vim.api.nvim_set_hl(0, "Pmenu", { fg = color.fg, bg = color.bg })
+  vim.api.nvim_set_hl(0, "CursorLine", { underline = true })
+  vim.api.nvim_set_hl(0, "NonText", { fg = color.nontext })
+
+  vim.api.nvim_set_hl(0, "FoldColumn", { bg = color.bg2 })
+  vim.api.nvim_set_hl(0, "SignColumn", { bg = color.bg2 })
+  vim.api.nvim_set_hl(0, "LineNr", { bg = color.bg2 })
+  vim.api.nvim_set_hl(0, "CursorLineNr", { bg = color.bg2 })
+
+  vim.api.nvim_set_hl(0, "IncSearch", { reverse = true })
+  vim.api.nvim_set_hl(0, "Search", { reverse = true, underline = true })
+  vim.api.nvim_set_hl(0, "WildMenu", { reverse = true })
+
   --
+  -- syntax
+  --
+  vim.api.nvim_set_hl(0, "Statement", { fg = color.keyword })
+  vim.api.nvim_set_hl(0, "@string.lua", { fg = color.literal })
+  vim.api.nvim_set_hl(0, "@boolean.lua", { fg = color.literal })
+  vim.api.nvim_set_hl(0, "@field.lua", { fg = color.field })
+  vim.api.nvim_set_hl(0, "@variable.lua", { fg = color.user })
+  vim.api.nvim_set_hl(0, "@function.lua", { fg = color.func })
+  vim.api.nvim_set_hl(0, "@function.call.lua", { fg = color.func })
+  vim.api.nvim_set_hl(0, "@parameter.lua", { fg = color.param })
+  vim.api.nvim_set_hl(0, "@function.builtin.lua", { fg = color.func })
+  vim.api.nvim_set_hl(0, "@constant.builtin.lua", { fg = color.literal })
+  vim.api.nvim_set_hl(0, "@namespace.builtin.lua", { fg = color.user })
+
+  vim.api.nvim_set_hl(0, "Special", { fg = color.fg })
+  vim.api.nvim_set_hl(0, "Comment", { fg = color.comment })
+
+  --
+  -- for debug
+  --
+  vim.api.nvim_set_keymap("n", "gh", ":Inspect<CR>", {})
+
   vim.cmd [[
 augroup fuga_reload
   autocmd!
@@ -100,8 +76,11 @@ end
 
 function M.reload()
   package.loaded.fuga = nil
+  package.loaded.colorizer = nil
   require("fuga").setup()
+  require("colorizer").setup()
   vim.cmd [[colorscheme fuga]]
+  vim.cmd "ColorizerAttachToBuffer"
 end
 
 return M
