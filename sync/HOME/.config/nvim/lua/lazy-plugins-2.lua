@@ -56,14 +56,14 @@ local plugins = {
   --   dependencies = { "nvim-tree/nvim-web-devicons" },
   --   -- opts = { require("alpha.themes.startify").config },
   -- },
-  {
-    "glepnir/dashboard-nvim",
-    event = "VimEnter",
-    config = function()
-      require("config.dashboard").setup()
-    end,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
+  -- {
+  --   "glepnir/dashboard-nvim",
+  --   event = "VimEnter",
+  --   config = function()
+  --     require("config.dashboard").setup()
+  --   end,
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- },
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
@@ -123,6 +123,7 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       -- "nvim-telescope/telescope-frecency.nvim",
       "xiyaowong/telescope-emoji.nvim",
+      "rcarriga/nvim-notify",
     },
     config = function()
       require("config.telescope").setup()
