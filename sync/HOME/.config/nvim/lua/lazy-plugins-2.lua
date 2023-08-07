@@ -35,12 +35,12 @@ local plugins = {
   --     require "color-picker"
   --   end,
   -- },
-  {
-    "NvChad/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup()
-    end,
-  },
+  -- {
+  --   "NvChad/nvim-colorizer.lua",
+  --   config = function()
+  --     require("colorizer").setup()
+  --   end,
+  -- },
   {
     "uga-rosa/ccc.nvim",
     config = function()
@@ -52,10 +52,15 @@ local plugins = {
       ccc.setup {
         -- Your preferred settings
         -- Example: enable highlighter
-        -- highlighter = {
-        --   auto_enable = true,
-        --   lsp = true,
-        -- },
+        highlighter = {
+          auto_enable = true,
+          lsp = true,
+        },
+        mappings = {
+          ["<ESC>"] = mapping.quit,
+          [","] = mapping.decrease10,
+          ["."] = mapping.increase10,
+        },
       }
 
       vim.keymap.set("n", "gc", ":CccPick<CR>")
