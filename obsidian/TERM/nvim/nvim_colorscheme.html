@@ -233,6 +233,12 @@
 <li><p>@2022  <a class="reference external" href="https://zenn.dev/botamotch/scraps/a9a64e9924564e">treesitter colorscheme</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://qiita.com/psyashes/items/1e1716a59a0dc22ea204">君はまだVimの真の美しさを知らない - Qiita</a></p></li>
 </ul>
+<section id="hlargs">
+<h2>hlargs<a class="headerlink" href="#hlargs" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/m-demare/hlargs.nvim">GitHub - m-demare/hlargs.nvim: Highlight arguments' definitions and usages, using Treesitter</a></p></li>
+</ul>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="create">
 <h1>create<a class="headerlink" href="#create" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -252,6 +258,12 @@
 
 <span class="c1">-- 適用</span>
 <span class="n">vim</span><span class="p">.</span><span class="n">cmd</span><span class="s">[[colorscheme THEME_NAME]]</span>
+
+<span class="c1">-- 定義</span>
+<span class="n">vim</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">nvim_set_hl</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"@repeat.lua"</span><span class="p">,</span> <span class="p">{</span> <span class="n">fg</span> <span class="o">=</span> <span class="n">color</span><span class="p">.</span><span class="n">keyword</span> <span class="p">})</span>
+
+<span class="n">vim</span><span class="p">.</span><span class="n">cmd</span><span class="s">[[hi link pythonOperator Statement]]</span>
+<span class="n">vim</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">nvim_set_hl</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"your-group"</span><span class="p">,</span> <span class="p">{</span> <span class="n">link</span> <span class="o">=</span> <span class="s2">"another-group"</span> <span class="p">})</span>
 </pre></div>
 </div>
 <section id="id1">
@@ -349,7 +361,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">TreeSitter</a></li>
+<li><a class="reference internal" href="#">TreeSitter</a><ul>
+<li><a class="reference internal" href="#hlargs">hlargs</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#create">create</a><ul>
 <li><a class="reference internal" href="#id1">ファイル配置に制約あり？</a></li>
 <li><a class="reference internal" href="#service">service</a><ul>
