@@ -13,34 +13,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  --   {
-  --     "uga-rosa/ccc.nvim",
-  --     config = function()
-  --       local ccc = require "ccc"
-  --       local mapping = ccc.mapping
-  --
-  --       ccc.setup {
-  --         -- Your preferred settings
-  --         -- Example: enable highlighter
-  --         highlighter = {
-  --           auto_enable = true,
-  --           lsp = true,
-  --         },
-  --       }
-  --     end,
-  --   },
-  -- {
-  --   "ziontee113/color-picker.nvim",
-  --   config = function()
-  --     require "color-picker"
-  --   end,
-  -- },
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   config = function()
-  --     require("colorizer").setup()
-  --   end,
-  -- },
+  {
+    "m-demare/hlargs.nvim",
+    config = function()
+      require("hlargs").setup()
+    end,
+  },
   {
     "uga-rosa/ccc.nvim",
     config = function()
@@ -66,13 +44,6 @@ local plugins = {
       vim.keymap.set("n", "gc", ":CccPick<CR>")
     end,
   },
-  -- {
-  --   "max397574/colortils.nvim",
-  --   -- cmd = "Colortils",
-  --   config = function()
-  --     require("colortils").setup()
-  --   end,
-  -- },
   { "nvim-lua/plenary.nvim" },
   {
     "simeji/winresizer",
