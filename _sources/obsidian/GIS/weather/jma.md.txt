@@ -53,3 +53,7 @@ http get https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json | get 0.
 ```
 
 - [気象庁JSON ファイルにある weatherCode 一覧 │ TEAM T3A](https://www.t3a.jp/blog/web-develop/weather-code-list/)
+
+# amedas
+[気象庁のアメダスのデータ](https://okumuralab.org/~okumura/python/amedas.html)
+[気象庁10分データJSON取得 - Qiita](https://qiita.com/pirotan628/items/b58c9fbebde4c746845d)
