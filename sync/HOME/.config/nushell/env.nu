@@ -354,6 +354,7 @@ if $nu.os-info.name == "windows" {
     $env.Path += ";C:\\Python310\\Scripts"
     $env.Path += $";(get_home)\\.cargo\\bin"
     $env.Path += $";(get_home)\\local\\bin"
+    $env.Path += ";C:\\Program Files\\git\\usr\\bin"
 }
 
 $env.FZF_DEFAULT_OPTS = "--preview 'bat --color=always {}'"

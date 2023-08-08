@@ -1,4 +1,4 @@
-
+[[weather]]
 [[nushell]]
 [[GIS]]
 

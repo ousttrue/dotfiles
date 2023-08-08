@@ -341,6 +341,8 @@ local function floating_window()
   })
 end
 vim.keymap.set("n", "gx", floating_window, { noremap = true })
+vim.api.nvim_set_keymap("n", "gh", ":Inspect<CR>", {})
+vim.cmd [[command! VimSyntaxTest :source $VIMRUNTIME/syntax/hitest.vim]]
 
 -- package manager
 -- require "lazy-plugins"
@@ -353,4 +355,12 @@ function COPY_PATH()
   ]]
 end
 
-vim.cmd [[colorscheme fuga]]
+vim.cmd [[colorscheme habamax]]
+dot.reload_hl()
+
+vim.cmd [[
+augroup fuga_reload
+  autocmd!
+  autocmd bufWritePost dot.lua :lua require('dot').reload_hl()
+augroup END
+]]

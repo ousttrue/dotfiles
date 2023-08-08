@@ -11,6 +11,9 @@
 - @2022  [treesitter colorscheme](https://zenn.dev/botamotch/scraps/a9a64e9924564e)
 - @2020 [君はまだVimの真の美しさを知らない - Qiita](https://qiita.com/psyashes/items/1e1716a59a0dc22ea204)
 
+## hlargs
+- [GitHub - m-demare/hlargs.nvim: Highlight arguments' definitions and usages, using Treesitter](https://github.com/m-demare/hlargs.nvim)
+
 # create
 - @2023 [Vimカラースキーム自作のすすめ | Eureka Engineering](https://medium.com/eureka-engineering/recommend-generating-own-colorsheme-3114abe3e1d)
 - @2022 [お手軽カラースキーム制作 - Qiita](https://qiita.com/slin/items/be6dddbdb49a790692ba)
@@ -28,6 +31,12 @@ vim.cmd("hi clear")
 
 -- 適用
 vim.cmd[[colorscheme THEME_NAME]]
+
+-- 定義
+vim.api.nvim_set_hl(0, "@repeat.lua", { fg = color.keyword })
+
+vim.cmd[[hi link pythonOperator Statement]]
+vim.api.nvim_set_hl(0, "your-group", { link = "another-group" })
 ```
 
 ## ファイル配置に制約あり？
