@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Apple - shell note ドキュメント</title>
+        <title>weathercode - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,25 +218,76 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="apple">
-<h1>Apple<a class="headerlink" href="#apple" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>パーフェクトシンク<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">AppleFaceID</span></code> の方言？<code class="docutils literal notranslate"><span class="pre">VMagicMirror</span></code> が独自に名付けたか</p>
+          <p>[[weather]]
+[[nushell]]
+[[GIS]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://malaybaku.github.io/VMagicMirror/tips/perfect_sync/">パーフェクトシンク | VMagicMirror</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://hinzka.hatenablog.com/entry/2021/12/02/005814">パーフェクトシンク対応モデルをつくろう！ iPhone顔トラッキング用 52BlendShapes制作メモ - はいぬっかメモ</a></p></li>
-<li><p><a class="reference external" href="https://apps.apple.com/jp/app/id1490697369">Vear</a></p></li>
-<li><p><a class="reference external" href="https://luppet.appspot.com/">Luppet</a></p></li>
-<li><p><a class="reference external" href="https://github.com/hinzka/52blendshapes-for-VRoid-face">GitHub - hinzka/52blendshapes-for-VRoid-face: modified VRM data of the VRoid model.</a></p></li>
-<li><p><a class="reference external" href="https://github.com/hizzlehoff/FaceCapOSCReceiverExample">GitHub - hizzlehoff/FaceCapOSCReceiverExample: A Unity example project that received Face-Cap data via OSC.</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://qiita.com/michan06/items/48503631dd30275288f7">気象庁JSONデータ - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://github.com/9SQ/jma-amedas2geojson">GitHub - 9SQ/jma-amedas2geojson: 気象庁のアメダスCSVデータからGeoJSONを生成する</a></p></li>
+<li><p><a class="reference external" href="https://www.data.jma.go.jp/developer/gis.html">気象庁 Japan Meteorological Agency</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/mg_kudo/items/d490f7b47f44e74e8b8e">気象庁の台風位置表から GeoJSON を作成する - Qiita</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="weathercode">
+<h1>weathercode<a class="headerlink" href="#weathercode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ciscorn/jma-weather-images">GitHub - ciscorn/jma-weather-images: 気象庁のテロップ番号に対応する画像を、基本天気画像の組み合わせによって合成するだけ</a></p></li>
 </ul>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="area">
+<h1>area<a class="headerlink" href="#area" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="centers">
+<h2>centers<a class="headerlink" href="#centers" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-nu notranslate"><div class="highlight"><pre><span></span>http get https://www.jma.go.jp/bosai/common/const/area.json | get centers | transpose | each { |e| $e.column1 | insert center $e.column0 }
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">center</span>
+<span class="n">record</span><span class="o">&lt;</span><span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">,</span> <span class="n">enName</span><span class="p">:</span> <span class="n">string</span><span class="p">,</span> <span class="n">officeName</span><span class="p">:</span> <span class="n">string</span><span class="p">,</span> <span class="n">children</span><span class="p">:</span> <span class="nb">list</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<section id="centers-children-oficces">
+<h3>centers.children =&gt; oficces<a class="headerlink" href="#centers-children-oficces" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span> <span class="n">get</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">jma</span><span class="o">.</span><span class="n">go</span><span class="o">.</span><span class="n">jp</span><span class="o">/</span><span class="n">bosai</span><span class="o">/</span><span class="n">common</span><span class="o">/</span><span class="n">const</span><span class="o">/</span><span class="n">area</span><span class="o">.</span><span class="n">json</span> <span class="o">|</span> <span class="n">get</span> <span class="n">centers</span> <span class="o">|</span> <span class="n">values</span> <span class="o">|</span> <span class="n">get</span> <span class="n">children</span> <span class="o">|</span>                  <span class="mi">08</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="mi">2023</span> <span class="mi">01</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mi">01</span> <span class="n">AM</span>
+<span class="p">:::</span> <span class="n">flatten</span>
+</pre></div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="openxr">
-<h1>OpenXR<a class="headerlink" href="#openxr" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[OpenXR]]
-[[XR_FB_face_tracking]]</p>
+</section>
+<section id="offices">
+<h2>offices<a class="headerlink" href="#offices" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-nu notranslate"><div class="highlight"><pre><span></span>http get https://www.jma.go.jp/bosai/common/const/area.json | get offices | transpose | each { |e| $e.column1 }
+</pre></div>
+</div>
+<section id="select-office">
+<h3>select office<a class="headerlink" href="#select-office" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span> <span class="n">get</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">jma</span><span class="o">.</span><span class="n">go</span><span class="o">.</span><span class="n">jp</span><span class="o">/</span><span class="n">bosai</span><span class="o">/</span><span class="n">common</span><span class="o">/</span><span class="n">const</span><span class="o">/</span><span class="n">area</span><span class="o">.</span><span class="n">json</span> <span class="o">|</span> <span class="n">get</span> <span class="n">offices</span> <span class="o">|</span> <span class="nb">str</span> <span class="n">join</span> <span class="p">(</span><span class="n">char</span> <span class="n">nl</span><span class="p">)</span> <span class="o">|</span> <span class="n">fzf</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="class10s">
+<h2>class10s<a class="headerlink" href="#class10s" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>http get https://www.jma.go.jp/bosai/common/const/area.json | get class10s | transpose | each { |e| $e.column1 }</p>
+</section>
+<section id="class15s">
+<h2>class15s<a class="headerlink" href="#class15s" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="class20s">
+<h2>class20s<a class="headerlink" href="#class20s" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="forecast">
+<h1>forecast<a class="headerlink" href="#forecast" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json">https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json</a>
+https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json</p>
+<section id="id1">
+<h2>weathercode<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-nu notranslate"><div class="highlight"><pre><span></span>http get https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json | get 0.timeSeries.0.areas.0.weatherCodes
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.t3a.jp/blog/web-develop/weather-code-list/">気象庁JSON ファイルにある weatherCode 一覧 │ TEAM T3A</a></p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -252,7 +303,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/CG/vr/FaceTracking.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/GIS/weather/jma.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -272,11 +323,25 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Apple</a><ul>
-<li><a class="reference internal" href="#id1">パーフェクトシンク</a></li>
+<li><a class="reference internal" href="#">weathercode</a></li>
+<li><a class="reference internal" href="#area">area</a><ul>
+<li><a class="reference internal" href="#centers">centers</a><ul>
+<li><a class="reference internal" href="#centers-children-oficces">centers.children =&gt; oficces</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#openxr">OpenXR</a></li>
+<li><a class="reference internal" href="#offices">offices</a><ul>
+<li><a class="reference internal" href="#select-office">select office</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#class10s">class10s</a></li>
+<li><a class="reference internal" href="#class15s">class15s</a></li>
+<li><a class="reference internal" href="#class20s">class20s</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forecast">forecast</a><ul>
+<li><a class="reference internal" href="#id1">weathercode</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
