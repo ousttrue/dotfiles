@@ -57,3 +57,7 @@ http get https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json | get 0.
 # amedas
 [気象庁のアメダスのデータ](https://okumuralab.org/~okumura/python/amedas.html)
 [気象庁10分データJSON取得 - Qiita](https://qiita.com/pirotan628/items/b58c9fbebde4c746845d)
+
+# ２週間予報
+- [気象庁｜確率予測資料（2週間気温予報）：北海道地方](https://www.data.jma.go.jp/risk/probability/guidance/csv_k2w.php)
+- [気象庁 | 確率予測資料について（地域番号、地点番号の対応表）](https://www.data.jma.go.jp/risk/probability/info/number.html)

@@ -194,10 +194,17 @@ config.warn_about_missing_glyphs = false
 
 config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
 table.insert(config.keys, { key = "r", mods = "LEADER", action = "ReloadConfiguration" })
-table.insert(config.keys, { key = "c", mods = "ALT", action = wezterm.action.SpawnCommandInNewTab{
-  domain='CurrentPaneDomain',
-  cwd = '/home/ousttrue',
-} })
+table.insert(
+  config.keys,
+  {
+    key = "c",
+    mods = "ALT",
+    action = wezterm.action.SpawnCommandInNewTab {
+      domain = "CurrentPaneDomain",
+      cwd = "/home/ousttrue",
+    },
+  }
+)
 table.insert(config.keys, { key = ",", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
 table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
 table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
@@ -239,12 +246,12 @@ end
 local wsl_domains = wezterm.default_wsl_domains()
 
 for idx, dom in ipairs(wsl_domains) do
-  if dom.name == 'WSL:kinetic' then
-    dom.default_prog = { '/bin/bash', '--login', '-i', }
+  if dom.name == "WSL:kinetic" then
+    dom.default_prog = { "/bin/bash", "--login", "-i" }
   end
 end
 config.wsl_domains = wsl_domains
-  
+
 local function basename(s)
   return string.gsub(s, "(.*[/\\])(.*)", "%2")
 end

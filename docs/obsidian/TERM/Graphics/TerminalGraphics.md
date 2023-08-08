@@ -5,6 +5,8 @@
 IBM コードページ 437
 ## chafa
 - [Chafa: Terminal Graphics for the 21st Century](https://hpjansson.org/chafa/)
+`llvm-mingw-20230130-ucrt-x86_64` でビルドできた。
+
 
 # libcaca
 - [libcaca – Caca Labs](http://caca.zoy.org/wiki/libcaca)
