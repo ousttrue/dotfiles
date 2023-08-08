@@ -16,7 +16,9 @@ $env.jma = {
     overview: $"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/($env.jma_area).json"
     forecast: $"https://www.jma.go.jp/bosai/forecast/data/forecast/($env.jma_area).json"
     latest_time: "https://www.jma.go.jp/bosai/amedas/data/latest_time.txt"
+    amedastable: "https://www.jma.go.jp/bosai/amedas/const/amedastable.json"
 }
+
 } # export-env
 
 export def area [key: string@area_completion] {

@@ -4,6 +4,7 @@ import logging
 import colorama
 import contextlib
 import os
+import sys
 import pathlib
 import subprocess
 
@@ -44,15 +45,19 @@ def main():
     match (args.parser_name):
         case "pull":
             with pushd(DOTFILES_ROOT):
-                run("git pull")
-                run("doit")
+                if run("git pull")!=0:
+                    sys.exit(1)
+                if run("doit")!=0:
+                    sys.exit(1)
 
         case "push":
             with pushd(DOTFILES_ROOT):
-                if run("git add .") == 0:
-                    if run("git commit -av") == 0:
-                        if run("git push") == 0:
-                            pass
+                if run("git add .") != 0:
+                    sys.exit(1)
+                if run("git commit -av") != 0:
+                    sys.exit(1)
+                if run("git push") != 0:
+                    sys.exit(1)
 
         case "status":
             with pushd(DOTFILES_ROOT):
