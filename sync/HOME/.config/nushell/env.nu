@@ -227,7 +227,7 @@ def week [] {
         today: (get_day $d)
         month: $in.month
         day: $in.day
-        weather: (jma get_weather $d)
+        weather: (jma weather $d)
     }}
 }
 

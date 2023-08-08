@@ -4,26 +4,26 @@ local M = {}
 
 local win_color = {
   bg = "#00030f",
-  bg2 = "#050505",
-  comment = "#37433b",
-  nontext = "#262626",
+  comment = "#4e5f54",
+  bg2 = "#0f100c",
+  nontext = "#382f00",
 
-  -- literal: 0, nil, true, false, ""
   -- メイン
-  literal = "#5ad076",
-
-  -- keyword: const let local public function, bracket
-  -- 地味
-  keyword = "#3d3678",
   -- user identifier: type, variable
+  user = "#ebc048",
+
+  -- 地味
+  -- keyword: const let local public function, bracket
+  keyword = "#b62a77",
   -- 濃い
-  user = "#147fb7",
-  -- filed
+  -- literal: 0, nil, true, false, ""
+  literal = "#44544b",
   -- 中
-  field = "#297a58",
-  -- function: def, call
+  -- filed
+  field = "#477284",
   -- 薄い
-  func = "#8be1a7",
+  -- function: def, call
+  func = "#8ea397",
 }
 
 local wsl_color = {
@@ -110,6 +110,10 @@ function M.setup()
   vim.api.nvim_set_hl(0, "IncSearch", { reverse = true })
   vim.api.nvim_set_hl(0, "Search", { reverse = true, underline = true })
   vim.api.nvim_set_hl(0, "WildMenu", { reverse = true })
+  vim.api.nvim_set_hl(0, "WildMenu", { reverse = true })
+
+  vim.api.nvim_set_hl(0, "Folded", { bg = color.bg2 })
+  vim.api.nvim_set_hl(0, "Visual", { bg = color.bg2 })
 
   --
   -- syntax
@@ -142,10 +146,38 @@ function M.setup()
   vim.api.nvim_set_hl(0, "@constructor.lua", { fg = color.keyword })
   vim.api.nvim_set_hl(0, "@repeat.lua", { fg = color.keyword })
 
+  vim.api.nvim_set_hl(0, "@string.nu", { fg = color.literal })
+  vim.api.nvim_set_hl(0, "@boolean.nu", { fg = color.literal })
+  vim.api.nvim_set_hl(0, "@field.nu", { fg = color.field })
+  vim.api.nvim_set_hl(0, "@variable.nu", { fg = color.user })
+  vim.api.nvim_set_hl(0, "@parameter.nu", { fg = color.user })
+  vim.api.nvim_set_hl(0, "@function.nu", { fg = color.func })
+  vim.api.nvim_set_hl(0, "@function.call.nu", { fg = color.func })
+  vim.api.nvim_set_hl(0, "@function.builtin.nu", { fg = color.func })
+  vim.api.nvim_set_hl(0, "@constant.builtin.nu", { fg = color.literal })
+  vim.api.nvim_set_hl(0, "@number.nu", { fg = color.literal })
+  vim.api.nvim_set_hl(0, "@namespace.builtin.nu", { fg = color.user })
+  vim.api.nvim_set_hl(0, "@constant.nu", { fg = color.user })
+  vim.api.nvim_set_hl(0, "@punctuation.bracket.nu", { fg = color.keyword })
+  vim.api.nvim_set_hl(0, "@punctuation.delimiter.nu", { fg = color.keyword })
+  vim.api.nvim_set_hl(0, "@keyword.return.nu", { fg = color.keyword })
+  vim.api.nvim_set_hl(0, "@keyword.function.nu", { fg = color.keyword })
+  vim.api.nvim_set_hl(0, "@keyword.nu", { fg = color.keyword })
+  vim.api.nvim_set_hl(0, "@keyword.operator.nu", { fg = color.keyword })
+  vim.api.nvim_set_hl(0, "@conditional.nu", { fg = color.keyword })
+  vim.api.nvim_set_hl(0, "@operator.nu", { fg = color.keyword })
+  vim.api.nvim_set_hl(0, "@constructor.nu", { fg = color.keyword })
+  vim.api.nvim_set_hl(0, "@repeat.nu", { fg = color.keyword })
+
+  vim.api.nvim_set_hl(0, "@property.nu", { fg = color.field })
+  vim.api.nvim_set_hl(0, "@type.nu", { fg = color.user })
+
   --
   -- for debug
   --
   vim.api.nvim_set_keymap("n", "gh", ":Inspect<CR>", {})
+
+  vim.cmd [[command! VimSourceHighlightTest :source $VIMRUNTIME/syntax/hitest.vim]]
 
   vim.cmd [[
 augroup fuga_reload

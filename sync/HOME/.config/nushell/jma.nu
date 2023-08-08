@@ -15,15 +15,22 @@ $env.jma = {
     area: "https://www.jma.go.jp/bosai/common/const/area.json"
     overview: $"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/($env.jma_area).json"
     forecast: $"https://www.jma.go.jp/bosai/forecast/data/forecast/($env.jma_area).json"
+    latest_time: "https://www.jma.go.jp/bosai/amedas/data/latest_time.txt"
 }
 } # export-env
 
-export def "jma area" [key: string@area_completion] {
+export def area [key: string@area_completion] {
     # centers
     http get $env.jma.area | get $key | transpose c0 c1 | each {|e| {$key:$e.c0}|merge $e.c1}
 }
 
+export def amedas [] {
+    let latest_time = http get $env.jma.latest_time
+    http get $"https://www.jma.go.jp/bosai/amedas/data/map/($latest_time | date format '%Y%m%d%H%M%S').json"
+}
+
 def get_wether_emoji [$code] {
+
 let jma_weather_codes = [
   ["100", "晴", "CLEAR", "🌞"],
   ["101", "晴時々曇", "PARTLY CLOUDY", "🌤️"],
@@ -223,7 +230,8 @@ let jma_weather_codes = [
   ["426", "雪後みぞれ", "SNOW, SLEET LATER", "☃️"],
   ["427", "雪一時みぞれ", "SNOW, OCCASIONAL SLEET", "☃️"],
   ["450", "雪で雷を伴う", "SNOW AND THUNDER", "☃️"],
-]    
+]
+
 let found = $jma_weather_codes | | each {|e| {code: $e.0, name: $e.1, eng: $e.2, emoji: $e.3}} | where code == $code
     if ($found | is-empty) {
         ""
@@ -232,7 +240,7 @@ let found = $jma_weather_codes | | each {|e| {code: $e.0, name: $e.1, eng: $e.2,
     }
 }
 
-export def get_weather [d:datetime] {
+export def weather [d:datetime] {
     let forecast = http get $env.jma.forecast | get 1.timeSeries.0
     let times = $forecast | get timeDefines | into datetime | date format "%Y-%m-%d" | into datetime
     let area = $forecast | get areas | where area.code == $env.jma_class10s | first
