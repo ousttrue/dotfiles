@@ -354,11 +354,11 @@ alias zi = __zoxide_zi
 # Note: zoxide only supports Nushell v0.73.0 and above.
 
 if $nu.os-info.name == "windows" {
-    $env.Path += ";C:\\Python310"
-    $env.Path += ";C:\\Python310\\Scripts"
-    $env.Path += $";(get_home)\\.cargo\\bin"
-    $env.Path += $";(get_home)\\local\\bin"
-    $env.Path += ";C:\\Program Files\\git\\usr\\bin"
+    $env.PATH += ";C:\\Python310"
+    $env.PATH += ";C:\\Python310\\Scripts"
+    $env.PATH += $";(get_home)\\.cargo\\bin"
+    $env.PATH += $";(get_home)\\local\\bin"
+    $env.PATH += ";C:\\Program Files\\git\\usr\\bin"
 }
 
 $env.FZF_DEFAULT_OPTS = "--preview-window=top:60%,border-bottom --preview 'bat --color=always {}'"
