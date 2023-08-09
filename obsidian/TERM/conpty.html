@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Windows - shell note ドキュメント</title>
+        <title>Articles - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,20 +218,93 @@
           </label>
         </div>
         <article role="main">
-          <p>conhost を代替する新しい API
+          <p><code class="docutils literal notranslate"><span class="pre">conhost</span></code> を代替する新しい API
 Windows10 <code class="docutils literal notranslate"><span class="pre">1903</span></code>
-from <code class="docutils literal notranslate"><span class="pre">17733</span></code> <code class="docutils literal notranslate"><span class="pre">1809</span></code></p>
-<p>[[windows_terminal]] [[vt100]]</p>
+from <code class="docutils literal notranslate"><span class="pre">17733</span></code> <code class="docutils literal notranslate"><span class="pre">1809</span></code>
+[[windows_terminal]]</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+----+</span> <span class="n">W</span>       <span class="n">R</span> <span class="o">+------+</span>  <span class="o">+-----+</span>
+<span class="o">|</span><span class="n">host</span><span class="o">|</span> <span class="o">===</span><span class="n">Input</span><span class="o">=&gt;|</span><span class="n">conpty</span><span class="o">|=&gt;|</span><span class="n">child</span><span class="o">|</span>
+<span class="o">|</span>    <span class="o">|</span> <span class="o">&lt;=</span><span class="n">Output</span><span class="o">=</span> <span class="o">|</span>      <span class="o">|&lt;=|</span>     <span class="o">|</span>
+<span class="o">+----+</span> <span class="n">R</span>       <span class="n">W</span> <span class="o">+------+</span>  <span class="o">+-----+</span>
+</pre></div>
+</div>
 <blockquote>
 <div><p>Windows 疑似コンソールは、疑似コンソール、ConPTY、または Windows PTY とも呼ばれ</p>
 </div></blockquote>
+<section class="tex2jax_ignore mathjax_ignore" id="articles">
+<h1>Articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://ascii.jp/elem/000/004/079/4079062/">ASCII.jp：Windows 11では標準コンソールの変更が可能になったのでWindows Terminalを設定する (1/2)</a></p></li>
+<li><p>@2018 <a class="reference external" href="https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/">Windows Command-Line: Introducing the Windows Pseudo Console (ConPTY) - Windows Command Line</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://devblogs.microsoft.com/commandline/24-bit-color-in-the-windows-console/">24-bit Color in the Windows Console! - Windows Command Line</a></p></li>
 </ul>
-<section id="windows">
-<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="host">
+<h1>Host<a class="headerlink" href="#host" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="createpipe-createpseudoconsole-createprocess">
+<h2>CreatePipe + CreatePseudoConsole + CreateProcess<a class="headerlink" href="#createpipe-createpseudoconsole-createprocess" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/windows/console/creating-a-pseudoconsole-session">疑似コンソール セッションの作成 - Windows Console | Microsoft Learn</a></p></li>
+</ul>
+</section>
+<section id="read">
+<h2>Read<a class="headerlink" href="#read" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">thread</span> <span class="n">で</span> <span class="n">drain</span>
+</pre></div>
+</div>
+</section>
+<section id="write">
+<h2>Write<a class="headerlink" href="#write" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">普通に書き込み</span>
+</pre></div>
+</div>
+</section>
+<section id="resize">
+<h2>Resize の通知<a class="headerlink" href="#resize" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="api">
+<h2>API<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="createpseudoconsole">
+<h3>CreatePseudoConsole<a class="headerlink" href="#createpseudoconsole" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/createpseudoconsole">CreatePseudoConsole function - Windows Console | Microsoft Docs</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions">Using the High-Level Input and Output Functions - Windows Console | Microsoft Docs</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/creating-a-pseudoconsole-session#preparing-for-creation-of-the-child-process">Creating a Pseudoconsole session - Windows Console | Microsoft Docs</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/">Console documentation - Windows Console | Microsoft Docs</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/using-the-console">Using the Console - Windows Console | Microsoft Docs</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="child">
+<h1>Child<a class="headerlink" href="#child" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>Read<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="escapesequence">
+<h3>EscapeSequence<a class="headerlink" href="#escapesequence" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ENABLE_VIRTUAL_TERMINAL_INPUT</span></code></p>
+</section>
+<section id="rawmode">
+<h3>RawMode<a class="headerlink" href="#rawmode" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/setconsolemode">SetConsoleMode 関数 - Windows Console | Microsoft Docs</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/reading-input-buffer-events">入力バッファー イベントの読み取り - Windows Console | Microsoft Docs</a></p></li>
+</ul>
+</section>
+<section id="resize-event">
+<h3>Resize Event<a class="headerlink" href="#resize-event" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+</section>
+<section id="id2">
+<h2>Write<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id3">
+<h3>EscapeSequence<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>[[vt100]]</p>
+<p><code class="docutils literal notranslate"><span class="pre">ENABLE_VIRTUAL_TERMINAL_PROCESSING</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/setconsolemode">SetConsoleMode 関数 - Windows Console | Microsoft Docs</a></p></li>
 <li><p><a class="reference external" href="https://qiita.com/mod_poppo/items/2ff384530c6f3215c635">Windows向けのプログラムでANSIエスケープシーケンスを使うには - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences">Console Virtual Terminal Sequences - Windows Console | Microsoft Learn</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences">コンソールの仮想ターミナル シーケンス - Windows Console | Microsoft Docs</a></p></li>
 </ul>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// stream に対してANSIエスケープシーケンスを有効化</span>
 <span class="c1">// 成功すれば true, 失敗した場合は false を返す </span>
@@ -252,58 +325,10 @@ from <code class="docutils literal notranslate"><span class="pre">17733</span></
 </pre></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>Windows<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[windows_terminal]]
-[[conpty]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences">Console Virtual Terminal Sequences - Windows Console | Microsoft Learn</a></p></li>
-<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences">コンソールの仮想ターミナル シーケンス - Windows Console | Microsoft Docs</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="escape-sequence">
-<h1>escape sequence<a class="headerlink" href="#escape-sequence" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">ENABLE_VIRTUAL_TERMINAL_INPUT</span></code>
-<code class="docutils literal notranslate"><span class="pre">ENABLE_VIRTUAL_TERMINAL_PROCESSING</span></code>
-<a class="reference external" href="https://learn.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences">コンソールの仮想ターミナル シーケンス - Windows Console | Microsoft Learn</a></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="api">
-<h1>API<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/windows/console/console-functions">コンソール関数 - Windows Console | Microsoft Learn</a></p>
-<section id="createpseudoconsole">
-<h2>CreatePseudoConsole<a class="headerlink" href="#createpseudoconsole" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/createpseudoconsole">CreatePseudoConsole function - Windows Console | Microsoft Docs</a></p></li>
-</ul>
-</section>
-<section id="setconsolemode">
-<h2>SetConsoleMode<a class="headerlink" href="#setconsolemode" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">rawmode</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/setconsolemode">SetConsoleMode 関数 - Windows Console | Microsoft Docs</a></p></li>
-</ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="input">
-<h1>Input<a class="headerlink" href="#input" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/console/reading-input-buffer-events">入力バッファー イベントの読み取り - Windows Console | Microsoft Docs</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="articles">
-<h1>Articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2018 <a class="reference external" href="https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/">Windows Command-Line: Introducing the Windows Pseudo Console (ConPTY) - Windows Command Line</a></p></li>
-<li><p>@2016 <a class="reference external" href="https://devblogs.microsoft.com/commandline/24-bit-color-in-the-windows-console/">24-bit Color in the Windows Console! - Windows Command Line</a></p></li>
-</ul>
-<p>HOST側
-Client側 =&gt; VT</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions">Using the High-Level Input and Output Functions - Windows Console | Microsoft Docs</a></p></li>
-<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/creating-a-pseudoconsole-session#preparing-for-creation-of-the-child-process">Creating a Pseudoconsole session - Windows Console | Microsoft Docs</a></p></li>
-<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/">Console documentation - Windows Console | Microsoft Docs</a></p></li>
-<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/console/using-the-console">Using the Console - Windows Console | Microsoft Docs</a></p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="impl">
+<h1>Impl<a class="headerlink" href="#impl" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">cs</span></code></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/akobr/ConPty.Sample">GitHub - akobr/ConPty.Sample: Example of usage pseudo console in C#.</a></p></li>
@@ -353,16 +378,32 @@ Client側 =&gt; VT</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Windows</a></li>
-<li><a class="reference internal" href="#id1">Windows</a></li>
-<li><a class="reference internal" href="#escape-sequence">escape sequence</a></li>
+<li><a class="reference internal" href="#">Articles</a></li>
+<li><a class="reference internal" href="#host">Host</a><ul>
+<li><a class="reference internal" href="#createpipe-createpseudoconsole-createprocess">CreatePipe + CreatePseudoConsole + CreateProcess</a></li>
+<li><a class="reference internal" href="#read">Read</a></li>
+<li><a class="reference internal" href="#write">Write</a></li>
+<li><a class="reference internal" href="#resize">Resize の通知</a></li>
 <li><a class="reference internal" href="#api">API</a><ul>
 <li><a class="reference internal" href="#createpseudoconsole">CreatePseudoConsole</a></li>
-<li><a class="reference internal" href="#setconsolemode">SetConsoleMode</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#input">Input</a></li>
-<li><a class="reference internal" href="#articles">Articles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#child">Child</a><ul>
+<li><a class="reference internal" href="#id1">Read</a><ul>
+<li><a class="reference internal" href="#escapesequence">EscapeSequence</a></li>
+<li><a class="reference internal" href="#rawmode">RawMode</a></li>
+<li><a class="reference internal" href="#resize-event">Resize Event</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">Write</a><ul>
+<li><a class="reference internal" href="#id3">EscapeSequence</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#impl">Impl</a></li>
 </ul>
 
           </div>
