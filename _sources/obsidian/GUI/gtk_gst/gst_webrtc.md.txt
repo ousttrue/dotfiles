@@ -1,5 +1,5 @@
 [[gstreamer]]
-[[webrtc]]
+[[WebRTC]]
 
 - @2022 [GStreamer で WebRTC を使用する](https://www.gclue.jp/2022/07/gstreamer-webrtc.html)
 - @2018 [GStreamer1.14のwebrtcプラグイン - Qiita](https://qiita.com/satoyoshiharu/items/5ea96d409cb3774709af)

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>WebRTC P2P - shell note ドキュメント</title>
+        <title>実装 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,21 +218,113 @@
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
-<li><p>https://github.com/aisouard/libwebrtc</p></li>
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/voluntas/scraps/82b9e111f43ab3">WebRTC を今から学ぶ人に向けて</a></p></li>
+          <p><code class="docutils literal notranslate"><span class="pre">Web</span> <span class="pre">Real-Time</span> <span class="pre">Communication</span></code></p>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/voluntas/scraps/82b9e111f43ab3">WebRTC を今から学ぶ人に向けて</a></p>
+<ul>
 <li><p><a class="reference external" href="https://webrtcforthecurious.com/ja/">はじめに | 好奇心旺盛な人のためのWebRTC</a></p></li>
 </ul>
-<p>https://sora-labo.shiguredo.jp/
-https://github.com/shiguredo/momo</p>
-<p>[「WebRTC を今から勉強する人向けの...」、@voluntas さんからのスレッド https://sumatome.com/su/1354756185975492610]</p>
+</li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>実装<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="browser">
+<h2>Browser<a class="headerlink" href="#browser" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="ow">new</span> <span class="nx">RTCPeerConnection</span><span class="p">();</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://blog.ojisan.io/webrtc-video-minimal-impl/">WebRTC を理解するためにカメラ映像を送るだけの最小実装を探る | blog.ojisan.io</a></p></li>
+</ul>
+<section id="webxr">
+<h3>WebXR<a class="headerlink" href="#webxr" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://qiita.com/binzume/items/52a4f4be5c316753e1b1">WebRTC+WebXR でVRリモートデスクトップ - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://www.binzume.net/diary/2022-01">2022-01 日記</a></p></li>
+<li><p><a class="reference external" href="https://github.com/binzume/webrtc-rdp">GitHub - binzume/webrtc-rdp: WebRTC + WebXR Remote Desktop</a></p></li>
+</ul>
+</section>
+</section>
+<section id="native">
+<h2>Native<a class="headerlink" href="#native" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gist.github.com/voluntas/df61f8018c88b6490e18f2c3a3e8871d">ブラウザ以外で WebRTC を利用する · GitHub</a></p></li>
+</ul>
+<section id="libdatachannel">
+<h3>libdatachannel<a class="headerlink" href="#libdatachannel" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/paullouisageneau/libdatachannel">GitHub - paullouisageneau/libdatachannel: C/C++ WebRTC network library featuring Data Channels, Media Transport, and WebSockets</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://blog.piasy.com/2023/04/08/libdatachannel-native/index.html">封装 libdatachannel Android 库 - Piasy的博客 | Piasy Blog</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/okuoku/scraps/f5aa6b983d6e12">ローカルのネイティブアプリにWebRTCできるかNW.jsで実験</a></p></li>
+</ul>
+</section>
+<section id="gstreamer">
+<h3>gstreamer<a class="headerlink" href="#gstreamer" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>[[gst_webrtc]]</p>
+</section>
+<section id="libwebrtc">
+<h3>libwebrtc<a class="headerlink" href="#libwebrtc" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://webrtc.googlesource.com/src">src - Git at Google</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://qiita.com/sdozono/items/57a9ec60072fdbea1f4c">WebRTC技術者（C++）必携リンク集 - Qiita</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://qiita.com/sdozono/items/a06f19e6d1ffbdc9295a">Windows C++ でWebRTCライブラリをビルドする際の注意点 - Qiita</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/tetsu_koba/articles/9bb8bc91d36561">momoで使われているlibwebrtcのソースコードを見る</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://yotiky.hatenablog.com/entry/webrtc-howtoread">WebRTCの読み進め方 - yotiky Tech Blog</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://medium.com/shiguredo/webrtc-native-client-momo-%E3%81%AE%E5%BC%B7%E3%81%95-ccc631f34403">WebRTC Native Client Momo の強さ. 色々な方が使ってくださっており、ありがとうございます。せっかくなのでどのへんが強… | by V | shiguredo | Medium</a></p></li>
+<li><p>@2018 <a class="reference external" href="https://voluntas.medium.com/%E3%83%94%E3%83%A5%E3%82%A2-webrtc-%E5%AE%9F%E8%A3%85-51bbbec3be8e">ピュア WebRTC 実装. ピュアというのは libwebrtc… | by V | Medium</a>
+https://github.com/shiguredo/momo</p></li>
+<li><p><a class="reference external" href="https://qiita.com/alivelime/items/e4bd386eb18160c7aeca">Native WebRTCでも手動シグナリングがしたい! - Qiita</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>GStreamer<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.gclue.jp/2022/07/gstreamer-webrtc.html">GStreamer で WebRTC を使用する</a></p></li>
+</ul>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="webrtc-p2p">
 <h1>WebRTC P2P<a class="headerlink" href="#webrtc-p2p" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>シグナリングサーバ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="sdp-session-description-protocol">
+<h2>SDP（Session Description Protocol）<a class="headerlink" href="#sdp-session-description-protocol" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://tools.ietf.org/html/rfc8866">RFC 8866 - SDP: Session Description Protocol</a>
+<a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc8829">RFC 8829 - JavaScript Session Establishment Protocol (JSEP)</a></p>
+<ul class="simple">
+<li><p>v - バージョン(Version)、0 と同じでなければなりません。</p></li>
+<li><p>o - オリジン(Origin)、再交渉に便利なユニークな ID を含む。</p></li>
+<li><p>s - セッション名(Session Name)、- と同じでなければなりません。</p></li>
+<li><p>t - タイミング(Timing)、0 0 と同じでなければなりません。</p></li>
+<li><p>m - メディア記述(Media Description: <code class="docutils literal notranslate"><span class="pre">m=&lt;media&gt;</span> <span class="pre">&lt;port&gt;</span> <span class="pre">&lt;proto&gt;</span> <span class="pre">&lt;fmt&gt;</span> <span class="pre">...)、詳細は以下の通りです。</span></code></p></li>
+<li><p>a - 属性(Attribute)、フリーテキストのフィールドです。これは WebRTC で最も一般的な行です。</p></li>
+<li><p>c - 接続データ(Connection Data)、 IN IP4 0.0.0.0 と等しくなければなりません。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">o</span><span class="o">=-</span> <span class="mi">0</span> <span class="mi">0</span> <span class="n">IN</span> <span class="n">IP4</span> <span class="mf">127.0.0.1</span>
+<span class="n">s</span><span class="o">=-</span>
+<span class="n">c</span><span class="o">=</span><span class="n">IN</span> <span class="n">IP4</span> <span class="mf">127.0.0.1</span>
+<span class="n">t</span><span class="o">=</span><span class="mi">0</span> <span class="mi">0</span>
+<span class="n">m</span><span class="o">=</span><span class="n">audio</span> <span class="mi">4000</span> <span class="n">RTP</span><span class="o">/</span><span class="n">AVP</span> <span class="mi">111</span>
+<span class="n">a</span><span class="o">=</span><span class="n">rtpmap</span><span class="p">:</span><span class="mi">111</span> <span class="n">OPUS</span><span class="o">/</span><span class="mi">48000</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">m</span><span class="o">=</span><span class="n">video</span> <span class="mi">4002</span> <span class="n">RTP</span><span class="o">/</span><span class="n">AVP</span> <span class="mi">96</span>
+<span class="n">a</span><span class="o">=</span><span class="n">rtpmap</span><span class="p">:</span><span class="mi">96</span> <span class="n">VP8</span><span class="o">/</span><span class="mi">90000</span>
+</pre></div>
+</div>
 </section>
-<section id="turn">
-<h2>TURN サーバ<a class="headerlink" href="#turn" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="nat">
+<h1>NAT トラバーサル<a class="headerlink" href="#nat" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="stun-session-traversal-utilities-for-nat">
+<h2><code class="docutils literal notranslate"><span class="pre">STUN</span> <span class="pre">(Session</span> <span class="pre">Traversal</span> <span class="pre">Utilities</span> <span class="pre">for</span> <span class="pre">NAT)</span></code><a class="headerlink" href="#stun-session-traversal-utilities-for-nat" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://tools.ietf.org/html/rfc8489">RFC 8489 - Session Traversal Utilities for NAT (STUN)</a>
+<a class="reference external" href="https://tools.ietf.org/html/rfc5780">RFC 5780 - NAT Behavior Discovery Using Session Traversal Utilities for NAT (STUN)</a></p>
+</section>
+<section id="turn-traversal-using-relays-around-nat">
+<h2>TURN(Traversal Using Relays around NAT)<a class="headerlink" href="#turn-traversal-using-relays-around-nat" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://tools.ietf.org/html/rfc8656">RFC 8656 - Traversal Using Relays around NAT (TURN): Relay Extensions to Session Traversal Utilities for NAT (STUN)</a></p>
+</section>
+<section id="stun-turn">
+<h2>STUN/TURN サーバー<a class="headerlink" href="#stun-turn" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <section id="coturn">
 <h3>coturn<a class="headerlink" href="#coturn" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
@@ -241,12 +333,27 @@ https://github.com/shiguredo/momo</p>
 </ul>
 </section>
 </section>
-<section id="webrtc-api">
-<h2>WebRTC API<a class="headerlink" href="#webrtc-api" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="mdns">
+<h1>mDNS<a class="headerlink" href="#mdns" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[mDNS]]
+<code class="docutils literal notranslate"><span class="pre">UUID</span></code></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="webrtc-sfu">
-<h1>WebRTC SFU<a class="headerlink" href="#webrtc-sfu" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="ice-interactive-connectivity-establishment">
+<h1>ICE（Interactive Connectivity Establishment）<a class="headerlink" href="#ice-interactive-connectivity-establishment" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://tools.ietf.org/html/rfc4787">RFC 4787 - Network Address Translation (NAT) Behavioral Requirements for Unicast UDP</a>
+<a class="reference external" href="https://tools.ietf.org/html/rfc8445">RFC 8445 - Interactive Connectivity Establishment (ICE): A Protocol for Network Address Translator (NAT) Traversal</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="transport">
+<h1>Transport<a class="headerlink" href="#transport" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="dtls">
+<h2>DTLS<a class="headerlink" href="#dtls" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>DTLS（Datagram Transport Layer Security）</p>
+</section>
+<section id="srtp">
+<h2>SRTP<a class="headerlink" href="#srtp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>SRTP（Secure Real-time Transport Protocol）</p>
+</section>
 </section>
 
         </article>
@@ -282,16 +389,40 @@ https://github.com/shiguredo/momo</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">WebRTC P2P</a><ul>
-<li><a class="reference internal" href="#id1">シグナリングサーバ</a></li>
-<li><a class="reference internal" href="#turn">TURN サーバ</a><ul>
+<li><a class="reference internal" href="#">実装</a><ul>
+<li><a class="reference internal" href="#browser">Browser</a><ul>
+<li><a class="reference internal" href="#webxr">WebXR</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#native">Native</a><ul>
+<li><a class="reference internal" href="#libdatachannel">libdatachannel</a></li>
+<li><a class="reference internal" href="#gstreamer">gstreamer</a></li>
+<li><a class="reference internal" href="#libwebrtc">libwebrtc</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">GStreamer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#webrtc-p2p">WebRTC P2P</a><ul>
+<li><a class="reference internal" href="#sdp-session-description-protocol">SDP（Session Description Protocol）</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nat">NAT トラバーサル</a><ul>
+<li><a class="reference internal" href="#stun-session-traversal-utilities-for-nat"><code class="docutils literal notranslate"><span class="pre">STUN</span> <span class="pre">(Session</span> <span class="pre">Traversal</span> <span class="pre">Utilities</span> <span class="pre">for</span> <span class="pre">NAT)</span></code></a></li>
+<li><a class="reference internal" href="#turn-traversal-using-relays-around-nat">TURN(Traversal Using Relays around NAT)</a></li>
+<li><a class="reference internal" href="#stun-turn">STUN/TURN サーバー</a><ul>
 <li><a class="reference internal" href="#coturn">coturn</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#webrtc-api">WebRTC API</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#webrtc-sfu">WebRTC SFU</a></li>
+<li><a class="reference internal" href="#mdns">mDNS</a></li>
+<li><a class="reference internal" href="#ice-interactive-connectivity-establishment">ICE（Interactive Connectivity Establishment）</a></li>
+<li><a class="reference internal" href="#transport">Transport</a><ul>
+<li><a class="reference internal" href="#dtls">DTLS</a></li>
+<li><a class="reference internal" href="#srtp">SRTP</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
