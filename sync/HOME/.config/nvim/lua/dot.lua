@@ -118,7 +118,7 @@ function M.reload_hl()
   local cs = vim.g.colors_name
   vim.cmd("colorscheme " .. cs)
 
-  vim.api.nvim_set_hl(0, "MatchParen", { link = "DiagnosticOk" })
+  vim.api.nvim_set_hl(0, "MatchParen", { fg = "#2da3b8" })
 
   vim.api.nvim_set_hl(0, "@function.builtin.lua", { link = "Idetifier" })
   vim.api.nvim_set_hl(0, "@variable.lua", { link = "Idetifier" })

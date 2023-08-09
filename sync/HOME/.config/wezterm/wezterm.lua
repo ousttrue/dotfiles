@@ -1,6 +1,10 @@
 ---@class wezterm
 local wezterm = require "wezterm"
 
+local function file_exists(path)
+  return #wezterm.glob(path) > 0
+end
+
 ---@return string|nil
 local function get_home()
   local home = os.getenv "HOME"
@@ -126,7 +130,7 @@ local data = "XXX"
 
 local config = {
   use_ime = true,
-  enable_kitty_graphics = true,
+  -- enable_kitty_graphics = true,
   -- font
   -- font = wezterm.font "HackGenNerd Console",
   -- font = wezterm.font_with_fallback {
@@ -194,17 +198,14 @@ config.warn_about_missing_glyphs = false
 
 config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
 table.insert(config.keys, { key = "r", mods = "LEADER", action = "ReloadConfiguration" })
-table.insert(
-  config.keys,
-  {
-    key = "c",
-    mods = "ALT",
-    action = wezterm.action.SpawnCommandInNewTab {
-      domain = "CurrentPaneDomain",
-      cwd = "/home/ousttrue",
-    },
-  }
-)
+table.insert(config.keys, {
+  key = "c",
+  mods = "ALT",
+  action = wezterm.action.SpawnCommandInNewTab {
+    domain = "CurrentPaneDomain",
+    cwd = "/home/ousttrue",
+  },
+})
 table.insert(config.keys, { key = ",", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
 table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
 table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
@@ -222,14 +223,21 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   --
   -- Windows
   --
-  -- config.default_prog = { "C:/Python310/Scripts/xonsh.exe" }
   config.font_size = 13.0 -- 4k monitor with DPI scaling
-  -- config.default_prog = { "C:/Program Files/PowerShell/7/pwsh.exe", "-nologo" }
-  config.default_prog = { HOME .. "/local/bin/nyagos.exe" }
-  config.set_environment_variables = {
-    LUA_PATH = HOME .. "\\.config\\nyagos\\?.lua",
-  }
-  -- config.default_prog = { HOME .. "/.cargo/bin/nu.exe" }
+
+  local PWSH = { "C:/Program Files/PowerShell/7/pwsh.exe", "-nologo" }
+  local NUSHELL = { HOME .. "/.cargo/bin/nu.exe" }
+  local NYAGOS = { HOME .. "/local/bin/nyagos.exe" }
+  if file_exists(NUSHELL[1]) then
+    config.default_prog = NUSHELL
+  elseif file_exists(NYAGOS[1]) then
+    config.default_prog = NYAGOS
+    config.set_environment_variables = {
+      LUA_PATH = HOME .. "\\.config\\nyagos\\?.lua",
+    }
+  elseif file_exists(PWSH[1]) then
+    config.default_prog = PWSH
+  end
 else
   --
   -- Linux

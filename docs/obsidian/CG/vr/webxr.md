@@ -13,7 +13,7 @@
 - [Welcome to my WebXR tutorial series! | webxr-tutorial](https://beprosto.me/webxr-tutorial/)
 
 # WebRTC
-[[webrtc]]
+[[WebRTC]]
 - [WebRTC+WebXR でVRリモートデスクトップ - Qiita](https://qiita.com/binzume/items/52a4f4be5c316753e1b1)
 
 # featrure

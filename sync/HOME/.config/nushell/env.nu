@@ -12,6 +12,9 @@ let api = {
 }
 
 use ~/.config/nushell/jma.nu
+use ~/.config/nushell/gin.nu
+# https://github.com/nushell/nu_scripts/blob/main/custom-completions/git/git-completions.nu
+use ~/.config/nushell/git-completions.nu
 
 def get_home [] {
     if $nu.os-info.name == "windows" {
@@ -156,13 +159,6 @@ def nfzf [] {
     to text | fzf --preview "git show --color=always {}" | str trim
 }
 
-def gs [] {
-    git branch | lines | str trim | where { |s| 
-        let xx = $s | str substring 0..2
-        $xx != "* "
-    } | str join "\n" | fzf --preview "git show --color=always {}" | str trim | git switch $in
-}
-
 # meson wrap 
 def mewrap [] {
     meson wrap list | fzf --preview "meson wrap info{}" | str trim | meson wrap install $in
@@ -171,10 +167,6 @@ def mewrap [] {
 # fdir
 def fz [path] {
     rg --files $path | fzf --preview $"bat --color=always {}"
-}
-
-def gt [] {
-    git status
 }
 
 def "cargo search" [ query: string, --limit=10] { 
@@ -328,6 +320,18 @@ def-env __zoxide_zi  [...rest:string] {
   cd $'(zoxide query --interactive -- $rest | str trim -r -c "\n")'
 }
 
+def printcolors [] {
+  [30 40 90 100] | each { |color_offset|
+    range 0..9 | each { |color|
+      if color != 8 { # 8 is not a color code
+        range 1..9 | each { |style|
+          $"\e[($color + $color_offset);($style)m" + $'\e[($color + $color_offset)($style)m' + "\e[0m"
+        } | str join
+      }
+    } | flatten
+  } | flatten
+}
+
 # =============================================================================
 #
 # Commands for zoxide. Disable these using --no-cmd.
@@ -357,4 +361,4 @@ if $nu.os-info.name == "windows" {
     $env.Path += ";C:\\Program Files\\git\\usr\\bin"
 }
 
-$env.FZF_DEFAULT_OPTS = "--preview 'bat --color=always {}'"
+$env.FZF_DEFAULT_OPTS = "--preview-window=top:60%,border-bottom --preview 'bat --color=always {}'"
