@@ -1,6 +1,6 @@
 local M = {}
 
-function M.get_system()
+local function get_system()
   if vim.fn.has "wsl" ~= 0 then
     return "wsl"
   elseif vim.fn.has "win64" ~= 0 then
@@ -10,6 +10,11 @@ function M.get_system()
   elseif vim.fn.has "linux" ~= 0 then
     return "linux"
   end
+end
+
+local sys = get_system()
+function M.get_system()
+  return sys
 end
 
 M.is_wsl = M.get_system() == "wsl"
@@ -220,6 +225,42 @@ function M.reload_hl()
   local cs = vim.g.colors_name
   vim.cmd("colorscheme " .. cs)
   -- require("dot").extend_hl()
+end
+
+function M.header()
+  if sys == "linux" then
+    return [[
+          ___
+       ,-'   '-.
+      /  _   _  \
+      | (o)_(o) |
+      \ .-""-.  /
+      //`._.-'`\\
+     //   :    ; \
+    //. - '' -.|  |
+   /:    :     |  |
+  | |   :     ,/  /,
+_;'`-, '     |`.-' `\
+)     `\.___./;     .'
+'.__    )----'\__.-'
+    `""`
+    ]]
+  else
+    return [[
+          ▀████▀▄▄              ▄█ 
+            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ 
+    ▄        █          ▀▀▀▀▄  ▄▀  
+   ▄▀ ▀▄      ▀▄              ▀▄▀  
+  ▄▀    █     █▀   ▄█▀▄      ▄█    
+  ▀▄     ▀▄  █     ▀██▀     ██▄█   
+   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  
+    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  
+   █   █  █      ▄▄           ▄▀   ]]
+  end
+end
+
+function M.footer()
+  return string.format("%s %s", sys, vim.version())
 end
 
 return M

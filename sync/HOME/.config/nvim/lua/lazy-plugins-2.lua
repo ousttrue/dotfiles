@@ -30,6 +30,13 @@ local plugins = {
   -- make_colorscheme("ldelossa/vimdark", "vimdark"),
   -- make_colorscheme("jnurmine/Zenburn", "zenburn"),
   {
+    "echasnovski/mini.nvim",
+    version = "*",
+    config = function()
+      require("config.starter").setup()
+    end,
+  },
+  {
     "m-demare/hlargs.nvim",
     config = function()
       require("hlargs").setup()
@@ -70,20 +77,6 @@ local plugins = {
   {
     "simeji/winresizer",
   },
-  -- {
-  --   "goolord/alpha-nvim",
-  --   event = "VimEnter",
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  --   -- opts = { require("alpha.themes.startify").config },
-  -- },
-  -- {
-  --   "glepnir/dashboard-nvim",
-  --   event = "VimEnter",
-  --   config = function()
-  --     require("config.dashboard").setup()
-  --   end,
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  -- },
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
