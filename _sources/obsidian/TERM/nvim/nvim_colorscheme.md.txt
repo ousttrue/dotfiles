@@ -14,6 +14,9 @@
 ## hlargs
 - [GitHub - m-demare/hlargs.nvim: Highlight arguments' definitions and usages, using Treesitter](https://github.com/m-demare/hlargs.nvim)
 
+## ExtMark
+- [【Neovim】好きな位置にテキストを埋め込んだりハイライトできる「ExtMark」の使い方 - ハイパーマッスルエンジニア](https://www.rasukarusan.com/entry/2021/08/22/202248)
+
 # create
 - @2023 [Vimカラースキーム自作のすすめ | Eureka Engineering](https://medium.com/eureka-engineering/recommend-generating-own-colorsheme-3114abe3e1d)
 - @2022 [お手軽カラースキーム制作 - Qiita](https://qiita.com/slin/items/be6dddbdb49a790692ba)
