@@ -1,9 +1,23 @@
-[[nvim]]
-[[lsp]]
-[[ColorScheme]]
+[[nvim]] [[lsp]] [[ColorScheme]]
 
 - @2022 [Neovimのカラースキームを編集中のバッファのファイルパスに応じて変える | Atusy's blog](https://blog.atusy.net/2022/04/28/vim-colorscheme-by-buffer/)
 
+# Site
+- [Trending vim color schemes | vimcolorschemes](https://vimcolorschemes.com/)
+
+# 適用タイミング
+- [.vimrcでのcolorschemeでハマった - 水底](https://amaya382.hatenablog.jp/entry/2017/02/07/194320) 
+```vim
+colorscheme default
+highlight CursorColumn ctermbg=black
+set t_Co=256 " reset
+```
+
+## autocmd ColorScheme
+
+```vim
+autocmd colorscheme * highlight ErrorMsg ctermfg=213 ctermbg=16
+```
 # TreeSitter
 [[treesitter]]
 - [2022年の nvim-treesitter の変更・新機能を振り返る](https://zenn.dev/vim_jp/articles/2022-12-25-vim-nvim-treesitter-2022-changes)
@@ -14,7 +28,11 @@
 ## hlargs
 - [GitHub - m-demare/hlargs.nvim: Highlight arguments' definitions and usages, using Treesitter](https://github.com/m-demare/hlargs.nvim)
 
-## ExtMark
+# lsp
+- [lsp-vimでエラーハイライトの見た目を変える方法 - ヘンゼルのパンくず](https://tmls.hatenablog.com/entry/2021/02/21/050729)
+- [Neovim LSPでカーソル下の変数をハイライトする機能](https://zenn.dev/botamotch/scraps/62eda54e7fba90)
+
+# ExtMark
 - [【Neovim】好きな位置にテキストを埋め込んだりハイライトできる「ExtMark」の使い方 - ハイパーマッスルエンジニア](https://www.rasukarusan.com/entry/2021/08/22/202248)
 
 # create
@@ -61,11 +79,15 @@ vim.api.nvim_set_hl(0, "your-group", { link = "another-group" })
 ```
 
 ## 確認
+### hitest
 下記コマンドで、現在有効な全てのハイライトグループを確認できる。
 
 ```vim
 :source $VIMRUNTIME/syntax/hitest.vim
 ```
+
+### verbose
+["TODO:" を目立たせたいと思った、どのファイルでも - ばかもりだし](https://baqamore.hatenablog.com/entry/2016/11/15/220358)
 
 ## colortemplate
 [GitHub - lifepillar/vim-colortemplate: The Toolkit for Vim Color Scheme Designers!](https://github.com/lifepillar/vim-colortemplate)

@@ -50,3 +50,10 @@
 ## .shp
 - [PythonでのShapefile（.shp）操作まとめ - Qiita](https://qiita.com/c60evaporator/items/78b4148bac6afa4844f9)
 - [都道府県の画像アセットを全自動生成しよう。 - Zopfcode](http://www.zopfco.de/entry/2016/12/22/002947)
+
+## flightrader
+- [フライトレーダー24の生データを受信してアラートをカスタマイズするエクセル管制塔を建設](https://wporep.com/ads-b/fr24-excel/)
+- [Site Unreachable](https://www.mk-mode.com/blog/2016/02/08/fr24-getting-flight-info/)
+
+## 路線
+- [鉄道路線のGeoJSONをダウンロードする方法](https://zenn.dev/uedayou/articles/1ed26f7d49c3e8118429)
