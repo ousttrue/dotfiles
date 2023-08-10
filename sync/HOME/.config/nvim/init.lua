@@ -343,6 +343,7 @@ end
 vim.keymap.set("n", "gx", floating_window, { noremap = true })
 vim.api.nvim_set_keymap("n", "gh", ":Inspect<CR>", {})
 vim.cmd [[command! VimSyntaxTest :source $VIMRUNTIME/syntax/hitest.vim]]
+vim.cmd [[command! ReloadHl :lua require('dot').reload_hl()]]
 
 -- package manager
 -- require "lazy-plugins"

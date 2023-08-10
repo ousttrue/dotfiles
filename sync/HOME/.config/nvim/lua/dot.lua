@@ -100,34 +100,43 @@ function M.exists(path)
   end
 end
 
+function M.extend_hl_ts()
+  vim.api.nvim_set_hl(0, "@function.builtin.lua", { link = "Idetifier" })
+  vim.api.nvim_set_hl(0, "@variable.lua", { link = "Idetifier" })
+
+  vim.api.nvim_set_hl(0, "@constant.builtin.lua", { link = "String" })
+
+  -- Statement: keyword: if end function local
+  vim.api.nvim_set_hl(0, "@storageclass.c", { link = "Statement" })
+  vim.api.nvim_set_hl(0, "@builtin.cpp", { link = "Statement" })
+
+  -- field
+  vim.api.nvim_set_hl(0, "@field.lua", { link = "Special" })
+end
+
 function M.extend_hl()
   -- String: literal: true, false, nil, 0, ""
   vim.api.nvim_set_hl(0, "Number", { link = "String" })
   vim.api.nvim_set_hl(0, "Boolean", { link = "String" })
 
   -- Idetifier: user name: variable
-  vim.api.nvim_set_hl(0, "Constant", { link = "Idetifier" })
+  -- vim.api.nvim_set_hl(0, "Constant", { link = "Idetifier" })
   vim.api.nvim_set_hl(0, "Type", { link = "Idetifier" })
   vim.api.nvim_set_hl(0, "Preproc", { link = "Idetifier" })
+
+  vim.api.nvim_set_hl(0, "MatchParen", { fg = "#2da3b8" })
+
+  -- extmark
+  vim.api.nvim_set_hl(0, "HlArgs", { link = "Constant" })
 end
 
 function M.reload_hl()
   package.loaded.dot = nil
-  require("dot").extend_hl()
 
+  require("dot").extend_hl_ts()
   local cs = vim.g.colors_name
   vim.cmd("colorscheme " .. cs)
-
-  vim.api.nvim_set_hl(0, "MatchParen", { fg = "#2da3b8" })
-
-  vim.api.nvim_set_hl(0, "@function.builtin.lua", { link = "Idetifier" })
-  vim.api.nvim_set_hl(0, "@variable.lua", { link = "Idetifier" })
-
-  -- Statement: keyword: if end function local
-  vim.api.nvim_set_hl(0, "@storageclass.c", { link = "Statement" })
-
-  -- field
-  vim.api.nvim_set_hl(0, "@field.lua", { link = "Special" })
+  require("dot").extend_hl()
 end
 
 return M

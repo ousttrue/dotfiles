@@ -226,11 +226,11 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   config.font_size = 13.0 -- 4k monitor with DPI scaling
 
   local PWSH = { "C:/Program Files/PowerShell/7/pwsh.exe", "-nologo" }
-  local NUSHELL = { HOME .. "/.cargo/bin/nu.exe" }
+  -- local NUSHELL = { HOME .. "/.cargo/bin/nu.exe" }
   local NYAGOS = { HOME .. "/local/bin/nyagos.exe" }
-  if file_exists(NUSHELL[1]) then
-    config.default_prog = NUSHELL
-  elseif file_exists(NYAGOS[1]) then
+  -- if file_exists(NUSHELL[1]) then
+  --   config.default_prog = NUSHELL
+  if file_exists(NYAGOS[1]) then
     config.default_prog = NYAGOS
     config.set_environment_variables = {
       LUA_PATH = HOME .. "\\.config\\nyagos\\?.lua",
