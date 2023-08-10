@@ -109,6 +109,10 @@ function M.extend_hl_ts()
   -- Statement: keyword: if end function local
   vim.api.nvim_set_hl(0, "@storageclass.c", { link = "Statement" })
   vim.api.nvim_set_hl(0, "@builtin.cpp", { link = "Statement" })
+  vim.api.nvim_set_hl(0, "@constructor.cpp", { link = "Idetifier" })
+  vim.api.nvim_set_hl(0, "@type.builtin.cpp", { link = "Idetifier" })
+  vim.api.nvim_set_hl(0, "@type.cpp", { link = "Idetifier" })
+  vim.api.nvim_set_hl(0, "@constant.cpp", { link = "String" })
 
   -- field
   vim.api.nvim_set_hl(0, "@field.lua", { link = "Special" })
