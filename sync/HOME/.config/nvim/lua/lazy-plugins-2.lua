@@ -12,12 +12,34 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local function make_colorscheme(repos, name)
+  return {
+    repos,
+    config = function()
+      vim.cmd(string.format("colorscheme %s", name))
+    end,
+  }
+end
+
 local plugins = {
+  -- make_colorscheme("xero/miasma.nvim", "miasma"),
+  -- make_colorscheme("FrenzyExists/aquarium-vim", "aquarium"),
+  -- make_colorscheme("savq/melange-nvim", "melange"),
+  -- make_colorscheme("nordtheme/vim", "nord"),
+  -- make_colorscheme("junegunn/seoul256.vim", "seoul256"),
+  -- make_colorscheme("ldelossa/vimdark", "vimdark"),
+  -- make_colorscheme("jnurmine/Zenburn", "zenburn"),
   {
     "m-demare/hlargs.nvim",
     config = function()
       require("hlargs").setup()
     end,
+  },
+  {
+    "folke/todo-comments.nvim",
+    opts = {
+      signs = true,
+    },
   },
   {
     "uga-rosa/ccc.nvim",

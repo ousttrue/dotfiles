@@ -100,47 +100,126 @@ function M.exists(path)
   end
 end
 
-function M.extend_hl_ts()
-  vim.api.nvim_set_hl(0, "@function.builtin.lua", { link = "Idetifier" })
-  vim.api.nvim_set_hl(0, "@variable.lua", { link = "Idetifier" })
-
-  vim.api.nvim_set_hl(0, "@constant.builtin.lua", { link = "String" })
-
-  -- Statement: keyword: if end function local
-  vim.api.nvim_set_hl(0, "@storageclass.c", { link = "Statement" })
-  vim.api.nvim_set_hl(0, "@builtin.cpp", { link = "Statement" })
-  vim.api.nvim_set_hl(0, "@constructor.cpp", { link = "Idetifier" })
-  vim.api.nvim_set_hl(0, "@type.builtin.cpp", { link = "Idetifier" })
-  vim.api.nvim_set_hl(0, "@type.cpp", { link = "Idetifier" })
-  vim.api.nvim_set_hl(0, "@constant.cpp", { link = "String" })
-
+local langs = {
+  "c",
+  "cpp",
+  "lua",
+  "c_sharp",
+  "python",
+}
+local hl = {
+  -- keyword
+  Statement = {
+    "storageclass",
+    "builtin",
+  },
+  -- type
+  Constant = {
+    "type.builtin",
+    "type",
+    "namespace",
+    "type.qualifier",
+    "lsp.type.class",
+  },
+  -- var
+  Identifier = {
+    "function",
+    "function.builtin",
+    "function.call",
+    "constructor",
+  },
+  -- literal
+  String = {
+    "constant.builtin",
+    "constant",
+  },
   -- field
-  vim.api.nvim_set_hl(0, "@field.lua", { link = "Special" })
+  Special = {
+    "field",
+    "property",
+    "lsp.type.property",
+    "lsp.type.method",
+  },
+  _ = {
+    "lsp.type.variable",
+    "lsp.type.property",
+    "spell",
+    "lsp.type.method",
+    "lsp.type.function",
+  },
+}
+
+function M.extend_hl_ts()
+  -- -- Statement: keyword: if end function local
+  -- vim.api.nvim_set_hl(0, "@storageclass.c", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@builtin.c", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@builtin.cpp", { link = "Statement" })
+  -- -- type
+  -- vim.api.nvim_set_hl(0, "@type.qualifier.c", { link = "Constant" })
+  -- vim.api.nvim_set_hl(0, "@type.builtin.c", { link = "Constant" })
+  -- vim.api.nvim_set_hl(0, "@type.builtin.cpp", { link = "Constant" })
+  -- vim.api.nvim_set_hl(0, "@type.c", { link = "Constant" })
+  -- vim.api.nvim_set_hl(0, "@type.cpp", { link = "Constant" })
+  -- vim.api.nvim_set_hl(0, "@namespace.cpp", { link = "Constant" })
+  -- -- literal
+  -- vim.api.nvim_set_hl(0, "@constant.builtin.lua", { link = "String" })
+  -- vim.api.nvim_set_hl(0, "@constant.builtin.c", { link = "String" })
+  -- vim.api.nvim_set_hl(0, "@constant.builtin.cpp", { link = "String" })
+  -- vim.api.nvim_set_hl(0, "@constant.c", { link = "String" })
+  -- vim.api.nvim_set_hl(0, "@constant.cpp", { link = "String" })
+  -- -- func
+  -- vim.api.nvim_set_hl(0, "@function.builtin.lua", { link = "Function" })
+  -- vim.api.nvim_set_hl(0, "@constructor.cpp", { link = "Function" })
+  --
+  -- -- field
+  -- vim.api.nvim_set_hl(0, "@field.lua", { link = "Special" })
+  -- vim.api.nvim_set_hl(0, "@field.cpp", { link = "Special" })
+  -- vim.api.nvim_set_hl(0, "@property.cpp", { link = "Special" })
+  for i, lang in ipairs(langs) do
+    for k, v in pairs(hl) do
+      for j, cap in ipairs(v) do
+        if k == "_" then
+          -- clear
+          vim.api.nvim_set_hl(0, string.format("@%s.%s", cap, lang), {})
+        else
+          vim.api.nvim_set_hl(0, string.format("@%s.%s", cap, lang), { link = k })
+        end
+      end
+    end
+  end
 end
 
 function M.extend_hl()
+  vim.api.nvim_set_hl(0, "Delimiter", { link = "Statement" })
+
   -- String: literal: true, false, nil, 0, ""
   vim.api.nvim_set_hl(0, "Number", { link = "String" })
   vim.api.nvim_set_hl(0, "Boolean", { link = "String" })
 
-  -- Idetifier: user name: variable
-  -- vim.api.nvim_set_hl(0, "Constant", { link = "Idetifier" })
-  vim.api.nvim_set_hl(0, "Type", { link = "Idetifier" })
-  vim.api.nvim_set_hl(0, "Preproc", { link = "Idetifier" })
+  -- Identifier: user name: variable
+  -- vim.api.nvim_set_hl(0, "Constant", { link = "Identifier" })
+  vim.api.nvim_set_hl(0, "Type", { link = "Constant" })
+  vim.api.nvim_set_hl(0, "Preproc", { link = "Statement" })
 
   vim.api.nvim_set_hl(0, "MatchParen", { fg = "#2da3b8" })
 
-  -- extmark
-  vim.api.nvim_set_hl(0, "HlArgs", { link = "Constant" })
+  -- HlArgs
+  vim.api.nvim_set_hl(0, "HlArgs", { fg = "#a0407f" })
+
+  vim.api.nvim_set_hl(0, "VertSplit", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "Pmenu", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "LuaParentError", {})
+  vim.api.nvim_set_hl(0, "markdownError", {})
+  -- vim.api.nvim_set_hl(0, "ColorColumn", { link = "StatusLine" })
 end
 
 function M.reload_hl()
   package.loaded.dot = nil
 
-  require("dot").extend_hl_ts()
+  -- require("dot").extend_hl_ts()
   local cs = vim.g.colors_name
   vim.cmd("colorscheme " .. cs)
-  require("dot").extend_hl()
+  -- require("dot").extend_hl()
 end
 
 return M

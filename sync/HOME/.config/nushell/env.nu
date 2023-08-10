@@ -213,12 +213,11 @@ def get_holiday [d] {
 def week [] {
     let week_day = date now | date format "%w" | into int
     let mon = date now | $in - 1day * ($week_day + 7) | date format "%Y-%m-%d"
-    let week = seq date --begin-date $mon --days 13 | into datetime
+    let week = seq date --begin-date $mon --days 20 | into datetime
 
-    $week | each {|d| date to-record | {
+    $week | each {|d|  {
         today: (get_day $d)
-        month: $in.month
-        day: $in.day
+        date: $d
         weather: (jma weather $d)
     }}
 }

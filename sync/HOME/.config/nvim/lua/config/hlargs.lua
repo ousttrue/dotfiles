@@ -1,9 +1,7 @@
 local M = {}
 
 function M.setup()
-  require("hlargs").setup {
-    color = "#a0a000",
-  }
+  require("hlargs").setup {}
 end
 
 return M

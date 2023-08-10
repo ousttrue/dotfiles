@@ -285,7 +285,9 @@ end
 --   signs = true,
 --   underline = true,
 -- })
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
+vim.keymap.set("n", "K", function()
+  vim.lsp.buf.hover()
+end, { noremap = true })
 vim.keymap.set("n", "ff", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
@@ -345,10 +347,6 @@ vim.api.nvim_set_keymap("n", "gh", ":Inspect<CR>", {})
 vim.cmd [[command! VimSyntaxTest :source $VIMRUNTIME/syntax/hitest.vim]]
 vim.cmd [[command! ReloadHl :lua require('dot').reload_hl()]]
 
--- package manager
--- require "lazy-plugins"
-require "lazy-plugins-2"
-
 function COPY_PATH()
   vim.cmd [[
   let @* = expand('%:.')
@@ -356,12 +354,23 @@ function COPY_PATH()
   ]]
 end
 
-vim.cmd [[colorscheme habamax]]
-dot.reload_hl()
-
 vim.cmd [[
-augroup fuga_reload
+augroup HLExtend
   autocmd!
-  autocmd bufWritePost dot.lua :lua require('dot').reload_hl()
+  autocmd ColorScheme * lua require('dot').extend_hl()
+  autocmd ColorScheme * lua require('dot').extend_hl_ts()
 augroup END
 ]]
+
+-- package manager
+-- require "lazy-plugins"
+require "lazy-plugins-2"
+
+vim.cmd [[colorscheme habamax]]
+
+-- vim.cmd [[
+-- augroup fuga_reload
+--   autocmd!
+--   autocmd bufWritePost dot.lua :lua require('dot').reload_hl()
+-- augroup END
+-- ]]
