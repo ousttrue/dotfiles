@@ -260,7 +260,7 @@ _;'`-, '     |`.-' `\
 end
 
 function M.footer()
-  return string.format("%s %s", sys, vim.version())
+  return string.format("%s %s", sys, vim.inspect(vim.version()))
 end
 
 return M

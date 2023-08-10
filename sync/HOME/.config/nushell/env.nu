@@ -2,6 +2,93 @@
 #
 # version = 0.83.1
 
+let koyomi = [
+    {name:立春 month:02 day:04}
+    {name:雨水 month:02 day:19}
+    {name:啓蟄 month:03 day:05}
+    {name:春分 month:03 day:21}
+    {name:清明 month:04 day:05}
+    {name:穀雨 month:04 day:20}
+    {name:立夏 month:05 day:05}
+    {name:小満 month:05 day:21}
+    {name:芒種 month:06 day:06}
+    {name:夏至 month:06 day:21}
+    {name:小暑 month:07 day:07}
+    {name:大暑 month:07 day:23}
+    {name:立秋 month:08 day:08}
+    {name:処暑 month:08 day:23}
+    {name:白露 month:09 day:08}
+    {name:秋分 month:09 day:23}
+    {name:寒露 month:10 day:08}
+    {name:霜降 month:10 day:24}
+    {name:立冬 month:11 day:07}
+    {name:小雪 month:11 day:22}
+    {name:大雪 month:12 day:07}
+    {name:冬至 month:12 day:21}
+    {name:小寒 month:01 day:05}
+    {name:大寒 month:01 day:21}
+    {name:二百十日 month:09 day:01}
+    {name:彼岸 month:09 day:20}
+    {name:土用 month:10 day:21}
+]
+
+def get_koyomi [$date] {
+    let $month = $date | date format "%m" | into int -r 10
+    let $day = $date | date format "%d" | into int -r 10
+    let found = $koyomi | where {|e| ($e.month == $month) and ($e.day == $day) }
+    if ($found | is-empty) {
+        ""
+    } else {
+        $found | get 0.name
+    }
+}
+
+let moon = http get $"https://craigchamberlain.github.io/moon-data/api/moon-phase-data/(date now | date format '%Y')/"
+
+def moon_phase [date] {
+    let moon = $moon | update Date {|| into datetime}
+    let found = $moon | zip ($moon | skip 1) | where {|e| ($e.0.Date <= $date) and ($e.1.Date >= $date) }
+    if ($found | is-empty) {
+        ""
+    } else {
+        let $base = $found | get 0.0
+        let diff = ($date - $found.0.0.Date) / 1day
+        if ($base.Phase == 0) {
+            if ($diff < 1.5) {
+                "🌑"
+            } else if ($diff < 5.5) {
+                "🌒"
+            } else {
+                "🌓"
+            }
+        } else if ($base.Phase == 1) {
+            if ($diff < 1.5) {
+                "🌓"
+            } else if ($diff < 5.5) {
+                "🌔"
+            } else {
+                "🌕"
+            }
+        } else if ($base.Phase == 2) {
+            if ($diff < 1.5) {
+                "🌕"
+            } else if ($diff < 5.5) {
+                "🌖"
+            } else {
+                "🌗"
+            }
+        } else {
+            if ($diff < 1.5) {
+                "🌗"
+            } else if ($diff < 5.5) {
+                "🌘"
+            } else {
+                "🌑"
+            }
+        }
+    }
+}
+
 let api = {
     holiday: "https://seireki.teraren.com/holiday/2023.json"
     emoji: "https://github.com/github/gemoji/raw/master/db/emoji.json"
@@ -219,6 +306,8 @@ def week [] {
         today: (get_day $d)
         date: $d
         weather: (jma weather $d)
+        koyomi: (get_koyomi $d)
+        moon: (moon_phase $d)
     }}
 }
 
