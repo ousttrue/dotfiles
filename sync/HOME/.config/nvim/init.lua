@@ -366,7 +366,9 @@ augroup END
 -- require "lazy-plugins"
 require "lazy-plugins-2"
 
-vim.cmd [[colorscheme habamax]]
+local cs, bg = dot.get_colorscheme()
+vim.o.background = bg
+vim.cmd(string.format("colorscheme %s", cs))
 
 -- vim.cmd [[
 -- augroup fuga_reload
