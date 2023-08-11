@@ -16,7 +16,7 @@ local function make_colorscheme(repos, name, bg, sys)
   local plugin = {
     repos,
   }
-  if name then
+  if sys then
     plugin.config = function()
       -- vim.cmd(string.format("colorscheme %s", name))
       require("dot").colorscheme[sys] = { name, bg }
@@ -27,8 +27,9 @@ local function make_colorscheme(repos, name, bg, sys)
 end
 
 local plugins = {
-  make_colorscheme("fenetikm/falcon", "falcon", "dark", "windows"),
-  make_colorscheme("shaunsingh/nord.nvim", "nord", "dark", "windows"),
+  make_colorscheme("fenetikm/falcon", "falcon", "dark"),
+  make_colorscheme("shaunsingh/nord.nvim", "nord", "dark"),
+
   -- make_colorscheme("cocopon/iceberg.vim", "iceberg", "dark", "windows"),
   -- make_colorscheme("AlessandroYorba/Sierra", "sierra", "dark", "windows"),
   make_colorscheme("xero/miasma.nvim", "miasma", "dark", "linux"),

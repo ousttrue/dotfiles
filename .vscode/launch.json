@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "echocon",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/prefix/bin/echocon.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "console": "integratedTerminal"
+        },
+        {
             "name": "doit",
             "type": "python",
             "request": "launch",

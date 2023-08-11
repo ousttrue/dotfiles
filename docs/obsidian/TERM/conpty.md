@@ -21,39 +21,48 @@ from `17733` `1809`
 ## CreatePipe + CreatePseudoConsole + CreateProcess
 
 ```c++
-HRESULT CreatePseudoConsoleAndPipes(HPCON* phPC, HANDLE* phPipeIn, HANDLE* phPipeOut)
-{
-    HRESULT hr{ E_UNEXPECTED };
-    HANDLE hPipePTYIn{ INVALID_HANDLE_VALUE };
-    HANDLE hPipePTYOut{ INVALID_HANDLE_VALUE };
+struct Pty {
+  HPCON Console;
+  HANDLE ReadPipe;
+  HANDLE WritePipe;
+};
 
-    // Create the pipes to which the ConPTY will connect
-    if (CreatePipe(&hPipePTYIn, phPipeOut, NULL, 0) &&
-        CreatePipe(phPipeIn, &hPipePTYOut, NULL, 0))
-    {
-        // Determine required size of Pseudo Console
-        COORD consoleSize{};
-        CONSOLE_SCREEN_BUFFER_INFO csbi{};
-        HANDLE hConsole{ GetStdHandle(STD_OUTPUT_HANDLE) };
-        if (GetConsoleScreenBufferInfo(hConsole, &csbi))
-        {
-            consoleSize.X = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-            consoleSize.Y = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
-        }
+Pty CreatePty(const COORD &size) {
+  Pty pty = {0};
 
-        // Create the Pseudo Console of the required size, attached to the PTY-end of the pipes
-        hr = CreatePseudoConsole(consoleSize, hPipePTYIn, hPipePTYOut, 0, phPC);
+  HANDLE inPipeRead{INVALID_HANDLE_VALUE};
+  if (!CreatePipe(&inPipeRead, &pty.WritePipe, NULL, 0)) {
+    return {};
+  }
 
-        // Note: We can close the handles to the PTY-end of the pipes here
-        // because the handles are dup'ed into the ConHost and will be released
-        // when the ConPTY is destroyed.
-        if (INVALID_HANDLE_VALUE != hPipePTYOut)
-            CloseHandle(hPipePTYOut);
-        if (INVALID_HANDLE_VALUE != hPipePTYIn)
-            CloseHandle(hPipePTYIn);
-    }
+  HANDLE outPipeWrite{INVALID_HANDLE_VALUE};
+  if (!CreatePipe(&pty.ReadPipe, &outPipeWrite, NULL, 0)) {
+    CloseHandle(inPipeRead);
+    CloseHandle(pty.WritePipe);
+    return {};
+  }
 
-    return hr;
+  // Create the Pseudo Console of the required size, attached to the PTY-end
+  // of the pipes
+  auto hr =
+      CreatePseudoConsole(size, inPipeRead, outPipeWrite, 0, &pty.Console);
+  // Note: We can close the handles to the PTY-end of the pipes here
+  // because the handles are dup'ed into the ConHost and will be released
+  // when the ConPTY is destroyed.
+  if (INVALID_HANDLE_VALUE != outPipeWrite) {
+    CloseHandle(outPipeWrite);
+  }
+  if (INVALID_HANDLE_VALUE != inPipeRead) {
+    CloseHandle(inPipeRead);
+  }
+  if (FAILED(hr)) {
+    CloseHandle(pty.WritePipe);
+    CloseHandle(pty.ReadPipe);
+    return {};
+  }
+
+  assert(pty.Console);
+  return pty;
 }
 ```
 
@@ -78,6 +87,19 @@ HRESULT CreatePseudoConsoleAndPipes(HPCON* phPC, HANDLE* phPipeIn, HANDLE* phPip
 // 普通に書き込み
 ```
 
+## GetSize
+```c++
+// Determine required size of Pseudo Console
+COORD consoleSize{};
+CONSOLE_SCREEN_BUFFER_INFO csbi{};
+HANDLE hConsole{ GetStdHandle(STD_OUTPUT_HANDLE) };
+if (GetConsoleScreenBufferInfo(hConsole, &csbi))
+{
+	consoleSize.X = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+	consoleSize.Y = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+}
+```
+		
 ## Resize の通知
 
 ## API

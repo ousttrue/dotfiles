@@ -1,3 +1,4 @@
 {
-    "workbench.colorTheme": "Kimbie Dark"
+    "workbench.colorTheme": "Kimbie Dark",
+    "C_Cpp.default.compileCommands": "builddir\\compile_commands.json"
 }
