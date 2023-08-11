@@ -19,6 +19,53 @@ from `17733` `1809`
 # Host
 
 ## CreatePipe + CreatePseudoConsole + CreateProcess
+
+```c++
+HRESULT CreatePseudoConsoleAndPipes(HPCON* phPC, HANDLE* phPipeIn, HANDLE* phPipeOut)
+{
+    HRESULT hr{ E_UNEXPECTED };
+    HANDLE hPipePTYIn{ INVALID_HANDLE_VALUE };
+    HANDLE hPipePTYOut{ INVALID_HANDLE_VALUE };
+
+    // Create the pipes to which the ConPTY will connect
+    if (CreatePipe(&hPipePTYIn, phPipeOut, NULL, 0) &&
+        CreatePipe(phPipeIn, &hPipePTYOut, NULL, 0))
+    {
+        // Determine required size of Pseudo Console
+        COORD consoleSize{};
+        CONSOLE_SCREEN_BUFFER_INFO csbi{};
+        HANDLE hConsole{ GetStdHandle(STD_OUTPUT_HANDLE) };
+        if (GetConsoleScreenBufferInfo(hConsole, &csbi))
+        {
+            consoleSize.X = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+            consoleSize.Y = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+        }
+
+        // Create the Pseudo Console of the required size, attached to the PTY-end of the pipes
+        hr = CreatePseudoConsole(consoleSize, hPipePTYIn, hPipePTYOut, 0, phPC);
+
+        // Note: We can close the handles to the PTY-end of the pipes here
+        // because the handles are dup'ed into the ConHost and will be released
+        // when the ConPTY is destroyed.
+        if (INVALID_HANDLE_VALUE != hPipePTYOut)
+            CloseHandle(hPipePTYOut);
+        if (INVALID_HANDLE_VALUE != hPipePTYIn)
+            CloseHandle(hPipePTYIn);
+    }
+
+    return hr;
+}
+```
+
+### Redirect
+[[fork]]
+- [リダイレクトされた入出力を使用した子プロセスの作成 - Win32 apps | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/win32/procthread/creating-a-child-process-with-redirected-input-and-output)
+- [プロセス間通信ではまる: なひたふJTAG日記](http://nahitafu.cocolog-nifty.com/nahitafu/2008/04/post_bde3.html)
+> WaitForSingleObjectというのがありますが、これはパイプは監視できない
+- [コマンドライン起動 « モルタルコのプログラマ日記](https://denasu.com/blog/2000/05/diary145)
+>PeekNamedPipe
+
+### ConPty
 - [疑似コンソール セッションの作成 - Windows Console | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/console/creating-a-pseudoconsole-session)
 
 ## Read

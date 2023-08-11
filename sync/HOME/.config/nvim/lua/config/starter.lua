@@ -20,6 +20,7 @@ function M.setup()
     items = {
       -- starter.sections.recent_files(10, false),
       starter.sections.recent_files(10, true),
+      starter.sections.telescope(),
     },
 
     -- Header to be displayed before items. Converted to single string via

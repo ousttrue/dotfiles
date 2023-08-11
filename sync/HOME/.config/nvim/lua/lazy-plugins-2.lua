@@ -115,6 +115,7 @@ local plugins = {
     --   require("nvim-treesitter.install").update { with_sync = true }
     -- end,
     config = require("config.nvim-treesitter").setup,
+    dependencies = "nvim-treesitter/playground",
   },
   {
     "kevinhwang91/nvim-ufo",

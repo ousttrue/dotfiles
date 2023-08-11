@@ -12,3 +12,8 @@ zig-cache
 *.egg-info
 .luarc.json
 /lua/
+
+/subprojects/*
+!/subprojects/packagefiles
+!/subprojects/ftxui.wrap
+

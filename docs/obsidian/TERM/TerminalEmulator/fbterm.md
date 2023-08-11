@@ -1,8 +1,12 @@
 [[TerminalEmulator]]
 
 [[yaft]]
+[[uim]]
 
-`# apt intall fbterm`
+```
+# apt intall fbterm
+```
+
 user を `video` group に入れる。
 $ fbterm
 

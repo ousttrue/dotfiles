@@ -457,4 +457,4 @@ if $nu.os-info.name == "windows" {
     (add_path "C:\\Program Files\\git\\usr\\bin")
 }
 
-$env.FZF_DEFAULT_OPTS = "--preview-window=top:60%,border-bottom --preview 'bat --color=always {}'"
+$env.FZF_DEFAULT_OPTS = " --color=fg+:#b1ff8f --preview-window=top:60%,border-bottom --preview 'bat --color=always {}'"

@@ -27,6 +27,7 @@ nvim +Tutor
 # Version
 ## v0.10.0
 ## v0.9.0
+- @2023
 ## v0.8.0
 - [Neovim 40個のおすすめオプション](https://jp.magicode.io/denx/articles/eb5a9c43526e4592937977bf3a959ad3)
 - filetype.lua
