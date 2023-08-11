@@ -27,14 +27,21 @@ local function make_colorscheme(repos, name, bg, sys)
 end
 
 local plugins = {
+  make_colorscheme("fenetikm/falcon", "falcon", "dark", "windows"),
+  make_colorscheme("shaunsingh/nord.nvim", "nord", "dark", "windows"),
+  -- make_colorscheme("cocopon/iceberg.vim", "iceberg", "dark", "windows"),
+  -- make_colorscheme("AlessandroYorba/Sierra", "sierra", "dark", "windows"),
   make_colorscheme("xero/miasma.nvim", "miasma", "dark", "linux"),
-  -- make_colorscheme "sabrinagannon/vim-garbage-oracle",
+  -- make_colorscheme("shaunsingh/moonlight.nvim", "moonlight", "dark", "linux"),
   -- make_colorscheme("FrenzyExists/aquarium-vim", "aquarium"),
   -- make_colorscheme("savq/melange-nvim", "melange"),
   -- make_colorscheme("nordtheme/vim", "nord"),
   make_colorscheme("junegunn/seoul256.vim", "seoul256", "light", "wsl"),
   -- make_colorscheme("ldelossa/vimdark", "vimdark"),
   -- make_colorscheme("jnurmine/Zenburn", "zenburn"),
+  -- make_colorscheme("Mitgorakh/snow", "snow", "light", "mac"),
+  make_colorscheme("NLKNguyen/papercolor-theme", "PaperColor", "light", "mac"),
+  -- make_colorscheme("yasukotelin/shirotelin", "shirotelin", "light", "mac"),
   {
     "echasnovski/mini.nvim",
     version = "*",
