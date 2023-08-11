@@ -16,4 +16,5 @@ zig-cache
 /subprojects/*
 !/subprojects/packagefiles
 !/subprojects/ftxui.wrap
+!/subprojects/libvterm.wrap
 

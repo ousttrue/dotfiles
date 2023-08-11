@@ -138,7 +138,6 @@ public:
   }
 
   void Wait(const std::chrono::milliseconds ms) {
-    // Wait up to 10s for ping process to complete
     WaitForSingleObject(m_pi.hThread, ms.count());
   }
 };
@@ -201,6 +200,8 @@ int main(int argc, char **argv) {
     if (!child) {
       return 3;
     }
+
+    // Wait up to 10s for ping process to complete
     child->Wait(std::chrono::milliseconds(10 * 1000));
   }
 

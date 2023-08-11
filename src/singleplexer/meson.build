@@ -1,4 +1,5 @@
 ftxui_dep = dependency('ftxui-component')
+libvterm_dep = dependency('libvterm')
 
 executable(
     'sinple',
@@ -6,5 +7,8 @@ executable(
         'main.cpp',
     ],
     install: true,
-    dependencies: [ftxui_dep],
+    dependencies: [
+        ftxui_dep,
+        libvterm_dep,
+    ],
 )

@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "echocon",
+            "name": "con",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/prefix/bin/echocon.exe",
+            "program": "${workspaceFolder}/prefix/bin/sinple.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

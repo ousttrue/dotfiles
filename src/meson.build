@@ -1,2 +1,2 @@
 subdir('EchoCon')
-# subdir('singleplexer')
+subdir('singleplexer')
