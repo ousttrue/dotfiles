@@ -12,23 +12,36 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local function make_colorscheme(repos, name)
-  return {
+local function make_colorscheme(repos, name, bg, sys)
+  local plugin = {
     repos,
-    config = function()
-      vim.cmd(string.format("colorscheme %s", name))
-    end,
   }
+  if name then
+    plugin.config = function()
+      -- vim.cmd(string.format("colorscheme %s", name))
+      require("dot").colorscheme[sys] = { name, bg }
+      -- print(vim.inspect(require("dot").colorscheme))
+    end
+  end
+  return plugin
 end
 
 local plugins = {
-  -- make_colorscheme("xero/miasma.nvim", "miasma"),
+  make_colorscheme("fenetikm/falcon", "falcon", "dark", "windows"),
+  make_colorscheme("shaunsingh/nord.nvim", "nord", "dark", "windows"),
+  -- make_colorscheme("cocopon/iceberg.vim", "iceberg", "dark", "windows"),
+  -- make_colorscheme("AlessandroYorba/Sierra", "sierra", "dark", "windows"),
+  make_colorscheme("xero/miasma.nvim", "miasma", "dark", "linux"),
+  -- make_colorscheme("shaunsingh/moonlight.nvim", "moonlight", "dark", "linux"),
   -- make_colorscheme("FrenzyExists/aquarium-vim", "aquarium"),
   -- make_colorscheme("savq/melange-nvim", "melange"),
   -- make_colorscheme("nordtheme/vim", "nord"),
-  -- make_colorscheme("junegunn/seoul256.vim", "seoul256"),
+  make_colorscheme("junegunn/seoul256.vim", "seoul256", "light", "wsl"),
   -- make_colorscheme("ldelossa/vimdark", "vimdark"),
   -- make_colorscheme("jnurmine/Zenburn", "zenburn"),
+  -- make_colorscheme("Mitgorakh/snow", "snow", "light", "mac"),
+  make_colorscheme("NLKNguyen/papercolor-theme", "PaperColor", "light", "mac"),
+  -- make_colorscheme("yasukotelin/shirotelin", "shirotelin", "light", "mac"),
   {
     "echasnovski/mini.nvim",
     version = "*",

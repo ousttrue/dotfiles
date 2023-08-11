@@ -245,6 +245,21 @@ _;'`-, '     |`.-' `\
 '.__    )----'\__.-'
     `""`
     ]]
+  elseif sys == "wsl" then
+    return [[
+           .'\   /`.
+         .'.-.`-'.-.`.
+    ..._:   .-. .-.   :_...
+  .'    '-.(o ) (o ).-'    `.
+ :  _    _ _`~(_)~`_ _    _  :
+:  /:   ' .-=_   _=-. `   ;\  :
+:   :|-.._  '     `  _..-|:   :
+ :   `:| |`:-:-.-:-:'| |:'   :
+  `.   `.| | | | | | |.'   .'
+    `.   `-:_| | |_:-'   .'
+      `-._   ````    _.-'
+          ``-------''
+    ]]
   else
     return [[
           ▀████▀▄▄              ▄█ 
@@ -261,6 +276,21 @@ end
 
 function M.footer()
   return string.format("%s %s", sys, vim.inspect(vim.version()))
+end
+
+M.colorscheme = {
+  -- wsl = { "solarized", "light" },
+  -- linux = { "miasma", "dark" },
+}
+
+function M.get_colorscheme()
+  local found = M.colorscheme[sys]
+  if found then
+    -- print(vim.inspect(found))
+    -- local name, bg = found
+    return found[1], found[2]
+  end
+  return "habamax", "dark"
 end
 
 return M

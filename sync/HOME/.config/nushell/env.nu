@@ -246,9 +246,13 @@ def nfzf [] {
     to text | fzf --preview "git show --color=always {}" | str trim
 }
 
-# meson wrap 
+# meson wrap
 def mewrap [] {
     meson wrap list | fzf --preview "meson wrap info{}" | str trim | meson wrap install $in
+}
+
+def fapt [] {
+    apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}" | str trim | sudo apt install -y $in
 }
 
 # fdir
