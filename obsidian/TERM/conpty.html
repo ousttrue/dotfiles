@@ -242,9 +242,74 @@ from <code class="docutils literal notranslate"><span class="pre">17733</span></
 <h1>Host<a class="headerlink" href="#host" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="createpipe-createpseudoconsole-createprocess">
 <h2>CreatePipe + CreatePseudoConsole + CreateProcess<a class="headerlink" href="#createpipe-createpseudoconsole-createprocess" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Pty</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">HPCON</span><span class="w"> </span><span class="n">Console</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">ReadPipe</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">WritePipe</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="n">Pty</span><span class="w"> </span><span class="nf">CreatePty</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">COORD</span><span class="w"> </span><span class="o">&amp;</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">Pty</span><span class="w"> </span><span class="n">pty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">inPipeRead</span><span class="p">{</span><span class="n">INVALID_HANDLE_VALUE</span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">CreatePipe</span><span class="p">(</span><span class="o">&amp;</span><span class="n">inPipeRead</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pty</span><span class="p">.</span><span class="n">WritePipe</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">outPipeWrite</span><span class="p">{</span><span class="n">INVALID_HANDLE_VALUE</span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">CreatePipe</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pty</span><span class="p">.</span><span class="n">ReadPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">outPipeWrite</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CloseHandle</span><span class="p">(</span><span class="n">inPipeRead</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CloseHandle</span><span class="p">(</span><span class="n">pty</span><span class="p">.</span><span class="n">WritePipe</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Create the Pseudo Console of the required size, attached to the PTY-end</span>
+<span class="w">  </span><span class="c1">// of the pipes</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">hr</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">      </span><span class="n">CreatePseudoConsole</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">inPipeRead</span><span class="p">,</span><span class="w"> </span><span class="n">outPipeWrite</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pty</span><span class="p">.</span><span class="n">Console</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Note: We can close the handles to the PTY-end of the pipes here</span>
+<span class="w">  </span><span class="c1">// because the handles are dup'ed into the ConHost and will be released</span>
+<span class="w">  </span><span class="c1">// when the ConPTY is destroyed.</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">INVALID_HANDLE_VALUE</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">outPipeWrite</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CloseHandle</span><span class="p">(</span><span class="n">outPipeWrite</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">INVALID_HANDLE_VALUE</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">inPipeRead</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CloseHandle</span><span class="p">(</span><span class="n">inPipeRead</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">FAILED</span><span class="p">(</span><span class="n">hr</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CloseHandle</span><span class="p">(</span><span class="n">pty</span><span class="p">.</span><span class="n">WritePipe</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CloseHandle</span><span class="p">(</span><span class="n">pty</span><span class="p">.</span><span class="n">ReadPipe</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="n">pty</span><span class="p">.</span><span class="n">Console</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">pty</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<section id="redirect">
+<h3>Redirect<a class="headerlink" href="#redirect" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>[[fork]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/windows/win32/procthread/creating-a-child-process-with-redirected-input-and-output">リダイレクトされた入出力を使用した子プロセスの作成 - Win32 apps | Microsoft Learn</a></p></li>
+<li><p><a class="reference external" href="http://nahitafu.cocolog-nifty.com/nahitafu/2008/04/post_bde3.html">プロセス間通信ではまる: なひたふJTAG日記</a></p></li>
+</ul>
+<blockquote>
+<div><p>WaitForSingleObjectというのがありますが、これはパイプは監視できない</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference external" href="https://denasu.com/blog/2000/05/diary145">コマンドライン起動 « モルタルコのプログラマ日記</a></p></li>
+</ul>
+<blockquote>
+<div><p>PeekNamedPipe</p>
+</div></blockquote>
+</section>
+<section id="conpty">
+<h3>ConPty<a class="headerlink" href="#conpty" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/windows/console/creating-a-pseudoconsole-session">疑似コンソール セッションの作成 - Windows Console | Microsoft Learn</a></p></li>
 </ul>
+</section>
 </section>
 <section id="read">
 <h2>Read<a class="headerlink" href="#read" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -255,6 +320,20 @@ from <code class="docutils literal notranslate"><span class="pre">17733</span></
 <section id="write">
 <h2>Write<a class="headerlink" href="#write" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">普通に書き込み</span>
+</pre></div>
+</div>
+</section>
+<section id="getsize">
+<h2>GetSize<a class="headerlink" href="#getsize" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Determine required size of Pseudo Console</span>
+<span class="n">COORD</span><span class="w"> </span><span class="n">consoleSize</span><span class="p">{};</span><span class="w"></span>
+<span class="n">CONSOLE_SCREEN_BUFFER_INFO</span><span class="w"> </span><span class="n">csbi</span><span class="p">{};</span><span class="w"></span>
+<span class="n">HANDLE</span><span class="w"> </span><span class="n">hConsole</span><span class="p">{</span><span class="w"> </span><span class="n">GetStdHandle</span><span class="p">(</span><span class="n">STD_OUTPUT_HANDLE</span><span class="p">)</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GetConsoleScreenBufferInfo</span><span class="p">(</span><span class="n">hConsole</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">csbi</span><span class="p">))</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">consoleSize</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csbi</span><span class="p">.</span><span class="n">srWindow</span><span class="p">.</span><span class="n">Right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">csbi</span><span class="p">.</span><span class="n">srWindow</span><span class="p">.</span><span class="n">Left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">consoleSize</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csbi</span><span class="p">.</span><span class="n">srWindow</span><span class="p">.</span><span class="n">Bottom</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">csbi</span><span class="p">.</span><span class="n">srWindow</span><span class="p">.</span><span class="n">Top</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -380,9 +459,14 @@ from <code class="docutils literal notranslate"><span class="pre">17733</span></
             <ul>
 <li><a class="reference internal" href="#">Articles</a></li>
 <li><a class="reference internal" href="#host">Host</a><ul>
-<li><a class="reference internal" href="#createpipe-createpseudoconsole-createprocess">CreatePipe + CreatePseudoConsole + CreateProcess</a></li>
+<li><a class="reference internal" href="#createpipe-createpseudoconsole-createprocess">CreatePipe + CreatePseudoConsole + CreateProcess</a><ul>
+<li><a class="reference internal" href="#redirect">Redirect</a></li>
+<li><a class="reference internal" href="#conpty">ConPty</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#read">Read</a></li>
 <li><a class="reference internal" href="#write">Write</a></li>
+<li><a class="reference internal" href="#getsize">GetSize</a></li>
 <li><a class="reference internal" href="#resize">Resize の通知</a></li>
 <li><a class="reference internal" href="#api">API</a><ul>
 <li><a class="reference internal" href="#createpseudoconsole">CreatePseudoConsole</a></li>
