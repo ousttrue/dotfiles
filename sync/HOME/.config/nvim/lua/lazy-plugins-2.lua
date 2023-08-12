@@ -27,19 +27,23 @@ local function make_colorscheme(repos, name, bg, sys)
 end
 
 local plugins = {
-  make_colorscheme("fenetikm/falcon", "falcon", "dark"),
-  make_colorscheme("shaunsingh/nord.nvim", "nord", "dark"),
-
-  -- make_colorscheme("cocopon/iceberg.vim", "iceberg", "dark", "windows"),
-  -- make_colorscheme("AlessandroYorba/Sierra", "sierra", "dark", "windows"),
-  make_colorscheme("xero/miasma.nvim", "miasma", "dark", "linux"),
-  -- make_colorscheme("shaunsingh/moonlight.nvim", "moonlight", "dark", "linux"),
-  -- make_colorscheme("FrenzyExists/aquarium-vim", "aquarium"),
-  -- make_colorscheme("savq/melange-nvim", "melange"),
+  -- dark
+  make_colorscheme("folke/tokyonight.nvim", "tokyonight", "dark"),
+  make_colorscheme("EdenEast/nightfox.nvim", "nightfox", "dark"),
+  make_colorscheme("jnurmine/Zenburn", "zenburn"),
+  make_colorscheme("shaunsingh/moonlight.nvim", "moonlight", "dark"),
+  make_colorscheme("savq/melange-nvim", "melange", "dark"),
+  -- too short
+  -- make_colorscheme("fenetikm/falcon", "falcon", "dark"),
+  -- make_colorscheme("shaunsingh/nord.nvim", "nord", "dark"),
   -- make_colorscheme("nordtheme/vim", "nord"),
+  -- make_colorscheme("cocopon/iceberg.vim", "iceberg", "dark"),
+  -- make_colorscheme("AlessandroYorba/Sierra", "sierra", "dark"),
+
+  make_colorscheme("xero/miasma.nvim", "miasma", "dark", "linux"),
+  -- make_colorscheme("FrenzyExists/aquarium-vim", "aquarium"),
   make_colorscheme("junegunn/seoul256.vim", "seoul256", "light", "wsl"),
   -- make_colorscheme("ldelossa/vimdark", "vimdark"),
-  -- make_colorscheme("jnurmine/Zenburn", "zenburn"),
   -- make_colorscheme("Mitgorakh/snow", "snow", "light", "mac"),
   make_colorscheme("NLKNguyen/papercolor-theme", "PaperColor", "light", "mac"),
   -- make_colorscheme("yasukotelin/shirotelin", "shirotelin", "light", "mac"),
