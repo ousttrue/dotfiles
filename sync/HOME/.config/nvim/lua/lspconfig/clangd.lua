@@ -38,6 +38,10 @@ local function get_compile_commands_dir()
     return "build"
   end
 
+  if dot.exists "compile_commands.json" then
+    return "."
+  end
+
   return "builddir"
 end
 
