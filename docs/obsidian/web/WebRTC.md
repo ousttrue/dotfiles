@@ -1,9 +1,22 @@
 `Web Real-Time Communication`
 
+- [WebRTC API - Web API | MDN](https://developer.mozilla.org/ja/docs/Web/API/WebRTC_API)
+
 - @2022 [WebRTC を今から学ぶ人に向けて](https://zenn.dev/voluntas/scraps/82b9e111f43ab3)
 	- [はじめに | 好奇心旺盛な人のためのWebRTC](https://webrtcforthecurious.com/ja/)
 
+ [[SDP]]
+ 
+# RTCPeerConnection
+- @2019 [addTransceiver() と addTrack() の使い分け - console.lealog();](https://lealog.hateblo.jp/entry/2019/03/12/114529)
+
 # 実装
+## py
+- [aiortc — aiortc documentation](https://aiortc.readthedocs.io/en/latest/index.html)
+
+## go
+- [Pion](https://pion.ly/)
+
 ## Browser
 ```js
 new RTCPeerConnection();
@@ -45,32 +58,21 @@ https://github.com/shiguredo/momo
 - [GStreamer で WebRTC を使用する](https://www.gclue.jp/2022/07/gstreamer-webrtc.html)
 
 # WebRTC P2P
-## SDP（Session Description Protocol）
-[RFC 8866 - SDP: Session Description Protocol](https://tools.ietf.org/html/rfc8866)
-[RFC 8829 - JavaScript Session Establishment Protocol (JSEP)](https://datatracker.ietf.org/doc/html/rfc8829)
-- v - バージョン(Version)、0 と同じでなければなりません。
-- o - オリジン(Origin)、再交渉に便利なユニークな ID を含む。
-- s - セッション名(Session Name)、- と同じでなければなりません。
-- t - タイミング(Timing)、0 0 と同じでなければなりません。
-- m - メディア記述(Media Description: `m=<media> <port> <proto> <fmt> ...)、詳細は以下の通りです。`
-- a - 属性(Attribute)、フリーテキストのフィールドです。これは WebRTC で最も一般的な行です。
-- c - 接続データ(Connection Data)、 IN IP4 0.0.0.0 と等しくなければなりません。
-```
-v=0
-o=- 0 0 IN IP4 127.0.0.1
-s=-
-c=IN IP4 127.0.0.1
-t=0 0
-m=audio 4000 RTP/AVP 111
-a=rtpmap:111 OPUS/48000/2
-m=video 4002 RTP/AVP 96
-a=rtpmap:96 VP8/90000
-```
 
 # NAT トラバーサル
 ## `STUN (Session Traversal Utilities for NAT)`
 [RFC 8489 - Session Traversal Utilities for NAT (STUN)](https://tools.ietf.org/html/rfc8489)
 [RFC 5780 - NAT Behavior Discovery Using Session Traversal Utilities for NAT (STUN)](https://tools.ietf.org/html/rfc5780)
+### google
+```js
+const senderConnection = new RTCPeerConnection({
+  iceServers: [
+    {
+      urls: "stun:stun.l.google.com:19302",
+    },
+  ],
+});
+```
 
 ## TURN(Traversal Using Relays around NAT)
 [RFC 8656 - Traversal Using Relays around NAT (TURN): Relay Extensions to Session Traversal Utilities for NAT (STUN)](https://tools.ietf.org/html/rfc8656)
