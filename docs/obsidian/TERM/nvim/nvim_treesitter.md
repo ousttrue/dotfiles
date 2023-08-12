@@ -24,7 +24,7 @@ inspect
 - hlargs
 
 # textobject
-[[textobject]]
+[[nvim_textobject]]
 
 # outline
 

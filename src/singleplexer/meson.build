@@ -11,4 +11,5 @@ executable(
         ftxui_dep,
         libvterm_dep,
     ],
+    cpp_args: ['-DNOMINMAX'],
 )

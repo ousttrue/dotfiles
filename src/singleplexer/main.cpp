@@ -1,7 +1,10 @@
 #include <vterm.h>
 
-#include <ftxui/dom/elements.hpp>
-#include <ftxui/screen/screen.hpp>
+// #include "ftxui/component/captured_mouse.hpp" // for ftxui
+#include "ftxui/component/screen_interactive.hpp" // for ScreenInteractive
+#include <ftxui/component/component.hpp>
+// #include <ftxui/dom/elements.hpp>
+// #include <ftxui/screen/screen.hpp>
 
 #include <assert.h>
 #include <chrono>
@@ -62,75 +65,6 @@ inline Utf8 to_utf8(char32_t cp) {
   }
 }
 
-struct VtNode : ftxui::Node {
-  VTerm *m_vt;
-  VTermScreen *m_screen;
-  VtNode(VTerm *vt) : m_vt(vt) {
-    vterm_set_utf8(m_vt, true);
-
-    m_screen = vterm_obtain_screen(vt);
-    vterm_screen_reset(m_screen, true);
-
-    int row, col;
-    vterm_get_size(m_vt, &row, &col);
-    requirement_.min_x = col;
-    requirement_.min_y = row;
-  }
-
-  int Width() const { return box_.x_max - box_.x_min + 1; }
-  int Height() const { return box_.y_max - box_.y_min + 1; }
-
-  void SetBox(ftxui::Box box) override {
-    ftxui::Node::SetBox(box);
-    vterm_set_size(m_vt, Height(), Width());
-    vterm_screen_reset(m_screen, false);
-  }
-
-  void Render(ftxui::Screen &screen) override {
-    int x = box_.x_min;
-    const int y = box_.y_min;
-    if (y > box_.y_max) {
-      return;
-    }
-
-    // for (const auto &cell : Utf8ToGlyphs(text_)) {
-    //   if (x > box_.x_max) {
-    //     return;
-    //   }
-    //   screen.PixelAt(x, y).character = cell;
-    //   ++x;
-    // }
-    //
-    vterm_screen_flush_damage(m_screen);
-    int rows, cols;
-    vterm_get_size(m_vt, &rows, &cols);
-    for (int y = 0; y < rows; ++y) {
-      for (int x = 0; x < cols; ++x) {
-        VTermScreenCell cell;
-        vterm_screen_get_cell(m_screen, {y, x}, &cell);
-
-        wchar_t ch = cell.chars[0];
-        if (ch > 0 && ch < 128) {
-          if (ch != ' ') {
-            auto a = 0;
-          }
-        }
-
-        auto &dst = screen.PixelAt(x + 1, y + 1).character;
-        dst.clear();
-        for (int i = 0; i < cell.width; ++i) {
-          if (cell.chars[i] == 0) {
-            dst = " ";
-            break;
-          }
-          auto utf8 = to_utf8(cell.chars[i]);
-          dst.append(utf8.begin(), utf8.end());
-        }
-      }
-    }
-  }
-};
-
 struct Pty {
   HPCON Console = nullptr;
   HANDLE ReadPipe{INVALID_HANDLE_VALUE};
@@ -175,6 +109,8 @@ struct Pty {
   Pty(const Pty &) = delete;
   Pty &operator=(const Pty &) = delete;
   ~Pty() { Close(); }
+
+  void Resize(const COORD &size) { ResizePseudoConsole(Console, size); }
 
   void Close() {
     if (Console) {
@@ -303,42 +239,175 @@ void PipeReader(
   }
 }
 
-int main(void) {
-  const auto rows = 30;
-  const auto cols = 60;
+struct VtContent {
+  VTerm *m_vt;
+  VTermScreen *m_screen;
+  VTermScreenCell m_cell;
+  std::shared_ptr<Pty> m_pty;
+  std::shared_ptr<ChildProcess> m_child;
+  std::thread m_pipeReader;
 
-  auto vt = vterm_new(rows, cols);
-  std::shared_ptr<VtNode> node = std::make_shared<VtNode>(vt);
-
-  ftxui::Element document = node | ftxui::border;
-  auto screen = ftxui::Screen::Create(ftxui::Dimension::Full(),       // Width
-                                      ftxui::Dimension::Fit(document) // Height
-  );
-
-  {
-    Pty pty({
-        .X = (SHORT)node->Width(),
-        .Y = (SHORT)node->Height(),
+  VtContent(int rows, int cols) : m_vt(vterm_new(rows, cols)) {
+    m_vt = vterm_new(rows, cols);
+    vterm_set_utf8(m_vt, true);
+    m_screen = vterm_obtain_screen(m_vt);
+    vterm_screen_reset(m_screen, true);
+    m_pty = std::make_shared<Pty>(COORD{
+        .X = (SHORT)cols,
+        .Y = (SHORT)rows,
     });
-
-    auto callback = [vt](const char *buf, uint32_t size) {
-      vterm_input_write(vt, buf, size);
-    };
-    std::thread t(
-        [pipe = pty.ReadPipe, callback]() { PipeReader(pipe, callback); });
-
-    {
-      auto p = ChildProcess::Launch(pty, "lsd.exe");
-      p->Wait();
-    }
-
-    pty.Close();
-
-    t.join();
   }
 
-  ftxui::Render(screen, document);
-  screen.Print();
+  ~VtContent() {
+    m_pty = {};
+    m_child->Wait();
+    m_pipeReader.join();
+    vterm_free(m_vt);
+  }
 
-  return EXIT_SUCCESS;
+  std::tuple<int, int> RowsCols() const {
+    int rows, cols;
+    vterm_get_size(m_vt, &rows, &cols);
+    return {rows, cols};
+  }
+
+  void Resize(int rows, int cols) {
+    auto [h, w] = RowsCols();
+    if (rows == h && w == cols) {
+      return;
+    }
+    m_pty->Resize(COORD{
+        .X = (SHORT)cols,
+        .Y = (SHORT)rows,
+    });
+    vterm_set_size(m_vt, rows, cols);
+    vterm_screen_reset(m_screen, true);
+  }
+
+  void Launch(const std::string &cmd) {
+    auto callback = [=](const char *buf, uint32_t size) {
+      vterm_input_write(m_vt, buf, size);
+    };
+    m_pipeReader = std::thread(
+        [pipe = m_pty->ReadPipe, callback]() { PipeReader(pipe, callback); });
+
+    m_child = ChildProcess::Launch(*m_pty, cmd);
+  }
+
+  void Flush() { vterm_screen_flush_damage(m_screen); }
+
+  VTermScreenCell *Cell(const VTermPos &pos) {
+    vterm_screen_get_cell(m_screen, pos, &m_cell);
+    return &m_cell;
+  }
+};
+
+struct VtRenderer {
+  std::shared_ptr<VtContent> m_vt;
+  std::string m_cmd;
+  int m_rows = 0;
+  int m_cols = 0;
+
+  void RequireRowsCols(int rows, int cols) {
+    if (rows && cols) {
+      if (!m_vt) {
+        m_vt = std::make_shared<VtContent>(rows, cols);
+        m_vt->Launch(m_cmd);
+      } else {
+        m_vt->Resize(rows, cols);
+      }
+    }
+    m_rows = rows;
+    m_cols = cols;
+  }
+
+  void Flush() {
+    if (!m_vt) {
+      return;
+    }
+    m_vt->Flush();
+  }
+
+  void RenderPixel(const VTermPos &pos, ftxui::Pixel *pixel) {
+    if (!m_vt) {
+      return;
+    }
+    auto &dst = pixel->character;
+
+    auto cell = m_vt->Cell(pos);
+    if (cell->width == 0 || cell->chars[0] == 0) {
+      dst = " ";
+      return;
+    }
+
+    dst.clear();
+    for (int i = 0; i < cell->width; ++i) {
+      auto utf8 = to_utf8(cell->chars[i]);
+      dst.append(utf8.begin(), utf8.end());
+    }
+  }
+};
+
+struct VtNode : ftxui::Node {
+  std::shared_ptr<VtRenderer> m_vt;
+
+  // VtNode() {
+  //   requirement_.min_x = 10;
+  //   requirement_.min_y = 1;
+  // }
+
+  int Width() const { return box_.x_max - box_.x_min + 1; }
+  int Height() const { return box_.y_max - box_.y_min + 1; }
+
+  void SetBox(ftxui::Box box) override {
+    ftxui::Node::SetBox(box);
+    m_vt->RequireRowsCols(Height(), Width());
+  }
+
+  void Render(ftxui::Screen &screen) override {
+    m_vt->Flush();
+    int row = 0;
+    for (int y = box_.y_min; y <= box_.y_max; ++y, ++row) {
+      int col = 0;
+      for (int x = box_.x_min; x <= box_.x_max; ++x, ++col) {
+        auto &pixel = screen.PixelAt(x, y);
+        m_vt->RenderPixel({row, col}, &pixel);
+      }
+    }
+  }
+};
+
+int main() {
+  auto screen = ftxui::ScreenInteractive::Fullscreen();
+
+  auto vt = std::make_shared<VtRenderer>();
+  vt->m_cmd = "lsd.exe";
+  std::shared_ptr<VtNode> node = std::make_shared<VtNode>();
+  node->m_vt = vt;
+
+  auto middle = ftxui::Renderer([node] { return node; });
+
+  auto left =
+      ftxui::Renderer([] { return ftxui::text("Left") | ftxui::center; });
+  auto right =
+      ftxui::Renderer([] { return ftxui::text("right") | ftxui::center; });
+  auto top = ftxui::Renderer([] { return ftxui::text("top") | ftxui::center; });
+  auto bottom =
+      ftxui::Renderer([] { return ftxui::text("bottom") | ftxui::center; });
+
+  int left_size = 20;
+  int right_size = 20;
+  int top_size = 10;
+  int bottom_size = 10;
+
+  auto container = middle;
+  container = ResizableSplitLeft(left, container, &left_size);
+  container = ResizableSplitRight(right, container, &right_size);
+  container = ResizableSplitTop(top, container, &top_size);
+  container = ResizableSplitBottom(bottom, container, &bottom_size);
+
+  auto renderer = ftxui::Renderer(
+      container, [&] { return container->Render() | ftxui::border; });
+
+  screen.Loop(renderer);
 }
