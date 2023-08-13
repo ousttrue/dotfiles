@@ -237,6 +237,8 @@ void PipeReader(
       break;
     }
   }
+
+  return;
 }
 
 struct VtContent {
@@ -246,8 +248,12 @@ struct VtContent {
   std::shared_ptr<Pty> m_pty;
   std::shared_ptr<ChildProcess> m_child;
   std::thread m_pipeReader;
+  VTermStateCallbacks m_callbacks = {};
 
-  VtContent(int rows, int cols) : m_vt(vterm_new(rows, cols)) {
+  VtContent(int rows, int cols,
+            int (*on_put)(VTermGlyphInfo *info, VTermPos pos, void *user),
+            void *user)
+      : m_vt(vterm_new(rows, cols)) {
     m_vt = vterm_new(rows, cols);
     vterm_set_utf8(m_vt, true);
     m_screen = vterm_obtain_screen(m_vt);
@@ -256,6 +262,10 @@ struct VtContent {
         .X = (SHORT)cols,
         .Y = (SHORT)rows,
     });
+
+    m_callbacks.putglyph =
+        on_put; //[](VTermGlyphInfo *info, VTermPos pos, void *user)
+    vterm_state_set_callbacks(vterm_obtain_state(m_vt), &m_callbacks, user);
   }
 
   ~VtContent() {
@@ -300,6 +310,10 @@ struct VtContent {
     vterm_screen_get_cell(m_screen, pos, &m_cell);
     return &m_cell;
   }
+
+  void Input(const std::string &str) {
+    vterm_input_write(m_vt, str.c_str(), str.size());
+  }
 };
 
 struct VtRenderer {
@@ -307,11 +321,13 @@ struct VtRenderer {
   std::string m_cmd;
   int m_rows = 0;
   int m_cols = 0;
+  std::function<void()> m_onDamaged;
+  int m_count = 0;
 
   void RequireRowsCols(int rows, int cols) {
     if (rows && cols) {
       if (!m_vt) {
-        m_vt = std::make_shared<VtContent>(rows, cols);
+        m_vt = std::make_shared<VtContent>(rows, cols, OnPut, this);
         m_vt->Launch(m_cmd);
       } else {
         m_vt->Resize(rows, cols);
@@ -321,7 +337,22 @@ struct VtRenderer {
     m_cols = cols;
   }
 
+  static int OnPut(VTermGlyphInfo *info, VTermPos pos, void *user) {
+    auto self = (VtRenderer *)user;
+    if (self->m_onDamaged) {
+      self->m_onDamaged();
+    }
+    return 1;
+  }
+
+  std::string Status() const {
+    std::stringstream ss;
+    ss << "rowcols:" << m_rows << ":" << m_cols << "(" << m_count << ")";
+    return ss.str();
+  }
+
   void Flush() {
+    ++m_count;
     if (!m_vt) {
       return;
     }
@@ -346,52 +377,93 @@ struct VtRenderer {
       dst.append(utf8.begin(), utf8.end());
     }
   }
+
+  std::string m_input;
+  void Input(const std::string &str) {
+    m_input += str;
+    if (!m_vt) {
+      return;
+    }
+    m_vt->Input(str);
+  }
 };
 
 struct VtNode : ftxui::Node {
-  std::shared_ptr<VtRenderer> m_vt;
-
-  // VtNode() {
-  //   requirement_.min_x = 10;
-  //   requirement_.min_y = 1;
-  // }
+  std::shared_ptr<VtRenderer> m_renderer;
 
   int Width() const { return box_.x_max - box_.x_min + 1; }
   int Height() const { return box_.y_max - box_.y_min + 1; }
 
   void SetBox(ftxui::Box box) override {
     ftxui::Node::SetBox(box);
-    m_vt->RequireRowsCols(Height(), Width());
+    m_renderer->RequireRowsCols(Height(), Width());
   }
 
   void Render(ftxui::Screen &screen) override {
-    m_vt->Flush();
+    m_renderer->Flush();
     int row = 0;
     for (int y = box_.y_min; y <= box_.y_max; ++y, ++row) {
       int col = 0;
       for (int x = box_.x_min; x <= box_.x_max; ++x, ++col) {
         auto &pixel = screen.PixelAt(x, y);
-        m_vt->RenderPixel({row, col}, &pixel);
+        m_renderer->RenderPixel({row, col}, &pixel);
       }
     }
+  }
+};
+
+struct VtComponent : ftxui::ComponentBase {
+  std::shared_ptr<VtNode> m_node;
+  std::string m_event;
+
+  bool Focusable() const override { return true; }
+
+  VtComponent(const std::shared_ptr<VtNode> &node) : m_node(node) {}
+
+  ftxui::Element Render() override { return m_node; }
+
+  bool OnEvent(ftxui::Event event) override {
+    if (event.is_mouse()) {
+      return false;
+    }
+
+    m_event += "e";
+    if (event == ftxui::Event::Return) {
+      m_node->m_renderer->Input("\n");
+      return true;
+    }
+
+    m_node->m_renderer->Input(event.input());
+    return true;
   }
 };
 
 int main() {
   auto screen = ftxui::ScreenInteractive::Fullscreen();
 
-  auto vt = std::make_shared<VtRenderer>();
-  vt->m_cmd = "lsd.exe";
+  auto renderer = std::make_shared<VtRenderer>();
+  renderer->m_cmd = "cmd.exe";
+  renderer->m_onDamaged = [&screen]() {
+    screen.PostEvent(ftxui::Event::Custom);
+  };
   std::shared_ptr<VtNode> node = std::make_shared<VtNode>();
-  node->m_vt = vt;
+  node->m_renderer = renderer;
 
-  auto middle = ftxui::Renderer([node] { return node; });
+  auto vt = std::make_shared<VtComponent>(node);
+  ftxui::Component middle = vt;
+  middle->TakeFocus();
 
-  auto left =
-      ftxui::Renderer([] { return ftxui::text("Left") | ftxui::center; });
-  auto right =
-      ftxui::Renderer([] { return ftxui::text("right") | ftxui::center; });
-  auto top = ftxui::Renderer([] { return ftxui::text("top") | ftxui::center; });
+  // pty / process
+  auto left = ftxui::Renderer(
+      [vt] { return ftxui::text(vt->m_node->m_renderer->m_input); });
+
+  // vt
+  auto right = ftxui::Renderer(
+      [vt] { return ftxui::text(vt->m_node->m_renderer->Status()); });
+
+  auto top = ftxui::Renderer([vt] { return ftxui::text(vt->m_event); });
+
+  // logger(event)
   auto bottom =
       ftxui::Renderer([] { return ftxui::text("bottom") | ftxui::center; });
 
@@ -401,13 +473,13 @@ int main() {
   int bottom_size = 10;
 
   auto container = middle;
-  container = ResizableSplitLeft(left, container, &left_size);
-  container = ResizableSplitRight(right, container, &right_size);
-  container = ResizableSplitTop(top, container, &top_size);
-  container = ResizableSplitBottom(bottom, container, &bottom_size);
+  container = ftxui::ResizableSplitLeft(left, container, &left_size);
+  container = ftxui::ResizableSplitRight(right, container, &right_size);
+  container = ftxui::ResizableSplitTop(top, container, &top_size);
+  container = ftxui::ResizableSplitBottom(bottom, container, &bottom_size);
 
-  auto renderer = ftxui::Renderer(
+  auto component = ftxui::Renderer(
       container, [&] { return container->Render() | ftxui::border; });
 
-  screen.Loop(renderer);
+  screen.Loop(component);
 }

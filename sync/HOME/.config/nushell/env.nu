@@ -306,13 +306,14 @@ def week [] {
     let mon = date now | $in - 1day * ($week_day + 7) | date format "%Y-%m-%d"
     let week = seq date --begin-date $mon --days 20 | into datetime
 
-    $week | each {|d|  {
+    let week = $week | each {|d|  {
         today: (get_day $d)
         date: $d
         weather: (jma weather $d)
         koyomi: (get_koyomi $d)
         moon: (moon_phase $d)
     }}
+    $week
 }
 
 def day [] {
