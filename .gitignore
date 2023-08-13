@@ -17,4 +17,4 @@ zig-cache
 !/subprojects/packagefiles
 !/subprojects/ftxui.wrap
 !/subprojects/libvterm.wrap
-
+/prefix/
