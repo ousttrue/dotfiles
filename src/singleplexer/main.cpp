@@ -219,6 +219,14 @@ public:
   }
 
   void Wait() { WaitForSingleObject(m_pi.hThread, INFINITE); }
+
+  static void Write(const char *buf, size_t size, void *handle) {
+    DWORD written;
+    if (!::WriteFile((HANDLE)handle, buf, size, &written, NULL)) {
+      return;
+    }
+    // return written;
+  }
 };
 
 void PipeReader(
@@ -248,24 +256,70 @@ struct VtContent {
   std::shared_ptr<Pty> m_pty;
   std::shared_ptr<ChildProcess> m_child;
   std::thread m_pipeReader;
-  VTermStateCallbacks m_callbacks = {};
+  std::function<void()> m_onDamaged;
+  const VTermScreenCallbacks m_callbacks = {
+      .damage = screen_damage,
+      .moverect = screen_moverect,
+      .movecursor = screen_movecursor,
+      .settermprop = screen_settermprop,
+      .bell = screen_bell,
+      .resize = screen_resize,
+      .sb_pushline = screen_sb_pushline,
+      .sb_popline = screen_sb_popline,
+      .sb_clear = screen_sb_clear,
+  };
+  static int screen_damage(VTermRect rect, void *user) {
+    if (auto self = (VtContent *)user) {
+      if (self->m_onDamaged) {
+        self->m_onDamaged();
+      }
+    }
+    return 0;
+  }
+  static int screen_moverect(VTermRect dest, VTermRect src, void *user) {
+    return 0;
+  }
+  static int screen_movecursor(VTermPos pos, VTermPos oldpos, int visible,
+                               void *user) {
+    return 0;
+  }
+  static int screen_settermprop(VTermProp prop, VTermValue *val, void *user) {
+    return 0;
+  }
+  static int screen_bell(void *user) { return 0; }
+  static int screen_resize(int rows, int cols, void *user) { return 0; }
+  static int screen_sb_pushline(int cols, const VTermScreenCell *cells,
+                                void *user) {
+    return 0;
+  }
+  static int screen_sb_popline(int cols, VTermScreenCell *cells, void *user) {
+    return 0;
+  }
+  static int screen_sb_clear(void *user) { return 0; }
 
-  VtContent(int rows, int cols,
-            int (*on_put)(VTermGlyphInfo *info, VTermPos pos, void *user),
-            void *user)
+  VtContent(int rows, int cols, const std::string &cmd)
       : m_vt(vterm_new(rows, cols)) {
-    m_vt = vterm_new(rows, cols);
-    vterm_set_utf8(m_vt, true);
-    m_screen = vterm_obtain_screen(m_vt);
-    vterm_screen_reset(m_screen, true);
+    // child process
     m_pty = std::make_shared<Pty>(COORD{
         .X = (SHORT)cols,
         .Y = (SHORT)rows,
     });
+    auto callback = [=](const char *buf, uint32_t size) {
+      vterm_input_write(m_vt, buf, size);
+    };
+    m_pipeReader = std::thread(
+        [pipe = m_pty->ReadPipe, callback]() { PipeReader(pipe, callback); });
+    m_child = ChildProcess::Launch(*m_pty, cmd);
 
-    m_callbacks.putglyph =
-        on_put; //[](VTermGlyphInfo *info, VTermPos pos, void *user)
-    vterm_state_set_callbacks(vterm_obtain_state(m_vt), &m_callbacks, user);
+    // vterm
+    m_vt = vterm_new(rows, cols);
+    vterm_set_utf8(m_vt, true);
+    m_screen = vterm_obtain_screen(m_vt);
+    vterm_screen_reset(m_screen, true);
+
+    vterm_output_set_callback(m_vt, ChildProcess::Write,
+                              (void *)m_pty->WritePipe);
+    vterm_screen_set_callbacks(m_screen, &m_callbacks, this);
   }
 
   ~VtContent() {
@@ -294,16 +348,6 @@ struct VtContent {
     vterm_screen_reset(m_screen, true);
   }
 
-  void Launch(const std::string &cmd) {
-    auto callback = [=](const char *buf, uint32_t size) {
-      vterm_input_write(m_vt, buf, size);
-    };
-    m_pipeReader = std::thread(
-        [pipe = m_pty->ReadPipe, callback]() { PipeReader(pipe, callback); });
-
-    m_child = ChildProcess::Launch(*m_pty, cmd);
-  }
-
   void Flush() { vterm_screen_flush_damage(m_screen); }
 
   VTermScreenCell *Cell(const VTermPos &pos) {
@@ -311,8 +355,8 @@ struct VtContent {
     return &m_cell;
   }
 
-  void Input(const std::string &str) {
-    vterm_input_write(m_vt, str.c_str(), str.size());
+  void WriteChild(const std::string &str) {
+    ChildProcess::Write(str.c_str(), str.size(), m_pty->WritePipe);
   }
 };
 
@@ -327,8 +371,8 @@ struct VtRenderer {
   void RequireRowsCols(int rows, int cols) {
     if (rows && cols) {
       if (!m_vt) {
-        m_vt = std::make_shared<VtContent>(rows, cols, OnPut, this);
-        m_vt->Launch(m_cmd);
+        m_vt = std::make_shared<VtContent>(rows, cols, m_cmd);
+        m_vt->m_onDamaged = [=]() { OnDamage(); };
       } else {
         m_vt->Resize(rows, cols);
       }
@@ -337,10 +381,10 @@ struct VtRenderer {
     m_cols = cols;
   }
 
-  static int OnPut(VTermGlyphInfo *info, VTermPos pos, void *user) {
-    auto self = (VtRenderer *)user;
-    if (self->m_onDamaged) {
-      self->m_onDamaged();
+  int OnDamage() {
+    ++m_count;
+    if (m_onDamaged) {
+      m_onDamaged();
     }
     return 1;
   }
@@ -352,7 +396,6 @@ struct VtRenderer {
   }
 
   void Flush() {
-    ++m_count;
     if (!m_vt) {
       return;
     }
@@ -378,13 +421,13 @@ struct VtRenderer {
     }
   }
 
-  std::string m_input;
-  void Input(const std::string &str) {
-    m_input += str;
+  std::string m_childInput;
+  void WriteChild(const std::string &str) {
+    m_childInput += str;
     if (!m_vt) {
       return;
     }
-    m_vt->Input(str);
+    m_vt->WriteChild(str);
   }
 };
 
@@ -429,11 +472,11 @@ struct VtComponent : ftxui::ComponentBase {
 
     m_event += "e";
     if (event == ftxui::Event::Return) {
-      m_node->m_renderer->Input("\n");
+      m_node->m_renderer->WriteChild("\r\n");
       return true;
     }
 
-    m_node->m_renderer->Input(event.input());
+    m_node->m_renderer->WriteChild(event.input());
     return true;
   }
 };
@@ -451,11 +494,10 @@ int main() {
 
   auto vt = std::make_shared<VtComponent>(node);
   ftxui::Component middle = vt;
-  middle->TakeFocus();
 
   // pty / process
   auto left = ftxui::Renderer(
-      [vt] { return ftxui::text(vt->m_node->m_renderer->m_input); });
+      [vt] { return ftxui::text(vt->m_node->m_renderer->m_childInput); });
 
   // vt
   auto right = ftxui::Renderer(
@@ -480,6 +522,7 @@ int main() {
 
   auto component = ftxui::Renderer(
       container, [&] { return container->Render() | ftxui::border; });
+  middle->TakeFocus();
 
   screen.Loop(component);
 }
