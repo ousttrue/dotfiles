@@ -253,6 +253,8 @@ struct VtContent {
   VTerm *m_vt;
   VTermScreen *m_screen;
   VTermScreenCell m_cell;
+  VTermPos m_cursor = {0, 0};
+  int m_cursorShape = 0;
   std::shared_ptr<Pty> m_pty;
   std::shared_ptr<ChildProcess> m_child;
   std::thread m_pipeReader;
@@ -281,9 +283,17 @@ struct VtContent {
   }
   static int screen_movecursor(VTermPos pos, VTermPos oldpos, int visible,
                                void *user) {
+    if (auto self = (VtContent *)user) {
+      self->m_cursor = pos;
+    }
     return 0;
   }
   static int screen_settermprop(VTermProp prop, VTermValue *val, void *user) {
+    if (auto self = (VtContent *)user) {
+      if (prop == VTERM_PROP_CURSORSHAPE) {
+        self->m_cursorShape = val->number;
+      }
+    }
     return 0;
   }
   static int screen_bell(void *user) { return 0; }
@@ -452,6 +462,23 @@ struct VtNode : ftxui::Node {
         m_renderer->RenderPixel({row, col}, &pixel);
       }
     }
+
+    ftxui::Screen::Cursor cursor{
+        box_.x_min + m_renderer->m_vt->m_cursor.col,
+        box_.y_min + m_renderer->m_vt->m_cursor.row,
+    };
+    switch (m_renderer->m_vt->m_cursorShape) {
+    case VTERM_PROP_CURSORSHAPE_BLOCK:
+      cursor.shape = ftxui::Screen::Cursor::Shape::Block;
+      break;
+    case VTERM_PROP_CURSORSHAPE_UNDERLINE:
+      cursor.shape = ftxui::Screen::Cursor::Shape::Underline;
+      break;
+    case VTERM_PROP_CURSORSHAPE_BAR_LEFT:
+      cursor.shape = ftxui::Screen::Cursor::Shape::Bar;
+      break;
+    }
+    screen.SetCursor(cursor);
   }
 };
 
