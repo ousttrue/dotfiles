@@ -2,6 +2,9 @@
 
 [リンク集 - SKK辞書Wiki](http://openlab.ring.gr.jp/skk/wiki/wiki.cgi?page=%A5%EA%A5%F3%A5%AF%BD%B8)
 
+# skkfep
+- [SKK日本語入力FEP 今だ！インストールだ！](http://coexe.web.fc2.com/skkinstall.html)
+
 # Corvusskk
 `Windows`
 [Corvusskk](https://github.com/nathancorvussolis/corvusskk)

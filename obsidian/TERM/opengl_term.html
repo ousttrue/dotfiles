@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>keycode - shell note ドキュメント</title>
+        <title>kitty - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,41 +218,49 @@
           </label>
         </div>
         <article role="main">
-          <p><code class="docutils literal notranslate"><span class="pre">pseudo-terminal</span></code></p>
-<p>[[TerminalEmulator]] [[tui]] [[conpty]]
-[[vt100]]</p>
-<ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://logmi.jp/tech/articles/321318">Terminal curses––Terminalの基礎とRuby、そしてcursesについて - Part1 - ログミーTech</a></p></li>
-<li><p>@2019 <a class="reference external" href="https://logmi.jp/tech/articles/321327">Terminal curses––Terminalの基礎とRuby、そしてcursesについて - Part2 - ログミーTech</a></p></li>
-<li><p>@2015 <a class="reference external" href="https://note.hibariya.org/articles/20150628/pty.html">PTY を使ってシェルの入出力を好きなようにする - Hibariya</a></p></li>
-<li><p>@2014 <a class="reference external" href="https://www.tweeeety.blog/entry/2014/05/23/175129">ttyとptsとptmxとpty - tweeeetyのぶろぐ的めも</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="keycode">
-<h1>keycode<a class="headerlink" href="#keycode" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2021 <a class="reference external" href="https://zenn.dev/takc923/articles/d2ec1fcd4ea66f">なぜ Control-/ がターミナルで使えないか調べたらターミナルの歴史を紐解くことになった</a></p></li>
-</ul>
+          <section id="kitty">
+<h1>kitty<a class="headerlink" href="#kitty" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[wayland]]</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="forkpty">
-<h1>forkpty<a class="headerlink" href="#forkpty" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="wezterm">
+<h1>wezterm<a class="headerlink" href="#wezterm" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[wayland]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://nxmnpg.lemoda.net/ja/3/forkpty">forkpty(3) manページ</a></p></li>
+<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/install/source.html">Build from source - Wez's Terminal Emulator</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vim</span> <span class="n">wezterm</span><span class="o">-</span><span class="n">gui</span><span class="o">/</span><span class="n">Cargo</span><span class="o">.</span><span class="n">toml</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>wayland-client</p></li>
+<li><p>wayland-protocol</p></li>
+<li><p>wayland-egl</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="ioctl">
-<h1>ioctl<a class="headerlink" href="#ioctl" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="termios">
-<h1>termios<a class="headerlink" href="#termios" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="alacritty">
+<h1>Alacritty<a class="headerlink" href="#alacritty" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[wayland]]</p>
 <ul class="simple">
-<li><p>tcsetattr</p></li>
-<li><p>tcgetattr</p></li>
+<li><p><a class="reference external" href="https://alacritty.org/">Alacritty - A cross-platform, OpenGL terminal emulator</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/alacritty/alacritty/blob/master/INSTALL.md">alacritty/INSTALL.md at master · alacritty/alacritty · GitHub</a></p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Force support for only X11</span>
+<span class="n">cargo</span> <span class="n">build</span> <span class="o">--</span><span class="n">release</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">default</span><span class="o">-</span><span class="n">features</span> <span class="o">--</span><span class="n">features</span><span class="o">=</span><span class="n">x11</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>@2018 <a class="reference external" href="https://tech.buty4649.net/entry/2018/07/30/134654">LinuxデスクトップのターミナルアプリとしてAlacrittyを使い始めた - ぶていのログでぶログ</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="readline">
-<h1>Readline<a class="headerlink" href="#readline" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="other">
+<h1>other<a class="headerlink" href="#other" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/GNU_Readline">GNU Readline - Wikipedia</a></p></li>
+<li><p><a class="reference external" href="https://tomscii.sig7.se/zutty/">Zutty - Zero-cost Unicode Teletype</a></p></li>
+<li><p><a class="reference external" href="https://github.com/bolner/CRTerm">GitHub - bolner/CRTerm: CRT Terminal emulator (OpenGL)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/refi64/uterm">GitHub - refi64/uterm: A WIP terminal emulator, written in C++11 using Skia, libtsm, and GLFW</a></p></li>
 </ul>
 </section>
 
@@ -269,7 +277,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/TERM/pty.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/TERM/opengl_term.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -289,11 +297,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">keycode</a></li>
-<li><a class="reference internal" href="#forkpty">forkpty</a></li>
-<li><a class="reference internal" href="#ioctl">ioctl</a></li>
-<li><a class="reference internal" href="#termios">termios</a></li>
-<li><a class="reference internal" href="#readline">Readline</a></li>
+<li><a class="reference internal" href="#">kitty</a></li>
+<li><a class="reference internal" href="#wezterm">wezterm</a></li>
+<li><a class="reference internal" href="#alacritty">Alacritty</a></li>
+<li><a class="reference internal" href="#other">other</a></li>
 </ul>
 
           </div>

@@ -12,3 +12,7 @@
 
 ## ColorTheme
 - [Windows ターミナルの配色 | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/color-schemes)
+
+[[conpty]]
+[[mintty]]
+[[conemu]]

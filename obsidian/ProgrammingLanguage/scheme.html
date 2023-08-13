@@ -224,11 +224,13 @@
 <li><p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%BC%E3%83%88%3AScheme">ノート:Scheme - Wikipedia</a></p></li>
 <li><p>@2018 <a class="reference external" href="https://mjt.hatenadiary.com/entry/20180128/p1">chibi-scheme 0.8 / Sagittarius + MinGW / Racketは7でChezに移行する？ - .mjtの日記復帰計画</a></p></li>
 <li><p>@2014 <a class="reference external" href="https://compassoftime.blogspot.com/2014/01/scheme.html">時の羅針盤＠blog: Scheme処理系の選び方</a></p></li>
+<li><p>@2012 <a class="reference external" href="https://lemniscus.hatenablog.com/entry/20120409/1333942456">VimでのSchemeプログラミング - 再帰の反復blog</a></p></li>
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="r7rs">
 <h2>R7RS<a class="headerlink" href="#r7rs" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[R7RS]]</p>
 <section id="r7rs-small">
 <h3>R7RS-small<a class="headerlink" href="#r7rs-small" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </section>
@@ -252,36 +254,57 @@
 <h2>SRFI<a class="headerlink" href="#srfi" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="literal">
+<h1>literal<a class="headerlink" href="#literal" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-scm notranslate"><div class="highlight"><pre><span></span><span class="no">#t</span> <span class="no">#f</span>
+<span class="mi">1</span>
+<span class="s">"str"</span>
+</pre></div>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>処理系<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="mosh">
-<h2>mosh<a class="headerlink" href="#mosh" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
 <section id="chezscheme">
 <h2>ChezScheme<a class="headerlink" href="#chezscheme" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">R6RS</span></code></p>
 </section>
+<section id="interpreter">
+<h2>interpreter<a class="headerlink" href="#interpreter" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <section id="chibi-scheme">
-<h2>chibi-scheme<a class="headerlink" href="#chibi-scheme" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>chibi-scheme<a class="headerlink" href="#chibi-scheme" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">R7RS</span></code></p>
 <ul class="simple">
 <li><p>https://github.com/ashinn/chibi-scheme/</p></li>
 </ul>
 </section>
 <section id="guile">
-<h2>guile<a class="headerlink" href="#guile" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>guile<a class="headerlink" href="#guile" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="http://7ujm.net/etc/guile.html">guile メモ</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/ytaki0801/items/83f8bc510342b7945519">GNU GuileのScheme処理系APIをC言語から利用する記述のサンプル - Qiita</a></p></li>
+</ul>
 </section>
-<section id="interpreter">
-<h2>interpreter<a class="headerlink" href="#interpreter" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <section id="gauche">
 <h3>gauche<a class="headerlink" href="#gauche" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>@2022 <code class="docutils literal notranslate"><span class="pre">0.9.12</span></code></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/shirok/Gauche">GitHub - shirok/Gauche: Scheme Scripting Engine</a></p></li>
+<li><p><a class="reference external" href="https://practical-scheme.net/gauche/index-j.html">Gauche - A Scheme Implementation</a></p></li>
+</ul>
+</section>
+<section id="mosh">
+<h3>mosh<a class="headerlink" href="#mosh" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">mona</span> <span class="pre">os</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mosh.monaos.org/files/doc/text/About-txt.html">About - Mosh</a></p></li>
+<li><p><a class="reference external" href="https://github.com/higepon/mosh">GitHub - higepon/mosh: Mosh is a free and fast interpreter for Scheme as specified in the R6RS.</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/okuoku/scraps/d7484b85fecd18">mosh(-scheme)の開発にキャッチアップする</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://higepon.hatenablog.com/entry/2022/08/04/171319">Mosh の Apple Silicon 対応 - 2022夏休み - higepon blog</a></p></li>
 </ul>
 </section>
 <section id="sigscheme">
 <h3>sigscheme<a class="headerlink" href="#sigscheme" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>[[sigscheme]]</p>
+<p>[[uim]] [[sigscheme]]</p>
 </section>
 <section id="s7">
 <h3>s7<a class="headerlink" href="#s7" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -298,6 +321,35 @@
 <h3>chicken<a class="headerlink" href="#chicken" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">RSR5</span></code></p>
 </section>
+</section>
+<section id="transpiler">
+<h2>transpiler<a class="headerlink" href="#transpiler" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="gambit">
+<h3>gambit<a class="headerlink" href="#gambit" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>http://gambitscheme.org/
+<a class="reference external" href="https://karasuyamatengu.hatenadiary.org/entry/20101104/1288850582">Gambit Scheme： その2 ポータビリティー - karasuyamatenguの日記</a></p>
+</section>
+</section>
+<section id="other">
+<h2>other<a class="headerlink" href="#other" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ignorabimus/tinyscheme">GitHub - ignorabimus/tinyscheme: Experimental fork of TinyScheme and extensions TSX, RE.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/microsoft/schemy">GitHub - microsoft/schemy: A lightweight embeddable Scheme-like interpreter for configuration</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="lsp">
+<h1>LSP<a class="headerlink" href="#lsp" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">chicken</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wiki.call-cc.org/eggref/5/lsp-server">lsp-server - The CHICKEN Scheme wiki</a></p></li>
+<li><p><a class="reference external" href="https://codeberg.org/rgherdt/scheme-lsp-server">rgherdt/scheme-lsp-server: An LSP server for Scheme. - scheme-lsp-server - Codeberg.org</a></p></li>
+</ul>
+<section id="chez">
+<h2>chez<a class="headerlink" href="#chez" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ufo5260987423/scheme-langserver">GitHub - ufo5260987423/scheme-langserver: Scheme language server</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -345,13 +397,14 @@
 <li><a class="reference internal" href="#srfi">SRFI</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#literal">literal</a></li>
 <li><a class="reference internal" href="#id1">処理系</a><ul>
-<li><a class="reference internal" href="#mosh">mosh</a></li>
 <li><a class="reference internal" href="#chezscheme">ChezScheme</a></li>
+<li><a class="reference internal" href="#interpreter">interpreter</a><ul>
 <li><a class="reference internal" href="#chibi-scheme">chibi-scheme</a></li>
 <li><a class="reference internal" href="#guile">guile</a></li>
-<li><a class="reference internal" href="#interpreter">interpreter</a><ul>
 <li><a class="reference internal" href="#gauche">gauche</a></li>
+<li><a class="reference internal" href="#mosh">mosh</a></li>
 <li><a class="reference internal" href="#sigscheme">sigscheme</a></li>
 <li><a class="reference internal" href="#s7">s7</a></li>
 </ul>
@@ -360,6 +413,15 @@
 <li><a class="reference internal" href="#chicken">chicken</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#transpiler">transpiler</a><ul>
+<li><a class="reference internal" href="#gambit">gambit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other">other</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lsp">LSP</a><ul>
+<li><a class="reference internal" href="#chez">chez</a></li>
 </ul>
 </li>
 </ul>

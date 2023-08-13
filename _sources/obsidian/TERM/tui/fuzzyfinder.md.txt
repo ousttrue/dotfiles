@@ -1,4 +1,4 @@
-[[tui]]
+[[tui_app]]
 [[fzf]]
 [[peco]]
 

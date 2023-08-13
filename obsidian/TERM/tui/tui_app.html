@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>API - shell note ドキュメント</title>
+        <title>Editor - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,83 +218,57 @@
           </label>
         </div>
         <article role="main">
-          <p>[[nvim]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/neovim/libvterm">GitHub - neovim/libvterm: https://github.com/neovim/neovim/wiki/Deps#forks</a></p></li>
-<li><p>@2018 <a class="reference external" href="https://qiita.com/mattn/items/5aed718a65d21ca7855c">golang で libvterm - Qiita</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="api">
-<h1>API<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="vtermscreencallbacks">
-<h2>VTermScreenCallbacks<a class="headerlink" href="#vtermscreencallbacks" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">damage</span><span class="p">)(</span><span class="n">VTermRect</span><span class="w"> </span><span class="n">rect</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">user</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">moverect</span><span class="p">)(</span><span class="n">VTermRect</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="n">VTermRect</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">user</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">movecursor</span><span class="p">)(</span><span class="n">VTermPos</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">VTermPos</span><span class="w"> </span><span class="n">oldpos</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">visible</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">user</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">settermprop</span><span class="p">)(</span><span class="n">VTermProp</span><span class="w"> </span><span class="n">prop</span><span class="p">,</span><span class="w"> </span><span class="n">VTermValue</span><span class="w"> </span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">user</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">bell</span><span class="p">)(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">user</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">resize</span><span class="p">)(</span><span class="kt">int</span><span class="w"> </span><span class="n">rows</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cols</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">user</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">sb_pushline</span><span class="p">)(</span><span class="kt">int</span><span class="w"> </span><span class="n">cols</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VTermScreenCell</span><span class="w"> </span><span class="o">*</span><span class="n">cells</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">user</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">sb_popline</span><span class="p">)(</span><span class="kt">int</span><span class="w"> </span><span class="n">cols</span><span class="p">,</span><span class="w"> </span><span class="n">VTermScreenCell</span><span class="w"> </span><span class="o">*</span><span class="n">cells</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">user</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">sb_clear</span><span class="p">)(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">user</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="n">VTermScreenCallbacks</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-</div>
+          <p>[[tui]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="editor">
+<h1>Editor<a class="headerlink" href="#editor" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[nvim]]
+[[TerminalEmulator]]</p>
 </section>
-<section id="forkpty">
-<h2>forkpty<a class="headerlink" href="#forkpty" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">posix</span></code></p>
-</section>
-<section id="conpty">
-<h2>conpty<a class="headerlink" href="#conpty" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">windows</span></code>
-[[conpty]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="git">
+<h1>Git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="gitui">
+<h2>gitui<a class="headerlink" href="#gitui" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/vim-jp/issues/issues/1183">ConPTY を叩く · Issue #1183 · vim-jp/issues · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://github.com/extrawurst/gitui">GitHub - extrawurst/gitui: Blazing 💥 fast terminal-ui for git written in rust 🦀</a></p></li>
+<li><p>[[git_tui]]</p></li>
 </ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="app">
-<h1>App<a class="headerlink" href="#app" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="perf">
+<h1>perf<a class="headerlink" href="#perf" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/new299/hackterm">GitHub - new299/hackterm: experimental sdl based terminal with gnu unifont font rendering using libvterm</a></p></li>
-<li><p><a class="reference external" href="https://git.sr.ht/~sircmpwn/scurvy">~sircmpwn/scurvy - sourcehut git</a></p></li>
-</ul>
-<section id="sdl">
-<h2>SDL<a class="headerlink" href="#sdl" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/palomena/sdlterm">GitHub - palomena/sdlterm: SDL2 Terminal Emulator based on libvterm and sdlfox</a></p></li>
-<li><p><a class="reference external" href="https://gist.github.com/shimarin/71ace40e7443ed46387a477abf12ea70">SDL2 terminal emulator using libvterm · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://amanusk.github.io/s-tui/">The Stress Terminal UI: s-tui | s-tui</a></p></li>
+<li><p><a class="reference external" href="https://github.com/aksakalli/gtop">GitHub - aksakalli/gtop: System monitoring dashboard for terminal</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ClementTsang/bottom">GitHub - ClementTsang/bottom: Yet another cross-platform graphical process/system monitor.</a></p></li>
 </ul>
 </section>
-<section id="qt">
-<h2>qt<a class="headerlink" href="#qt" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[qt]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="filer">
+<h1>filer<a class="headerlink" href="#filer" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[tui_filer]]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="grep">
+<h1>Grep<a class="headerlink" href="#grep" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/jsbronder/sff">GitHub - jsbronder/sff: A terminal, using libvterm and Qt</a></p></li>
-<li><p><a class="reference external" href="https://github.com/ohwgiles/quilte">GitHub - ohwgiles/quilte: Lightweight Qt Terminal Emulator</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tjmtmmnk/ilse">GitHub - tjmtmmnk/ilse: TUI grep tool respect for IntelliJ</a></p></li>
 </ul>
 </section>
-<section id="sfml">
-<h2>sfml<a class="headerlink" href="#sfml" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="browser">
+<h1>browser<a class="headerlink" href="#browser" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/Edgaru089/Terminal">GitHub - Edgaru089/Terminal: A terminal emulator based on libvterm and SFML</a></p></li>
+<li><p><a class="reference external" href="https://github.com/bstff/browst">GitHub - bstff/browst: terminal browser toy, xterm+sixel+gocui+cdp+sdump+tiv</a></p></li>
+<li><p><a class="reference external" href="https://browserbook.shift-js.info/">ちいさな Web ブラウザを作ってみよう</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/lmt-swallow/puppy-browser">GitHub - lmt-swallow/puppy-browser: An example implementation of a tiny Web browser for educational purposes.</a></p></li>
+</ul>
+</li>
 </ul>
 </section>
-<section id="multiplexer">
-<h2>multiplexer<a class="headerlink" href="#multiplexer" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="other">
+<h1>Other<a class="headerlink" href="#other" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/magiblot/tvterm">GitHub - magiblot/tvterm: A terminal emulator that runs in your terminal. Powered by Turbo Vision.</a></p></li>
-<li><p><a class="reference external" href="https://github.com/mohemohe/wmux">GitHub - mohemohe/wmux: windowed terminal multiplexer</a></p></li>
-<li><p><a class="reference external" href="https://github.com/cantora/ncte">GitHub - cantora/ncte: ncurses based terminal emulator (using libvterm)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sachaos/viddy">GitHub - sachaos/viddy: 👀 A modern watch command. Time machine and pager etc.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jpbruinsslot/slack-term">GitHub - jpbruinsslot/slack-term: Slack client for your terminal</a></p></li>
 </ul>
-</section>
-<section id="pangoterm">
-<h2>pangoterm<a class="headerlink" href="#pangoterm" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://launchpad.net/pangoterm">pangoterm in Launchpad</a></p></li>
-</ul>
-</section>
 </section>
 
         </article>
@@ -310,7 +284,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/TERM/tui/libvterm.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/TERM/tui/tui_app.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -330,20 +304,16 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">API</a><ul>
-<li><a class="reference internal" href="#vtermscreencallbacks">VTermScreenCallbacks</a></li>
-<li><a class="reference internal" href="#forkpty">forkpty</a></li>
-<li><a class="reference internal" href="#conpty">conpty</a></li>
+<li><a class="reference internal" href="#">Editor</a></li>
+<li><a class="reference internal" href="#git">Git</a><ul>
+<li><a class="reference internal" href="#gitui">gitui</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#app">App</a><ul>
-<li><a class="reference internal" href="#sdl">SDL</a></li>
-<li><a class="reference internal" href="#qt">qt</a></li>
-<li><a class="reference internal" href="#sfml">sfml</a></li>
-<li><a class="reference internal" href="#multiplexer">multiplexer</a></li>
-<li><a class="reference internal" href="#pangoterm">pangoterm</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#perf">perf</a></li>
+<li><a class="reference internal" href="#filer">filer</a></li>
+<li><a class="reference internal" href="#grep">Grep</a></li>
+<li><a class="reference internal" href="#browser">browser</a></li>
+<li><a class="reference internal" href="#other">Other</a></li>
 </ul>
 
           </div>
