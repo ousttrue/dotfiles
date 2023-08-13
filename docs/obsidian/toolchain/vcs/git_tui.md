@@ -1,4 +1,4 @@
-[[git]] [[tui]]
+[[git]]
 
 - [GitHubのTUIツールを作った](https://zenn.dev/skanehira/articles/2021-02-22-go-github-tui)
 - [git-branch-deleter — Rust application // Lib.rs](https://lib.rs/crates/git-branch-deleter)

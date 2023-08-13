@@ -1,8 +1,13 @@
-[[tui]]
+[[tui_app]]
 
+- [GitHub - antirez/kilo: A text editor in less than 1000 LOC with syntax highlight and search.](https://github.com/antirez/kilo)
+- [GitHub - csb6/editorial: A TUI text editor written in C++](https://github.com/csb6/editorial)
+
+# memo
 - keyboard input の rawmode 化と `SIGWINCH` 等のハンドリングに `termios.h` や `unistd.h` を使っている。そこを代替すれば `Windows` でも動作させることができる。
 - [[curses]] は使っていない
 
+# articles
 - [Build Your Own Text Editor](https://viewsourcecode.org/snaptoken/kilo/)
 - [GitHub - antirez/kilo: A text editor in less than 1000 LOC with syntax highlight and search.](https://github.com/antirez/kilo)
 
@@ -16,7 +21,3 @@
 
 
 - @2016 [Kilo - 1000行以下のコードで実装された超コンパクトなテキストエディタ | ソフトアンテナ](https://softantenna.com/blog/kilo/)
-
-- [GitHub - antirez/kilo: A text editor in less than 1000 LOC with syntax highlight and search.](https://github.com/antirez/kilo)
-
-[GitHub - csb6/editorial: A TUI text editor written in C++](https://github.com/csb6/editorial)

@@ -3,6 +3,11 @@
 
 - [GitHub - ArthurSonzogni/ftxui-starter: A starter project using the FTXUI library](https://github.com/ArthurSonzogni/ftxui-starter)
 
+# ほしい Widgets
+- VTerm
+- List(clip)
+	- color logger
+
 # Version
 ## 4.0
 `c++17`

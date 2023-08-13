@@ -1,5 +1,5 @@
 # TUI
-[[tui]]
+[[tui_app]]
 
 [[screen]]
 [[tmux]]

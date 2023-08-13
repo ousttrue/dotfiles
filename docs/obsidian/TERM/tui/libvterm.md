@@ -47,3 +47,6 @@ typedef struct {
 - [GitHub - magiblot/tvterm: A terminal emulator that runs in your terminal. Powered by Turbo Vision.](https://github.com/magiblot/tvterm)
 - [GitHub - mohemohe/wmux: windowed terminal multiplexer](https://github.com/mohemohe/wmux)
 - [GitHub - cantora/ncte: ncurses based terminal emulator (using libvterm)](https://github.com/cantora/ncte)
+
+## pangoterm
+- [pangoterm in Launchpad](https://launchpad.net/pangoterm)

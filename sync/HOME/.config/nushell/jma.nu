@@ -1,4 +1,7 @@
+use ~/.config/nushell/cache.nu
+
 export-env {
+
 $env.jma_area = if ("JMA_AREA" in $env) {
     $env.JMA_AREA
 } else {
@@ -201,16 +204,16 @@ $env.jma = {
 
 export def area [key: string@area_completion] {
     # centers
-    http get $env.jma.area | get $key | transpose c0 c1 | each {|e| {$key:$e.c0}|merge $e.c1}
+    cache url $env.jma.area | get $key | transpose c0 c1 | each {|e| {$key:$e.c0}|merge $e.c1}
 }
 
 export def amedas [] {
-    let latest_time = http get $env.jma.latest_time
-    http get $"https://www.jma.go.jp/bosai/amedas/data/map/($latest_time | date format '%Y%m%d%H%M%S').json"
+    let latest_time = cache get $env.jma.latest_time
+    cache url $"https://www.jma.go.jp/bosai/amedas/data/map/($latest_time | date format '%Y%m%d%H%M%S').json"
 }
 
 export def twoweek [point] {
-    http get $"https://www.data.jma.go.jp/cpd/twoweek/data/Latest/data_($point).json"
+    cache url $"https://www.data.jma.go.jp/cpd/twoweek/data/Latest/data_($point).json"
 }
 
 def get_wether_emoji [$code] {
@@ -424,8 +427,8 @@ let found = $jma_weather_codes | | each {|e| {code: $e.0, name: $e.1, eng: $e.2,
     }
 }
 
-export def weather [d:datetime] {
-    let forecast = http get $env.jma.forecast | get 1.timeSeries.0
+export def-env weather [d:datetime] {
+    let forecast = cache url $env.jma.forecast | get 1.timeSeries.0
     let times = $forecast | get timeDefines | into datetime | date format "%Y-%m-%d" | into datetime
     let area = $forecast | get areas | where area.code == $env.jma_class10s | first
     let found = $times | zip ($area | get weatherCodes) | each {|e| {date:$e.0 weather:$e.1}} | where date == $d

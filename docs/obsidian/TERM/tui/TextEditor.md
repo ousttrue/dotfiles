@@ -1,4 +1,3 @@
-[[tui]]
 
 # normal
 ## micro
