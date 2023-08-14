@@ -185,3 +185,14 @@ mingw の `ld.exe` に `PATH` が通って link が失敗する状況があっ�
 
 # configure_file
 [Configuration](https://mesonbuild.com/Configuration.html)
+
+# subprojects
+git
+
+`.git/config`
+```
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+```
