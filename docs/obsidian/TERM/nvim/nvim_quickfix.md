@@ -12,6 +12,7 @@
 
 # QuickFix
 ## errorformat
+- [quickfix - Vim日本語ドキュメント](https://vim-jp.org/vimdoc-ja/quickfix.html#errorformat)
 ```
 set errorformat=%f:%l%:c\ %t%*[^:]:\ %m,%Dninja: Entering directory\ `%f',%G-%.%#
 ```

@@ -311,8 +311,8 @@ def week [] {
         today: (get_day $d)
         date: $d
         weather: (jma weather $d)
-        # koyomi: (get_koyomi $d)
-        # moon: (moon_phase $d)
+        koyomi: (get_koyomi $d)
+        moon: (moon_phase $d)
     }}
     $week
 }

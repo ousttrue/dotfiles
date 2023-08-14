@@ -6,18 +6,22 @@ local icon = {
   n = "%#DiagnosticInfo# %#Normal#",
 }
 
-local effor_formats = {
-  -- || ../example/main.cpp(533): error C2988:
+local error_formats = {
+  "%Dninja: Entering directory `%f'",
+  "%f:%l:%c: %t%*[^:]: %m,%Eld%.lld: %trror: undefined symbol: %m%n",
+  "%N>>> referenced by %s (%f:%l)Tn",
+  "%N>>> %m,%f(%l): %t%*[^ ] C%n: %m",
+  "%f(%l): fatal %t%*[^ ] C%n: %m",
+  "%f(%l): %t%*[^ ] %m",
+  "%*[^ ] : %t%*[^ ] LNK%n: %m",
 }
+-- libtokorotenmesh.a(tokoroten_mesh.cpp.obj) : error LNK2019: 未解決の外部シンボル "public: class std::shared_ptr<struct tokoroten::Mesh> __cdecl tokoroten::TokorotenMesh::CreateMesh(void)" (?CreateMesh@TokorotenMesh@tokoroten@@QEAA?AV?$shared_ptr@UMesh@tokoroten@@@std@@XZ) が関数 "public: static class std::shared_ptr<struct tokoroten::TokorotenMesh> __cdecl tokoroten::TokorotenMesh::Load(struct gltfjson::Root const &,struct gltfjson::Bin const &)" (?Load@TokorotenMesh@tokoroten@@SA?AV?$shared_ptr@UTokorotenMesh@tokoroten@@@std@@AEBURoot@gltfjson@@AEBUBin@6@@Z) で参照されました
 
 M.qflist = {
   title = "--",
   lines = { "" },
-  efm = "%Dninja: Entering directory `%f',%f:%l:%c: %t%*[^:]: %m,%Eld%.lld: %trror: undefined symbol: %m%n,%N>>> referenced by %s (%f:%l)Tn,%N>>> %m,%f(%l): %t%*[^ ] C%n: %m,%f(%l): fatal %t%*[^ ] C%n: %m,%f(%l): %t%*[^ ] %m",
+  efm = vim.fn.join(error_formats, ","),
 }
--- || ld.lld: error: undefined symbol: TabBuffer::eachBuffer(std::function<void (Buffer*)> const&)
--- || >>> referenced by core.cpp:659 (/home/ousttrue/ghq/github.com/ousttrue/w3m/builddir/../src/core.cpp:659)
--- || >>>               src/w3m.p/core.cpp.o:(deleteFiles()::$_0::operator()(TabBuffer*) const)
 
 M.status = ""
 

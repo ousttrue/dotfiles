@@ -82,3 +82,6 @@ http://gambitscheme.org/
 
 ## chez
 - [GitHub - ufo5260987423/scheme-langserver: Scheme language server](https://github.com/ufo5260987423/scheme-langserver)
+
+# formatter
+- [scheme-style](http://community.schemewiki.org/cgi-bin/scheme.cgi?scheme-style)

@@ -3,7 +3,8 @@ local M = {}
 function M.setup()
   require("aerial").setup {
     backends = {
-      ["_"] = { "lsp", "treesitter", "markdown", "man" },
+      -- ["_"] = { "lsp", "treesitter", "markdown", "man" },
+      ["_"] = { "treesitter", "lsp", "markdown", "man" },
       toml = { "treesitter" },
     },
     -- close_automatic_events = { "switch_buffer" },
