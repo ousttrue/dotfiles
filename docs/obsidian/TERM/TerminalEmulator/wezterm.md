@@ -105,3 +105,9 @@ config.launch_menu = {
 
 # QuickSelectMode
 - [quick select mode](https://wezfurlong.org/wezterm/quickselect.html)
+
+# msys + winpty
+- [Document how to configure using winpty · Issue #35 · wez/wezterm · GitHub](https://github.com/wez/wezterm/issues/35)
+`removed`
+- [Change Log - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/changelog.html) 
+

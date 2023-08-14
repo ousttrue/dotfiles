@@ -12,4 +12,5 @@
                      + 裏コンソール <=>`Wincows Console`
 - [GitHub - rprichard/winpty: A Windows software package providing an interface similar to a Unix pty-master for communicating with Windows console programs.](https://github.com/rprichard/winpty)
 
-[[conpty]]
+# emoji
+- [Tips · mintty/mintty Wiki · GitHub](https://github.com/mintty/mintty/wiki/Tips/d4052a27752792d9857cac90a022ce43bd4c5efc)
