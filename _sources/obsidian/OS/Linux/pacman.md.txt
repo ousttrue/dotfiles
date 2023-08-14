@@ -5,7 +5,6 @@
 - @2016 [Pacmanの使い方 - Qiita](https://qiita.com/MoriokaReimen/items/dbe1448ce6c0f80a6ac1)
 
 
-
 ```
 $ pacman -Syu
 -S sync

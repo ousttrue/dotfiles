@@ -4,6 +4,26 @@
 - [Go by Example](https://oohira.github.io/gobyexample-jp/)
 - [つきなみGo 記事一覧 | gihyo.jp](https://gihyo.jp/list/group/%E3%81%A4%E3%81%8D%E3%81%AA%E3%81%BFGo#rt:/article/2022/08/tukinami-go-01)
 
+# msys
+- [MSYS2 環境に Go言語(golang) をインストール - takaya030の備忘録](https://takaya030.hatenablog.com/entry/2018/01/18/230105)
+- [GOPATH set to GOROOT (C:\Go\) has no effectの対策方法 | Engineer Log](https://engineer-log.net/index.php/2016/11/25/gopath-set-to-goroot-cgo-has-no-effect/)
+```
+warning: GOPATH set to GOROOT (D:/msys64/mingw64/lib/go) has no effect
+```
+
+- [cmd/go: go mod download breaks on 1.21.0 due to empty GOPROXY · Issue #61928 · golang/go · GitHub](https://github.com/golang/go/issues/61928)
+- [Goで使用する環境変数を表示・変更するgo envコマンド - CLOVER🍀](https://kazuhira-r.hatenablog.com/entry/2021/01/03/222459)
+```
+GOPROXY list is not the empty string, but contains no entries
+
+go env -w GOPROXY=direct
+```
+
+[Go Modulesのproxyとsumdb - sambaiz-net](https://www.sambaiz.net/article/261/)
+```
+go env -w GOSUMDB=off
+```
+
 # Version
 ## 1.20
 ## 1.19

@@ -1,0 +1,1 @@
+- [CLI Version Manager の aqua が Windows をサポート](https://zenn.dev/shunsuke_suzuki/articles/aqua-windows-support)

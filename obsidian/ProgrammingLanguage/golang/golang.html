@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>msys - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -224,6 +224,29 @@
 <li><p><a class="reference external" href="https://oohira.github.io/gobyexample-jp/">Go by Example</a></p></li>
 <li><p><a class="reference external" href="https://gihyo.jp/list/group/%E3%81%A4%E3%81%8D%E3%81%AA%E3%81%BFGo#rt:/article/2022/08/tukinami-go-01">つきなみGo 記事一覧 | gihyo.jp</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="msys">
+<h1>msys<a class="headerlink" href="#msys" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://takaya030.hatenablog.com/entry/2018/01/18/230105">MSYS2 環境に Go言語(golang) をインストール - takaya030の備忘録</a></p></li>
+<li><p><a class="reference external" href="https://engineer-log.net/index.php/2016/11/25/gopath-set-to-goroot-cgo-has-no-effect/">GOPATH set to GOROOT (C:\Go) has no effectの対策方法 | Engineer Log</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">warning</span><span class="p">:</span> <span class="n">GOPATH</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">GOROOT</span> <span class="p">(</span><span class="n">D</span><span class="p">:</span><span class="o">/</span><span class="n">msys64</span><span class="o">/</span><span class="n">mingw64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">go</span><span class="p">)</span> <span class="n">has</span> <span class="n">no</span> <span class="n">effect</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/golang/go/issues/61928">cmd/go: go mod download breaks on 1.21.0 due to empty GOPROXY · Issue #61928 · golang/go · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://kazuhira-r.hatenablog.com/entry/2021/01/03/222459">Goで使用する環境変数を表示・変更するgo envコマンド - CLOVER🍀</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GOPROXY</span> <span class="nb">list</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">the</span> <span class="n">empty</span> <span class="n">string</span><span class="p">,</span> <span class="n">but</span> <span class="n">contains</span> <span class="n">no</span> <span class="n">entries</span>
+
+<span class="n">go</span> <span class="n">env</span> <span class="o">-</span><span class="n">w</span> <span class="n">GOPROXY</span><span class="o">=</span><span class="n">direct</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://www.sambaiz.net/article/261/">Go Modulesのproxyとsumdb - sambaiz-net</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">go</span> <span class="n">env</span> <span class="o">-</span><span class="n">w</span> <span class="n">GOSUMDB</span><span class="o">=</span><span class="n">off</span>
+</pre></div>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id1">
@@ -320,7 +343,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#">msys</a></li>
+<li><a class="reference internal" href="#version">Version</a><ul>
 <li><a class="reference internal" href="#id1">1.20</a></li>
 <li><a class="reference internal" href="#id2">1.19</a></li>
 <li><a class="reference internal" href="#id3">1.16</a></li>
