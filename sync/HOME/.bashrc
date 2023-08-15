@@ -17,7 +17,7 @@ if [ -v MSYSTEM ]; then
 			ICON=🥚
 		fi
 	else
-		SYSTEM_COLOR="cyan"
+		SYSTEM_COLOR="white"
 		PLATFORM=MSYSGIT
 		ICON=🍄
 	fi
@@ -33,12 +33,6 @@ else
 		ICON=🐧
 	fi
 fi
-
-if which zoxide >/dev/null 2>&1; then
-	eval "$(zoxide init bash)"
-fi
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# set -euC
 
 # https://qiita.com/s_h_i_g_e_chan/items/e31920a767589359ea4c
 path_unshift() {
@@ -78,6 +72,12 @@ if [ "$UNAME_OS" = "GNU/Linux" ]; then
 	export PKG_CONFIG_PATH=$HOME/prefix/lib64/pkgconfig:$HOME/prefix/share/pkgconfig
 	export PYTHONPATH=$HOME/prefix/lib/python3.10/site-packages
 fi
+
+if which zoxide >/dev/null 2>&1; then
+	eval "$(zoxide init bash)"
+fi
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# set -euC
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -232,11 +232,14 @@ alias luamake=/home/ousttrue/ghq/github.com/sumneko/lua-language-server/3rd/luam
 alias eau='emerge -av --autounmask=y --autounmask-write=y'
 alias rf='rg --files .'
 
+
 if which vim >/dev/null 2>&1; then
 	export EDITOR=vim
+    alias v='vim'
 fi
 if which nvim >/dev/null 2>&1; then
 	export EDITOR=nvim
+    alias v='nvim'
 fi
 
 export HTTP_HOME='~/dotfiles/home.html'
