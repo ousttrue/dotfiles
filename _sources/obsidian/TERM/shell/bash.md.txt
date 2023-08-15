@@ -46,6 +46,10 @@ fi
 
 # formatter
 - shfmt
+```
+go install mvdan.cc/sh/v3/cmd/shfmt@latest
+```
+
 - [Shell のコーディングに便利な shellcheck/shfmt の紹介｜NAVITIME_Tech](https://note.com/navitime_tech/n/n0675e103bafa)
 
 # script
