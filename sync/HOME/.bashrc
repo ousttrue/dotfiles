@@ -2,8 +2,6 @@
 # ~/.bashrc
 #
 if [ -v MSYSTEM ]; then
-	OS_NAME=$(uname -o)
-	# echo "a${OS_NAME}b"
 	if grep -qi msys2 /etc/os-release >/dev/null 2>&1; then
 		PLATFORM=$MSYSTEM
 		if [[ $MSYSTEM == "MSYS" ]]; then
@@ -232,14 +230,13 @@ alias luamake=/home/ousttrue/ghq/github.com/sumneko/lua-language-server/3rd/luam
 alias eau='emerge -av --autounmask=y --autounmask-write=y'
 alias rf='rg --files .'
 
-
 if which vim >/dev/null 2>&1; then
 	export EDITOR=vim
-    alias v='vim'
+	alias v='vim'
 fi
 if which nvim >/dev/null 2>&1; then
 	export EDITOR=nvim
-    alias v='nvim'
+	alias v='nvim'
 fi
 
 export HTTP_HOME='~/dotfiles/home.html'
@@ -339,7 +336,7 @@ nerdPS1() {
 	if [[ $hostName == "YOUR-HOST-NAME" ]]; then
 		hostName="" # \uf878 nf-mdi-monitor 一番ホストっぽかった
 	fi
-	local pwdInfo="$3"
+	local pwdInfo="$(pwd)"
 	# GHQ
 	[[ "$pwdInfo" =~ ^.*/ghq/github.com/(.*)$ ]] && pwdInfo="🐙/${BASH_REMATCH[1]}"
 	# HOME
@@ -381,6 +378,9 @@ nerdPS1() {
 		fi
 	fi
 	TOPICCHANGE "reset" # 忘れずに
+
+	echo
+	echo "> "
 }
 
-PS1=$(nerdPS1 '\u' '\h' $(pwd))'\n\$ '
+PS1='$(nerdPS1)'

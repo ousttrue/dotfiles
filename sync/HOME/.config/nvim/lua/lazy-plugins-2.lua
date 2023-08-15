@@ -30,8 +30,8 @@ local plugins = {
   -- dark
   make_colorscheme("folke/tokyonight.nvim", "tokyonight", "dark"),
   make_colorscheme("EdenEast/nightfox.nvim", "nightfox", "dark"),
-  make_colorscheme("jnurmine/Zenburn", "zenburn"),
-  make_colorscheme("shaunsingh/moonlight.nvim", "moonlight", "dark"),
+  make_colorscheme("jnurmine/Zenburn", "zenburn", "dark", "msys"),
+  make_colorscheme("shaunsingh/moonlight.nvim", "moonlight", "dark", "mingw64"),
   make_colorscheme("savq/melange-nvim", "melange", "dark"),
   -- too short
   -- make_colorscheme("fenetikm/falcon", "falcon", "dark"),
