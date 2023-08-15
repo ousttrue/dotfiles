@@ -6,6 +6,7 @@ executable(
     [
         'main.cpp',
         'child_process.cpp',
+        'vt_component.cpp',
     ],
     install: true,
     dependencies: [
