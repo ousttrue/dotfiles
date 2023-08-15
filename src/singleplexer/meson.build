@@ -5,6 +5,7 @@ executable(
     'sinple',
     [
         'main.cpp',
+        'child_process.cpp',
     ],
     install: true,
     dependencies: [
