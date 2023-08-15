@@ -2,6 +2,8 @@
 #include "child_process.h"
 #include "utf8.h"
 
+struct Pty;
+class ChildProcess;
 struct VtContent {
   VTerm *m_vt;
   VTermScreen *m_screen;
@@ -65,15 +67,15 @@ struct VtContent {
   VtContent(int rows, int cols, const std::string &cmd)
       : m_vt(vterm_new(rows, cols)) {
     // child process
-    m_pty = std::make_shared<Pty>(COORD{
-        .X = (SHORT)cols,
-        .Y = (SHORT)rows,
-    });
+    m_pty = std::shared_ptr<Pty>(new Pty({
+        .Rows = rows,
+        .Cols = cols,
+    }));
     auto callback = [=](const char *buf, uint32_t size) {
       vterm_input_write(m_vt, buf, size);
     };
     m_pipeReader =
-        std::thread([pipe = m_pty->ReadPipe, callback, self = this]() {
+        std::thread([pipe = m_pty->ReadPipe(), callback, self = this]() {
           PipeReader(pipe, callback);
           // onexit
           if (self->m_onExit) {
@@ -94,8 +96,7 @@ struct VtContent {
     m_screen = vterm_obtain_screen(m_vt);
     vterm_screen_reset(m_screen, true);
 
-    vterm_output_set_callback(m_vt, ChildProcess::Write,
-                              (void *)m_pty->WritePipe);
+    vterm_output_set_callback(m_vt, ChildProcess::Write, m_pty->WritePipe());
     vterm_screen_set_callbacks(m_screen, &m_callbacks, this);
   }
 
@@ -117,9 +118,9 @@ struct VtContent {
     if (rows == h && w == cols) {
       return;
     }
-    m_pty->Resize(COORD{
-        .X = (SHORT)cols,
-        .Y = (SHORT)rows,
+    m_pty->Resize({
+        .Rows = rows,
+        .Cols = cols,
     });
     vterm_set_size(m_vt, rows, cols);
     vterm_screen_reset(m_screen, true);
@@ -136,7 +137,7 @@ struct VtContent {
   }
 
   void WriteChild(const std::string &str) {
-    ChildProcess::Write(str.c_str(), str.size(), m_pty->WritePipe);
+    ChildProcess::Write(str.c_str(), str.size(), m_pty->WritePipe());
   }
 };
 
@@ -191,6 +192,18 @@ void VtRenderer::RenderPixel(const VTermPos &pos, ftxui::Pixel *pixel) {
     dst = " ";
     return;
   }
+
+  if (VTERM_COLOR_IS_INDEXED(&cell->fg)) {
+    vterm_screen_convert_color_to_rgb(m_vt->m_screen, &cell->fg);
+  }
+  pixel->foreground_color = ftxui::Color::RGB(
+      cell->fg.rgb.red, cell->fg.rgb.green, cell->fg.rgb.blue);
+
+  if (VTERM_COLOR_IS_INDEXED(&cell->bg)) {
+    vterm_screen_convert_color_to_rgb(m_vt->m_screen, &cell->bg);
+  }
+  pixel->background_color = ftxui::Color::RGB(
+      cell->bg.rgb.red, cell->bg.rgb.green, cell->bg.rgb.blue);
 
   dst.clear();
   for (int i = 0; i < cell->width; ++i) {

@@ -5,9 +5,10 @@
 
 # ほしい Widgets
 - VTerm
-- List(clip)
+- PropertyGrid
+- Table/List(scroll/clipping)
 	- color logger
-
+ 
 # Version
 ## 4.0
 `c++17`

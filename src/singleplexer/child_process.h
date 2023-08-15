@@ -1,6 +1,4 @@
 #pragma once
-#define WIN32_LEAN_AND_MEAN
-#include <Windows.h>
 #include <chrono>
 #include <functional>
 #include <memory>
@@ -8,28 +6,27 @@
 #include <string>
 #include <vector>
 
-struct Pty {
-  HPCON Console = nullptr;
-  HANDLE ReadPipe{INVALID_HANDLE_VALUE};
-  HANDLE WritePipe{INVALID_HANDLE_VALUE};
+struct RowsCols {
+  int Rows;
+  int Cols;
+};
 
-  Pty(const COORD &size);
+struct Pty {
+  struct PtyImpl *m_impl = nullptr;
+
+  Pty(const RowsCols &size);
   Pty(const Pty &) = delete;
   Pty &operator=(const Pty &) = delete;
   ~Pty() { Close(); }
-  void Resize(const COORD &size);
+  void Resize(const RowsCols &size);
   void Close();
+  void *ReadPipe() const;
+  void *WritePipe() const;
 };
 
 class ChildProcess {
-  STARTUPINFOEXA m_si{};
-  PROCESS_INFORMATION m_pi{};
-  std::vector<uint8_t> m_attr;
-
-  ChildProcess() { m_si.StartupInfo.cb = sizeof(STARTUPINFOEXA); }
-
-  HRESULT
-  InitializeStartupInfoAttachedToPseudoConsole(HPCON hPC);
+  struct ChildProcessImpl *m_impl = nullptr;
+  ChildProcess();
 
 public:
   ~ChildProcess();
@@ -46,5 +43,5 @@ public:
 };
 
 void PipeReader(
-    HANDLE hPipe,
+    void *hPipe,
     const std::function<void(const char *buf, uint32_t size)> &callback);
