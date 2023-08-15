@@ -1,6 +1,35 @@
 #
 # ~/.bashrc
 #
+if [ -v MSYSTEM ]; then
+    OS_NAME=$(uname -o)
+    # echo "a${OS_NAME}b"
+    if grep -qi msys2 /etc/os-release >/dev/null 2>&1; then
+        PLATFORM=$MSYSTEM
+        if [[ $MSYSTEM == "MSYS" ]]; then
+            ICON=🦉
+        elif [[ $MSYSTEM == "MINGW64" ]];then
+            ICON=🐔
+        else
+            ICON=🥚
+        fi
+    else
+        PLATFORM=MSYSGIT
+        ICON=🍄
+    fi
+else
+    if grep -qi microsoft /proc/version; then
+        # echo "Ubuntu on Windows"
+        PLATFORM=WSL
+        ICON=🦆
+    else
+        # echo "native Linux"
+        PLATFORM=LINUX
+        ICON=🐧
+    fi
+fi
+
+
 if which zoxide >/dev/null 2>&1; then
 	eval "$(zoxide init bash)"
 fi
@@ -26,7 +55,10 @@ path_unshift "$HOME/.cargo/bin"
 path_unshift "$HOME/local/src/zig"
 if [ -v MSYSTEM ]; then
 	# msys
+    export MSYS=winsymlinks:nativestrict
+    export GHQ_ROOT=$HOME/ghq
 	# path_push "/c/Python310/Scripts"
+    # path_push "$(cygpath $USERPROFILE)/.local/share/aquaproj-aqua/bin"
 	true
 else
 	if which powerline-shell >/dev/null 2>&1; then
@@ -115,7 +147,7 @@ function gg {
 	if [ $# -gt 0 ]; then
 		arg="-q $*"
 	fi
-	local selected=$(ghq list -p | fzf-tmux ${arg} --reverse +m)
+	local selected=$(ghq list -p | fzf ${arg} --reverse +m)
 	if [[ ${selected} =~ [^\s] ]]; then
 		z ${selected}
 	fi
@@ -342,4 +374,4 @@ nerdPS1() {
 	TOPICCHANGE "reset" # 忘れずに
 }
 
-PS1='$(nerdPS1 \u \h \w)\n\$ '
+PS1=${ICON}$(nerdPS1 '\u' '\h' `pwd`)'\n\$ '

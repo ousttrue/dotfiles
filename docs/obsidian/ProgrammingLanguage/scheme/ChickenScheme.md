@@ -1,3 +1,12 @@
+# csi
+> `csi -ss` は `main` 関数を実行します。
+
+```scm
+;;; Does a lousy job of error checking!
+(define (main args)
+  (quickrep (irregex (car args)) (cadr args)))
+```
+
 # build
 - [chicken を cygwin で mingw 用にコンパイル - 新千葉 ガーベージ・コレクション](https://ryos36.hatenablog.com/entry/2014/12/21/110529)
 

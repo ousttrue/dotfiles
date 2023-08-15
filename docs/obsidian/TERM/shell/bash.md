@@ -6,6 +6,7 @@
 ## 4.4
 ## 4.2
 
+
 # prompt
 [[NerdFont]]
 - @2020 [bashプロンプトの表示をNerdfontsで格好良くする - Qiita](https://qiita.com/GunseiKPaseri/items/e594c8e261905e3d0281)
@@ -45,3 +46,7 @@ fi
 
 # formatter
 - shfmt
+
+# script
+## comparison
+

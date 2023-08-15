@@ -165,7 +165,7 @@ function M.setup()
   end
   nyagos.envadd("PATH", "~/.cargo/bin")
   nyagos.envadd("PATH", "~/local/bin")
-  nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
+  -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
 
   nyagos.complete_for.git = require("completion_git").complete_for
 

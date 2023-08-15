@@ -71,6 +71,7 @@ function M.setup()
 
   lspconfig.tsserver.setup {}
 
+  -- npm i -g bash-language-server
   lspconfig.bashls.setup {}
 
   lspconfig.powershell_es.setup {
