@@ -2,33 +2,37 @@
 # ~/.bashrc
 #
 if [ -v MSYSTEM ]; then
-    OS_NAME=$(uname -o)
-    # echo "a${OS_NAME}b"
-    if grep -qi msys2 /etc/os-release >/dev/null 2>&1; then
-        PLATFORM=$MSYSTEM
-        if [[ $MSYSTEM == "MSYS" ]]; then
-            ICON=🦉
-        elif [[ $MSYSTEM == "MINGW64" ]];then
-            ICON=🐔
-        else
-            ICON=🥚
-        fi
-    else
-        PLATFORM=MSYSGIT
-        ICON=🍄
-    fi
+	OS_NAME=$(uname -o)
+	# echo "a${OS_NAME}b"
+	if grep -qi msys2 /etc/os-release >/dev/null 2>&1; then
+		PLATFORM=$MSYSTEM
+		if [[ $MSYSTEM == "MSYS" ]]; then
+			SYSTEM_COLOR="black"
+			ICON=🦉
+		elif [[ $MSYSTEM == "MINGW64" ]]; then
+			SYSTEM_COLOR="yellow"
+			ICON=🐔
+		else
+			SYSTEM_COLOR="gray"
+			ICON=🥚
+		fi
+	else
+		SYSTEM_COLOR="cyan"
+		PLATFORM=MSYSGIT
+		ICON=🍄
+	fi
 else
-    if grep -qi microsoft /proc/version; then
-        # echo "Ubuntu on Windows"
-        PLATFORM=WSL
-        ICON=🦆
-    else
-        # echo "native Linux"
-        PLATFORM=LINUX
-        ICON=🐧
-    fi
+	if grep -qi microsoft /proc/version; then
+		# echo "Ubuntu on Windows"
+		SYSTEM_COLOR="purple"
+		PLATFORM=WSL
+		ICON=🦆
+	else
+		SYSTEM_COLOR="blue"
+		PLATFORM=LINUX
+		ICON=🐧
+	fi
 fi
-
 
 if which zoxide >/dev/null 2>&1; then
 	eval "$(zoxide init bash)"
@@ -55,10 +59,10 @@ path_unshift "$HOME/.cargo/bin"
 path_unshift "$HOME/local/src/zig"
 if [ -v MSYSTEM ]; then
 	# msys
-    export MSYS=winsymlinks:nativestrict
-    export GHQ_ROOT=$HOME/ghq
+	export MSYS=winsymlinks:nativestrict
+	export GHQ_ROOT=$HOME/ghq
 	# path_push "/c/Python310/Scripts"
-    # path_push "$(cygpath $USERPROFILE)/.local/share/aquaproj-aqua/bin"
+	# path_push "$(cygpath $USERPROFILE)/.local/share/aquaproj-aqua/bin"
 	true
 else
 	if which powerline-shell >/dev/null 2>&1; then
@@ -351,6 +355,8 @@ nerdPS1() {
 	# TOPICCHANGE "blue"
 	# echo -n "$userName@$hostName"
 	# pwd
+	TOPICCHANGE $SYSTEM_COLOR
+	echo -e -n $ICON
 	TOPICCHANGE "green"
 	echo -e -n "$pwdInfo" #  nf-custom-folder フォルダアイコン
 
@@ -364,7 +370,7 @@ nerdPS1() {
 			# You Use Git
 			# local gitps1="$(__git_ps1)"
 			# if [[ $gitps1 =~ [*+?%] ]]; then
-			# 	TOPICCHANGE "yellow"
+			#   TOPICCHANGE "yellow"
 			# else
 			TOPICCHANGE "gray"
 			# fi
@@ -374,4 +380,4 @@ nerdPS1() {
 	TOPICCHANGE "reset" # 忘れずに
 }
 
-PS1=${ICON}$(nerdPS1 '\u' '\h' `pwd`)'\n\$ '
+PS1=$(nerdPS1 '\u' '\h' $(pwd))'\n\$ '
