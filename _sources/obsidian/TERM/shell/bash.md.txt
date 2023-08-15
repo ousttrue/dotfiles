@@ -6,6 +6,7 @@
 ## 4.4
 ## 4.2
 
+
 # prompt
 [[NerdFont]]
 - @2020 [bashプロンプトの表示をNerdfontsで格好良くする - Qiita](https://qiita.com/GunseiKPaseri/items/e594c8e261905e3d0281)
@@ -45,3 +46,8 @@ fi
 
 # formatter
 - shfmt
+- [Shell のコーディングに便利な shellcheck/shfmt の紹介｜NAVITIME_Tech](https://note.com/navitime_tech/n/n0675e103bafa)
+
+# script
+## comparison
+
