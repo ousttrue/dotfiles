@@ -7,6 +7,7 @@ function M.setup()
   -- set {
   --   PROMPT = "$P",
   -- }
+
   function nyagos.alias.addhere()
     local here = nyagos.getenv "CD"
     nyagos.envadd("PATH", here)
@@ -63,7 +64,10 @@ function M.setup()
     for i, arg in ipairs(args) do
       cmd = cmd .. " " .. arg
     end
-    nyagos.exec(cmd)
+    return nyagos.exec(cmd)
+  end
+  function nyagos.alias.v(args)
+    return nyagos.alias.nvim(args)
   end
 
   local function search_history(this, is_prev)
@@ -161,6 +165,7 @@ function M.setup()
   end
   nyagos.envadd("PATH", "~/.cargo/bin")
   nyagos.envadd("PATH", "~/local/bin")
+  nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
 
   nyagos.complete_for.git = require("completion_git").complete_for
 
