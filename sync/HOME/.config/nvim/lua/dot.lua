@@ -5,6 +5,7 @@ local function get_system()
     return "wsl"
   elseif vim.fn.has "win64" ~= 0 then
     if vim.env.MSYSTEM then
+      vim.opt.shellcmdflag = "-c"
       return string.lower(vim.env.MSYSTEM)
     else
       return "windows"
@@ -115,6 +116,7 @@ local langs = {
   "lua",
   "c_sharp",
   "python",
+  "go",
 }
 local hl = {
   -- keyword
@@ -159,31 +161,6 @@ local hl = {
 }
 
 function M.extend_hl_ts()
-  -- -- Statement: keyword: if end function local
-  -- vim.api.nvim_set_hl(0, "@storageclass.c", { link = "Statement" })
-  -- vim.api.nvim_set_hl(0, "@builtin.c", { link = "Statement" })
-  -- vim.api.nvim_set_hl(0, "@builtin.cpp", { link = "Statement" })
-  -- -- type
-  -- vim.api.nvim_set_hl(0, "@type.qualifier.c", { link = "Constant" })
-  -- vim.api.nvim_set_hl(0, "@type.builtin.c", { link = "Constant" })
-  -- vim.api.nvim_set_hl(0, "@type.builtin.cpp", { link = "Constant" })
-  -- vim.api.nvim_set_hl(0, "@type.c", { link = "Constant" })
-  -- vim.api.nvim_set_hl(0, "@type.cpp", { link = "Constant" })
-  -- vim.api.nvim_set_hl(0, "@namespace.cpp", { link = "Constant" })
-  -- -- literal
-  -- vim.api.nvim_set_hl(0, "@constant.builtin.lua", { link = "String" })
-  -- vim.api.nvim_set_hl(0, "@constant.builtin.c", { link = "String" })
-  -- vim.api.nvim_set_hl(0, "@constant.builtin.cpp", { link = "String" })
-  -- vim.api.nvim_set_hl(0, "@constant.c", { link = "String" })
-  -- vim.api.nvim_set_hl(0, "@constant.cpp", { link = "String" })
-  -- -- func
-  -- vim.api.nvim_set_hl(0, "@function.builtin.lua", { link = "Function" })
-  -- vim.api.nvim_set_hl(0, "@constructor.cpp", { link = "Function" })
-  --
-  -- -- field
-  -- vim.api.nvim_set_hl(0, "@field.lua", { link = "Special" })
-  -- vim.api.nvim_set_hl(0, "@field.cpp", { link = "Special" })
-  -- vim.api.nvim_set_hl(0, "@property.cpp", { link = "Special" })
   for i, lang in ipairs(langs) do
     for k, v in pairs(hl) do
       for j, cap in ipairs(v) do
@@ -296,17 +273,30 @@ function M.header()
     ]]
   else
     return [[
-          ▀████▀▄▄              ▄█ 
-            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ 
-    ▄        █          ▀▀▀▀▄  ▄▀  
-   ▄▀ ▀▄      ▀▄              ▀▄▀  
-  ▄▀    █     █▀   ▄█▀▄      ▄█    
-  ▀▄     ▀▄  █     ▀██▀     ██▄█   
-   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  
-    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  
-   █   █  █      ▄▄           ▄▀   ]]
+         ,_---~~~~~----._         
+  _,,_,*^____      _____``*g*\"*, 
+ / __/ /'     ^.  /      \ ^@q   f 
+[  @f | @))    |  | @))   l  0 _/  
+ \`/   \~____ / __ \_____/    \   
+  |           _l__l_           I   
+  }          [______]           I  
+  ]            | | |            |  
+  ]             ~ ~             |  
+  |                            |   
+   |                           |   
+]]
   end
 end
+--   return [[
+--         ▀████▀▄▄              ▄█
+--           █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█
+--   ▄        █          ▀▀▀▀▄  ▄▀
+--  ▄▀ ▀▄      ▀▄              ▀▄▀
+-- ▄▀    █     █▀   ▄█▀▄      ▄█
+-- ▀▄     ▀▄  █     ▀██▀     ██▄█
+--  ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █
+--   █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀
+--  █   █  █      ▄▄           ▄▀   ]]
 
 function M.footer()
   return string.format("%s %s", sys, vim.inspect(vim.version()))

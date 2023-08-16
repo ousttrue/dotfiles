@@ -90,3 +90,12 @@ $ cmake --install --prefix $HOME/local
 ## filetypes
 [[cpp]] [[lua]]
 [[json]] [[toml]]
+
+# MSYS
+- [mintty TUI · Issue #6751 · neovim/neovim · GitHub](https://github.com/neovim/neovim/issues/6751)
+
+```
+/usr/bin/bash: /s: No such file or directory
+
+shell returned 127
+```

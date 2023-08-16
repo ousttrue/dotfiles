@@ -48,10 +48,14 @@
 ```
 
 ## language-server
+[GitHub - ocaml/ocaml-lsp: OCaml Language Server Protocol implementation](https://github.com/ocaml/ocaml-lsp)
 
 ```
 > opam install ocaml-lsp-server
 ```
+
+## msys
+[OCaml on MSYS2 · GitHub](https://gist.github.com/mnxn/93009346c1bd56f387daf28413152179)
 
 # esy
 package manager

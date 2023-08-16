@@ -1,10 +1,20 @@
-[[nvim_golang]]
-[[golang_tui]]
+[[nvim_golang]] [[golang_tui]]
 
 - [Go by Example](https://oohira.github.io/gobyexample-jp/)
 - [つきなみGo 記事一覧 | gihyo.jp](https://gihyo.jp/list/group/%E3%81%A4%E3%81%8D%E3%81%AA%E3%81%BFGo#rt:/article/2022/08/tukinami-go-01)
 - [Tutorials - The Go Programming Language](https://go.dev/doc/tutorial/)
+
+# ToDo
+- filer
+- dap
+- lsp
+- browser
+- dotmanager
+
 # Version
+## 1.21
+@2023
+- [Go 1.21連載始まります＆slogをどう使うべきか | フューチャー技術ブログ](https://future-architect.github.io/articles/20230731a/)
 ## 1.20
 ## 1.19
 @2022
@@ -89,3 +99,9 @@ go env -w GOPROXY=direct
 ```
 go env -w GOSUMDB=off
 ```
+
+# AST
+- [Goの抽象構文木（AST）でBoilerplate Codeを自動生成する | メルカリエンジニアリング](https://engineering.mercari.com/blog/entry/20221219-cf1e076c7c/)
+- [go言語でASTの解析にgo/typesの機能を使うことの威力について - podhmo's diary](https://pod.hatenablog.com/entry/2018/04/08/204907)
+- [GoのAST全部見る - ***の日記](https://monpoke1.hatenablog.com/entry/2018/12/16/110943)
+

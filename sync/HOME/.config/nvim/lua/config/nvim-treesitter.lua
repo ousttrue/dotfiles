@@ -18,6 +18,7 @@ function M.setup()
       "c_sharp",
       "toml",
       "nu",
+      "go",
 
       "typescript",
       "javascript",

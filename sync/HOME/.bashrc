@@ -2,6 +2,13 @@
 # ~/.bashrc
 #
 if [ -v MSYSTEM ]; then
+
+	XDG_DATA_HOME=$HOME/.local/share
+	XDG_CONFIG_HOME=$HOME/.config
+	XDG_MUSIC_DIR=$HOME//home/oustt/Music
+	XDG_CACHE_HOME=$HOME/.cache
+	XDG_STATE_HOME=$HOME/.local/state
+
 	if grep -qi msys2 /etc/os-release >/dev/null 2>&1; then
 		PLATFORM=$MSYSTEM
 		if [[ $MSYSTEM == "MSYS" ]]; then
@@ -33,9 +40,9 @@ else
 fi
 
 if [ -v LANG ]; then
-    true
+	true
 else
-    export LANG="C.UTF-8"
+	export LANG="C.UTF-8"
 fi
 
 # https://qiita.com/s_h_i_g_e_chan/items/e31920a767589359ea4c
