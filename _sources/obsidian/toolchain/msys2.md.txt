@@ -144,3 +144,6 @@ set t_Co=256
 ```
 gcc -E -dM -
 ```
+
+# clipboard
+- [MSYSで標準出力をクリップボードにコピー - プログラムdeタマゴ](https://nodamushi.hatenablog.com/entry/2018/01/12/195253)

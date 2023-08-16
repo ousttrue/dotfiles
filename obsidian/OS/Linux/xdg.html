@@ -226,6 +226,20 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">XDG_CACHE_HOME</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">~/.cache</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">XDG_DATA_HOME</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">~/.local/share</span></code></p></li>
 </ul>
+<section id="share">
+<h2>share<a class="headerlink" href="#share" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Note that 'D:/msys64/mingw64/share' is not in the search path
+set by the XDG_DATA_HOME and XDG_DATA_DIRS
+environment variables, so applications may not
+be able to find it until you set them. The
+directories currently searched are:</p>
+<ul class="simple">
+<li><p>C:$HOME/.local/share</p></li>
+<li><p>D:/msys64/mingw64/share/</p></li>
+<li><p>D:/msys64/usr/local/share/</p></li>
+<li><p>D:/msys64/usr/share/</p></li>
+</ul>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="desktop">
 <h1>desktop<a class="headerlink" href="#desktop" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -294,7 +308,10 @@ OpenBox ookisugiru icon</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">config</a></li>
+<li><a class="reference internal" href="#">config</a><ul>
+<li><a class="reference internal" href="#share">share</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#desktop">desktop</a><ul>
 <li><a class="reference internal" href="#application-icon">application icon</a></li>
 </ul>

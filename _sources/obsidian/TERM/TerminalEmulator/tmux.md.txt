@@ -13,3 +13,7 @@ bind C-l send-prefix
 
 # powerline
 - [【tmux】Powerlineでステータスバーをカスタマイズ | amateur engineer's blog](https://amateur-engineer-blog.com/tmux-powerline/)
+
+# copy-command
+`3.2`
+- [tmux の コピペ と クリップボード - Qiita](https://qiita.com/mnishiguchi/items/b8526fecd69aa87d2f7e)
