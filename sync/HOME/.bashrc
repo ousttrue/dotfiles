@@ -32,6 +32,12 @@ else
 	fi
 fi
 
+if [ -v LANG ]; then
+    true
+else
+    export LANG="C.UTF-8"
+fi
+
 # https://qiita.com/s_h_i_g_e_chan/items/e31920a767589359ea4c
 path_unshift() {
 	[ ! -d $1 ] || [ -z "${PATH##*$1*}" ] || export PATH=$1:$PATH
