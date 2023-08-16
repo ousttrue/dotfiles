@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Script - shell note ドキュメント</title>
+        <title>languager server - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -218,122 +218,21 @@
           </label>
         </div>
         <article role="main">
-          <p>#blue</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">zig</span><span class="p">]]</span> <span class="o">+</span> <span class="p">[[</span><span class="n">OpenGL</span><span class="p">]]</span> <span class="o">+</span> <span class="p">[[</span><span class="n">wasm</span><span class="p">]]</span>
-<span class="p">[[</span><span class="n">python</span><span class="p">]]</span> <span class="o">+</span> <span class="p">[[</span><span class="n">flask</span><span class="p">]]</span> <span class="o">+</span> <span class="p">[[</span><span class="n">Leaflet</span><span class="p">]]</span>
+          <p><a class="reference external" href="https://midoliy.com/content/fsharp/index.html">F#リファレンス</a>
+<a class="reference external" href="https://dotnet.microsoft.com/ja-jp/learn/languages/fsharp-hello-world-tutorial/create">F# チュートリアル |.NET | Hello World を 5 分で</a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="languager-server">
+<h1>languager server<a class="headerlink" href="#languager-server" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">dot6?</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dotnet</span> <span class="n">new</span> <span class="n">console</span> <span class="o">-</span><span class="n">lang</span> <span class="n">F</span><span class="c1"># -o MyFSharpApp -f net6.0</span>
 </pre></div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="script">
-<h1>Script<a class="headerlink" href="#script" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>[[lsp]]</p></li>
-<li><p>[[dap]]</p></li>
-<li><p>syntax highlight</p></li>
-<li><p>formatter</p></li>
-<li><p>[[libffi]]</p></li>
-</ul>
+<p>@202308 7.0だと動かない</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="console">
-<h1>Console<a class="headerlink" href="#console" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="formatter">
+<h1>formatter<a class="headerlink" href="#formatter" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>asio IO</p></li>
-<li><p>kilo</p></li>
-<li><p>mtm</p></li>
-<li><p>vt100util</p></li>
-<li><p>libvterm</p></li>
+<li><p><a class="reference external" href="https://github.com/fsprojects/fantomas">GitHub - fsprojects/fantomas: FSharp source code formatter</a></p></li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="openxr-renderer">
-<h1>OpenXR renderer<a class="headerlink" href="#openxr-renderer" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[OpenXR]]
-[[lua]] scripting
-[[Android]]
-[[HandTracking]]</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="update">
-<h1>Update<a class="headerlink" href="#update" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/ousttrue/items/6ffc9625c715a85dd3c4">pysdl2やってみる - Qiita</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="pyspout">
-<h1>PySpout<a class="headerlink" href="#pyspout" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>TimerRecorder</p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="pygtk4">
-<h1>PyGtk4<a class="headerlink" href="#pygtk4" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>cairo</p></li>
-<li><p>pygobject(-Dtests=false)</p></li>
-<li><p>gtk(-Dmedisa-gstreamer=disabled, -Dbuild-tests=false)</p></li>
-<li><p>gstreamer</p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="gtk-install-order">
-<h1>GTK install order<a class="headerlink" href="#gtk-install-order" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>gobject-introspection (-Dbuild_introspection_data=false)
--- gir &amp; typelib を使う環境ができる</p></li>
-<li><p>gobject-introspection (LIB=c:/gnome/lib)</p></li>
-<li><p>gtk(-Dmedisa-gstreamer=disabled, -Dbuild-tests=false)
-fix fontconfig symlink</p></li>
-<li><p>pygobject(-Dtests=false)</p></li>
-<li><p>gstreamer(with gir)</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stream</span>
-<span class="o">-</span> <span class="n">Unity</span>
-<span class="o">-</span> <span class="p">[[</span><span class="n">spout</span><span class="p">]]</span>
-<span class="o">-</span> <span class="p">[[</span><span class="n">gst</span><span class="o">-</span><span class="n">python</span><span class="p">]]</span> 
-
-<span class="c1"># QuestPro</span>
-
-<span class="c1">## avatar tracker</span>
-<span class="p">[[</span><span class="n">OSC</span><span class="p">]]</span>
-<span class="o">-</span> <span class="n">body</span> <span class="n">tracking</span>
-<span class="o">-</span> <span class="n">hand</span> <span class="n">tracking</span>
-<span class="o">-</span> <span class="n">eye</span> <span class="n">tracking</span>
-<span class="o">-</span> <span class="n">facial</span> <span class="n">tracking</span>
-<span class="o">-</span> <span class="n">osc</span> <span class="n">sender</span>
-<span class="o">-</span> <span class="n">local</span> <span class="n">mirror</span> <span class="n">renderer</span>
-
-<span class="c1">## avatracker receiver</span>
-<span class="o">-</span> <span class="n">osc</span> <span class="n">renceiver</span>
-<span class="o">-</span> <span class="n">renderer</span>
-<span class="o">-</span> <span class="p">[[</span><span class="n">spout</span><span class="p">]]</span>
-
-<span class="c1">## MRWorkSpace</span>
-<span class="o">-</span> <span class="k">pass</span> <span class="n">through</span>
-<span class="o">-</span> <span class="n">spacial</span> <span class="n">anchor</span>
-
-<span class="c1"># SceneServer</span>
-<span class="o">-</span> <span class="n">SpacialAnchor</span>
-<span class="o">-</span> <span class="n">Scene</span>
-
-<span class="c1"># [[neovim|nvim]]</span>
-<span class="c1">## [[vim_plugins]]</span>
-<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">project</span> <span class="n">単位の設定</span>
-
-<span class="c1"># [[lsp]]</span>
-<span class="c1">## [[nvim]]</span>
-<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="p">[[</span><span class="n">nvim</span><span class="p">]]</span> <span class="n">lsp</span><span class="p">:</span> <span class="n">symbol</span> <span class="n">debug</span><span class="o">.</span> <span class="nb">range</span>
-<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">winbar</span> <span class="n">debug</span>
-
-<span class="c1">## [[zig]]</span>
-<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="nb">type</span> <span class="n">を返す関数</span>
-<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">ponter型の</span> <span class="n">payload</span>
-<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">index</span> <span class="nb">type</span>
-<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">OpenGL</span> <span class="n">parse</span> <span class="n">code</span> <span class="n">生成</span>
-
-<span class="c1"># w3m</span>
-<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">push</span> <span class="n">時のキャッシュ挙動</span>
-
-<span class="c1"># [[tui]]</span>
-<span class="o">-</span> <span class="p">[</span><span class="n">GitHub</span> <span class="o">-</span> <span class="n">afify</span><span class="o">/</span><span class="n">sfm</span><span class="p">:</span> <span class="n">simple</span> <span class="n">file</span> <span class="n">manager</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">afify</span><span class="o">/</span><span class="n">sfm</span><span class="p">)</span>
-<span class="o">-</span> <span class="n">yazls</span> <span class="n">のデバッグツール作りたい</span>
-</pre></div>
-</div>
 </section>
 
         </article>
@@ -349,7 +248,7 @@ fix fontconfig symlink</p></li>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/todo.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/fsharp.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -369,13 +268,8 @@ fix fontconfig symlink</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Script</a></li>
-<li><a class="reference internal" href="#console">Console</a></li>
-<li><a class="reference internal" href="#openxr-renderer">OpenXR renderer</a></li>
-<li><a class="reference internal" href="#update">Update</a></li>
-<li><a class="reference internal" href="#pyspout">PySpout</a></li>
-<li><a class="reference internal" href="#pygtk4">PyGtk4</a></li>
-<li><a class="reference internal" href="#gtk-install-order">GTK install order</a></li>
+<li><a class="reference internal" href="#">languager server</a></li>
+<li><a class="reference internal" href="#formatter">formatter</a></li>
 </ul>
 
           </div>
