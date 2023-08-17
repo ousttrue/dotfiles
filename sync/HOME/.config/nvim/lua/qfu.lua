@@ -8,14 +8,14 @@ local icon = {
 
 local error_formats = {
   "%Dninja: Entering directory `%f'",
-  "%f:%l:%c: %t%*[^:]: %m,%Eld%.lld: %trror: undefined symbol: %m%n",
+  "%Eld%.lld: %t[^:]: undefined symbol: %m%n",
+  "%f:%l:%c: %t%*[^:]: %m",
   "%N>>> referenced by %s (%f:%l)Tn",
   "%N>>> %m,%f(%l): %t%*[^ ] C%n: %m",
   "%f(%l): fatal %t%*[^ ] C%n: %m",
   "%f(%l): %t%*[^ ] %m",
   "%*[^ ] : %t%*[^ ] LNK%n: %m",
 }
--- libtokorotenmesh.a(tokoroten_mesh.cpp.obj) : error LNK2019: 未解決の外部シンボル "public: class std::shared_ptr<struct tokoroten::Mesh> __cdecl tokoroten::TokorotenMesh::CreateMesh(void)" (?CreateMesh@TokorotenMesh@tokoroten@@QEAA?AV?$shared_ptr@UMesh@tokoroten@@@std@@XZ) が関数 "public: static class std::shared_ptr<struct tokoroten::TokorotenMesh> __cdecl tokoroten::TokorotenMesh::Load(struct gltfjson::Root const &,struct gltfjson::Bin const &)" (?Load@TokorotenMesh@tokoroten@@SA?AV?$shared_ptr@UTokorotenMesh@tokoroten@@@std@@AEBURoot@gltfjson@@AEBUBin@6@@Z) で参照されました
 
 M.qflist = {
   title = "--",
@@ -29,9 +29,11 @@ M.status = ""
 local function to_utf8(str)
   return str
 end
-if vim.fn.has "win32" == 1 then
-  local dot = require "dot_win32"
-  to_utf8 = dot.to_utf8
+
+local dot = require "dot"
+if dot.get_system() == "windows" then
+  local dot_win32 = require "dot_win32"
+  to_utf8 = dot_win32.to_utf8
 end
 
 function M.async_make()

@@ -1,0 +1,11 @@
+[wrap-file]
+directory = tmux-3.3a
+source_url = https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
+source_filename = tmux-3.3a.tar.gz
+source_hash = e4fd347843bd0772c4f48d6dde625b0b109b7a380ff15db21e97c11a4dcdf93f
+
+patch_directory = tmux
+diff_files = patches/inherit-msystem-var.patch, patches/msys-platform.patch, patches/no-check-dirs-permission.patch
+
+[provide]
+tmux = tmux_dep

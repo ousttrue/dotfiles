@@ -1,0 +1,5 @@
+/prefix/
+/subprojects/*
+!/subprojects/packagefiles
+!/subprojects/tmux.wrap
+
