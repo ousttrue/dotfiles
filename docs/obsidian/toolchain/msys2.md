@@ -12,20 +12,56 @@ EXTFAT あかん w
 - @2016 [MSYS2で快適なターミナル生活 - Qiita](https://qiita.com/Ted-HM/items/4f2feb9fdacb6c72083c)
 
 # MSYSTEM
-## msys
-[[TerminalEmulator|console]] アプリはこれで入れるべし
-- @2018 [MSYS2 環境に Go言語(golang) をインストール - takaya030の備忘録](https://takaya030.hatenablog.com/entry/2018/01/18/230105)
-## ucrt
-- [msys2でucrtのランタイムを使おう！ようこそucrt64 - Qiita](https://qiita.com/yumetodo/items/d849a6dcf08e0435f815)
-## clang
-- [Msys2のclangを9.0から12.0に更新する | うどんコード](https://udon.little-pear.net/msys2-clang-update-from9-to12/)
-
-# pty
+- [Environments - MSYS2](https://www.msys2.org/docs/environments/)
+## /msys2.ini
+```
+#MSYS=winsymlinks:nativestrict
+#MSYS=error_start:mingw64/bin/qtcreator.exe|-debug|<process-id>
+#CHERE_INVOKING=1
+#MSYS2_PATH_TYPE=inherit
+MSYSTEM=MSYS
+```
+### pty
 [[git_for_windows]]
 ```
 MSYS=enable_pcon
 ```
 
+## msys
+- @2018 [MSYS2 環境に Go言語(golang) をインストール - takaya030の備忘録](https://takaya030.hatenablog.com/entry/2018/01/18/230105)
+```
+msys2.exe   --> msys2_shell.cmd -msys  
+```
+
+### APPS
+[[TerminalEmulator|console]] アプリはこれで入れるべし
+```
+MSYS=winsymlinks:nativestrict
+```
+`winpty` ?
+- bash-5.2
+- tmux-3.3
+- w3m
+- sixel ?
+- vim
+
+- nvim はビルドできない(luajit)
+
+## ucrt
+- [msys2でucrtのランタイムを使おう！ようこそucrt64 - Qiita](https://qiita.com/yumetodo/items/d849a6dcf08e0435f815)
+
+## clang64
+- [Msys2のclangを9.0から12.0に更新する | うどんコード](https://udon.little-pear.net/msys2-clang-update-from9-to12/)
+`MSYSTEM=CLANG64`
+
+## MINGW64
+	- mingw-w64-x86_64-toolchain
+	- `C:\msys64\mingw64`
+```
+mingw64.exe --> msys2_shell.cmd -mingw64  
+mingw-w64-x86_64-toolchain
+```
+ 
 # first
 ```sh
 $ pacman -S vim git tmux
@@ -35,7 +71,7 @@ $ pacman -S vim git tmux
 ```sh
 $ vim /etc/pacman.conf
 ```
-`ucrt64` で行こう
+
 ```
 #[clangarm64]
 #Include = /etc/pacman.d/mirrorlist.mingw
@@ -43,11 +79,11 @@ $ vim /etc/pacman.conf
 #[mingw32]
 #Include = /etc/pacman.d/mirrorlist.mingw
 
-#[mingw64]
-#Include = /etc/pacman.d/mirrorlist.mingw
-
-[ucrt64]
+[mingw64]
 Include = /etc/pacman.d/mirrorlist.mingw
+
+#[ucrt64]
+#Include = /etc/pacman.d/mirrorlist.mingw
 
 #[clang32]
 #Include = /etc/pacman.d/mirrorlist.mingw
@@ -63,27 +99,6 @@ Include = /etc/pacman.d/mirrorlist.msys
 $ pacman -Syu
 ```
 
-## MSYSTEM=msys で運用
-- msys gcc をデフォルト
-- ucrt clang を meson 開発に使う
-
-# second
-## pacman
-```
-$ pacman -S gcc unzip make cmake
-```
-
-## pip
-
-## go
-### ghq
-### fzf
-### pacseek
-### nyagos
-
-## rust
-### zoxide
-
 # fstab
 ```
 # /etc/fstab
@@ -91,58 +106,6 @@ $ pacman -S gcc unzip make cmake
 none / cygdrive binary,posix=0,noacl,user 0 0
 
 C:/Users /home
-```
-
-
-# $MSYSTEM
-- [Environments - MSYS2](https://www.msys2.org/docs/environments/)
-- MSYS
-- MINGW64
-	- mingw-w64-x86_64-toolchain
-	- `C:\msys64\mingw64`
-- MINGW32
-	- mingw-w64-i686-toolchain
-- Clang32
-- Clang64
-- Ucrt64
-`MSYSTEM=CLANG64`
-```
-msys2.exe   --> msys2_shell.cmd -msys  
-mingw64.exe --> msys2_shell.cmd -mingw64  
-mingw32.exe --> msys2_shell.cmd -mingw32
-```
-## toolchain
-```
-mingw-w64-x86_64-toolchain
-```
-
-## /clang64.ini
-```
-MSYS=winsymlinks:nativestrict
-```
-
-## /msys2.ini
-```
-#MSYS=winsymlinks:nativestrict
-#MSYS=error_start:mingw64/bin/qtcreator.exe|-debug|<process-id>
-#CHERE_INVOKING=1
-#MSYS2_PATH_TYPE=inherit
-MSYSTEM=MSYS
-```
-
-# pacman
-[[pacman]]
-
-# vim
-```vim
-".vimrc
-set background=dark
-set t_Co=256
-```
-
-# macro
-```
-gcc -E -dM -
 ```
 
 # clipboard
@@ -160,5 +123,3 @@ gcc -E -dM -
 
 ### tmux
 - [.tmux.conf · GitHub](https://gist.github.com/disktnk/2075bc74fbc5f079657d742b808e2993)
-
-

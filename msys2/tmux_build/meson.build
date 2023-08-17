@@ -9,6 +9,6 @@ tmux_dep = dependency('tmux')
 executable(
     'dummy',
     'main.cpp',
-    install: true,
+    # install: true,
     dependencies: [tmux_dep],
 )

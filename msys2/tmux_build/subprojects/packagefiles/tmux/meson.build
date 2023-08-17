@@ -23,8 +23,13 @@ project(
 
 libevent_dep = dependency('libevent')
 ncurses_dep = dependency('ncursesw')
+libutf8proc_dep = dependency('libutf8proc')
 tmux_inc = include_directories('.')
-tmux_deps = [libevent_dep, ncurses_dep]
+tmux_deps = [
+    libevent_dep,
+    ncurses_dep,
+    libutf8proc_dep,
+]
 tmux_args = [
     '-DNCURSES_WIDECHAR',
     '-DTMUX_VERSION="3.3a"',
@@ -89,6 +94,8 @@ tmux_args = [
     '-DHAVE_PROGRAM_INVOCATION_SHORT_NAME=1',
     '-DHAVE_SO_PEERCRED=1',
     '-DHAVE_PROC_PID=1',
+    #
+    '-DHAVE_UTF8PROC=1',
 ]
 
 tmux_lib = static_library(
@@ -268,6 +275,8 @@ tmux_lib = static_library(
         # 'etc/compile etc/config.guess etc/config.sub etc/depcomp',
         # 'etc/install-sh etc/missing etc/ylwrap',
         'fuzz/input-fuzzer.c',
+        #
+        'compat/utf8proc.c',
     ],
     implicit_include_directories: false,
     include_directories: tmux_inc,
