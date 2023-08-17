@@ -173,6 +173,7 @@ function M.extend_hl_ts()
       end
     end
   end
+  vim.api.nvim_set_hl(0, "@type.qualifier.c_sharp", { link = "Statement" })
 end
 
 function M.extend_hl()
@@ -197,6 +198,12 @@ function M.extend_hl()
   vim.api.nvim_set_hl(0, "LuaParentError", {})
   vim.api.nvim_set_hl(0, "markdownError", {})
   -- vim.api.nvim_set_hl(0, "ColorColumn", { link = "StatusLine" })
+
+  -- cs schemastore => polyglot
+  -- vim.api.nvim_set_hl(0, "csModifier", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "csStorage", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "csClass", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "csNull", { link = "String" })
 end
 
 function M.reload_hl()

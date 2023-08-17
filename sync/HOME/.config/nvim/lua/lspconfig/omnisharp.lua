@@ -26,7 +26,20 @@ end
 -- end
 --
 -- /ms-dotnettools.csharp-1.25.4-win32-x64/.omnisharp/1.39.4-net6.0/OmniSharp.dll",
-local function find_omni(dir)
+local function find_omni()
+  local home = dot.get_home()
+
+  local dir = ""
+  if dot.exists(home .. "/.vscode/extensions") then
+    dir = home .. "/.vscode/extensions"
+  elseif dot.exists(home .. "/.vscode-server/extensions") then
+    dir = home .. "/.vscode-server/extensions"
+  end
+
+  if #dir == 0 then
+    return "dir not found"
+  end
+
   -- print('find_omni', dir)
   for i, e in ipairs(enum_dir(dir)) do
     -- print(e)
@@ -34,12 +47,12 @@ local function find_omni(dir)
       local omnisharp_dir = dir .. "/" .. e .. "/.omnisharp"
       -- print(omnisharp_dir)
       for ii, ee in ipairs(enum_dir(omnisharp_dir)) do
-        return omnisharp_dir .. '/' .. ee .. '/OmniSharp.dll'
+        return omnisharp_dir .. "/" .. ee .. "/OmniSharp.dll"
       end
     end
   end
 
-  return 'OmniSharp.dll.not.found'
+  return "OmniSharp.dll.not.found"
 end
 -- print(string.match('ms-dotnettools.csharp-1.25.4-win32-x64', '^ms-dotnettools'))
 
@@ -47,7 +60,7 @@ function M.setup(lspconfig, capabilities, on_attach)
   lspconfig.omnisharp.setup {
     cmd = {
       "dotnet",
-      find_omni(dot.get_home() .. "/.vscode/extensions"),
+      find_omni(),
     },
     on_attach = function(client, bufnr)
       client.server_capabilities.semanticTokensProvider = {

@@ -19,7 +19,8 @@ function M.setup()
 
   require("lspconfig.lua_ls").setup(lspconfig, capabilities, on_attach)
   require("lspconfig.clangd").setup(lspconfig, capabilities, on_attach)
-  require("lspconfig.omnisharp").setup(lspconfig, capabilities, on_attach)
+  -- require("lspconfig.omnisharp").setup(lspconfig, capabilities, on_attach)
+  require("lspconfig").csharp_ls.setup {}
 
   lspconfig.gopls.setup {
     on_attach = on_attach,
@@ -60,14 +61,14 @@ function M.setup()
     capabilities = capabilities,
   }
 
-  lspconfig.jsonls.setup {
-    settings = {
-      json = {
-        schemas = require("schemastore").json.schemas(),
-        validate = { enable = true },
-      },
-    },
-  }
+  -- lspconfig.jsonls.setup {
+  --   settings = {
+  --     json = {
+  --       schemas = require("schemastore").json.schemas(),
+  --       validate = { enable = true },
+  --     },
+  --   },
+  -- }
 
   lspconfig.tsserver.setup {}
 
