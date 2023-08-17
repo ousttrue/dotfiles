@@ -231,12 +231,50 @@
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="msystem">
 <h1>MSYSTEM<a class="headerlink" href="#msystem" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.msys2.org/docs/environments/">Environments - MSYS2</a></p></li>
+</ul>
+<section id="msys2-ini">
+<h2>/msys2.ini<a class="headerlink" href="#msys2-ini" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#MSYS=winsymlinks:nativestrict</span>
+<span class="c1">#MSYS=error_start:mingw64/bin/qtcreator.exe|-debug|&lt;process-id&gt;</span>
+<span class="c1">#CHERE_INVOKING=1</span>
+<span class="c1">#MSYS2_PATH_TYPE=inherit</span>
+<span class="n">MSYSTEM</span><span class="o">=</span><span class="n">MSYS</span>
+</pre></div>
+</div>
+<section id="pty">
+<h3>pty<a class="headerlink" href="#pty" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>[[git_for_windows]]</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSYS</span><span class="o">=</span><span class="n">enable_pcon</span>
+</pre></div>
+</div>
+</section>
+</section>
 <section id="msys">
 <h2>msys<a class="headerlink" href="#msys" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[TerminalEmulator|console]] アプリはこれで入れるべし</p>
 <ul class="simple">
 <li><p>@2018 <a class="reference external" href="https://takaya030.hatenablog.com/entry/2018/01/18/230105">MSYS2 環境に Go言語(golang) をインストール - takaya030の備忘録</a></p></li>
 </ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msys2</span><span class="o">.</span><span class="n">exe</span>   <span class="o">--&gt;</span> <span class="n">msys2_shell</span><span class="o">.</span><span class="n">cmd</span> <span class="o">-</span><span class="n">msys</span>  
+</pre></div>
+</div>
+<section id="apps">
+<h3>APPS<a class="headerlink" href="#apps" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>[[TerminalEmulator|console]] アプリはこれで入れるべし</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSYS</span><span class="o">=</span><span class="n">winsymlinks</span><span class="p">:</span><span class="n">nativestrict</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">winpty</span></code> ?</p>
+<ul class="simple">
+<li><p>bash-5.2</p></li>
+<li><p>tmux-3.3</p></li>
+<li><p>w3m</p></li>
+<li><p>sixel ?</p></li>
+<li><p>vim</p></li>
+<li><p>nvim はビルドできない(luajit)</p></li>
+</ul>
+</section>
 </section>
 <section id="ucrt">
 <h2>ucrt<a class="headerlink" href="#ucrt" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -244,19 +282,24 @@
 <li><p><a class="reference external" href="https://qiita.com/yumetodo/items/d849a6dcf08e0435f815">msys2でucrtのランタイムを使おう！ようこそucrt64 - Qiita</a></p></li>
 </ul>
 </section>
-<section id="clang">
-<h2>clang<a class="headerlink" href="#clang" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="clang64">
+<h2>clang64<a class="headerlink" href="#clang64" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://udon.little-pear.net/msys2-clang-update-from9-to12/">Msys2のclangを9.0から12.0に更新する | うどんコード</a></p></li>
+<li><p><a class="reference external" href="https://udon.little-pear.net/msys2-clang-update-from9-to12/">Msys2のclangを9.0から12.0に更新する | うどんコード</a>
+<code class="docutils literal notranslate"><span class="pre">MSYSTEM=CLANG64</span></code></p></li>
 </ul>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="pty">
-<h1>pty<a class="headerlink" href="#pty" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[git_for_windows]]</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSYS</span><span class="o">=</span><span class="n">enable_pcon</span>
+<section id="mingw64">
+<h2>MINGW64<a class="headerlink" href="#mingw64" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- mingw-w64-x86_64-toolchain
+- `C:\msys64\mingw64`
 </pre></div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mingw64</span><span class="o">.</span><span class="n">exe</span> <span class="o">--&gt;</span> <span class="n">msys2_shell</span><span class="o">.</span><span class="n">cmd</span> <span class="o">-</span><span class="n">mingw64</span>  
+<span class="n">mingw</span><span class="o">-</span><span class="n">w64</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">toolchain</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="first">
 <h1>first<a class="headerlink" href="#first" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -268,18 +311,17 @@
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ vim /etc/pacman.conf
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">ucrt64</span></code> で行こう</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#[clangarm64]</span>
 <span class="c1">#Include = /etc/pacman.d/mirrorlist.mingw</span>
 
 <span class="c1">#[mingw32]</span>
 <span class="c1">#Include = /etc/pacman.d/mirrorlist.mingw</span>
 
-<span class="c1">#[mingw64]</span>
-<span class="c1">#Include = /etc/pacman.d/mirrorlist.mingw</span>
-
-<span class="p">[</span><span class="n">ucrt64</span><span class="p">]</span>
+<span class="p">[</span><span class="n">mingw64</span><span class="p">]</span>
 <span class="n">Include</span> <span class="o">=</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pacman</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">mirrorlist</span><span class="o">.</span><span class="n">mingw</span>
+
+<span class="c1">#[ucrt64]</span>
+<span class="c1">#Include = /etc/pacman.d/mirrorlist.mingw</span>
 
 <span class="c1">#[clang32]</span>
 <span class="c1">#Include = /etc/pacman.d/mirrorlist.mingw</span>
@@ -295,46 +337,6 @@
 </pre></div>
 </div>
 </section>
-<section id="msystem-msys">
-<h2>MSYSTEM=msys で運用<a class="headerlink" href="#msystem-msys" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>msys gcc をデフォルト</p></li>
-<li><p>ucrt clang を meson 開発に使う</p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="second">
-<h1>second<a class="headerlink" href="#second" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="pacman">
-<h2>pacman<a class="headerlink" href="#pacman" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pacman -S gcc unzip make cmake
-</pre></div>
-</div>
-</section>
-<section id="pip">
-<h2>pip<a class="headerlink" href="#pip" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="go">
-<h2>go<a class="headerlink" href="#go" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="ghq">
-<h3>ghq<a class="headerlink" href="#ghq" title="このヘッドラインへのパーマリンク">¶</a></h3>
-</section>
-<section id="fzf">
-<h3>fzf<a class="headerlink" href="#fzf" title="このヘッドラインへのパーマリンク">¶</a></h3>
-</section>
-<section id="pacseek">
-<h3>pacseek<a class="headerlink" href="#pacseek" title="このヘッドラインへのパーマリンク">¶</a></h3>
-</section>
-<section id="nyagos">
-<h3>nyagos<a class="headerlink" href="#nyagos" title="このヘッドラインへのパーマリンク">¶</a></h3>
-</section>
-</section>
-<section id="rust">
-<h2>rust<a class="headerlink" href="#rust" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="zoxide">
-<h3>zoxide<a class="headerlink" href="#zoxide" title="このヘッドラインへのパーマリンク">¶</a></h3>
-</section>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="fstab">
 <h1>fstab<a class="headerlink" href="#fstab" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -343,73 +345,6 @@
 <span class="n">none</span> <span class="o">/</span> <span class="n">cygdrive</span> <span class="n">binary</span><span class="p">,</span><span class="n">posix</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">noacl</span><span class="p">,</span><span class="n">user</span> <span class="mi">0</span> <span class="mi">0</span>
 
 <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span> <span class="o">/</span><span class="n">home</span>
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>$MSYSTEM<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.msys2.org/docs/environments/">Environments - MSYS2</a></p></li>
-<li><p>MSYS</p></li>
-<li><p>MINGW64</p>
-<ul>
-<li><p>mingw-w64-x86_64-toolchain</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">C:\msys64\mingw64</span></code></p></li>
-</ul>
-</li>
-<li><p>MINGW32</p>
-<ul>
-<li><p>mingw-w64-i686-toolchain</p></li>
-</ul>
-</li>
-<li><p>Clang32</p></li>
-<li><p>Clang64</p></li>
-<li><p>Ucrt64
-<code class="docutils literal notranslate"><span class="pre">MSYSTEM=CLANG64</span></code></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msys2</span><span class="o">.</span><span class="n">exe</span>   <span class="o">--&gt;</span> <span class="n">msys2_shell</span><span class="o">.</span><span class="n">cmd</span> <span class="o">-</span><span class="n">msys</span>  
-<span class="n">mingw64</span><span class="o">.</span><span class="n">exe</span> <span class="o">--&gt;</span> <span class="n">msys2_shell</span><span class="o">.</span><span class="n">cmd</span> <span class="o">-</span><span class="n">mingw64</span>  
-<span class="n">mingw32</span><span class="o">.</span><span class="n">exe</span> <span class="o">--&gt;</span> <span class="n">msys2_shell</span><span class="o">.</span><span class="n">cmd</span> <span class="o">-</span><span class="n">mingw32</span>
-</pre></div>
-</div>
-<section id="toolchain">
-<h2>toolchain<a class="headerlink" href="#toolchain" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mingw</span><span class="o">-</span><span class="n">w64</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">toolchain</span>
-</pre></div>
-</div>
-</section>
-<section id="clang64-ini">
-<h2>/clang64.ini<a class="headerlink" href="#clang64-ini" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSYS</span><span class="o">=</span><span class="n">winsymlinks</span><span class="p">:</span><span class="n">nativestrict</span>
-</pre></div>
-</div>
-</section>
-<section id="msys2-ini">
-<h2>/msys2.ini<a class="headerlink" href="#msys2-ini" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#MSYS=winsymlinks:nativestrict</span>
-<span class="c1">#MSYS=error_start:mingw64/bin/qtcreator.exe|-debug|&lt;process-id&gt;</span>
-<span class="c1">#CHERE_INVOKING=1</span>
-<span class="c1">#MSYS2_PATH_TYPE=inherit</span>
-<span class="n">MSYSTEM</span><span class="o">=</span><span class="n">MSYS</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>pacman<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[pacman]]</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="vim">
-<h1>vim<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="c">".vimrc</span>
-<span class="k">set</span> <span class="nb">background</span><span class="p">=</span><span class="nb">dark</span>
-<span class="k">set</span> <span class="nb">t_Co</span><span class="p">=</span><span class="m">256</span>
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="macro">
-<h1>macro<a class="headerlink" href="#macro" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span> <span class="o">-</span><span class="n">E</span> <span class="o">-</span><span class="n">dM</span> <span class="o">-</span>
 </pre></div>
 </div>
 </section>
@@ -478,43 +413,24 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">MSYSTEM</a><ul>
-<li><a class="reference internal" href="#msys">msys</a></li>
-<li><a class="reference internal" href="#ucrt">ucrt</a></li>
-<li><a class="reference internal" href="#clang">clang</a></li>
+<li><a class="reference internal" href="#msys2-ini">/msys2.ini</a><ul>
+<li><a class="reference internal" href="#pty">pty</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#pty">pty</a></li>
+<li><a class="reference internal" href="#msys">msys</a><ul>
+<li><a class="reference internal" href="#apps">APPS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ucrt">ucrt</a></li>
+<li><a class="reference internal" href="#clang64">clang64</a></li>
+<li><a class="reference internal" href="#mingw64">MINGW64</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#first">first</a><ul>
 <li><a class="reference internal" href="#etc-pacman-conf">/etc/pacman.conf</a></li>
-<li><a class="reference internal" href="#msystem-msys">MSYSTEM=msys で運用</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#second">second</a><ul>
-<li><a class="reference internal" href="#pacman">pacman</a></li>
-<li><a class="reference internal" href="#pip">pip</a></li>
-<li><a class="reference internal" href="#go">go</a><ul>
-<li><a class="reference internal" href="#ghq">ghq</a></li>
-<li><a class="reference internal" href="#fzf">fzf</a></li>
-<li><a class="reference internal" href="#pacseek">pacseek</a></li>
-<li><a class="reference internal" href="#nyagos">nyagos</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#rust">rust</a><ul>
-<li><a class="reference internal" href="#zoxide">zoxide</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#fstab">fstab</a></li>
-<li><a class="reference internal" href="#id1">$MSYSTEM</a><ul>
-<li><a class="reference internal" href="#toolchain">toolchain</a></li>
-<li><a class="reference internal" href="#clang64-ini">/clang64.ini</a></li>
-<li><a class="reference internal" href="#msys2-ini">/msys2.ini</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id2">pacman</a></li>
-<li><a class="reference internal" href="#vim">vim</a></li>
-<li><a class="reference internal" href="#macro">macro</a></li>
 <li><a class="reference internal" href="#clipboard">clipboard</a><ul>
 <li><a class="reference internal" href="#dev-clipboard">/dev/clipboard</a></li>
 <li><a class="reference internal" href="#win32yank">win32yank</a><ul>

@@ -361,12 +361,19 @@ $ cmake --install --prefix <span class="nv">$HOME</span>/local
 <h1>MSYS<a class="headerlink" href="#msys" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/neovim/neovim/issues/6751">mintty TUI · Issue #6751 · neovim/neovim · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://gist.github.com/equalsraf/efa3337718cd973de5713c3a84b10fc7">Neovim in Cygwin · GitHub</a></p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span><span class="p">:</span> <span class="o">/</span><span class="n">s</span><span class="p">:</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span>
 
 <span class="n">shell</span> <span class="n">returned</span> <span class="mi">127</span>
+
+<span class="o">&gt;</span> <span class="n">cmake</span> <span class="o">-</span><span class="n">S</span> <span class="n">cmake</span><span class="o">.</span><span class="n">deps</span> <span class="o">-</span><span class="n">B</span> <span class="o">.</span><span class="n">deps</span> <span class="o">-</span><span class="n">G</span> <span class="n">Ninja</span> <span class="o">-</span><span class="n">D</span> <span class="n">CMAKE_BUILD_TYPE</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="o">-</span><span class="n">D</span> <span class="n">CMAKE_INSTALL_PREFIX</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span> <span class="o">-</span><span class="n">DUSE_BUNDLED_LUAJIT</span><span class="o">=</span><span class="n">off</span> <span class="o">-</span><span class="n">DUSE_BUNDLED_LUA</span><span class="o">=</span><span class="n">on</span>
+
+<span class="o">&gt;</span> <span class="n">cmake</span> <span class="o">-</span><span class="n">S</span> <span class="o">.</span> <span class="o">-</span><span class="n">B</span> <span class="n">build</span> <span class="o">-</span><span class="n">G</span> <span class="n">Ninja</span> <span class="o">-</span><span class="n">D</span> <span class="n">CMAKE_BUILD_TYPE</span><span class="o">=</span><span class="n">Release</span> <span class="o">-</span><span class="n">D</span> <span class="n">CMAKE_INSTALL_PREFIX</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span> <span class="o">-</span><span class="n">DPREFER_LUA</span><span class="o">=</span><span class="n">on</span>
 </pre></div>
 </div>
+<p>treesitter のソース解凍に失敗する問題</p>
+<p>lua link</p>
 </section>
 
         </article>
