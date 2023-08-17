@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>.tmux.conf - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -219,6 +219,34 @@
         </div>
         <article role="main">
           <p>[[NerdFont]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="a">
+<h2>3.3a<a class="headerlink" href="#a" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id1">
+<h2>3.2<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># utf8proc</span>
+<span class="n">make</span> <span class="n">PREFIX</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span>
+<span class="c1"># tmux-3.2</span>
+<span class="n">export</span> <span class="n">PKG_CONFIG_PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">pkgconfig</span>
+<span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">utf8proc</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/21647840/ac-search-libs-on-a-static-library-that-itself-has-dependencies">c - AC_SEARCH_LIBS on a static library that itself has dependencies? - Stack Overflow</a></p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>2.6<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/z80oolong/tmux-eaw-fix">GitHub - z80oolong/tmux-eaw-fix: tmux 2.6 以降において East Asian Ambiguous Character を全角文字の幅で表示する</a></p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>2.0<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="tmux-conf">
 <h1>.tmux.conf<a class="headerlink" href="#tmux-conf" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-.tmux.conf notranslate"><div class="highlight"><pre><span></span>unbind C-b
@@ -226,6 +254,12 @@ set -g prefix C-l
 bind C-l send-prefix
 </pre></div>
 </div>
+<section id="set">
+<h2>set<a class="headerlink" href="#set" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://yanor.net/wiki/?UNIX/tmux/set-option%E3%81%AE-g%E3%81%A8-s%E3%81%A8-w%E3%81%A8set-window-option">UNIX/tmux/set-optionの-gと-sと-wとset-window-option - yanor.net/wiki</a></p></li>
+</ul>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="vim">
 <h1>vim<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -244,6 +278,12 @@ bind C-l send-prefix
 <p><code class="docutils literal notranslate"><span class="pre">3.2</span></code></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://qiita.com/mnishiguchi/items/b8526fecd69aa87d2f7e">tmux の コピペ と クリップボード - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="git">
+<h1>git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/arks22/items/db8eb6a14223ce29219a">tmuxのペインのステータスラインにgitのブランチとかディレクトリとか表示する(プロンプトはもう古い) - Qiita</a></p></li>
 </ul>
 </section>
 
@@ -280,10 +320,21 @@ bind C-l send-prefix
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">.tmux.conf</a></li>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#a">3.3a</a></li>
+<li><a class="reference internal" href="#id1">3.2</a></li>
+<li><a class="reference internal" href="#id2">2.6</a></li>
+<li><a class="reference internal" href="#id3">2.0</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tmux-conf">.tmux.conf</a><ul>
+<li><a class="reference internal" href="#set">set</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#vim">vim</a></li>
 <li><a class="reference internal" href="#powerline">powerline</a></li>
 <li><a class="reference internal" href="#copy-command">copy-command</a></li>
+<li><a class="reference internal" href="#git">git</a></li>
 </ul>
 
           </div>

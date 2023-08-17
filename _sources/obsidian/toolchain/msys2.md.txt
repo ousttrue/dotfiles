@@ -147,3 +147,18 @@ gcc -E -dM -
 
 # clipboard
 - [MSYSで標準出力をクリップボードにコピー - プログラムdeタマゴ](https://nodamushi.hatenablog.com/entry/2018/01/12/195253)
+
+## /dev/clipboard
+- [MSYS2環境でtmuxとクリップボードの共有 - Qiita](https://qiita.com/hiratara/items/28cecb8b94dc83270dbc)
+## win32yank
+- [GitHub - equalsraf/win32yank: Windows clipboard tool](https://github.com/equalsraf/win32yank)
+- [WSL vim/neovimとwin32yankの設定 - Qiita](https://qiita.com/tMinamiii/items/0c6589806090c7fc3f8a)
+- [Neovim on WSL2で、win32yankを導入してクリップボードの共有と遅延問題を解決](https://zenn.dev/shoseisan/articles/d7565884f5846b)
+
+### patch
+[Index of /msys/sources/](https://repo.msys2.org/msys/sources/)
+
+### tmux
+- [.tmux.conf · GitHub](https://gist.github.com/disktnk/2075bc74fbc5f079657d742b808e2993)
+
+

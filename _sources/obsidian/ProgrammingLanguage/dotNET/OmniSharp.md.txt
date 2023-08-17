@@ -16,3 +16,7 @@
 dotnet_diagnostic.IDE0007.severity = none
 dotnet_diagnostic.IDE0008.severity = none
 ```
+
+# CSharp Dev Kit
+`omnisharp 後継？`
+- [C# Dev Kit - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
