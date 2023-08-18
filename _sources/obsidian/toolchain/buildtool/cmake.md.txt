@@ -54,3 +54,6 @@ code:CmakeLists.txt
 
 # configure_file
 [[meson]]
+
+# Find
+[cmakeでfind_packageライクに自作ライブラリ有無をチェックしたりしたい、そんな時にはfind_package_handle_standard_argsが使える - Qiita](https://qiita.com/developer-kikikaikai/items/c357706121b3cd9051fe)

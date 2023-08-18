@@ -1,4 +1,4 @@
-[[peg]] [[cyber]]
+[[PEG]] [[cyber]]
 
 [Home ⚡ Zig Programming Language](https://ziglang.org/)
 

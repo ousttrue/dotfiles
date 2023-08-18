@@ -41,3 +41,10 @@ bind C-l send-prefix
 
 ## shell
 - [bashの .bash_profile と .bashrc の挙動の整理と使い分け方 - Qiita](https://qiita.com/ono_matope/items/feebac51afb346d9db0e)
+
+
+# msys2 build
+## patch
+[Index of /msys/sources/](https://repo.msys2.org/msys/sources/)
+## tmux
+- [.tmux.conf · GitHub](https://gist.github.com/disktnk/2075bc74fbc5f079657d742b808e2993)
