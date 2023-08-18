@@ -11,11 +11,15 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ./configure --prefix=/usr/local --enable-utf8proc
 ```
 - [c - AC_SEARCH_LIBS on a static library that itself has dependencies? - Stack Overflow](https://stackoverflow.com/questions/21647840/ac-search-libs-on-a-static-library-that-itself-has-dependencies)
+- [tmux の コピペ と クリップボード - Qiita](https://qiita.com/mnishiguchi/items/b8526fecd69aa87d2f7e)
 
 ## 2.6
 - [GitHub - z80oolong/tmux-eaw-fix: tmux 2.6 以降において East Asian Ambiguous Character を全角文字の幅で表示する](https://github.com/z80oolong/tmux-eaw-fix)
-## 2.0
 
+## 2.3
+- [tmuxのペインのステータスラインにgitのブランチとかディレクトリとか表示する(プロンプトはもう古い) - Qiita](https://qiita.com/arks22/items/db8eb6a14223ce29219a)
+
+## 2.0
 
 # .tmux.conf
 
@@ -31,12 +35,9 @@ bind C-l send-prefix
 # vim
 - [Tmux and Vim — configurations to be better together | Bugsnag Blog](https://www.bugsnag.com/blog/tmux-and-vim)
 
-# powerline
+# satusline
+## powerline
 - [【tmux】Powerlineでステータスバーをカスタマイズ | amateur engineer's blog](https://amateur-engineer-blog.com/tmux-powerline/)
 
-# copy-command
-`3.2`
-- [tmux の コピペ と クリップボード - Qiita](https://qiita.com/mnishiguchi/items/b8526fecd69aa87d2f7e)
-
-# git
-- [tmuxのペインのステータスラインにgitのブランチとかディレクトリとか表示する(プロンプトはもう古い) - Qiita](https://qiita.com/arks22/items/db8eb6a14223ce29219a)
+## shell
+- [bashの .bash_profile と .bashrc の挙動の整理と使い分け方 - Qiita](https://qiita.com/ono_matope/items/feebac51afb346d9db0e)
