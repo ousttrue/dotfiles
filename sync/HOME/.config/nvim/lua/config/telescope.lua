@@ -6,12 +6,13 @@ function M.setup()
   local sorters = require "telescope.sorters"
   local builtin = require "telescope.builtin"
   local utils = require "telescope.utils"
+  local dot = require "dot"
   telescope.load_extension "emoji"
   telescope.load_extension "notify"
 
   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-u-to-clear-prompt
   ---@diagnostic disable-next-line
-  telescope.setup {
+  local setup = {
     defaults = {
       mappings = {
         i = {
@@ -23,18 +24,6 @@ function M.setup()
       file_sorter = sorters.get_generic_fuzzy_sorter,
       -- initial_mode = "normal",
 
-      vimgrep_arguments = {
-        "rg",
-        "--color=never",
-        "--no-heading",
-        "--with-filename",
-        "--line-number",
-        "--column",
-        "--smart-case",
-        "--hidden",
-        "--glob",
-        "!.git",
-      },
       sorting_strategy = "ascending",
       layout_strategy = "vertical",
       layout_config = {
@@ -44,6 +33,23 @@ function M.setup()
       },
     },
   }
+
+  if dot.get_system() ~= "msys" then
+    setup.vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--hidden",
+      "--glob",
+      "!.git",
+    }
+  end
+
+  telescope.setup(setup)
 
   -- https://www.reddit.com/r/neovim/comments/p1xj92/make_telescope_git_files_revert_back_to_find/
   local function project_files()
