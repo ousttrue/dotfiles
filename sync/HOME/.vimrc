@@ -44,6 +44,9 @@ set hlsearch
 set hidden
 set termguicolors
 set number
+" set clipboard=unnamedplus
+set clipboard+=unnamed
+
 " $TERMがxterm以外のときは以下を設定する必要がある。
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " 文字色
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色
@@ -55,6 +58,7 @@ tnoremap <silent> <ESC> <C-\><C-n>
 nnoremap <C-l> :nohlsearch<CR><C-l>
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <C-[>:w<CR>
+nnoremap <F7> :make<CR>
 
 au BufNewFile,BufRead *.xsh setf python
 au FileType python setlocal formatprg=autopep8\ -

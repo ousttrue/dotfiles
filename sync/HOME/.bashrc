@@ -88,7 +88,7 @@ if which zoxide >/dev/null 2>&1; then
 	eval "$(zoxide init bash)"
 fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# export FZF_DEFAULT_OPTS=" --color=fg+:#b1ff8f --preview-window=top:60%,border-bottom --preview 'bat --color=always {}'"
+export FZF_DEFAULT_OPTS="--layout=reverse"
 
 # set -euC
 

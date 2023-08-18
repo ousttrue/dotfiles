@@ -42,7 +42,7 @@ repo = 'itchyny/lightline.vim'
 [[plugins]]
 repo = 'Chiel92/vim-autoformat'
 hook_add='''
-nmap <S-f> :Autoformat<CR>
+nmap ff :Autoformat<CR>
 vmap <S-f> :Autoformat<CR>
 let g:formatters_python = ['black']
 '''
@@ -50,9 +50,15 @@ let g:formatters_python = ['black']
 [[plugins]]
 repo = 'preservim/nerdtree'
 hook_add='''
-nmap <Space><Space> :NERDTreeVCS<CR>
+nmap <Space>e :NERDTreeVCS<CR>
 '''
 
 # [[plugins]]
 # repo = "christoomey/vim-tmux-navigator"
+
+# [[plugins]]
+# repo = 'junegunn/fzf'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
 
