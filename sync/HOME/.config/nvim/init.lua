@@ -140,6 +140,7 @@ local function write_buffer()
 end
 vim.keymap.set("n", "<C-s>", write_buffer, { noremap = true })
 vim.keymap.set("i", "<C-s>", write_buffer, { noremap = true })
+vim.keymap.set("n", "t", "zt")
 
 local function should_close(bufnr)
   local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")

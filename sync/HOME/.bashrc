@@ -33,7 +33,7 @@ else
 		PLATFORM=WSL
 		ICON=🦆
 	else
-		SYSTEM_COLOR="blue"
+		SYSTEM_COLOR="cyan"
 		PLATFORM=LINUX
 		ICON=🐧
 	fi
@@ -253,6 +253,7 @@ if which nvim >/dev/null 2>&1; then
 	export EDITOR=nvim
 	alias v='nvim'
 fi
+alias e='emacs -nw'
 
 export HTTP_HOME='~/dotfiles/home.html'
 export XDG_MUSIC_DIR=$HOME/Music
