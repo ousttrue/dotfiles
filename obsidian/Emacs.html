@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>MSYS deps - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -218,151 +218,102 @@
           </label>
         </div>
         <article role="main">
-          <p>[[nvim_build]]</p>
-<p>対 <code class="docutils literal notranslate"><span class="pre">msys2</span> <span class="pre">(not</span> <span class="pre">MINGW)</span></code> 向けビルド。</p>
-<ul class="simple">
-<li><p>msys file sytem</p></li>
-<li><p>winpty ?</p></li>
+          <ul class="simple">
+<li><p>@2017 <a class="reference external" href="https://www.yokoweb.net/2017/04/01/emacs-macos-msys2-ubuntu/">Site Unreachable</a></p></li>
+<li><p><a class="reference external" href="http://ftp.jaist.ac.jp/pub/GNU/emacs/">Index of /pub/GNU/emacs</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://qiita.com/advent-calendar/2022/emacs">Emacsのカレンダー | Advent Calendar 2022 - Qiita</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://www.mhatta.org/wp/2022/12/25/how-to-use-emacs-without-tears-and-joint-pain/">Emacs をとにかくそれなりに使えるようにする – mhatta's mumbo jumbo</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="msys-deps">
-<h1>MSYS deps<a class="headerlink" href="#msys-deps" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="lua">
-<h2>lua<a class="headerlink" href="#lua" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">generic</span></code> に落ちて、<code class="docutils literal notranslate"><span class="pre">dll</span></code> のロード能力が無くなる。
-後続の <code class="docutils literal notranslate"><span class="pre">nlua0</span></code> が動かなくなる。</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="s">LUA_TARGET</span><span class="w"> </span><span class="s">generic</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># cmake.deps/cmake/BuildLua.cmake</span>
-<span class="nb">elseif</span><span class="p">(</span><span class="s">CMAKE_SYSTEM_NAME</span><span class="w"> </span><span class="s">MATCHES</span><span class="w"> </span><span class="s2">"MSYS"</span><span class="p">)</span>
-<span class="w">  </span><span class="nb">set</span><span class="p">(</span><span class="s">LUA_TARGET</span><span class="w"> </span><span class="s">linux</span><span class="p">)</span>
-
-<span class="w">  </span><span class="nb">set</span><span class="p">(</span><span class="s">LUA_TARGET</span><span class="w"> </span><span class="s">msys</span><span class="p">)</span><span class="w"> </span><span class="c"># if dll 改造</span>
-</pre></div>
-</div>
-<section id="deps-luaconf-h">
-<h3>deps の luaconf.h を改変<a class="headerlink" href="#deps-luaconf-h" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>sed にできるか？</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>// .deps\usr\include\luaconf.h
-#define LUA_USE_LINUX 1
-
-defined(_WIN32)
-👇
-0
-</pre></div>
-</div>
-</section>
-<section id="msys-dll-build">
-<h3>msys dll build<a class="headerlink" href="#msys-dll-build" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># .deps\build\src\lua\Makefile</span>
-<span class="nv">PLATS</span><span class="o">=</span> aix ansi bsd freebsd generic linux macosx mingw posix solaris msys
-<span class="nv">TO_LIB</span><span class="o">=</span> liblua.dll.a
-
-<span class="c"># .deps\build\src\lua\src\Makefile</span>
-<span class="nv">PLATS</span><span class="o">=</span> aix ansi bsd freebsd generic linux macosx mingw posix solaris msys
-
-<span class="nf">msys</span><span class="o">:</span>
-	<span class="k">$(</span>MAKE<span class="k">)</span> <span class="s2">"LUA_A=liblua.dll"</span> <span class="s2">"AR=</span><span class="k">$(</span>CC<span class="k">)</span><span class="s2"> -shared -o"</span> <span class="nv">MYCFLAGS</span><span class="o">=</span><span class="s2">"-DLUA_USE_LINUX"</span> <span class="nv">MYLIBS</span><span class="o">=</span><span class="s2">"-Wl,--export-all-symbols -Wl,--out-implib=liblua.dll.a -ldl"</span> <span class="s2">"RANLIB=strip --strip-unneeded"</span> lua luac
-</pre></div>
-</div>
-<p>後続の nlua で <code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">reference</span></code>  が解決できん。</p>
-</section>
-</section>
-<section id="luajit-lua">
-<h2>luajit ではなく lua を使う<a class="headerlink" href="#luajit-lua" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>luajit は msys2 非対応。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cmake -S cmake.deps -B .deps -G Ninja -DUSE_BUNDLED_LUAJIT<span class="o">=</span>off -DUSE_BUNDLED_LUA<span class="o">=</span>on
-
-cmake --build .deps
-
-<span class="c1"># error</span>
-<span class="c1">#</span>
-<span class="c1"># fix .deps</span>
-<span class="c1">#</span>
-</pre></div>
-</div>
-</section>
-<section id="deps">
-<h2>.deps の修正<a class="headerlink" href="#deps" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="treesitter">
-<h3>treesitter のソース解凍に失敗する問題<a class="headerlink" href="#treesitter" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>msys のファイルシステムの問題？
-tar の中に対応できないパーミッションがあるとか、そういうエラーぽい。</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># .deps\build\src\treesitter-stamp\extract-treesitter.cmake</span>
-<span class="c"># if(NOT rv EQUAL 0)</span>
-<span class="c">#   message(STATUS "extracting... [error clean up]")</span>
-<span class="c">#   file(REMOVE_RECURSE "${ut_dir}")</span>
-<span class="c">#   message(FATAL_ERROR "Extract of '${filename}' failed")</span>
-<span class="c"># endif()</span>
-</pre></div>
-</div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">cd</span> .deps/build/downloads/treesitter
-&gt; ls
-0a1c4d8466efed6ef5971aa03a84ebb0836128b1.tar.gz
-&gt; tar xf 0a1c4d8466efed6ef5971aa03a84ebb0836128b1.tar.gz
-tar: tree-sitter-0a1c4d8466efed6ef5971aa03a84ebb0836128b1/CONTRIBUTING.md: Cannot create symlink to ‘docs/section-6-contributing.md’: No such file or directory
-tar: tree-sitter-0a1c4d8466efed6ef5971aa03a84ebb0836128b1/script/reproduce: Cannot create symlink to ‘run-fuzzer’: No such file or directory
-tar: Exiting with failure status due to previous errors
-
-&gt; cp -rp .deps/build/downloads/treesitter/tree-sitter-0a1c4d8466efed6ef5971aa03a84ebb0836128b1/* .deps/build/src/treesitter/
-</pre></div>
-</div>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="msys">
-<h1>MSYS<a class="headerlink" href="#msys" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/neovim/neovim/issues/23427">Windows build error: error loading module 'nlua0' · Issue #23427 · neovim/neovim · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://github.com/neovim/neovim/issues/6751">mintty TUI · Issue #6751 · neovim/neovim · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://gist.github.com/equalsraf/efa3337718cd973de5713c3a84b10fc7">Neovim in Cygwin · GitHub</a></p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id1">
-<h2>luajit ではなく lua を使う<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">PREFER_LUA</span></code></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; cmake -S . -B build -G Ninja -DPREFER_LUA<span class="o">=</span>on
-</pre></div>
-</div>
-</section>
-<section id="nlua0-dll">
-<h2>nlua0.dll<a class="headerlink" href="#nlua0-dll" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="link">
-<h3>link に失敗する<a class="headerlink" href="#link" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">が無い</span></code></p>
-<p>lua link</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># src\nvim\CMakeLists.txt</span>
-<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">nlua0</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">lua</span><span class="p">)</span>
-<span class="nb">target_link_directories</span><span class="p">(</span><span class="s">nlua0</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="o">${</span><span class="nv">DEPS_PREFIX</span><span class="o">}</span><span class="s">/lib</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="code-generate">
-<h2>code generate に失敗する<a class="headerlink" href="#code-generate" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>以下の lpeg 呼び出しが abort する。</p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">lpeg</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">lpeg</span>
-<span class="kd">local</span> <span class="n">Cc</span> <span class="o">=</span> <span class="n">lpeg</span><span class="p">.</span><span class="n">Cc</span>
-<span class="n">Cc</span><span class="p">(</span><span class="s1">'error'</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>関数自体は終了して、後でクラッシュする。</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">lp_constcapture</span><span class="w"> </span><span class="p">(</span><span class="n">lua_State</span><span class="w"> </span><span class="o">*</span><span class="n">L</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>#define LUA_USE_LINUX 1</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="mingw">
-<h1>MinGW<a class="headerlink" href="#mingw" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>msys2 を使って MinGW ビルドする。メンテされていて簡単にビルドできる。</p>
+<h2>29<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/gz/articles/3aff3cda89524b">WindowsでNeovimをBuild+Install(msys2編)</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/hyakt/articles/42a1d237cdfa2a">Emacs 29 でTree-sitterを利用してシンタックスハイライトする</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://www.grugrut.net/posts/202211242303/">Emacs 29で導入される予定のおもしろい機能の紹介 - ぐるっとぐりっど</a></p></li>
+<li><p>builtin [[treesitter]]</p></li>
+<li><p>bultin <code class="docutils literal notranslate"><span class="pre">eglot</span></code></p></li>
 </ul>
-<p>msys2 の unix path が解釈できない</p>
+<section id="id2">
+<h3>29.1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><p>msys 上で <code class="docutils literal notranslate"><span class="pre">fagitive</span></code> とか <code class="docutils literal notranslate"><span class="pre">quickfix</span></code> などがうまく動かない。</p></li>
+<li><p>@2023 <a class="reference external" href="https://forest.watch.impress.co.jp/docs/news/1520327.html">「Unicode 15.0」に対応した「GNU Emacs 29.1」、高速パーサー「tree-sitter」の採用も - 窓の杜</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://softantenna.com/blog/gnu-emacs-29-1-released/">GNU Emacs 29.1がリリース - PGTKサポートや非常に長い行を含むテキストファイルの取り扱いが改善 | ソフトアンテナ</a></p></li>
 </ul>
+</section>
+</section>
+<section id="id3">
+<h2>27<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init.el</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">early-init.el</span></code></p></li>
+<li><p>@2021 <a class="reference external" href="https://www.grugrut.net/posts/my-emacs-init-el/">My Emacs Config - ぐるっとぐりっど</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="build">
+<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://myemacs.readthedocs.io/ja/latest/build.html">Emacsをソースからビルドしてインストールする — my-emacs 0.1 ドキュメント</a></p></li>
+</ul>
+<section id="msys2">
+<h2>msys2<a class="headerlink" href="#msys2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>素ではビルドできぬ</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>checking build system type... x86_64-pc-msys
+checking host system type... x86_64-pc-msys
+configure: error: Emacs does not support <span class="s1">'x86_64-pc-msys'</span> systems.
+</pre></div>
+</div>
+<p>configure.ac patch</p>
+<p><a class="reference external" href="https://github.com/msys2/MSYS2-packages/issues/2918">Failure building Emacs master as MSYS2 · Issue #2918 · msys2/MSYS2-packages · GitHub</a></p>
+<div class="highlight-error notranslate"><div class="highlight"><pre><span></span>rebase: failed to open rebase database "/etc/rebase.db.x86_64"
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="emacs-d">
+<h1>.emacs.d<a class="headerlink" href="#emacs-d" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/takeokunn/items/7357c11a50ded45fdb3e">自分の .emacs.d について書くよ - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://suwaru.tokyo/%E3%80%90%E7%B0%A1%E5%8D%98%E3%80%91emacs%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%E3%80%90init-el%E3%80%91/">【簡単】Emacs基本的な設定ファイルの書き方【init.el】</a></p></li>
+<li><p><a class="reference external" href="https://i1i2i3.eidos.ic.i.u-tokyo.ac.jp/html/tips/emacs.html">前期実験i1i2i3 : Emacsのカスタマイズ</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="package">
+<h1>package<a class="headerlink" href="#package" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="use-package">
+<h2>use-package<a class="headerlink" href="#use-package" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/jwiegley/use-package">GitHub - jwiegley/use-package: A use-package declaration for simplifying your .emacs</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://blog.magcho.com/2019/12/use-package/">use-packageについてまとめる | magcho's blog</a></p></li>
+<li><p>@2014 <a class="reference external" href="http://emacs.rubikitch.com/use-package-2/">use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術</a></p></li>
+<li><p>@2014 <a class="reference external" href="https://qiita.com/kai2nenobu/items/5dfae3767514584f5220">use-packageで可読性の高いinit.elを書く - Qiita</a></p></li>
+</ul>
+</section>
+<section id="leaf-el">
+<h2>leaf.el<a class="headerlink" href="#leaf-el" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2020 <a class="reference external" href="https://emacs-jp.github.io/tips/emacs-in-2020">2020年代のEmacs入門 | Emacs JP</a></p></li>
+<li><p>@2018 <a class="reference external" href="https://qiita.com/conao3/items/82abfea7a4c81f946e60">use-packageからの移行のすゝめ - leaf.elでバージョン安全なinit.elを書く - Qiita</a></p></li>
+</ul>
+</section>
+<section id="straight-el">
+<h2>straight.el<a class="headerlink" href="#straight-el" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="lsp">
+<h1>lsp<a class="headerlink" href="#lsp" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://syohex.hatenablog.com/entry/2022/11/08/000610">Emacs 29の eglotを使った Rust環境の設定 - Shohei Yoshida's Diary</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://zenn.dev/eggc/articles/8541167f2dc4af">Emacs での LSP と tree-sitter と lint</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://qiita.com/blue0513/items/acc962738c7f4da26656">Emacs で LSP を活用してみる - Qiita</a></p></li>
+</ul>
+<section id="eglot">
+<h2>eglot<a class="headerlink" href="#eglot" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="syntax-highlight">
+<h1>syntax highlight<a class="headerlink" href="#syntax-highlight" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 
         </article>
@@ -378,7 +329,7 @@ tar: Exiting with failure status due to previous errors
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/nvim_msys2.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/Emacs.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -398,29 +349,30 @@ tar: Exiting with failure status due to previous errors
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">MSYS deps</a><ul>
-<li><a class="reference internal" href="#lua">lua</a><ul>
-<li><a class="reference internal" href="#deps-luaconf-h">deps の luaconf.h を改変</a></li>
-<li><a class="reference internal" href="#msys-dll-build">msys dll build</a></li>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#id1">29</a><ul>
+<li><a class="reference internal" href="#id2">29.1</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#luajit-lua">luajit ではなく lua を使う</a></li>
-<li><a class="reference internal" href="#deps">.deps の修正</a><ul>
-<li><a class="reference internal" href="#treesitter">treesitter のソース解凍に失敗する問題</a></li>
+<li><a class="reference internal" href="#id3">27</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#build">build</a><ul>
+<li><a class="reference internal" href="#msys2">msys2</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#msys">MSYS</a><ul>
-<li><a class="reference internal" href="#id1">luajit ではなく lua を使う</a></li>
-<li><a class="reference internal" href="#nlua0-dll">nlua0.dll</a><ul>
-<li><a class="reference internal" href="#link">link に失敗する</a></li>
+<li><a class="reference internal" href="#emacs-d">.emacs.d</a></li>
+<li><a class="reference internal" href="#package">package</a><ul>
+<li><a class="reference internal" href="#use-package">use-package</a></li>
+<li><a class="reference internal" href="#leaf-el">leaf.el</a></li>
+<li><a class="reference internal" href="#straight-el">straight.el</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#code-generate">code generate に失敗する</a></li>
+<li><a class="reference internal" href="#lsp">lsp</a><ul>
+<li><a class="reference internal" href="#eglot">eglot</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#mingw">MinGW</a></li>
+<li><a class="reference internal" href="#syntax-highlight">syntax highlight</a></li>
 </ul>
 
           </div>

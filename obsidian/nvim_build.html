@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>MSYS deps - shell note ドキュメント</title>
+        <title>deps - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -218,151 +218,44 @@
           </label>
         </div>
         <article role="main">
-          <p>[[nvim_build]]</p>
-<p>対 <code class="docutils literal notranslate"><span class="pre">msys2</span> <span class="pre">(not</span> <span class="pre">MINGW)</span></code> 向けビルド。</p>
+          <p>[[cmake]]
+[[nvim_msys2]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="deps">
+<h1>deps<a class="headerlink" href="#deps" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">cmake.deps/CMakeLists.txt</span></code> による依存ライブラリの構築</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cmake -S cmake.deps -B .deps
+</pre></div>
+</div>
+<p>と呼び出して <code class="docutils literal notranslate"><span class="pre">.deps</span></code> にビルドする。</p>
+<section id="deps-install-dir">
+<h2>DEPS_INSTALL_DIR<a class="headerlink" href="#deps-install-dir" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>msys file sytem</p></li>
-<li><p>winpty ?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.deps/usr</span></code> が本体構築時に <code class="docutils literal notranslate"><span class="pre">${DEPS_PREFIX}</span></code>  として参照される。</p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="msys-deps">
-<h1>MSYS deps<a class="headerlink" href="#msys-deps" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="lua">
-<h2>lua<a class="headerlink" href="#lua" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">generic</span></code> に落ちて、<code class="docutils literal notranslate"><span class="pre">dll</span></code> のロード能力が無くなる。
-後続の <code class="docutils literal notranslate"><span class="pre">nlua0</span></code> が動かなくなる。</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="s">LUA_TARGET</span><span class="w"> </span><span class="s">generic</span><span class="p">)</span>
+</section>
+<section id="cmake-deps-cmake">
+<h2>cmake/Deps.cmake<a class="headerlink" href="#cmake-deps-cmake" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">include</span><span class="p">(</span><span class="s">Deps</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># cmake.deps/cmake/BuildLua.cmake</span>
-<span class="nb">elseif</span><span class="p">(</span><span class="s">CMAKE_SYSTEM_NAME</span><span class="w"> </span><span class="s">MATCHES</span><span class="w"> </span><span class="s2">"MSYS"</span><span class="p">)</span>
-<span class="w">  </span><span class="nb">set</span><span class="p">(</span><span class="s">LUA_TARGET</span><span class="w"> </span><span class="s">linux</span><span class="p">)</span>
-
-<span class="w">  </span><span class="nb">set</span><span class="p">(</span><span class="s">LUA_TARGET</span><span class="w"> </span><span class="s">msys</span><span class="p">)</span><span class="w"> </span><span class="c"># if dll 改造</span>
-</pre></div>
-</div>
-<section id="deps-luaconf-h">
-<h3>deps の luaconf.h を改変<a class="headerlink" href="#deps-luaconf-h" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>sed にできるか？</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>// .deps\usr\include\luaconf.h
-#define LUA_USE_LINUX 1
-
-defined(_WIN32)
-👇
-0
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s">DEPS_INSTALL_DIR</span><span class="w"> </span><span class="s2">"${CMAKE_BINARY_DIR}/usr"</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="msys-dll-build">
-<h3>msys dll build<a class="headerlink" href="#msys-dll-build" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># .deps\build\src\lua\Makefile</span>
-<span class="nv">PLATS</span><span class="o">=</span> aix ansi bsd freebsd generic linux macosx mingw posix solaris msys
-<span class="nv">TO_LIB</span><span class="o">=</span> liblua.dll.a
-
-<span class="c"># .deps\build\src\lua\src\Makefile</span>
-<span class="nv">PLATS</span><span class="o">=</span> aix ansi bsd freebsd generic linux macosx mingw posix solaris msys
-
-<span class="nf">msys</span><span class="o">:</span>
-	<span class="k">$(</span>MAKE<span class="k">)</span> <span class="s2">"LUA_A=liblua.dll"</span> <span class="s2">"AR=</span><span class="k">$(</span>CC<span class="k">)</span><span class="s2"> -shared -o"</span> <span class="nv">MYCFLAGS</span><span class="o">=</span><span class="s2">"-DLUA_USE_LINUX"</span> <span class="nv">MYLIBS</span><span class="o">=</span><span class="s2">"-Wl,--export-all-symbols -Wl,--out-implib=liblua.dll.a -ldl"</span> <span class="s2">"RANLIB=strip --strip-unneeded"</span> lua luac
-</pre></div>
-</div>
-<p>後続の nlua で <code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">reference</span></code>  が解決できん。</p>
-</section>
-</section>
-<section id="luajit-lua">
-<h2>luajit ではなく lua を使う<a class="headerlink" href="#luajit-lua" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>luajit は msys2 非対応。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cmake -S cmake.deps -B .deps -G Ninja -DUSE_BUNDLED_LUAJIT<span class="o">=</span>off -DUSE_BUNDLED_LUA<span class="o">=</span>on
-
-cmake --build .deps
-
-<span class="c1"># error</span>
-<span class="c1">#</span>
-<span class="c1"># fix .deps</span>
-<span class="c1">#</span>
-</pre></div>
-</div>
-</section>
-<section id="deps">
-<h2>.deps の修正<a class="headerlink" href="#deps" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="treesitter">
-<h3>treesitter のソース解凍に失敗する問題<a class="headerlink" href="#treesitter" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>msys のファイルシステムの問題？
-tar の中に対応できないパーミッションがあるとか、そういうエラーぽい。</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># .deps\build\src\treesitter-stamp\extract-treesitter.cmake</span>
-<span class="c"># if(NOT rv EQUAL 0)</span>
-<span class="c">#   message(STATUS "extracting... [error clean up]")</span>
-<span class="c">#   file(REMOVE_RECURSE "${ut_dir}")</span>
-<span class="c">#   message(FATAL_ERROR "Extract of '${filename}' failed")</span>
-<span class="c"># endif()</span>
-</pre></div>
-</div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">cd</span> .deps/build/downloads/treesitter
-&gt; ls
-0a1c4d8466efed6ef5971aa03a84ebb0836128b1.tar.gz
-&gt; tar xf 0a1c4d8466efed6ef5971aa03a84ebb0836128b1.tar.gz
-tar: tree-sitter-0a1c4d8466efed6ef5971aa03a84ebb0836128b1/CONTRIBUTING.md: Cannot create symlink to ‘docs/section-6-contributing.md’: No such file or directory
-tar: tree-sitter-0a1c4d8466efed6ef5971aa03a84ebb0836128b1/script/reproduce: Cannot create symlink to ‘run-fuzzer’: No such file or directory
-tar: Exiting with failure status due to previous errors
-
-&gt; cp -rp .deps/build/downloads/treesitter/tree-sitter-0a1c4d8466efed6ef5971aa03a84ebb0836128b1/* .deps/build/src/treesitter/
-</pre></div>
-</div>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="msys">
-<h1>MSYS<a class="headerlink" href="#msys" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="externalproject">
+<h2>ExternalProject<a class="headerlink" href="#externalproject" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://cmake.org/cmake/help/latest/module/ExternalProject.html">ExternalProject — CMake 3.27.3 Documentation</a></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/neovim/neovim/issues/23427">Windows build error: error loading module 'nlua0' · Issue #23427 · neovim/neovim · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://github.com/neovim/neovim/issues/6751">mintty TUI · Issue #6751 · neovim/neovim · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://gist.github.com/equalsraf/efa3337718cd973de5713c3a84b10fc7">Neovim in Cygwin · GitHub</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://tomo-wait-for-it-yuki.hatenablog.com/entry/2019/03/24/050000">CMakeのExternalProjectで外部プロジェクトのビルドシステムに環境変数を渡す - 低レイヤ強くなりたい組込み屋さんのブログ</a></p></li>
+<li><p>@2015 <a class="reference external" href="https://qiita.com/trairia/items/d20860d61f0e1eb2fb72">CMake ExternalProject 事始め - Qiita</a></p></li>
 </ul>
-<section id="id1">
-<h2>luajit ではなく lua を使う<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">PREFER_LUA</span></code></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; cmake -S . -B build -G Ninja -DPREFER_LUA<span class="o">=</span>on
-</pre></div>
-</div>
-</section>
-<section id="nlua0-dll">
-<h2>nlua0.dll<a class="headerlink" href="#nlua0-dll" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="link">
-<h3>link に失敗する<a class="headerlink" href="#link" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">が無い</span></code></p>
-<p>lua link</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># src\nvim\CMakeLists.txt</span>
-<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">nlua0</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">lua</span><span class="p">)</span>
-<span class="nb">target_link_directories</span><span class="p">(</span><span class="s">nlua0</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="o">${</span><span class="nv">DEPS_PREFIX</span><span class="o">}</span><span class="s">/lib</span><span class="p">)</span>
-</pre></div>
-</div>
 </section>
 </section>
-<section id="code-generate">
-<h2>code generate に失敗する<a class="headerlink" href="#code-generate" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>以下の lpeg 呼び出しが abort する。</p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">lpeg</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">lpeg</span>
-<span class="kd">local</span> <span class="n">Cc</span> <span class="o">=</span> <span class="n">lpeg</span><span class="p">.</span><span class="n">Cc</span>
-<span class="n">Cc</span><span class="p">(</span><span class="s1">'error'</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>関数自体は終了して、後でクラッシュする。</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">lp_constcapture</span><span class="w"> </span><span class="p">(</span><span class="n">lua_State</span><span class="w"> </span><span class="o">*</span><span class="n">L</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>#define LUA_USE_LINUX 1</p>
+<section class="tex2jax_ignore mathjax_ignore" id="nvim">
+<h1>nvim<a class="headerlink" href="#nvim" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="deps-prefix">
+<h2>DEPS_PREFIX<a class="headerlink" href="#deps-prefix" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="mingw">
-<h1>MinGW<a class="headerlink" href="#mingw" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>msys2 を使って MinGW ビルドする。メンテされていて簡単にビルドできる。</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/gz/articles/3aff3cda89524b">WindowsでNeovimをBuild+Install(msys2編)</a></p></li>
-</ul>
-<p>msys2 の unix path が解釈できない</p>
-<ul class="simple">
-<li><p>msys 上で <code class="docutils literal notranslate"><span class="pre">fagitive</span></code> とか <code class="docutils literal notranslate"><span class="pre">quickfix</span></code> などがうまく動かない。</p></li>
-</ul>
 </section>
 
         </article>
@@ -378,7 +271,7 @@ tar: Exiting with failure status due to previous errors
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/nvim_msys2.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/nvim_build.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -398,29 +291,16 @@ tar: Exiting with failure status due to previous errors
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">MSYS deps</a><ul>
-<li><a class="reference internal" href="#lua">lua</a><ul>
-<li><a class="reference internal" href="#deps-luaconf-h">deps の luaconf.h を改変</a></li>
-<li><a class="reference internal" href="#msys-dll-build">msys dll build</a></li>
+<li><a class="reference internal" href="#">deps</a><ul>
+<li><a class="reference internal" href="#deps-install-dir">DEPS_INSTALL_DIR</a></li>
+<li><a class="reference internal" href="#cmake-deps-cmake">cmake/Deps.cmake</a></li>
+<li><a class="reference internal" href="#externalproject">ExternalProject</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#luajit-lua">luajit ではなく lua を使う</a></li>
-<li><a class="reference internal" href="#deps">.deps の修正</a><ul>
-<li><a class="reference internal" href="#treesitter">treesitter のソース解凍に失敗する問題</a></li>
+<li><a class="reference internal" href="#nvim">nvim</a><ul>
+<li><a class="reference internal" href="#deps-prefix">DEPS_PREFIX</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a class="reference internal" href="#msys">MSYS</a><ul>
-<li><a class="reference internal" href="#id1">luajit ではなく lua を使う</a></li>
-<li><a class="reference internal" href="#nlua0-dll">nlua0.dll</a><ul>
-<li><a class="reference internal" href="#link">link に失敗する</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#code-generate">code generate に失敗する</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mingw">MinGW</a></li>
 </ul>
 
           </div>
