@@ -92,20 +92,4 @@ $ cmake --install --prefix $HOME/local
 [[json]] [[toml]]
 
 # MSYS
-- [mintty TUI · Issue #6751 · neovim/neovim · GitHub](https://github.com/neovim/neovim/issues/6751)
-- [Neovim in Cygwin · GitHub](https://gist.github.com/equalsraf/efa3337718cd973de5713c3a84b10fc7)
-
-```
-/usr/bin/bash: /s: No such file or directory
-
-shell returned 127
-
-> cmake -S cmake.deps -B .deps -G Ninja -D CMAKE_BUILD_TYPE=RelWithDebInfo -D CMAKE_INSTALL_PREFIX=/usr/local -DUSE_BUNDLED_LUAJIT=off -DUSE_BUNDLED_LUA=on
-
-> cmake -S . -B build -G Ninja -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -DPREFER_LUA=on
-```
-
-treesitter のソース解凍に失敗する問題
-
-lua link
-
+[[nvim_msys2]]

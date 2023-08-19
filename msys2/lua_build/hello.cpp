@@ -15,7 +15,7 @@ static const struct luaL_Reg functions [] = {
 };
 
 
-    __declspec(dllexport) int luaopen_hello(lua_State *L) {
+    /*__declspec(dllexport)*/ int luaopen_hello(lua_State *L) {
         luaL_register(L, "hello", functions);
         return 1;
     }

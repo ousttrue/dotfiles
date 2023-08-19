@@ -7,3 +7,8 @@ local M = require('hello')
 --     print(k, v)
 -- end
 print(M.say_hello())
+
+local lpeg = require('lpeg')
+local cc = lpeg.Cc('error')
+print(cc)
+

@@ -11,6 +11,9 @@ EXTFAT あかん w
 - @2017 [CmderでMSYS2の環境を構築してみる - zyzyz's Playground](https://zyzyz.github.io/ja/2017/10/Integrate-MSYS2-into-Cmder/)
 - @2016 [MSYS2で快適なターミナル生活 - Qiita](https://qiita.com/Ted-HM/items/4f2feb9fdacb6c72083c)
 
+# LOGINSHELL
+- [MSYS2のログインシェルをzshに変更する（msys2-launcher対応版） - Qiita](https://qiita.com/from_kyushu/items/406c62d8d83240d4ffff)
+
 # MSYSTEM
 - [Environments - MSYS2](https://www.msys2.org/docs/environments/)
 ## /msys2.ini
@@ -28,6 +31,11 @@ MSYS=enable_pcon
 ```
 
 ## msys
+```
+> grep CHOST /etc/makepkg.conf
+CHOST="x86_64-pc-msys"
+```
+
 - @2018 [MSYS2 環境に Go言語(golang) をインストール - takaya030の備忘録](https://takaya030.hatenablog.com/entry/2018/01/18/230105)
 ```
 msys2.exe   --> msys2_shell.cmd -msys  

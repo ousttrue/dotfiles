@@ -1,0 +1,10 @@
+[wrap-file]
+source_url = https://github.com/neovim/deps/raw/aa004f1b2b6470a92363cba8e1cc1874141dacc4/opt/lpeg-1.0.2.tar.gz
+source_filename = lpeg-1.0.2.tar.gz
+source_hash = 48d66576051b6c78388faad09b70493093264588fcd0f258ddaab1cdd4a15ffe
+directory = lpeg-1.0.2
+patch_directory = lpeg
+
+[provide]
+lpeg = lpeg_dep
+
