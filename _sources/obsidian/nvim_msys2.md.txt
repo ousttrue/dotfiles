@@ -4,6 +4,13 @@
 - msys file sytem
 - winpty ?
 
+# @202308
+いくつが回避ポイントが有る
+- LuaJit
+- TreeSitter
+- 外部のLuaを使う
+- DEBUG_LOG
+
 # MSYS deps
 ## lua
 `generic` に落ちて、`dll` のロード能力が無くなる。
