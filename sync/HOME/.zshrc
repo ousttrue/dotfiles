@@ -23,6 +23,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
+export FZF_DEFAULT_OPTS="--layout=reverse"
 
 path=("$HOME/local/bin" $path)
 path=("$HOME/go/bin" $path)
@@ -31,6 +32,9 @@ path=("$HOME/.cargo/bin" $path)
 alias grep="grep --color"
 alias pstree="pstree -A"
 alias v='nvim'
+alias ls='ls --color'
+alias la='ls --color -a'
+alias ll='ls --color -a -l'
 
 $ gg() {
   declare -r REPO_NAME="$(ghq list >/dev/null | fzf --reverse +m)"

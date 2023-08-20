@@ -28,7 +28,7 @@ function M.setup()
       winbar = 500,
     },
     sections = {
-      lualine_a = { "branch" },
+      -- lualine_a = { "branch" },
       lualine_b = {},
       lualine_c = {
         -- "diagnostics",

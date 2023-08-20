@@ -14,6 +14,38 @@ local packer_bootstrap = ensure_packer()
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   -- My plugins here
+  use {
+    "nvim-tree/nvim-tree.lua",
+    requires = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = require("config.nvim-tree").setup,
+  }
+  use {
+    "petertriho/nvim-scrollbar",
+    requires = "kevinhwang91/nvim-hlslens",
+    config = function()
+      require("config.nvim-scrollbar").setup()
+    end,
+  }
+  use {
+    "nvim-lualine/lualine.nvim",
+    requires = {
+      "nvim-tree/nvim-web-devicons",
+      "tpope/vim-fugitive",
+    },
+    config = function()
+      require("config.lualine").setup()
+    end,
+  }
+  use {
+    "akinsho/bufferline.nvim",
+    -- tag = "v3.*",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("config.bufferline").setup()
+    end,
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

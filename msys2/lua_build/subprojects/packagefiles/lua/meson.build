@@ -64,3 +64,10 @@ executable(
     install: true,
     dependencies: [lua_dep, readline_dep],
 )
+executable(
+    'luac',
+    'src/luac.c',
+    'src/print.c',
+    install: true,
+    dependencies: [lua_dep, readline_dep],
+)

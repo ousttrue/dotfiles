@@ -1,7 +1,8 @@
 project('lua_build', 'c', 'cpp')
 
 # subdir('lua')
-lua_dep = dependency('lua')
+#lua_dep = dependency('lua')
+lua_dep = subproject('lua').get_variable('lua_dep')
 
 # lpeg_dep = dependency('lpeg')
 
