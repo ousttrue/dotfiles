@@ -17,6 +17,7 @@ lpeg_lib = shared_library(
     ],
     install: true,
     dependencies: [lua_dep],
+    name_prefix: 'msys-',
 )
 
 lpeg_dep = declare_dependency(

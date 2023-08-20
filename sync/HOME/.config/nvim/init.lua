@@ -365,7 +365,11 @@ augroup END
 
 -- package manager
 -- require "lazy-plugins"
-require "lazy-plugins-2"
+if vim.env.MSYSTEM then
+  require "packer_setup"
+else
+  require "lazy-plugins-2"
+end
 
 local cs, bg = dot.get_colorscheme()
 vim.o.background = bg
