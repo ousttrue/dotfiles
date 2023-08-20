@@ -241,25 +241,14 @@ TOPICCHANGE() {
 }
 
 EchoPwd() {
-	local pwdInfo="$(pwd)"
+	local pwdInfo="$HOME"
 	if [[ "$pwdInfo" =~ ^.*/ghq/github.com/(.*)$ ]]; then
-		echo " /${BASH_REMATCH[1]}"
+		echo -ne " /${BASH_REMATCH[1]}"
 	elif [[ "$pwdInfo" =~ ^"$HOME"(/|$) ]]; then
-		echo "🏠${pwdInfo#$HOME}"
+		echo -ne "🏠${pwdInfo#$HOME}"
 	else
-		echo " $pwdInfo"
+		echo -ne " $pwdInfo"
 	fi
-}
-
-EchoNerdPS1() {
-	if [ -v TMUX ]; then
-		# begin
-		echo -n -e '\e]2;'
-		# 色変えのescape sequence を入れられないのであった
-	fi
-
-	local pwdInfo=$(EchoPwd)
-	echo -n "$pwdInfo "
 
 	# (optional) git
 	# [TODO] `source git-prompt.sh` (you have to download or find)
@@ -278,14 +267,22 @@ EchoNerdPS1() {
 			echo -e -n " "
 		fi
 	fi
+}
+
+EchoNerdPS1() {
+	if [ -v TMUX ]; then
+		echo -ne '\e]0;'
+	fi
+
+	local pwdInfo=$(pwd)
+	echo -ne "$pwdInfo "
 
 	if [ -v TMUX ]; then
-		echo -n -e '\a'
+		echo -ne '\a'
 	fi
 }
 
 if [ -v TMUX ]; then
-	PS1='$(EchoNerdPS1)\$ '
-else
-	PS1='$(EchoNerdPS1)\n\$ '
+	PROMPT_COMMAND='EchoNerdPS1'
 fi
+PS1='$(EchoPwd)\$ '
