@@ -126,3 +126,6 @@ C:/Users /home
 - [WSL vim/neovimとwin32yankの設定 - Qiita](https://qiita.com/tMinamiii/items/0c6589806090c7fc3f8a)
 - [Neovim on WSL2で、win32yankを導入してクリップボードの共有と遅延問題を解決](https://zenn.dev/shoseisan/articles/d7565884f5846b)
 
+# tmux build
+## patch
+[Index of /msys/sources/](https://repo.msys2.org/msys/sources/)
