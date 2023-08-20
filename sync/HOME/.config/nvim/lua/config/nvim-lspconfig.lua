@@ -73,7 +73,18 @@ function M.setup()
   lspconfig.tsserver.setup {}
 
   -- npm i -g bash-language-server
-  lspconfig.bashls.setup {}
+  lspconfig.bashls.setup {
+    filetypes = { "sh", "bash", "zsh" },
+  }
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = ".sh|.inc|.bash|.command|.zsh|zshrc|zsh_*",
+    callback = function()
+      vim.lsp.start {
+        name = "bash-language-server",
+        cmd = { "bash-language-server", "start" },
+      }
+    end,
+  })
 
   lspconfig.powershell_es.setup {
     bundle_path = dot.get_home() .. "/.vscode/extensions/ms-vscode.powershell-2023.3.3/modules",

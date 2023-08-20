@@ -6,6 +6,8 @@
 ## 4.4
 ## 4.2
 
+## shell
+- [bashの .bash_profile と .bashrc の挙動の整理と使い分け方 - Qiita](https://qiita.com/ono_matope/items/feebac51afb346d9db0e)
 
 # prompt
 [[NerdFont]]

@@ -79,7 +79,9 @@ function M.setup()
         command = get_tidy(),
       },
       -- null_ls.builtins.diagnostics.eslint,
-      null_ls.builtins.formatting.shfmt,
+      null_ls.builtins.formatting.shfmt.with {
+        filetypes = { "sh", "zsh" },
+      },
       null_ls.builtins.formatting.clang_format.with {
         command = get_clang_format(),
         filetypes = { "glsl" },

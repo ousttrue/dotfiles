@@ -196,21 +196,21 @@ end
 
 config.warn_about_missing_glyphs = false
 
-config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "x", mods = "CTRL", timeout_milliseconds = 1000 }
 table.insert(config.keys, { key = "r", mods = "LEADER", action = "ReloadConfiguration" })
-table.insert(config.keys, {
-  key = "c",
-  mods = "ALT",
-  action = wezterm.action.SpawnCommandInNewTab {
-    domain = "CurrentPaneDomain",
-    cwd = "/home/ousttrue",
-  },
-})
-table.insert(config.keys, { key = ",", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
-table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
+-- table.insert(config.keys, {
+--   key = "c",
+--   mods = "ALT",
+--   action = wezterm.action.SpawnCommandInNewTab {
+--     domain = "CurrentPaneDomain",
+--     cwd = "/home/ousttrue",
+--   },
+-- })
+-- table.insert(config.keys, { key = ",", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
+-- table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
 table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
 table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
-table.insert(config.keys, { key = "[", mods = "LEADER", action = "ActivateCopyMode" })
+-- table.insert(config.keys, { key = "[", mods = "LEADER", action = "ActivateCopyMode" })
 --table.insert(config.keys, { key = "PageUp", mods = "SHIFT", action = wezterm.action.ScrollByPage(-1) })
 --table.insert(config.keys, { key = "PageDown", mods = "SHIFT", action = wezterm.action.ScrollByPage(1) })
 
