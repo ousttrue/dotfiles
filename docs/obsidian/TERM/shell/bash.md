@@ -9,6 +9,9 @@
 ## shell
 - [bashの .bash_profile と .bashrc の挙動の整理と使い分け方 - Qiita](https://qiita.com/ono_matope/items/feebac51afb346d9db0e)
 
+# 関数
+- @2020 [bashで関数を書く - やってみる](https://ytyaru.hatenablog.com/entry/2020/06/14/000000)
+
 # prompt
 [[NerdFont]]
 - @2020 [bashプロンプトの表示をNerdfontsで格好良くする - Qiita](https://qiita.com/GunseiKPaseri/items/e594c8e261905e3d0281)

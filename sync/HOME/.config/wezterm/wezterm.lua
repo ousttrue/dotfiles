@@ -217,7 +217,7 @@ table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.a
 -- ???
 -- https://github.com/wez/wezterm/discussions/556
 table.insert(config.keys, { key = "/", mods = "CTRL", action = wezterm.action { SendString = "\x1f" } })
-table.insert(config.keys, { key = "l", mods = "ALT", action = wezterm.action_callback(write_dump) })
+-- table.insert(config.keys, { key = "l", mods = "ALT", action = wezterm.action_callback(write_dump) })
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   --

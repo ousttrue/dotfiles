@@ -240,42 +240,26 @@ TOPICCHANGE() {
 	DSPCOLOR="$1"
 }
 
-nerdPS1() {
-	local userName="$1"
-	# if userName yourname, use short name
-	if [[ $userName == "ousttrue" ]]; then
-		userName="🐔" # terminalによってはカラーフォント絵文字も使える。自分っぽいものに置き換えよう
-	fi
-
-	local hostName="$2"
-	# if hostName ..
-	# [TODO] Change YOUR-HOST-NAME
-	if [[ $hostName == "YOUR-HOST-NAME" ]]; then
-		hostName="" # \uf878 nf-mdi-monitor 一番ホストっぽかった
-	fi
+EchoPwd() {
 	local pwdInfo="$(pwd)"
-	# GHQ
-	[[ "$pwdInfo" =~ ^.*/ghq/github.com/(.*)$ ]] && pwdInfo="🐙/${BASH_REMATCH[1]}"
-	# HOME
-	[[ "$pwdInfo" =~ ^"$HOME"(/|$) ]] && pwdInfo="🏠${pwdInfo#$HOME}"
+	if [[ "$pwdInfo" =~ ^.*/ghq/github.com/(.*)$ ]]; then
+		echo " /${BASH_REMATCH[1]}"
+	elif [[ "$pwdInfo" =~ ^"$HOME"(/|$) ]]; then
+		echo "🏠${pwdInfo#$HOME}"
+	else
+		echo " $pwdInfo"
+	fi
+}
 
-	# (optional) python venv
-	if [[ -v VIRTUAL_ENV ]]; then
-		local PYTHON_VER="$(python -V)"
-		local PYTHON_ENVNAME="$(basename $VIRTUAL_ENV)"
-		TOPICCHANGE "cyan"
-		# for remove uniquename (pipenv hoge-{uniquename})
-		echo -e -n "\ue235 ${PYTHON_VER#Python } ${PYTHON_ENVNAME%-*}" #  nf-fae-python 一番見やすいPythonロゴ
+EchoNerdPS1() {
+	if [ -v TMUX ]; then
+		# begin
+		echo -n -e '\e]2;'
+		# 色変えのescape sequence を入れられないのであった
 	fi
 
-	# host
-	# TOPICCHANGE "blue"
-	# echo -n "$userName@$hostName"
-	# pwd
-	TOPICCHANGE $SYSTEM_COLOR
-	echo -e -n $ICON
-	TOPICCHANGE "green"
-	echo -e -n "$pwdInfo" #  nf-custom-folder フォルダアイコン
+	local pwdInfo=$(EchoPwd)
+	echo -n "$pwdInfo "
 
 	# (optional) git
 	# [TODO] `source git-prompt.sh` (you have to download or find)
@@ -289,15 +273,19 @@ nerdPS1() {
 			# if [[ $gitps1 =~ [*+?%] ]]; then
 			#   TOPICCHANGE "yellow"
 			# else
-			TOPICCHANGE "gray"
+			# TOPICCHANGE "gray"
 			# fi
-			echo -e -n "\ue725" #  nf-dev-git_branch 一番見やすかったGitぽいアイコン
+			echo -e -n " "
 		fi
 	fi
-	TOPICCHANGE "reset" # 忘れずに
 
-	echo
-	echo "> "
+	if [ -v TMUX ]; then
+		echo -n -e '\a'
+	fi
 }
 
-PS1='$(nerdPS1)'
+if [ -v TMUX ]; then
+	PS1='$(EchoNerdPS1)\$ '
+else
+	PS1='$(EchoNerdPS1)\n\$ '
+fi
