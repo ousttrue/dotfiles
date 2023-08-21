@@ -132,13 +132,18 @@ std::string Stringify(ftxui::Event event) {
 struct Logger : ftxui::ComponentBase {
 
   std::shared_ptr<VtComponent> m_vt;
+  ftxui::Element m_box;
 
-  Logger(const std::shared_ptr<VtComponent> &vt) : m_vt(vt) {}
+  ftxui::Elements children;
+  Logger(const std::shared_ptr<VtComponent> &vt) : m_vt(vt) {
+    m_box = vbox(std::move(children));
+  }
 
   ftxui::Box box_;
 
   ftxui::Element Render() override {
-    ftxui::Elements children;
+    m_box->SetBox(box_);
+
     auto &keys = m_vt->m_events;
     auto it = keys.begin();
     auto h = box_.y_max - box_.y_min + 1;
@@ -147,17 +152,44 @@ struct Logger : ftxui::ComponentBase {
     for (int i = 0; i < std::max(0, (int)keys.size() - h); ++i) {
       ++it;
     }
+
+    children.clear();
     // children.push_back(ftxui::text(ss.str()));
     for (; it != keys.end(); ++it) {
       children.push_back(ftxui::text(Stringify(*it)));
     }
-    return vbox(std::move(children)) | reflect(box_);
+
+    return m_box | reflect(box_);
   }
 };
 
-int main() {
-  auto screen = ftxui::ScreenInteractive::Fullscreen();
+class Grid : public ftxui::ComponentBase {
+  std::shared_ptr<VtComponent> m_lt;
+  ftxui::Component m_rt;
+  std::shared_ptr<Logger> m_lb;
+  ftxui::Element m_rb;
 
+public:
+  Grid(const std::shared_ptr<VtNode> &node) {
+    m_lt = std::make_shared<VtComponent>(node);
+    m_rt = ftxui::Renderer(
+        [node] { return ftxui::text(node->m_renderer->Status()); });
+    m_lb = std::make_shared<Logger>(m_lt);
+    m_lt->TakeFocus();
+
+    Add(m_lt);
+  }
+
+  ftxui::Element Render() override {
+    return ftxui::gridbox({
+        {m_lt->Render() | ftxui::border, m_rt->Render() | ftxui::border},
+        {m_lb->Render() | ftxui::border, ftxui::text("rb") | ftxui::border},
+    });
+  }
+};
+
+std::shared_ptr<VtNode> CreateNode(ftxui::ScreenInteractive &screen,
+                                   const ftxui::Dimensions &dim) {
   auto renderer = std::make_shared<VtRenderer>();
   renderer->m_cmd = "cmd.exe";
   renderer->m_onDamaged = [&screen]() {
@@ -167,33 +199,31 @@ int main() {
     // screen.ExitLoopClosure();
     screen.Exit();
   };
-  std::shared_ptr<VtNode> node = std::make_shared<VtNode>();
+  std::shared_ptr<VtNode> node = std::make_shared<VtNode>(dim);
   node->m_renderer = renderer;
+  return node;
+}
 
-  auto vt = std::make_shared<VtComponent>(node);
-  ftxui::Component middle = vt;
+///  0.5   0.5
+/// +-----+------+
+/// | vt  |debug | *
+/// +-----+------+
+/// |input|screen| 12
+/// +-----+------+
+///
+int main() {
+  auto screen = ftxui::ScreenInteractive::Fullscreen();
+
+  auto dims = ftxui::Terminal::Size();
+  auto node = CreateNode(screen, {dims.dimx / 2, dims.dimy});
+
+  ftxui::Component grid = std::make_shared<Grid>(node);
 
   // vt
   // TODO: table
   // process:state
   // screen:size
   // cursor:pos
-  auto right = ftxui::Renderer(
-      [vt] { return ftxui::text(vt->m_node->m_renderer->Status()); });
 
-  // logger(event)
-  auto bottom = std::make_shared<Logger>(vt);
-
-  int right_size = 20;
-  int bottom_size = 10;
-
-  auto container = middle;
-  container = ftxui::ResizableSplitRight(right, container, &right_size);
-  container = ftxui::ResizableSplitBottom(bottom, container, &bottom_size);
-
-  auto component = ftxui::Renderer(
-      container, [&] { return container->Render() | ftxui::border; });
-  middle->TakeFocus();
-
-  screen.Loop(component);
+  screen.Loop(grid);
 }

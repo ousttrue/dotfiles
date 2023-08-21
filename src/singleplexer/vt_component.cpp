@@ -87,7 +87,9 @@ struct VtContent {
 
     m_processWatcher = std::thread([=]() {
       m_child->Wait();
-      m_pty->Close();
+      if (m_pty) {
+        m_pty->Close();
+      }
     });
 
     // vterm
@@ -221,12 +223,10 @@ void VtRenderer::WriteChild(const std::string &str) {
   m_vt->WriteChild(str);
 }
 
-void VtNode::SetBox(ftxui::Box box) {
-  ftxui::Node::SetBox(box);
-  m_renderer->RequireRowsCols(Height(), Width());
-}
+void VtNode::SetBox(ftxui::Box box) { ftxui::Node::SetBox(box); }
 
 void VtNode::Render(ftxui::Screen &screen) {
+  m_renderer->RequireRowsCols(Height(), Width());
   m_renderer->Flush();
   int row = 0;
   for (int y = box_.y_min; y <= box_.y_max; ++y, ++row) {
@@ -237,22 +237,24 @@ void VtNode::Render(ftxui::Screen &screen) {
     }
   }
 
-  ftxui::Screen::Cursor cursor{
-      box_.x_min + m_renderer->m_vt->m_cursor.col,
-      box_.y_min + m_renderer->m_vt->m_cursor.row,
-  };
-  switch (m_renderer->m_vt->m_cursorShape) {
-  case VTERM_PROP_CURSORSHAPE_BLOCK:
-    cursor.shape = ftxui::Screen::Cursor::Shape::Block;
-    break;
-  case VTERM_PROP_CURSORSHAPE_UNDERLINE:
-    cursor.shape = ftxui::Screen::Cursor::Shape::Underline;
-    break;
-  case VTERM_PROP_CURSORSHAPE_BAR_LEFT:
-    cursor.shape = ftxui::Screen::Cursor::Shape::Bar;
-    break;
+  if (m_renderer->m_vt) {
+    ftxui::Screen::Cursor cursor{
+        box_.x_min + m_renderer->m_vt->m_cursor.col,
+        box_.y_min + m_renderer->m_vt->m_cursor.row,
+    };
+    switch (m_renderer->m_vt->m_cursorShape) {
+    case VTERM_PROP_CURSORSHAPE_BLOCK:
+      cursor.shape = ftxui::Screen::Cursor::Shape::Block;
+      break;
+    case VTERM_PROP_CURSORSHAPE_UNDERLINE:
+      cursor.shape = ftxui::Screen::Cursor::Shape::Underline;
+      break;
+    case VTERM_PROP_CURSORSHAPE_BAR_LEFT:
+      cursor.shape = ftxui::Screen::Cursor::Shape::Bar;
+      break;
+    }
+    screen.SetCursor(cursor);
   }
-  screen.SetCursor(cursor);
 }
 
 ftxui::Element VtComponent::Render() { return m_node; }

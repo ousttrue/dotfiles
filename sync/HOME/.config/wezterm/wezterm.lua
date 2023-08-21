@@ -126,8 +126,6 @@ local themes = {
 }
 local color_scheme = themes[(yday % #themes) + 1]
 
-local data = "XXX"
-
 local config = {
   use_ime = true,
   -- enable_kitty_graphics = true,
@@ -144,24 +142,6 @@ local config = {
   -- keybinds
   disable_default_key_bindings = true,
   -- leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 },
-  keys = {
-    --     { key = "r", mods = "LEADER", action = "ReloadConfiguration" },
-    --     { key = "q", mods = "LEADER", action = wezterm.action { CloseCurrentTab = { confirm = false } } },
-    --     { key = "c", mods = "LEADER", action = "ShowLauncher" },
-    { key = " ", mods = "CTRL|SHIFT", action = "QuickSelect" },
-    --     { key = " ", mods = "LEADER", action = wezterm.action { PasteFrom = "PrimarySelection" } },
-    --     { key = "[", mods = "LEADER", action = "ActivateCopyMode" },
-    { key = "c", mods = "CTRL|SHIFT", action = wezterm.action { CopyTo = "Clipboard" } },
-    { key = "v", mods = "CTRL|SHIFT", action = wezterm.action { PasteFrom = "Clipboard" } },
-    { key = "Insert", mods = "SHIFT", action = wezterm.action { PasteFrom = "Clipboard" } },
-    -- { key = "v", mods = "CTRL", action = wezterm.action { PasteFrom = "Clipboard" } },
-    --     -- tab
-    --     { key = "c", mods = "ALT", action = wezterm.action { SpawnTab = "CurrentPaneDomain" } },
-    --     { key = "h", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } },
-    --     { key = "l", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } },
-    --     { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } },
-    --     { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } },
-  },
   launch_menu = {
     {
       args = { "top" },
@@ -186,33 +166,48 @@ local config = {
       -- set_environment_variables = { FOO = "bar" },
     },
   },
+  keys = {},
 }
-
-if wezterm.target_triple:find "windows" then
-  -- config.font = today_font()
-  config.initial_cols = 126
-  config.initial_rows = 56
-end
-
-config.warn_about_missing_glyphs = false
 
 config.leader = { key = "x", mods = "CTRL", timeout_milliseconds = 1000 }
 table.insert(config.keys, { key = "r", mods = "LEADER", action = "ReloadConfiguration" })
--- table.insert(config.keys, {
---   key = "c",
---   mods = "ALT",
---   action = wezterm.action.SpawnCommandInNewTab {
---     domain = "CurrentPaneDomain",
---     cwd = "/home/ousttrue",
---   },
--- })
--- table.insert(config.keys, { key = ",", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
--- table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
-table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
-table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
--- table.insert(config.keys, { key = "[", mods = "LEADER", action = "ActivateCopyMode" })
---table.insert(config.keys, { key = "PageUp", mods = "SHIFT", action = wezterm.action.ScrollByPage(-1) })
---table.insert(config.keys, { key = "PageDown", mods = "SHIFT", action = wezterm.action.ScrollByPage(1) })
+table.insert(config.keys, { key = "[", mods = "LEADER", action = "ActivateCopyMode" })
+table.insert(config.keys, { key = "PageUp", mods = "SHIFT", action = wezterm.action.ScrollByPage(-1) })
+table.insert(config.keys, { key = "PageDown", mods = "SHIFT", action = wezterm.action.ScrollByPage(1) })
+
+if wezterm.target_triple:find "windows" then
+  config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
+  -- config.font = today_font()
+  config.initial_cols = 126
+  config.initial_rows = 56
+
+  table.insert(
+    config.keys,
+    { key = "q", mods = "LEADER", action = wezterm.action { CloseCurrentTab = { confirm = false } } }
+  )
+  table.insert(config.keys, { key = "c", mods = "LEADER", action = "ShowLauncher" })
+  table.insert(config.keys, { key = " ", mods = "CTRL|SHIFT", action = "QuickSelect" })
+  table.insert(config.keys, { key = " ", mods = "LEADER", action = wezterm.action { PasteFrom = "PrimarySelection" } })
+  table.insert(config.keys, { key = "[", mods = "LEADER", action = "ActivateCopyMode" })
+  -- table.insert(config.keys, { key = "v", mods = "CTRL", action = wezterm.action { PasteFrom = "Clipboard" } })
+  table.insert(config.keys, { key = "c", mods = "CTRL|SHIFT", action = wezterm.action { CopyTo = "Clipboard" } })
+  table.insert(config.keys, { key = "v", mods = "CTRL|SHIFT", action = wezterm.action { PasteFrom = "Clipboard" } })
+  table.insert(config.keys, { key = "Insert", mods = "SHIFT", action = wezterm.action { PasteFrom = "Clipboard" } })
+
+  -- tab
+  table.insert(config.keys, { key = "c", mods = "ALT", action = wezterm.action { SpawnTab = "CurrentPaneDomain" } })
+  table.insert(config.keys, { key = "h", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
+  table.insert(config.keys, { key = "l", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
+  table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
+  table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
+
+  table.insert(config.keys, { key = ",", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
+  table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
+  table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
+  table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
+end
+
+config.warn_about_missing_glyphs = false
 
 -- ???
 -- https://github.com/wez/wezterm/discussions/556

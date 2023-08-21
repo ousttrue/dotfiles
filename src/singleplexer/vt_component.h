@@ -31,6 +31,15 @@ struct VtRenderer {
 struct VtNode : ftxui::Node {
   std::shared_ptr<VtRenderer> m_renderer;
 
+  VtNode(const ftxui::Dimensions &dim) {
+    requirement_.min_x = dim.dimx;
+    requirement_.min_y = dim.dimy;
+    requirement_.flex_grow_x = 1;
+    requirement_.flex_grow_y = 1;
+    requirement_.flex_shrink_x = 0;
+    requirement_.flex_shrink_y = 0;
+  }
+
   int Width() const { return box_.x_max - box_.x_min + 1; }
   int Height() const { return box_.y_max - box_.y_min + 1; }
 

@@ -1,5 +1,21 @@
 local M = {}
 
+local function join(args, delimiter)
+  local cmd = ""
+  delimiter = delimiter or " "
+  for _, arg in ipairs(args) do
+    cmd = cmd .. delimiter .. arg
+  end
+  return cmd
+end
+
+local function cmd_args(cmd, args)
+  if args then
+    cmd = string.format('"%s" %s', cmd, join(args))
+  end
+  return nyagos.exec(cmd)
+end
+
 function M.setup()
   require("zoxide").setup()
 
@@ -40,7 +56,7 @@ function M.setup()
   end
 
   function nyagos.alias.mewrap(args)
-    local result = nyagos.eval 'meson wrap list| fzf --preview "meson wrap info{}"'
+    local result = nyagos.eval 'meson wrap list| fzf --preview "meson wrap info {}"'
     if result then
       nyagos.exec("meson wrap install " .. result)
     end
@@ -60,14 +76,14 @@ function M.setup()
   end
 
   function nyagos.alias.nvim(args)
-    local cmd = string.format('"%s"', NVIM)
-    for i, arg in ipairs(args) do
-      cmd = cmd .. " " .. arg
-    end
-    return nyagos.exec(cmd)
+    return cmd_args(NVIM, args)
   end
   function nyagos.alias.v(args)
     return nyagos.alias.nvim(args)
+  end
+
+  function nyagos.alias.ls(args)
+    return cmd_args("lsd.exe", args)
   end
 
   local function search_history(this, is_prev)
