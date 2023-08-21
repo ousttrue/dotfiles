@@ -138,7 +138,7 @@ local config = {
 
   color_scheme = color_scheme,
   hide_tab_bar_if_only_one_tab = true,
-  tab_bar_at_bottom = true,
+  -- tab_bar_at_bottom = true,
   -- keybinds
   disable_default_key_bindings = true,
   -- leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 },
@@ -175,7 +175,17 @@ table.insert(config.keys, { key = "[", mods = "LEADER", action = "ActivateCopyMo
 table.insert(config.keys, { key = "PageUp", mods = "SHIFT", action = wezterm.action.ScrollByPage(-1) })
 table.insert(config.keys, { key = "PageDown", mods = "SHIFT", action = wezterm.action.ScrollByPage(1) })
 
-if wezterm.target_triple:find "windows" then
+config.warn_about_missing_glyphs = false
+
+-- ???
+-- https://github.com/wez/wezterm/discussions/556
+table.insert(config.keys, { key = "/", mods = "CTRL", action = wezterm.action { SendString = "\x1f" } })
+-- table.insert(config.keys, { key = "l", mods = "ALT", action = wezterm.action_callback(write_dump) })
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  --
+  -- Windows
+  --
   config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
   -- config.font = today_font()
   config.initial_cols = 126
@@ -205,19 +215,6 @@ if wezterm.target_triple:find "windows" then
   table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
   table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
   table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
-end
-
-config.warn_about_missing_glyphs = false
-
--- ???
--- https://github.com/wez/wezterm/discussions/556
-table.insert(config.keys, { key = "/", mods = "CTRL", action = wezterm.action { SendString = "\x1f" } })
--- table.insert(config.keys, { key = "l", mods = "ALT", action = wezterm.action_callback(write_dump) })
-
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-  --
-  -- Windows
-  --
   config.font_size = 13.0 -- 4k monitor with DPI scaling
 
   local PWSH = { "C:/Program Files/PowerShell/7/pwsh.exe", "-nologo" }

@@ -29,4 +29,4 @@ keymap x EXTERN
 keymap ";" MARK_URL
 
 # custom
-keymap u CURSORLINE_TOP
+keymap t CURSORLINE_TOP

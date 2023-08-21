@@ -1,0 +1,2 @@
+- [GitHub - princejoogie/chafa.nvim: A neovim plugin for viewing images.](https://github.com/princejoogie/chafa.nvim)
+- [GitHub - av1ppp/chafa-welcome: ⚙️ Command line tool for getting system information with a render via chafa](https://github.com/av1ppp/chafa-welcome)

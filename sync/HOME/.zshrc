@@ -88,7 +88,7 @@ function git_prompt {
 
 prompt_precmd() {
     # Default PROMPT
-    if [ -v TMUX ];then
+    if [ -v TMUX_PANE ];then
         tmux selectp -T "$(git_prompt)" -t $TMUX_PANE
         # local title_s=$'\e]0;'
         # local title_e=$'\a'
