@@ -181,67 +181,90 @@ function mewrap {
 # prompt
 #
 # https://qiita.com/GunseiKPaseri/items/e594c8e261905e3d0281
-declare -l DSPCOLOR="reset"
-COLORCHANGE() {
-	if [ "$1" = "back" ]; then
-		# background color
-		printf "\033[4"
-	else
-		# charactor color
-		printf "\033[3"
-	fi
-	case "$2" in
-	"red") printf "8;2;255;0;15m" ;;
-	"green") printf "8;2;0;145;64m" ;;
-	"yellow") printf "8;2;250;191;20m" ;;
-	"blue") printf "8;2;0;0;255m" ;;
-	"purple") printf "8;2;146;7;131m" ;;
-	"cyan") printf "8;2;0;160;233m" ;;
-	"gray") printf "8;2;229;229;229m" ;;
-	"white") printf "8;2;255;255;255m" ;;
-	"black") printf "8;2;0;0;0m" ;;
-	*) printf "9m" ;;
-	esac
+# local DSPCOLOR="reset"
+
+#
+# ANSI COLOR
+#
+F_BLACK='\e[30m'
+F_RED='\e[31m'
+F_GREEN='\e[32m'
+F_YELLOW='\e[33m'
+F_BLUE='\e[34m'
+F_MAGENTA='\e[35m'
+F_CYAN='\e[36m'
+F_WHITE='\e[37m'
+F_RGB='\e[38;2;'
+F_256='\e[38;5;'
+F_DEFAULT='\e[39m'
+
+B_BLACK='\e[40m'
+B_RED='\e[41m'
+B_GREEN='\e[42m'
+B_YELLOW='\e[43m'
+B_BLUE='\e[44m'
+B_MAGENTA='\e[45m'
+B_CYAN='\e[46m'
+B_WHITE='\e[47m'
+B_RGB='\e[48;2;'
+B_256='\e[48;5;'
+B_DEFAULT='\e[49m'
+
+#
+# decoration
+#
+E_BOLD='\e[0m'
+E_LIGHT='\e[1m'
+E_ITALIC='\e[2m'
+E_UNDERLINE='\e[3m'
+E_BLINK='\e[4m'
+E_HIBLINK='\e[5m'
+E_REVERSE='\e[6m'
+E_HIDE='\e[7m'
+E_STRIKE='\e[8m'
+E_STRIKE='\e[9m'
+
+C256_RED="255;0;15m"
+C256_GREEN="0;145;64m"
+C256_YELLOW="250;191;20m"
+C256_BLUE="0;0;255m"
+C256_MAGENTA="146;7;131m"
+C256_CYAN="0;160;233m"
+C256_GRAY="229;229;229m"
+C256_WHITE="255;255;255m"
+C256_BLACK="0;0;0m"
+
+B_CURRENT='\e[49m'
+
+BG() {
+	echo -ne '\e[48;2;'$1
+	B_CURRENT='\e[38;2;'$1
 }
 
-COLORCHANGEFROMBACK() {
-	case "$1" in
-	"white" | "gray")
-		COLORCHANGE "chara" "black"
-		;;
-	*)
-		COLORCHANGE "chara" "white"
-		;;
-	esac
+FG() {
+	echo -ne '\e[38;2;'$1
 }
 
-# make bar like powershell
-TOPICCHANGE() {
-	# > color
-	local isUsed=true
-	if [ "$DSPCOLOR" = "reset" ]; then
-		echo -n ""
-		isUsed=false
-	else
-		echo -n " "
-	fi
-	# > background color
-	COLORCHANGE "back" "$1"
-	# > color
-
-	COLORCHANGE "chara" "$DSPCOLOR"
-	# >
-	if "${isUsed}"; then
-		echo -n ""
-		COLORCHANGE "chara" "reset"
-	fi
-	echo -n " "
-	COLORCHANGEFROMBACK "$1"
-	DSPCOLOR="$1"
+PL() {
+	echo -ne " ${B_CURRENT}"
+	BG $2
+	echo -ne " "
+	FG $1
 }
 
-EchoPwd() {
-	local pwdInfo="$HOME"
+PL_END() {
+	echo -ne " "
+	FG ${B_CURRENT}
+	echo -ne '\e[49m'
+}
+
+FB() {
+	FG $1
+	BG $2
+}
+
+GetPwd() {
+	local pwdInfo=$(pwd)
 	if [[ "$pwdInfo" =~ ^.*/ghq/github.com/(.*)$ ]]; then
 		echo -ne " /${BASH_REMATCH[1]}"
 	elif [[ "$pwdInfo" =~ ^"$HOME"(/|$) ]]; then
@@ -249,40 +272,52 @@ EchoPwd() {
 	else
 		echo -ne " $pwdInfo"
 	fi
+}
 
-	# (optional) git
-	# [TODO] `source git-prompt.sh` (you have to download or find)
+ColorArrow() {
+	if [ "$1" = "0" ]; then
+		echo -ne "${F_CYAN}>${F_DEFAULT}"
+	else
+		echo -ne "${F_RED}>${F_DEFAULT}"
+	fi
+}
+
+GetBranch() {
 	if [[ "$(uname -r)" == *microsoft* && "$pwdInfo" =~ ^/mnt/ ]]; then
 		# Git is too slow in WSLdir
 		:
 	else
-		if git status --ignore-submodules &>/dev/null; then
-			# You Use Git
-			# local gitps1="$(__git_ps1)"
-			# if [[ $gitps1 =~ [*+?%] ]]; then
-			#   TOPICCHANGE "yellow"
-			# else
-			# TOPICCHANGE "gray"
-			# fi
-			echo -e -n " "
-		fi
+		git branch --show-current
 	fi
 }
 
-EchoNerdPS1() {
-	if [ -v TMUX ]; then
-		echo -ne '\e]0;'
+Prompt() {
+	local status="$?"
+
+	FB ${C256_WHITE} ${C256_GREEN}
+	echo -ne $(GetPwd)
+
+	local branch=$(GetBranch)
+	if [ ! -z ${branch} ]; then
+		PL ${C256_RED} ${C256_YELLOW}
+		echo -ne " ${branch}"
+
+		PL ${C256_BLUE} ${C256_WHITE}
+		git log --pretty=format:%s -n 1
+
+		PL ${C256_BLUE} ${C256_YELLOW}
+		echo -ne "status"
+		# git status --ignore-submodules
 	fi
 
-	local pwdInfo=$(pwd)
-	echo -ne "$pwdInfo "
+	PL_END
+	echo
 
-	if [ -v TMUX ]; then
-		echo -ne '\a'
-	fi
+	ColorArrow ${status}
 }
 
 if [ -v TMUX ]; then
-	PROMPT_COMMAND='EchoNerdPS1'
+	PS1='$(Prompt) '
+else
+	PS1='$(Prompt) '
 fi
-PS1='$(EchoPwd)\$ '
