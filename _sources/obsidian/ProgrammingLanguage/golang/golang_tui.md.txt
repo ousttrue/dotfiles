@@ -5,7 +5,7 @@
 # fzf
 
 # bubbletea
-[[charm]]
+[[BubbleTea]]
 # go-fzf
 [Go の Fuzzy Finder ライブラリ「go-fzf」の紹介](https://zenn.dev/kou_pg_0131/articles/go-fzf-introduction)
 
