@@ -3,12 +3,13 @@
 - [Rapidly building interactive CLIs in Go with Bubbletea - Inngest Blog](https://www.inngest.com/blog/interactive-clis-with-bubbletea)
 
 # BubbleTea
-
+- [bubbletea/tutorials at master · charmbracelet/bubbletea · GitHub](https://github.com/charmbracelet/bubbletea/tree/master/tutorials)
 
 - @2022 [Rapidly building interactive CLIs in Go with Bubbletea - Inngest Blog](https://www.inngest.com/blog/interactive-clis-with-bubbletea)
 - @2022 [Intro to Bubble Tea in Go - DEV Community](https://dev.to/andyhaskell/intro-to-bubble-tea-in-go-21lg)
 - @2020 [【Go言語】ElmArchitectureでTUIアプリが作れるbubbleteaでちょっとリッチなToDoアプリを作る](https://zenn.dev/yuzuy/articles/95e522a39a5423f5bff4)
 - [Go bubbletea of a library every day - 深入理解Go - SegmentFault 思否](https://segmentfault.com/a/1190000040179971/en)
+- @2022  [Bubble Teaでマインスイーパー作った - forza alex](https://ybalexdp.hatenablog.com/entry/2022/07/24/181932)
 
 
 - @2022 [Bubble Tea でリッチなターミナルアプリケーションを作る #Go - 詩と創作・思索のひろば](https://motemen.hatenablog.com/entry/2022/06/introduction-to-go-bubbletea)
@@ -21,6 +22,25 @@
 ## 0.22
 - @2022 [Goメモ-242 (charmbracelet/bubbletea にマルチバイトサポートが入った)(v0.22.1) - いろいろ備忘録日記](https://devlights.hatenablog.com/entry/2022/08/24/073000)
 
+# dev
+
+## mainloop
+```go
+// start main loop
+    p := tea.NewProgram(m)
+    if err := p.Start(); err != nil {
+        fmt.Printf("app-name: %s", err.Error())
+        os.Exit(1)
+    }
+```
+
+## view
+```go
+func (m model) View() string 
+{
+}
+```
+
 # Apps
 - [bubbletea · GitHub Topics · GitHub](https://github.com/topics/bubbletea)
 - [GitHub - dlvhdr/gh-dash: A beautiful CLI dashboard for GitHub 🚀](https://github.com/dlvhdr/gh-dash)
@@ -30,6 +50,9 @@
 - [GitHub - nore-dev/fman: TUI File Manager](https://github.com/nore-dev/fman)
 ## pager?
 - [GitHub - trashhalo/readcli: Tool that lets you read website content on the command line](https://github.com/trashhalo/readcli)
+
+## fzf
+- [Go の Fuzzy Finder ライブラリ「go-fzf」の紹介](https://zenn.dev/kou_pg_0131/articles/go-fzf-introduction)
 
 # examples
 - [bubbletea/examples at master · charmbracelet/bubbletea · GitHub](https://github.com/charmbracelet/bubbletea/tree/master/examples)

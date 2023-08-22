@@ -10,6 +10,9 @@
 - lsp
 - browser
 - dotmanager
+- dock
+	- test run
+	- build run
 
 # Version
 ## 1.21
