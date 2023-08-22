@@ -11,3 +11,5 @@ path > git branch > git log 1 > git status
 ```
 status=$?
 ```
+
+# 親 Window の Title
