@@ -287,14 +287,17 @@ GetBranch() {
 		# Git is too slow in WSLdir
 		:
 	else
-		git branch --show-current
+		git branch --show-current 2>/dev/null
 	fi
 }
 
 Prompt() {
 	local status="$?"
 
-	FB ${C256_WHITE} ${C256_GREEN}
+	FB ${C256_WHITE} ${C256_BLACK}
+	echo -ne ${ICON}
+
+	PL ${C256_BLACK} ${C256_GRAY}
 	echo -ne $(GetPwd)
 
 	local branch=$(GetBranch)
