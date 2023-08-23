@@ -17,6 +17,7 @@
 - @2019 [自作シェルでヒストリを扱えるようにする - Kludge Factory](https://tyfkda.github.io/blog/2019/07/24/history-in-shell.html)
 - @2018 [Simple-Cpp-Shell/Simple C++ Shell at master · bcanozter/Simple-Cpp-Shell · GitHub](https://github.com/bcanozter/Simple-Cpp-Shell/tree/master/Simple%20C%2B%2B%20Shell)
 - @2015 [Tutorial - Write a Shell in C • Stephen Brennan](https://brennan.io/2015/01/16/write-a-shell-in-c/)
+- [「コマンドラインシェル？？？　誰でも作れますよ」](https://zenn.dev/zetamatta/articles/d7b76ff6535d7d)
 
 ## input
 - repl

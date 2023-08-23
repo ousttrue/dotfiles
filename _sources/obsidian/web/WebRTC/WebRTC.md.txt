@@ -20,9 +20,7 @@
 - [aiortc — aiortc documentation](https://aiortc.readthedocs.io/en/latest/index.html)
 
 ## go
-- [Pion](https://pion.ly/)
-- @2021 [Pion WebRTC で RTCP Feedback を受け取る](https://zenn.dev/castaneai/articles/pion-webrtc-rtcp-feedback)
-- @2020 [Go + GStreamer でお手軽 WebRTC 体験 - castaneaiのブログ](https://castaneai.hatenablog.com/entry/webrtc-with-gstreamer-go)
+[[pion]]
 
 ## Browser
 ```js
