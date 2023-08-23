@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>flags - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -220,9 +220,33 @@
         <article role="main">
           <p>[[golang]]</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://cobra.dev/">Cobra. Dev</a></p></li>
 <li><p><a class="reference external" href="https://github.com/spf13/cobra">GitHub - spf13/cobra: A Commander for modern Go CLI interactions</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://zenn.dev/tama8021/articles/22_0627_go_cobra_cli">【Golang】1日でGoのcobraでサクッとCLIが作れちゃった話</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="flags">
+<h1>flags<a class="headerlink" href="#flags" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simple-minds-think-alike.moritamorie.com/entry/add-flags-to-cobra-app">【Golang】cobraで作ったコマンドラインツール(CLI)にフラグを追加する - Simple minds think alike</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cobra-cli-init">
+<h1>cobra-cli init<a class="headerlink" href="#cobra-cli-init" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">main.go</span></code>, <code class="docutils literal notranslate"><span class="pre">cmd/root.go</span></code> が上書きされる</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ go install github.com/spf13/cobra-cli@latest
+
+$ cobra-cli init --license MIT --viper=false
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="viper">
+<h1>viper<a class="headerlink" href="#viper" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/nirasan/items/cc2ab5bc2889401fe596">逆引き cobra &amp; viper - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://blog.engineer.adways.net/entry/advent_calendar_2018/18">Go初心者がcobraを使ってコマンドラインツールを作ってみた話 - Adwaysエンジニアブログ</a></p></li>
+<li><p><a class="reference external" href="https://clavier.hatenablog.com/entry/2018/03/29/192240">cobraとviperで設定ファイルの値をフラグの値で上書きする - 技術的なメモというか、忘却録</a></p></li>
+</ul>
+</section>
 
         </article>
       </div>
@@ -245,8 +269,26 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">flags</a></li>
+<li><a class="reference internal" href="#cobra-cli-init">cobra-cli init</a></li>
+<li><a class="reference internal" href="#viper">viper</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
