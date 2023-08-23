@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,13 +212,58 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://qiita.com/xuwenzhen/items/b01f78525626b3e87d23">YAMLについての基本知識 - Qiita</a></p>
+          <section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>15.0.0<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id2">
+<h2>2.0<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ハングルの大移動</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="block">
+<h1>block<a class="headerlink" href="#block" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF_(Unicode)">ブロック (Unicode) - Wikipedia</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="wcwidth">
+<h1>wcwidth<a class="headerlink" href="#wcwidth" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;wchar.h&gt;</span><span class="c1"> </span><span class="cp"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">wcwidth</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">wint_t</span><span class="w"> </span><span class="n">wc</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gist.github.com/parisk/71b4631bffbe078b77e7e2e2bd6a84c5">wcwidth.c · GitHub</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="grapheme-cluster">
+<h1>grapheme cluster<a class="headerlink" href="#grapheme-cluster" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://hydrocul.github.io/wiki/blog/2015/1025-unicode-grapheme-clusters.html">Unicodeのgrapheme cluster (書記素クラスタ) | hydroculのメモ</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="c">
+<h1>C++<a class="headerlink" href="#c" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2018 <a class="reference external" href="https://qiita.com/yumetodo/items/54e1a8230dbf513ea85b">C++標準化委員会、ついに文字とは何かを理解する: char8_t - Qiita</a></p></li>
+<li><p><a class="reference external" href="http://www.zedwood.com/article/cpp-utf8-char-to-codepoint">C++ UTF-8 codepoint conversion :: zedwood.com</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="codepage">
+<h1>codepage<a class="headerlink" href="#codepage" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[Windows]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/zetamatta/books/b820d588f4856bcf836c">Windows と Unicode とボク</a></p></li>
+</ul>
+</section>
 
         </article>
       </div>
@@ -233,7 +278,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/Serialization/yaml.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/text/unicode.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -241,8 +286,33 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#id1">15.0.0</a></li>
+<li><a class="reference internal" href="#id2">2.0</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#block">block</a></li>
+<li><a class="reference internal" href="#wcwidth">wcwidth</a></li>
+<li><a class="reference internal" href="#grapheme-cluster">grapheme cluster</a></li>
+<li><a class="reference internal" href="#c">C++</a></li>
+<li><a class="reference internal" href="#codepage">codepage</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
