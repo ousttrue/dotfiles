@@ -1,6 +1,8 @@
 `chcp65001` しないとずれる。
 
+- [GitHub - charmbracelet/bubbletea: A powerful little TUI framework 🏗](https://github.com/charmbracelet/bubbletea)
 - [bubbletea/tutorials at master · charmbracelet/bubbletea · GitHub](https://github.com/charmbracelet/bubbletea/tree/master/tutorials)
+	- [tea package - github.com/charmbracelet/bubbletea - Go Packages](https://pkg.go.dev/github.com/charmbracelet/bubbletea)
 
 # Version
 ## 0.24
@@ -19,21 +21,33 @@
     }
 ```
 
-## view
+# View
+
 ```go
 func (m model) View() string 
 {
 }
+
+func (m model) View() string {
+	return fmt.Sprintf("%s\n%s\n%s", m.headerView(), m.bodyView(), m.footerView())
+}
 ```
-### fmt.Sprintf
+## fmt.Sprintf
 - @2022  [Bubble Teaでマインスイーパー作った - forza alex](https://ybalexdp.hatenablog.com/entry/2022/07/24/181932)
 - @2020 [【Go言語】ElmArchitectureでTUIアプリが作れるbubbleteaでちょっとリッチなToDoアプリを作る](https://zenn.dev/yuzuy/articles/95e522a39a5423f5bff4)
 
-# View
+## View
 - @2022 [Bubble Tea でリッチなターミナルアプリケーションを作る #Go - 詩と創作・思索のひろば](https://motemen.hatenablog.com/entry/2022/06/introduction-to-go-bubbletea)
 `spinner`, `list`
 	- [GitHub - motemen/example-go-bubbletea](https://github.com/motemen/example-go-bubbletea/tree/main)
 
+# Bubbles
+- [GitHub - charmbracelet/bubbles: TUI components for Bubble Tea 🫧](https://github.com/charmbracelet/bubbles)
+
+## Viewport
+- [bubbletea/examples/pager/main.go at master · charmbracelet/bubbletea · GitHub](https://github.com/charmbracelet/bubbletea/blob/master/examples/pager/main.go)
+
+## list
 ## bubble-table
 - [GitHub - Evertras/bubble-table: A customizable, interactive table component for the Bubble Tea framework](https://github.com/Evertras/bubble-table)
 
@@ -43,6 +57,13 @@ func (m model) View() string
 # markdown
 - [GitHub - charmbracelet/glow: Render markdown on the CLI, with pizzazz! 💅🏻](https://github.com/charmbracelet/glow)
 - @2022 [MarkdownとGlamourでGo製ツールの画面出力を色付かせる - はいばらのブログ](https://haibara-works.hatenablog.com/entry/2022/08/30/003033)
+
+# github
+GITHUB_OAUTH_TOKEN
+- [GitHub - rubysolo/brows: CLI GitHub release browser](https://github.com/rubysolo/brows)
+- [GitHub - caarlos0/fork-cleaner: Quickly clean up unused forks on your github account.](https://github.com/caarlos0/fork-cleaner)
+- [GitHub - joaom00/gh-b: GitHub CLI extension to easily manage your branches](https://github.com/joaom00/gh-b)
+- [GitHub - dlvhdr/gh-dash: A beautiful CLI dashboard for GitHub 🚀](https://github.com/dlvhdr/gh-dash)
 
 # Apps
 - [GitHub - antonmedv/walk: Terminal file manager](https://github.com/antonmedv/walk)
@@ -72,4 +93,6 @@ func (m model) View() string
 # VHS
 - [VHS でターミナルを録画する](https://zenn.dev/kou_pg_0131/articles/vhs-introduction)
 
-
+# gum
+- [gum を使ってシェルスクリプトの表示をカッコよくする](https://zenn.dev/kou_pg_0131/articles/gum-introduction)
+- [gum/examples at main · charmbracelet/gum · GitHub](https://github.com/charmbracelet/gum/tree/main/examples)

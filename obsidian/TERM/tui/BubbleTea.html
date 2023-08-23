@@ -220,7 +220,12 @@
         <article role="main">
           <p><code class="docutils literal notranslate"><span class="pre">chcp65001</span></code> しないとずれる。</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/charmbracelet/bubbletea/tree/master/tutorials">bubbletea/tutorials at master · charmbracelet/bubbletea · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://github.com/charmbracelet/bubbletea">GitHub - charmbracelet/bubbletea: A powerful little TUI framework 🏗</a></p></li>
+<li><p><a class="reference external" href="https://github.com/charmbracelet/bubbletea/tree/master/tutorials">bubbletea/tutorials at master · charmbracelet/bubbletea · GitHub</a></p>
+<ul>
+<li><p><a class="reference external" href="https://pkg.go.dev/github.com/charmbracelet/bubbletea">tea package - github.com/charmbracelet/bubbletea - Go Packages</a></p></li>
+</ul>
+</li>
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -250,24 +255,27 @@
 </pre></div>
 </div>
 </section>
-<section id="view">
-<h2>view<a class="headerlink" href="#view" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="view">
+<h1>View<a class="headerlink" href="#view" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="nx">model</span><span class="p">)</span><span class="w"> </span><span class="nx">View</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span>
 <span class="p">{</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="nx">model</span><span class="p">)</span><span class="w"> </span><span class="nx">View</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">"%s\n%s\n%s"</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">headerView</span><span class="p">(),</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">bodyView</span><span class="p">(),</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">footerView</span><span class="p">())</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <section id="fmt-sprintf">
-<h3>fmt.Sprintf<a class="headerlink" href="#fmt-sprintf" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h2>fmt.Sprintf<a class="headerlink" href="#fmt-sprintf" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>@2022  <a class="reference external" href="https://ybalexdp.hatenablog.com/entry/2022/07/24/181932">Bubble Teaでマインスイーパー作った - forza alex</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://zenn.dev/yuzuy/articles/95e522a39a5423f5bff4">【Go言語】ElmArchitectureでTUIアプリが作れるbubbleteaでちょっとリッチなToDoアプリを作る</a></p></li>
 </ul>
 </section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id3">
-<h1>View<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id3">
+<h2>View<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>@2022 <a class="reference external" href="https://motemen.hatenablog.com/entry/2022/06/introduction-to-go-bubbletea">Bubble Tea でリッチなターミナルアプリケーションを作る #Go - 詩と創作・思索のひろば</a>
 <code class="docutils literal notranslate"><span class="pre">spinner</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
@@ -276,6 +284,22 @@
 </ul>
 </li>
 </ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bubbles">
+<h1>Bubbles<a class="headerlink" href="#bubbles" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/charmbracelet/bubbles">GitHub - charmbracelet/bubbles: TUI components for Bubble Tea 🫧</a></p></li>
+</ul>
+<section id="viewport">
+<h2>Viewport<a class="headerlink" href="#viewport" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/charmbracelet/bubbletea/blob/master/examples/pager/main.go">bubbletea/examples/pager/main.go at master · charmbracelet/bubbletea · GitHub</a></p></li>
+</ul>
+</section>
+<section id="list">
+<h2>list<a class="headerlink" href="#list" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
 <section id="bubble-table">
 <h2>bubble-table<a class="headerlink" href="#bubble-table" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
@@ -294,6 +318,16 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/charmbracelet/glow">GitHub - charmbracelet/glow: Render markdown on the CLI, with pizzazz! 💅🏻</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://haibara-works.hatenablog.com/entry/2022/08/30/003033">MarkdownとGlamourでGo製ツールの画面出力を色付かせる - はいばらのブログ</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="github">
+<h1>github<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>GITHUB_OAUTH_TOKEN</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/rubysolo/brows">GitHub - rubysolo/brows: CLI GitHub release browser</a></p></li>
+<li><p><a class="reference external" href="https://github.com/caarlos0/fork-cleaner">GitHub - caarlos0/fork-cleaner: Quickly clean up unused forks on your github account.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/joaom00/gh-b">GitHub - joaom00/gh-b: GitHub CLI extension to easily manage your branches</a></p></li>
+<li><p><a class="reference external" href="https://github.com/dlvhdr/gh-dash">GitHub - dlvhdr/gh-dash: A beautiful CLI dashboard for GitHub 🚀</a></p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="apps">
@@ -350,6 +384,13 @@
 <li><p><a class="reference external" href="https://zenn.dev/kou_pg_0131/articles/vhs-introduction">VHS でターミナルを録画する</a></p></li>
 </ul>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="gum">
+<h1>gum<a class="headerlink" href="#gum" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/kou_pg_0131/articles/gum-introduction">gum を使ってシェルスクリプトの表示をカッコよくする</a></p></li>
+<li><p><a class="reference external" href="https://github.com/charmbracelet/gum/tree/main/examples">gum/examples at main · charmbracelet/gum · GitHub</a></p></li>
+</ul>
+</section>
 
         </article>
       </div>
@@ -391,18 +432,22 @@
 </li>
 <li><a class="reference internal" href="#basic">Basic</a><ul>
 <li><a class="reference internal" href="#mainloop">mainloop</a></li>
-<li><a class="reference internal" href="#view">view</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#view">View</a><ul>
 <li><a class="reference internal" href="#fmt-sprintf">fmt.Sprintf</a></li>
+<li><a class="reference internal" href="#id3">View</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id3">View</a><ul>
+<li><a class="reference internal" href="#bubbles">Bubbles</a><ul>
+<li><a class="reference internal" href="#viewport">Viewport</a></li>
+<li><a class="reference internal" href="#list">list</a></li>
 <li><a class="reference internal" href="#bubble-table">bubble-table</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#lipgloss">LipGloss</a></li>
 <li><a class="reference internal" href="#markdown">markdown</a></li>
+<li><a class="reference internal" href="#github">github</a></li>
 <li><a class="reference internal" href="#apps">Apps</a><ul>
 <li><a class="reference internal" href="#filer">filer</a></li>
 <li><a class="reference internal" href="#pager">pager?</a></li>
@@ -414,6 +459,7 @@
 <li><a class="reference internal" href="#lipgross">Lipgross</a></li>
 <li><a class="reference internal" href="#log">Log</a></li>
 <li><a class="reference internal" href="#vhs">VHS</a></li>
+<li><a class="reference internal" href="#gum">gum</a></li>
 </ul>
 
           </div>
