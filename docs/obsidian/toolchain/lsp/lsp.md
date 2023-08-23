@@ -95,8 +95,15 @@ zls
 - [GitHub - zigtools/zls-vscode: ZLS Client for VSCode](https://github.com/zigtools/zls-vscode)
 
 ## c++
+### ccls
+- [GitHub - MaskRay/ccls: C/C++/ObjC language server supporting cross references, hierarchies, completion and semantic highlighting](https://github.com/MaskRay/ccls)
+
+### cquery
 - [GitHub - jacobdufault/cquery: C/C++ language server supporting multi-million line code base, powered by libclang. Emacs, Vim, VSCode, and others with language server protocol support. Cross references, completion, diagnostics, semantic highlighting and more](https://github.com/cquery-project/cquery)
 - [Building cquery · jacobdufault/cquery Wiki · GitHub](https://github.com/cquery-project/cquery/wiki/Building-cquery)
+
+### LspCpp
+- [GitHub - kuafuwang/LspCpp: A Language Server Protocol implementation in C++](https://github.com/kuafuwang/LspCpp)
 
 ## python
 [[python_lsp]]

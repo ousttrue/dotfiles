@@ -1,20 +1,6 @@
 local M = {}
 
-local function join(args, delimiter)
-  local cmd = ""
-  delimiter = delimiter or " "
-  for _, arg in ipairs(args) do
-    cmd = cmd .. delimiter .. arg
-  end
-  return cmd
-end
-
-local function cmd_args(cmd, args)
-  if args then
-    cmd = string.format('"%s" %s', cmd, join(args))
-  end
-  return nyagos.exec(cmd)
-end
+local util = require "util"
 
 function M.setup()
   require("zoxide").setup()
@@ -76,14 +62,20 @@ function M.setup()
   end
 
   function nyagos.alias.nvim(args)
-    return cmd_args(NVIM, args)
+    return util.exec(NVIM, unpack(args))
   end
   function nyagos.alias.v(args)
     return nyagos.alias.nvim(args)
   end
 
   function nyagos.alias.ls(args)
-    return cmd_args("lsd.exe", args)
+    return util.exec("lsd.exe", unpack(args))
+  end
+  function nyagos.alias.la(args)
+    return util.exec("lsd.exe", "-a", unpack(args))
+  end
+  function nyagos.alias.ll(args)
+    return util.exec("lsd.exe", "-al", unpack(args))
   end
 
   local function search_history(this, is_prev)
@@ -166,6 +158,10 @@ function M.setup()
     search_history(this, true)
   end)
 
+  -- nyagos.bindkey("C_P", function(this)
+  --   search_history(this, true)
+  -- end)
+
   function nyagos.alias.pipup(args)
     nyagos.eval "py -m pip install pip --upgerade"
   end
@@ -188,7 +184,9 @@ function M.setup()
   nyagos.prompt = require("prompt").prompt2
 
   nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
-  nyagos.eval 'chcp 65001'
+  nyagos.eval "chcp 65001"
+
+  nyagos.env.FZF_DEFAULT_OPTS = "--layout=reverse"
 end
 
 return M

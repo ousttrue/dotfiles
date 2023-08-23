@@ -5,6 +5,8 @@ local V = require "vars"
 
 local SEP = ""
 
+local util = require "util"
+
 local function removeEscapeSequence(src)
   -- FIXME : なぜか'$e%[(%d+;)+1m'でマッチしない
   return src:gsub("$e%[%d+;%d+;1m", ""):gsub("$e%[%d+;1m", "")
@@ -62,8 +64,8 @@ local function getBranch()
   until not path
 
   if path then
-    local branch = string.match(nyagos.eval "git branch", "* ([%S ]*)")
-    if branch then
+    local branch = util.trim(nyagos.eval "git branch --show-current")
+    if #branch > 0 then
       local ref = string.match(branch, "^%(detached from ([0-9a-f]+)%)$")
       if ref then
         return "(" .. ref .. "...)"
@@ -152,7 +154,12 @@ function M.prompt2(this)
   local git_branch = getBranch()
   -- local git_branch = nyagos.eval [[git symbolic-ref --short HEAD]]
   if git_branch then
-    prompt = prompt .. sep("yellow", V.fg.black) .. git_branch
+    prompt = prompt
+      .. sep("yellow", V.fg.black)
+      .. " "
+      .. git_branch
+      .. sep("green", V.fg.black)
+      .. util.trim(nyagos.eval "git log --pretty=format:%s -n 1")
   end
 
   prompt = prompt .. sep("default", V.fg.default) .. "$_$$$s"
@@ -231,6 +238,8 @@ end
 ------------------------------------------------
 -- PROMPT生成部分
 -- branch name append
+local begin_branch = "$e[30;40;1m[$e[33;40;1m"
+local end_branch = "$e[30;40;1m]$e[37;1m"
 local function makePrompt(pathBlock)
   local prompt = ""
   if pathBlock ~= "" then
@@ -238,14 +247,14 @@ local function makePrompt(pathBlock)
   else
     prompt = "$e[30;40;1m[" .. getCompressedPath(3):gsub("\\", "/") .. "]$e[37;1m"
   end
-  local hgbranch = nyagos.eval "hg branch 2> nul"
-  local gitbranch = nyagos.eval "git rev-parse --abbrev-ref HEAD 2> nul"
+  -- local hgbranch = nyagos.eval "hg branch 2> nul"
+  local gitbranch = nyagos.eval "git branch --show-current HEAD 2> nul"
   local rprompt = ""
-  if hgbranch ~= "" then
-    rprompt = rprompt .. "$e[30;40;1m[$e[33;40;1m" .. hgbranch .. "$e[30;40;1m]$e[37;1m"
-  end
+  -- if hgbranch ~= "" then
+  --   rprompt = rprompt .. begin_branch .. hgbranch .. "$e[30;40;1m]$e[37;1m"
+  -- end
   if gitbranch ~= "" then
-    rprompt = rprompt .. "$e[30;40;1m[$e[33;40;1m" .. gitbranch .. "$e[30;40;1m]$e[37;1m"
+    rprompt = rprompt .. string.format("%s %s%s", begin_branch, gitbranch, end_branch)
   end
   local pad = nyagos.getviewwidth() - getStringWidth(removeEscapeSequence(prompt .. rprompt))
   for i = 1, pad - 1 do
