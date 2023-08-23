@@ -188,6 +188,7 @@ function M.setup()
   nyagos.prompt = require("prompt").prompt2
 
   nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
+  nyagos.eval 'chcp 65001'
 end
 
 return M

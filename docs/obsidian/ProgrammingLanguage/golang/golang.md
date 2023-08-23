@@ -108,3 +108,5 @@ go env -w GOSUMDB=off
 - [go言語でASTの解析にgo/typesの機能を使うことの威力について - podhmo's diary](https://pod.hatenablog.com/entry/2018/04/08/204907)
 - [GoのAST全部見る - ***の日記](https://monpoke1.hatenablog.com/entry/2018/12/16/110943)
 
+# new
+- [gonew を使って Go プロジェクトのテンプレートを活用する](https://zenn.dev/kou_pg_0131/articles/gonew-introduction)
