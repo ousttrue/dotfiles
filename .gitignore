@@ -1,6 +1,7 @@
 /.venv/
 /_build/
 *.pyc
+*.exe
 .doit.*
 .mypy_cache
 zig-out

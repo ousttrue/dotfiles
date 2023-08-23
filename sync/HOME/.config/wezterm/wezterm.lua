@@ -137,7 +137,7 @@ local config = {
   -- },
 
   color_scheme = color_scheme,
-  hide_tab_bar_if_only_one_tab = true,
+  -- hide_tab_bar_if_only_one_tab = true,
   -- tab_bar_at_bottom = true,
   -- keybinds
   disable_default_key_bindings = true,
