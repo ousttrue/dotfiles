@@ -219,7 +219,8 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 
   local PWSH = { "C:/Program Files/PowerShell/7/pwsh.exe", "-nologo" }
   -- local NUSHELL = { HOME .. "/.cargo/bin/nu.exe" }
-  local NYAGOS = { HOME .. "/local/bin/nyagos.exe" }
+  -- local NYAGOS = { HOME .. "/local/bin/nyagos.exe" }
+  local NYAGOS = { HOME .. "/go/bin/nyagos.exe" }
   -- if file_exists(NUSHELL[1]) then
   --   config.default_prog = NUSHELL
   if file_exists(NYAGOS[1]) then

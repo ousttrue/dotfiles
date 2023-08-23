@@ -15,6 +15,7 @@
 |fep||||uim-fep|uim-fep|
 |muxer|WezTerm||tmux|tmux|tmux|
 |shell|nyagos|bash|zsh|zsh|zsh|
+|cp,mv,rm,mkdir,ln|builtin|binutils|binutils|binutils|binutils|
 |editor|nvim|vim|nvim(msys)|nvim|nvim|
 
 

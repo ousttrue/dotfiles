@@ -159,7 +159,7 @@ function M.prompt2(this)
       .. " "
       .. git_branch
       .. sep("green", V.fg.black)
-      .. util.trim(nyagos.eval "git log --pretty=format:%s -n 1")
+      .. util.trim(nyagos.raweval("git", "log", "--pretty=format:%cr %s", "-n", "1"))
   end
 
   prompt = prompt .. sep("default", V.fg.default) .. "$_$$$s"

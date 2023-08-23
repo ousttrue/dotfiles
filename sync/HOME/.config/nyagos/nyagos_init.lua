@@ -3,6 +3,20 @@ local M = {}
 local util = require "util"
 
 function M.setup()
+  -- nyagos.alias {
+  --   -- clear = "cls",
+  --   -- ll = "ls -la $*",
+  --   rm = "del $*",
+  --   mv = "move $*",
+  --   cp = "copy $*",
+  -- }
+
+  nyagos.skk {
+    user = "~/.go-skk-jisyo", -- ユーザ辞書
+    "~/skk/SKK-JISYO.L", -- システム辞書(ラージ)
+    "~/skk/SKK-JISYO.emoji", -- システム辞書(絵文字)
+  }
+
   require("zoxide").setup()
 
   -- nyagos.env.prompt = "$L" .. nyagos.getenv "COMPUTERNAME" .. ":$P$G"
