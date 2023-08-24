@@ -2,6 +2,19 @@
 
 - [シェルの歴史 総まとめ（種類と系統図）と POSIX の役割 〜 シェルスクリプトの現在・過去・未来【POSIX改訂間近】 - Qiita](https://qiita.com/ko1nksm/items/e7f43428352c0b4c78f9)
 
+| |Windows|git bash|msys|wsl|Linux|
+|-|-|-|-|-|-|
+|term|WezTerm|mintty|mintty|WezTerm|WezTerm|
+|CHOST|||x86_64-pc-msys|||
+|fep||||uim-fep|uim-fep|
+|muxer|WezTerm||tmux|tmux|tmux|
+|shell|nyagos|bash|zsh|zsh|zsh|
+|cp,mv,rm... |builtin => busybox64|binutils|binutils|binutils|binutils|
+|editor|nvim|vim|nvim(msys)|nvim|nvim|
+
+
+ muxer / shell / editor
+ 
 # 必須
 - z
 - gg

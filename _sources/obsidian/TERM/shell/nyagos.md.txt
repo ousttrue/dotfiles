@@ -12,6 +12,9 @@
 # Version
 
 # ~/.nyagos
+## master
+- @2023 skk
+
 ## 4.4.13
 
 ## 4.4
@@ -22,6 +25,7 @@
 - @2018 [NYAGOS 4.2.5βが、いかにしてバッチファイルでの環境変数の変更取り込みを可能としたか - Qiita](https://qiita.com/zetamatta/items/efff93d92ac2150192fb)
 - @2017 [NYAGOSの小TIPS集 - Qiita](https://qiita.com/zetamatta/items/699f772691f19dab03b0)
 
+# comletion
 ## history
 - @2014 [nyagosでヒストリ補完する - Qiita](https://qiita.com/nocd5/items/7cfc2441868442838148)
 
@@ -59,6 +63,10 @@
 
 ## nerdfont
 [[bash]]
+
+# PATH
+- 04 [nyagos で環境変数を設定する｜scoop / nyagos で始めるコマンドライン生活](https://zenn.dev/zetamatta/books/5ac80a9ddb35fef9a146/viewer/2c4c1e)
+- 09 [それでも %PATH% はあふれるのだ！｜scoop / nyagos で始めるコマンドライン生活](https://zenn.dev/zetamatta/books/5ac80a9ddb35fef9a146/viewer/c2e32b)
 
 # box
 - [nyagos 4.3でもmigemoでディレクトリ移動したい! - Qiita](https://qiita.com/nocd5/items/1736064cd9ee652d5920)]

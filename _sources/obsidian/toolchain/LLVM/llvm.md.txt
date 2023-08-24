@@ -6,6 +6,12 @@
 [Getting Started with the LLVM System — LLVM 17.0.0git documentation](https://llvm.org/docs/GettingStarted.html)
 
 # Version
+- [Clang - C++ Programming Language Status](https://clang.llvm.org/cxx_status.html)
+## 18
+- [Clang 18.0.0git (In-Progress) Release Notes — Clang 18.0.0git documentation](https://clang.llvm.org/docs/ReleaseNotes.html)
+## 17
+## 16
+- [Clang 16.0.0 Release Notes — Clang 16.0.0 documentation](https://releases.llvm.org/16.0.0/tools/clang/docs/ReleaseNotes.html)
 ## 15
 
 ## 14
@@ -27,6 +33,32 @@
 
 # Build
 8core memory16GB SSDで90分くらい
+
+```
+cmake -S . -B build -DLLVM_TARGETS_TO_BUILD=host -DLLVM_ENABLE_DOXYGEN=off -DLLVM_ENABLE_SPHINX=off -DCMAKE_BUILD_TYPE=Rlease -DCMAKE_INSTALL_PREFIX=D:/llvm -G Ninja
+
+-- The C compiler identification is MSVC 19.37.32822.0
+-- The CXX compiler identification is MSVC 19.37.32822.0
+-- The ASM compiler identification is MSVC
+-- LLVM host triple: x86_64-pc-windows-msvc
+-- LLVM default target triple: x86_64-pc-windows-msvc
+
+-DLLVM_TARGETS_TO_BUILD=host
+-DLLVM_ENABLE_DOXYGEN=off
+-DLLVM_ENABLE_SPHINX=off
+-DLLVM_ENABLE_PROJECTS=lld,clang
+
+cmake --build build
+[0/3946]... 40min? 1400
+``` 
+
+## ccls
+```
+cmake -S . -B build -DClang_DIR=D:/llvm/lib/cmake/clang
+```
+
+## zig
+`zig-11` でビルドするには？
 
 # Tutorial
 - [LLVM Tutorial: Table of Contents — LLVM 16.0.0git documentation](https://llvm.org/docs/tutorial/)
