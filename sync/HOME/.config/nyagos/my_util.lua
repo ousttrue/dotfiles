@@ -2,8 +2,11 @@
 -- https://qiita.com/gp333/items/c472f7a7d9fcca1b5cb7
 --
 local M = {}
+
 function M.trim(s)
-  return s:match("^%s*(.*)"):match "(.-)%s*$"
+  if s then
+    return string.match(s, "^%s*(.*)"):match "(.-)%s*$"
+  end
 end
 
 function M.join(args, delimiter)

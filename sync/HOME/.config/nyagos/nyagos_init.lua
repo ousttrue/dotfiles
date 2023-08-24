@@ -1,6 +1,6 @@
 local M = {}
 
-local util = require "util"
+local U = require "my_util"
 
 function M.setup()
   -- nyagos.alias {
@@ -76,21 +76,22 @@ function M.setup()
   end
 
   function nyagos.alias.nvim(args)
-    return util.exec(NVIM, unpack(args))
+    return U.exec(NVIM, unpack(args))
   end
   function nyagos.alias.v(args)
     return nyagos.alias.nvim(args)
   end
 
-  function nyagos.alias.ls(args)
-    return util.exec("lsd.exe", unpack(args))
-  end
-  function nyagos.alias.la(args)
-    return util.exec("lsd.exe", "-a", unpack(args))
-  end
-  function nyagos.alias.ll(args)
-    return util.exec("lsd.exe", "-al", unpack(args))
-  end
+  -- function nyagos.alias.ls(args)
+  --   print(args)
+  --   return U.eval { "lsd.exe" }
+  -- end
+  -- function nyagos.alias.la(args)
+  --   return U.eval("lsd.exe", "-a")
+  -- end
+  -- function nyagos.alias.ll(args)
+  --   return U.eval("lsd.exe", "-al")
+  -- end
 
   local function search_history(this, is_prev)
     -- カーソル位置が一番左の場合は通常のnext/prev
