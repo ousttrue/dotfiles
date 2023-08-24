@@ -13,3 +13,8 @@ status=$?
 ```
 
 # 親 Window の Title
+
+# git status
+- [git statusを利用したリポジトリ情報のプロンプト表示 - GeekFactory](https://int128.hatenablog.com/entry/2015/07/15/003851)
+- untracked +
+- modified *

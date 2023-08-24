@@ -6,6 +6,9 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 autoload -Uz compinit
+autoload -Uz colors
+autoload -Uz add-zsh-hook
+
 compinit
 # End of lines added by compinstall
 
@@ -74,9 +77,8 @@ if ! zplug check --verbose; then
 fi
 
 # Then, source plugins and add commands to $PATH
-zplug load --verbose
+zplug load #--verbose
 
-autoload -Uz colors
 function git_prompt {
     local branch=$(git branch --show-current 2>/dev/null)
     if [ ! -z ${branch} ]; then
@@ -86,10 +88,39 @@ function git_prompt {
     fi
 }
 
-prompt_precmd() {
+typeset -A emoji
+emoji[ok]=$'\U2705'
+emoji[error]=$'\U274C'
+emoji[git]=$'\U1F500'
+emoji[git_changed]=$'\U1F37A'
+emoji[git_untracked]=$'\U1F363'
+emoji[git_clean]=$'\U2728'
+emoji[right_arrow]=$'\U2794'
+
+function _vcs_git_indicator () {
+  typeset -A git_info
+  local git_indicator git_status
+  git_status=("${(f)$(git status --porcelain --branch 2> /dev/null)}")
+  (( $? == 0 )) && {
+    git_info[branch]="${${git_status[1]}#\#\# }"
+    shift git_status
+    git_info[changed]=${#git_status:#\?\?*}
+    git_info[untracked]=$(( $#git_status - ${git_info[changed]} ))
+    git_info[clean]=$(( $#git_status == 0 ))
+
+    git_indicator=("${emoji[git]}  %{%F{blue}%}${git_info[branch]}%{%f%}")
+    (( ${git_info[clean]}     )) && git_indicator+=("${emoji[git_clean]}")
+    (( ${git_info[changed]}   )) && git_indicator+=("${emoji[git_changed]}  %{%F{yellow}%}${git_info[changed]} changed%{%f%}")
+    (( ${git_info[untracked]} )) && git_indicator+=("${emoji[git_untracked]}  %{%F{red}%}${git_info[untracked]} untracked%{%f%}")
+  }
+  _vcs_git_indicator="${git_indicator}"
+}
+
+function prompt_precmd() {
     # Default PROMPT
     if [ -v TMUX_PANE ];then
-        tmux selectp -T "$(git_prompt)" -t $TMUX_PANE
+        local git='$_vcs_git_indicator'
+        tmux selectp -T "$(git_prompt)$git" -t $TMUX_PANE
         # local title_s=$'\e]0;'
         # local title_e=$'\a'
         # PROMPT="%{${title_s}%}$(git_prompt)%{${title_e}%}%F{45}>%f "
@@ -99,6 +130,6 @@ prompt_precmd() {
     fi
 }
 
-autoload -Uz add-zsh-hook
 add-zsh-hook precmd prompt_precmd
+add-zsh-hook precmd _vcs_git_indicator
 

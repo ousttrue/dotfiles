@@ -29,3 +29,7 @@ git branch --contains
 
 # commit 選択
 ## reset
+
+# push / pull
+- まだ push してない。
+- remote の方が前

@@ -98,6 +98,10 @@ if which exa >/dev/null 2>&1; then
 	alias ls='exa --color=auto --icons'
 	alias la='exa --color=auto --icons -a'
 	alias ll='exa --color=auto --icons -al'
+elif which lsd >/dev/null 2>&1; then
+	alias ls='lsd'
+	alias la='lsd -a'
+	alias ll='lsd -al'
 elif [ "$UNAME_OS" = "FreeBSD" ]; then
 	alias ls='ls --color'
 	alias la='ls --color -a'
@@ -270,7 +274,7 @@ GetPwd() {
 	elif [[ "$pwdInfo" =~ ^"$HOME"(/|$) ]]; then
 		printf "🏠${pwdInfo#$HOME}"
 	else
-		printf " $pwdInfo"
+		printf "📂${pwdInfo}"
 	fi
 }
 
@@ -289,6 +293,27 @@ GetBranch() {
 	else
 		git branch --show-current 2>/dev/null
 	fi
+}
+
+TmuxPrompt() {
+	local status="$?"
+
+	FB ${C256_WHITE} ${C256_BLACK}
+	printf ${ICON}
+
+	PL ${C256_BLACK} ${C256_GRAY}
+	printf $(GetPwd)
+
+	local branch=$(GetBranch)
+	if [ ! -z ${branch} ]; then
+		local git_log=$(git log --pretty="format:%cr   %s" -n 1)
+		tmux selectp -T" ${branch}   ${git_log}" -t $TMUX_PANE
+	fi
+
+	PL_END
+	printf '\n'
+
+	ColorArrow ${status}
 }
 
 Prompt() {
@@ -320,7 +345,7 @@ Prompt() {
 }
 
 if [ -v TMUX ]; then
-	PS1='$(Prompt) '
+	PS1='$(TmuxPrompt) '
 else
 	PS1='$(Prompt) '
 fi
