@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>string.find - shell note ドキュメント</title>
+        <title>string.sub - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -219,6 +219,10 @@
         </div>
         <article role="main">
           <p>[[lua]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="string-sub">
+<h1>string.sub<a class="headerlink" href="#string-sub" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>文字列の index アクセスは無い？</p>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="string-find">
 <h1>string.find<a class="headerlink" href="#string-find" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="nb">string.find</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">pattern</span> <span class="p">[,</span> <span class="n">init</span> <span class="p">[,</span> <span class="n">plain</span><span class="p">]])</span>
@@ -236,6 +240,11 @@
 <li><p>return captured</p></li>
 <li><p>return all if no capture</p></li>
 </ul>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span> <span class="o">=</span> <span class="nb">string.match</span><span class="p">(</span><span class="s1">'123'</span><span class="p">,</span> <span class="s1">'(1)2(3)'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">)</span>
+<span class="mi">1</span>       <span class="mi">3</span>       <span class="kc">nil</span>
+</pre></div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="string-gmatch">
 <h1>string.gmatch<a class="headerlink" href="#string-gmatch" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -281,7 +290,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">string.find</a></li>
+<li><a class="reference internal" href="#">string.sub</a></li>
+<li><a class="reference internal" href="#string-find">string.find</a></li>
 <li><a class="reference internal" href="#string-match-s-pattern-init">string.match(s, pattern[, init])</a></li>
 <li><a class="reference internal" href="#string-gmatch">string.gmatch</a></li>
 </ul>

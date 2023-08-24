@@ -8,6 +8,8 @@
 
 - @2023 [scoop / nyagos で始めるコマンドライン生活](https://zenn.dev/zetamatta/books/5ac80a9ddb35fef9a146)
 - @2020 [Windows ユーザは cmd.exe で生きるべきかもしれないが、俺は nyagos でやってきた - 標準愚痴出力](https://zetamatta.hatenablog.com/entry/2020/07/21/003444)
+- https://gist.github.com/rcapraro/1b8003002ee47caa4b12
+- https://gist.github.com/tsuyoshicho/1e6288193047d782b576d8cf5bf9bc13
 
 # Version
 
