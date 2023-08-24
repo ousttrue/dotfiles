@@ -2,6 +2,15 @@
 
 https://clangd.llvm.org/
 
+# launch
+
+```
+I[19:37:56.005] Working directory: d:\VrmEditor
+I[19:37:56.005] argv[0]: C:\Program Files\LLVM\bin\clangd.exe
+I[19:37:56.005] argv[1]: --compile-commands-dir=d:\VrmEditor/builddir 👈 FullPath ?
+I[19:37:56.005] argv[2]: --header-insertion=never
+```
+
 # auto include
 [How can I disable auto-includes on completion? · Issue #918 · clangd/clangd · GitHub](https://github.com/clangd/clangd/issues/918)
 

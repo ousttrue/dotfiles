@@ -30,19 +30,20 @@ local function get_clangd()
 end
 
 local function get_compile_commands_dir()
+  local pwd = vim.fn.getcwd()
   if dot.exists "builddir/compile_commands.json" then
-    return "builddir"
+    return pwd .. "/builddir"
   end
 
   if dot.exists "build/compile_commands.json" then
-    return "build"
+    return pwd .. "/build"
   end
 
   if dot.exists "compile_commands.json" then
-    return "."
+    return pwd
   end
 
-  return "builddir"
+  return pwd .. "/builddir"
 end
 
 ---@param lspconfig any
@@ -68,6 +69,7 @@ function M.setup(lspconfig, capabilities, on_attach)
       vim.keymap.set("n", ",,", function()
         vim.cmd "ClangdSwitchSourceHeader"
       end, { noremap = true })
+      -- vim.diagnostic.disable(bufnr)
       on_attach(client, bufnr)
     end,
     capabilities = capabilities,
