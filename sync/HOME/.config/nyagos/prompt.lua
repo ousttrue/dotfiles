@@ -131,6 +131,7 @@ local function get_prefix()
   -- return H[(index12 % #H) + 1]
   -- return string.format("%02d", index12)
   return "🐱"
+  -- return " "
 end
 
 local org_prompter = nyagos.prompt
@@ -159,7 +160,7 @@ function M.prompt2(this)
       .. " "
       .. git_branch
       .. sep("green", V.fg.black)
-      .. util.trim(nyagos.raweval("git", "log", "--pretty=format:%cr %s", "-n", "1"))
+      .. util.trim(nyagos.raweval("git", "log", "--pretty=format:%cr   %s", "-n", "1"))
   end
 
   prompt = prompt .. sep("default", V.fg.default) .. "$_$$$s"

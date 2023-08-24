@@ -18,7 +18,24 @@ function M.setup()
   -- print(vim.inspect(capabilities))
 
   require("lspconfig.lua_ls").setup(lspconfig, capabilities, on_attach)
-  require("lspconfig.clangd").setup(lspconfig, capabilities, on_attach)
+  if true then
+    require("lspconfig.clangd").setup(lspconfig, capabilities, on_attach)
+  else
+    lspconfig.ccls.setup {
+      cmd = { "D:/msys64/mingw64/bin/ccls.exe" },
+      compilationDatabaseDirectory = "builddir",
+      index = {
+        threads = 0,
+      },
+      clang = {
+        excludeArgs = {
+          "-fms-extensions",
+          "-fms-compatibility",
+          "-fdelayed-template-parsing",
+        },
+      },
+    }
+  end
   -- require("lspconfig.omnisharp").setup(lspconfig, capabilities, on_attach)
   require("lspconfig").csharp_ls.setup {}
 

@@ -189,7 +189,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
   -- config.font = today_font()
   config.initial_cols = 126
-  config.initial_rows = 56
+  config.initial_rows = 52
 
   table.insert(
     config.keys,

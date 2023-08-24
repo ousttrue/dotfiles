@@ -237,25 +237,25 @@ C256_BLACK="0;0;0m"
 B_CURRENT='\e[49m'
 
 BG() {
-	echo -ne '\e[48;2;'$1
+	printf '\e[48;2;'$1
 	B_CURRENT='\e[38;2;'$1
 }
 
 FG() {
-	echo -ne '\e[38;2;'$1
+	printf '\e[38;2;'$1
 }
 
 PL() {
-	echo -ne " ${B_CURRENT}"
+	printf " ${B_CURRENT}"
 	BG $2
-	echo -ne " "
+	printf " "
 	FG $1
 }
 
 PL_END() {
-	echo -ne " "
+	printf " "
 	FG ${B_CURRENT}
-	echo -ne '\e[49m'
+	printf '\e[49m'
 }
 
 FB() {
@@ -266,19 +266,19 @@ FB() {
 GetPwd() {
 	local pwdInfo=$(pwd)
 	if [[ "$pwdInfo" =~ ^.*/ghq/github.com/(.*)$ ]]; then
-		echo -ne " /${BASH_REMATCH[1]}"
+		printf " /${BASH_REMATCH[1]}"
 	elif [[ "$pwdInfo" =~ ^"$HOME"(/|$) ]]; then
-		echo -ne "🏠${pwdInfo#$HOME}"
+		printf "🏠${pwdInfo#$HOME}"
 	else
-		echo -ne " $pwdInfo"
+		printf " $pwdInfo"
 	fi
 }
 
 ColorArrow() {
 	if [ "$1" = "0" ]; then
-		echo -ne "${F_CYAN}>${F_DEFAULT}"
+		printf "${F_CYAN}>${F_DEFAULT}"
 	else
-		echo -ne "${F_RED}>${F_DEFAULT}"
+		printf "${F_RED}>${F_DEFAULT}"
 	fi
 }
 
@@ -295,26 +295,26 @@ Prompt() {
 	local status="$?"
 
 	FB ${C256_WHITE} ${C256_BLACK}
-	echo -ne ${ICON}
+	printf ${ICON}
 
 	PL ${C256_BLACK} ${C256_GRAY}
-	echo -ne $(GetPwd)
+	printf $(GetPwd)
 
 	local branch=$(GetBranch)
 	if [ ! -z ${branch} ]; then
 		PL ${C256_RED} ${C256_YELLOW}
-		echo -ne " ${branch}"
+		printf " ${branch}"
 
 		PL ${C256_BLUE} ${C256_WHITE}
 		git log --pretty=format:%s -n 1
 
 		PL ${C256_BLUE} ${C256_YELLOW}
-		echo -ne "status"
+		printf "status"
 		# git status --ignore-submodules
 	fi
 
 	PL_END
-	echo
+	printf '\n'
 
 	ColorArrow ${status}
 }

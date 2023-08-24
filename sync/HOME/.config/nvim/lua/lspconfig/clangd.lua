@@ -56,7 +56,7 @@ function M.setup(lspconfig, capabilities, on_attach)
       "--header-insertion=never",
       "--clang-tidy",
       "--enable-config",
-      -- '--query-driver="C:/Program Files/LLVM/bin/clang-cl.exe"',
+      "--query-driver='C:/Program Files/LLVM/bin/clang-cl.exe'",
     },
     -- handlers = lsp_status.extensions.clangd.setup(),
     init_options = {

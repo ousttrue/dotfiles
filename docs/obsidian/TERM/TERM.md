@@ -8,16 +8,3 @@
 - [Ubuntuでxterm-256colorのterminfoがないと怒られた - 絶品ゆどうふのタレ](https://yudoufu.hatenablog.jp/entry/20100930/1285813510)
 - [Ubuntuでターミナルエミュレータにtmux-256colorを使う - 消えたアンダーバー](https://akahana-1.hatenablog.jp/entry/2017/11/07/153741)
 
-| |Windows|git bash|msys|wsl|Linux|
-|-|-|-|-|-|-|
-|term|WezTerm|mintty|mintty|WezTerm|WezTerm|
-|CHOST||||||
-|fep||||uim-fep|uim-fep|
-|muxer|WezTerm||tmux|tmux|tmux|
-|shell|nyagos|bash|zsh|zsh|zsh|
-|cp,mv,rm,mkdir,ln|builtin|binutils|binutils|binutils|binutils|
-|editor|nvim|vim|nvim(msys)|nvim|nvim|
-
-
- muxer / shell / editor
- 
