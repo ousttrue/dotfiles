@@ -113,6 +113,11 @@ local git_status_map = {
 
 local org_prompter = nyagos.prompt
 function M.prompt2(_)
+  local error = false
+  if nyagos.env.ERRORLEVEL and nyagos.env.ERRORLEVEL ~= '0' then
+    error = true
+  end
+
   -- local current = "$P"
   local current = string.gsub(nyagos.getwd(), "\\", "/")
 
@@ -154,7 +159,18 @@ function M.prompt2(_)
     end
   end
 
-  prompt = prompt .. sep("default", "default") .. "$_$$$s"
+  local error_color = "green"
+  if error then
+    error_color = "red"
+  end
+
+  prompt = prompt
+    .. sep("default", "default")
+    .. "$_" -- '\n'
+    .. fg_bg_attr(V.fg[error_color], V.bg.default)
+    .. ">"
+    .. fg_bg_attr(V.fg.default, V.bg.default)
+    .. "$s" -- 'space'
   return org_prompter(prompt)
 end
 
