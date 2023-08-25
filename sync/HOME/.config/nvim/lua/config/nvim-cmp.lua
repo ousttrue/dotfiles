@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   local cmp = require "cmp"
   local lspkind = require "lspkind"
-  -- local luasnip = require "luasnip"
+  local luasnip = require "luasnip"
   local dot = require "dot"
   local feedkeys = require "cmp.utils.feedkeys"
 
@@ -57,11 +57,11 @@ function M.setup()
   local modes = { "i", "s", "c" }
 
   cmp.setup {
-    -- snippet = {
-    --   expand = function(args)
-    --     luasnip.lsp_expand(args.body)
-    --   end,
-    -- },
+    snippet = {
+      expand = function(args)
+        luasnip.lsp_expand(args.body)
+      end,
+    },
 
     -- completion = {
     --   autocomplete = false,
