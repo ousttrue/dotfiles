@@ -2,15 +2,18 @@
 
 - [シェルの歴史 総まとめ（種類と系統図）と POSIX の役割 〜 シェルスクリプトの現在・過去・未来【POSIX改訂間近】 - Qiita](https://qiita.com/ko1nksm/items/e7f43428352c0b4c78f9)
 
-| |Windows|git bash|msys|wsl|Linux|
-|-|-|-|-|-|-|
-|term|WezTerm|mintty|mintty|WezTerm|WezTerm|
-|CHOST|||x86_64-pc-msys|||
-|fep||||uim-fep|uim-fep|
-|muxer|WezTerm||tmux|tmux|tmux|
-|shell|nyagos|bash|zsh|zsh|zsh|
-|cp,mv,rm... |builtin => busybox64|binutils|binutils|binutils|binutils|
+| |__multi__|Windows|git bash|msys|wsl|Linux|
+|-|-|-|-|-|-|-|
+|term|WezTerm|WezTerm|mintty|mintty|WezTerm|WezTerm|
+|CHOST|__CROSS__||x86_64-pc-msys|||
+|fep|nyagos-skk ?|||uim-fep|uim-fep|
+|muxer|WezTerm|WezTerm||tmux|tmux|tmux|
+|shell|nyagos|nyagos|bash|zsh|zsh|zsh|
+|cp,mv,rm... |binutils / buybox|busybox64|binutils|binutils|binutils|binutils|
 |editor|nvim|vim|nvim(msys)|nvim|nvim|
+
+# 環境
+- nyagos を中心に [[smfmt]] を補助(task runner)で使う方向 
 
 
  muxer / shell / editor
@@ -19,11 +22,7 @@
 	- binutils(Linux)
 	- busybox32
 - [GitHub - mvdan/sh: A shell parser, formatter, and interpreter with bash support; includes shfmt](https://github.com/mvdan/sh)	 
-- [GitHub - go-task/task: A task runner / simpler Make alternative written in Go](https://github.com/go-task/task)
-	- [📘Windowsにも優しいタスクランナーTaskを試してみた - Minerva](https://minerva.mamansoft.net/%F0%9F%93%98Articles/%F0%9F%93%98Windows%E3%81%AB%E3%82%82%E5%84%AA%E3%81%97%E3%81%84%E3%82%BF%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%B3%E3%83%8A%E3%83%BCTask%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F)
-- [Task (go-task) メモ-05 (実行方法) - いろいろ備忘録日記](https://devlights.hatenablog.com/entry/2022/12/21/073000)
-- [Make の代わりに Task を使ってみる](https://zenn.dev/spiegel/articles/20210418-task)
-- [go-taskでストレスフリーな開発体験 - Retty Tech Blog](https://engineer.retty.me/entry/2021/12/15/161644)
+
  
 # 必須
 - z
