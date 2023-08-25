@@ -3,22 +3,6 @@ local M = {}
 local V = require "vars"
 local U = require "my_util"
 
-local function gitBranch()
-  if U.has_git() then
-    local branch = U.eval("git", "branch", "--show-current")
-    if #branch > 0 then
-      local ref = string.match(branch, "^%(detached from ([0-9a-f]+)%)$")
-      if ref then
-        return "(" .. ref .. "...)"
-      else
-        return branch
-      end
-    else
-      return "no branch"
-    end
-  end
-end
-
 ---@param fg string
 ---@param bg string
 local function fg_bg_attr(fg, bg)
@@ -71,6 +55,22 @@ local function get_prefix()
   -- return " "
 end
 
+local function gitBranch()
+  if U.has_git() then
+    local branch = U.eval("git", "branch", "--show-current")
+    if #branch > 0 then
+      local ref = string.match(branch, "^%(detached from ([0-9a-f]+)%)$")
+      if ref then
+        return "(" .. ref .. "...)"
+      else
+        return branch
+      end
+    else
+      return "no branch"
+    end
+  end
+end
+
 local function increment(t, k)
   if t[k] then
     t[k] = t[k] + 1
@@ -89,8 +89,6 @@ local function gitStatus()
     sync = string.format(" %s", n)
   elseif sync_status == "ahead" then
     sync = string.format(" %s", n)
-  else
-    sync = lines[1]
   end
   table.remove(lines, 1)
 

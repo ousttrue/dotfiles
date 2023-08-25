@@ -26,15 +26,16 @@ function M.split(str, delimiter)
   return t
 end
 
--- function M.exec(cmd, ...)
---   local args = { ... }
---   if #args > 0 then
---     cmd = string.format('"%s" %s', cmd, M.join(args))
---   end
---   return nyagos.exec(cmd)
--- end
+function M.exec(cmd, ...)
+  local args = { ... }
+  if #args > 0 then
+    cmd = string.format('"%s" %s', cmd, M.join(args))
+  end
+  return nyagos.exec(cmd)
+end
 
 function M.eval(...)
+  -- 終了を待ってしまう？(vim とかだと固まる？)
   return M.trim(nyagos.raweval(...))
 end
 

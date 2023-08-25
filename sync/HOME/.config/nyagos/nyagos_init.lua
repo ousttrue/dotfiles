@@ -74,9 +74,8 @@ function M.setup()
   elseif nyagos.access(nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe", 4) then
     NVIM = nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe"
   end
-
   function nyagos.alias.nvim(args)
-    return U.exec(NVIM, unpack(args))
+    return U.exec(NVIM)
   end
   function nyagos.alias.v(args)
     return nyagos.alias.nvim(args)
