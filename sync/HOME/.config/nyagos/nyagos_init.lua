@@ -55,6 +55,13 @@ function M.setup()
     nyagos.exec "git status"
   end
 
+  function nyagos.alias.r(args)
+    local root = U.eval("git", "rev-parse", "--show-toplevel")
+    if root then
+      nyagos.exec("cd " .. root)
+    end
+  end
+
   function nyagos.alias.mewrap(args)
     local result = nyagos.eval 'meson wrap list| fzf --preview "meson wrap info {}"'
     if result then

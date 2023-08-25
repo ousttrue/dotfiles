@@ -124,6 +124,8 @@ if which nvim >/dev/null 2>&1; then
 	alias v='nvim'
 fi
 alias e='emacs -nw'
+alias r='cd "$(git rev-parse --show-toplevel)"'
+
 # https://wiki.archlinux.jp/index.php/%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%AB%E3%83%A9%E3%83%BC%E5%87%BA%E5%8A%9B#man
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 

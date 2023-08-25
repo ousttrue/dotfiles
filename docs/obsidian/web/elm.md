@@ -22,4 +22,19 @@
 - [ElmでWebRTCをやってみる](https://blog.foresta.me/posts/webrtc-with-elm/)
 - [GitHub - celsobonutti/elm-webrtc: Simple videochat using Elm, Typescript, WebRTC and an Elixir Phoenix server for signaling](https://github.com/celsobonutti/elm-webrtc)
 
+# SSG
+- @2020 [Elm向けの静的サイトジェネレータを使ってみよう！ - Qiita](https://qiita.com/y047aka/items/2f051035fd86a38145e2)
+- @2019 [Elm で静的サイト | I Was Perfect](https://tech.515hikaru.net/post/2019-04-10-elm-static-site/)
 
+## elm-pages
+[elm-pages - a statically typed site generator](https://elm-pages.com/)
+- [What is elm-pages? - elm-pages docs](https://elm-pages.com/docs/what-is-elm-pages)
+
+- @2022 [elm-pagesをちょっとずつ使う](https://zenn.dev/negiboudu/scraps/6a76f0f5710328)
+- [elmで作った静的サイトをgithub pagesで公開してみた - jongzの日記](https://jongz.hatenablog.com/entry/2019/03/16/033642)
+
+## elm-static
+- [Elmstatic: an Elm-to-HTML static site generator | Korban.net](https://korban.net/elm/elmstatic/)
+
+## Siteelm
+- @2019 [Elm向け静的サイトジェネレータをつくった - Qiita](https://qiita.com/nikueaters/items/45a421c5d31a649303f2)

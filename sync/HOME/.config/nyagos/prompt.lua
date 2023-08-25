@@ -114,7 +114,7 @@ local git_status_map = {
 local org_prompter = nyagos.prompt
 function M.prompt2(_)
   local error = false
-  if nyagos.env.ERRORLEVEL and nyagos.env.ERRORLEVEL ~= '0' then
+  if nyagos.env.ERRORLEVEL and nyagos.env.ERRORLEVEL ~= "0" then
     error = true
   end
 

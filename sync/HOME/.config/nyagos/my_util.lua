@@ -45,7 +45,7 @@ function M.has_git()
     if nyagos.access(nyagos.pathjoin(path, ".git"), 0) then
       return true
     end
-    path = string.match(path, "^(.+)\\")
+    path = string.match(path, "^(.+)[\\/]")
   until not path
 end
 
