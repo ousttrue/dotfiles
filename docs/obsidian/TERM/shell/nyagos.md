@@ -23,6 +23,7 @@
 - @2019 [NYAGOS 4.4.2_0 を公開してしまいました - 標準愚痴出力](https://zetamatta.hatenablog.com/entry/2019/04/04/001721)
 
 ## 4.3
+- @2018 [nyagos で lua53.dll のかわりに GopherLua を使おう - Qiita](https://qiita.com/zetamatta/items/112484eb7fdae87830a0)
 - @2018 [NYAGOS 4.3 で GopherLua が採用される | text.Baldanders.info](https://text.baldanders.info/release/2018/04/nyagos-4_3/)
 
 ## 4.2.5

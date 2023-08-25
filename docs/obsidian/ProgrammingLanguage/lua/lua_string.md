@@ -28,3 +28,13 @@ for k, v in string.gmatch(s, "(%w+)=(%w+)") do
 	t[k] = v
 end
 ```
+
+# string metatable
+`5.1` でできた。
+
+```lua
+> print(getmetatable("a"))
+table: 0xa000069f0
+
+("a"):lower() -- のようなことができる
+```

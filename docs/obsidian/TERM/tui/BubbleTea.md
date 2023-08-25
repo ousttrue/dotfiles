@@ -41,6 +41,24 @@ func (m model) View() string {
 `spinner`, `list`
 	- [GitHub - motemen/example-go-bubbletea](https://github.com/motemen/example-go-bubbletea/tree/main)
 
+# fullscreen
+```go
+func main() {
+	p := tea.NewProgram(model(5), tea.WithAltScreen())
+	if _, err := p.Run(); err != nil {
+		log.Fatal(err)
+	}
+}
+```
+
+# Cmd
+
+```go
+func (m model) Init() tea.Cmd {
+	return tea.Batch(tick(), tea.EnterAltScreen)
+}
+```
+
 # Bubbles
 - [GitHub - charmbracelet/bubbles: TUI components for Bubble Tea 🫧](https://github.com/charmbracelet/bubbles)
 
