@@ -23,8 +23,13 @@
 - @2019 [NYAGOS 4.4.2_0 を公開してしまいました - 標準愚痴出力](https://zetamatta.hatenablog.com/entry/2019/04/04/001721)
 
 ## 4.3
-## 4.2
+- @2018 [NYAGOS 4.3 で GopherLua が採用される | text.Baldanders.info](https://text.baldanders.info/release/2018/04/nyagos-4_3/)
+
+## 4.2.5
+- @2018 [NYAGOS 4.2.5 のリリースと環境変数の扱い | text.Baldanders.info](https://text.baldanders.info/release/2018/03/nyagos-4_2_5_beta-released/)
 - @2018 [NYAGOS 4.2.5βが、いかにしてバッチファイルでの環境変数の変更取り込みを可能としたか - Qiita](https://qiita.com/zetamatta/items/efff93d92ac2150192fb)
+
+## 4.2
 - @2017 [NYAGOSの小TIPS集 - Qiita](https://qiita.com/zetamatta/items/699f772691f19dab03b0)
 
 # comletion
@@ -83,3 +88,7 @@
 - @2023 [つかさのほえほえ日記: zoxide+nyagosでディレクトリ移動](http://hoehoetukasa.blogspot.com/2023/01/zoxidenyagos.html)
 
 # vcenv
+
+# osx
+- [M1 Mac で NYAGOS を使ってみる](https://zenn.dev/tkm/scraps/c23004b62b0d08)
+
