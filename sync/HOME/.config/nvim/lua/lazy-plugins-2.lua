@@ -275,6 +275,10 @@ local plugins = {
       }
     end,
   },
+  -- go
+  -- {
+  --   "fatih/vim-go",
+  -- },
 }
 
 require("lazy").setup(plugins)
