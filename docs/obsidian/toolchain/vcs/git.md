@@ -33,3 +33,7 @@ git branch --contains
 # push / pull
 - まだ push してない。
 - remote の方が前
+
+# gitconfig
+## pager
+- [How do I prevent 'git diff' from using a pager? - Stack Overflow](https://stackoverflow.com/questions/2183900/how-do-i-prevent-git-diff-from-using-a-pager)
