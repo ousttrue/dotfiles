@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>再帰下降構文解析 - shell note ドキュメント</title>
+        <title>clang - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,31 +218,14 @@
           </label>
         </div>
         <article role="main">
-          <p>構文解析器</p>
-<p>[[treesitter]]
-[[ANTLR]]</p>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>再帰下降構文解析<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="pratt-parser">
-<h2>Pratt parser<a class="headerlink" href="#pratt-parser" title="このヘッドラインへのパーマリンク">¶</a></h2>
+          <section class="tex2jax_ignore mathjax_ignore" id="clang">
+<h1>clang<a class="headerlink" href="#clang" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="zapcc">
+<h2>zapcc<a class="headerlink" href="#zapcc" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/pandaman64/books/pratt-parsing">Prattパーサであらゆる演算子をパースする</a></p></li>
+<li><p><a class="reference external" href="https://msyksphinz.hatenablog.com/entry/2018/06/29/040000">高速C++コンパイラZapccの試行(2. GCC / LLVM / zapcc でのコンパイル速度比較) - FPGA開発日記</a></p></li>
 </ul>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lezer">
-<h1>Lezer<a class="headerlink" href="#lezer" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://lezer.codemirror.net/">Lezer</a></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://marijnhaverbeke.nl/blog/lezer.html">Lezer</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="formatter">
-<h1>formatter<a class="headerlink" href="#formatter" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="ast">
-<h1>ast<a class="headerlink" href="#ast" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[AST]]</p>
 </section>
 
         </article>
@@ -258,7 +241,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/text/parser.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/toolchain/compiler.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -278,13 +261,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">再帰下降構文解析</a><ul>
-<li><a class="reference internal" href="#pratt-parser">Pratt parser</a></li>
+<li><a class="reference internal" href="#">clang</a><ul>
+<li><a class="reference internal" href="#zapcc">zapcc</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#lezer">Lezer</a></li>
-<li><a class="reference internal" href="#formatter">formatter</a></li>
-<li><a class="reference internal" href="#ast">ast</a></li>
 </ul>
 
           </div>

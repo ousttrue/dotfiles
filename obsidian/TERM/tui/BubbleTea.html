@@ -286,6 +286,25 @@
 </ul>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="fullscreen">
+<h1>fullscreen<a class="headerlink" href="#fullscreen" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="nx">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">tea</span><span class="p">.</span><span class="nx">NewProgram</span><span class="p">(</span><span class="nx">model</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="nx">tea</span><span class="p">.</span><span class="nx">WithAltScreen</span><span class="p">())</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Run</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cmd">
+<h1>Cmd<a class="headerlink" href="#cmd" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="nx">model</span><span class="p">)</span><span class="w"> </span><span class="nx">Init</span><span class="p">()</span><span class="w"> </span><span class="nx">tea</span><span class="p">.</span><span class="nx">Cmd</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">tea</span><span class="p">.</span><span class="nx">Batch</span><span class="p">(</span><span class="nx">tick</span><span class="p">(),</span><span class="w"> </span><span class="nx">tea</span><span class="p">.</span><span class="nx">EnterAltScreen</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="bubbles">
 <h1>Bubbles<a class="headerlink" href="#bubbles" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -446,6 +465,8 @@
 <li><a class="reference internal" href="#id3">View</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#fullscreen">fullscreen</a></li>
+<li><a class="reference internal" href="#cmd">Cmd</a></li>
 <li><a class="reference internal" href="#bubbles">Bubbles</a><ul>
 <li><a class="reference internal" href="#viewport">Viewport</a></li>
 <li><a class="reference internal" href="#list">list</a></li>

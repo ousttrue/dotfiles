@@ -256,6 +256,16 @@
 </pre></div>
 </div>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="string-metatable">
+<h1>string metatable<a class="headerlink" href="#string-metatable" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">5.1</span></code> でできた。</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">getmetatable</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>
+<span class="n">table</span><span class="p">:</span> <span class="mh">0xa000069f0</span>
+
+<span class="p">(</span><span class="s2">"a"</span><span class="p">):</span><span class="n">lower</span><span class="p">()</span> <span class="c1">-- のようなことができる</span>
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
@@ -294,6 +304,7 @@
 <li><a class="reference internal" href="#string-find">string.find</a></li>
 <li><a class="reference internal" href="#string-match-s-pattern-init">string.match(s, pattern[, init])</a></li>
 <li><a class="reference internal" href="#string-gmatch">string.gmatch</a></li>
+<li><a class="reference internal" href="#string-metatable">string metatable</a></li>
 </ul>
 
           </div>
