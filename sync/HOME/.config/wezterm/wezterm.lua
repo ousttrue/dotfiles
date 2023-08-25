@@ -182,39 +182,40 @@ config.warn_about_missing_glyphs = false
 table.insert(config.keys, { key = "/", mods = "CTRL", action = wezterm.action { SendString = "\x1f" } })
 -- table.insert(config.keys, { key = "l", mods = "ALT", action = wezterm.action_callback(write_dump) })
 
+--
+-- Windows
+--
+config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
+-- config.font = today_font()
+config.initial_cols = 126
+config.initial_rows = 52
+
+table.insert(
+  config.keys,
+  { key = "q", mods = "LEADER", action = wezterm.action { CloseCurrentTab = { confirm = false } } }
+)
+table.insert(config.keys, { key = "c", mods = "LEADER", action = "ShowLauncher" })
+table.insert(config.keys, { key = " ", mods = "CTRL|SHIFT", action = "QuickSelect" })
+table.insert(config.keys, { key = " ", mods = "LEADER", action = wezterm.action { PasteFrom = "PrimarySelection" } })
+table.insert(config.keys, { key = "[", mods = "LEADER", action = "ActivateCopyMode" })
+-- table.insert(config.keys, { key = "v", mods = "CTRL", action = wezterm.action { PasteFrom = "Clipboard" } })
+table.insert(config.keys, { key = "c", mods = "CTRL|SHIFT", action = wezterm.action { CopyTo = "Clipboard" } })
+table.insert(config.keys, { key = "v", mods = "CTRL|SHIFT", action = wezterm.action { PasteFrom = "Clipboard" } })
+table.insert(config.keys, { key = "Insert", mods = "SHIFT", action = wezterm.action { PasteFrom = "Clipboard" } })
+
+-- tab
+table.insert(config.keys, { key = "c", mods = "ALT", action = wezterm.action { SpawnTab = "CurrentPaneDomain" } })
+table.insert(config.keys, { key = "h", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
+table.insert(config.keys, { key = "l", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
+table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
+table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
+
+table.insert(config.keys, { key = ",", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
+table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
+table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
+table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
+
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-  --
-  -- Windows
-  --
-  config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
-  -- config.font = today_font()
-  config.initial_cols = 126
-  config.initial_rows = 52
-
-  table.insert(
-    config.keys,
-    { key = "q", mods = "LEADER", action = wezterm.action { CloseCurrentTab = { confirm = false } } }
-  )
-  table.insert(config.keys, { key = "c", mods = "LEADER", action = "ShowLauncher" })
-  table.insert(config.keys, { key = " ", mods = "CTRL|SHIFT", action = "QuickSelect" })
-  table.insert(config.keys, { key = " ", mods = "LEADER", action = wezterm.action { PasteFrom = "PrimarySelection" } })
-  table.insert(config.keys, { key = "[", mods = "LEADER", action = "ActivateCopyMode" })
-  -- table.insert(config.keys, { key = "v", mods = "CTRL", action = wezterm.action { PasteFrom = "Clipboard" } })
-  table.insert(config.keys, { key = "c", mods = "CTRL|SHIFT", action = wezterm.action { CopyTo = "Clipboard" } })
-  table.insert(config.keys, { key = "v", mods = "CTRL|SHIFT", action = wezterm.action { PasteFrom = "Clipboard" } })
-  table.insert(config.keys, { key = "Insert", mods = "SHIFT", action = wezterm.action { PasteFrom = "Clipboard" } })
-
-  -- tab
-  table.insert(config.keys, { key = "c", mods = "ALT", action = wezterm.action { SpawnTab = "CurrentPaneDomain" } })
-  table.insert(config.keys, { key = "h", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
-  table.insert(config.keys, { key = "l", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
-  table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
-  table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
-
-  table.insert(config.keys, { key = ",", mods = "ALT", action = wezterm.action { ActivateTabRelative = -1 } })
-  table.insert(config.keys, { key = ".", mods = "ALT", action = wezterm.action { ActivateTabRelative = 1 } })
-  table.insert(config.keys, { key = "LeftArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = -1 } })
-  table.insert(config.keys, { key = "RightArrow", mods = "ALT", action = wezterm.action { MoveTabRelative = 1 } })
   config.font_size = 13.0 -- 4k monitor with DPI scaling
 
   local PWSH = { "C:/Program Files/PowerShell/7/pwsh.exe", "-nologo" }
@@ -235,13 +236,22 @@ else
   --
   -- Linux
   --
+  local NYAGOS = { HOME .. "/go/bin/nyagos" }
+  if file_exists(NYAGOS[1]) then
+    config.default_prog = NYAGOS
+    config.set_environment_variables = {
+      LUA_PATH = HOME .. "/.config/nyagos/?.lua",
+    }
+  else
+    config.default_prog = { "bash" }
+  end
+
   if wezterm.gui == nil or wezterm.gui.screens().main.width > 3500 then
     -- 14 x 1.5
     config.font_size = 21.0 -- raw font size
   else
     config.font_size = 11.0 -- raw font size
   end
-  config.default_prog = { "bash" }
 end
 
 local wsl_domains = wezterm.default_wsl_domains()

@@ -67,13 +67,18 @@ function M.setup()
   end
 
   local NVIM = ""
-  if nyagos.access(nyagos.env.USERPROFILE .. "/local/bin/nvim.exe", 4) then
-    NVIM = nyagos.env.USERPROFILE .. "/local/bin/nvim.exe"
-  elseif nyagos.access(nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe", 4) then
-    NVIM = nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe"
-  elseif nyagos.access(nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe", 4) then
-    NVIM = nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe"
+  if nyagos.env.USERPROFILE then
+    if nyagos.access(nyagos.env.USERPROFILE .. "/local/bin/nvim.exe", 4) then
+      NVIM = nyagos.env.USERPROFILE .. "/local/bin/nvim.exe"
+    elseif nyagos.access(nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe", 4) then
+      NVIM = nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe"
+    elseif nyagos.access(nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe", 4) then
+      NVIM = nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe"
+    end
+  else
+    NVIM = "nvim"
   end
+
   function nyagos.alias.nvim(args)
     return U.exec(NVIM, unpack(args))
   end
@@ -188,6 +193,9 @@ function M.setup()
     -- zig
     -- nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
     nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
+
+    nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
+    nyagos.eval "chcp 65001"
   end
   nyagos.envadd("PATH", "~/.cargo/bin")
   nyagos.envadd("PATH", "~/local/bin")
@@ -196,9 +204,6 @@ function M.setup()
   nyagos.complete_for.git = require("completion_git").complete_for
 
   nyagos.prompt = require("prompt").prompt2
-
-  nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
-  nyagos.eval "chcp 65001"
 
   nyagos.env.FZF_DEFAULT_OPTS = "--layout=reverse"
 end
