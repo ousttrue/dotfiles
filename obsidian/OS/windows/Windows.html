@@ -236,15 +236,31 @@
 <section class="tex2jax_ignore mathjax_ignore" id="init">
 <h1>init<a class="headerlink" href="#init" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>chrome</p></li>
+<li><p>chrome</p>
+<ul>
+<li><p>golang</p></li>
 <li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/sysinternals/downloads/ctrl2cap">Ctrl2cap - Sysinternals | Microsoft Learn</a></p></li>
+<li><p>7zip</p></li>
 <li><p>git for windows</p></li>
+<li><p>python</p>
+<ul>
+<li><p>doit</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>allow: symbolic link</p></li>
 <li><p>wacom tablet</p>
 <ul>
 <li><p>off windows ink</p></li>
 </ul>
 </li>
 <li><p>wezterm</p></li>
+<li><p>nyagos</p></li>
+<li><p>LUA_PATH</p></li>
+<li><p>XDG_CONFIG_HOME
+[[xdg]]</p></li>
+<li><p>compiler: msvc19</p></li>
 </ul>
 <section id="powertoys">
 <h2>powertoys<a class="headerlink" href="#powertoys" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -253,6 +269,36 @@
 <h2>busybox<a class="headerlink" href="#busybox" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>[[busybox]]</p>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="env-init">
+<h1>env init<a class="headerlink" href="#env-init" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;set
+<span class="nv">ALLUSERSPROFILE</span><span class="o">=</span>C:<span class="se">\P</span>rogramData
+<span class="nv">APPDATA</span><span class="o">=</span>C:<span class="se">\U</span>sers<span class="se">\$</span><span class="o">{</span>USERNAME<span class="o">}</span><span class="se">\A</span>ppData<span class="se">\R</span>oaming
+<span class="nv">ComSpec</span><span class="o">=</span>C:<span class="se">\W</span>INDOWS<span class="se">\s</span>ystem32<span class="se">\c</span>md.exe
+<span class="nv">DriverData</span><span class="o">=</span>C:<span class="se">\W</span>indows<span class="se">\S</span>ystem32<span class="se">\D</span>rivers<span class="se">\D</span>riverData
+<span class="nv">HOMEDRIVE</span><span class="o">=</span>C:
+<span class="nv">HOMEPATH</span><span class="o">=</span><span class="se">\U</span>sers<span class="se">\$</span><span class="o">{</span>USERNAME<span class="o">}</span>
+<span class="nv">LOCALAPPDATA</span><span class="o">=</span>C:<span class="se">\U</span>sers<span class="se">\$</span><span class="o">{</span>USERNAME<span class="o">}</span><span class="se">\A</span>ppData<span class="se">\L</span>ocal
+<span class="nv">OS</span><span class="o">=</span>Windows_NT
+<span class="nv">Path</span><span class="o">=</span>C:<span class="se">\W</span>INDOWS<span class="se">\s</span>ystem32<span class="p">;</span>C:<span class="se">\W</span>INDOWS<span class="p">;</span>C:<span class="se">\W</span>INDOWS<span class="se">\S</span>ystem32<span class="se">\W</span>bem<span class="p">;</span>C:<span class="se">\W</span>INDOWS<span class="se">\S</span>ystem32<span class="se">\W</span>indowsPowerShell<span class="se">\v</span><span class="m">1</span>.0<span class="se">\;</span>C:<span class="se">\W</span>INDOWS<span class="se">\S</span>ystem32<span class="se">\O</span>penSSH<span class="se">\;</span>C:<span class="se">\U</span>sers<span class="se">\$</span><span class="o">{</span>USERNAME<span class="o">}</span><span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\M</span>icrosoft<span class="se">\W</span>indowsApps
+<span class="nv">PATHEXT</span><span class="o">=</span>.COM<span class="p">;</span>.EXE<span class="p">;</span>.BAT<span class="p">;</span>.CMD<span class="p">;</span>.VBS<span class="p">;</span>.VBE<span class="p">;</span>.JS<span class="p">;</span>.JSE<span class="p">;</span>.WSF<span class="p">;</span>.WSH<span class="p">;</span>.MSC<span class="p">;</span>.CPL
+<span class="nv">ProgramData</span><span class="o">=</span>C:<span class="se">\P</span>rogramData
+<span class="nv">ProgramFiles</span><span class="o">=</span>C:<span class="se">\P</span>rogram Files
+ProgramFiles<span class="o">(</span>x86<span class="o">)=</span>C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span>
+<span class="nv">ProgramW6432</span><span class="o">=</span>C:<span class="se">\P</span>rogram Files
+<span class="nv">PROMPT</span><span class="o">=</span><span class="nv">$P$G</span>
+<span class="nv">PSModulePath</span><span class="o">=</span>C:<span class="se">\U</span>sers<span class="se">\$</span><span class="o">{</span>USERNAME<span class="o">}</span><span class="se">\D</span>ocuments<span class="se">\W</span>indowsPowerShell<span class="se">\M</span>odules<span class="p">;</span>C:<span class="se">\P</span>rogram Files<span class="se">\W</span>indowsPowerShell<span class="se">\M</span>odules<span class="p">;</span>C:<span class="se">\W</span>INDOWS<span class="se">\s</span>ystem32<span class="se">\W</span>indowsPowerShell<span class="se">\v</span><span class="m">1</span>.0<span class="se">\M</span>odules
+<span class="nv">PUBLIC</span><span class="o">=</span>C:<span class="se">\U</span>sers<span class="se">\P</span>ublic
+<span class="nv">SystemDrive</span><span class="o">=</span>C:
+<span class="nv">SystemRoot</span><span class="o">=</span>C:<span class="se">\W</span>INDOWS
+<span class="nv">TEMP</span><span class="o">=</span>C:<span class="se">\U</span>sers<span class="se">\$</span><span class="o">{</span>USERNAME<span class="o">}</span><span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\T</span>emp
+<span class="nv">TMP</span><span class="o">=</span>C:<span class="se">\U</span>sers<span class="se">\$</span><span class="o">{</span>USERNAME<span class="o">}</span><span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\T</span>emp
+<span class="nv">USERNAME</span><span class="o">=</span><span class="si">${</span><span class="nv">USERNAME</span><span class="si">}</span>
+<span class="nv">USERPROFILE</span><span class="o">=</span>C:<span class="se">\U</span>sers<span class="se">\$</span><span class="o">{</span>USERNAME<span class="o">}</span>
+<span class="nv">windir</span><span class="o">=</span>C:<span class="se">\W</span>INDOWS
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -298,6 +344,7 @@
 <li><a class="reference internal" href="#busybox">busybox</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#env-init">env init</a></li>
 </ul>
 
           </div>
