@@ -88,7 +88,7 @@ function M.setup()
   end
 
   function nyagos.alias.nvim(args)
-    return NYA.exec(NVIM, unpack(args))
+    return nyagos.exec(NVIM, unpack(args))
   end
   function nyagos.alias.v(args)
     return nyagos.alias.nvim(args)
