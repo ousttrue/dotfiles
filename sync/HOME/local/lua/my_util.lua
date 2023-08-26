@@ -3,28 +3,7 @@
 --
 local M = {}
 
-function M.trim(s)
-  if s then
-    return string.match(s, "^%s*(.*)"):match "(.-)%s*$"
-  end
-end
-
-function M.join(args, delimiter)
-  local cmd = ""
-  delimiter = delimiter or " "
-  for _, arg in ipairs(args) do
-    cmd = cmd .. delimiter .. arg
-  end
-  return cmd
-end
-
-function M.split(str, delimiter)
-  local t = {}
-  for s in string.gmatch(str, string.format("([^%s]+)", delimiter)) do
-    table.insert(t, M.trim(s))
-  end
-  return t
-end
+local cm_str = require "common.string"
 
 function M.exec(cmd, ...)
   local args = { ... }
@@ -36,7 +15,7 @@ end
 
 function M.eval(...)
   -- 終了を待ってしまう？(vim とかだと固まる？)
-  return M.trim(nyagos.raweval(...))
+  return cm_str.trim(nyagos.raweval(...))
 end
 
 function M.has_git()

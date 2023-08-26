@@ -2,6 +2,7 @@ local M = {}
 
 local V = require "vars"
 local U = require "my_util"
+local cm_str = require "common.string"
 
 ---@param fg string
 ---@param bg string
@@ -81,7 +82,7 @@ end
 
 local function gitStatus()
   local git_status = U.eval("git", "status", "--porcelain", "--branch")
-  local lines = U.split(git_status, "\n")
+  local lines = cm_str.split(git_status, "\n")
   local sync_status, n = string.match(lines[1], "%[(%w+)%s+(%d+)%]")
 
   local sync = " "

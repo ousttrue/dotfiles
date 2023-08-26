@@ -21,7 +21,7 @@ end
 local function get_dir()
   local dir = get_extensions()
   if not dot.exists(dir) then
-  print("not found:", dir)
+    print("not found:", dir)
     return ""
   end
   for i, e in
@@ -69,13 +69,20 @@ local function get_library()
 end
 
 function M.setup(lspconfig, capabilities, on_attach)
-  lspconfig.lua_ls.setup {
+  -- https://luals.github.io/wiki/settings
+  local settiings = {
     cmd = { get_lua_ls() },
     settings = {
       Lua = {
         runtime = {
           -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
           version = "LuaJIT",
+          path = {
+            "?.lua",
+            "?/init.lua",
+            dot.get_home() .. "/local/lua/?.lua",
+            dot.get_home() .. "/local/lua/?/init.lua",
+          },
         },
         diagnostics = {
           enable = true,
@@ -116,6 +123,8 @@ function M.setup(lspconfig, capabilities, on_attach)
       on_attach(client, bufnr)
     end,
   }
+
+  lspconfig.lua_ls.setup(settiings)
 end
 
 return M
