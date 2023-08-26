@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>lua version - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,90 +212,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[lua]]</p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- `LUA_PATH=$HOME/local/lua/?.lua;$HOME/local/lua/?/init.lua`</span>
-<span class="kd">local</span> <span class="n">LCO</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">'common'</span>
-</pre></div>
-</div>
-<p>みたいな感じで</p>
-<section class="tex2jax_ignore mathjax_ignore" id="lua-version">
-<h1>lua version<a class="headerlink" href="#lua-version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>[[wezterm]] <code class="docutils literal notranslate"><span class="pre">lua-5.4</span></code></p></li>
-<li><p>[[nyagos]] <code class="docutils literal notranslate"><span class="pre">gopher</span> <span class="pre">lua</span> <span class="pre">=&gt;</span> <span class="pre">5.1</span></code></p></li>
-<li><p>[[nvim]] <code class="docutils literal notranslate"><span class="pre">luajit</span> <span class="pre">=&gt;</span> <span class="pre">5.1</span></code></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="system">
-<h1>system 判定<a class="headerlink" href="#system" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">get_system</span><span class="p">()</span>
-
-<span class="s1">'windows'</span><span class="p">,</span> <span class="s1">'linux'</span><span class="p">,</span> <span class="s1">'mac'</span>
-<span class="s1">'msys'</span><span class="p">,</span> <span class="s1">'mingw'</span><span class="p">,</span> <span class="s1">'wsl'</span>
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="dotfiles">
-<h1>dotfiles 管理<a class="headerlink" href="#dotfiles" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="symbolic-link">
-<h2>symbolic link<a class="headerlink" href="#symbolic-link" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>-&gt; dotfiles</p></li>
-<li><p>~/.config 下で dotfiles 管理でないものを列挙</p></li>
-</ul>
-</section>
-<section id="download">
-<h2>download<a class="headerlink" href="#download" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>font</p></li>
-<li><p>skk dict</p></li>
-<li><p>rustup</p></li>
-<li><p>zig</p></li>
-</ul>
-</section>
-<section id="packages">
-<h2>packages<a class="headerlink" href="#packages" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>pip</p></li>
-<li><p>cargo</p></li>
-<li><p>go</p></li>
-</ul>
-</section>
-<section id="build">
-<h2>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>nvim</p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="table">
-<h1>table<a class="headerlink" href="#table" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="string">
-<h1>string<a class="headerlink" href="#string" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">split</span></code>, <code class="docutils literal notranslate"><span class="pre">join</span></code>, <code class="docutils literal notranslate"><span class="pre">starts_with</span></code></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="path">
-<h1>path<a class="headerlink" href="#path" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/moteus/lua-path">GitHub - moteus/lua-path: File system path manipulation library</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="escape-sequence">
-<h1>escape sequence<a class="headerlink" href="#escape-sequence" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="color">
-<h2>color<a class="headerlink" href="#color" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="powerline">
-<h2>powerline<a class="headerlink" href="#powerline" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-</section>
+          <p>[[BubbleTea]]</p>
+<p><a class="reference external" href="https://github.com/charmbracelet/bubbletea/tree/master/examples">bubbletea/examples at master · charmbracelet/bubbletea · GitHub</a></p>
 
         </article>
       </div>
@@ -310,7 +234,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/lua_common.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/bubbletea_examples.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -318,40 +242,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">lua version</a></li>
-<li><a class="reference internal" href="#system">system 判定</a></li>
-<li><a class="reference internal" href="#dotfiles">dotfiles 管理</a><ul>
-<li><a class="reference internal" href="#symbolic-link">symbolic link</a></li>
-<li><a class="reference internal" href="#download">download</a></li>
-<li><a class="reference internal" href="#packages">packages</a></li>
-<li><a class="reference internal" href="#build">build</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#table">table</a></li>
-<li><a class="reference internal" href="#string">string</a></li>
-<li><a class="reference internal" href="#path">path</a></li>
-<li><a class="reference internal" href="#escape-sequence">escape sequence</a><ul>
-<li><a class="reference internal" href="#color">color</a></li>
-<li><a class="reference internal" href="#powerline">powerline</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

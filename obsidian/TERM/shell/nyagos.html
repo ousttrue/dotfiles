@@ -390,6 +390,34 @@
 <li><p><a class="reference external" href="https://zenn.dev/tkm/scraps/c23004b62b0d08">M1 Mac で NYAGOS を使ってみる</a></p></li>
 </ul>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="alias">
+<h1>alias<a class="headerlink" href="#alias" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>素のテーブルではない。</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span>  <span class="kr">function</span> <span class="nc">nyagos</span><span class="p">.</span><span class="nc">alias</span><span class="p">.</span><span class="nf">print_args</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">#</span><span class="n">args</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="kr">do</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="kr">end</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'unpack'</span><span class="p">,</span> <span class="n">unpack</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">rawargs</span><span class="p">))</span>
+  <span class="kr">end</span>
+
+<span class="o">&gt;</span> <span class="n">print_args</span> <span class="n">a</span> <span class="n">b</span> <span class="s1">'c d'</span> <span class="s2">"e f"</span> <span class="o">%</span><span class="n">SHELL</span><span class="o">%</span>
+<span class="n">map</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">print_args</span> <span class="mi">1</span><span class="p">:</span><span class="n">a</span> <span class="mi">2</span><span class="p">:</span><span class="n">b</span> <span class="mi">3</span><span class="p">:</span><span class="n">c</span> <span class="n">d</span> <span class="mi">4</span><span class="p">:</span><span class="n">e</span> <span class="n">f</span> <span class="mi">5</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span> <span class="n">rawargs</span><span class="p">:</span><span class="n">map</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">print_args</span> <span class="mi">1</span><span class="p">:</span><span class="n">a</span> <span class="mi">2</span><span class="p">:</span><span class="n">b</span> <span class="mi">3</span><span class="p">:</span><span class="s1">'c d'</span> <span class="mi">4</span><span class="p">:</span><span class="s2">"e f"</span> <span class="mi">5</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span><span class="p">]]</span>
+<span class="mi">5</span>       <span class="n">print_args</span>
+<span class="mi">1</span>       <span class="n">a</span>
+<span class="mi">2</span>       <span class="n">b</span>
+<span class="mi">3</span>       <span class="n">c</span> <span class="n">d</span>
+<span class="mi">4</span>       <span class="n">e</span> <span class="n">f</span>
+<span class="mi">5</span>       <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="n">unpack</span>  <span class="n">a</span>       <span class="n">b</span>       <span class="s1">'c d'</span>   <span class="s2">"e f"</span>   <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">quote</span></code> の扱い。</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="shebang">
+<h1>shebang<a class="headerlink" href="#shebang" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
 
         </article>
       </div>
@@ -460,6 +488,8 @@
 <li><a class="reference internal" href="#zoxide">zoxide</a></li>
 <li><a class="reference internal" href="#vcenv">vcenv</a></li>
 <li><a class="reference internal" href="#osx">osx</a></li>
+<li><a class="reference internal" href="#alias">alias</a></li>
+<li><a class="reference internal" href="#shebang">shebang</a></li>
 </ul>
 
           </div>
