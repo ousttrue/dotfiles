@@ -2,7 +2,7 @@ local M = {}
 
 ---remove white space(%s)
 ---@param s string
----@return string?
+---@return string
 function M.trim(s)
   if s then
     return string.match(s, "^%s*(.*)"):match "(.-)%s*$"

@@ -116,3 +116,5 @@ map[0:print_args 1:a 2:b 3:c d 4:e f 5:/bin/bash rawargs:map[0:print_args 1:a 2:
 unpack  a       b       'c d'   "e f"   /bin/bash
 ```
 `quote` の扱い。
+
+# shebang

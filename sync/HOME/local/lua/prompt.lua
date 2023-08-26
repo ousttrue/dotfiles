@@ -1,6 +1,6 @@
 local M = {}
 local V = require "vars"
-local U = require "my_util"
+local NYA = require "my_nyagos"
 
 local cm_str = require "common.string"
 local cm = require "common"
@@ -26,8 +26,8 @@ local function new_sep(init)
 end
 
 local function get_git_branch()
-  if U.has_git() then
-    local branch = U.eval("git", "branch", "--show-current")
+  if NYA.has_git() then
+    local branch = NYA.raweval("git", "branch", "--show-current")
     if #branch > 0 then
       local ref = string.match(branch, "^%(detached from ([0-9a-f]+)%)$")
       if ref then
@@ -50,7 +50,7 @@ local function increment(t, k)
 end
 
 local function get_git_status()
-  local git_status = U.eval("git", "status", "--porcelain", "--branch")
+  local git_status = NYA.raweval("git", "status", "--porcelain", "--branch")
   local lines = cm_str.split(git_status, "\n")
   local sync_status, n = string.match(lines[1], "%[(%w+)%s+(%d+)%]")
 
@@ -122,7 +122,7 @@ function M.prompt2(_)
       .. " "
       .. git_branch
       .. sep("green", "black")
-      .. U.eval("git", "log", "--pretty=format:%cr   %s", "-n", "1")
+      .. NYA.raweval("git", "log", "--pretty=format:%cr   %s", "-n", "1")
       .. sep("gray", "black")
       .. sync
     if next(git_status) then

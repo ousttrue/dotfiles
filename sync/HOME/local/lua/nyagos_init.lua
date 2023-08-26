@@ -1,6 +1,8 @@
+-- https://github.com/nyaosorg/nyagos/blob/master/docs/07-LuaFunctions_ja.md
 local M = {}
 
-local U = require "my_util"
+local NYA = require "my_nyagos"
+local STR = require "common.string"
 
 function M.setup()
   -- nyagos.alias {
@@ -10,6 +12,7 @@ function M.setup()
   --   mv = "move $*",
   --   cp = "copy $*",
   -- }
+  --
 
   nyagos.skk {
     user = "~/.go-skk-jisyo", -- ユーザ辞書
@@ -24,39 +27,37 @@ function M.setup()
   --   PROMPT = "$P",
   -- }
 
-  function nyagos.alias.addhere()
-    local here = nyagos.getenv "CD"
-    nyagos.envadd("PATH", here)
-    print(nyagos.getenv "PATH")
-  end
+  nyagos.alias.fzf = "~/.fzf/bin/fzf $*"
+  nyagos.env.FZF_DEFAULT_OPTS = "--layout=reverse"
 
-  function nyagos.alias.gg(args)
-    local result = nyagos.eval "ghq list -p| fzf --reverse +m"
-    if result then
-      nyagos.eval("cd " .. result)
+  function nyagos.alias.gg()
+    local result = NYA.evalf "ghq list|fzf"
+    if #result > 0 then
+      local root = NYA.raweval("ghq", "root")
+      NYA.evalf('cd "%s/%s"', root, result)
     end
   end
 
-  function nyagos.alias.gs(args)
-    local result = nyagos.eval "git branch| fzf"
-    if result then
+  function nyagos.alias.gs()
+    local result = STR.trim(nyagos.eval "git branch|fzf")
+    if #result > 0 then
       nyagos.eval("git switch " .. result)
     end
   end
 
-  function nyagos.alias.gst(args)
-    local result = nyagos.eval "git tag| fzf"
-    if result then
+  function nyagos.alias.gst()
+    local result = STR.trim(nyagos.eval "git tag| fzf")
+    if #result > 0 then
       nyagos.eval("git switch -c branch_" .. result .. " " .. result)
     end
   end
 
-  function nyagos.alias.gt(args)
+  function nyagos.alias.gt()
     nyagos.exec "git status"
   end
 
-  function nyagos.alias.r(args)
-    local root = U.eval("git", "rev-parse", "--show-toplevel")
+  function nyagos.alias.r()
+    local root = NYA.raweval("git", "rev-parse", "--show-toplevel")
     if root then
       nyagos.exec("cd " .. root)
     end
@@ -87,7 +88,7 @@ function M.setup()
   end
 
   function nyagos.alias.nvim(args)
-    return U.exec(NVIM, unpack(args))
+    return NYA.exec(NVIM, unpack(args))
   end
   function nyagos.alias.v(args)
     return nyagos.alias.nvim(args)
@@ -95,13 +96,13 @@ function M.setup()
 
   -- function nyagos.alias.ls(args)
   --   print(args)
-  --   return U.eval { "lsd.exe" }
+  --   return NYA.eval { "lsd.exe" }
   -- end
   -- function nyagos.alias.la(args)
-  --   return U.eval("lsd.exe", "-a")
+  --   return NYA.raweval("lsd.exe", "-a")
   -- end
   -- function nyagos.alias.ll(args)
-  --   return U.eval("lsd.exe", "-al")
+  --   return NYA.raweval("lsd.exe", "-al")
   -- end
 
   local function search_history(this, is_prev)
@@ -204,6 +205,7 @@ function M.setup()
     nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
     nyagos.eval "chcp 65001"
   end
+  nyagos.envadd("PATH", "~/go/bin")
   nyagos.envadd("PATH", "~/.cargo/bin")
   nyagos.envadd("PATH", "~/local/bin")
   -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
@@ -212,15 +214,13 @@ function M.setup()
 
   nyagos.prompt = require("prompt").prompt2
 
-  nyagos.env.FZF_DEFAULT_OPTS = "--layout=reverse"
-
   function nyagos.alias.print_args(args)
     print(args)
     print(#args, args[0])
     for i, v in ipairs(args) do
       print(i, v)
     end
-    print('unpack', unpack(args.rawargs))
+    print("unpack", unpack(args.rawargs))
   end
 end
 
