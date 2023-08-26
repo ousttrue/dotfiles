@@ -95,14 +95,13 @@ function M.setup()
   end
 
   -- function nyagos.alias.ls(args)
-  --   print(args)
-  --   return NYA.eval { "lsd.exe" }
+  --   return NYA.raweval("lsd.exe", unpack(args.rawargs))
   -- end
   -- function nyagos.alias.la(args)
-  --   return NYA.raweval("lsd.exe", "-a")
+  --   return NYA.raweval("lsd.exe", "-a", unpack(args.rawargs))
   -- end
   -- function nyagos.alias.ll(args)
-  --   return NYA.raweval("lsd.exe", "-al")
+  --   return NYA.raweval("lsd.exe", "-al", unpack(args.rawargs))
   -- end
 
   local function search_history(this, is_prev)
