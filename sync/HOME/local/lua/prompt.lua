@@ -1,8 +1,10 @@
 local M = {}
-
 local V = require "vars"
 local U = require "my_util"
+
 local cm_str = require "common.string"
+local cm = require "common"
+local sys_name = cm.get_system()
 
 ---@param fg string
 ---@param bg string
@@ -23,40 +25,7 @@ local function new_sep(init)
   end
 end
 
-local H = {
-  "🐭",
-  "🐮",
-  "🐯",
-  "🐰",
-  "🐉",
-  "🐍",
-  "🐴",
-  "🐏",
-  "🐒",
-  "🐔",
-  "🐶",
-  "🐗",
-}
-local F = {
-  "一",
-  "二",
-  "三",
-  "四",
-}
-
-local function get_prefix()
-  local now = os.date "*t"
-  local min = now["hour"] * 60 + now["min"]
-  local hour = (now["hour"] + 1 % 24)
-  local index12 = math.floor(hour / 2)
-  local index = math.floor(min / 30)
-  -- return H[(index12 % #H) + 1]
-  -- return string.format("%02d", index12)
-  return "🐱"
-  -- return " "
-end
-
-local function gitBranch()
+local function get_git_branch()
   if U.has_git() then
     local branch = U.eval("git", "branch", "--show-current")
     if #branch > 0 then
@@ -80,7 +49,7 @@ local function increment(t, k)
   end
 end
 
-local function gitStatus()
+local function get_git_status()
   local git_status = U.eval("git", "status", "--porcelain", "--branch")
   local lines = cm_str.split(git_status, "\n")
   local sync_status, n = string.match(lines[1], "%[(%w+)%s+(%d+)%]")
@@ -113,12 +82,8 @@ local git_status_map = {
 }
 
 local org_prompter = nyagos.prompt
-function M.prompt2(_)
-  local error = false
-  if nyagos.env.ERRORLEVEL and nyagos.env.ERRORLEVEL ~= "0" then
-    error = true
-  end
 
+local function get_current()
   -- local current = "$P"
   local current = string.gsub(nyagos.getwd(), "\\", "/")
 
@@ -126,20 +91,34 @@ function M.prompt2(_)
   local github = "/ghq/github.com/"
   local found = string.find(current, github, 1, true)
   if found then
-    current = " /" .. string.sub(current, found + #github)
+    return " /" .. string.sub(current, found + #github)
   else
-    current = "$P"
+    return "$P"
+  end
+end
+
+function M.prompt2(_)
+  -- error check
+  local error = false
+  if nyagos.env.ERRORLEVEL and nyagos.env.ERRORLEVEL ~= "0" then
+    error = true
   end
 
-  local start = "red"
+  -- start
+  local start = sys_name == "windows" and "red" or "blue"
   local sep = new_sep(start)
-  local prompt = "$e[0m" .. fg_bg_attr(V.fg.white, V.bg[start]) .. get_prefix() .. "$s" .. current
 
-  local git_branch = gitBranch()
+  -- path
+  local prefix = sys_name == "windows" and "🐱" or "🐧"
+  local current = get_current()
+  local prompt = "$e[0m" .. fg_bg_attr(V.fg.white, V.bg[start]) .. prefix .. "$s" .. current
+
+  -- git
+  local git_branch = get_git_branch()
   if git_branch then
-    local sync, git_status = gitStatus()
+    local sync, git_status = get_git_status()
     prompt = prompt
-      .. sep("yellow", "black")
+      .. sep("white", "black")
       .. " "
       .. git_branch
       .. sep("green", "black")
@@ -160,11 +139,7 @@ function M.prompt2(_)
     end
   end
 
-  local error_color = "green"
-  if error then
-    error_color = "red"
-  end
-
+  local error_color = error and "red" or "green"
   prompt = prompt
     .. sep("default", "default")
     .. "$_" -- '\n'

@@ -93,3 +93,26 @@
 # osx
 - [M1 Mac で NYAGOS を使ってみる](https://zenn.dev/tkm/scraps/c23004b62b0d08)
 
+# alias
+素のテーブルではない。
+```lua
+  function nyagos.alias.print_args(args)
+    print(args)
+    print(#args, args[0])
+    for i, v in ipairs(args) do
+      print(i, v)
+    end
+    print('unpack', unpack(args.rawargs))
+  end
+
+> print_args a b 'c d' "e f" %SHELL%
+map[0:print_args 1:a 2:b 3:c d 4:e f 5:/bin/bash rawargs:map[0:print_args 1:a 2:b 3:'c d' 4:"e f" 5:/bin/bash]]
+5       print_args
+1       a
+2       b
+3       c d
+4       e f
+5       /bin/bash
+unpack  a       b       'c d'   "e f"   /bin/bash
+```
+`quote` の扱い。

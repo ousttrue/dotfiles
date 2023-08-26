@@ -1,9 +1,11 @@
+---https://github.com/luarocks/lua-style-guide
+---https://luals.github.io/
 local M = {}
 
---
--- https://gist.github.com/un-def/914b1a93181e43e8a2adc35ad5c9b03a
--- http://lua-users.org/lists/lua-l/2016-05/msg00297.html
---
+---
+---https://gist.github.com/un-def/914b1a93181e43e8a2adc35ad5c9b03a
+---http://lua-users.org/lists/lua-l/2016-05/msg00297.html
+---
 function M.get_lua_version()
   if ({ false, [1] = true })[1] then -- luacheck: ignore 314
     return "LuaJIT"

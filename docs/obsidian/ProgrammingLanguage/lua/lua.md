@@ -44,6 +44,11 @@ https://www.lua.org/manual/5.1/manual.html#7
 
 > newproxy was deprecated in Lua 5.1 and removed in Lua 5.2.
 
+### luajit
+
+### gopher lua
+- @2015 [inforno :: LuaのGo言語実装を公開しました](http://inforno.net/articles/2015/02/15/gopher-lua-released)
+
 # removed: newproxy
 - [newproxy - 野良C++erの雑記帳](https://gintenlabo.hatenablog.com/entry/20100903/1283521878)
 

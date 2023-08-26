@@ -213,6 +213,15 @@ function M.setup()
   nyagos.prompt = require("prompt").prompt2
 
   nyagos.env.FZF_DEFAULT_OPTS = "--layout=reverse"
+
+  function nyagos.alias.print_args(args)
+    print(args)
+    print(#args, args[0])
+    for i, v in ipairs(args) do
+      print(i, v)
+    end
+    print('unpack', unpack(args.rawargs))
+  end
 end
 
 return M
