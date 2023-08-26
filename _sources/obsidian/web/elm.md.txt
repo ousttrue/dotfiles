@@ -14,6 +14,9 @@
 [The Elm Architecture · An Introduction to Elm](https://guide.elm-lang.jp/architecture/)
 - [Introduction · An Introduction to Elm](https://guide.elm-lang.org/)
 
+# ssg
+[[ssg]]
+
 # webgl
 - [ElmでWebGLしてみる](https://blog.foresta.me/posts/webgl-on-elm/)
 - [ElmでWebGL奮闘記](https://miyanokomiya.tokyo/2020/03/elm-webgl-init/)

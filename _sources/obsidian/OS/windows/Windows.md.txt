@@ -8,6 +8,15 @@
 Windows 10 April 2018 Update (1803) 
 
 # Customize
+# init
+- chrome
+- [Ctrl2cap - Sysinternals | Microsoft Learn](https://learn.microsoft.com/ja-jp/sysinternals/downloads/ctrl2cap)
+- git for windows
+- wacom tablet
+	- off windows ink
+
+- wezterm
+
 ## powertoys
 
 ## busybox
