@@ -25,6 +25,7 @@ export GLTF_SAMPLE_MODELS="$HOME/ghq/github.com/KhronosGroup/glTF-Sample-Models"
 export VRM_SAMPLES="$HOME/ghq/github.com/madjin/vrm-samples"
 export BVH_SAMPLES="$HOME/ghq/github.com/CreativeInquiry/BVH-Examples"
 export FBX_SAMPLES="$HOME/ghq/github.com/wangii/fbx_samples"
+export LUA_PATH="$HOME/local/lua/?.lua;$HOME/local/lua/?/init.lua"
 
 #
 # term

@@ -1,5 +1,6 @@
 ---@class wezterm
 local wezterm = require "wezterm"
+local LUC = require "common"
 
 local function file_exists(path)
   return #wezterm.glob(path) > 0
@@ -226,9 +227,6 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   --   config.default_prog = NUSHELL
   if file_exists(NYAGOS[1]) then
     config.default_prog = NYAGOS
-    config.set_environment_variables = {
-      LUA_PATH = HOME .. "\\.config\\nyagos\\?.lua",
-    }
   elseif file_exists(PWSH[1]) then
     config.default_prog = PWSH
   end
@@ -239,9 +237,6 @@ else
   local NYAGOS = { HOME .. "/go/bin/nyagos" }
   if file_exists(NYAGOS[1]) then
     config.default_prog = NYAGOS
-    config.set_environment_variables = {
-      LUA_PATH = HOME .. "/.config/nyagos/?.lua",
-    }
   else
     config.default_prog = { "bash" }
   end
@@ -314,7 +309,16 @@ wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
   --   keys = keys .. "," .. k
   -- end
 
-  return string.format("%s: %d [%s] %s%s%s", pane.domain_name, yday, color_scheme, zoomed, index, tab.active_pane.title)
+  return string.format(
+    "%s:%s: %d [%s] %s%s%s",
+    LUC.get_lua_version(),
+    pane.domain_name,
+    yday,
+    color_scheme,
+    zoomed,
+    index,
+    tab.active_pane.title
+  )
 end)
 
 -- config.default_domain = 'WSL:Ubuntu-22.04'
