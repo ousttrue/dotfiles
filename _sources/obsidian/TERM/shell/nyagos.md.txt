@@ -11,6 +11,8 @@
 
 - @2020 [Windows ユーザは cmd.exe で生きるべきかもしれないが、俺は nyagos でやってきた - 標準愚痴出力](https://zetamatta.hatenablog.com/entry/2020/07/21/003444)
 
+[nyagosでビットマップ表示 - Qiita](https://qiita.com/nocd5/items/1a712bcf1c1a8c1d2e37)
+
 # Version
 ## master
 - @2023 skk
