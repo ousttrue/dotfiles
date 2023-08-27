@@ -17,6 +17,10 @@ Windows 10 April 2018 Update (1803)
 	- python 
 		- doit
 - allow: symbolic link
+- context menu
+```bat
+reg add HKEY_CURRENT_USER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32 /f /ve
+```
 - wacom tablet
 	- off windows ink
 - wezterm

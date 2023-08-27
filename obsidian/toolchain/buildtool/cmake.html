@@ -221,7 +221,7 @@
           <section class="tex2jax_ignore mathjax_ignore" id="cmakekits">
 <h1>CMakeKits<a class="headerlink" href="#cmakekits" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[cmake_kits]]</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">S</span> <span class="o">.</span> <span class="o">-</span><span class="n">B</span> <span class="n">build</span> <span class="o">-</span><span class="n">G</span> <span class="n">Ninja</span> <span class="o">-</span><span class="n">DCMAKE_EXPORT_COMPILE_COMMANDS</span><span class="o">=</span><span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">S</span> <span class="o">.</span> <span class="o">-</span><span class="n">B</span> <span class="n">build</span> <span class="o">-</span><span class="n">G</span> <span class="n">Ninja</span> <span class="o">-</span><span class="n">DCMAKE_EXPORT_COMPILE_COMMANDS</span><span class="o">=</span><span class="mi">1</span> <span class="o">-</span><span class="n">DCMAKE_BUILD_TYPE</span><span class="o">=</span><span class="n">Release</span>
 </pre></div>
 </div>
 </section>
@@ -242,6 +242,12 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DCMAKE_TOOLCHAIN_FILE=D:\\AndroidSdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake`
 </pre></div>
 </div>
+</section>
+<section id="msvc">
+<h2>msvc<a class="headerlink" href="#msvc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION.html">CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION — CMake 3.27.4 Documentation</a></p></li>
+</ul>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="fetch-content">
@@ -326,6 +332,7 @@ ENDIF()</p>
 </li>
 <li><a class="reference internal" href="#toolchain">toolchain</a><ul>
 <li><a class="reference internal" href="#android-ndk">android NDK</a></li>
+<li><a class="reference internal" href="#msvc">msvc</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#fetch-content">fetch content</a><ul>

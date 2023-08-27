@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>clang - shell note ドキュメント</title>
+        <title>MSVC - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,13 +218,55 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="clang">
-<h1>clang<a class="headerlink" href="#clang" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <section class="tex2jax_ignore mathjax_ignore" id="msvc">
+<h1>MSVC<a class="headerlink" href="#msvc" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="msvcrt">
+<h2>msvcrt<a class="headerlink" href="#msvcrt" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="ucrt">
+<h2>ucrt<a class="headerlink" href="#ucrt" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="clang">
+<h1>Clang<a class="headerlink" href="#clang" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="zapcc">
 <h2>zapcc<a class="headerlink" href="#zapcc" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://msyksphinz.hatenablog.com/entry/2018/06/29/040000">高速C++コンパイラZapccの試行(2. GCC / LLVM / zapcc でのコンパイル速度比較) - FPGA開発日記</a></p></li>
 </ul>
+</section>
+<section id="zig-cc">
+<h2>zig cc<a class="headerlink" href="#zig-cc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="windowskits">
+<h2>WindowsKits<a class="headerlink" href="#windowskits" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[ucrt|WindowsKits]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/Leandros/ClangOnWindows/blob/master/build.bat">ClangOnWindows/build.bat at master · Leandros/ClangOnWindows · GitHub</a></p></li>
+</ul>
+</section>
+<section id="mingw">
+<h2>MinGW<a class="headerlink" href="#mingw" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mstorsjo/llvm-mingw">GitHub - mstorsjo/llvm-mingw: An LLVM/Clang/LLD based mingw-w64 toolchain</a>
+<code class="docutils literal notranslate"><span class="pre">msvcrt</span></code>, <code class="docutils literal notranslate"><span class="pre">ucrt</span></code> 両方ある</p></li>
+</ul>
+<section id="id1">
+<h3>msvcrt<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>本家の prebuilt はこれぽい。</p>
+</section>
+<section id="id2">
+<h3>ucrt<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>MinGW<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id4">
+<h2>msvcrt<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id5">
+<h2>ucrt<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
 
@@ -261,8 +303,25 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">clang</a><ul>
+<li><a class="reference internal" href="#">MSVC</a><ul>
+<li><a class="reference internal" href="#msvcrt">msvcrt</a></li>
+<li><a class="reference internal" href="#ucrt">ucrt</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#clang">Clang</a><ul>
 <li><a class="reference internal" href="#zapcc">zapcc</a></li>
+<li><a class="reference internal" href="#zig-cc">zig cc</a></li>
+<li><a class="reference internal" href="#windowskits">WindowsKits</a></li>
+<li><a class="reference internal" href="#mingw">MinGW</a><ul>
+<li><a class="reference internal" href="#id1">msvcrt</a></li>
+<li><a class="reference internal" href="#id2">ucrt</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">MinGW</a><ul>
+<li><a class="reference internal" href="#id4">msvcrt</a></li>
+<li><a class="reference internal" href="#id5">ucrt</a></li>
 </ul>
 </li>
 </ul>

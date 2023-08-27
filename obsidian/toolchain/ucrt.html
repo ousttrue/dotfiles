@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>msys2 - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -219,23 +219,42 @@
         </div>
         <article role="main">
           <p>[[runtime]] [[mingw]]</p>
+<p><code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files</span> <span class="pre">(x86)\Windows</span> <span class="pre">Kits\10</span></code></p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">vcruntime.h</span></code> への依存があり <code class="docutils literal notranslate"><span class="pre">MSVC</span></code> への依存がある。</p>
+</div></blockquote>
+<p>単体でインストールしてもあまり使い道が無いので、<code class="docutils literal notranslate"><span class="pre">VC</span></code> のインストーラー経由で入れるとよい。</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/cpp/windows/universal-crt-deployment?view=msvc-170">Universal CRT deployment | Microsoft Learn</a></p></li>
+<li><p><a class="reference external" href="https://support.microsoft.com/ja-jp/topic/windows-%E3%81%A7%E3%81%AE%E6%B1%8E%E7%94%A8%E3%81%AE-c-%E3%83%A9%E3%83%B3%E3%82%BF%E3%82%A4%E3%83%A0%E3%81%AE%E6%9B%B4%E6%96%B0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0-c0514201-7fe6-95a3-b0a5-287930f3560c">Windows での汎用の C ランタイムの更新プログラム - Microsoft サポート</a></p></li>
 <li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/cpp/porting/upgrade-your-code-to-the-universal-crt?view=msvc-170">Universal CRT へのコードのアップグレード | Microsoft Learn</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://qiita.com/yumetodo/items/d849a6dcf08e0435f815">msys2でucrtのランタイムを使おう！ようこそucrt64 - Qiita</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://qiita.com/syoyo/items/198f91b31c49c5ba68bb">C/C++ developer からみた uCRT のメモ - Qiita</a></p></li>
 </ul>
-<p><a class="reference external" href="https://stackoverflow.com/questions/57528555/how-do-i-build-against-the-ucrt-with-mingw-w64">universal crt - How do I build against the UCRT with mingw-w64? - Stack Overflow</a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="msys2">
-<h1>msys2<a class="headerlink" href="#msys2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://developer.microsoft.com/ja-jp/windows/downloads/sdk-archive/">Windows SDK とエミュレーターのアーカイブ | Microsoft Developer</a></p>
+<section id="windows10">
+<h2>Windows10<a class="headerlink" href="#windows10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>システムコンポーネントとして標準インストール</p>
+</section>
+<section id="vc2015">
+<h2>VC2015<a class="headerlink" href="#vc2015" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Universal CRT 導入</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cmake">
+<h1>cmake<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/syoyo/items/ad14912c983da94ad16e">MinGW 環境で UCRT(Universal CRT) ライブラリを使って C アプリをビルドするメモ - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://github.com/rpavlik/cmake-modules/blob/main/FindWindowsSDK.cmake">cmake-modules/FindWindowsSDK.cmake at main · rpavlik/cmake-modules · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION.html">CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION — CMake 3.27.4 Documentation</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="checked-clang">
-<h1>checked clang<a class="headerlink" href="#checked-clang" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[clang]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="msys2-mingw">
+<h1>msys2 / mingw<a class="headerlink" href="#msys2-mingw" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/saitoyutaka/articles/ffd7b247026a82">Checked C clang の環境を用意する</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/syoyo/items/ad14912c983da94ad16e">MinGW 環境で UCRT(Universal CRT) ライブラリを使って C アプリをビルドするメモ - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/57528555/how-do-i-build-against-the-ucrt-with-mingw-w64">universal crt - How do I build against the UCRT with mingw-w64? - Stack Overflow</a></p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="clang">
@@ -243,6 +262,12 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/mstorsjo/llvm-mingw">GitHub - mstorsjo/llvm-mingw: An LLVM/Clang/LLD based mingw-w64 toolchain</a></p></li>
 </ul>
+<section id="checked-clang">
+<h2>checked clang<a class="headerlink" href="#checked-clang" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/saitoyutaka/articles/ffd7b247026a82">Checked C clang の環境を用意する</a></p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -278,9 +303,17 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">msys2</a></li>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#windows10">Windows10</a></li>
+<li><a class="reference internal" href="#vc2015">VC2015</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cmake">cmake</a></li>
+<li><a class="reference internal" href="#msys2-mingw">msys2 / mingw</a></li>
+<li><a class="reference internal" href="#clang">clang</a><ul>
 <li><a class="reference internal" href="#checked-clang">checked clang</a></li>
-<li><a class="reference internal" href="#clang">clang</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

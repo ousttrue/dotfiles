@@ -240,6 +240,27 @@
 </pre></div>
 </div>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="clang-cl">
+<h1>clang-cl<a class="headerlink" href="#clang-cl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://clang.llvm.org/docs/MSVCCompatibility.html">MSVC compatibility — Clang 18.0.0git documentation</a>
+<code class="docutils literal notranslate"><span class="pre">clang-cl.exe</span> <span class="pre">==</span> <span class="pre">clang.exe</span> <span class="pre">--driver-mode=cl</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/syoyo/items/bd4f81e7803afb5a3d19">Visual Studio C++ Build Tools + clang-cl + CMake + Ninja で C++ バッチビルドや VSCode 連携環境を整える - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://github.com/syoyo/tinyusdz/blob/release/bootstrap-clang-cl-win64.bat">tinyusdz/bootstrap-clang-cl-win64.bat at release · syoyo/tinyusdz · GitHub</a></p></li>
+<li><p>WindowsKits 必要</p></li>
+<li><p>VC 必要？</p></li>
+</ul>
+<section id="msvcrt">
+<h2>msvcrt<a class="headerlink" href="#msvcrt" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmd</span><span class="o">.</span><span class="n">exe</span> <span class="o">/</span><span class="n">C</span> <span class="s2">"cd . &amp;&amp; C:\PROGRA~1\LLVM</span><span class="se">\b</span><span class="s2">in\clang.exe -fuse-ld=lld-link -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Xlinker /subsystem:console CMakeFiles/cmTC_8eea1.dir/testCCompiler.c.obj -o cmTC_8eea1.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_8eea1.lib -Xlinker /pdb:cmTC_8eea1.pdb -Xlinker /version:0.0</span>
+ <span class="o">-</span><span class="n">lkernel32</span> <span class="o">-</span><span class="n">luser32</span> <span class="o">-</span><span class="n">lgdi32</span> <span class="o">-</span><span class="n">lwinspool</span> <span class="o">-</span><span class="n">lshell32</span> <span class="o">-</span><span class="n">lole32</span> <span class="o">-</span><span class="n">loleaut32</span> <span class="o">-</span><span class="n">luuid</span> <span class="o">-</span><span class="n">lcomdlg32</span> <span class="o">-</span><span class="n">ladvapi32</span> <span class="o">-</span><span class="n">loldnames</span>
+</pre></div>
+</div>
+</section>
+<section id="ucrt">
+<h2>ucrt<a class="headerlink" href="#ucrt" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
 
         </article>
       </div>
@@ -278,6 +299,11 @@
 <li><a class="reference internal" href="#cross-compile">cross compile</a></li>
 <li><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
 <li><a class="reference internal" href="#arch">Arch</a></li>
+<li><a class="reference internal" href="#clang-cl">clang-cl</a><ul>
+<li><a class="reference internal" href="#msvcrt">msvcrt</a></li>
+<li><a class="reference internal" href="#ucrt">ucrt</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

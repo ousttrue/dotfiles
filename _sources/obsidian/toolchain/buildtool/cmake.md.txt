@@ -2,7 +2,7 @@
 [[cmake_kits]]
 
 ```
-cmake -S . -B build -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=1
+cmake -S . -B build -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Release
 ```
 
 # Version
@@ -16,6 +16,9 @@ cmake -S . -B build -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 ```
 DCMAKE_TOOLCHAIN_FILE=D:\\AndroidSdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake`
 ```
+
+## msvc
+- [CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION — CMake 3.27.4 Documentation](https://cmake.org/cmake/help/latest/variable/CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION.html)
 
 # fetch content
 `3.11`
