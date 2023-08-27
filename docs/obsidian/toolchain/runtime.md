@@ -16,18 +16,46 @@ vc のヘッダに依存しているので、何れかの vc のインストー�
 #include <vcruntime.h>
 ```
 
-# cygwin
+## cygwin
+### cygwin
 `cygwin1.dll`
 `-mno-cygwin` => `msvcrt`
 👇
 
-# msys
+### msys
 👇
 
-# msys2
+### msys2
 `msys-2.0.dll`
 [[msys2]]
 
-# MinGW-w64
+# C++Runtime
+- [C++17と標準ライブラリ: C++17を使うときに気をつけたいこと - molecular coordinates](https://coordination.hatenablog.com/entry/2019/01/19/213639)
+## libstdc++
+### static
+- [static-libstdc++](https://jp.xlsoft.com/documents/intel/compiler/18/cpp_18_win_lin/GUID-9F52B56B-903D-473E-92E1-3096723B22F3.html)
+- [静的にlibstdc++をリンクする - futada diary](https://futada.hatenadiary.org/entry/20111218/1324218410)
+
+## libc++
+
+# ExceptionRuntime ?
+## libgcc_s
+
+## libunwind
+- [libunwind LLVM Unwinder — libunwind 8.0 documentation](https://bcain-llvm.readthedocs.io/projects/libunwind/en/latest/)
+- [The libunwind project](https://www.nongnu.org/libunwind/)
+- [Ubuntu で clang + libc++ を使う - Qiita](https://qiita.com/kojiohta/items/fb6c307365d1db388acc)
+
+### static
+- [Alpine Linux packages](https://pkgs.alpinelinux.org/package/edge/main/x86/libunwind-static)
+
+# Win32API
+## VC
+[[msvcrt]]
+
+## WindowsKits
+[[ucrt]]
+
+## MinGW-w64
 [[mingw]]
 `Windows.h` などを提供する代替実装。
