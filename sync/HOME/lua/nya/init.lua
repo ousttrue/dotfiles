@@ -1,7 +1,7 @@
 -- https://github.com/nyaosorg/nyagos/blob/master/docs/07-LuaFunctions_ja.md
 local M = {}
 
-local NYA = require "my_nyagos"
+local NYA = require "nya.util"
 local COM = require "common"
 local STR = require "common.string"
 
@@ -148,8 +148,6 @@ function M.setup()
   -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
   nyagos.envdel("PATH", "WindowsApp", "PhysX", "Skype", "Wbem", "PowerShell", "OpenSSH")
 
-  nyagos.prompt = require("prompt").prompt2
-
   function nyagos.alias.print_args(args)
     print(args)
     print(#args, args[0])
@@ -195,9 +193,10 @@ function M.setup()
   end
 
   -- require("nyagos_history").setup()
-  require("nyagos_completion").setup()
+  require("nya.completion").setup()
   -- nyagos.complete_for.git = require("completion_git").complete_for
-  -- require("zoxide").setup()
+  require("nya.zoxide").setup()
+  nyagos.prompt = require("nya.prompt").prompt
 end
 
 return M

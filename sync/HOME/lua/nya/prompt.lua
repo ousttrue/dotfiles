@@ -1,7 +1,7 @@
 local M = {}
-local V = require "vars"
-local NYA = require "my_nyagos"
+local NYA = require "nya.util"
 
+local V = require "common.vars"
 local cm_str = require "common.string"
 local cm = require "common"
 local sys_name = cm.get_system()
@@ -97,7 +97,7 @@ local function get_current()
   end
 end
 
-function M.prompt2(_)
+function M.prompt(_)
   -- error check
   local error = false
   if nyagos.env.ERRORLEVEL and nyagos.env.ERRORLEVEL ~= "0" then

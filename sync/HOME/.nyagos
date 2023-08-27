@@ -1,2 +1,2 @@
 -- vim: set ft=lua:
-require("nyagos_init").setup()
+require("nya").setup()
