@@ -42,4 +42,12 @@ function M.get_system()
   -- end
 end
 
+function M.get_home()
+  if os.getenv "USERPROFILE" then
+    return os.getenv "USERPROFILE"
+  else
+    return os.getenv "HOME"
+  end
+end
+
 return M

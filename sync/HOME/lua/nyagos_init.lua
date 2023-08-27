@@ -2,9 +2,38 @@
 local M = {}
 
 local NYA = require "my_nyagos"
+local COM = require "common"
 local STR = require "common.string"
 
+local system_name = COM.get_system()
+local home = COM.get_home()
 -- use "git.lua"
+
+local function to_path(src)
+  if system_name == "windows" then
+    return string.gsub(src, "/", "\\")
+  else
+    return string.gsub(src, "\\", "/")
+  end
+end
+
+local function get_nvim()
+  local list = {}
+  if nyagos.env.USERPROFILE then
+    table.insert(list, nyagos.env.USERPROFILE .. "/local/bin/nvim.exe")
+    table.insert(list, nyagos.env.USERPROFILE .. "/neovim/bin/nvim.exe")
+    table.insert(list, nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe")
+  end
+  if nyagos.env.LOCALAPPDATA then
+    table.insert(list, nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe")
+  end
+
+  for _, v in ipairs(list) do
+    if nyagos.access(v, 4) then
+      return v
+    end
+  end
+end
 
 function M.setup()
   -- nyagos.alias {
@@ -74,34 +103,22 @@ function M.setup()
     nyagos.exec '"C:/Program Files/Git/usr/bin/tig"'
   end
 
-  local NVIM = "nvim"
-  for _, v in ipairs {
-    nyagos.env.USERPROFILE .. "/local/bin/nvim.exe",
-    nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe",
-    nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe",
-    nyagos.env.USERPROFILE .. "/neovim/bin/nvim.exe",
-  } do
-    if nyagos.access(v, 4) then
-      NVIM = v
-      break
-    end
+  local NVIM = get_nvim()
+  if NVIM then
+    nyagos.alias.nvim = NVIM .. " $*"
+    nyagos.alias.v = NVIM .. " $*"
+  else
+    nyagos.alias.v = "nvim $*"
   end
 
-  function nyagos.alias.nvim(args)
-    return nyagos.rawexec(NVIM, unpack(args.rawargs))
-  end
-  function nyagos.alias.v(args)
-    return nyagos.rawexec(NVIM, unpack(args.rawargs))
-  end
-
-  function nyagos.alias.ls(args)
-    return nyagos.rawexec("lsd.exe", unpack(args.rawargs))
-  end
-  function nyagos.alias.la(args)
-    return nyagos.rawexec("lsd.exe", "-a", unpack(args.rawargs))
-  end
-  function nyagos.alias.ll(args)
-    return nyagos.rawexec("lsd.exe", "-al", unpack(args.rawargs))
+  if system_name == "widows" then
+    nyagos.alias.ls = "lsd.exe $*"
+    nyagos.alias.la = "lsd.exe -a $*"
+    nyagos.alias.ll = "lsd.exe -al $*"
+  else
+    nyagos.alias.ls = "exa --color=auto --icons $*"
+    nyagos.alias.la = "exa --color=auto --icons -a $*"
+    nyagos.alias.ll = "exa --color=auto --icons -al $*"
   end
 
   -- nyagos.bindkey("C_P", function(this)
@@ -125,9 +142,9 @@ function M.setup()
     -- nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
     nyagos.eval "chcp 65001"
   end
-  nyagos.envadd("PATH", "~\\go\\bin")
-  nyagos.envadd("PATH", "~\\.cargo\\bin")
-  nyagos.envadd("PATH", "~\\local\\bin")
+  nyagos.envadd("PATH", to_path(home .. "/go/bin"))
+  nyagos.envadd("PATH", to_path(home .. "/.cargo/bin"))
+  nyagos.envadd("PATH", to_path(home .. "/local/bin"))
   -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
   nyagos.envdel("PATH", "WindowsApp", "PhysX", "Skype", "Wbem", "PowerShell", "OpenSSH")
 
@@ -142,10 +159,12 @@ function M.setup()
     print("unpack", unpack(args.rawargs))
   end
 
+  local DEL = system_name == "windows" and ";" or ":"
+
   function nyagos.alias.path(args)
     local cmd = unpack(args.rawargs)
     if cmd == "list" then
-      for _, v in ipairs(STR.split(nyagos.env.PATH, ";")) do
+      for _, v in ipairs(STR.split(nyagos.env.PATH, DEL)) do
         print(v)
       end
       -- return 0
