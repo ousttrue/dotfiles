@@ -20,18 +20,19 @@ function nyagos.fields(text) end
 ---@param cmds string|table
 function nyagos.exec(cmds) end
 
----@param cmds ...
-function nyagos.rawexec(cmds) end
+---@param ... ...
+---@return integer?
+function nyagos.rawexec(...) end
 
 ---execute command and return stdout as string
 ---@param cmds string
 ---@return string
 function nyagos.eval(cmds) end
 
----@param cmds ...
+---@param ... ...
 ---@return string
 ---@return string
-function nyagos.raweval(cmds) end
+function nyagos.raweval(...) end
 
 ---@return string
 function nyagos.getwd() end

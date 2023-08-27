@@ -1,19 +1,16 @@
 
-[[shell]]
-[[golang]]
+[[shell]] [[golang]]
 
 - [nyaos.org](https://nyaos.org/)
 - [GitHub - nyaosorg/nyagos: NYAGOS - The hybrid Commandline Shell between UNIX & DOS](https://github.com/nyaosorg/nyagos)
 	- [nyagos/readme_ja.md at master · nyaosorg/nyagos · GitHub](https://github.com/nyaosorg/nyagos/blob/master/readme_ja.md)
 
 - @2023 [scoop / nyagos で始めるコマンドライン生活](https://zenn.dev/zetamatta/books/5ac80a9ddb35fef9a146)
+`scoop`, `setup`
+
 - @2020 [Windows ユーザは cmd.exe で生きるべきかもしれないが、俺は nyagos でやってきた - 標準愚痴出力](https://zetamatta.hatenablog.com/entry/2020/07/21/003444)
-- https://gist.github.com/rcapraro/1b8003002ee47caa4b12
-- https://gist.github.com/tsuyoshicho/1e6288193047d782b576d8cf5bf9bc13
 
 # Version
-
-# ~/.nyagos
 ## master
 - @2023 skk
 
@@ -33,7 +30,10 @@
 ## 4.2
 - @2017 [NYAGOSの小TIPS集 - Qiita](https://qiita.com/zetamatta/items/699f772691f19dab03b0)
 
-# comletion
+# ~/.nyagos
+- https://gist.github.com/rcapraro/1b8003002ee47caa4b12
+- https://gist.github.com/tsuyoshicho/1e6288193047d782b576d8cf5bf9bc13# completion
+
 ## history
 - @2014 [nyagosでヒストリ補完する - Qiita](https://qiita.com/nocd5/items/7cfc2441868442838148)
 
@@ -75,6 +75,8 @@
 # PATH
 - 04 [nyagos で環境変数を設定する｜scoop / nyagos で始めるコマンドライン生活](https://zenn.dev/zetamatta/books/5ac80a9ddb35fef9a146/viewer/2c4c1e)
 - 09 [それでも %PATH% はあふれるのだ！｜scoop / nyagos で始めるコマンドライン生活](https://zenn.dev/zetamatta/books/5ac80a9ddb35fef9a146/viewer/c2e32b)
+
+# Completion
 
 # box
 - [nyagos 4.3でもmigemoでディレクトリ移動したい! - Qiita](https://qiita.com/nocd5/items/1736064cd9ee652d5920)]

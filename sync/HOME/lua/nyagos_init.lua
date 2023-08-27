@@ -4,6 +4,8 @@ local M = {}
 local NYA = require "my_nyagos"
 local STR = require "common.string"
 
+use "git.lua"
+
 function M.setup()
   -- nyagos.alias {
   --   -- clear = "cls",
@@ -74,17 +76,17 @@ function M.setup()
     nyagos.exec '"C:/Program Files/Git/usr/bin/tig"'
   end
 
-  local NVIM = ""
-  if nyagos.env.USERPROFILE then
-    if nyagos.access(nyagos.env.USERPROFILE .. "/local/bin/nvim.exe", 4) then
-      NVIM = nyagos.env.USERPROFILE .. "/local/bin/nvim.exe"
-    elseif nyagos.access(nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe", 4) then
-      NVIM = nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe"
-    elseif nyagos.access(nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe", 4) then
-      NVIM = nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe"
+  local NVIM = "nvim"
+  for _, v in ipairs {
+    nyagos.env.USERPROFILE .. "/local/bin/nvim.exe",
+    nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe",
+    nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe",
+    nyagos.env.USERPROFILE .. "/neovim/bin/nvim.exe",
+  } do
+    if nyagos.access(v, 4) then
+      NVIM = v
+      break
     end
-  else
-    NVIM = "nvim"
   end
 
   function nyagos.alias.nvim(args)
@@ -94,95 +96,15 @@ function M.setup()
     return nyagos.rawexec(NVIM, unpack(args.rawargs))
   end
 
-  -- function nyagos.alias.ls(args)
-  --   return NYA.raweval("lsd.exe", unpack(args.rawargs))
-  -- end
-  -- function nyagos.alias.la(args)
-  --   return NYA.raweval("lsd.exe", "-a", unpack(args.rawargs))
-  -- end
-  -- function nyagos.alias.ll(args)
-  --   return NYA.raweval("lsd.exe", "-al", unpack(args.rawargs))
-  -- end
-
-  local function search_history(this, is_prev)
-    -- カーソル位置が一番左の場合は通常のnext/prev
-    if this.pos == 1 then
-      if is_prev == true then
-        this:call "PREVIOUS_HISTORY"
-      else
-        this:call "NEXT_HISTORY"
-      end
-      this:call "BEGINNING_OF_LINE"
-      return nil
-    end
-
-    -- 検索キーワード
-    local search_string = this.text:sub(1, this.pos - 1)
-
-    -- 重複を除いたhistoryリストの取得
-    local history_uniq = {}
-    local is_duplicated = false
-    local hist_len = nyagos.gethistory()
-    for i = 1, hist_len do
-      local history
-      -- 新しい履歴がリスト後ろに残るよう末尾からサーチ
-      history = nyagos.gethistory(hist_len - i)
-      for i, e in ipairs(history_uniq) do
-        if history == e or history == search_string then
-          is_duplicated = true
-        end
-      end
-      if is_duplicated == false then
-        if is_prev == true then
-          table.insert(history_uniq, history)
-        else
-          table.insert(history_uniq, 1, history)
-        end
-      end
-      is_duplicated = false
-    end
-
-    -- 入力と完全一致する履歴を探す
-    -- 完全一致する履歴を起点にすることで
-    -- (見かけ上)インクリメンタルな検索にする
-    local hist_pos = 0
-    for i, e in ipairs(history_uniq) do
-      if e == this.text then
-        hist_pos = i
-        break
-      end
-    end
-
-    -- 前方一致する履歴を探す
-    local matched_string = nil
-    for i = hist_pos + 1, #history_uniq do
-      if history_uniq[i]:match("^" .. search_string .. ".*") then
-        matched_string = history_uniq[i]
-        break
-      end
-    end
-
-    -- 見つかった履歴を出力
-    -- 見つからなければ、検索キーワードを出力
-    this:call "KILL_WHOLE_LINE"
-    if matched_string ~= nil then
-      this:insert(matched_string)
-    else
-      this:insert(search_string)
-    end
-    this:call "BEGINNING_OF_LINE"
-    for i = 1, this.pos - 1 do
-      this:call "FORWARD_CHAR"
-    end
+  function nyagos.alias.ls(args)
+    return nyagos.rawexec("lsd.exe", unpack(args.rawargs))
   end
-
-  nyagos.bindkey("C_N", function(this)
-    search_history(this, false)
-  end)
-
-  nyagos.bindkey("C_P", function(this)
-    search_history(this, true)
-  end)
+  function nyagos.alias.la(args)
+    return nyagos.rawexec("lsd.exe", "-a", unpack(args.rawargs))
+  end
+  function nyagos.alias.ll(args)
+    return nyagos.rawexec("lsd.exe", "-al", unpack(args.rawargs))
+  end
 
   -- nyagos.bindkey("C_P", function(this)
   --   search_history(this, true)
@@ -205,11 +127,11 @@ function M.setup()
     -- nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
     nyagos.eval "chcp 65001"
   end
-  nyagos.envadd("PATH", "~/go/bin")
-  nyagos.envadd("PATH", "~/.cargo/bin")
-  nyagos.envadd("PATH", "~/local/bin")
+  nyagos.envadd("PATH", "~\\go\\bin")
+  nyagos.envadd("PATH", "~\\.cargo\\bin")
+  nyagos.envadd("PATH", "~\\local\\bin")
   -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
-
+  nyagos.envdel("PATH", "WindowsApp", "PhysX", "Skype", "Wbem", "PowerShell", "OpenSSH")
   nyagos.complete_for.git = require("completion_git").complete_for
 
   nyagos.prompt = require("prompt").prompt2
@@ -221,6 +143,19 @@ function M.setup()
       print(i, v)
     end
     print("unpack", unpack(args.rawargs))
+  end
+
+  function nyagos.alias.path(args)
+    local cmd = unpack(args.rawargs)
+    if cmd == "list" then
+      for _, v in ipairs(STR.split(nyagos.env.PATH, ";")) do
+        print(v)
+      end
+      -- return 0
+    else
+      print "unknown"
+      return 1
+    end
   end
 
   function nyagos.alias.toolchain()
@@ -242,6 +177,8 @@ function M.setup()
     --   string.format('-I"%s"', kits .. "/include/" .. version .. "/um"),
     -- })
   end
+
+  require("nyagos_history").setup()
 end
 
 return M

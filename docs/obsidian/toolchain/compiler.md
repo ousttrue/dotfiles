@@ -44,11 +44,11 @@ libgcc_s_seh-1.dll
 
 ```
 > ldd build\hello.exe
-ntdll.dll
-KERNEL32.DLL
-KERNELBASE.dll
-ucrtbase.dll <= ucrt
-msvcrt.dll <= msvcrt
-libstdc++-6.dll <= gcc
-libgcc_s_seh-1.dll <= gcc
+ntdll.dll => /c/WINDOWS/SYSTEM32/ntdll.dll (0x7ffc58bf0000)
+KERNEL32.DLL => /c/WINDOWS/System32/KERNEL32.DLL (0x7ffc57b80000)
+KERNELBASE.dll => /c/WINDOWS/System32/KERNELBASE.dll (0x7ffc56070000)
+ucrtbase.dll => /c/WINDOWS/System32/ucrtbase.dll (0x7ffc56600000)
+libgcc_s_seh-1.dll => /ucrt64/bin/libgcc_s_seh-1.dll (0x7ffc452d0000)
+libwinpthread-1.dll => /ucrt64/bin/libwinpthread-1.dll (0x7ffc451d0000)
+libstdc++-6.dll => /ucrt64/bin/libstdc++-6.dll (0x7ffc1f000000)
 ```
