@@ -257,6 +257,15 @@
 </section>
 <section id="id2">
 <h3>ucrt<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">ldd</span> <span class="n">build</span>\<span class="n">hello</span><span class="o">.</span><span class="n">exe</span>
+<span class="n">ntdll</span><span class="o">.</span><span class="n">dll</span>
+<span class="n">KERNEL32</span><span class="o">.</span><span class="n">DLL</span>
+<span class="n">KERNELBASE</span><span class="o">.</span><span class="n">dll</span>
+<span class="n">ucrtbase</span><span class="o">.</span><span class="n">dll</span> <span class="o">=&gt;</span> <span class="n">ucrt</span>
+<span class="n">libc</span><span class="o">++.</span><span class="n">dll</span> <span class="o">=&gt;</span> <span class="n">clang</span>
+<span class="n">libunwind</span><span class="o">.</span><span class="n">dll</span> <span class="o">=&gt;</span> <span class="n">clang</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -264,9 +273,27 @@
 <h1>MinGW<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id4">
 <h2>msvcrt<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2018 <a class="reference external" href="https://siuncyclone.hatenablog.com/entry/2018/07/21/194629">msys2とC++で特定のDLLに依存しないwindowsバイナリを作る - siunのメモ</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">libstdc</span><span class="o">++-</span><span class="mf">6.</span><span class="n">dll</span>
+<span class="n">libwinpthread</span><span class="o">-</span><span class="mf">1.</span><span class="n">dll</span>
+<span class="n">libgcc_s_seh</span><span class="o">-</span><span class="mf">1.</span><span class="n">dll</span>
+</pre></div>
+</div>
 </section>
 <section id="id5">
 <h2>ucrt<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">ldd</span> <span class="n">build</span>\<span class="n">hello</span><span class="o">.</span><span class="n">exe</span>
+<span class="n">ntdll</span><span class="o">.</span><span class="n">dll</span> <span class="o">=&gt;</span> <span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">WINDOWS</span><span class="o">/</span><span class="n">SYSTEM32</span><span class="o">/</span><span class="n">ntdll</span><span class="o">.</span><span class="n">dll</span> <span class="p">(</span><span class="mh">0x7ffc58bf0000</span><span class="p">)</span>
+<span class="n">KERNEL32</span><span class="o">.</span><span class="n">DLL</span> <span class="o">=&gt;</span> <span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">WINDOWS</span><span class="o">/</span><span class="n">System32</span><span class="o">/</span><span class="n">KERNEL32</span><span class="o">.</span><span class="n">DLL</span> <span class="p">(</span><span class="mh">0x7ffc57b80000</span><span class="p">)</span>
+<span class="n">KERNELBASE</span><span class="o">.</span><span class="n">dll</span> <span class="o">=&gt;</span> <span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">WINDOWS</span><span class="o">/</span><span class="n">System32</span><span class="o">/</span><span class="n">KERNELBASE</span><span class="o">.</span><span class="n">dll</span> <span class="p">(</span><span class="mh">0x7ffc56070000</span><span class="p">)</span>
+<span class="n">ucrtbase</span><span class="o">.</span><span class="n">dll</span> <span class="o">=&gt;</span> <span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">WINDOWS</span><span class="o">/</span><span class="n">System32</span><span class="o">/</span><span class="n">ucrtbase</span><span class="o">.</span><span class="n">dll</span> <span class="p">(</span><span class="mh">0x7ffc56600000</span><span class="p">)</span>
+<span class="n">libgcc_s_seh</span><span class="o">-</span><span class="mf">1.</span><span class="n">dll</span> <span class="o">=&gt;</span> <span class="o">/</span><span class="n">ucrt64</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">libgcc_s_seh</span><span class="o">-</span><span class="mf">1.</span><span class="n">dll</span> <span class="p">(</span><span class="mh">0x7ffc452d0000</span><span class="p">)</span>
+<span class="n">libwinpthread</span><span class="o">-</span><span class="mf">1.</span><span class="n">dll</span> <span class="o">=&gt;</span> <span class="o">/</span><span class="n">ucrt64</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">libwinpthread</span><span class="o">-</span><span class="mf">1.</span><span class="n">dll</span> <span class="p">(</span><span class="mh">0x7ffc451d0000</span><span class="p">)</span>
+<span class="n">libstdc</span><span class="o">++-</span><span class="mf">6.</span><span class="n">dll</span> <span class="o">=&gt;</span> <span class="o">/</span><span class="n">ucrt64</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">libstdc</span><span class="o">++-</span><span class="mf">6.</span><span class="n">dll</span> <span class="p">(</span><span class="mh">0x7ffc1f000000</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 
