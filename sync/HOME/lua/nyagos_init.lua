@@ -4,7 +4,7 @@ local M = {}
 local NYA = require "my_nyagos"
 local STR = require "common.string"
 
-use "git.lua"
+-- use "git.lua"
 
 function M.setup()
   -- nyagos.alias {
@@ -21,8 +21,6 @@ function M.setup()
     "~/skk/SKK-JISYO.L", -- システム辞書(ラージ)
     "~/skk/SKK-JISYO.emoji", -- システム辞書(絵文字)
   }
-
-  require("zoxide").setup()
 
   -- nyagos.env.prompt = "$L" .. nyagos.getenv "COMPUTERNAME" .. ":$P$G"
   -- set {
@@ -132,7 +130,6 @@ function M.setup()
   nyagos.envadd("PATH", "~\\local\\bin")
   -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
   nyagos.envdel("PATH", "WindowsApp", "PhysX", "Skype", "Wbem", "PowerShell", "OpenSSH")
-  nyagos.complete_for.git = require("completion_git").complete_for
 
   nyagos.prompt = require("prompt").prompt2
 
@@ -178,7 +175,10 @@ function M.setup()
     -- })
   end
 
-  require("nyagos_history").setup()
+  -- require("nyagos_history").setup()
+  require("nyagos_completion").setup()
+  -- nyagos.complete_for.git = require("completion_git").complete_for
+  -- require("zoxide").setup()
 end
 
 return M

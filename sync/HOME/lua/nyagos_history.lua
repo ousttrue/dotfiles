@@ -1,5 +1,7 @@
 local M = {}
 
+---@param this any
+---@param is_prev boolean
 local function search_history(this, is_prev)
   -- カーソル位置が一番左の場合は通常のnext/prev
   if this.pos == 1 then
@@ -9,7 +11,7 @@ local function search_history(this, is_prev)
       this:call "NEXT_HISTORY"
     end
     this:call "BEGINNING_OF_LINE"
-    return nil
+    return
   end
 
   -- 検索キーワード
@@ -20,10 +22,9 @@ local function search_history(this, is_prev)
   local is_duplicated = false
   local hist_len = nyagos.gethistory()
   for i = 1, hist_len do
-    local history
     -- 新しい履歴がリスト後ろに残るよう末尾からサーチ
-    history = nyagos.gethistory(hist_len - i)
-    for i, e in ipairs(history_uniq) do
+    local history = nyagos.gethistory(hist_len - i)
+    for _, e in ipairs(history_uniq) do
       if history == e or history == search_string then
         is_duplicated = true
       end
@@ -67,7 +68,7 @@ local function search_history(this, is_prev)
     this:insert(search_string)
   end
   this:call "BEGINNING_OF_LINE"
-  for i = 1, this.pos - 1 do
+  for _ = 1, this.pos - 1 do
     this:call "FORWARD_CHAR"
   end
 end
