@@ -39,4 +39,10 @@ function M.has_git()
   return false
 end
 
+---@param cmd string
+---@return boolean
+function M.which(cmd)
+  return nyagos.exec(string.format("which %s > NUL 2>&1", cmd)) == 0
+end
+
 return M

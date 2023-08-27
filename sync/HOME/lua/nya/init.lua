@@ -36,19 +36,29 @@ local function get_nvim()
 end
 
 function M.setup()
-  -- nyagos.alias {
-  --   -- clear = "cls",
-  --   -- ll = "ls -la $*",
-  --   rm = "del $*",
-  --   mv = "move $*",
-  --   cp = "copy $*",
-  -- }
-  --
+  if nyagos.env.USERPROFILE then
+    nyagos.envadd("PATH", "C:\\Python310\\Scripts")
+    nyagos.envadd("PATH", "C:\\Python311\\Scripts")
+    -- nyagos.envadd("PATH", "C:\\Program Files\\Git\\usr\\bin")
+    -- muon
+    -- nyagos.envadd("PATH", "D:\\msys64\\usr\\bin")
+    -- zig
+    -- nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
+    nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
+
+    -- nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
+    nyagos.eval "chcp 65001"
+  end
+  nyagos.envadd("PATH", to_path(home .. "/go/bin"))
+  nyagos.envadd("PATH", to_path(home .. "/.cargo/bin"))
+  nyagos.envadd("PATH", to_path(home .. "/local/bin"))
+  -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
+  nyagos.envdel("PATH", "WindowsApp", "PhysX", "Skype", "Wbem", "PowerShell", "OpenSSH")
 
   nyagos.skk {
     user = "~/.go-skk-jisyo", -- ユーザ辞書
-    "~/skk/SKK-JISYO.L", -- システム辞書(ラージ)
-    "~/skk/SKK-JISYO.emoji", -- システム辞書(絵文字)
+    "~/.skk/SKK-JISYO.L", -- システム辞書(ラージ)
+    "~/.skk/SKK-JISYO.emoji", -- システム辞書(絵文字)
   }
 
   -- nyagos.env.prompt = "$L" .. nyagos.getenv "COMPUTERNAME" .. ":$P$G"
@@ -111,15 +121,26 @@ function M.setup()
     nyagos.alias.v = "nvim $*"
   end
 
-  if system_name == "widows" then
+  if NYA.which "exa" then
+    nyagos.alias.ls = "exa --color=auto --icons $*"
+    nyagos.alias.la = "exa --color=auto --icons -a $*"
+    nyagos.alias.ll = "exa --color=auto --icons -al $*"
+  elseif NYA.which "lsd" then
     nyagos.alias.ls = "lsd.exe $*"
     nyagos.alias.la = "lsd.exe -a $*"
     nyagos.alias.ll = "lsd.exe -al $*"
   else
-    nyagos.alias.ls = "exa --color=auto --icons $*"
-    nyagos.alias.la = "exa --color=auto --icons -a $*"
-    nyagos.alias.ll = "exa --color=auto --icons -al $*"
+    nyagos.alias.la = "ls -a $*"
+    nyagos.alias.ll = "ll -l $*"
   end
+  -- nyagos.alias {
+  --   -- clear = "cls",
+  --   -- ll = "ls -la $*",
+  --   rm = "del $*",
+  --   mv = "move $*",
+  --   cp = "copy $*",
+  -- }
+  --
 
   -- nyagos.bindkey("C_P", function(this)
   --   search_history(this, true)
@@ -128,25 +149,6 @@ function M.setup()
   function nyagos.alias.pipup(args)
     nyagos.eval "py -m pip install pip --upgerade"
   end
-
-  if nyagos.env.USERPROFILE then
-    nyagos.envadd("PATH", "C:\\Python310\\Scripts")
-    nyagos.envadd("PATH", "C:\\Python311\\Scripts")
-    -- nyagos.envadd("PATH", "C:\\Program Files\\Git\\usr\\bin")
-    -- muon
-    -- nyagos.envadd("PATH", "D:\\msys64\\usr\\bin")
-    -- zig
-    -- nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
-    nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
-
-    -- nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
-    nyagos.eval "chcp 65001"
-  end
-  nyagos.envadd("PATH", to_path(home .. "/go/bin"))
-  nyagos.envadd("PATH", to_path(home .. "/.cargo/bin"))
-  nyagos.envadd("PATH", to_path(home .. "/local/bin"))
-  -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
-  nyagos.envdel("PATH", "WindowsApp", "PhysX", "Skype", "Wbem", "PowerShell", "OpenSSH")
 
   function nyagos.alias.print_args(args)
     print(args)
