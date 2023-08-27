@@ -45,4 +45,17 @@ function M.which(cmd)
   return nyagos.exec(string.format("which %s > NUL 2>&1", cmd)) == 0
 end
 
+---@param path string
+---@return boolean?
+---@return string error
+function M.is_readable(path)
+  return nyagos.access(path, 4)
+end
+
+---@param path string
+---@return boolean
+function M.is_exists(path)
+  return M.is_readable(path) and true or false
+end
+
 return M

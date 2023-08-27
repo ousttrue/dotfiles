@@ -29,7 +29,7 @@ local function get_nvim()
   end
 
   for _, v in ipairs(list) do
-    if nyagos.access(v, 4) then
+    if NYA.is_exists(v) then
       return v
     end
   end
@@ -198,6 +198,7 @@ function M.setup()
   require("nya.completion").setup()
   -- nyagos.complete_for.git = require("completion_git").complete_for
   require("nya.zoxide").setup()
+  require("nya.dotfiles").setup()
   nyagos.prompt = require("nya.prompt").prompt
 end
 
