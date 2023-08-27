@@ -194,6 +194,7 @@ function M.setup()
 
   if nyagos.env.USERPROFILE then
     nyagos.envadd("PATH", "C:\\Python310\\Scripts")
+    nyagos.envadd("PATH", "C:\\Python311\\Scripts")
     -- nyagos.envadd("PATH", "C:\\Program Files\\Git\\usr\\bin")
     -- muon
     -- nyagos.envadd("PATH", "D:\\msys64\\usr\\bin")
@@ -201,7 +202,7 @@ function M.setup()
     -- nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
     nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
 
-    nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
+    -- nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
     nyagos.eval "chcp 65001"
   end
   nyagos.envadd("PATH", "~/go/bin")
@@ -220,6 +221,26 @@ function M.setup()
       print(i, v)
     end
     print("unpack", unpack(args.rawargs))
+  end
+
+  function nyagos.alias.toolchain()
+    -- llvm + windows SDK
+    local kits = "C:/Program Files (x86)/Windows Kits/10"
+    local version = "10.0.22621.0"
+    nyagos.env.WindowsSdkVersion = version
+    nyagos.env.UCRTVersion = version
+    nyagos.env.UCRTContentRoot = kits
+    nyagos.env.UniversalCRTSdkDir = kits .. "/"
+    nyagos.env.LIB = STR.join(";", {
+      kits .. "lib/" .. version .. "/ucrt/x64",
+      kits .. "lib/" .. version .. "/um/x64",
+    })
+    nyagos.env.INCLUDE = kits .. "/include/" .. version .. "/ucrt"
+    -- nyagos.env.CMAKE_C_FLAGS = STR.join(" ", {
+    --   string.format('-I"%s"', kits .. "/include/" .. version .. "/ucrt"),
+    --   string.format('-I"%s"', kits .. "/include/" .. version .. "/shared"),
+    --   string.format('-I"%s"', kits .. "/include/" .. version .. "/um"),
+    -- })
   end
 end
 

@@ -11,10 +11,10 @@ function M.trim(s)
   end
 end
 
----@param args string[]
 ---@param delimiter string
+---@param args string[]
 ---@return string
-function M.join(args, delimiter)
+function M.join(delimiter, args)
   local cmd = ""
   delimiter = delimiter or " "
   for _, arg in ipairs(args) do

@@ -23,12 +23,11 @@
 	- busybox32
 - [GitHub - mvdan/sh: A shell parser, formatter, and interpreter with bash support; includes shfmt](https://github.com/mvdan/sh)	 
 
- 
-# 必須
-- z
-- gg
-- ls
-- nvim
+## compiler
+- msvc: install が重い。windows kits のために必要かも
+- mingw64: dll 依存で PATH を通すのがやっかい
+- msys-ucrt: どや？
+- llvm(clang) + Windows SDK
 
 # 自作
 - @2022 [「Shell作れます」と言うために - エムスリーテックブログ](https://www.m3tech.blog/entry/making-nosh)
