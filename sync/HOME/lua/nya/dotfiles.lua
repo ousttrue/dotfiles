@@ -3,7 +3,7 @@ local M = {
     "LUA_HOME",
     "XDG_XONFIG_HOME",
   },
-  download = {
+  downloads = {
     ["~/.skk/SKK-JISYO.L"] = "https://raw.githubusercontent.com/skk-dev/dict/master/SKK-JISYO.L",
     ["~/.skk/SKK-JISYO.emoji"] = "https://raw.githubusercontent.com/skk-dev/dict/master/SKK-JISYO.emoji",
     -- font: HackgenNerd
@@ -11,11 +11,26 @@ local M = {
     -- fzf
     -- busybox64
   },
-  build = {
+  toolchains = {
+    zig = {
+      desc = "zig-0.11: clang-16",
+      dir = "C:/zig",
+    },
+    ["llvm-mingw-ucrt"] = "clang-mingw for ucrt",
+    msvc19 = "vc2022",
+    ["msys2-mingw64"] = "gcc for vcrt",
+    ["msys2-ucrt64"] = "gcc for ucrt",
+  },
+  builds = {
+    ["pkgconf"] = "github.com/pkgconf/pkgconf",
+    -- ~/build/{TOOLCHAIN}
+    --
+    -- pkgconfig
+    --   glib2
+    --   chafa
+    --   gtk4
+    --   gstreamer
     -- nvim
-    -- chafa
-    -- gtk4
-    -- gstreamer
   },
   go = {
     -- ghq
@@ -34,15 +49,45 @@ local ES = require "common.escape_seuquence"
 function M.setup()
   function nyagos.alias.dotfile(args)
     local cmd = unpack(args.rawargs)
-    -- print(args.rawargs)
     if cmd == "download" then
-      for k, v in pairs(M.download) do
+      for k, v in pairs(M.downloads) do
         if NYA.is_exists(k) then
           nyagos.write(ES.format("%s: <green>OK<default>\n", k))
         else
           nyagos.write(ES.format("%s <red>=><default> %s\n", k, v))
         end
       end
+    end
+  end
+
+  function nyagos.alias.toolchain(args)
+    local cmd, name = unpack(args.rawargs)
+    if cmd == "list" then
+      for k, v in pairs(M.toolchains) do
+        print(k)
+      end
+    elseif cmd == "load" then
+      local toolchain = M.toolchains[name]
+      print [[# zig.ini
+[binaries]
+c = ['zig', 'cc']
+cpp = ['zig', 'c++']
+ar = ['zig', 'ar']
+dlltool = ['zig', 'dlltool']
+lib = ['zig', 'lib']
+ranlib = ['zig', 'ranlib']
+
+# meson setup builddir --native-file zig.ini --prefix %USERPROFILE%/build/zig --buildtype=release
+
+# require patch to meson
+#
+# https://github.com/mesonbuild/meson/pull/11918
+#
+# edit: lib/site-packages/mesonbuild/linkers/detect.py 
+# +  elif o.startswith('zig ld '):
+# +      linker = LLVMDynamicLinker(compiler, 
+# +               for_machine, comp_class.LINKER_PREFIX, override, version=v)
+]]
     end
   end
 end

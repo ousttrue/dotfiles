@@ -48,6 +48,7 @@ local function setup_path()
     -- nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
     nyagos.eval "chcp 65001"
   end
+  nyagos.envadd("PATH", to_path(home .. "/build/zig/bin"))
   nyagos.envadd("PATH", to_path(home .. "/go/bin"))
   nyagos.envadd("PATH", to_path(home .. "/.cargo/bin"))
   nyagos.envadd("PATH", to_path(home .. "/local/bin"))
