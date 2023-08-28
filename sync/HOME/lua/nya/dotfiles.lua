@@ -12,9 +12,12 @@ local M = {
     -- busybox64
   },
   toolchains = {
+    -- zapcc
     zig = {
       desc = "zig-0.11: clang-16",
-      dir = "C:/zig",
+      toolchain = "C:/zig",
+      prefix = "~/build/zig",
+      pkg_config_path = "{prefix}/lib/pkgconfig",
     },
     ["llvm-mingw-ucrt"] = "clang-mingw for ucrt",
     msvc19 = "vc2022",

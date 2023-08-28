@@ -36,8 +36,12 @@ end
 
 local function setup_path()
   if nyagos.env.USERPROFILE then
-    nyagos.envadd("PATH", "C:\\Python310\\Scripts")
-    nyagos.envadd("PATH", "C:\\Python311\\Scripts")
+    if nyagos.stat "C:/Python310/python.exe" then
+      nyagos.envadd("PATH", "C:\\Python310\\Scripts")
+    end
+    if nyagos.stat "C:/Python311/python.exe" then
+      nyagos.envadd("PATH", "C:\\Python311\\Scripts")
+    end
     -- nyagos.envadd("PATH", "C:\\Program Files\\Git\\usr\\bin")
     -- muon
     -- nyagos.envadd("PATH", "D:\\msys64\\usr\\bin")
@@ -136,15 +140,10 @@ local function setup_alias()
     nyagos.alias.la = "ls -a $*"
     nyagos.alias.ll = "ll -l $*"
   end
-  -- nyagos.alias {
-  --   -- clear = "cls",
-  --   -- ll = "ls -la $*",
-  --   rm = "del $*",
-  --   mv = "move $*",
-  --   cp = "copy $*",
-  -- }
-  --
-  --
+  if not NYA.which "rm" then
+    nyagos.alias.rm = "~/busybox/rm $*"
+  end
+
   function nyagos.alias.pipup(args)
     nyagos.eval "py -m pip install pip --upgerade"
   end
