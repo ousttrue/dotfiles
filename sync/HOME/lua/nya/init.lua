@@ -7,7 +7,7 @@ local STR = require "common.string"
 
 local system_name = COM.get_system()
 local home = COM.get_home()
--- use "git.lua"
+use "git.lua"
 
 local function to_path(src)
   if system_name == "windows" then
@@ -70,9 +70,9 @@ function M.setup()
   nyagos.env.FZF_DEFAULT_OPTS = "--layout=reverse"
 
   function nyagos.alias.gg()
-    local result = NYA.evalf "ghq list|fzf"
+    local root = NYA.raweval("ghq", "root")
+    local result = NYA.evalf('ghq list|fzf --preview="bat %s/{}/README.md --color=always --style=header,grid"', root)
     if #result > 0 then
-      local root = NYA.raweval("ghq", "root")
       NYA.evalf('cd "%s/%s"', root, result)
     end
   end
