@@ -283,6 +283,10 @@ local plugins = {
       }
     end,
   },
+  -- glsl
+  {
+    "tikhomirov/vim-glsl",
+  },
   -- go
   -- {
   --   "fatih/vim-go",

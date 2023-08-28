@@ -1,10 +1,15 @@
 local M = {
+  env = {
+    "LUA_HOME",
+    "XDG_XONFIG_HOME",
+  },
   download = {
     ["~/.skk/SKK-JISYO.L"] = "https://raw.githubusercontent.com/skk-dev/dict/master/SKK-JISYO.L",
     ["~/.skk/SKK-JISYO.emoji"] = "https://raw.githubusercontent.com/skk-dev/dict/master/SKK-JISYO.emoji",
     -- font: HackgenNerd
     -- zig
     -- fzf
+    -- busybox64
   },
   build = {
     -- nvim

@@ -7,7 +7,6 @@ local STR = require "common.string"
 
 local system_name = COM.get_system()
 local home = COM.get_home()
-use "git.lua"
 
 local function to_path(src)
   if system_name == "windows" then
@@ -35,7 +34,7 @@ local function get_nvim()
   end
 end
 
-function M.setup()
+local function setup_path()
   if nyagos.env.USERPROFILE then
     nyagos.envadd("PATH", "C:\\Python310\\Scripts")
     nyagos.envadd("PATH", "C:\\Python311\\Scripts")
@@ -53,19 +52,22 @@ function M.setup()
   nyagos.envadd("PATH", to_path(home .. "/.cargo/bin"))
   nyagos.envadd("PATH", to_path(home .. "/local/bin"))
   -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
-  nyagos.envdel("PATH", "WindowsApp", "PhysX", "Skype", "Wbem", "PowerShell", "OpenSSH")
-
-  nyagos.skk {
-    user = "~/.go-skk-jisyo", -- ユーザ辞書
-    "~/.skk/SKK-JISYO.L", -- システム辞書(ラージ)
-    "~/.skk/SKK-JISYO.emoji", -- システム辞書(絵文字)
+  local DEL_PATH = {
+    "Oculus",
+    "TortoiseGit",
+    "PATH",
+    "WindowsApp",
+    "PhysX",
+    "Skype",
+    "Wbem",
+    -- "PowerShell",
+    "OpenSSH",
+    "Microsoft VS Code",
   }
+  nyagos.envdel("PATH", unpack(DEL_PATH))
+end
 
-  -- nyagos.env.prompt = "$L" .. nyagos.getenv "COMPUTERNAME" .. ":$P$G"
-  -- set {
-  --   PROMPT = "$P",
-  -- }
-
+local function setup_alias()
   nyagos.alias.fzf = "~/.fzf/bin/fzf $*"
   nyagos.env.FZF_DEFAULT_OPTS = "--layout=reverse"
 
@@ -141,14 +143,12 @@ function M.setup()
   --   cp = "copy $*",
   -- }
   --
-
-  -- nyagos.bindkey("C_P", function(this)
-  --   search_history(this, true)
-  -- end)
-
+  --
   function nyagos.alias.pipup(args)
     nyagos.eval "py -m pip install pip --upgerade"
   end
+
+  nyagos.alias.code = '"%LOCALAPPDATA%\\Programs\\Microsoft Vs Code\\bin\\code" $*'
 
   function nyagos.alias.print_args(args)
     print(args)
@@ -193,10 +193,19 @@ function M.setup()
     --   string.format('-I"%s"', kits .. "/include/" .. version .. "/um"),
     -- })
   end
+end
 
-  -- require("nyagos_history").setup()
+function M.setup()
+  setup_path()
+  setup_alias()
+  use "git.lua"
+  nyagos.skk {
+    user = "~/.go-skk-jisyo", -- ユーザ辞書
+    "~/.skk/SKK-JISYO.L", -- システム辞書(ラージ)
+    "~/.skk/SKK-JISYO.emoji", -- システム辞書(絵文字)
+  }
+  require("nya.history").setup()
   require("nya.completion").setup()
-  -- nyagos.complete_for.git = require("completion_git").complete_for
   require("nya.zoxide").setup()
   require("nya.dotfiles").setup()
   nyagos.prompt = require("nya.prompt").prompt
