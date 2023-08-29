@@ -12,7 +12,6 @@ function share_history {
 	history -c
 	history -r
 }
-PROMPT_COMMAND='share_history'
 shopt -u histappend
 export HISTSIZE=9999
 
@@ -318,9 +317,7 @@ TmuxPrompt() {
 	ColorArrow ${status}
 }
 
-Prompt() {
-	local status="$?"
-
+Header() {
 	FB ${C256_WHITE} ${C256_BLACK}
 	printf ${ICON}
 
@@ -341,13 +338,21 @@ Prompt() {
 	fi
 
 	PL_END
-	printf '\n'
+}
 
-	ColorArrow ${status}
+Prompt() {
+	share_history
+	local status="$?"
+
+	if [ "$status" = "0" ]; then
+		PS1="$(Header)\n\[${F_CYAN}\]>\[${F_DEFAULT}\] "
+	else
+		PS1="$(Header)\n\[${F_RED}\]>\[${F_DEFAULT}\] "
+	fi
 }
 
 if [ -v TMUX ]; then
 	PS1='$(TmuxPrompt) '
 else
-	PS1='$(Prompt) '
+	PROMPT_COMMAND='Prompt'
 fi
