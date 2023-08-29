@@ -28,7 +28,7 @@ function M.setup()
     update_focused_file = {
       enable = true,
       -- update_root = true,
-      ignore_list = { ".git" },
+      ignore_list = { ".git", "gitcommit" },
     },
     view = {
       width = 36,
