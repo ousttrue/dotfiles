@@ -342,9 +342,8 @@ Header() {
 
 Prompt() {
 	share_history
-	local status="$?"
 
-	if [ "$status" = "0" ]; then
+	if [ "$1" = "0" ]; then
 		PS1="$(Header)\n\[${F_CYAN}\]>\[${F_DEFAULT}\] "
 	else
 		PS1="$(Header)\n\[${F_RED}\]>\[${F_DEFAULT}\] "
@@ -354,5 +353,5 @@ Prompt() {
 if [ -v TMUX ]; then
 	PS1='$(TmuxPrompt) '
 else
-	PROMPT_COMMAND='Prompt'
+	PROMPT_COMMAND='Prompt $?'
 fi
