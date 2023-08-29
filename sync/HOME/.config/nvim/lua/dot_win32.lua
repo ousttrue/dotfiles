@@ -4,13 +4,6 @@ if vim.fn.has "win32" == 0 then
   return M
 end
 
-function M.get_codepage()
-  local ret =
-    vim.fn.system [[pwsh -NoProfile -Command "Get-ItemPropertyValue HKLM:\SYSTEM\CurrentControlSet\Control\Nls\CodePage OEMCP"]]
-  local cp = tonumber(ret)
-  return cp
-end
-
 -- https://github.com/stuta/Luajit-Tcp-Server/blob/master/win_kernel32.lua
 local ffi = require "ffi"
 
@@ -25,6 +18,8 @@ ffi.cdef [[
 	typedef const char *	LPCSTR;
 	typedef short *			LPWSTR;
 	typedef const short *	LPCWSTR;
+
+	UINT GetConsoleCP(void);
 
 	int MultiByteToWideChar(UINT CodePage,
 			DWORD    dwFlags,
@@ -46,6 +41,14 @@ local CP_MACCP = 2 -- default to MAC code page
 local CP_THREAD_ACP = 3 -- current thread's ANSI code page
 local CP_SYMBOL = 42 -- SYMBOL translations
 local CP_UTF8 = 65001
+
+function M.get_codepage()
+  -- local ret =
+  --   vim.fn.system [[pwsh -NoProfile -Command "Get-ItemPropertyValue HKLM:\SYSTEM\CurrentControlSet\Control\Nls\CodePage OEMCP"]]
+  -- local cp = tonumber(ret)
+  -- return cp
+  return kernel32.GetConsoleCP()
+end
 
 local function ToWide(in_Src, codepage)
   if not in_Src then

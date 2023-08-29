@@ -146,8 +146,14 @@ local function setup_alias()
     nyagos.alias.la = "ls -a $*"
     nyagos.alias.ll = "ll -l $*"
   end
-  if not NYA.which "rm" then
-    nyagos.alias.rm = "~/busybox/rm $*"
+
+  local BUSYBOX_TOOLS = {
+    "rm",
+    "mkdir",
+    "xz",
+  }
+  for _, v in ipairs(BUSYBOX_TOOLS) do
+    nyagos.alias[v] = string.format("~/busybox/%s $*", v)
   end
 
   function nyagos.alias.pipup(args)
