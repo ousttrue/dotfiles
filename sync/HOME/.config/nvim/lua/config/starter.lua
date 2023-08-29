@@ -4,6 +4,20 @@ local dot = require "dot"
 
 function M.setup()
   local starter = require "mini.starter"
+
+  --[[
+    -- Possibly filter files from current directory
+    if current_dir then
+      local cwd_pattern = '^' .. vim.pesc(vim.fn.getcwd():gsub('\\', '/')) .. '%/'
+      -- Use only files from current directory and its subdirectories
+      files = vim.tbl_filter(
+        function(f) return vim.fn.fnamemodify(f, ':p'):gsub('\\', '/'):find(cwd_pattern) ~= nil end,
+        files
+      )
+    end
+  ]]
+  --
+
   starter.setup {
     -- Whether to open starter buffer on VimEnter. Not opened if Neovim was
     -- started with intent to show something else.
@@ -18,8 +32,8 @@ function M.setup()
     -- - Array: elements of these three types (i.e. item, array, function).
     -- If `nil` (default), default items will be used (see |mini.starter|).
     items = {
-      -- starter.sections.recent_files(10, false),
-      starter.sections.recent_files(10, true),
+      starter.sections.recent_files(6, true),
+      -- starter.sections.recent_files(1, false),
       starter.sections.telescope(),
     },
 
