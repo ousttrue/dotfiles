@@ -34,7 +34,13 @@ if [ -v MSYSTEM ]; then
 			ICON=🦉
 		elif [[ $MSYSTEM == "MINGW64" ]]; then
 			SYSTEM_COLOR="yellow"
-			ICON=🐔
+			ICON=🐐
+		elif [[ $MSYSTEM == "UCRT64" ]]; then
+			SYSTEM_COLOR="yellow"
+			ICON=🛸
+		elif [[ $MSYSTEM == "CLANG64" ]]; then
+			SYSTEM_COLOR="yellow"
+			ICON=🐉
 		else
 			SYSTEM_COLOR="gray"
 			ICON=🥚
@@ -49,7 +55,7 @@ else
 		# echo "Ubuntu on Windows"
 		SYSTEM_COLOR="purple"
 		PLATFORM=WSL
-		ICON=🦆
+		ICON=🚇
 	else
 		SYSTEM_COLOR="cyan"
 		PLATFORM=LINUX
