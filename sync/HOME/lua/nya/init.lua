@@ -68,6 +68,12 @@ local function setup_path()
     -- "PowerShell",
     "OpenSSH",
     "Microsoft VS Code",
+    "dotnet",
+    "sql",
+    "nodejs",
+    "deno",
+    "npm",
+    "Microsoft",
   }
   nyagos.envdel("PATH", unpack(DEL_PATH))
 end

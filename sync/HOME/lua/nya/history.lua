@@ -1,5 +1,23 @@
 local M = {}
 
+-- https://stackoverflow.com/questions/9790688/escaping-strings-for-gsub
+local function esc(x)
+  return (
+    x:gsub("%%", "%%%%")
+      :gsub("^%^", "%%^")
+      :gsub("%$$", "%%$")
+      :gsub("%(", "%%(")
+      :gsub("%)", "%%)")
+      :gsub("%.", "%%.")
+      :gsub("%[", "%%[")
+      :gsub("%]", "%%]")
+      :gsub("%*", "%%*")
+      :gsub("%+", "%%+")
+      :gsub("%-", "%%-")
+      :gsub("%?", "%%?")
+  )
+end
+
 ---@param this any
 ---@param is_prev boolean
 local function search_history(this, is_prev)
@@ -53,7 +71,7 @@ local function search_history(this, is_prev)
   -- 前方一致する履歴を探す
   local matched_string = nil
   for i = hist_pos + 1, #history_uniq do
-    if history_uniq[i]:match("^" .. search_string .. ".*") then
+    if history_uniq[i]:match("^" .. esc(search_string) .. ".*") then
       matched_string = history_uniq[i]
       break
     end

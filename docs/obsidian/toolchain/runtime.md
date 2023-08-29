@@ -57,5 +57,5 @@ vc のヘッダに依存しているので、何れかの vc のインストー�
 [[ucrt]]
 
 ## MinGW-w64
-[[mingw]]
+[[MinGW-w64]]
 `Windows.h` などを提供する代替実装。

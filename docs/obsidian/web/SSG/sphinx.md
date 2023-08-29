@@ -1,10 +1,10 @@
 [[markdown]] [[myst-parser]]
 
-[Welcome — Sphinx documentation](https://www.sphinx-doc.org/en/master/)
-
 - [read sphinx ドキュメント](https://ousttrue.github.io/read_sphinx/)
 
 # Version
+- [Changelog — Sphinx documentation](https://www.sphinx-doc.org/en/master/changes.html)
+## 7.2.5
 ## 6.0
 
 # toctree

@@ -2,7 +2,7 @@
 aliases: [WindowsKits]
 ---
 
-[[runtime]] [[mingw]]
+[[runtime]] [[MinGW-w64]]
 
 `C:\Program Files (x86)\Windows Kits\10`
 

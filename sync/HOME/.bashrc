@@ -161,18 +161,29 @@ function femg {
 	fi
 }
 
-function fapt {
-	local selected=$(apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}")
-	if [[ ${selected} =~ [^\s] ]]; then
-		sudo apt install ${selected}
-	fi
-}
-function fapu {
-	local selected=$(apt-cache pkgnames | fzf --preview "apt-cache show {}")
-	if [[ ${selected} =~ [^\s] ]]; then
-		sudo apt uninstall ${selected}
-	fi
-}
+if [ -v MSYSTEM ]; then
+	function fpkg {
+		local selected=$(pacman -Sl | cut -d " " -f 2 | fzf --preview "pacman -Si {}")
+		if [[ ${selected} =~ [^\s] ]]; then
+			pacman -S ${selected}
+		fi
+	}
+
+else
+	function fpkg {
+		local selected=$(apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}")
+		if [[ ${selected} =~ [^\s] ]]; then
+			sudo apt install ${selected}
+		fi
+	}
+
+	function fapu {
+		local selected=$(apt-cache pkgnames | fzf --preview "apt-cache show {}")
+		if [[ ${selected} =~ [^\s] ]]; then
+			sudo apt uninstall ${selected}
+		fi
+	}
+fi
 
 function pkg {
 	local selected=$(pkg-config --list-package-names | fzf --preview "bat ${HOME}/prefix/lib64/pkgconfig/{}.pc")
@@ -302,9 +313,7 @@ GetBranch() {
 	fi
 }
 
-TmuxPrompt() {
-	local status="$?"
-
+TmuxHeader() {
 	FB ${C256_WHITE} ${C256_BLACK}
 	printf ${ICON}
 
@@ -318,9 +327,6 @@ TmuxPrompt() {
 	fi
 
 	PL_END
-	printf '\n'
-
-	ColorArrow ${status}
 }
 
 Header() {
@@ -349,15 +355,19 @@ Header() {
 Prompt() {
 	share_history
 
-	if [ "$1" = "0" ]; then
-		PS1="$(Header)\n\[${F_CYAN}\]>\[${F_DEFAULT}\] "
+	if [ -v TMUX ]; then
+		if [ "$1" = "0" ]; then
+			PS1="$(TmuxHeader)\n\[${F_CYAN}\]>\[${F_DEFAULT}\] "
+		else
+			PS1="$(TmuxHeader)\n\[${F_RED}\]>\[${F_DEFAULT}\] "
+		fi
 	else
-		PS1="$(Header)\n\[${F_RED}\]>\[${F_DEFAULT}\] "
+		if [ "$1" = "0" ]; then
+			PS1="$(Header)\n\[${F_CYAN}\]>\[${F_DEFAULT}\] "
+		else
+			PS1="$(Header)\n\[${F_RED}\]>\[${F_DEFAULT}\] "
+		fi
 	fi
 }
 
-if [ -v TMUX ]; then
-	PS1='$(TmuxPrompt) '
-else
-	PROMPT_COMMAND='Prompt $?'
-fi
+PROMPT_COMMAND='Prompt $?'

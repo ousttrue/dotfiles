@@ -1,4 +1,4 @@
-- [[mingw]]
+- [[MinGW-w64]]
 
 - @2010 [configureのbuild、host、targetの違い - maminusのメモか何か](https://maminus.hatenadiary.org/entry/20100129/1264781242)
 
