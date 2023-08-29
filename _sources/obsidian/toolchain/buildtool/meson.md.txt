@@ -196,3 +196,10 @@ git
 	remote = origin
 	merge = refs/heads/master
 ```
+
+
+# detect compiler
+
+```
+meson.build:1:0: ERROR: Unknown compiler(s): [['icl'], ['cl'], ['cc'], ['gcc'], ['clang'], ['clang-cl'], ['pgcc']]
+```
