@@ -1,10 +1,23 @@
 
 [MinGW-w64](https://www.mingw-w64.org/)
 
-# Version
-## mingw-w64 10.0.0
+- [Releases · mstorsjo/llvm-mingw](https://github.com/mstorsjo/llvm-mingw/releases)
 
-# cross
+> forked it in 2007
+
+# Version
+## 11
+## 10
+
+# Structure
+コンパイラー(gcc)とライブラリー(header/lib)の２部
+## Tools
+- [MinGW-w64クロスコンパイラ - Qiita](https://qiita.com/notunusualtales/items/6a4bf96a9f4e946aebc3)
+
+## Library
+
+
+# Cross
 ## WSL
 - [ArchWSL と yay 及び Mingw-w64 を用いて MSYS2 風 Windows アプリケーション開発環境を構築する - Qiita](https://qiita.com/EarthSimilarityIndex/items/38c854b009b22d143b0b)
 

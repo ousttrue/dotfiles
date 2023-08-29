@@ -219,9 +219,8 @@
         </div>
         <article role="main">
           <p>[[mesa]]
-[[crystal]] <code class="docutils literal notranslate"><span class="pre">14</span></code>
-[[zig]] <code class="docutils literal notranslate"><span class="pre">15</span></code>
-[[clang]]</p>
+[[clang]]
+[[llvm-mingw]]</p>
 <p><a class="reference external" href="https://llvm.org/docs/GettingStarted.html">Getting Started with the LLVM System — LLVM 17.0.0git documentation</a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -281,8 +280,10 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="build">
 <h1>Build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>8core memory16GB SSDで90分くらい</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cmake -S . -B build -DLLVM_TARGETS_TO_BUILD=host -DLLVM_ENABLE_DOXYGEN=off -DLLVM_ENABLE_SPHINX=off -DCMAKE_BUILD_TYPE=Rlease -DCMAKE_INSTALL_PREFIX=D:/llvm -G Ninja
+<p>8core memory16GB SSD MSVC で90分くらい
+8core memory16GB SSD msys2-MINGW64 で30くらいだが linker がこける
+8core memory16GB SSD msys2-CLANG64 で15くらい</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cmake -S . -B build -DLLVM_TARGETS_TO_BUILD=host -DLLVM_ENABLE_PROJECTS=lld;clang -DLLVM_ENABLE_DOXYGEN=off -DLLVM_ENABLE_SPHINX=off -DCMAKE_BUILD_TYPE=Rlease -DCMAKE_INSTALL_PREFIX=D:/llvm -G Ninja
 
 -- The C compiler identification is MSVC 19.37.32822.0
 -- The CXX compiler identification is MSVC 19.37.32822.0
@@ -293,12 +294,65 @@
 -DLLVM_TARGETS_TO_BUILD=host
 -DLLVM_ENABLE_DOXYGEN=off
 -DLLVM_ENABLE_SPHINX=off
--DLLVM_ENABLE_PROJECTS=lld,clang
+
 
 cmake --build build
 [0/3946]... 40min? 1400
 </pre></div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; D:/msys64/usr/bin/ldd D:/llvm-mingw/bin/clang.exe
+        ntdll.dll =&gt; /c/WINDOWS/SYSTEM32/ntdll.dll (0x7ffdc1130000)
+        KERNEL32.DLL =&gt; /c/WINDOWS/System32/KERNEL32.DLL (0x7ffdc0310000)
+        KERNELBASE.dll =&gt; /c/WINDOWS/System32/KERNELBASE.dll (0x7ffdbe900000)
+        ucrtbase.dll =&gt; /c/WINDOWS/System32/ucrtbase.dll (0x7ffdbe740000)
+        SHELL32.dll =&gt; /c/WINDOWS/System32/SHELL32.dll (0x7ffdbf030000)
+        msvcp_win.dll =&gt; /c/WINDOWS/System32/msvcp_win.dll (0x7ffdbe860000)
+        USER32.dll =&gt; /c/WINDOWS/System32/USER32.dll (0x7ffdc0760000)
+        win32u.dll =&gt; /c/WINDOWS/System32/win32u.dll (0x7ffdbecb0000)
+        GDI32.dll =&gt; /c/WINDOWS/System32/GDI32.dll (0x7ffdc0660000)
+        gdi32full.dll =&gt; /c/WINDOWS/System32/gdi32full.dll (0x7ffdbece0000)
+        ole32.dll =&gt; /c/WINDOWS/System32/ole32.dll (0x7ffdbfa10000)
+        combase.dll =&gt; /c/WINDOWS/System32/combase.dll (0x7ffdbfd60000)
+        RPCRT4.dll =&gt; /c/WINDOWS/System32/RPCRT4.dll (0x7ffdc03e0000)
+        ADVAPI32.dll =&gt; /c/WINDOWS/System32/ADVAPI32.dll (0x7ffdbf960000)
+        msvcrt.dll =&gt; /c/WINDOWS/System32/msvcrt.dll (0x7ffdbfcb0000)
+        sechost.dll =&gt; /c/WINDOWS/System32/sechost.dll (0x7ffdc0500000)
+        libc++.dll =&gt; not found
+        api-ms-win-crt-environment-l1-1-0.dll =&gt; not found
+        api-ms-win-crt-heap-l1-1-0.dll =&gt; not found
+        api-ms-win-crt-private-l1-1-0.dll =&gt; not found
+        api-ms-win-crt-runtime-l1-1-0.dll =&gt; not found
+        api-ms-win-crt-stdio-l1-1-0.dll =&gt; not found
+        api-ms-win-crt-string-l1-1-0.dll =&gt; not found
+        api-ms-win-crt-utility-l1-1-0.dll =&gt; not found
+        api-ms-win-crt-convert-l1-1-0.dll =&gt; not found
+        api-ms-win-crt-math-l1-1-0.dll =&gt; not found
+        api-ms-win-crt-time-l1-1-0.dll =&gt; not found
+        VERSION.dll =&gt; /c/WINDOWS/SYSTEM32/VERSION.dll (?)
+        zlib1.dll =&gt; not found
+        libzstd.dll =&gt; not found
+</pre></div>
+</div>
+<section id="linker-error-could-not-read-symbols-memory-exhausted">
+<h2>linker error:  could not read symbols: Memory exhausted<a class="headerlink" href="#linker-error-could-not-read-symbols-memory-exhausted" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/41144334/compiling-clang-on-a-32-bit-system-fails-because-of-insufficient-virtual-memory">Compiling clang on a 32-bit system fails because of insufficient virtual memory - Stack Overflow</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">Wl</span><span class="p">,</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">keep</span><span class="o">-</span><span class="n">memory</span> <span class="o">-</span><span class="n">Wl</span><span class="p">,</span><span class="o">--</span><span class="n">reduce</span><span class="o">-</span><span class="n">memory</span><span class="o">-</span><span class="n">overheads</span>
+</pre></div>
+</div>
+</section>
+<section id="llvm-targets-to-build">
+<h2>LLVM_TARGETS_TO_BUILD<a class="headerlink" href="#llvm-targets-to-build" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">host</span></code>
+CPU ターゲット。クロスコンパイラ</p>
+</section>
+<section id="llvm-default-target-triple">
+<h2>LLVM_DEFAULT_TARGET_TRIPLE<a class="headerlink" href="#llvm-default-target-triple" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">x86_64-pc-windows-gnu</span></code>
+<code class="docutils literal notranslate"><span class="pre">x86_64-pc-windows-msvc19</span></code>
+<code class="docutils literal notranslate"><span class="pre">x86_64-pc-windows-msvc</span></code>
+<code class="docutils literal notranslate"><span class="pre">x86_64-apple-darwin</span></code></p>
+<p>実行環境？</p>
+</section>
 <section id="ccls">
 <h2>ccls<a class="headerlink" href="#ccls" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">S</span> <span class="o">.</span> <span class="o">-</span><span class="n">B</span> <span class="n">build</span> <span class="o">-</span><span class="n">DClang_DIR</span><span class="o">=</span><span class="n">D</span><span class="p">:</span><span class="o">/</span><span class="n">llvm</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">clang</span>
@@ -363,6 +417,9 @@ cmake --build build
 </ul>
 </li>
 <li><a class="reference internal" href="#build">Build</a><ul>
+<li><a class="reference internal" href="#linker-error-could-not-read-symbols-memory-exhausted">linker error:  could not read symbols: Memory exhausted</a></li>
+<li><a class="reference internal" href="#llvm-targets-to-build">LLVM_TARGETS_TO_BUILD</a></li>
+<li><a class="reference internal" href="#llvm-default-target-triple">LLVM_DEFAULT_TARGET_TRIPLE</a></li>
 <li><a class="reference internal" href="#ccls">ccls</a></li>
 <li><a class="reference internal" href="#zig">zig</a></li>
 </ul>

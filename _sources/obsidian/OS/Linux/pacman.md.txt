@@ -92,4 +92,5 @@ $ sudo pacman -U
 
 ```
 $ pacman -S base-devel
+$ pacman -S mingw-w64-i686-toolchain
 ```
