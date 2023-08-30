@@ -32,7 +32,7 @@ function M.setup()
     -- - Array: elements of these three types (i.e. item, array, function).
     -- If `nil` (default), default items will be used (see |mini.starter|).
     items = {
-      starter.sections.recent_files(6, true),
+      starter.sections.recent_files(12, true),
       -- starter.sections.recent_files(1, false),
       starter.sections.telescope(),
     },
