@@ -20,6 +20,7 @@ function M.setup()
       "nu",
       "go",
       "bash",
+      "json",
 
       "typescript",
       "javascript",

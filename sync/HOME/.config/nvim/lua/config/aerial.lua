@@ -5,7 +5,7 @@ function M.setup()
     backends = {
       -- ["_"] = { "lsp", "treesitter", "markdown", "man" },
       ["_"] = { "treesitter", "lsp", "markdown", "man" },
-      toml = { "treesitter" },
+      -- toml = { "treesitter" },
     },
     -- close_automatic_events = { "switch_buffer" },
     -- optionally use on_attach to set keymaps when aerial has attached to a buffer

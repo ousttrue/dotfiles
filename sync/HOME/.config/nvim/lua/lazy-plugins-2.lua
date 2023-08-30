@@ -47,6 +47,18 @@ local plugins = {
   -- make_colorscheme("Mitgorakh/snow", "snow", "light", "mac"),
   make_colorscheme("NLKNguyen/papercolor-theme", "PaperColor", "light", "mac"),
   -- make_colorscheme("yasukotelin/shirotelin", "shirotelin", "light", "mac"),
+  -- icon
+  { "stevearc/dressing.nvim" },
+  {
+    "ziontee113/icon-picker.nvim",
+    config = function()
+      require("icon-picker").setup {
+        disable_legacy_commands = true,
+      }
+    end,
+  },
+  -- { "https://github.com/kyazdani42/nvim-web-devicons" },
+  -- { "https://github.com/adelarsq/vim-devicons-emoji" },
   {
     "echasnovski/mini.nvim",
     version = "*",
