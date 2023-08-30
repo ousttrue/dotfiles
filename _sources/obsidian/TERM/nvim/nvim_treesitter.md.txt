@@ -13,6 +13,8 @@ inspect
 - @2021 [Neovim v0.5リリース記念 v0.5の新機能を紹介します【後編】 | MoT Lab (GO Inc. Engineering Blog)](https://lab.mo-t.com/blog/neovim-v05-introduction-new-features-part-2)
 - @2020 [nvim-treesitterを勧めたい](https://zenn.dev/duglaser/articles/c02d6a937a48df)
 
+# path
+`AppData/Local/nvim-data/lazy/nvim-treesitter\\parser\\json.so`
 # query capture
 `scm`
 - @2021 [日常に彩りを加える nvim-treesitter の設定術](https://zenn.dev/monaqa/articles/2021-12-22-vim-nvim-treesitter-highlight)
