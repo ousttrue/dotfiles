@@ -70,9 +70,9 @@ local function setup_path()
     "Microsoft VS Code",
     "dotnet",
     "sql",
-    "nodejs",
+    -- "nodejs",
     "deno",
-    "npm",
+    -- "npm",
     "Microsoft",
   }
   nyagos.envdel("PATH", unpack(DEL_PATH))
@@ -148,6 +148,8 @@ local function setup_alias()
   end
 
   local BUSYBOX_TOOLS = {
+    "cp",
+    "mv",
     "rm",
     "mkdir",
     "xz",

@@ -1,0 +1,7 @@
+
+
+.markdown-preview-section h1,
+.cm-header-1 {
+  color: var(--h1-color) !important;
+    border-bottom: solid 2px;
+}

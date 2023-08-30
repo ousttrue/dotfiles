@@ -148,6 +148,15 @@ local plugins = {
   -- git
   { "tpope/vim-fugitive" },
   { "rbong/vim-flog" },
+  {
+    "dinhhuy258/git.nvim",
+    config = function()
+      require("git").setup()
+    end,
+  },
+  {
+    "rhysd/git-messenger.vim",
+  },
   -- telescope
   {
     "nvim-telescope/telescope.nvim",

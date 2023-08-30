@@ -19,6 +19,7 @@ function M.setup()
       "toml",
       "nu",
       "go",
+      "bash",
 
       "typescript",
       "javascript",

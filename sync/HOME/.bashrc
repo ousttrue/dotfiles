@@ -132,7 +132,23 @@ alias e='emacs -nw'
 alias r='cd "$(git rev-parse --show-toplevel)"'
 
 # https://wiki.archlinux.jp/index.php/%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%AB%E3%83%A9%E3%83%BC%E5%87%BA%E5%8A%9B#man
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
+if which bat >/dev/null 2>&1; then
+	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    export MANROFFOPT="-c"
+elif false; then
+	export MANPAGER=ov
+	export PAGER=ov
+else
+	export LESS_TERMCAP_mb=$'\e[1;32m'
+	export LESS_TERMCAP_md=$'\e[1;32m'
+	export LESS_TERMCAP_me=$'\e[0m'
+	export LESS_TERMCAP_se=$'\e[0m'
+	export LESS_TERMCAP_so=$'\e[01;33m'
+	export LESS_TERMCAP_ue=$'\e[0m'
+	export LESS_TERMCAP_us=$'\e[1;4;31m'
+	export MANPAGER="less -R --use-color -Dd+r -Du+b"
+	export PAGER="less -R --use-color -Dd+r -Du+b"
+fi
 
 function gg {
 	local arg=""

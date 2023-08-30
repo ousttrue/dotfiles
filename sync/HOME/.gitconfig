@@ -1,5 +1,7 @@
 [core]
-    pager = less -cm
+    ; pager = less -cm
+    pager = delta
+
 [user]
     email = ousttrue@gmail.com
     name = ousttrue
@@ -11,5 +13,25 @@
     lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [init]
 	defaultBranch = master
-[pager]
-	diff = false
+; [pager]
+; 	diff = false
+
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    features = decorations
+    line-numbers = true
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
