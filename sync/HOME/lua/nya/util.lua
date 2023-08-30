@@ -3,7 +3,7 @@
 --
 local M = {}
 
-local cm_str = require "common.string"
+local STR = require "common.string"
 
 -- function M.exec(cmd, ...)
 --   local args = { ... }
@@ -17,14 +17,14 @@ local cm_str = require "common.string"
 ---終了を待ってしまう？(vim とかだと固まる？)
 ---@return string
 function M.raweval(...)
-  return cm_str.trim(nyagos.raweval(...))
+  return STR.trim(nyagos.raweval(...))
 end
 
 ---pipe など redirection を使える。quote 必要
 ---終了を待ってしまう？(vim とかだと固まる？)
 ---@return string
 function M.evalf(fmt, ...)
-  return cm_str.trim(nyagos.eval(string.format(fmt, ...)))
+  return STR.trim(nyagos.eval(string.format(fmt, ...)))
 end
 
 ---@return boolean
@@ -40,9 +40,27 @@ function M.has_git()
 end
 
 ---@param cmd string
----@return boolean
+---@return string?
 function M.which(cmd)
-  return nyagos.exec(string.format("which %s > NUL 2>&1", cmd)) == 0
+  local res = STR.trim(nyagos.eval(string.format("which %s 2>NUL", cmd)))
+  if #res == 0 then
+    -- which x: not found
+    return nil
+  end
+
+  -- ln: built-in command
+  local m = string.match(res, "^([^:]+): built%-in command")
+  if m == cmd then
+    return nil
+  end
+
+  -- ls: aliased to lsd.exe $*
+  m = string.match(res, "^([^:]+): aliased to ")
+  if m == cmd then
+    return nil
+  end
+
+  return res
 end
 
 ---@param path string

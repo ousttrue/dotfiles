@@ -151,9 +151,12 @@ local function setup_alias()
     "rm",
     "mkdir",
     "xz",
+    "ln",
   }
   for _, v in ipairs(BUSYBOX_TOOLS) do
-    nyagos.alias[v] = string.format("~/busybox/%s $*", v)
+    if not NYA.which(v) then
+      nyagos.alias[v] = string.format("~/busybox/%s $*", v)
+    end
   end
 
   function nyagos.alias.pipup(args)
@@ -204,6 +207,36 @@ local function setup_alias()
     --   string.format('-I"%s"', kits .. "/include/" .. version .. "/shared"),
     --   string.format('-I"%s"', kits .. "/include/" .. version .. "/um"),
     -- })
+  end
+
+  function nyagos.alias.dot(args)
+    local cmd = unpack(args.rawargs)
+    local dot_dir = COM.get_home() .. "/dotfiles"
+    if cmd == "pull" then
+      return nyagos.exec(string.format(
+        [[
+pushd %s > NUL
+git pull
+popd > NUL
+      ]],
+        dot_dir
+      ))
+      -- doit
+    elseif cmd == "push" then
+      --   return NYA.evalf("cd %s && git add . && git commit -av && git push", dot_dir)
+    elseif cmd == "status" then
+      return nyagos.exec(string.format(
+        [[
+pushd %s > NUL
+git status
+popd > NUL
+      ]],
+        dot_dir
+      ))
+    else
+      print "unknown"
+      return 1
+    end
   end
 end
 
