@@ -27,6 +27,29 @@ function M.evalf(fmt, ...)
   return STR.trim(nyagos.eval(string.format(fmt, ...)))
 end
 
+---pushd して 連続でコマンドを実行する
+---@param chdir string
+---@param cmds string[]
+---@return integer
+function M.batch(chdir, cmds)
+  local ret, error = nyagos.exec("pushd " .. chdir .. " > NUL")
+  if ret ~= 0 then
+    print(error)
+    return 1
+  end
+
+  for _, v in ipairs(cmds) do
+    ret, error = nyagos.exec(v)
+    if ret ~= 0 then
+      print(error)
+      break
+    end
+  end
+
+  nyagos.exec "popd > NUL"
+  return ret
+end
+
 ---@return boolean
 function M.has_git()
   local path = nyagos.getwd()

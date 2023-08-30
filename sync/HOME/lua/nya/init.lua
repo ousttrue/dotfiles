@@ -213,28 +213,22 @@ local function setup_alias()
     local cmd = unpack(args.rawargs)
     local dot_dir = COM.get_home() .. "/dotfiles"
     if cmd == "pull" then
-      return nyagos.exec(string.format(
-        [[
-pushd %s > NUL
-git pull
-popd > NUL
-      ]],
-        dot_dir
-      ))
-      -- doit
+      return NYA.batch(dot_dir, {
+        "git pull",
+        -- doit
+      })
     elseif cmd == "push" then
-      --   return NYA.evalf("cd %s && git add . && git commit -av && git push", dot_dir)
+      return NYA.batch(dot_dir, {
+        "git add .",
+        "git commit -av",
+        "git push",
+      })
     elseif cmd == "status" then
-      return nyagos.exec(string.format(
-        [[
-pushd %s > NUL
-git status
-popd > NUL
-      ]],
-        dot_dir
-      ))
+      return NYA.batch(dot_dir, {
+        "git status",
+      })
     else
-      print "unknown"
+      print("unknown:", cmd)
       return 1
     end
   end
