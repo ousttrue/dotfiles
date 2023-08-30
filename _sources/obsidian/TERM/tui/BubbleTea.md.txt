@@ -63,7 +63,7 @@ func (m model) Init() tea.Cmd {
 - [GitHub - charmbracelet/bubbles: TUI components for Bubble Tea 🫧](https://github.com/charmbracelet/bubbles)
 
 ## Viewport
-- [bubbletea/examples/pager/main.go at master · charmbracelet/bubbletea · GitHub](https://github.com/charmbracelet/bubbletea/blob/master/examples/pager/main.go)
+[[bubbletea_viewport]]
 
 ## list
 ## bubble-table
