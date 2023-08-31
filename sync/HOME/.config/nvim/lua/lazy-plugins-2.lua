@@ -57,8 +57,10 @@ local plugins = {
       }
     end,
   },
+  { "nvim-tree/nvim-web-devicons" },
   -- { "https://github.com/kyazdani42/nvim-web-devicons" },
   -- { "https://github.com/adelarsq/vim-devicons-emoji" },
+  -- { "Allianaab2m/nvim-material-icon-v3" },
   {
     "echasnovski/mini.nvim",
     version = "*",
@@ -123,9 +125,9 @@ local plugins = {
   },
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
+    -- dependencies = {
+    --   "nvim-tree/nvim-web-devicons",
+    -- },
     config = function()
       require("config.lualine").setup()
     end,
@@ -133,7 +135,7 @@ local plugins = {
   {
     "akinsho/bufferline.nvim",
     -- tag = "v3.*",
-    dependencies = "nvim-tree/nvim-web-devicons",
+    -- dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("config.bufferline").setup()
     end,
