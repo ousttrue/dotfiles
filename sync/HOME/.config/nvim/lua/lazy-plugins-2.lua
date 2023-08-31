@@ -27,6 +27,8 @@ local function make_colorscheme(repos, name, bg, sys)
 end
 
 local plugins = {
+  { "rktjmp/lush.nvim" },
+
   -- dark
   make_colorscheme("folke/tokyonight.nvim", "tokyonight", "dark"),
   make_colorscheme("EdenEast/nightfox.nvim", "nightfox", "dark"),
@@ -40,6 +42,7 @@ local plugins = {
   -- make_colorscheme("cocopon/iceberg.vim", "iceberg", "dark"),
   -- make_colorscheme("AlessandroYorba/Sierra", "sierra", "dark"),
 
+  make_colorscheme("mcchrish/zenbones.nvim", "zenbones", "light"),
   make_colorscheme("xero/miasma.nvim", "miasma", "dark", "linux"),
   -- make_colorscheme("FrenzyExists/aquarium-vim", "aquarium"),
   make_colorscheme("junegunn/seoul256.vim", "seoul256", "light", "wsl"),

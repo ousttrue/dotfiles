@@ -2,6 +2,8 @@
 
 [object: Window - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/window/index.html)
 
+[Colors & Appearance - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/appearance.html#defining-your-own-colors)
+
 # padding
 [window_padding - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/config/window_padding.html)
 

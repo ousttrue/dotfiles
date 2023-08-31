@@ -8,7 +8,7 @@
 - @2021 [Show your wezterms · wez/wezterm · Discussion #628 · GitHub](https://github.com/wez/wezterm/discussions/628)
 
 # settings
-[[wezterm_window]]
+[[wezterm_appearance]]
 
 # Version
 ## 20230712-072601
