@@ -11,6 +11,15 @@ I[19:37:56.005] argv[1]: --compile-commands-dir=d:\VrmEditor/builddir 👈 FullP
 I[19:37:56.005] argv[2]: --header-insertion=never
 ```
 
+# config
+
+`%LOCALAPPDATA%\clangd\config.yaml`
+```yaml
+CompileFlags:
+  Remove: ["/std:c++14", -std=c++14]
+  Add: ["/std:c++latest", -std=c++latest]
+```
+
 # auto include
 [How can I disable auto-includes on completion? · Issue #918 · clangd/clangd · GitHub](https://github.com/clangd/clangd/issues/918)
 

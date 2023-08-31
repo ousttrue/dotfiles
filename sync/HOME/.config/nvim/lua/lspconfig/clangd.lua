@@ -11,11 +11,11 @@ local clangd_list = {
 }
 
 local fallbackFlags = {}
-if vim.fn.has "win32" == 1 then
-  fallbackFlags = { "/std:c++latest" }
-else
-  fallbackFlags = { "-std=c++2b" }
-end
+-- if vim.fn.has "win32" == 1 then
+--   fallbackFlags = { "/std:c++latest" }
+-- else
+--   fallbackFlags = { "-std=c++2b" }
+-- end
 
 local function get_clangd()
   if vim.fn.has "win32" == 1 then

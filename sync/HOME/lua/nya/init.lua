@@ -49,8 +49,6 @@ local function setup_path()
     -- nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
     nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
 
-    -- nyagos.eval 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
-    nyagos.eval "chcp 65001"
   end
   nyagos.envadd("PATH", to_path(home .. "/build/zig/bin"))
   nyagos.envadd("PATH", to_path(home .. "/go/bin"))
@@ -68,7 +66,7 @@ local function setup_path()
     -- "PowerShell",
     "OpenSSH",
     "Microsoft VS Code",
-    "dotnet",
+    -- "dotnet",
     "sql",
     -- "nodejs",
     "deno",

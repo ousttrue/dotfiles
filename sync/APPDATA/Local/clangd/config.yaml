@@ -1,3 +1,2 @@
-CompileFlags:
-  Remove: ["/std:c++14", -std=c++14]
-  Add: ["/std:c++latest", -std=c++latest]
+Index:
+  StandardLibrary: No

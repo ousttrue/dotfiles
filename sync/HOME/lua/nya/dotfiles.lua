@@ -21,6 +21,7 @@ local M = {
     },
     ["llvm-mingw-ucrt"] = "clang-mingw for ucrt",
     msvc19 = "vc2022",
+    -- source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"
     ["msys2-mingw64"] = "gcc for vcrt",
     ["msys2-ucrt64"] = "gcc for ucrt",
   },
