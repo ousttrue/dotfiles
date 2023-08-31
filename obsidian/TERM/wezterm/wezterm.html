@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>font - shell note ドキュメント</title>
+        <title>settings - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -224,7 +224,19 @@
 <li><p>@2022 <a class="reference external" href="https://zenn.dev/htlsne/articles/wezterm-rotate-font">WezTermで日替わりフォントを設定する</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://zenn.dev/yutakatay/articles/wezterm-intro">alacritty+tmuxもいいけど、weztermがすごい件</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://zenn.dev/eetann/scraps/fe0a32896b6de8">weztermを使ってみる</a></p></li>
+<li><p><a class="reference external" href="https://coralpink.github.io/commentary/index.html">Introduction - Commentary of Dotfiles</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://github.com/wez/wezterm/discussions/628">Show your wezterms · wez/wezterm · Discussion #628 · GitHub</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="settings">
+<h1>settings<a class="headerlink" href="#settings" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[wezterm_appearance]]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>20230712-072601<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="font">
 <h1>font<a class="headerlink" href="#font" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[font]]</p>
@@ -235,8 +247,8 @@
 <li><p>@2023 <a class="reference external" href="https://zenn.dev/paiza/articles/9ca689a0365b05">weztermのEmojiがなんか思ってたのと違うな...というときの設定の仕方</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="gui">
-<h1>GUI<a class="headerlink" href="#gui" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="domain">
+<h1>domain<a class="headerlink" href="#domain" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/config/default_gui_startup_args.html">default_gui_startup_args - Wez's Terminal Emulator</a></p>
 <section id="startup">
 <h2>startup<a class="headerlink" href="#startup" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -278,22 +290,22 @@ WayLandGUI =&gt; local
 OSXGUI =&gt; local &lt;= SSH
 </pre></div>
 </div>
-<section id="domain">
-<h2>domain<a class="headerlink" href="#domain" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id2">
+<h2>domain<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/config/default_domain.html">default_domain - Wez's Terminal Emulator</a></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/MuxDomain/index.html">object: MuxDomain - Wez's Terminal Emulator</a></p></li>
 <li><p>start</p></li>
 <li><p>connect</p></li>
 </ul>
-<section id="id1">
-<h3>local<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<section id="id3">
+<h3>local<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </section>
 <section id="ssh">
 <h3>ssh<a class="headerlink" href="#ssh" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </section>
-<section id="id2">
-<h3>wsl<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<section id="id4">
+<h3>wsl<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="p">.</span><span class="n">default_domain</span> <span class="o">=</span> <span class="s1">'WSL:Ubuntu-18.04'</span>
 </pre></div>
 </div>
@@ -354,6 +366,28 @@ OSXGUI =&gt; local &lt;= SSH
 <li><p><a class="reference external" href="https://wezfurlong.org/wezterm/changelog.html">Change Log - Wez's Terminal Emulator</a></p></li>
 </ul>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="window">
+<h1>window<a class="headerlink" href="#window" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="events-window">
+<h2>events: Window<a class="headerlink" href="#events-window" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">wezterm</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="s1">'format-window-title'</span><span class="p">,...)</span>
+</pre></div>
+</div>
+</section>
+<section id="window-decorations">
+<h2>window_decorations<a class="headerlink" href="#window-decorations" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/config/window_decorations.html#window_decorations--title--resize">window_decorations - Wez's Terminal Emulator</a></p>
+</section>
+<section id="titlebar">
+<h2>titlebar<a class="headerlink" href="#titlebar" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://sugiurahiromichi.hatenablog.com/entry/2023/03/13/205626">weztermでitermみたいにタイトルバーを無くす - 9kv8xiyi</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="open-uri">
+<h1>open uri<a class="headerlink" href="#open-uri" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
 
         </article>
       </div>
@@ -368,7 +402,7 @@ OSXGUI =&gt; local &lt;= SSH
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/TERM/TerminalEmulator/wezterm.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/TERM/wezterm/wezterm.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -388,8 +422,13 @@ OSXGUI =&gt; local &lt;= SSH
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">font</a></li>
-<li><a class="reference internal" href="#gui">GUI</a><ul>
+<li><a class="reference internal" href="#">settings</a></li>
+<li><a class="reference internal" href="#version">Version</a><ul>
+<li><a class="reference internal" href="#id1">20230712-072601</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#font">font</a></li>
+<li><a class="reference internal" href="#domain">domain</a><ul>
 <li><a class="reference internal" href="#startup">startup</a><ul>
 <li><a class="reference internal" href="#local">local</a></li>
 <li><a class="reference internal" href="#wsl">wsl</a></li>
@@ -399,10 +438,10 @@ OSXGUI =&gt; local &lt;= SSH
 </ul>
 </li>
 <li><a class="reference internal" href="#multiplexer">Multiplexer</a><ul>
-<li><a class="reference internal" href="#domain">domain</a><ul>
-<li><a class="reference internal" href="#id1">local</a></li>
+<li><a class="reference internal" href="#id2">domain</a><ul>
+<li><a class="reference internal" href="#id3">local</a></li>
 <li><a class="reference internal" href="#ssh">ssh</a></li>
-<li><a class="reference internal" href="#id2">wsl</a></li>
+<li><a class="reference internal" href="#id4">wsl</a></li>
 </ul>
 </li>
 </ul>
@@ -411,6 +450,13 @@ OSXGUI =&gt; local &lt;= SSH
 <li><a class="reference internal" href="#copymode">CopyMode</a></li>
 <li><a class="reference internal" href="#quickselectmode">QuickSelectMode</a></li>
 <li><a class="reference internal" href="#msys-winpty">msys + winpty</a></li>
+<li><a class="reference internal" href="#window">window</a><ul>
+<li><a class="reference internal" href="#events-window">events: Window</a></li>
+<li><a class="reference internal" href="#window-decorations">window_decorations</a></li>
+<li><a class="reference internal" href="#titlebar">titlebar</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#open-uri">open uri</a></li>
 </ul>
 
           </div>

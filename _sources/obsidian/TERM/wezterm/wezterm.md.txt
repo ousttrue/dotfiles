@@ -4,6 +4,14 @@
 - @2022 [WezTermで日替わりフォントを設定する](https://zenn.dev/htlsne/articles/wezterm-rotate-font)
 - @2022 [alacritty+tmuxもいいけど、weztermがすごい件](https://zenn.dev/yutakatay/articles/wezterm-intro)
 - @2022 [weztermを使ってみる](https://zenn.dev/eetann/scraps/fe0a32896b6de8)
+- [Introduction - Commentary of Dotfiles](https://coralpink.github.io/commentary/index.html)
+- @2021 [Show your wezterms · wez/wezterm · Discussion #628 · GitHub](https://github.com/wez/wezterm/discussions/628)
+
+# settings
+[[wezterm_appearance]]
+
+# Version
+## 20230712-072601
 
 # font
 [[font]]
@@ -13,8 +21,8 @@
 - [WezTermで日替わりフォントを設定する](https://zenn.dev/htlsne/articles/wezterm-rotate-font)
 
 - @2023 [weztermのEmojiがなんか思ってたのと違うな...というときの設定の仕方](https://zenn.dev/paiza/articles/9ca689a0365b05)
+# domain
 
-# GUI
 [default_gui_startup_args - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/config/default_gui_startup_args.html)
 
 ## startup
@@ -110,4 +118,16 @@ config.launch_menu = {
 - [Document how to configure using winpty · Issue #35 · wez/wezterm · GitHub](https://github.com/wez/wezterm/issues/35)
 `removed`
 - [Change Log - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/changelog.html) 
+
+# window
+## events: Window 
+```lua
+wezterm.on('format-window-title',...)
+```
+## window_decorations
+[window_decorations - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/config/window_decorations.html#window_decorations--title--resize)
+## titlebar
+- @2023 [weztermでitermみたいにタイトルバーを無くす - 9kv8xiyi](https://sugiurahiromichi.hatenablog.com/entry/2023/03/13/205626)
+
+# open uri
 
