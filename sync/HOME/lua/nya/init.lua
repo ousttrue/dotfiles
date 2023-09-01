@@ -7,7 +7,7 @@ local STR = require "common.string"
 local PATH = require "common.path"
 
 local system_name = COM.get_system()
-local home = PATH.get_home()
+local HOME = PATH.get_home()
 
 local function to_path(src)
   if system_name == "windows" then
@@ -51,10 +51,10 @@ local function setup_path()
     nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
 
   end
-  nyagos.envadd("PATH", to_path(home .. "/build/zig/bin"))
-  nyagos.envadd("PATH", to_path(home .. "/go/bin"))
-  nyagos.envadd("PATH", to_path(home .. "/.cargo/bin"))
-  nyagos.envadd("PATH", to_path(home .. "/local/bin"))
+  nyagos.envadd("PATH", to_path(HOME .. "/build/zig/bin"))
+  nyagos.envadd("PATH", to_path(HOME .. "/go/bin"))
+  nyagos.envadd("PATH", to_path(HOME .. "/.cargo/bin"))
+  nyagos.envadd("PATH", to_path(HOME .. "/local/bin"))
   -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
   local DEL_PATH = {
     "Oculus",
@@ -212,7 +212,7 @@ local function setup_alias()
 
   function nyagos.alias.dot(args)
     local cmd = unpack(args.rawargs)
-    local dot_dir = COM.get_home() .. "/dotfiles"
+    local dot_dir = HOME .. "/dotfiles"
     if cmd == "pull" then
       return NYA.batch(dot_dir, {
         "git pull",

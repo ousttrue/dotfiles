@@ -2,13 +2,15 @@
 local wezterm = require "wezterm"
 
 -- The filled in variant of the < symbol
-local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+-- local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+local SOLID_LEFT_ARROW = utf8.char(0xe0ba)
 -- The filled in variant of the > symbol
-local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
-local NORMAL_TAB_BG = { Color = "#0b0022" }
+-- local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
+local SOLID_RIGHT_ARROW = utf8.char(0xe0b8)
+local NORMAL_TAB_BG = { Color = "#222222" }
 local NORMAL_TAB_FG = { Color = "#dddddd" }
 local ACTIVE_TAB_BG = { Color = "#52307c" }
-local TAB_BAR_BG = { Color = "#444444" }
+local TAB_BAR_BG = { Color = "#aaaaaa" }
 
 -- hide_tab_bar_if_only_one_tab = true,
 -- tab_bar_at_bottom = true,
@@ -269,16 +271,16 @@ end
 
 local function on_format_tab_title(tab, tabs, panes, config, hover, max_width)
   local title = tab_title(tab)
-  title = wezterm.truncate_right(title, max_width - 2)
+  title = wezterm.truncate_right(title, max_width - 1)
   return {
-    { Foreground = { Color = "#FFF" } },
-    { Background = { Color = "#000" } },
-    { Text = SOLID_LEFT_ARROW },
-    { Foreground = { Color = tab.is_active and "#D62" or "#AAA" } },
-    { Background = { Color = "#FFF" } },
+    -- { Foreground = NORMAL_TAB_BG },
+    -- { Background = TAB_BAR_BG },
+    -- { Text = SOLID_LEFT_ARROW },
+    { Foreground = { Color = tab.is_active and "#aaf" or "#666" } },
+    { Background = NORMAL_TAB_BG },
     { Text = title },
-    { Foreground = { Color = "#FFF" } },
-    { Background = { Color = "#000" } },
+    { Foreground = NORMAL_TAB_BG },
+    { Background = TAB_BAR_BG },
     { Text = SOLID_RIGHT_ARROW },
   }
 end
@@ -299,6 +301,7 @@ function M.setup(config)
   config.tab_and_split_indices_are_zero_based = true
   config.window_decorations = "TITLE | RESIZE"
   config.tab_max_width = 16
+  config.colors = { tab_bar = { background = "#aaaaaa" } }
 
   wezterm.on("format-window-title", on_format_window_title)
 
