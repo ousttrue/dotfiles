@@ -4,9 +4,10 @@ local M = {}
 local NYA = require "nya.util"
 local COM = require "common"
 local STR = require "common.string"
+local PATH = require "common.path"
 
 local system_name = COM.get_system()
-local home = COM.get_home()
+local home = PATH.get_home()
 
 local function to_path(src)
   if system_name == "windows" then

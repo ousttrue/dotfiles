@@ -12,4 +12,33 @@ function M.exists(path)
   end
 end
 
+---@param s string
+---@return string
+function M.basename(s)
+  local m = string.gsub(s, "(.*[/\\])(.*)", "%2")
+  return m
+end
+
+---@return string
+function M.get_home()
+  local userprofile = os.getenv "USERPROFILE"
+  if userprofile then
+    return userprofile
+  end
+
+  local home = os.getenv "HOME"
+  if home then
+    return home
+  end
+
+  -- ???
+  return ""
+end
+
+-- function M.convert_home_dir(path)
+--   local cwd = path
+--   cwd = cwd:gsub("^" .. HOME .. "/", "~/")
+--   return cwd
+-- end
+
 return M
