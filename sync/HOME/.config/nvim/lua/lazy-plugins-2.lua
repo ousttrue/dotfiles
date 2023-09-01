@@ -30,6 +30,7 @@ local plugins = {
   { "rktjmp/lush.nvim" },
 
   -- dark
+  make_colorscheme("marcopaganini/termschool-vim-theme", "termschool", "dark"),
   make_colorscheme("folke/tokyonight.nvim", "tokyonight", "dark"),
   make_colorscheme("EdenEast/nightfox.nvim", "nightfox", "dark"),
   make_colorscheme("jnurmine/Zenburn", "zenburn", "dark", "msys"),

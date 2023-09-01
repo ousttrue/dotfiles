@@ -35,10 +35,8 @@ function M.get_home()
   return ""
 end
 
--- function M.convert_home_dir(path)
---   local cwd = path
---   cwd = cwd:gsub("^" .. HOME .. "/", "~/")
---   return cwd
--- end
+function M.convert_home_dir(path)
+  return path:gsub("^" .. M.get_home() .. "/", "~/")
+end
 
 return M
