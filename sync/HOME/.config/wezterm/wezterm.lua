@@ -9,6 +9,7 @@ local NORMAL_TAB_BG = { Color = "#0b0022" }
 local NORMAL_TAB_FG = { Color = "#dddddd" }
 local ACTIVE_TAB_BG = { Color = "#52307c" }
 local TAB_BAR_BG = { Color = "#444444" }
+local fonts = require "wez.fonts"
 
 local function file_exists(path)
   return #wezterm.glob(path) > 0
@@ -53,60 +54,6 @@ local function write_dump()
   end
 end
 
--- local yday = os.date("*t")["yday"]
-local yday = 0
-
-local font_list = {
-  function()
-    -- ⭐
-    return wezterm.font("Firge35 Console", { weight = "Regular", stretch = "Normal", style = "Normal" })
-  end,
-  function()
-    -- ⭐
-    return wezterm.font("Inconsolata", { weight = "Light", stretch = "Normal", style = "Normal" })
-  end,
-  function()
-    -- ⭐
-    return wezterm.font("Anonymous Pro", { weight = "Regular", stretch = "Normal", style = "Normal" })
-  end,
-  function()
-    -- ⭐
-    return wezterm.font("Terminus (TTF)", { weight = "Medium", stretch = "Normal", style = "Normal" })
-  end,
-  -- function()
-  --   return wezterm.font("IBM Plex Mono", { weight = "Light", stretch = "Normal", style = "Normal" })
-  -- end,
-  -- function()
-  --   return wezterm.font("Lab Mono", { weight = "Regular", stretch = "Normal", style = "Normal" })
-  -- end,
-  function()
-    -- ⭐
-    return wezterm.font("Sometype Mono", { weight = "Regular", stretch = "Normal", style = "Normal" })
-  end,
-  -- function()
-  --   return wezterm.font("Libertinus Mono", { weight = "Regular", stretch = "Normal", style = "Normal" })
-  -- end,
-  -- function()
-  --   return wezterm.font("Leftist Mono Sans", { weight = "Regular", stretch = "Normal", style = "Normal" })
-  -- end,
-  function()
-    -- ⭐
-    return wezterm.font("Verily Serif Mono", { weight = "Regular", stretch = "Normal", style = "Normal" })
-  end,
-  -- function()
-  --   return wezterm.font("DejaVu Sans Mono", { weight = "Bold", stretch = "Normal", style = "Normal" })
-  -- end,
-  -- function()
-  --   return wezterm.font("Consolas", { weight = "Regular", stretch = "Normal", style = "Normal" })
-  -- end,
-  function()
-    -- ⭐
-    return wezterm.font("Fira Code", { weight = "Light", stretch = "Normal", style = "Normal" })
-  end,
-}
-
-local today_font = font_list[(yday % #font_list) + 1]
-
 local themes = {
   "Afterglow",
   "Atelier Dune Light (base16)",
@@ -133,6 +80,8 @@ local themes = {
   "SeaShells",
   "vimbones",
 }
+
+local yday = os.date("*t")["yday"]
 local color_scheme = themes[(yday % #themes) + 1]
 
 local config = {
@@ -195,7 +144,6 @@ table.insert(config.keys, { key = "/", mods = "CTRL", action = wezterm.action { 
 -- Windows
 --
 config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
--- config.font = today_font()
 config.initial_cols = 126
 config.initial_rows = 52
 
@@ -286,11 +234,6 @@ wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
   if #tabs > 1 then
     index = string.format("[%d/%d] ", tab.tab_index + 1, #tabs)
   end
-
-  -- local keys = ""
-  -- for k, v in pairs(today_font().font[1]) do
-  --   keys = keys .. "," .. k
-  -- end
 
   return string.format(
     "%s:%s: %d [%s] %s%s%s",
