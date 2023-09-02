@@ -6,7 +6,6 @@ M.list = {
   "Belafonte Day",
   "Black Metal (base16)",
   "carbonfox",
-  "Chalk",
   "Ciapre",
   "DimmedMonokai",
   "Fahrenheit",

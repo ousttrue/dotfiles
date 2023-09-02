@@ -54,6 +54,7 @@ local function setup_path()
   nyagos.envadd("PATH", to_path(HOME .. "/go/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/.cargo/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/local/bin"))
+  nyagos.envadd("PATH", to_path(HOME .. "/.local/bin"))
   -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
   local DEL_PATH = {
     "Oculus",
@@ -89,14 +90,14 @@ local function setup_alias()
   end
 
   function nyagos.alias.gs()
-    local result = STR.trim(nyagos.eval "git branch|fzf")
+    local result = NYA.evalf "git branch|fzf"
     if #result > 0 then
       nyagos.eval("git switch " .. result)
     end
   end
 
   function nyagos.alias.gst()
-    local result = STR.trim(nyagos.eval "git tag| fzf")
+    local result = NYA.evalf "git tag| fzf"
     if #result > 0 then
       nyagos.eval("git switch -c branch_" .. result .. " " .. result)
     end
@@ -114,14 +115,24 @@ local function setup_alias()
   end
 
   function nyagos.alias.mewrap(args)
-    local result = nyagos.eval 'meson wrap list| fzf --preview "meson wrap info {}"'
-    if result then
+    local result = NYA.evalf 'meson wrap list| fzf --preview "meson wrap info {}"'
+    if #result > 0 then
       nyagos.exec("meson wrap install " .. result)
     end
   end
 
-  function nyagos.alias.tig(args)
-    nyagos.exec '"C:/Program Files/Git/usr/bin/tig"'
+  function nyagos.alias.fpkg(args)
+    local result = NYA.evalf 'apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}"'
+    if #result > 0 then
+      nyagos.exec("sudo apt install " .. result)
+    end
+  end
+
+  function nyagos.alias.fapu(args)
+    local result = NYA.evalf 'apt-cache pkgnames | fzf --preview "apt-cache show {}"'
+    if #result > 0 then
+      nyagos.exec("sudo apt uninstall " .. result)
+    end
   end
 
   local NVIM = get_nvim()
@@ -145,6 +156,10 @@ local function setup_alias()
     nyagos.alias.ll = "ll -l $*"
   end
 
+  if not NYA.which "tig" then
+    nyagos.alias.tig = '"C:/Program Files/Git/usr/bin/tig" $*'
+  end
+
   local BUSYBOX_TOOLS = {
     "cp",
     "mv",
@@ -164,7 +179,9 @@ local function setup_alias()
     nyagos.eval "py -m pip install pip --upgerade"
   end
 
-  nyagos.alias.code = '"%LOCALAPPDATA%\\Programs\\Microsoft Vs Code\\bin\\code" $*'
+  if not NYA.which "code" then
+    nyagos.alias.code = '"%LOCALAPPDATA%\\Programs\\Microsoft Vs Code\\bin\\code" $*'
+  end
 
   function nyagos.alias.print_args(args)
     print(args)
