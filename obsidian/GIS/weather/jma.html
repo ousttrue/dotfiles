@@ -235,6 +235,12 @@
 <li><p><a class="reference external" href="https://zenn.dev/come25136/articles/c31740d7e59f40e14e1d">雨雲レーダーを❝サクッと❞Mapboxにプロットしてみる</a></p></li>
 <li><p><a class="reference external" href="https://medium.com/veltra-engineering/lets-web-scraping-with-golang-9c1723b732b5">Try Golang! スクレイピング実践. Let’s WEB Scraping with Golang! | by Takuo | VELTRA Engineering | Medium</a></p></li>
 </ul>
+<section id="forecast">
+<h2>forecast<a class="headerlink" href="#forecast" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/schachmat/wego">GitHub - schachmat/wego: weather app for the terminal</a></p></li>
+</ul>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="weathercode">
 <h1>weathercode<a class="headerlink" href="#weathercode" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -284,12 +290,12 @@
 <h2>class20s<a class="headerlink" href="#class20s" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="forecast">
-<h1>forecast<a class="headerlink" href="#forecast" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>forecast<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json">https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json</a>
 https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json</p>
-<section id="id1">
-<h2>weathercode<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id2">
+<h2>weathercode<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-nu notranslate"><div class="highlight"><pre><span></span>http get https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json | get 0.timeSeries.0.areas.0.weatherCodes
 </pre></div>
 </div>
@@ -303,8 +309,8 @@ https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json</p>
 <p><a class="reference external" href="https://okumuralab.org/~okumura/python/amedas.html">気象庁のアメダスのデータ</a>
 <a class="reference external" href="https://qiita.com/pirotan628/items/b58c9fbebde4c746845d">気象庁10分データJSON取得 - Qiita</a></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>２週間予報<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>２週間予報<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.data.jma.go.jp/risk/probability/guidance/csv_k2w.php">気象庁｜確率予測資料（2週間気温予報）：北海道地方</a></p></li>
 <li><p><a class="reference external" href="https://www.data.jma.go.jp/risk/probability/info/number.html">気象庁 | 確率予測資料について（地域番号、地点番号の対応表）</a></p></li>
@@ -344,7 +350,10 @@ https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">go</a></li>
+<li><a class="reference internal" href="#">go</a><ul>
+<li><a class="reference internal" href="#forecast">forecast</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#weathercode">weathercode</a></li>
 <li><a class="reference internal" href="#area">area</a><ul>
 <li><a class="reference internal" href="#centers">centers</a><ul>
@@ -360,12 +369,12 @@ https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json</p>
 <li><a class="reference internal" href="#class20s">class20s</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#forecast">forecast</a><ul>
-<li><a class="reference internal" href="#id1">weathercode</a></li>
+<li><a class="reference internal" href="#id1">forecast</a><ul>
+<li><a class="reference internal" href="#id2">weathercode</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#amedas">amedas</a></li>
-<li><a class="reference internal" href="#id2">２週間予報</a></li>
+<li><a class="reference internal" href="#id3">２週間予報</a></li>
 </ul>
 
           </div>

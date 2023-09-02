@@ -12,6 +12,9 @@
 - [雨雲レーダーを❝サクッと❞Mapboxにプロットしてみる](https://zenn.dev/come25136/articles/c31740d7e59f40e14e1d)
 - [Try Golang! スクレイピング実践. Let’s WEB Scraping with Golang! | by Takuo | VELTRA Engineering | Medium](https://medium.com/veltra-engineering/lets-web-scraping-with-golang-9c1723b732b5)
 
+## forecast
+- [GitHub - schachmat/wego: weather app for the terminal](https://github.com/schachmat/wego)
+
 # weathercode
 - [GitHub - ciscorn/jma-weather-images: 気象庁のテロップ番号に対応する画像を、基本天気画像の組み合わせによって合成するだけ](https://github.com/ciscorn/jma-weather-images)
 

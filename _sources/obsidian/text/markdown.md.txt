@@ -33,3 +33,10 @@ token 位置不明
 
 # editor
 - [新しいマークダウンパーサーが必要な理由 | NHN Cloud Meetup](https://meetup-jp.toast.com/3341)
+
+# golang
+html
+- [GitHub - go-shiori/go-readability: Go package that cleans a HTML page for better readability.](https://github.com/go-shiori/go-readability)
+markdown
+- [GitHub - JohannesKaufmann/html-to-markdown: ⚙️ Convert HTML to Markdown. Even works with entire websites and can be extended through rules.](https://github.com/JohannesKaufmann/html-to-markdown)
+- [GitHub - charmbracelet/glamour: Stylesheet-based markdown rendering for your CLI apps 💇🏻‍♀️](https://github.com/charmbracelet/glamour)
