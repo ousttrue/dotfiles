@@ -49,7 +49,6 @@ local function setup_path()
     -- zig
     -- nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
     nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
-
   end
   nyagos.envadd("PATH", to_path(HOME .. "/build/zig/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/go/bin"))
@@ -153,6 +152,7 @@ local function setup_alias()
     "mkdir",
     "xz",
     "ln",
+    "tr",
   }
   for _, v in ipairs(BUSYBOX_TOOLS) do
     if not NYA.which(v) then
@@ -236,6 +236,14 @@ local function setup_alias()
 end
 
 function M.setup()
+  if COM.get_system() == "windows" then
+    -- https://learn.microsoft.com/ja-jp/windows-server/administration/windows-commands/chcp
+    if not NYA.evalf("chcp"):match "65001" then
+      -- utf-8 mode
+      NYA.evalf "chcp 65001"
+    end
+  end
+
   setup_path()
   setup_alias()
   use "git.lua"

@@ -1,5 +1,7 @@
 [[lipgloss]]
 
+# fullscreen
+- [bubbletea/examples/altscreen-toggle at master · charmbracelet/bubbletea · GitHub](https://github.com/charmbracelet/bubbletea/tree/master/examples/altscreen-toggle)
 
 # fullscreen initialize
 - [bubbletea/examples/pager/main.go at master · charmbracelet/bubbletea · GitHub](https://github.com/charmbracelet/bubbletea/blob/master/examples/pager/main.go)
@@ -41,7 +43,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 ```
 
 # View()
-描画
 
+## split
 # Style
 [[lipgloss]]

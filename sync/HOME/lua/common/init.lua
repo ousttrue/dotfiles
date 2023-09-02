@@ -22,24 +22,18 @@ end
 ---@return string system_name lowercase. 'windows', 'linux'...etc
 function M.get_system()
   if os.getenv "USERPROFILE" then
-    return "windows"
+    local msys = os.getenv "MSYSTEM"
+    if msys then
+      return msys:lower()
+    else
+      return "windows"
+    end
   else
+    -- ubuntu
+    -- arch
+    -- gentoo
     return "linux"
   end
-  -- if vim.fn.has "wsl" ~= 0 then
-  --   return "wsl"
-  -- elseif vim.fn.has "win64" ~= 0 then
-  --   if vim.env.MSYSTEM then
-  --     vim.opt.shellcmdflag = "-c"
-  --     return string.lower(vim.env.MSYSTEM)
-  --   else
-  --     return "windows"
-  --   end
-  -- elseif vim.fn.has "mac" ~= 0 then
-  --   return "mac"
-  -- elseif vim.fn.has "linux" ~= 0 then
-  --   return "linux"
-  -- end
 end
 
 return M

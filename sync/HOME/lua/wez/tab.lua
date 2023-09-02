@@ -48,7 +48,8 @@ local function on_format_window_title(tab, pane, tabs, panes, config)
     return "🔎" .. tab.active_pane.title
   end
 
-  return pane.domain_name
+  -- carbonfox
+  return string.format("domain=%s, color_scheme=%s", pane.domain_name, config.color_scheme)
 end
 
 ---
@@ -63,8 +64,22 @@ end
 ---@param window table
 ---@param pane table
 local function on_update_status(window, pane)
-  window:set_left_status(system_map[COM.get_system()])
+  -- left
+  local left_status = COM.get_system()
+  local icon = system_map[left_status]
+  if icon then
+    left_status = icon
+  end
+  window:set_left_status(wezterm.format {
+    {
+      Foreground = { Color = "#222222" },
+    },
+    {
+      Text = left_status,
+    },
+  })
 
+  -- right
   local cells = {
     wezterm.strftime "%a %b %-d",
     wezterm.strftime "%H:%M",
@@ -142,6 +157,7 @@ function M.setup(config)
   -- config.tab_bar_at_bottom = true
   config.colors = {
     tab_bar = {
+      foreground = "#222222",
       background = "#aaaaaa",
     },
   }
