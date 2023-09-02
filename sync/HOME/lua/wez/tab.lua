@@ -26,10 +26,24 @@ local colors = {
 
 local system_map = {
   windows = " ",
-  msys = " Ⓜ ",
   wsl = " 🐧",
-  liuux = " ",
+  linux = " ",
   osx = " ",
+}
+
+local subsystem_map = {
+  msys = "Ⓜ ",
+  ubuntu = " ",
+}
+
+local day_map = {
+  ["0"] = "日",
+  ["1"] = "月",
+  ["2"] = "火",
+  ["3"] = "水",
+  ["4"] = "木",
+  ["5"] = "金",
+  ["6"] = "土",
 }
 
 ---
@@ -65,10 +79,16 @@ end
 ---@param pane table
 local function on_update_status(window, pane)
   -- left
-  local left_status = COM.get_system()
-  local icon = system_map[left_status]
+  local system_name, sub_system = COM.get_system()
+  local icon = system_map[system_name]
   if icon then
     left_status = icon
+  end
+  if sub_system then
+    icon = subsystem_map[sub_system]
+    if icon then
+      left_status = icon
+    end
   end
   window:set_left_status(wezterm.format {
     {
@@ -81,7 +101,8 @@ local function on_update_status(window, pane)
 
   -- right
   local cells = {
-    wezterm.strftime "%a %b %-d",
+    wezterm.strftime "%-d",
+    day_map[wezterm.strftime "%w"],
     wezterm.strftime "%H:%M",
   }
   local right = UTIL.format_cells(cells, colors, SOLID_LEFT_ARROW)
@@ -157,7 +178,6 @@ function M.setup(config)
   -- config.tab_bar_at_bottom = true
   config.colors = {
     tab_bar = {
-      foreground = "#222222",
       background = "#aaaaaa",
     },
   }

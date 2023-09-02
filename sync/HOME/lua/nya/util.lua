@@ -3,7 +3,10 @@
 --
 local M = {}
 
+local COM = require "common"
 local STR = require "common.string"
+
+local NULDEV = COM.get_system() == "windows" and "NUL" or "/dev/null"
 
 -- function M.exec(cmd, ...)
 --   local args = { ... }
@@ -32,7 +35,7 @@ end
 ---@param cmds string[]
 ---@return integer
 function M.batch(chdir, cmds)
-  local ret, error = nyagos.exec("pushd " .. chdir .. " > NUL")
+  local ret, error = nyagos.exec("pushd " .. chdir .. " >" .. NULDEV)
   if ret ~= 0 then
     print(error)
     return 1
@@ -46,7 +49,7 @@ function M.batch(chdir, cmds)
     end
   end
 
-  nyagos.exec "popd > NUL"
+  nyagos.exec("popd " .. NULDEV)
   return ret
 end
 
@@ -65,7 +68,7 @@ end
 ---@param cmd string
 ---@return string?
 function M.which(cmd)
-  local res = STR.trim(nyagos.eval(string.format("which %s 2>NUL", cmd)))
+  local res = STR.trim(nyagos.eval(string.format("which %s 2>%s", cmd, NULDEV)))
   if #res == 0 then
     -- which x: not found
     return nil

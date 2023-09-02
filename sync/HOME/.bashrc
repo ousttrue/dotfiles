@@ -83,6 +83,7 @@ path_push() {
 path_unshift "$HOME/prefix/bin"
 path_unshift "$HOME/zig"
 path_unshift "/usr/local/go/bin"
+path_unshift "/usr/lib/go-1.20/bin"
 path_push "$HOME/.deno/bin"
 path_unshift "$HOME/.local/bin"
 path_unshift "$HOME/local/bin"
@@ -134,7 +135,7 @@ alias r='cd "$(git rev-parse --show-toplevel)"'
 # https://wiki.archlinux.jp/index.php/%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%AB%E3%83%A9%E3%83%BC%E5%87%BA%E5%8A%9B#man
 if which bat >/dev/null 2>&1; then
 	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-    export MANROFFOPT="-c"
+	export MANROFFOPT="-c"
 elif false; then
 	export MANPAGER=ov
 	export PAGER=ov

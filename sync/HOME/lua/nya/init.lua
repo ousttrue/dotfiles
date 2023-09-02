@@ -246,7 +246,7 @@ function M.setup()
 
   setup_path()
   setup_alias()
-  use "git.lua"
+  -- use "git.lua"
   nyagos.skk {
     user = "~/.go-skk-jisyo", -- ユーザ辞書
     "~/.skk/SKK-JISYO.L", -- システム辞書(ラージ)

@@ -19,21 +19,41 @@ function M.get_lua_version()
 end
 
 ---detect system.
----@return string system_name lowercase. 'windows', 'linux'...etc
-function M.get_system()
+---@return string system_name lowercase. 'windows', 'wsl', 'linux'...etc
+---@return string? sub_system lowercase. 'ubuntu', 'arch', 'gentoo', 'msys2', 'msysgit', 'mingw64'...etc
+local function get_system()
   if os.getenv "USERPROFILE" then
     local msys = os.getenv "MSYSTEM"
     if msys then
-      return msys:lower()
+      return "windows", msys:lower()
     else
       return "windows"
     end
   else
-    -- ubuntu
-    -- arch
-    -- gentoo
-    return "linux"
+    local f = io.open("/etc/os-release", "r")
+    if f then
+      local content = f:read("*a"):lower()
+      if content:match "ubuntu" then
+        return "linux", "ubuntu"
+      else
+        return "linux"
+      end
+      f:close()
+    else
+      return "linux"
+    end
   end
+end
+
+function M.get_system()
+  local system_name, sub_system = get_system()
+
+  -- cache
+  M.get_system = function()
+    return system_name, sub_system
+  end
+
+  return system_name, sub_system
 end
 
 return M
