@@ -45,3 +45,6 @@
 `%APPDATA%\Code\User\snippets.json`
 
 - @2020 [VSCodeのUser Snippetを活用しよう！ - Qiita](https://qiita.com/282Haniwa/items/82828c6a566e3e7e047d)
+
+# navigation
+- [VS Code: Go to previous location or to last Edit location | bobbyhadz](https://bobbyhadz.com/blog/vscode-go-to-last-edit-location)
