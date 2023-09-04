@@ -27,6 +27,8 @@ local function get_clangd()
       end
     end
   end
+
+  return "clangd"
 end
 
 local function get_compile_commands_dir()

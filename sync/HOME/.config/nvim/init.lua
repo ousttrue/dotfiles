@@ -5,32 +5,24 @@ local dot = require "dot"
 
 vim.opt.clipboard = "unnamedplus"
 if vim.fn.has "wsl" then
-  vim.g.clipboard = {
-    name = "win32yank-wsl",
-    copy = {
-      ["+"] = "win32yank.exe -i --crlf",
-      ["*"] = "win32yank.exe -i --crlf",
-    },
-    paste = {
-      ["+"] = "win32yank.exe -o --crlf",
-      ["*"] = "win32yank.exe -o --crlf",
-    },
-    cache_enable = 0,
-  }
+  if vim.fn.executable "win32yank.exe" == 1 then
+    vim.g.clipboard = {
+      name = "win32yank-wsl",
+      copy = {
+        ["+"] = "win32yank.exe -i --crlf",
+        ["*"] = "win32yank.exe -i --crlf",
+      },
+      paste = {
+        ["+"] = "win32yank.exe -o --crlf",
+        ["*"] = "win32yank.exe -o --crlf",
+      },
+      cache_enable = 0,
+    }
+  end
 end
 if vim.fn.has "win32" == 1 then
   vim.keymap.set("n", "<C-z>", "<Nop>")
 end
-
--- vim.cmd [[
--- if system('uname -a | grep microsoft') != ''
---   augroup myYank
---     autocmd!
---     autocmd TextYankPost * :call system('/mnt/c/Windows/System32/clip.exe', @")
---   augroup END
--- endif"
--- ]]
--- vim.keymap.set("n", "P", "O<ESC>P<CR>")
 
 -- Remap leader and local leader to <Space>
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })

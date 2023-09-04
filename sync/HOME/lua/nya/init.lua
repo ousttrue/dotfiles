@@ -27,6 +27,9 @@ local function get_nvim()
   if nyagos.env.LOCALAPPDATA then
     table.insert(list, nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe")
   end
+  if nyagos.env.HOME then
+    table.insert(list, nyagos.env.HOME .. "/local/bin/nvim")
+  end
 
   for _, v in ipairs(list) do
     if NYA.is_exists(v) then
@@ -151,6 +154,7 @@ local function setup_alias()
     nyagos.alias.ls = "lsd.exe $*"
     nyagos.alias.la = "lsd.exe -a $*"
     nyagos.alias.ll = "lsd.exe -al $*"
+  elseif NYA.which "lsd" then
   else
     nyagos.alias.la = "ls -a $*"
     nyagos.alias.ll = "ll -l $*"
