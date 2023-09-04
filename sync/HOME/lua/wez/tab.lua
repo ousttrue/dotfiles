@@ -1,51 +1,9 @@
 ---@class wezterm
 local wezterm = require "wezterm"
 local PATH = require "common.path"
-local UTIL = require "wez.util"
 local COM = require "common"
-
--- The filled in variant of the < symbol
--- local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
-local TAB_LEFT = utf8.char(0xe0ba)
--- The filled in variant of the > symbol
--- local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
-local TAB_RIGHT = utf8.char(0xe0b8)
-local NORMAL_TAB_BG = "#222222"
-local NORMAL_TAB_FG = { Color = "#dddddd" }
-local ACTIVE_TAB_BG = { Color = "#52307c" }
-local TAB_BAR_BG = "#aaaaaa"
-local TAB_FG_ACTIVE = "#aaf"
-local TAB_FG_INACTIVE = "#666"
--- Color palette for the backgrounds of each cell
-local colors = {
-  "#3c1361",
-  "#52307c",
-  "#663a82",
-  "#7c5295",
-  "#b491c8",
-}
-
-local system_map = {
-  windows = " ",
-  wsl = " 🐧",
-  linux = " ",
-  osx = " ",
-}
-
-local subsystem_map = {
-  msys = "Ⓜ ",
-  ubuntu = " ",
-}
-
-local day_map = {
-  ["0"] = "日",
-  ["1"] = "月",
-  ["2"] = "火",
-  ["3"] = "水",
-  ["4"] = "木",
-  ["5"] = "金",
-  ["6"] = "土",
-}
+local PL = require "common.powerline"
+local PALETTE = require "common.palette"
 
 ---
 --- https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
@@ -81,33 +39,32 @@ end
 local function on_update_status(window, pane)
   -- left
   local system_name, sub_system = COM.get_system()
-  local icon = system_map[system_name]
+  local icon = COM.system_map[system_name]
+  local left_status = ""
   if icon then
     left_status = icon
   end
   if sub_system then
-    icon = subsystem_map[sub_system]
+    icon = COM.subsystem_map[sub_system]
     if icon then
       left_status = icon
     end
   end
-  window:set_left_status(wezterm.format {
-    {
-      Foreground = { Color = "#222222" },
-    },
-    {
-      Text = left_status,
-    },
-  })
+  window:set_left_status(wezterm.format(PL.PowerLine():push({
+    Fg = PALETTE.TABBAR_FG,
+    Bg = PALETTE.TABBAR_BG,
+    Text = left_status,
+  }).list))
 
   -- right
-  local cells = {
-    wezterm.strftime "%-d",
-    day_map[wezterm.strftime "%w"],
-    wezterm.strftime "%H:%M",
-  }
-  local right = UTIL.format_cells(cells, colors, TAB_LEFT)
-  window:set_right_status(right)
+  local day = wezterm.strftime "%-d"
+  local weekday = COM.day_map[wezterm.strftime "%w"]
+  local time = wezterm.strftime "%H:%M"
+  window:set_right_status(wezterm.format(PL.PowerLine():push({
+    Fg = PALETTE.TABBAR_FG,
+    Bg = PALETTE.TABBAR_BG,
+    Text = string.format("%s(%s)%s", day, weekday, time),
+  }).list))
 end
 
 ---
@@ -133,40 +90,6 @@ local function tab_title(tab)
   return name
 end
 
----@class Section
----@field Fg string
----@field Bg string
----@field Text string
-
----@class PowerLine
----@field list Section[]
-local PowerLineClass = {
-  ---@param self PowerLine
-  ---@param section Section
-  ---@return PowerLine
-  push = function(self, section)
-    if section.Fg then
-      table.insert(self.list, { Foreground = { Color = section.Fg } })
-    end
-    if section.Bg then
-      table.insert(self.list, { Background = { Color = section.Bg } })
-    end
-    if section.Text then
-      table.insert(self.list, { Text = { Text = section.Text } })
-    end
-    return self
-  end,
-}
-
----@return PowerLine Section[]
-local function PowerLine()
-  local instance = {
-    list = {},
-  }
-  setmetatable(instance, { __index = PowerLineClass })
-  return instance
-end
-
 ---@param tab
 ---@param tabs
 ---@param panes
@@ -178,34 +101,22 @@ local function on_format_tab_title(tab, tabs, panes, config, hover, max_width)
   local title = tab_title(tab)
   title = wezterm.truncate_right(title, max_width - 2)
 
-  -- return PowerLine()
-  --   :push({
-  --     Bg = NORMAL_TAB_BG,
-  --     Fg = TAB_BAR_BG,
-  --     Text = TAB_LEFT,
-  --   })
-  --   :push({
-  --     Fg = tab.is_active and TAB_FG_ACTIVE or TAB_FG_INACTIVE,
-  --     Bg = NORMAL_TAB_BG,
-  --     Text = title,
-  --   })
-  --   :push({
-  --     Fg = NORMAL_TAB_BG,
-  --     Bg = TAB_BAR_BG,
-  --     Text = TAB_RIGHT,
-  --   }).list
-
-  return {
-    { Foreground = { Color = NORMAL_TAB_BG } },
-    { Background = { Color = TAB_BAR_BG } },
-    { Text = TAB_LEFT },
-    { Foreground = { Color = tab.is_active and TAB_FG_ACTIVE or TAB_FG_INACTIVE } },
-    { Background = { Color = NORMAL_TAB_BG } },
-    { Text = title },
-    { Foreground = { Color = NORMAL_TAB_BG } },
-    { Background = { Color = TAB_BAR_BG } },
-    { Text = TAB_RIGHT },
-  }
+  return PL.PowerLine()
+    :push({
+      Fg = PALETTE.NORMAL_TAB_BG,
+      Bg = PALETTE.TABBAR_BG,
+      Text = PALETTE.TAB_LEFT,
+    })
+    :push({
+      Fg = tab.is_active and PALETTE.TAB_FG_ACTIVE or PALETTE.TAB_FG_INACTIVE,
+      Bg = PALETTE.NORMAL_TAB_BG,
+      Text = title,
+    })
+    :push({
+      Fg = PALETTE.NORMAL_TAB_BG,
+      Bg = PALETTE.TABBAR_BG,
+      Text = PALETTE.TAB_RIGHT,
+    }).list
 end
 
 --
@@ -231,7 +142,7 @@ function M.setup(config)
   -- config.tab_bar_at_bottom = true
   config.colors = {
     tab_bar = {
-      background = TAB_BAR_BG,
+      background = PALETTE.TABBAR_BG,
     },
   }
   config.status_update_interval = 1000

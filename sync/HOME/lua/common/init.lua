@@ -56,4 +56,28 @@ function M.get_system()
   return system_name, sub_system
 end
 
+M.system_map = {
+  windows = " ",
+  wsl = "󰰮 ",
+  linux = " ",
+  osx = " ",
+}
+
+M.subsystem_map = {
+  msys = "󰰐 ",
+  ubuntu = " ",
+  gentoo = " ",
+  arch = " ",
+}
+
+M.day_map = {
+  ["0"] = "日",
+  ["1"] = "月",
+  ["2"] = "火",
+  ["3"] = "水",
+  ["4"] = "木",
+  ["5"] = "金",
+  ["6"] = "土",
+}
+
 return M
