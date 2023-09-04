@@ -22,7 +22,10 @@ end
 ---@return string system_name lowercase. 'windows', 'wsl', 'linux'...etc
 ---@return string? sub_system lowercase. 'ubuntu', 'arch', 'gentoo', 'msys2', 'msysgit', 'mingw64'...etc
 local function get_system()
-  if os.getenv "USERPROFILE" then
+    local wsl = os.getenv "WSL_DISTRO_NAME" 
+    if wsl then
+        return "wsl", wsl
+    elseif os.getenv "USERPROFILE" then
     local msys = os.getenv "MSYSTEM"
     if msys then
       return "windows", msys:lower()
