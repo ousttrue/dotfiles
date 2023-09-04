@@ -1,6 +1,7 @@
 ---@class wezterm
 local wezterm = require "wezterm"
 local PATH = require "common.path"
+local STR = require "common.string"
 local COM = require "common"
 local PL = require "common.powerline"
 local PALETTE = require "common.palette"
@@ -39,20 +40,32 @@ end
 local function on_update_status(window, pane)
   -- left
   local system_name, sub_system = COM.get_system()
-  local left_status = system_name
-
-  local icon = COM.system_map[system_name]
-  if icon then
-    left_status = icon
-  end
-  if sub_system then
-    icon = COM.subsystem_map[sub_system]
+  local domain = pane:get_domain_name()
+  local left_status = ""
+  if domain == "local" then
+    local icon = COM.system_map[system_name]
     if icon then
       left_status = left_status .. icon
     else
-      left_status = left_status .. sub_system
+      left_status = left_status .. system_name
+    end
+
+    if sub_system then
+      icon = COM.subsystem_map[sub_system]
+      if icon then
+        left_status = left_status .. icon
+      else
+        left_status = left_status .. sub_system
+      end
+    end
+  else
+    if STR.starts_with(domain, "WSL") then
+      left_status = COM.system_map["wsl"]
+    else
+      left_status = system_name
     end
   end
+
   window:set_left_status(wezterm.format(PL.PowerLine():push({
     Fg = PALETTE.TABBAR_FG,
     Bg = PALETTE.TABBAR_BG,

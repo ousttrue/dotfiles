@@ -22,29 +22,31 @@ end
 ---@return string system_name lowercase. 'windows', 'wsl', 'linux'...etc
 ---@return string? sub_system lowercase. 'ubuntu', 'arch', 'gentoo', 'msys2', 'msysgit', 'mingw64'...etc
 local function get_system()
-    local wsl = os.getenv "WSL_DISTRO_NAME" 
-    if wsl then
-        return "wsl", wsl
-    elseif os.getenv "USERPROFILE" then
+  local wsl = os.getenv "WSL_DISTRO_NAME"
+  if wsl then
+    return "wsl", wsl
+  end
+
+  if os.getenv "USERPROFILE" then
     local msys = os.getenv "MSYSTEM"
     if msys then
       return "windows", msys:lower()
     else
       return "windows"
     end
-  else
-    local f = io.open("/etc/os-release", "r")
-    if f then
-      local content = f:read("*a"):lower()
-      if content:match "ubuntu" then
-        return "linux", "ubuntu"
-      else
-        return "linux"
-      end
-      f:close()
+  end
+
+  local f = io.open("/etc/os-release", "r")
+  if f then
+    local content = f:read("*a"):lower()
+    if content:match "ubuntu" then
+      return "linux", "ubuntu"
     else
       return "linux"
     end
+    f:close()
+  else
+    return "linux"
   end
 end
 
@@ -52,9 +54,9 @@ function M.get_system()
   local system_name, sub_system = get_system()
 
   -- cache
-  M.get_system = function()
-    return system_name, sub_system
-  end
+  -- M.get_system = function()
+  --   return system_name, sub_system
+  -- end
 
   return system_name, sub_system
 end

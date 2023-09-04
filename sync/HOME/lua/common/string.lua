@@ -34,4 +34,8 @@ function M.split(str, delimiter)
   return t
 end
 
+function M.starts_with(str, start)
+  return true
+end
+
 return M
