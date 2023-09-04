@@ -221,12 +221,19 @@
           <ul class="simple">
 <li><p><a class="reference external" href="http://ocaml.jp/">OCaml.jp</a></p></li>
 <li><p><a class="reference external" href="https://zenn.dev/topics/ocaml">OCamlの記事一覧 | Zenn</a></p></li>
+<li><p><a class="reference external" href="https://dev.realworldocaml.org/">Real World OCaml</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/realworldocaml/book">GitHub - realworldocaml/book: V2 of Real World OCaml</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://ocaml.jp/?plugin=attach&amp;refer=Users%20Meeting&amp;openfile=camlmod.pdf">https://ocaml.jp/?plugin=attach&amp;refer=Users Meeting&amp;openfile=camlmod.pdf</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://adventar.org/calendars/8396">OCaml Tips Advent Calendar 2022 - Adventar</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://qiita.com/linoscope/items/244d931aaae07df2c27e">OCaml でゲームボーイエミュレータを書いた話 - Qiita</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://tars0x9752.com/posts/try-ocaml">OCamlを始めてみる</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://blog.ojisan.io/ocaml-lsp-vscode/">OCaml の補完とフォーマットをVSCode上で実現するための試行錯誤 | blog.ojisan.io</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://news.mynavi.jp/techplus/article/programinglanguageoftheworld-27/">世界のプログラミング言語(27) デキるやつが使ってる『OCaml』は実用的な関数型言語 | TECH+（テックプラス）</a></p></li>
 <li><p>@2019 <a class="reference external" href="https://qiita.com/denkiuo604/items/89f6159a5f5a114b0bc0">Visual Studio Code で OCaml を使えるようにする話 - Qiita</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://dev.to/szktty/ocaml-4d0o">イチから始める OCaml - DEV Community</a></p></li>
 <li><p>@2014 <a class="reference external" href="https://dev.to/szktty/ocaml-1o28">ゼロから始める OCaml - DEV Community 👩‍💻👨‍💻</a></p></li>
 <li><p>@2014 <a class="reference external" href="https://qiita.com/kjunichi/items/03d821ae2cb742d811bf">「プログラムでシダを描画する」をOCaml(OpenGL)で描画する - Qiita</a></p></li>
 <li><p>@2006 <a class="reference external" href="https://xtech.nikkei.com/it/article/COLUMN/20061212/256657/">第5回　LablGLで3Dグラフィックス～OCamlの「多相バリアント」と「ラベル付き引数」～ | 日経クロステック（xTECH）</a></p></li>
@@ -248,48 +255,35 @@
 <p>@2012</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="opam">
-<h1>OPAM<a class="headerlink" href="#opam" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">OCaml</span> <span class="pre">Package</span> <span class="pre">Manager</span></code></p>
+<section class="tex2jax_ignore mathjax_ignore" id="build">
+<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://opam.ocaml.org/">opam - opam</a></p></li>
-<li><p><a class="reference external" href="https://opam.ocaml.org/packages/ocaml/ocaml.5.0.0/">opam - ocaml.5.0.0</a></p></li>
-<li><p>@2019 <a class="reference external" href="https://ryskosn.hatenadiary.com/entry/2019/03/21/181524">OPAM、OCaml をアップデートする - ryskosn log</a></p></li>
+<li><p><a class="reference external" href="https://ncnl.blog.ss-blog.jp/2017-05-14">Fetching Title#7r7s</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/yumetodo/items/9645d083ef7d000c5263">msys2でocamlのビルドをしようとしてautotoolsの前に完全敗北した話 - Qiita</a></p></li>
 </ul>
-<section id="windows">
-<h2>windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">%LOCALAPPDATA%/Programs/DISKUV~1</span></code></p>
+<section id="msys2">
+<h2>msys2<a class="headerlink" href="#msys2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PATH=/mingw64/lib/ocaml/stublibs:$PATH
+./configure --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="windows">
+<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://ocaml.org/docs/ocaml-on-windows">OCaml on Windows · OCaml Tutorials</a></p></li>
-<li><p>@2018 <a class="reference external" href="https://qiita.com/angeart/items/ba9721245558781e30d4">OcamlをWindowsにインストールする - Qiita</a></p></li>
-<li><p>@2017 <a class="reference external" href="https://haskell.hatenablog.com/entry/How-to-install-OCaml-on-Windows">OCamlをWindowsにインストールする方法 - Haskell勉強会</a>
-<a class="reference external" href="https://github.com/diskuv/dkml-installer-ocaml/releases">Releases · diskuv/dkml-installer-ocaml</a></p></li>
-<li><p><a class="reference external" href="https://github.com/diskuv/dkml-installer-ocaml/releases/tag/v1.1.0_r2">Release v1.1.0_r2 · diskuv/dkml-installer-ocaml · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://diskuv-ocaml.gitlab.io/distributions/dkml/">Getting Started with Diskuv OCaml — Diskuv OCaml 1.1.0 documentation</a></p></li>
-<li><p><a class="reference external" href="https://github.com/diskuv/dkml-installer-ocaml#readme">GitHub - diskuv/dkml-installer-ocaml: The Windows-friendly distribution of OCaml</a></p></li>
 </ul>
 </section>
-<section id="ocaml">
-<h2>ocaml<a class="headerlink" href="#ocaml" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opam</span> <span class="n">switch</span> <span class="nb">list</span><span class="o">-</span><span class="n">available</span>
-</pre></div>
-</div>
-</section>
-<section id="language-server">
-<h2>language-server<a class="headerlink" href="#language-server" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://github.com/ocaml/ocaml-lsp">GitHub - ocaml/ocaml-lsp: OCaml Language Server Protocol implementation</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opam</span> <span class="n">install</span> <span class="n">ocaml</span><span class="o">-</span><span class="n">lsp</span><span class="o">-</span><span class="n">server</span>
-</pre></div>
-</div>
-</section>
-<section id="msys">
-<h2>msys<a class="headerlink" href="#msys" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://gist.github.com/mnxn/93009346c1bd56f387daf28413152179">OCaml on MSYS2 · GitHub</a></p>
-</section>
+<section class="tex2jax_ignore mathjax_ignore" id="opam">
+<h1>OPAM<a class="headerlink" href="#opam" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">OCaml</span> <span class="pre">Package</span> <span class="pre">Manager</span></code>
+[[opam]]</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="esy">
 <h1>esy<a class="headerlink" href="#esy" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>package manager</p>
+<p>package manager
+<a class="reference external" href="https://esy.sh/">Documentation | esy | esy</a></p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="dune">
 <h1>dune<a class="headerlink" href="#dune" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -338,13 +332,12 @@
 <li><a class="reference internal" href="#id2">4.14</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#opam">OPAM</a><ul>
-<li><a class="reference internal" href="#windows">windows</a></li>
-<li><a class="reference internal" href="#ocaml">ocaml</a></li>
-<li><a class="reference internal" href="#language-server">language-server</a></li>
-<li><a class="reference internal" href="#msys">msys</a></li>
+<li><a class="reference internal" href="#build">build</a><ul>
+<li><a class="reference internal" href="#msys2">msys2</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+<li><a class="reference internal" href="#opam">OPAM</a></li>
 <li><a class="reference internal" href="#esy">esy</a></li>
 <li><a class="reference internal" href="#dune">dune</a></li>
 </ul>
