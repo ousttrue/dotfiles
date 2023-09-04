@@ -6,15 +6,16 @@ local COM = require "common"
 
 -- The filled in variant of the < symbol
 -- local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
-local SOLID_LEFT_ARROW = utf8.char(0xe0ba)
+local TAB_LEFT = utf8.char(0xe0ba)
 -- The filled in variant of the > symbol
 -- local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
-local SOLID_RIGHT_ARROW = utf8.char(0xe0b8)
-local NORMAL_TAB_BG = { Color = "#222222" }
+local TAB_RIGHT = utf8.char(0xe0b8)
+local NORMAL_TAB_BG = "#222222"
 local NORMAL_TAB_FG = { Color = "#dddddd" }
 local ACTIVE_TAB_BG = { Color = "#52307c" }
-local TAB_BAR_BG = { Color = "#aaaaaa" }
-
+local TAB_BAR_BG = "#aaaaaa"
+local TAB_FG_ACTIVE = "#aaf"
+local TAB_FG_INACTIVE = "#666"
 -- Color palette for the backgrounds of each cell
 local colors = {
   "#3c1361",
@@ -105,7 +106,7 @@ local function on_update_status(window, pane)
     day_map[wezterm.strftime "%w"],
     wezterm.strftime "%H:%M",
   }
-  local right = UTIL.format_cells(cells, colors, SOLID_LEFT_ARROW)
+  local right = UTIL.format_cells(cells, colors, TAB_LEFT)
   window:set_right_status(right)
 end
 
@@ -132,6 +133,40 @@ local function tab_title(tab)
   return name
 end
 
+---@class Section
+---@field Fg string
+---@field Bg string
+---@field Text string
+
+---@class PowerLine
+---@field list Section[]
+local PowerLineClass = {
+  ---@param self PowerLine
+  ---@param section Section
+  ---@return PowerLine
+  push = function(self, section)
+    if section.Fg then
+      table.insert(self.list, { Foreground = { Color = section.Fg } })
+    end
+    if section.Bg then
+      table.insert(self.list, { Background = { Color = section.Bg } })
+    end
+    if section.Text then
+      table.insert(self.list, { Text = { Text = section.Text } })
+    end
+    return self
+  end,
+}
+
+---@return PowerLine Section[]
+local function PowerLine()
+  local instance = {
+    list = {},
+  }
+  setmetatable(instance, { __index = PowerLineClass })
+  return instance
+end
+
 ---@param tab
 ---@param tabs
 ---@param panes
@@ -142,16 +177,34 @@ end
 local function on_format_tab_title(tab, tabs, panes, config, hover, max_width)
   local title = tab_title(tab)
   title = wezterm.truncate_right(title, max_width - 2)
+
+  -- return PowerLine()
+  --   :push({
+  --     Bg = NORMAL_TAB_BG,
+  --     Fg = TAB_BAR_BG,
+  --     Text = TAB_LEFT,
+  --   })
+  --   :push({
+  --     Fg = tab.is_active and TAB_FG_ACTIVE or TAB_FG_INACTIVE,
+  --     Bg = NORMAL_TAB_BG,
+  --     Text = title,
+  --   })
+  --   :push({
+  --     Fg = NORMAL_TAB_BG,
+  --     Bg = TAB_BAR_BG,
+  --     Text = TAB_RIGHT,
+  --   }).list
+
   return {
-    { Foreground = NORMAL_TAB_BG },
-    { Background = TAB_BAR_BG },
-    { Text = SOLID_LEFT_ARROW },
-    { Foreground = { Color = tab.is_active and "#aaf" or "#666" } },
-    { Background = NORMAL_TAB_BG },
+    { Foreground = { Color = NORMAL_TAB_BG } },
+    { Background = { Color = TAB_BAR_BG } },
+    { Text = TAB_LEFT },
+    { Foreground = { Color = tab.is_active and TAB_FG_ACTIVE or TAB_FG_INACTIVE } },
+    { Background = { Color = NORMAL_TAB_BG } },
     { Text = title },
-    { Foreground = NORMAL_TAB_BG },
-    { Background = TAB_BAR_BG },
-    { Text = SOLID_RIGHT_ARROW },
+    { Foreground = { Color = NORMAL_TAB_BG } },
+    { Background = { Color = TAB_BAR_BG } },
+    { Text = TAB_RIGHT },
   }
 end
 
@@ -178,7 +231,7 @@ function M.setup(config)
   -- config.tab_bar_at_bottom = true
   config.colors = {
     tab_bar = {
-      background = "#aaaaaa",
+      background = TAB_BAR_BG,
     },
   }
   config.status_update_interval = 1000
