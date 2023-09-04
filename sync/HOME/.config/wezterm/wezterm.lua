@@ -34,8 +34,11 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   -- wsl
   local wsl_domains = wezterm.default_wsl_domains()
   for _, dom in ipairs(wsl_domains) do
-    if dom.name == "WSL:kinetic" then
-      dom.default_prog = { "/bin/bash", "--login", "-i" }
+    if dom then
+      local m = string.match(dom.name, "^WSL:(.+)")
+      -- if m then
+      --   dom.default_prog = { "~/go/bin/nyagos" }
+      -- end
     end
   end
   config.wsl_domains = wsl_domains
@@ -57,6 +60,11 @@ else
     config.font_size = 11.0 -- raw font size
   end
 end
+
+config.keys = {
+  -- CTRL-SHIFT-l activates the debug overlay
+  { key = "L", mods = "CTRL", action = wezterm.action.ShowDebugOverlay },
+}
 
 require("wez.tab").setup(config)
 require("wez.keybinds").setup(config)

@@ -60,6 +60,7 @@ local function on_update_status(window, pane)
     end
   else
     if STR.starts_with(domain, "WSL") then
+      PALETTE.TABBAR_BG = "#dd6644"
       left_status = COM.system_map["wsl"]
     else
       left_status = system_name
