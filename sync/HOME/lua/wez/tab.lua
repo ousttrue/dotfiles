@@ -39,15 +39,18 @@ end
 local function on_update_status(window, pane)
   -- left
   local system_name, sub_system = COM.get_system()
+  local left_status = system_name
+
   local icon = COM.system_map[system_name]
-  local left_status = ""
   if icon then
     left_status = icon
   end
   if sub_system then
     icon = COM.subsystem_map[sub_system]
     if icon then
-      left_status = icon
+      left_status = left_status .. icon
+    else
+      left_status = left_status .. sub_system
     end
   end
   window:set_left_status(wezterm.format(PL.PowerLine():push({
