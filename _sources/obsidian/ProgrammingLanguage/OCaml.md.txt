@@ -1,3 +1,5 @@
+- [OCamlPro's Blog | OCamlPro](https://ocamlpro.com/blog/all/)
+- [OCaml Weekly News](https://alan.petitepomme.net/cwn/2023.08.01.html)
 - [OCaml.jp](http://ocaml.jp/)
 - [OCamlの記事一覧 | Zenn](https://zenn.dev/topics/ocaml)
 - [Real World OCaml](https://dev.realworldocaml.org/)
