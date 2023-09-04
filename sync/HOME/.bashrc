@@ -80,16 +80,15 @@ path_push() {
 	[ ! -d $1 ] || [ -z "${PATH##*$1*}" ] || export PATH=$PATH:$1
 }
 
-path_unshift "$HOME/prefix/bin"
-path_unshift "$HOME/zig"
-path_unshift "/usr/local/go/bin"
-path_unshift "/usr/lib/go-1.20/bin"
-path_push "$HOME/.deno/bin"
-path_unshift "$HOME/.local/bin"
+path_unshift "/opt/bin"
+# custom
 path_unshift "$HOME/local/bin"
+# local pip
+path_unshift "$HOME/.local/bin"
+# golang
 path_unshift "$HOME/go/bin"
+# rust
 path_unshift "$HOME/.cargo/bin"
-path_unshift "$HOME/local/src/zig"
 
 if which zoxide >/dev/null 2>&1; then
 	eval "$(zoxide init bash)"
@@ -213,6 +212,15 @@ function mewrap {
 	local selected=$(meson wrap list | fzf --preview "meson wrap info{}")
 	if [[ ${selected} =~ [^\s] ]]; then
 		meson wrap install $selected
+	fi
+}
+
+function path {
+	if [ "$1" = "list" ]; then
+		list=(${PATH//:/ })
+		for item in "${list[@]}"; do
+			echo ${item}
+		done
 	fi
 }
 

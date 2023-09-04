@@ -1,7 +1,24 @@
-
-
-.markdown-preview-section h1,
+/* .markdown-preview-section h1, */
 .cm-header-1 {
-  color: var(--h1-color) !important;
-    border-bottom: solid 2px;
+  /* border-left: solid 0.5em; */
+  /* border-top: solid 2px; */
+  border-bottom: solid 2px;
+  color: black;
+  background: silver;
+  /* border-left: solid 0.5em; */
+  /* padding-left: 0.3em; */
+  padding: 0 0.2em 0 0.2em;
+  border-radius: 5px;
+}
+
+.markdown-preview-section h2,
+.cm-header-2 {
+  border-bottom: solid 2px;
+  /* border-left: solid 0.5em; */
+  /* padding-left: 0.5em; */
+}
+
+.markdown-preview-section h3,
+.cm-header-3 {
+  border-bottom: solid 2px;
 }

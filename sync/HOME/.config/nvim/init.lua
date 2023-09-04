@@ -3,10 +3,23 @@ local g = vim.g
 local opt = vim.opt
 local dot = require "dot"
 
+vim.opt.clipboard = "unnamedplus"
+if vim.fn.has "wsl" then
+  vim.g.clipboard = {
+    name = "win32yank-wsl",
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --crlf",
+      ["*"] = "win32yank.exe -o --crlf",
+    },
+    cache_enable = 0,
+  }
+end
 if vim.fn.has "win32" == 1 then
   vim.keymap.set("n", "<C-z>", "<Nop>")
-else
-  vim.cmd [[set clipboard+=unnamedplus]]
 end
 
 -- vim.cmd [[

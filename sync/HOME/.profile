@@ -39,3 +39,6 @@ if [ -f ~/.bashrc ]; then
 fi
 
 alias luamake=/home/ousttrue/ghq/github.com/sumneko/lua-language-server/3rd/luamake/luamake
+
+# opam configuration
+test -r ~/.opam/opam-init/init.sh && . ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
