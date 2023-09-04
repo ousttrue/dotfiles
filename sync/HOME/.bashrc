@@ -87,6 +87,7 @@ path_unshift "$HOME/local/bin"
 path_unshift "$HOME/.local/bin"
 # golang
 path_unshift "$HOME/go/bin"
+path_push "/usr/lib/go-1.20/bin"
 # rust
 path_unshift "$HOME/.cargo/bin"
 
@@ -396,3 +397,4 @@ Prompt() {
 }
 
 PROMPT_COMMAND='Prompt $?'
+. "$HOME/.cargo/env"

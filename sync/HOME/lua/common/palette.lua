@@ -1,5 +1,7 @@
 local M = {}
 
+local COM = require "common"
+
 -- https://miiton.github.io/Cica/
 M.ARROW_LEFT = ""
 M.ARROW_RIGHT = ""
@@ -9,8 +11,10 @@ M.TAB_RIGHT = ""
 M.NORMAL_TAB_BG = "#222222"
 M.NORMAL_TAB_FG = "#dddddd"
 M.ACTIVE_TAB_BG = "#52307c"
+
 M.TABBAR_BG = "#aaaaaa"
 M.TABBAR_FG = "#222222"
+
 M.TAB_FG_ACTIVE = "#aaaaff"
 M.TAB_FG_INACTIVE = "#666666"
 

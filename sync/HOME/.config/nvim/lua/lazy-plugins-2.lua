@@ -51,6 +51,22 @@ local plugins = {
   -- make_colorscheme("Mitgorakh/snow", "snow", "light", "mac"),
   make_colorscheme("NLKNguyen/papercolor-theme", "PaperColor", "light", "mac"),
   -- make_colorscheme("yasukotelin/shirotelin", "shirotelin", "light", "mac"),
+  --
+
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+
   -- icon
   { "stevearc/dressing.nvim" },
   {
