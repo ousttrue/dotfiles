@@ -174,8 +174,12 @@ local function setup_alias()
     "tr",
   }
   for _, v in ipairs(BUSYBOX_TOOLS) do
-    if not NYA.which(v) then
-      nyagos.alias[v] = string.format("~/busybox/%s $*", v)
+    local has, status = NYA.which(v)
+    if not has then
+      local alt = string.format("~/busybox/%s", v)
+      if NYA.which(alt) then
+        nyagos.alias[v] = string.format("%s $*", alt)
+      end
     end
   end
 

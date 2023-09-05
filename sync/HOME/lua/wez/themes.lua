@@ -19,7 +19,6 @@ M.list = {
   "nightfox",
   "Operator Mono Dark",
   "Relaxed",
-  "Royal",
   "Seafoam Pastel",
   "SeaShells",
   "vimbones",

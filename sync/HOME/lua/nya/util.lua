@@ -67,6 +67,7 @@ end
 
 ---@param cmd string
 ---@return string?
+---@return string?
 function M.which(cmd)
   local res = STR.trim(nyagos.eval(string.format("which %s 2>%s", cmd, NULDEV)))
   if #res == 0 then
@@ -76,14 +77,15 @@ function M.which(cmd)
 
   -- ln: built-in command
   local m = string.match(res, "^([^:]+): built%-in command")
-  if m == cmd then
-    return nil
+  -- if m == cmd then
+  if m then
+    return nil, "builtin"
   end
 
   -- ls: aliased to lsd.exe $*
   m = string.match(res, "^([^:]+): aliased to ")
   if m == cmd then
-    return nil
+    return nil, "alias"
   end
 
   return res
