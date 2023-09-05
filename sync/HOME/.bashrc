@@ -346,7 +346,7 @@ TmuxHeader() {
 	if [ ! -z ${branch} ]; then
 		local git_log=$(git log --pretty="format:%cr   %s" -n 1)
 		tmux selectp -T" ${branch}   ${git_log}" -t $TMUX_PANE
-    else
+	else
 		tmux selectp -T"🎴" -t $TMUX_PANE
 	fi
 

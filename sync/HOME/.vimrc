@@ -63,5 +63,7 @@ inoremap <C-s> <C-[>:w<CR>
 nnoremap <F7> :make<CR>
 
 au BufNewFile,BufRead *.xsh setf python
-au FileType python setlocal formatprg=autopep8\ -
+au FileType python setlocal formatprg=autopep8
+au FileType html setlocal ts=2 sts=2 sw=2 et
+
 

@@ -37,6 +37,9 @@ vmap <C-/> :Commentary<CR>
 '''
 
 [[plugins]]
+repo = "tpope/vim-surround"
+
+[[plugins]]
 repo= 'vim-airline/vim-airline'
 hook_add='''
 nnoremap ( :bp<CR>
@@ -49,12 +52,19 @@ let g:airline_theme='behelit'
 [[plugins]]
 repo= 'vim-airline/vim-airline-themes'
 
+# [[plugins]]
+# repo = 'Chiel92/vim-autoformat'
+# hook_add='''
+# vmap <S-f> :Autoformat<CR>
+# let g:formatters_python = ['black']
+# let g:formatters_html = ['prettier']
+# '''
+
 [[plugins]]
-repo = 'Chiel92/vim-autoformat'
+repo = 'prettier/vim-prettier'
 hook_add='''
-nmap ff :Autoformat<CR>
-vmap <S-f> :Autoformat<CR>
-let g:formatters_python = ['black']
+let g:prettier#exec_cmd_path = '/C/Users/' . $USER . '/AppData/Roaming/npm/prettier'
+nmap ff :Prettier<CR>
 '''
 
 [[plugins]]

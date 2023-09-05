@@ -88,6 +88,10 @@ local plugins = {
       require("config.starter").setup()
     end,
   },
+
+  { "tpope/vim-surround" },
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
+
   {
     "m-demare/hlargs.nvim",
     config = function()
