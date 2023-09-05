@@ -225,6 +225,8 @@
 <li><p><a class="reference external" href="https://docs.docker.jp/engine/userguide/dockerimages.html">イメージの構築 — Docker-docs-ja 1.9.0b ドキュメント</a></p></li>
 <li><p><a class="reference external" href="https://docs.docker.com/build/building/base-images/">Create a base image | Docker Docs</a></p></li>
 </ul>
+<section id="hello">
+<h2>hello<a class="headerlink" href="#hello" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">scratch</span><span class="w"> </span><span class="c"># base</span>
 <span class="k">ADD</span><span class="w"> </span>hello / # <span class="nb">local</span> の hello を copy
 
@@ -238,6 +240,66 @@ $ ldd hello
 $ docker build --tag hello .
 </pre></div>
 </div>
+</section>
+<section id="basic">
+<h2>basic<a class="headerlink" href="#basic" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2020 <a class="reference external" href="https://staffblog.amelieff.jp/entry/2020/07/09/130000">Dockerfileを用いた初期設定：ユーザ追加 - アメリエフの技術ブログ</a></p></li>
+</ul>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">From</span><span class="w"> </span><span class="s">centos:7</span>
+<span class="k">ARG</span><span class="w"> </span><span class="nv">username</span><span class="o">=</span>hoge
+
+<span class="k">RUN</span><span class="w"> </span>yum -y install sudo
+<span class="k">RUN</span><span class="w"> </span>useradd -m <span class="si">${</span><span class="nv">username</span><span class="si">}</span>
+<span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">"</span> <span class="p">|</span> chpasswd
+<span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2"> ALL=(ALL) ALL"</span> &gt;&gt; /etc/sudoers
+</pre></div>
+</div>
+</section>
+<section id="c-dev">
+<h2>c++ dev<a class="headerlink" href="#c-dev" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">From</span><span class="w"> </span><span class="s">centos:7</span>
+<span class="k">ARG</span><span class="w"> </span><span class="nv">username</span><span class="o">=</span>hoge
+
+<span class="k">RUN</span><span class="w"> </span>yum -y install python3
+<span class="k">RUN</span><span class="w"> </span>pip3 install --upgrade pip
+<span class="k">RUN</span><span class="w"> </span>pip3 install meson ninja cmake ziglang
+
+<span class="k">RUN</span><span class="w"> </span><span class="s">&lt;&lt;__EOF__</span>
+cat <span class="s">&lt;&lt;__CAT__</span> &gt;&gt; /etc/inputrc
+<span class="s2">"\C-n"</span>:history-search-forward
+<span class="s2">"\C-p"</span>:history-search-backward
+<span class="nb">set</span> bell-style none
+__CAT__
+__EOF__
+
+<span class="c">#</span>
+<span class="c"># USER</span>
+<span class="c">#</span>
+<span class="k">RUN</span><span class="w"> </span>yum -y install sudo
+<span class="k">RUN</span><span class="w"> </span>useradd -m <span class="si">${</span><span class="nv">username</span><span class="si">}</span>
+<span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">"</span> <span class="p">|</span> chpasswd
+<span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2"> ALL=NOPASSWD: ALL"</span> &gt;&gt; /etc/sudoers
+
+<span class="k">RUN</span><span class="w"> </span><span class="s">&lt;&lt;__EOF__</span>
+cat <span class="s">&lt;&lt;\__CAT__</span> &gt; /home/<span class="si">${</span><span class="nv">username</span><span class="si">}</span>/.bash_profile
+<span class="c"># .bash_profile</span>
+
+<span class="c"># Get the aliases and functions</span>
+<span class="k">if</span> <span class="o">[</span> -f ~/.bashrc <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        . ~/.bashrc
+<span class="k">fi</span>
+
+<span class="c"># User specific environment and startup programs</span>
+
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/.local/bin:<span class="nv">$HOME</span>/bin:/usr/local/lib64/python3.6/site-packages/ziglang
+
+<span class="nb">export</span> PATH
+__CAT__
+__EOF__
+</pre></div>
+</div>
+</section>
 <section id="shell">
 <h2>SHELL<a class="headerlink" href="#shell" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
@@ -289,6 +351,9 @@ $ docker build --tag hello .
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">CreateImage</a><ul>
+<li><a class="reference internal" href="#hello">hello</a></li>
+<li><a class="reference internal" href="#basic">basic</a></li>
+<li><a class="reference internal" href="#c-dev">c++ dev</a></li>
 <li><a class="reference internal" href="#shell">SHELL</a></li>
 </ul>
 </li>

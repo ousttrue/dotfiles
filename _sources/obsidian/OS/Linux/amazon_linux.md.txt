@@ -18,6 +18,7 @@ $ docker pull amazonlinux:2.0.20200406.0
 - @2018 [WSL で Amazon Linux 2 を使用する - Qiita](https://qiita.com/noumia/items/9fecd2a7c3ea4acb696e)
 
 # Docker
+- [Docker](https://hub.docker.com/_/amazonlinux/)
 - @2019 [Docker for Windowsで快適な環境を得るまでの そこそこ長い闘い - Qiita](https://qiita.com/YukiMiyatake/items/73c7d6c4f2c9739ebe60)
 # packages
 ## adduser, passwd

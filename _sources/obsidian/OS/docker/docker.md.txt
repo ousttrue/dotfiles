@@ -26,11 +26,16 @@ docker container ls
 ```
 
 ## run
+- shell login 
+[dockerで特定ユーザでログインした状態のシェル環境を提供する](https://blog.mosuke.tech/entry/2015/01/24/213255/)
+
 ```
-docker run --rm -it IMAGE_NAME
+#$ docker run --rm -it -u "hoge:hoge" IMAGE_NAME
+$ docker run --rm -it mydev su - hoge
 # --rm: remove exists
 # -i: interactive
 # -t: tty
+# -u: user:group
 ```
 
 # mount
