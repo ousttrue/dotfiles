@@ -218,102 +218,73 @@
           </label>
         </div>
         <article role="main">
-          <p>LinuxFromScratch
-[[Linux]]</p>
-<p>http://www.linuxfromscratch.org/</p>
+          <p><a class="reference external" href="https://linuxjf.osdn.jp/JFdocs/libc-intro.html">Linux C Library (libc) について</a></p>
+<p>[[libc]]</p>
 <ul class="simple">
-<li><p>http://www.linuxfromscratch.org/lfs/view/stable/</p></li>
-<li><p>http://lfsbookja.osdn.jp/</p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/coord_e/articles/portable-binary-in-rust">Rust でバイナリを配布する</a></p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">libc.so.6</span></code></p>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>11<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>@2023.03</p></li>
+<li><p><a class="reference external" href="https://sourceware.org/glibc/wiki/Glibc%20Timeline">Glibc Timeline - glibc wiki</a></p></li>
+<li><p><a class="reference external" href="https://www.wdic.org/w/TECH/glibc">glibc ‐ 通信用語の基礎知識</a></p></li>
+<li><p><a class="reference external" href="https://wiki.onakasuita.org/pukiwiki/?glibc%2F%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3">glibc/バージョン - おなかすいたWiki！</a></p></li>
+</ul>
+<section id="id1">
+<h2>2.35<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>[[Ubuntu]] <code class="docutils literal notranslate"><span class="pre">22.04</span></code></p></li>
 </ul>
 </section>
 <section id="id2">
-<h2>10<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>http://lfsbookja.osdn.jp/10.1-sysdja/
-http://lfsbookja.osdn.jp/10.1-sysdja/prologue/package-choices.html
-http://lfsbookja.osdn.jp/10.1-sysdja/chapter02/hostreqs.html
-http://lfsbookja.osdn.jp/10.1-sysdja/chapter02/aboutlfs.html マウントポイント
-http://lfsbookja.osdn.jp/10.1-sysdja/partintro/toolchaintechnotes.html
-http://lfsbookja.osdn.jp/10.1-sysdja/chapter06/chapter06.html</p>
-</section>
-<section id="id3">
-<h2>8<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>2.34<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>@2018 <a class="reference external" href="https://qiita.com/nakamura_hikaru/items/ede8ca9d34c0c053b6aa">Linux from Scratch-8.3に挑戦してみた - Qiita</a></p></li>
+<li><p>[[zig]] <code class="docutils literal notranslate"><span class="pre">0.11</span></code></p></li>
 </ul>
-</section>
-<section id="id4">
-<h2>3<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2002 <a class="reference external" href="https://atmarkit.itmedia.co.jp/ait/articles/0209/10/news001.html">ソースファイルからLinux環境を構築しよう！：LFSで作って学ぶLinuxの仕組み（1）（1/3 ページ） - ＠IT</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id5">
-<h1>手順<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://zenn.dev/arimax/articles/37e783f3be53a0">Linux From Scratchをqemuで実行する方法</a></p></li>
-</ul>
-<section id="block-device-mount">
-<h2>block device 作成 / mount<a class="headerlink" href="#block-device-mount" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>10GBくらい</p>
-<ul class="simple">
-<li><p>@2017 <a class="reference external" href="https://oplern.hatenablog.com/entry/2017/06/30/231027">【Linux】ディスクイメージをマウントする【ループバックデバイス】 - Man On a Mission</a></p></li>
-</ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="m">0</span>
-$ dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>./lfs.bin <span class="nv">bs</span><span class="o">=</span>1G <span class="nv">count</span><span class="o">=</span><span class="m">10</span>
-$ mkfs.ext4 lfs.bin
-$ mkdir mnt
-$ <span class="nb">export</span> <span class="nv">LFS</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/mnt
-$ <span class="nb">export</span> <span class="nv">LFS_TGT</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">-lfs-linux-gnu"</span>
-$ sudo mount -t ext4 -o loop lfs.bin <span class="nv">$LFS</span>
-$ sudo chown user:user <span class="nv">$LFS</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">error</span><span class="p">:</span> <span class="n">zig</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">yet</span> <span class="n">provide</span> <span class="n">glibc</span> <span class="n">version</span> <span class="mf">2.35</span><span class="p">,</span> <span class="n">the</span> <span class="nb">max</span> <span class="n">provided</span> <span class="n">version</span> <span class="ow">is</span> <span class="mf">2.34</span>
+<span class="n">error</span><span class="p">:</span> <span class="n">unable</span> <span class="n">to</span> <span class="n">build</span> <span class="n">glibc</span> <span class="n">shared</span> <span class="n">objects</span><span class="p">:</span> <span class="n">InvalidTargetGLibCVersion</span>
 </pre></div>
 </div>
 </section>
-<section id="download-sources">
-<h2>download sources<a class="headerlink" href="#download-sources" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">$LFS/sources</span></code></p>
+<section id="id3">
+<h2>2.31<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Debian 11 Bullseye</p>
+</section>
+<section id="id4">
+<h2>2.28<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Debian 10 Buster</p>
+</section>
+<section id="id5">
+<h2>2.26<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>amazonlinux:2.0.20200406.0</p>
+</section>
+<section id="id6">
+<h2>2.17<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">x86_64-linux-gnu.2.17</span></code></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.linuxfromscratch.org/lfs/view/stable/chapter03/packages.html">3.2. All Packages</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/matsumoto_sp/items/fc3d4d698bba4eb7b534">glibc のバージョンアップでアプリケーションが動かなくなった件 - Qiita</a>
+[[CentOS]] 7</p></li>
+<li><p>@2019 <a class="reference external" href="https://qiita.com/Be-cricket/items/0d6da899045a1cbab3ea#dockerfile">コンテナでC言語の開発環境を構築する - Qiita</a></p></li>
+</ul>
+<p>[[rust]] 1.64~</p>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://blog.rust-lang.org/2022/08/01/Increasing-glibc-kernel-requirements.html">Increasing the glibc and Linux kernel requirements | Rust Blog</a></p></li>
+<li><p>@2013 <a class="reference external" href="https://archlinux.org/news/update-filesystem-201301-1-and-glibc-217-2-together/">Arch Linux - News: Update filesystem-2013.01-1 and glibc-2.17-2 together</a></p></li>
+</ul>
+<section id="zig">
+<h3>zig<a class="headerlink" href="#zig" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://andrewkelley.me/post/zig-cc-powerful-drop-in-replacement-gcc-clang.html"><code class="docutils literal notranslate"><span class="pre">zig</span> <span class="pre">cc</span></code>: a Powerful Drop-In Replacement for GCC/Clang - Andrew Kelley</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ziglang/zig/issues/10840">use RHEL 7 / CentOs 7 as the baseline glibc version rather than oldest Debian under LTS · Issue #10840 · ziglang/zig · GitHub</a></p></li>
 </ul>
 </section>
-<section id="toolchain-1">
-<h2>toolchain 1<a class="headerlink" href="#toolchain-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="build">
+<h1>別バージョンの build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.linuxquestions.org/questions/linux-from-scratch-13/lfs-7-7-gcc-4-9-2-compile-error-4175543098/">[SOLVED] LFS 7.7 GCC-4.9.2 Compile Error</a></p></li>
-</ul>
-<section id="glibc">
-<h3>glibc<a class="headerlink" href="#glibc" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>add <code class="docutils literal notranslate"><span class="pre">--without-selinux</span></code></p>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="qemu">
-<h1>qemu<a class="headerlink" href="#qemu" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[qemu]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/arimax/articles/37e783f3be53a0">Linux From Scratchをqemuで実行する方法</a></p></li>
-<li><p><a class="reference external" href="https://github.com/fedorenchik/lfs-kvm">GitHub - fedorenchik/lfs-kvm: Build LFS 10.0 systemd/sysvinit KVM QEMU qcow2 image</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="docker">
-<h1>docker<a class="headerlink" href="#docker" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/0rland/lfs-docker">GitHub - 0rland/lfs-docker: Building LFS system in docker container step by step</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="articles">
-<h1>articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://akaimo.hatenablog.jp/entry/2020/05/11/235002">LFSをやってみたので振り返る - あかいものログ</a></p></li>
-<li><p><a class="reference external" href="https://yangjinjie.github.io/notes/book/Linux%20From%20Scratch/">Linux From Scratch · Notes</a></p></li>
+<li><p><a class="reference external" href="http://ryouto.jp/linux/linux_58.html">それ行けLinux～Glibc2環境の構築～</a></p></li>
 </ul>
 </section>
 
@@ -330,7 +301,7 @@ $ sudo chown user:user <span class="nv">$LFS</span>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/OS/Linux/LFS.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/OS/Linux/glibc2.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -351,24 +322,18 @@ $ sudo chown user:user <span class="nv">$LFS</span>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">11</a></li>
-<li><a class="reference internal" href="#id2">10</a></li>
-<li><a class="reference internal" href="#id3">8</a></li>
-<li><a class="reference internal" href="#id4">3</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id5">手順</a><ul>
-<li><a class="reference internal" href="#block-device-mount">block device 作成 / mount</a></li>
-<li><a class="reference internal" href="#download-sources">download sources</a></li>
-<li><a class="reference internal" href="#toolchain-1">toolchain 1</a><ul>
-<li><a class="reference internal" href="#glibc">glibc</a></li>
+<li><a class="reference internal" href="#id1">2.35</a></li>
+<li><a class="reference internal" href="#id2">2.34</a></li>
+<li><a class="reference internal" href="#id3">2.31</a></li>
+<li><a class="reference internal" href="#id4">2.28</a></li>
+<li><a class="reference internal" href="#id5">2.26</a></li>
+<li><a class="reference internal" href="#id6">2.17</a><ul>
+<li><a class="reference internal" href="#zig">zig</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#qemu">qemu</a></li>
-<li><a class="reference internal" href="#docker">docker</a></li>
-<li><a class="reference internal" href="#articles">articles</a></li>
+<li><a class="reference internal" href="#build">別バージョンの build</a></li>
 </ul>
 
           </div>

@@ -1,1 +1,0 @@
-- [Neovimのテキストオブジェクトをカスタムできるmini.aiが便利 | Atusy's blog](https://blog.atusy.net/2023/01/27/mini-ai-nvim/)

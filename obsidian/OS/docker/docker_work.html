@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,110 +212,25 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>LinuxFromScratch
-[[Linux]]</p>
-<p>http://www.linuxfromscratch.org/</p>
+          <p>[[DevContainers]]</p>
 <ul class="simple">
-<li><p>http://www.linuxfromscratch.org/lfs/view/stable/</p></li>
-<li><p>http://lfsbookja.osdn.jp/</p></li>
+<li><p>AmazonLinux base</p></li>
+<li><p>go-1.21</p></li>
+<li><p>nvim-master</p></li>
+<li><p>zig-0.11(clang-16)</p></li>
+<li><p>target</p>
+<ul>
+<li><p>gligc-2.17</p></li>
+<li><p>mingw</p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>11<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2023.03</p></li>
+</li>
 </ul>
-</section>
-<section id="id2">
-<h2>10<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>http://lfsbookja.osdn.jp/10.1-sysdja/
-http://lfsbookja.osdn.jp/10.1-sysdja/prologue/package-choices.html
-http://lfsbookja.osdn.jp/10.1-sysdja/chapter02/hostreqs.html
-http://lfsbookja.osdn.jp/10.1-sysdja/chapter02/aboutlfs.html マウントポイント
-http://lfsbookja.osdn.jp/10.1-sysdja/partintro/toolchaintechnotes.html
-http://lfsbookja.osdn.jp/10.1-sysdja/chapter06/chapter06.html</p>
-</section>
-<section id="id3">
-<h2>8<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2018 <a class="reference external" href="https://qiita.com/nakamura_hikaru/items/ede8ca9d34c0c053b6aa">Linux from Scratch-8.3に挑戦してみた - Qiita</a></p></li>
-</ul>
-</section>
-<section id="id4">
-<h2>3<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2002 <a class="reference external" href="https://atmarkit.itmedia.co.jp/ait/articles/0209/10/news001.html">ソースファイルからLinux環境を構築しよう！：LFSで作って学ぶLinuxの仕組み（1）（1/3 ページ） - ＠IT</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id5">
-<h1>手順<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://zenn.dev/arimax/articles/37e783f3be53a0">Linux From Scratchをqemuで実行する方法</a></p></li>
-</ul>
-<section id="block-device-mount">
-<h2>block device 作成 / mount<a class="headerlink" href="#block-device-mount" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>10GBくらい</p>
-<ul class="simple">
-<li><p>@2017 <a class="reference external" href="https://oplern.hatenablog.com/entry/2017/06/30/231027">【Linux】ディスクイメージをマウントする【ループバックデバイス】 - Man On a Mission</a></p></li>
-</ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="m">0</span>
-$ dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>./lfs.bin <span class="nv">bs</span><span class="o">=</span>1G <span class="nv">count</span><span class="o">=</span><span class="m">10</span>
-$ mkfs.ext4 lfs.bin
-$ mkdir mnt
-$ <span class="nb">export</span> <span class="nv">LFS</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/mnt
-$ <span class="nb">export</span> <span class="nv">LFS_TGT</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">-lfs-linux-gnu"</span>
-$ sudo mount -t ext4 -o loop lfs.bin <span class="nv">$LFS</span>
-$ sudo chown user:user <span class="nv">$LFS</span>
-</pre></div>
-</div>
-</section>
-<section id="download-sources">
-<h2>download sources<a class="headerlink" href="#download-sources" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">$LFS/sources</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.linuxfromscratch.org/lfs/view/stable/chapter03/packages.html">3.2. All Packages</a></p></li>
-</ul>
-</section>
-<section id="toolchain-1">
-<h2>toolchain 1<a class="headerlink" href="#toolchain-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.linuxquestions.org/questions/linux-from-scratch-13/lfs-7-7-gcc-4-9-2-compile-error-4175543098/">[SOLVED] LFS 7.7 GCC-4.9.2 Compile Error</a></p></li>
-</ul>
-<section id="glibc">
-<h3>glibc<a class="headerlink" href="#glibc" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>add <code class="docutils literal notranslate"><span class="pre">--without-selinux</span></code></p>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="qemu">
-<h1>qemu<a class="headerlink" href="#qemu" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[qemu]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/arimax/articles/37e783f3be53a0">Linux From Scratchをqemuで実行する方法</a></p></li>
-<li><p><a class="reference external" href="https://github.com/fedorenchik/lfs-kvm">GitHub - fedorenchik/lfs-kvm: Build LFS 10.0 systemd/sysvinit KVM QEMU qcow2 image</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="docker">
-<h1>docker<a class="headerlink" href="#docker" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/0rland/lfs-docker">GitHub - 0rland/lfs-docker: Building LFS system in docker container step by step</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="articles">
-<h1>articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://akaimo.hatenablog.jp/entry/2020/05/11/235002">LFSをやってみたので振り返る - あかいものログ</a></p></li>
-<li><p><a class="reference external" href="https://yangjinjie.github.io/notes/book/Linux%20From%20Scratch/">Linux From Scratch · Notes</a></p></li>
-</ul>
-</section>
 
         </article>
       </div>
@@ -330,7 +245,7 @@ $ sudo chown user:user <span class="nv">$LFS</span>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/OS/Linux/LFS.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/OS/docker/docker_work.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -338,42 +253,8 @@ $ sudo chown user:user <span class="nv">$LFS</span>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">11</a></li>
-<li><a class="reference internal" href="#id2">10</a></li>
-<li><a class="reference internal" href="#id3">8</a></li>
-<li><a class="reference internal" href="#id4">3</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id5">手順</a><ul>
-<li><a class="reference internal" href="#block-device-mount">block device 作成 / mount</a></li>
-<li><a class="reference internal" href="#download-sources">download sources</a></li>
-<li><a class="reference internal" href="#toolchain-1">toolchain 1</a><ul>
-<li><a class="reference internal" href="#glibc">glibc</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qemu">qemu</a></li>
-<li><a class="reference internal" href="#docker">docker</a></li>
-<li><a class="reference internal" href="#articles">articles</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
