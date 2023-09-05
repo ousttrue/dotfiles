@@ -125,10 +125,6 @@ if which vim >/dev/null 2>&1; then
 	export EDITOR=vim
 	alias v='vim'
 fi
-if which nvim >/dev/null 2>&1; then
-	export EDITOR=nvim
-	alias v='nvim'
-fi
 alias e='emacs -nw'
 alias r='cd "$(git rev-parse --show-toplevel)"'
 
@@ -350,6 +346,8 @@ TmuxHeader() {
 	if [ ! -z ${branch} ]; then
 		local git_log=$(git log --pretty="format:%cr   %s" -n 1)
 		tmux selectp -T" ${branch}   ${git_log}" -t $TMUX_PANE
+    else
+		tmux selectp -T"🎴" -t $TMUX_PANE
 	fi
 
 	PL_END
@@ -397,4 +395,3 @@ Prompt() {
 }
 
 PROMPT_COMMAND='Prompt $?'
-. "$HOME/.cargo/env"

@@ -38,6 +38,8 @@ syntax enable
 
 set ts=4 sts=4 sw=4 expandtab
 set laststatus=2
+set showtabline=2
+set guioptions-=e
 set belloff=all
 set noswapfile noundofile nobackup
 set hlsearch

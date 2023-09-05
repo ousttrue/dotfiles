@@ -22,3 +22,14 @@
 .cm-header-3 {
   border-bottom: solid 2px;
 }
+
+.cm-inline-code {
+  background-color: #666666;
+  border: solid #999 1px;
+  margin: 2px;
+  padding: 2px;
+}
+
+.HyperMD-codeblock-bg {
+  background-color: #211121 !important;
+}
