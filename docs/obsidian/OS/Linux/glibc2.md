@@ -34,10 +34,14 @@ amazonlinux:2.0.20200406.0
 
 ## 2.17
 `x86_64-linux-gnu.2.17`
-[[CentOS]] 7
-[[rust]] 1.64~
-
 - @2020 [glibc のバージョンアップでアプリケーションが動かなくなった件 - Qiita](https://qiita.com/matsumoto_sp/items/fc3d4d698bba4eb7b534)
+[[CentOS]] 7
+- @2019 [コンテナでC言語の開発環境を構築する - Qiita](https://qiita.com/Be-cricket/items/0d6da899045a1cbab3ea#dockerfile)
+
+[[rust]] 1.64~
+- @2022 [Increasing the glibc and Linux kernel requirements | Rust Blog](https://blog.rust-lang.org/2022/08/01/Increasing-glibc-kernel-requirements.html)
+
+- @2013 [Arch Linux - News: Update filesystem-2013.01-1 and glibc-2.17-2 together](https://archlinux.org/news/update-filesystem-201301-1-and-glibc-217-2-together/)
 
 ### zig
 - [`zig cc`: a Powerful Drop-In Replacement for GCC/Clang - Andrew Kelley](https://andrewkelley.me/post/zig-cc-powerful-drop-in-replacement-gcc-clang.html)

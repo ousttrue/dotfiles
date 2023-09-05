@@ -35,10 +35,12 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   local wsl_domains = wezterm.default_wsl_domains()
   for _, dom in ipairs(wsl_domains) do
     if dom then
+      dom.default_cwd = "~"
       local m = string.match(dom.name, "^WSL:(.+)")
-      -- if m then
-      --   dom.default_prog = { "~/go/bin/nyagos" }
-      -- end
+      if m then
+        --   dom.default_prog = { "~/go/bin/nyagos" }
+        -- dom.default_cwd = string.format("//wsl$/%s/home/%s", m, os.getenv "USERNAME")
+      end
     end
   end
   config.wsl_domains = wsl_domains

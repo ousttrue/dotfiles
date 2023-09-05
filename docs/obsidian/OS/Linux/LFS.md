@@ -52,3 +52,10 @@ add `--without-selinux`
 [[qemu]]
 - [Linux From Scratchをqemuで実行する方法](https://zenn.dev/arimax/articles/37e783f3be53a0)
 - [GitHub - fedorenchik/lfs-kvm: Build LFS 10.0 systemd/sysvinit KVM QEMU qcow2 image](https://github.com/fedorenchik/lfs-kvm)
+
+# docker
+- [GitHub - 0rland/lfs-docker: Building LFS system in docker container step by step](https://github.com/0rland/lfs-docker)
+
+# articles
+- @2020 [LFSをやってみたので振り返る - あかいものログ](https://akaimo.hatenablog.jp/entry/2020/05/11/235002)
+- [Linux From Scratch · Notes](https://yangjinjie.github.io/notes/book/Linux%20From%20Scratch/)
