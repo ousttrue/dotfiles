@@ -121,7 +121,10 @@ alias gcd='cd $(git rev-parse --show-toplevel)'
 alias groot='cd $(git rev-parse --show-toplevel)'
 alias gt="git status -sb"
 
-if which vim >/dev/null 2>&1; then
+if ! [ -v MSYSTEM ] && which nvim >/dev/null 2>&1; then
+	export EDITOR=nvim
+	alias v='nvim'
+elif which vim >/dev/null 2>&1; then
 	export EDITOR=vim
 	alias v='vim'
 fi

@@ -6,11 +6,11 @@ local COM = require "common"
 local STR = require "common.string"
 local PATH = require "common.path"
 
-local system_name = COM.get_system()
+local SYSTEM_NAME, SUBSYSTEM = COM.get_system()
 local HOME = PATH.get_home()
 
 local function to_path(src)
-  if system_name == "windows" then
+  if SYSTEM_NAME == "windows" then
     return string.gsub(src, "/", "\\")
   else
     return string.gsub(src, "\\", "/")
@@ -188,7 +188,13 @@ local function setup_alias()
   end
 
   if not NYA.which "code" then
-    nyagos.alias.code = '"%LOCALAPPDATA%\\Programs\\Microsoft Vs Code\\bin\\code" $*'
+    if SYSTEM_NAME == "windows" then
+      nyagos.alias.code = '"%LOCALAPPDATA%\\Programs\\Microsoft Vs Code\\bin\\code" $*'
+    elseif SYSTEM_NAME == "wsl" then
+      -- local wsl_home = nyagos.eval "wslpath ~"
+      nyagos.alias.code =
+        string.format('"/mnt/c/Users/%s/AppData/Local/Programs/Microsoft Vs Code/bin/code" $*', os.getenv "USER")
+    end
   end
 
   function nyagos.alias.print_args(args)
@@ -200,7 +206,7 @@ local function setup_alias()
     print("unpack", unpack(args.rawargs))
   end
 
-  local DEL = system_name == "windows" and ";" or ":"
+  local DEL = SYSTEM_NAME == "windows" and ";" or ":"
 
   function nyagos.alias.path(args)
     local cmd = unpack(args.rawargs)
@@ -253,6 +259,15 @@ local function setup_alias()
       return NYA.batch(dot_dir, {
         "git status",
       })
+    elseif cmd == "init" then
+      if NYA.which "~/.fzf/bin/fzf" then
+        print "fzf OK"
+      else
+        NYA.batch(HOME, {
+          "git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf",
+          "~/.fzf/install",
+        })
+      end
     else
       print("unknown:", cmd)
       return 1
