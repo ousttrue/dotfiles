@@ -60,3 +60,14 @@ go install mvdan.cc/sh/v3/cmd/shfmt@latest
 # script
 ## comparison
 
+## 変数展開
+- [[Bash]特殊変数とパラメータ展開](https://zenn.dev/shmi593/articles/70ecd35ee5d159)
+- [【シェル芸人への道】Bashの変数展開と真摯に向き合う - Qiita](https://qiita.com/t_nakayama0714/items/80b4c94de43643f4be51)
+
+```sh
+${parameter}
+
+${parameter:-word}
+```
+
+

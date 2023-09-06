@@ -4,7 +4,7 @@ local opt = vim.opt
 local dot = require "dot"
 
 vim.opt.clipboard = "unnamedplus"
-if vim.fn.has "wsl" then
+if vim.fn.has "wsl" == 1 then
   if vim.fn.executable "win32yank.exe" == 1 then
     vim.g.clipboard = {
       name = "win32yank-wsl",

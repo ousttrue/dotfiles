@@ -12,23 +12,6 @@
 |cp,mv,rm... |binutils / buybox|busybox64|binutils|binutils|binutils|binutils|
 |editor|nvim|vim|nvim(msys)|nvim|nvim|
 
-# 環境
-- nyagos を中心に [[smfmt]] を補助(task runner)で使う方向 
-
-
- muxer / shell / editor
-
-- naygos
-	- binutils(Linux)
-	- busybox32
-- [GitHub - mvdan/sh: A shell parser, formatter, and interpreter with bash support; includes shfmt](https://github.com/mvdan/sh)	 
-
-## compiler
-- msvc: install が重い。windows kits のために必要かも
-- mingw64: dll 依存で PATH を通すのがやっかい
-- msys-ucrt: どや？
-- llvm(clang) + Windows SDK
-
 # 自作
 - @2022 [「Shell作れます」と言うために - エムスリーテックブログ](https://www.m3tech.blog/entry/making-nosh)
 - @2021 [Rustで始める自作シェル その1 - ぶていのログでぶログ](https://tech.buty4649.net/entry/2021/12/19/235124)
