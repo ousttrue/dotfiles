@@ -224,6 +224,13 @@
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>17<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">multi</span> <span class="pre">stage</span> <span class="pre">build</span></code></p>
+<ul class="simple">
+<li><p>@2017 <a class="reference external" href="https://qiita.com/minamijoyo/items/711704e85b45ff5d6405">Docker multi stage buildで変わるDockerfileの常識 - Qiita</a></p></li>
+</ul>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="cli">
 <h1>cli<a class="headerlink" href="#cli" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -293,15 +300,15 @@ $ docker run --rm -it mydev su - hoge
 </pre></div>
 </div>
 </section>
-<section id="id1">
-<h2>run<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id2">
+<h2>run<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker container run -it centos:7 /bin/bash
 
 $ docker run -v "$(pwd):/home/name" -u 1000 -t name ls
 </pre></div>
 </div>
-<section id="id2">
-<h3>mount<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<section id="id3">
+<h3>mount<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://qiita.com/Yarimizu14/items/52f4859027165a805630">【Docker】Dockerでホストのディレクトリをマウントする - Qiita</a></p></li>
 </ul>
@@ -376,7 +383,10 @@ volumes:
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Version</a></li>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#id1">17</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#cli">cli</a><ul>
 <li><a class="reference internal" href="#image">image</a></li>
 <li><a class="reference internal" href="#container">container</a></li>
@@ -390,8 +400,8 @@ volumes:
 <li><a class="reference internal" href="#dockerfile">Dockerfile</a><ul>
 <li><a class="reference internal" href="#build">build</a></li>
 <li><a class="reference internal" href="#ls">ls</a></li>
-<li><a class="reference internal" href="#id1">run</a><ul>
-<li><a class="reference internal" href="#id2">mount</a></li>
+<li><a class="reference internal" href="#id2">run</a><ul>
+<li><a class="reference internal" href="#id3">mount</a></li>
 </ul>
 </li>
 </ul>

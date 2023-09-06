@@ -21,3 +21,6 @@ $ pactl info
 
 # pavucontrol
 [[gtk]]
+
+# docker
+- [DockerでPulseaudioを使って，ホストで音を出していてもコンテナで音を出せるようにする． - Qiita](https://qiita.com/Light606F/items/898081a73166c010473a)
