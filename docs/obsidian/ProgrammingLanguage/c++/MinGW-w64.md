@@ -39,3 +39,7 @@
 
 ## ucrt
 [[ucrt]]
+
+
+# windres
+mingw64-binutils

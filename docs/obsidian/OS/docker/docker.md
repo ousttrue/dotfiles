@@ -5,6 +5,9 @@ $ systemctl status docker
 ```
 
 # Version
+## 17
+`multi stage build`
+- @2017 [Docker multi stage buildで変わるDockerfileの常識 - Qiita](https://qiita.com/minamijoyo/items/711704e85b45ff5d6405)
 
 # cli
 [docker | Docker ドキュメント](https://matsuand.github.io/docs.docker.jp.onthefly/engine/reference/commandline/docker/)
