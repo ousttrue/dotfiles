@@ -53,13 +53,16 @@ local function setup_path()
     -- zig
     -- nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
     nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
+
+    nyagos.envadd("PATH", to_path(HOME .. "/.local/share/aquaproj-aqua/bin"))
+  else
+    nyagos.envadd("PATH", to_path(HOME .. "/AppData/Local/aquaproj-aqua"))
   end
   nyagos.envadd("PATH", to_path(HOME .. "/build/zig/bin"))
-  -- nyagos.envadd("PATH", to_path(HOME .. "/go/bin"))
+  nyagos.envadd("PATH", to_path(HOME .. "/go/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/.cargo/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/local/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/.local/bin"))
-  nyagos.envadd("path", to_path(HOME .. "/.local/share/aquaproj-aqua/bin"))
   -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
   local DEL_PATH = {
     "Oculus",
@@ -285,6 +288,8 @@ function M.setup()
       NYA.evalf "chcp 65001"
     end
   end
+
+  nyagos.env.AQUA_GLOBAL_CONFIG = HOME .. "/dotfiles/aqua.yaml"
 
   setup_path()
   setup_alias()

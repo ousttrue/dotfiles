@@ -1,4 +1,5 @@
 [[DockerDesktop]]
+[[docker_install]]
 
 ```
 $ systemctl status docker

@@ -9,10 +9,8 @@ M.list = {
   "Ciapre",
   "DimmedMonokai",
   "Fahrenheit",
-  "ForestBlue",
   "Green Screen (base16)",
   "Hacktober",
-  "idleToes",
   "Man Page",
   "MonaLisa",
   "N0tch2k",
@@ -21,7 +19,6 @@ M.list = {
   "Relaxed",
   "Seafoam Pastel",
   "SeaShells",
-  "vimbones",
 }
 
 ---@return string
