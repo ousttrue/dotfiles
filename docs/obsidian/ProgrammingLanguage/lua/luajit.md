@@ -13,3 +13,7 @@
 
 # FFI
 - @2020 [LuaJIT FFIでモジュールを書く時のハウツー · hnakamur's blog](https://hnakamur.github.io/blog/2020/03/21/how-to-write-luajit-ffi-module/)
+
+# build
+gcc/clang/msvc ビルド可能だが、
+MinGWを非MSYS環境で使う場合にこける？

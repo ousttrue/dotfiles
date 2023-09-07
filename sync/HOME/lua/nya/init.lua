@@ -54,9 +54,9 @@ local function setup_path()
     -- nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
     nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
 
-    nyagos.envadd("PATH", to_path(HOME .. "/.local/share/aquaproj-aqua/bin"))
+    nyagos.envadd("PATH", to_path(HOME .. "/AppData/Local/aquaproj-aqua/bat"))
   else
-    nyagos.envadd("PATH", to_path(HOME .. "/AppData/Local/aquaproj-aqua"))
+    nyagos.envadd("PATH", to_path(HOME .. "/.local/share/aquaproj-aqua/bin"))
   end
   nyagos.envadd("PATH", to_path(HOME .. "/build/zig/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/go/bin"))

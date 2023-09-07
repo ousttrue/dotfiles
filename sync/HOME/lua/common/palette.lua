@@ -12,7 +12,7 @@ M.TABBAR_BG = "#aaaaaa"
 M.TABBAR_FG = "#222222"
 M.TAB_BG = "#222222"
 M.TAB_FG = "#dddddd"
-M.TAB_BG_ACTIVE = "#42305c"
+M.TAB_BG_ACTIVE = "#62307c"
 M.TAB_FG_ACTIVE = "#aaaaff"
 
 -- Color palette for the backgrounds of each cell
