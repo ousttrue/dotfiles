@@ -55,10 +55,11 @@ local function setup_path()
     nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
   end
   nyagos.envadd("PATH", to_path(HOME .. "/build/zig/bin"))
-  nyagos.envadd("PATH", to_path(HOME .. "/go/bin"))
+  -- nyagos.envadd("PATH", to_path(HOME .. "/go/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/.cargo/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/local/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/.local/bin"))
+  nyagos.envadd("path", to_path(HOME .. "/.local/share/aquaproj-aqua/bin"))
   -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
   local DEL_PATH = {
     "Oculus",
@@ -82,7 +83,7 @@ local function setup_path()
 end
 
 local function setup_alias()
-  nyagos.alias.fzf = "~/.fzf/bin/fzf $*"
+  -- nyagos.alias.fzf = "~/.fzf/bin/fzf $*"
   nyagos.env.FZF_DEFAULT_OPTS = "--layout=reverse"
 
   function nyagos.alias.gg()

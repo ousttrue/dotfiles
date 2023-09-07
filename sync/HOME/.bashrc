@@ -80,16 +80,19 @@ path_push() {
 	[ ! -d $1 ] || [ -z "${PATH##*$1*}" ] || export PATH=$PATH:$1
 }
 
-path_unshift "/opt/bin"
+export AQUA_GLOBAL_CONFIG=$HOME/dotfiles/aqua.yaml
+path_push "${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua/bin"
+
+# path_unshift "/opt/bin"
 # custom
-path_unshift "$HOME/local/bin"
+# path_unshift "$HOME/local/bin"
 # local pip
-path_unshift "$HOME/.local/bin"
+# path_unshift "$HOME/.local/bin"
 # golang
-path_unshift "$HOME/go/bin"
+# path_unshift "$HOME/go/bin"
 path_push "/usr/lib/go-1.20/bin"
 # rust
-path_unshift "$HOME/.cargo/bin"
+# path_unshift "$HOME/.cargo/bin"
 
 if which zoxide >/dev/null 2>&1; then
 	eval "$(zoxide init bash)"
