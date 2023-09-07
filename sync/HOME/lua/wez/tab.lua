@@ -84,27 +84,36 @@ local function on_update_status(window, pane)
   }).list))
 end
 
----
---- https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html
----
-local function tab_title(tab)
-  local title = tab.tab_title
-  if title and #title > 0 then
-    -- if the tab title is explicitly set, take that
-    return title
+local function pane_title(pane)
+  if pane.title and #pane.title > 0 then
+    return pane.title
   end
 
-  title = PATH.basename(tab.active_pane.foreground_process_name)
+  -- process name
+  local title = PATH.basename(pane.foreground_process_name)
   if #title > 0 then
     return title
   end
 
+  -- path
   local uri = PATH.convert_home_dir(tab.active_pane.current_working_dir)
   local name = PATH.basename(uri)
   if name == "" then
     name = uri
   end
   return name
+end
+
+---
+--- https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html
+---
+local function tab_title(tab)
+  local title = tab.tab_title
+  if title and #title > 0 then
+    return title
+  end
+
+  return pane_title(tab.active_pane)
 end
 
 ---@param tab
@@ -118,19 +127,22 @@ local function on_format_tab_title(tab, tabs, panes, config, hover, max_width)
   local title = tab_title(tab)
   title = wezterm.truncate_right(title, max_width - 2)
 
+  local fg = tab.is_active and PALETTE.TAB_FG_ACTIVE or PALETTE.TAB_FG
+  local bg = tab.is_active and PALETTE.TAB_BG_ACTIVE or PALETTE.TAB_BG
+
   return PL.PowerLine()
     :push({
-      Fg = PALETTE.NORMAL_TAB_BG,
+      Fg = bg,
       Bg = PALETTE.TABBAR_BG,
       Text = PALETTE.TAB_LEFT,
     })
     :push({
-      Fg = tab.is_active and PALETTE.TAB_FG_ACTIVE or PALETTE.TAB_FG_INACTIVE,
-      Bg = PALETTE.NORMAL_TAB_BG,
+      Fg = fg,
+      Bg = bg,
       Text = title,
     })
     :push({
-      Fg = PALETTE.NORMAL_TAB_BG,
+      Fg = bg,
       Bg = PALETTE.TABBAR_BG,
       Text = PALETTE.TAB_RIGHT,
     }).list

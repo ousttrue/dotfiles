@@ -5,6 +5,7 @@ local NYA = require "nya.util"
 local COM = require "common"
 local STR = require "common.string"
 local PATH = require "common.path"
+local PROMPT = require "nya.prompt"
 
 local SYSTEM_NAME, SUBSYSTEM = COM.get_system()
 local HOME = PATH.get_home()
@@ -296,7 +297,6 @@ function M.setup()
   require("nya.completion").setup()
   require("nya.zoxide").setup()
   require("nya.dotfiles").setup()
-  nyagos.prompt = require("nya.prompt").prompt
 
   nyagos.bindkey("C_R", function(this)
     local resun = ""
@@ -331,6 +331,17 @@ function M.setup()
     nyagos.exec "cd .."
     return true
   end)
+
+  nyagos.alias.osc = function(args)
+    local osc, str = unpack(args.rawargs)
+    nyagos.write(string.format("\027]%s;%s\027\\", osc, str))
+  end
+
+  nyagos.alias.title = function(args)
+    PROMPT.title = unpack(args.rawargs)
+  end
+
+  nyagos.prompt = PROMPT.prompt
 end
 
 return M

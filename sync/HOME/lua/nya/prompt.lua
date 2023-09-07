@@ -1,4 +1,7 @@
-local M = {}
+local M = {
+  title = "🐈",
+}
+
 local NYA = require "nya.util"
 
 local V = require "common.vars"
@@ -81,7 +84,7 @@ local git_status_map = {
   ["?"] = " ",
 }
 
-local org_prompter = nyagos.prompt
+-- local org_prompter = nyagos.prompt
 
 local function get_current()
   -- local current = "$P"
@@ -97,7 +100,7 @@ local function get_current()
   end
 end
 
-function M.prompt(_)
+function M.prompt(this)
   -- error check
   local error = false
   if nyagos.env.ERRORLEVEL and nyagos.env.ERRORLEVEL ~= "0" then
@@ -147,7 +150,8 @@ function M.prompt(_)
     .. ">"
     .. fg_bg_attr(V.fg.default, V.bg.default)
     .. "$s" -- 'space'
-  return org_prompter(prompt)
+
+  return nyagos.default_prompt(prompt, M.title)
 end
 
 return M

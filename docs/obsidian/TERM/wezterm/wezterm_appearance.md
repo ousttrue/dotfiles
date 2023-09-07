@@ -4,6 +4,18 @@
 
 [Colors & Appearance - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/appearance.html#defining-your-own-colors)
 
+```
++------------------------------+
++ window                       |
++------------------------------+
++ left /[tab0][tab1].../ right |
++------------------------------+
+|             |                |
+|  pane       |  pane          |
+|             |                |
++------------------------------+
+```
+
 # padding
 [window_padding - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/config/window_padding.html)
 
@@ -31,14 +43,31 @@ config.use_fancy_tab_bar = false
 config.show_tabs_in_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
 ```
-# status
+## left & right
 
 - [Status Bar - Commentary of Dotfiles](https://coralpink.github.io/commentary/wezterm/status.html)
 - [Tmux Like Status Bar · Issue #500 · wez/wezterm · GitHub](https://github.com/wez/wezterm/issues/500)
-
 ## event
 [update-status - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/window-events/update-status.html)
-
 ## setter
 [set_left_status - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/window/set_left_status.html)
 [set_right_status - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/window/set_right_status.html)
+
+# tab
+- [object: TabInformation - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/TabInformation.html)
+- [object: PaneInformation - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/PaneInformation.html)
+## title
+
+
+# pane
+- [object: PaneInformation - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/PaneInformation.html)
+## title
+[[escape_sequence]] 
+`OSC 1` (Icon/Tab title changing) 
+`OSC 2` (Window title changing)
+- [get_title - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/pane/get_title.html)
+## user_vars
+[[escape_sequence]] 
+`OSC 1337` iTerm2
+- [Proprietary Escape Codes - Documentation - iTerm2 - macOS Terminal Replacement](https://iterm2.com/documentation-escape-codes.html)
+- [get_user_vars - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/pane/get_user_vars.html)
