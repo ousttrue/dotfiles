@@ -20,6 +20,8 @@ function M.setup()
 
   vim.keymap.set("n", ")", ":BufferLineCycleNext<CR>", { noremap = true })
   vim.keymap.set("n", "(", ":BufferLineCyclePrev<CR>", { noremap = true })
+  -- vim.keymap.set("n", "<M-l>", ":BufferLineCycleNext<CR>", { noremap = true })
+  -- vim.keymap.set("n", "<M-h>", ":BufferLineCyclePrev<CR>", { noremap = true })
 end
 
 return M

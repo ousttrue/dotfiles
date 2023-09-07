@@ -301,6 +301,11 @@ vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
 
+vim.keymap.set("n", "<M-h>", "<C-w>h", { noremap = true })
+vim.keymap.set("n", "<M-j>", "<C-w>j", { noremap = true })
+vim.keymap.set("n", "<M-k>", "<C-w>k", { noremap = true })
+vim.keymap.set("n", "<M-l>", "<C-w>l", { noremap = true })
+
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
 -- vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { noremap = true })

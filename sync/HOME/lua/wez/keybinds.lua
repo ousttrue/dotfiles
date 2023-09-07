@@ -31,11 +31,11 @@ local function setup_keys(keys)
 
   -- ALT
   bind("ALT", "c", wezterm.action { SpawnTab = "CurrentPaneDomain" })
-  bind("ALT", "h", wezterm.action { ActivateTabRelative = -1 })
-  bind("ALT", "l", wezterm.action { ActivateTabRelative = 1 })
   bind("ALT", "LeftArrow", wezterm.action { MoveTabRelative = -1 })
   bind("ALT", "RightArrow", wezterm.action { MoveTabRelative = 1 })
 
+  -- bind("ALT", "h", wezterm.action { ActivateTabRelative = -1 })
+  -- bind("ALT", "l", wezterm.action { ActivateTabRelative = 1 })
   bind("ALT", ",", wezterm.action { ActivateTabRelative = -1 })
   bind("ALT", ".", wezterm.action { ActivateTabRelative = 1 })
   bind("ALT", "LeftArrow", wezterm.action { MoveTabRelative = -1 })
