@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>lazydocker - shell note ドキュメント</title>
+        <title>nvim-remote-container - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -218,8 +218,47 @@
           </label>
         </div>
         <article role="main">
-          <p>https://github.com/jamestthompson3/nvim-remote-containers</p>
-<p><a class="reference external" href="https://github.com/esensar/nvim-dev-container">GitHub - esensar/nvim-dev-container: Neovim dev container support - Mirror of https://codeberg.org/esensar/nvim-dev-container</a></p>
+          <p>[[nvim_build]]</p>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:22.04</span>
+<span class="k">ARG</span><span class="w"> </span><span class="nv">username</span><span class="o">=</span>hoge
+
+<span class="c"># root</span>
+<span class="k">RUN</span><span class="w"> </span>apt update
+<span class="k">RUN</span><span class="w"> </span>apt install -y curl git build-essential unzip gettext cmake ninja-build
+
+<span class="c"># add user</span>
+<span class="k">RUN</span><span class="w"> </span>apt install -y sudo
+<span class="k">RUN</span><span class="w"> </span>useradd -m <span class="si">${</span><span class="nv">username</span><span class="si">}</span>
+<span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">"</span> <span class="p">|</span> chpasswd
+<span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2"> ALL=(ALL) ALL"</span> &gt;&gt; /etc/sudoers
+
+<span class="c"># user</span>
+<span class="k">USER</span><span class="w"> </span><span class="s">${username}</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/home/${username}</span>
+<span class="k">RUN</span><span class="w"> </span>curl -L -O https://github.com/neovim/neovim/archive/refs/tags/v0.9.2.tar.gz
+<span class="k">RUN</span><span class="w"> </span>ls -al
+<span class="k">RUN</span><span class="w"> </span>tar xf v0.9.2.tar.gz
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/home/${username}/neovim-0.9.2</span>
+<span class="k">RUN</span><span class="w"> </span>cmake -G Ninja -S cmake.deps -B .deps -DCMAKE_BUILD_TYPE<span class="o">=</span>Release 
+<span class="k">RUN</span><span class="w"> </span>cmake --build .deps <span class="o">&amp;&amp;</span> cmake --install .deps
+<span class="k">RUN</span><span class="w"> </span>cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DCMAKE_INSTALL_PREFIX<span class="o">=</span>/home/<span class="si">${</span><span class="nv">username</span><span class="si">}</span>/build/neovim
+<span class="k">RUN</span><span class="w"> </span>cmake --build build <span class="o">&amp;&amp;</span> cmake --install build
+
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">"/bin/bash"</span><span class="p">]</span>
+
+<span class="c"># docker build -tag nvim .</span>
+<span class="c"># docker run --rm -it -u hoge:hoge nvim</span>
+</pre></div>
+</div>
+<p>800MB</p>
+<section class="tex2jax_ignore mathjax_ignore" id="nvim-remote-container">
+<h1>nvim-remote-container<a class="headerlink" href="#nvim-remote-container" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://github.com/jamestthompson3/nvim-remote-containers</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="nvim-dev-container">
+<h1>nvim-dev-container<a class="headerlink" href="#nvim-dev-container" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://github.com/esensar/nvim-dev-container</p>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="lazydocker">
 <h1>lazydocker<a class="headerlink" href="#lazydocker" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -268,7 +307,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">lazydocker</a></li>
+<li><a class="reference internal" href="#">nvim-remote-container</a></li>
+<li><a class="reference internal" href="#nvim-dev-container">nvim-dev-container</a></li>
+<li><a class="reference internal" href="#lazydocker">lazydocker</a></li>
 <li><a class="reference internal" href="#entrypoint">ENTRYPOINT</a></li>
 </ul>
 

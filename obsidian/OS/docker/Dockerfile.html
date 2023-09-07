@@ -252,7 +252,7 @@ $ docker build --tag hello .
 <span class="k">RUN</span><span class="w"> </span>yum -y install sudo
 <span class="k">RUN</span><span class="w"> </span>useradd -m <span class="si">${</span><span class="nv">username</span><span class="si">}</span>
 <span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">"</span> <span class="p">|</span> chpasswd
-<span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2"> ALL=(ALL) ALL"</span> &gt;&gt; /etc/sudoers
+<span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2"> ALL=NOPASSWD: ALL"</span> &gt;&gt; /etc/sudoers
 </pre></div>
 </div>
 </section>
