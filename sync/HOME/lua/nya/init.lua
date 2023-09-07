@@ -297,6 +297,40 @@ function M.setup()
   require("nya.zoxide").setup()
   require("nya.dotfiles").setup()
   nyagos.prompt = require("nya.prompt").prompt
+
+  nyagos.bindkey("C_R", function(this)
+    local resun = ""
+    if this.pos == 1 then
+      local result = nyagos.eval "fd -t directory | fzf"
+      nyagos.eval("cd " .. result)
+      this:call "CLEAR_SCREEN"
+      return ""
+    end
+
+    -- local args = nyagos.argsfilter(this.text)
+    -- for k, v in pairs(this) do
+    --   print(k, v)
+    -- end
+    -- print(this:lastword())
+    local word, pos = this:lastword()
+    -- print(word, pos)
+    local cmd = string.format('globtest %s | fzf --header="%s"', word, word)
+    local result = nyagos.eval(cmd)
+    this:call "CLEAR_SCREEN"
+    if result and #result > 0 then
+      this:replacefrom(pos, result)
+    end
+  end)
+
+  nyagos.bindkey("C_H", function(this)
+    if this.pos > 1 then
+      this:call "BACKWARD_DELETE_CHAR"
+      return
+    end
+
+    nyagos.exec "cd .."
+    return true
+  end)
 end
 
 return M
