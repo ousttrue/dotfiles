@@ -29,7 +29,7 @@ ARG username=hoge
 RUN yum -y install sudo
 RUN useradd -m ${username}
 RUN echo "${username}:${username}" | chpasswd
-RUN echo "${username} ALL=(ALL) ALL" >> /etc/sudoers
+RUN echo "${username} ALL=NOPASSWD: ALL" >> /etc/sudoers
 ```
 
 ## c++ dev
