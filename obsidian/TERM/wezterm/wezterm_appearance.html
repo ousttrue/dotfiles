@@ -221,6 +221,17 @@
           <p>[[wezterm]]</p>
 <p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/window/index.html">object: Window - Wez's Terminal Emulator</a></p>
 <p><a class="reference external" href="https://wezfurlong.org/wezterm/config/appearance.html#defining-your-own-colors">Colors &amp; Appearance - Wez's Terminal Emulator</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+------------------------------+</span>
+<span class="o">+</span> <span class="n">window</span>                       <span class="o">|</span>
+<span class="o">+------------------------------+</span>
+<span class="o">+</span> <span class="n">left</span> <span class="o">/</span><span class="p">[</span><span class="n">tab0</span><span class="p">][</span><span class="n">tab1</span><span class="p">]</span><span class="o">.../</span> <span class="n">right</span> <span class="o">|</span>
+<span class="o">+------------------------------+</span>
+<span class="o">|</span>             <span class="o">|</span>                <span class="o">|</span>
+<span class="o">|</span>  <span class="n">pane</span>       <span class="o">|</span>  <span class="n">pane</span>          <span class="o">|</span>
+<span class="o">|</span>             <span class="o">|</span>                <span class="o">|</span>
+<span class="o">+------------------------------+</span>
+</pre></div>
+</div>
 <section class="tex2jax_ignore mathjax_ignore" id="padding">
 <h1>padding<a class="headerlink" href="#padding" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/config/window_padding.html">window_padding - Wez's Terminal Emulator</a></p>
@@ -248,13 +259,13 @@
 <span class="n">config</span><span class="p">.</span><span class="n">show_new_tab_button_in_tab_bar</span> <span class="o">=</span> <span class="kc">false</span>
 </pre></div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="status">
-<h1>status<a class="headerlink" href="#status" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="left-right">
+<h2>left &amp; right<a class="headerlink" href="#left-right" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://coralpink.github.io/commentary/wezterm/status.html">Status Bar - Commentary of Dotfiles</a></p></li>
 <li><p><a class="reference external" href="https://github.com/wez/wezterm/issues/500">Tmux Like Status Bar · Issue #500 · wez/wezterm · GitHub</a></p></li>
 </ul>
+</section>
 <section id="event">
 <h2>event<a class="headerlink" href="#event" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/window-events/update-status.html">update-status - Wez's Terminal Emulator</a></p>
@@ -263,6 +274,40 @@
 <h2>setter<a class="headerlink" href="#setter" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/window/set_left_status.html">set_left_status - Wez's Terminal Emulator</a>
 <a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/window/set_right_status.html">set_right_status - Wez's Terminal Emulator</a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tab">
+<h1>tab<a class="headerlink" href="#tab" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/TabInformation.html">object: TabInformation - Wez's Terminal Emulator</a></p></li>
+<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/PaneInformation.html">object: PaneInformation - Wez's Terminal Emulator</a></p></li>
+</ul>
+<section id="title">
+<h2>title<a class="headerlink" href="#title" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pane">
+<h1>pane<a class="headerlink" href="#pane" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/PaneInformation.html">object: PaneInformation - Wez's Terminal Emulator</a></p></li>
+</ul>
+<section id="id1">
+<h2>title<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[escape_sequence]]
+<code class="docutils literal notranslate"><span class="pre">OSC</span> <span class="pre">1</span></code> (Icon/Tab title changing)
+<code class="docutils literal notranslate"><span class="pre">OSC</span> <span class="pre">2</span></code> (Window title changing)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/pane/get_title.html">get_title - Wez's Terminal Emulator</a></p></li>
+</ul>
+</section>
+<section id="user-vars">
+<h2>user_vars<a class="headerlink" href="#user-vars" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[escape_sequence]]
+<code class="docutils literal notranslate"><span class="pre">OSC</span> <span class="pre">1337</span></code> iTerm2</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://iterm2.com/documentation-escape-codes.html">Proprietary Escape Codes - Documentation - iTerm2 - macOS Terminal Replacement</a></p></li>
+<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/pane/get_user_vars.html">get_user_vars - Wez's Terminal Emulator</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -300,10 +345,19 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">padding</a></li>
-<li><a class="reference internal" href="#tabbar">tabbar</a></li>
-<li><a class="reference internal" href="#status">status</a><ul>
+<li><a class="reference internal" href="#tabbar">tabbar</a><ul>
+<li><a class="reference internal" href="#left-right">left &amp; right</a></li>
 <li><a class="reference internal" href="#event">event</a></li>
 <li><a class="reference internal" href="#setter">setter</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tab">tab</a><ul>
+<li><a class="reference internal" href="#title">title</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pane">pane</a><ul>
+<li><a class="reference internal" href="#id1">title</a></li>
+<li><a class="reference internal" href="#user-vars">user_vars</a></li>
 </ul>
 </li>
 </ul>

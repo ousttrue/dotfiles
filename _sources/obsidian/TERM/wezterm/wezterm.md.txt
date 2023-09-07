@@ -1,11 +1,17 @@
 [wezterm - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/)
+- [wez/wezterm Show And Tell · Discussions · GitHub](https://github.com/wez/wezterm/discussions/categories/show-and-tell)
+	- @2021 [Show your wezterms · wez/wezterm · Discussion #628 · GitHub](https://github.com/wez/wezterm/discussions/628)
+
+# articles
+- @2022 [alacritty+tmuxもいいけど、weztermがすごい件](https://zenn.dev/yutakatay/articles/wezterm-intro)
+`emit-event`
 
 - @2023 [WezTermをセットアップする - Qiita](https://qiita.com/sonarAIT/items/0571c869e5f9ab3be817)
 - @2022 [WezTermで日替わりフォントを設定する](https://zenn.dev/htlsne/articles/wezterm-rotate-font)
-- @2022 [alacritty+tmuxもいいけど、weztermがすごい件](https://zenn.dev/yutakatay/articles/wezterm-intro)
+`font`
 - @2022 [weztermを使ってみる](https://zenn.dev/eetann/scraps/fe0a32896b6de8)
 - [Introduction - Commentary of Dotfiles](https://coralpink.github.io/commentary/index.html)
-- @2021 [Show your wezterms · wez/wezterm · Discussion #628 · GitHub](https://github.com/wez/wezterm/discussions/628)
+`mdbook`
 
 # settings
 [[wezterm_appearance]]

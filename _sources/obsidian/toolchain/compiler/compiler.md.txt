@@ -1,3 +1,4 @@
+[コンパイラ・C++ 標準の判定 · GitHub](https://gist.github.com/treastrain/483a2d233560dc99fda8e59b6fd03361)
 
 # MSVC
 ## msvcrt

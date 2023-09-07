@@ -223,6 +223,7 @@
 <li><p><a class="reference external" href="https://containers.dev/">Development containers</a></p></li>
 <li><p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers - Visual Studio Marketplace</a></p></li>
 <li><p><a class="reference external" href="https://code.visualstudio.com/docs/devcontainers/containers">Developing inside a Container using Visual Studio Code Remote Development</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://takasdev.hatenablog.com/entry/2022/03/19/191237">かんたんなdevcontainerのコンテナ構成作り方メモ - はまったりひらめいたり…とか…</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://zenn.dev/streamwest1629/articles/vscode_wanderer-in-devcontainer">VSCode Devcontainer 放浪記</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://mogura.dev/articles/devcontainer-cli/">devcontainer cli が便利だったので紹介します - MoguraDev</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://zenn.dev/hankei6km/articles/devcontainers-in-cli-ci">Dev Container が VSCode から CLI にもやって来た</a></p></li>
@@ -239,47 +240,18 @@
 │ ├ docker-compose.yml (optional)
 </pre></div>
 </div>
-<section id="devcontainer-json">
-<h2>devcontainer.json<a class="headerlink" href="#devcontainer-json" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-json5 notranslate"><div class="highlight"><pre><span></span>// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/cpp
-{
-	"name": "C++",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Configure tool-specific properties.
-	"customizations": {
-		// Configure properties specific to VS Code.
-		"vscode": {
-			"settings": {},
-			"extensions": [
-				"streetsidesoftware.code-spell-checker"
-			]
-		}
-	}
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "gcc -v",
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
-}
-</pre></div>
-</div>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="tutorial">
 <h1>tutorial<a class="headerlink" href="#tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://code.visualstudio.com/docs/devcontainers/tutorial">Get started with development Containers in Visual Studio Code</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="features">
+<h1>features<a class="headerlink" href="#features" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/blogs/2022/09/15/dev-container-features">Dev Container Features</a></p></li>
+<li><p><a class="reference external" href="https://blog.jp.square-enix.com/iteng-blog/posts/00051-devcontainer-feature-intro/">Dev Container Featuresでdevcontainerを簡単に作る | スクエニ ITエンジニア ブログ</a></p></li>
 </ul>
 </section>
 
@@ -316,11 +288,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">folder</a><ul>
-<li><a class="reference internal" href="#devcontainer-json">devcontainer.json</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">folder</a></li>
 <li><a class="reference internal" href="#tutorial">tutorial</a></li>
+<li><a class="reference internal" href="#features">features</a></li>
 </ul>
 
           </div>
