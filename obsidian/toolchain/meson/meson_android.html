@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Windows Build - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,96 +212,16 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://sr.ht/~lattis/muon/">muon: meson implementation in C</a></p>
+          <p>[[meson]]</p>
 <ul class="simple">
-<li><p>[[meson]] の C 実装</p></li>
+<li><p><a class="reference external" href="https://github.com/ppetraki/meson-android-helloworld">GitHub - ppetraki/meson-android-helloworld: meson android build PoC</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="windows-build">
-<h1>Windows Build<a class="headerlink" href="#windows-build" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">MUON_PLATFORM_null</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">source/platform</span></code></p>
-<p>このあたり、Winodws版を作る必要あり</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">platform_sources</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span>
-    <span class="s1">'mem.c'</span><span class="p">,</span>
-    <span class="s1">'path.c'</span><span class="p">,</span>
-    <span class="c1"># 'filesystem.c',</span>
-    <span class="c1"># 'run_cmd.c',</span>
-    <span class="c1"># 'term.c',</span>
-    <span class="c1"># 'uname.c',</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<section id="unistd-h">
-<h2>unistd.h<a class="headerlink" href="#unistd-h" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/341817/is-there-a-replacement-for-unistd-h-for-windows-visual-c">c++ - Is there a replacement for unistd.h for Windows (Visual C)? - Stack Overflow</a></p></li>
-<li><p><a class="reference external" href="https://gist.github.com/mbikovitsky/39224cf521bfea7eabe9">Windows unistd.h replacement · GitHub</a></p></li>
-</ul>
-</section>
-<section id="getopt-h">
-<h2>getopt.h<a class="headerlink" href="#getopt-h" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://takamints.hatenablog.jp/entry/2015/04/27/231454">Visual C/C++用getoptでPOSIX的コマンドラインオプション解析 - 銀の弾丸</a></p></li>
-</ul>
-</section>
-<section id="utsname-h">
-<h2>utsname.h<a class="headerlink" href="#utsname-h" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/tniessen/iperf-windows/blob/master/win32-compat/sys/utsname.h">iperf-windows/utsname.h at master · tniessen/iperf-windows · GitHub</a></p></li>
-</ul>
-</section>
-<section id="clock-gettime">
-<h2>clock_gettime<a class="headerlink" href="#clock-gettime" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/5404277/porting-clock-gettime-to-windows">c++ - Porting clock_gettime to windows - Stack Overflow</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/ozaki-r/items/fb4a48c2833e4b479ae1">CLOCK_REALTIMEとCLOCK_MONOTONIC - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://sh4869.hatenablog.com/entry/2015/01/06/161910">Windowsでclock_gettimeを使う - Retired Colourman</a></p></li>
-</ul>
-</section>
-<section id="ssize-t">
-<h2>ssize_t<a class="headerlink" href="#ssize-t" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/yamori813/items/5a3b1eb33c360dfd2465">ssize_tについて - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://codom.hatenablog.com/entry/2018/06/19/222336"><code class="docutils literal notranslate"><span class="pre">size_t</span></code>, <code class="docutils literal notranslate"><span class="pre">ssize_t</span></code>とは何か - Read -&gt; Blog</a></p></li>
-<li><p><a class="reference external" href="https://www.wdic.org/w/TECH/ssize_t">ssize_t ‐ 通信用語の基礎知識</a></p></li>
-</ul>
-</section>
-<section id="s-irusr">
-<h2>S_IRUSR<a class="headerlink" href="#s-irusr" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/20773354/migrating-a-c-program-from-linux-to-windows">Migrating a C program from Linux to Windows - Stack Overflow</a></p></li>
-</ul>
-</section>
-<section id="stdin-fileno">
-<h2>STDIN_FILENO<a class="headerlink" href="#stdin-fileno" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/13531677/stdin-fileno-undeclared-in-windows">compiler errors - STDIN_FILENO undeclared in Windows - Stack Overflow</a></p></li>
-</ul>
-</section>
-<section id="pid-t">
-<h2>pid_t<a class="headerlink" href="#pid-t" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>waitpid</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://tech.ckme.co.jp/cpp/cpp_pid.shtml">C++のTips - Unix系OSでプロセスIDを取得するには？：tech.ckme.co.jp</a></p></li>
-</ul>
-</section>
-<section id="gcc-attribute">
-<h2>gcc: attribute<a class="headerlink" href="#gcc-attribute" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/ozaki-r/items/a46197d241629fc373a7">format属性 - Qiita</a></p></li>
-</ul>
-</section>
-<section id="dirent-h">
-<h2>dirent.h<a class="headerlink" href="#dirent-h" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://github.com/tronkko/dirent/blob/master/include/dirent.h">dirent/dirent.h at master · tronkko/dirent · GitHub</a></p>
-</section>
-</section>
 
         </article>
       </div>
@@ -316,7 +236,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/toolchain/buildtool/muon.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/toolchain/meson/meson_android.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -324,36 +244,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Windows Build</a><ul>
-<li><a class="reference internal" href="#unistd-h">unistd.h</a></li>
-<li><a class="reference internal" href="#getopt-h">getopt.h</a></li>
-<li><a class="reference internal" href="#utsname-h">utsname.h</a></li>
-<li><a class="reference internal" href="#clock-gettime">clock_gettime</a></li>
-<li><a class="reference internal" href="#ssize-t">ssize_t</a></li>
-<li><a class="reference internal" href="#s-irusr">S_IRUSR</a></li>
-<li><a class="reference internal" href="#stdin-fileno">STDIN_FILENO</a></li>
-<li><a class="reference internal" href="#pid-t">pid_t</a></li>
-<li><a class="reference internal" href="#gcc-attribute">gcc: attribute</a></li>
-<li><a class="reference internal" href="#dirent-h">dirent.h</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

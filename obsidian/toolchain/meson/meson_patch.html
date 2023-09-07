@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>tool chain の置き換え - shell note ドキュメント</title>
+        <title>c++ std flags - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -219,124 +219,16 @@
         </div>
         <article role="main">
           <p>[[meson]]</p>
-<section class="tex2jax_ignore mathjax_ignore" id="tool-chain">
-<h1>tool chain の置き換え<a class="headerlink" href="#tool-chain" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="c-std-flags">
+<h1>c++ std flags<a class="headerlink" href="#c-std-flags" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">c++2b</span></code> とか</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="linker-detection">
+<h1>linker detection<a class="headerlink" href="#linker-detection" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">zig</span> <span class="pre">cc</span></code> とか</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://mesonbuild.com/Machine-files.html">Cross and Native File reference</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mesonbuild/meson/pull/11918">linker: support "zig cc" by motiejus · Pull Request #11918 · mesonbuild/meson · GitHub</a></p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">meson</span> <span class="n">setup</span> <span class="n">builddir</span> <span class="o">--</span><span class="n">cross</span><span class="o">-</span><span class="n">file</span> <span class="n">mingw_x86_64</span><span class="o">.</span><span class="n">ini</span>
-<span class="c1"># or</span>
-<span class="n">meson</span> <span class="n">setup</span> <span class="n">builddir</span> <span class="o">--</span><span class="n">native</span><span class="o">-</span><span class="n">file</span> <span class="n">clang</span><span class="o">.</span><span class="n">ini</span>
-</pre></div>
-</div>
-<section id="cross-file">
-<h2>cross-file<a class="headerlink" href="#cross-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://mesonbuild.com/Cross-compilation.html">Cross compilation</a></p></li>
-</ul>
-</section>
-<section id="native-file">
-<h2>native-file<a class="headerlink" href="#native-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">host_machine</span></code> セクションが無い場合？</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://mesonbuild.com/Native-environments.html">Persistent native environments</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="examples">
-<h1>examples<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="msys2">
-<h2>msys2<a class="headerlink" href="#msys2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">muon</span></code> のビルドとか</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[binaries]</span><span class="w"></span>
-<span class="na">c</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s">'x86_64-pc-msys-gcc'</span><span class="w"></span>
-<span class="na">cpp</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s">'x86_64-pc-msys-g++'</span><span class="w"></span>
-<span class="na">ar</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s">'x86_64-pc-msys-gcc-ar'</span><span class="w"></span>
-
-<span class="k">[host_machine]</span><span class="w"></span>
-<span class="na">system</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">'linux'</span><span class="w"></span>
-<span class="na">cpu_family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'x86_64'</span><span class="w"></span>
-<span class="na">cpu</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s">'x86_64'</span><span class="w"></span>
-<span class="na">endian</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">'little'</span><span class="w"></span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">MSYS64/usr/bin</span></code> に path を通して <code class="docutils literal notranslate"><span class="pre">meson</span></code> を実行するべし。</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">            </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">"env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="nt">"PATH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${env:PATH};C:\\Python310\\Scripts;D:\\msys64\\usr\\bin"</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="p">},</span><span class="w"></span>
-<span class="w">                </span><span class="nt">"shell"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="nt">"executable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${env:ComSpec}"</span><span class="p">,</span><span class="w"></span>
-<span class="w">                    </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                        </span><span class="s2">"/d"</span><span class="p">,</span><span class="w"></span>
-<span class="w">                        </span><span class="s2">"/c"</span><span class="w"></span>
-<span class="w">                    </span><span class="p">]</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="zig">
-<h2>zig<a class="headerlink" href="#zig" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>配列使える</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[binaries]</span><span class="w"></span>
-<span class="na">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">['zig', 'cc']</span><span class="w"></span>
-<span class="na">cpp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">['zig', 'c++']</span><span class="w"></span>
-<span class="na">ar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">['zig', 'ar']</span><span class="w"></span>
-<span class="na">dlltool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">['zig', 'dlltool']</span><span class="w"></span>
-<span class="na">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">['zig', 'lib']</span><span class="w"></span>
-<span class="na">ranlib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">['zig', 'ranlib']</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="clang-ucrt-on-linux">
-<h2>clang-ucrt on Linux<a class="headerlink" href="#clang-ucrt-on-linux" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">[binaries]</span><span class="w"></span>
-<span class="na">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'/mnt/d/llvm-mingw-20230130-ucrt-x86_64/bin/x86_64-w64-mingw32-clang.exe'</span><span class="w"></span>
-<span class="na">cpp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'/mnt/d/llvm-mingw-20230130-ucrt-x86_64/bin/x86_64-w64-mingw32-clang++.exe'</span><span class="w"></span>
-<span class="na">ar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'/mnt/d/llvm-mingw-20230130-ucrt-x86_64/bin/x86_64-w64-mingw32-llvm-ar.exe'</span><span class="w"></span>
-<span class="na">strip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'/mnt/d/llvm-mingw-20230130-ucrt-x86_64/bin/x86_64-w64-mingw32-strip.exe'</span><span class="w"></span>
-<span class="na">windres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'/mnt/d/llvm-mingw-20230130-ucrt-x86_64/bin/x86_64-w64-mingw32-windres.exe'</span><span class="w"></span>
-<span class="na">exe_wrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'wine64'</span><span class="w"></span>
-
-<span class="k">[host_machine]</span><span class="w"></span>
-<span class="na">system</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'windows'</span><span class="w"></span>
-<span class="na">cpu_family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'x86_64'</span><span class="w"></span>
-<span class="na">cpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'x86_64'</span><span class="w"></span>
-<span class="na">endian</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'little'</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="zig-cross">
-<h2>zig cross<a class="headerlink" href="#zig-cross" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>TODO: dll へのリンク
-TODO: zig-0.11 dev 動かん <code class="docutils literal notranslate"><span class="pre">-Wl,--version</span></code></p>
-<div class="highlight-zigcc.ini notranslate"><div class="highlight"><pre><span></span>[constants]
-common_flags = ['-target', 'x86_64-windows-gnu']
-
-[binaries]
-c = ['zig', 'cc']
-cpp = ['zig', 'c++']
-ar = ['zig', 'ar']
-dlltool = ['zig', 'dlltool']
-lib = ['zig', 'lib']
-ranlib = ['zig', 'ranlib']
-windres = '/mnt/d/llvm-mingw-20230130-ucrt-x86_64/bin/x86_64-w64-mingw32-windres.exe'
-c_ld = 'lld'
-cpp_ld = 'lld'
-
-[built-in options]
-c_args = common_flags
-cpp_args = c_args
-
-[host_machine]
-system = 'windows'
-cpu_family = 'x86_64'
-cpu = 'x86_64'
-endian = 'little'
-</pre></div>
-</div>
-</section>
 </section>
 
         </article>
@@ -352,7 +244,7 @@ endian = 'little'
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/toolchain/buildtool/meson_cross_compile.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/toolchain/meson/meson_patch.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -372,18 +264,8 @@ endian = 'little'
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">tool chain の置き換え</a><ul>
-<li><a class="reference internal" href="#cross-file">cross-file</a></li>
-<li><a class="reference internal" href="#native-file">native-file</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#examples">examples</a><ul>
-<li><a class="reference internal" href="#msys2">msys2</a></li>
-<li><a class="reference internal" href="#zig">zig</a></li>
-<li><a class="reference internal" href="#clang-ucrt-on-linux">clang-ucrt on Linux</a></li>
-<li><a class="reference internal" href="#zig-cross">zig cross</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">c++ std flags</a></li>
+<li><a class="reference internal" href="#linker-detection">linker detection</a></li>
 </ul>
 
           </div>
