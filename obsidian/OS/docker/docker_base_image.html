@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>busybox - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,137 +218,27 @@
           </label>
         </div>
         <article role="main">
-          <p>[[DockerDesktop]]
-[[docker_install]]</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ systemctl status docker
+          <section class="tex2jax_ignore mathjax_ignore" id="busybox">
+<h1>busybox<a class="headerlink" href="#busybox" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="debian">
+<h1>debian<a class="headerlink" href="#debian" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">debian:buster-slim</span>
 </pre></div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>17<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">multi</span> <span class="pre">stage</span> <span class="pre">build</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="distroless">
+<h1>distroless<a class="headerlink" href="#distroless" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[Debian]] 10(buster) base =&gt; <code class="docutils literal notranslate"><span class="pre">glibc-2.28</span></code></p>
+<p><a class="reference external" href="https://github.com/GoogleContainerTools/distroless">GitHub - GoogleContainerTools/distroless: 🥑 Language focused docker images, minus the operating system.</a></p>
+<blockquote>
+<div><p>distrolessコンテナにはshやbashなどのshellは含まれていない</p>
+</div></blockquote>
 <ul class="simple">
-<li><p>@2017 <a class="reference external" href="https://qiita.com/minamijoyo/items/711704e85b45ff5d6405">Docker multi stage buildで変わるDockerfileの常識 - Qiita</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/yoshii0110/articles/21ddb58c6f6bfa">コンテナイメージ使うならdistrolessもいいよねという話</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://devops-blog.virtualtech.jp/entry/20220713/1657683666">Distrolessで遊ぶ - とことんDevOps | 日本仮想化技術のDevOps技術情報メディア</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://qiita.com/t_katsumura/items/462e2ae6321a9b5e473e">セキュアで軽量なdistrolessコンテナを作成する - Qiita</a></p></li>
 </ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="cli">
-<h1>cli<a class="headerlink" href="#cli" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://matsuand.github.io/docs.docker.jp.onthefly/engine/reference/commandline/docker/">docker | Docker ドキュメント</a></p>
-<ul class="simple">
-<li><p>@2017 <a class="reference external" href="https://qiita.com/hasegit/items/1e3d6d43b4356a74dfe1">Dockerライトユーザーの為のコマンド一覧 - Qiita</a></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">docker</span> <span class="o">--</span><span class="n">version</span>
-<span class="n">Docker</span> <span class="n">version</span> <span class="mf">24.0.5</span><span class="p">,</span> <span class="n">build</span> <span class="n">ced0996</span>
-</pre></div>
-</div>
-<section id="image">
-<h2>image<a class="headerlink" href="#image" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">image</span> <span class="n">ls</span>
-</pre></div>
-</div>
-</section>
-<section id="container">
-<h2>container<a class="headerlink" href="#container" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">ls</span>
-</pre></div>
-</div>
-</section>
-<section id="run">
-<h2>run<a class="headerlink" href="#run" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>shell login
-<a class="reference external" href="https://blog.mosuke.tech/entry/2015/01/24/213255/">dockerで特定ユーザでログインした状態のシェル環境を提供する</a></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#$ docker run --rm -it -u "hoge:hoge" IMAGE_NAME
-$ docker run --rm -it mydev su - hoge
-# --rm: remove exists
-# -i: interactive
-# -t: tty
-# -u: user:group
-</pre></div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="mount">
-<h1>mount<a class="headerlink" href="#mount" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/aki_55p/items/63c47214cab7bcb027e0">Docker の Volume がよくわからないから調べた - Qiita</a></p></li>
-</ul>
-<section id="volume">
-<h2>volume<a class="headerlink" href="#volume" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.docker.jp/storage/volumes.html">ボリュームの使用 — Docker-docs-ja 24.0 ドキュメント</a></p></li>
-<li><p><a class="reference external" href="https://matsuand.github.io/docs.docker.jp.onthefly/storage/volumes/">ボリュームの利用 | Docker ドキュメント</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="dockerfile">
-<h1>Dockerfile<a class="headerlink" href="#dockerfile" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2018 <a class="reference external" href="https://www.wakuwakubank.com/posts/270-docker-build-image/">Dockerfileの書き方, 利用する命令, 作成手順 - わくわくBank</a></p></li>
-</ul>
-<section id="build">
-<h2>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker image build -t イメージ名[:タグ名] [Dockerfileが配置されているディレクトリパス]
-</pre></div>
-</div>
-</section>
-<section id="ls">
-<h2>ls<a class="headerlink" href="#ls" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker image ls
-</pre></div>
-</div>
-</section>
-<section id="id2">
-<h2>run<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker container run -it centos:7 /bin/bash
-
-$ docker run -v "$(pwd):/home/name" -u 1000 -t name ls
-</pre></div>
-</div>
-<section id="id3">
-<h3>mount<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/Yarimizu14/items/52f4859027165a805630">【Docker】Dockerでホストのディレクトリをマウントする - Qiita</a></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run -v [ホストディレクトリの絶対パス]:[コンテナの絶対パス] [イメージ名] [コマンド]
-</pre></div>
-</div>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="docker-compose-yml">
-<h1>docker-compose.yml<a class="headerlink" href="#docker-compose-yml" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>version: "3.8"
-
-services:
-  devcontainer:
-    build:
-      context: ..
-      dockerfile: .devcontainer/Dockerfile
-    volumes:
-      - ..:/workspace:cached
-      - gohome:/home/vscode/go:cached
-    command: /bin/sh -c "while sleep 1000; do :; done"
-    user: vscode
-volumes:
-  gohome:
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="dotfiles">
-<h1>dotfiles<a class="headerlink" href="#dotfiles" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://zenn.dev/tamago3keran/articles/30b581bde514e6">Neovim + Docker でローカルを汚さずに開発環境を構築</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://zenn.dev/_kazuya/articles/1c142f23741f15efd169">Dockerでdotfilesのポータビリティーを高める開発環境構築</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/frozenbonito/items/aa320c4b3f84b9816daa">VSCode Remote Containers を使うなら dotfiles repository で幸せになろう - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://banatech.net/blog/view/33">VSCodeのRemote Containerでdotfilesを引き継ぐ方法</a></p></li>
-<li><p><a class="reference external" href="https://blog.bridgey.dev/2023/02/19/neovim-devcontainer/#dev-container-cli">NeovimとDev Containerを使った開発環境の試行錯誤 · blog.bridgey.dev</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/redgosho/items/8f2c7e138c54be50eac1">VSCodeのDev Containersで開発環境構築のポイントをまとめてみた。 - Qiita</a></p></li>
-</ul>
-<p>[[DevContainers]]</p>
 </section>
 
         </article>
@@ -364,7 +254,7 @@ volumes:
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/OS/docker/docker.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/OS/docker/docker_base_image.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -384,31 +274,9 @@ volumes:
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">17</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#cli">cli</a><ul>
-<li><a class="reference internal" href="#image">image</a></li>
-<li><a class="reference internal" href="#container">container</a></li>
-<li><a class="reference internal" href="#run">run</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mount">mount</a><ul>
-<li><a class="reference internal" href="#volume">volume</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#dockerfile">Dockerfile</a><ul>
-<li><a class="reference internal" href="#build">build</a></li>
-<li><a class="reference internal" href="#ls">ls</a></li>
-<li><a class="reference internal" href="#id2">run</a><ul>
-<li><a class="reference internal" href="#id3">mount</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#docker-compose-yml">docker-compose.yml</a></li>
-<li><a class="reference internal" href="#dotfiles">dotfiles</a></li>
+<li><a class="reference internal" href="#">busybox</a></li>
+<li><a class="reference internal" href="#debian">debian</a></li>
+<li><a class="reference internal" href="#distroless">distroless</a></li>
 </ul>
 
           </div>

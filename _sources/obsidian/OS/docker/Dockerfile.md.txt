@@ -1,4 +1,5 @@
 [[docker]]
+[[nvim_docker]]
 
 # CreateImage
 - [イメージの構築 — Docker-docs-ja 1.9.0b ドキュメント](https://docs.docker.jp/engine/userguide/dockerimages.html)
@@ -33,6 +34,7 @@ RUN echo "${username} ALL=NOPASSWD: ALL" >> /etc/sudoers
 ```
 
 ## c++ dev
+`1.18G`
 ```Dockerfile
 From centos:7
 ARG username=hoge
