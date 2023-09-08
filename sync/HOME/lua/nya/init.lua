@@ -53,11 +53,22 @@ local function setup_path()
     -- zig
     -- nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
     nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
-
-    nyagos.envadd("PATH", to_path(HOME .. "/AppData/Local/aquaproj-aqua/bat"))
-  else
-    nyagos.envadd("PATH", to_path(HOME .. "/.local/share/aquaproj-aqua/bin"))
   end
+
+  if nyagos.env.USERPROFILE then
+    if nyagos.env.XDG_DATA_HOME then
+      nyagos.envadd("PATH", to_path(nyagos.env.XDG_DATA_HOME .. "/aquaproj-aqua/bat"))
+    else
+      nyagos.envadd("PATH", to_path(HOME .. "/AppData/Local/aquaproj-aqua/bat"))
+    end
+  else
+    if nyagos.env.XDG_DATA_HOME then
+      nyagos.envadd("PATH", to_path(nyagos.env.XDG_DATA_HOME .. "/.local/share/aquaproj-aqua/bin"))
+    else
+      nyagos.envadd("PATH", to_path(HOME .. "/.local/share/aquaproj-aqua/bin"))
+    end
+  end
+
   nyagos.envadd("PATH", to_path(HOME .. "/build/zig/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/go/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/.cargo/bin"))
@@ -224,26 +235,6 @@ local function setup_alias()
       print "unknown"
       return 1
     end
-  end
-
-  function nyagos.alias.toolchain()
-    -- llvm + windows SDK
-    local kits = "C:/Program Files (x86)/Windows Kits/10"
-    local version = "10.0.22621.0"
-    nyagos.env.WindowsSdkVersion = version
-    nyagos.env.UCRTVersion = version
-    nyagos.env.UCRTContentRoot = kits
-    nyagos.env.UniversalCRTSdkDir = kits .. "/"
-    nyagos.env.LIB = STR.join(";", {
-      kits .. "lib/" .. version .. "/ucrt/x64",
-      kits .. "lib/" .. version .. "/um/x64",
-    })
-    nyagos.env.INCLUDE = kits .. "/include/" .. version .. "/ucrt"
-    -- nyagos.env.CMAKE_C_FLAGS = STR.join(" ", {
-    --   string.format('-I"%s"', kits .. "/include/" .. version .. "/ucrt"),
-    --   string.format('-I"%s"', kits .. "/include/" .. version .. "/shared"),
-    --   string.format('-I"%s"', kits .. "/include/" .. version .. "/um"),
-    -- })
   end
 
   function nyagos.alias.dot(args)

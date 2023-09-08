@@ -3,6 +3,7 @@
 
 - @2022 [WebGPUを使ってみる](https://zenn.dev/bellbind/scraps/eb114b4f51322a)
 - @2022 [WebGPUの現状 – ギャップロ](https://gaprot.jp/2022/02/14/webgpu2022/)
+- [初めての WebGPU アプリ](https://codelabs.developers.google.com/your-first-webgpu-app?hl=ja#0)
 
 - [WebGPU Samples](https://austin-eng.com/webgpu-samples/)
 
