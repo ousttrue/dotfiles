@@ -19,3 +19,4 @@ zig-cache
 !/subprojects/ftxui.wrap
 !/subprojects/libvterm.wrap
 /prefix/
+*.pem

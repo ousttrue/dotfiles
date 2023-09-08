@@ -2,6 +2,8 @@
 
 - [Physical Keyboard Tracking Integration](https://developer.oculus.com/documentation/native/android/mobile-physical-tracked-keyboard/)
 
+- [Site Unreachable](https://note.com/nuwaa/n/n83fd5f3bca4b)
+
 # XR_FB_keyboard_tracking
 - [The OpenXR Specification](https://registry.khronos.org/OpenXR/specs/1.0/html/xrspec.html#XR_FB_keyboard_tracking)
 

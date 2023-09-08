@@ -12,7 +12,21 @@
 	- 2 [Setup - WebGL 2 context initialization | webxr-tutorial](https://beprosto.me/webxr-tutorial/tutorial2)
 	- 3 [A simple WebGL 2 abstraction | webxr-tutorial](https://beprosto.me/webxr-tutorial/tutorial3)
 	- 4 [Matrices and 3D graphics | webxr-tutorial](https://beprosto.me/webxr-tutorial/tutorial4)
- 
+- ここから `webxr` w 
+	- 5 [WebXR Initialization | webxr-tutorial](https://beprosto.me/webxr-tutorial/tutorial5)
+
+# 手順
+- @2019 [WebXRのARサンプルを動かすまでにやったことメモ - Qiita](https://qiita.com/tamfoi/items/8aac7c650ee24bb46f74)
+## navigator.xr.isSessionSupported
+true が返らずに詰む
+=> `https` 必須
+[[https]]
+
+- [XRSystem: isSessionSupported() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/XRSystem/isSessionSupported)
+```js
+
+```
+
 # WebRTC
 [[WebRTC]]
 - [WebRTC+WebXR でVRリモートデスクトップ - Qiita](https://qiita.com/binzume/items/52a4f4be5c316753e1b1)

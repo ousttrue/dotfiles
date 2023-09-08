@@ -9,7 +9,6 @@ aliases: [ovr_openxr_mobile_sdk]
 - [OpenXR Mobile SDK](https://developer.oculus.com/documentation/native/android/mobile-intro/)
 
 # Version
-- [Meta Quest release notes | Meta Store](https://www.meta.com/ja-jp/help/quest/articles/whats-new/release-notes/)
 
 ## 56.0
 @202307

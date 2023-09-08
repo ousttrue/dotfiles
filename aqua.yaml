@@ -16,3 +16,4 @@ packages:
 - name: ClementTsang/bottom@0.9.6
 - name: BurntSushi/ripgrep@13.0.0
 - name: sharkdp/fd@v8.7.0
+- name: FiloSottile/mkcert@v1.4.4
