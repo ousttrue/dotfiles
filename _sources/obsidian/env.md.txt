@@ -12,3 +12,28 @@
 [Local]keyboard visualize
 ```
 
+# windows
+
+- llvm-mingw
+- golang
+- python
+	- cmake
+	- ninja
+- aqua
+	- stylua
+       - neovim
+
+`%USERPROFILE%/build/llvm-mingw`
+に構築
+- luajit
+- gettext
+- iconv
+- neovim
+- lua language server
+
+- gtk
+	- gst
+
+# docker
+
+formatter と language server ? 

@@ -1,7 +1,8 @@
 [[nvim_build]]
 
 ```Dockerfile
-FROM ubuntu:22.04
+FROM ubuntu:22.04-slim
+#FROM ubuntu:22.04
 ARG username=hoge
 
 # root

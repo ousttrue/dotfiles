@@ -29,3 +29,15 @@ set(DEPS_INSTALL_DIR "${CMAKE_BINARY_DIR}/usr")
 # nvim
 ## DEPS_PREFIX
 
+
+# llvm-mingw
+## luajit
+内部ビルドが失敗するので、meson で外部ビルドする。
+[[luajit]]
+- LLVM-MInGW(ucrt) + meson でできた https://github.com/franko/luajit
+
+## gettext
+内部ビルドが失敗するので、meson で外部ビルドする。
+
+## iconv
+内部ビルドが失敗するので、meson で外部ビルドする。

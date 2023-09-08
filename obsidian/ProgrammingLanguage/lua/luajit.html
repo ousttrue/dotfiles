@@ -246,7 +246,16 @@
 <section class="tex2jax_ignore mathjax_ignore" id="build">
 <h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>gcc/clang/msvc ビルド可能だが、
-MinGWを非MSYS環境で使う場合にこける？</p>
+MinGWを非MSYS環境で使う場合にこける？
+neovim のビルドのため 非MSYS の MinGW でビルドしたい。</p>
+<ul class="simple">
+<li><p>LLVM-MInGW(ucrt) + meson でできた https://github.com/franko/luajit</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">meson</span> <span class="n">setup</span> <span class="n">builddir</span> <span class="o">--</span><span class="n">prefix</span> <span class="o">%</span><span class="n">USERPROFILE</span><span class="o">%/</span><span class="n">build</span><span class="o">/</span><span class="n">llvm</span><span class="o">-</span><span class="n">mingw</span> <span class="o">--</span><span class="n">buildtype</span><span class="o">=</span><span class="n">release</span>
+<span class="o">&gt;</span> <span class="n">meson</span> <span class="n">install</span> <span class="o">-</span><span class="n">C</span> <span class="n">builddir</span>
+</pre></div>
+</div>
+<p>[[nvim_build]]</p>
 </section>
 
         </article>
