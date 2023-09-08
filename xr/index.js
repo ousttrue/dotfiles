@@ -33,8 +33,6 @@ function initWebGL2(attributes) {
 function initWebXR() {
   // our new init function
   if (navigator.xr) {
-    xrButton.textContent = "navigator.xr.isSessionSupported..."; // change text on the button
-
     // checks if our device supports WebXR
     navigator.xr.isSessionSupported("immersive-vr").then((supported) => {
       // we check if immersive-vr session is supported
@@ -43,8 +41,6 @@ function initWebXR() {
         xrButton.disabled = false; // enable the button (makes it possible to click it)
         xrButton.textContent = "Enter VR"; // change text on the button
         xrButton.addEventListener("click", onButtonClicked); // add a new event to the button, which will run the onButtonClicked function
-      } else {
-        xrButton.textContent = "not supported !"; // change text on the button
       }
     });
   }
@@ -54,7 +50,9 @@ function onButtonClicked() {
   // this function specifies what our button will do when clicked
   if (!xrSession) {
     // if our session is null - if it wasn't created
-    navigator.xr.requestSession("immersive-vr").then(onSessionStarted); // request it (start the session), and when the request is handled, call onSessionStarted
+    navigator.xr
+      .requestSession("immersive-vr", { requiredFeatures: ["local-floor"] })
+      .then(onSessionStarted); // request it (start the session), and when the request is handled, call onSessionStarted
   } else {
     // if our session was started already
     xrSession.end(); // request our session to end
@@ -67,11 +65,44 @@ function onSessionStarted(_session) {
   xrSession.addEventListener("end", onSessionEnded); // we set what happenes when our session is ended
 
   initWebGL2({ xrCompatible: true }); // we initialize WebGL2, in a way that makes it compatible with WebXR
-
   xrSession.updateRenderState({ baseLayer: new XRWebGLLayer(xrSession, gl) }); // this line simply sets our session's WebGL context to our WebGL2 context
-  xrSession.requestReferenceSpace("local").then((refSpace) => {
-    // we request our referance space - an object that defines where the center of our space lies. Here we request a local referance space - that one defines the center of the world to be where player's head is at the start of our application.
+
+  const renderer = new ezgfx.Renderer();
+  renderer.depthTesting(true); // if you don't know what that means - it means that our meshes will be rendered properly ¯\_(ツ)_/¯
+
+  const identityMatrix = new Float32Array([
+    1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0,
+    1.0,
+  ]);
+  const offsetMatrix = new Float32Array([
+    1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -2.0, 1.0, -5.0,
+    1.0,
+  ]);
+
+  const planeMesh = new ezgfx.Mesh();
+  planeMesh.loadFromOBJ("./plane.obj");
+
+  const planeMaterial = new ezgfx.Material();
+  planeMaterial.setProjection(identityMatrix);
+  planeMaterial.setView(identityMatrix);
+  planeMaterial.setModel(identityMatrix);
+
+  planeMaterial.setColor([0.5, 0.5, 0.5, 1.0]);
+
+  const cubeMesh = new ezgfx.Mesh();
+  cubeMesh.loadFromOBJ("./cube.obj");
+
+  const cubeMaterial = new ezgfx.Material();
+  cubeMaterial.setProjection(identityMatrix);
+  cubeMaterial.setView(identityMatrix);
+  cubeMaterial.setModel(offsetMatrix);
+
+  cubeMaterial.setColor([0.4, 0.3, 1.0, 1.0]);
+
+  xrSession.requestReferenceSpace("local-floor").then((refSpace) => {
+    // we request our referance space - an object that defines where the center of our space lies. Here we request a local-floor referance space - that one defines the center of the world to be where the center of the ground is
     xrRefSpace = refSpace; // we set our referance space to be the one returned by this function
+
     xrSession.requestAnimationFrame(onSessionFrame); // at this point everything has been set up, so we can finally request an animation frame, on a function with the name of onSessionFrame
   });
 
@@ -86,14 +117,23 @@ function onSessionStarted(_session) {
       let glLayer = session.renderState.baseLayer; // get the WebGL layer (it contains some important information we need)
 
       gl.bindFramebuffer(gl.FRAMEBUFFER, glLayer.framebuffer); // sets the framebuffer (drawing target of WebGL) to be our WebXR display's framebuffer
-      gl.clearColor(0.4, 0.7, 0.9, 1.0);
-      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT); // clears the framebuffer (in the next episode we'll implement our ezgfx renderer here - for now, let's just use vanilla WebGL2, as we're not doing anything else than clearing the screen)
+
+      renderer.clear([0.3, 1.0, 0.4, 1.0]);
+
       for (let view of pose.views) {
         // we go through every single view out of our camera's views
         let viewport = glLayer.getViewport(view); // we get the viewport of our view (the place on the screen where things will be drawn)
         gl.viewport(viewport.x, viewport.y, viewport.width, viewport.height); // we set our viewport appropriately
 
-        // Here we will draw our scenes
+        planeMaterial.setProjection(view.projectionMatrix);
+        planeMaterial.setView(view.transform.inverse.matrix);
+
+        renderer.draw(planeMesh, planeMaterial);
+
+        cubeMaterial.setProjection(view.projectionMatrix);
+        cubeMaterial.setView(view.transform.inverse.matrix);
+
+        renderer.draw(cubeMesh, cubeMaterial);
       }
     }
   }

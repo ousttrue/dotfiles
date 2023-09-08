@@ -14,7 +14,12 @@
 	- 4 [Matrices and 3D graphics | webxr-tutorial](https://beprosto.me/webxr-tutorial/tutorial4)
 - ここから `webxr` w 
 	- 5 [WebXR Initialization | webxr-tutorial](https://beprosto.me/webxr-tutorial/tutorial5)
-
+	- 6 [A simple 3D WebXR scene | webxr-tutorial](https://beprosto.me/webxr-tutorial/tutorial6)
+	- Finding the controllers
+	- Reading the controllers’ input
+	- Experimenting with lighting
+	- 3D Sounds
+ 
 # 手順
 - @2019 [WebXRのARサンプルを動かすまでにやったことメモ - Qiita](https://qiita.com/tamfoi/items/8aac7c650ee24bb46f74)
 ## navigator.xr.isSessionSupported
