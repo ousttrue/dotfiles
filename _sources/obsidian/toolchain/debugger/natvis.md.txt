@@ -2,7 +2,22 @@
 
 [C++ オブジェクトのカスタム ビューを作成する - Visual Studio (Windows) | Microsoft Learn](https://learn.microsoft.com/ja-jp/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022)
 
+- [The Natvis framework provides custom views for native C++ objects](https://code.visualstudio.com/docs/cpp/natvis)
+- [Create custom views of C++ objects - Visual Studio (Windows) | Microsoft Learn](https://learn.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022)
+- [STL/stl/debugger/STL.natvis at main · microsoft/STL · GitHub](https://github.com/microsoft/STL/blob/main/stl/debugger/STL.natvis)
+
+
+- @2023 [C++&Visual Studio 便利なデバッグ変数情報の視覚化（natvis）と関数使用時の注意 - potisanのプログラミングメモ](https://potisan-programming-memo.hatenablog.jp/entry/2023/01/12/062155)
 - @2020 [ブログズミ: [Visual Studio] .natvis/.natstepfilter をプロジェクトに追加してウォッチ・ステップインしやすくする](https://srz-zumix.blogspot.com/2020/05/visual-studio-natvisnatstepfilter.html)
+- @2020 [組込 1 年目のエンジニアが開発環境を整備した話 - Qiita](https://qiita.com/utisam/items/dd8717e007326e360e41)
+- @2014 [Fetching Title#n4u1](https://mariusbancila.ro/blog/2014/06/04/per-project-natvis-files-in-visual-studio-14/)
+
+# C++TeamBlog
+- [Project Support for Natvis - C++ Team Blog](https://devblogs.microsoft.com/cppblog/project-support-for-natvis/)
+- @2021 [STL Visualizers on GitHub - C++ Team Blog](https://devblogs.microsoft.com/cppblog/stl-visualizers-on-github/)
+- @2015 [Natvis support for Android debugging - C++ Team Blog](https://devblogs.microsoft.com/cppblog/natvis-support-for-android-debugging/)
+- @2013 [Using Visual Studio 2013 to write maintainable native visualizations (natvis) - C++ Team Blog](https://devblogs.microsoft.com/cppblog/using-visual-studio-2013-to-write-maintainable-native-visualizations-natvis/)
+
 
 # path
 
@@ -105,3 +120,15 @@ endfunction()
         </Expand>
     </Type>
 ```
+
+# libstc++
+
+`compiler` を変えると `STL` の実装が変わる。
+`NATVIS` も変わる。
+
+- [https://source.chromium.org/chromium/chromium/src/+/main:tools/win/DebugVisualizers/libc++.natvis;drc=79b4f8b9d4a9dc7130463d2ca286f0b5b8e3d962](https://source.chromium.org/chromium/chromium/src/+/main:tools/win/DebugVisualizers/libc++.natvis;drc=79b4f8b9d4a9dc7130463d2ca286f0b5b8e3d962)
+
+# libc++
+- [Please consider shipping debugger visualizers for libstdc++/libc++ · Issue #3423 · microsoft/vscode-cpptools · GitHub](https://github.com/microsoft/vscode-cpptools/issues/3423)
+- [Contributing debug visualizers for libc++ - Runtimes / C++ - LLVM Discussion Forums](https://discourse.llvm.org/t/contributing-debug-visualizers-for-libc/51956/4)
+- [build/config/c++/libc++.natvis - chromium/src - Git at Google](https://chromium.googlesource.com/chromium/src/+/HEAD/build/config/c++/libc++.natvis)

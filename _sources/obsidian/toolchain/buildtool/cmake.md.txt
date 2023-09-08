@@ -1,3 +1,5 @@
+[An Introduction to Modern CMake · Modern CMake](https://cliutils.gitlab.io/modern-cmake/)
+
 # CMakeKits
 [[cmake_kits]]
 

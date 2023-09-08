@@ -9,6 +9,9 @@ aliases: [ovr_openxr_mobile_sdk]
 - [OpenXR Mobile SDK](https://developer.oculus.com/documentation/native/android/mobile-intro/)
 
 # Version
+
+## 56.0
+@202307
 ## 50.0
 
 ## 47.0

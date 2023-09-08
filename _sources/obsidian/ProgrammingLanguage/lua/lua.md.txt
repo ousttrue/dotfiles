@@ -37,6 +37,8 @@ https://www.lua.org/manual/5.2/readme.html#changes
 - @2012 [Lua 5.1とLua 5.2の非互換について - エンジニアのソフトウェア的愛情](https://blog.emattsan.org/entry/20120416/1334584047)
 
 > newproxy was deprecated in Lua 5.1 and removed in Lua 5.2.
+
+- [c - Embedding Lua 5.2 and defining libraries - Stack Overflow](https://stackoverflow.com/questions/13442907/embedding-lua-5-2-and-defining-libraries)
 ## 5.1
 https://www.lua.org/manual/5.1/manual.html#7
 - [The LuaJIT Project](https://luajit.org/)

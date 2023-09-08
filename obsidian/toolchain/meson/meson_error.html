@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>tutorial - shell note ドキュメント</title>
+        <title>CMake compilers state - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,109 +212,15 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
-<li><p><a class="reference external" href="https://developer.mozilla.org/ja/docs/Web/API/WebXR_Device_API">WebXR 機器 API - Web API | MDN</a></p></li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/ja/docs/Web/API/WebXR_Device_API/Fundamentals">WebXR の基礎 - Web API | MDN</a>[]</p></li>
-<li><p><a class="reference external" href="https://immersive-web.github.io/webxr-samples/">WebXR - Samples</a>
-<a class="reference external" href="https://github.com/immersive-web/webxr/blob/master/explainer.md">webxr/explainer.md at master · immersive-web/webxr · GitHub</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/ikkou/articles/8ffc1c3ea92e9f">WebXR ( WebVR/WebAR ) の現状確認 2022 Winter</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://zenn.dev/ikkou/articles/fdb344a713cdf0">WebXR ( WebVR/WebAR ) の現状確認 2021 Summer</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="tutorial">
-<h1>tutorial<a class="headerlink" href="#tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://beprosto.me/webxr-tutorial/">Welcome to my WebXR tutorial series! | webxr-tutorial</a></p>
-<ul>
-<li><p>1 <a class="reference external" href="https://beprosto.me/webxr-tutorial/tutorial1">Setup - the html document | webxr-tutorial</a></p></li>
-<li><p>2 <a class="reference external" href="https://beprosto.me/webxr-tutorial/tutorial2">Setup - WebGL 2 context initialization | webxr-tutorial</a></p></li>
-<li><p>3 <a class="reference external" href="https://beprosto.me/webxr-tutorial/tutorial3">A simple WebGL 2 abstraction | webxr-tutorial</a></p></li>
-<li><p>4 <a class="reference external" href="https://beprosto.me/webxr-tutorial/tutorial4">Matrices and 3D graphics | webxr-tutorial</a></p></li>
-</ul>
-</li>
-<li><p>ここから <code class="docutils literal notranslate"><span class="pre">webxr</span></code> w</p>
-<ul>
-<li><p>5 <a class="reference external" href="https://beprosto.me/webxr-tutorial/tutorial5">WebXR Initialization | webxr-tutorial</a></p></li>
-<li><p>6 <a class="reference external" href="https://beprosto.me/webxr-tutorial/tutorial6">A simple 3D WebXR scene | webxr-tutorial</a></p></li>
-<li><p>Finding the controllers</p></li>
-<li><p>Reading the controllers’ input</p></li>
-<li><p>Experimenting with lighting</p></li>
-<li><p>3D Sounds</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>手順<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://qiita.com/tamfoi/items/8aac7c650ee24bb46f74">WebXRのARサンプルを動かすまでにやったことメモ - Qiita</a></p></li>
-</ul>
-<section id="navigator-xr-issessionsupported">
-<h2>navigator.xr.isSessionSupported<a class="headerlink" href="#navigator-xr-issessionsupported" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>true が返らずに詰む
-=&gt; <code class="docutils literal notranslate"><span class="pre">https</span></code> 必須
-[[https]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/XRSystem/isSessionSupported">XRSystem: isSessionSupported() method - Web APIs | MDN</a></p></li>
-</ul>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="webrtc">
-<h1>WebRTC<a class="headerlink" href="#webrtc" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[WebRTC]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/binzume/items/52a4f4be5c316753e1b1">WebRTC+WebXR でVRリモートデスクトップ - Qiita</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="featrure">
-<h1>featrure<a class="headerlink" href="#featrure" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="handtracking">
-<h2>handtracking<a class="headerlink" href="#handtracking" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[HandTracking]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://webxr-handtracking.vercel.app/">WebXR - Hand Tracking Examples</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="system">
-<h1>system<a class="headerlink" href="#system" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="webgl">
-<h2>WebGL<a class="headerlink" href="#webgl" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://wakufactory.jp/wxr/w/oculushand.html">OculusQuest WebVR hand-tracking demo</a></p></li>
-</ul>
-</section>
-<section id="babylon">
-<h2>babylon<a class="headerlink" href="#babylon" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://doc.babylonjs.com/features/featuresDeepDive/webXR/webXRDemos">WebXR Demos and Examples | Babylon.js Documentation</a></p></li>
-</ul>
-</section>
-<section id="three-js">
-<h2>three.js<a class="headerlink" href="#three-js" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/sdkfz181tiger/articles/d5ff040b95445d">WebXRであっさりAR体験</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="platform">
-<h1>platform<a class="headerlink" href="#platform" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="quest">
-<h2>quest<a class="headerlink" href="#quest" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[QuestMobileSDK]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://wakufactory.jp/wxr/w/oculushand.html">OculusQuest WebVR hand-tracking demo</a></p></li>
-<li><p><a class="reference external" href="https://tech.gmogshd.com/webxr-meta-quest2/">【WebXR】WebXR Device APIを使ってMeta Questのブラウザで動く空間を作ってみよう！【PlayCanvas】</a></p></li>
-</ul>
-</section>
+          <section class="tex2jax_ignore mathjax_ignore" id="cmake-compilers-state">
+<h1>CMake compilers state<a class="headerlink" href="#cmake-compilers-state" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">WARNING:</span> <span class="pre">CMake</span> <span class="pre">Toolchain:</span> <span class="pre">Failed</span> <span class="pre">to</span> <span class="pre">determine</span> <span class="pre">CMake</span> <span class="pre">compilers</span> <span class="pre">state</span></code></p>
 </section>
 
         </article>
@@ -330,7 +236,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/CG/vr/webxr.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/toolchain/meson/meson_error.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -338,43 +244,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">tutorial</a></li>
-<li><a class="reference internal" href="#id1">手順</a><ul>
-<li><a class="reference internal" href="#navigator-xr-issessionsupported">navigator.xr.isSessionSupported</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#webrtc">WebRTC</a></li>
-<li><a class="reference internal" href="#featrure">featrure</a><ul>
-<li><a class="reference internal" href="#handtracking">handtracking</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#system">system</a><ul>
-<li><a class="reference internal" href="#webgl">WebGL</a></li>
-<li><a class="reference internal" href="#babylon">babylon</a></li>
-<li><a class="reference internal" href="#three-js">three.js</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#platform">platform</a><ul>
-<li><a class="reference internal" href="#quest">quest</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
