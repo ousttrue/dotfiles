@@ -17,3 +17,12 @@
 # build
 gcc/clang/msvc ビルド可能だが、
 MinGWを非MSYS環境で使う場合にこける？
+neovim のビルドのため 非MSYS の MinGW でビルドしたい。
+	
+- LLVM-MInGW(ucrt) + meson でできた https://github.com/franko/luajit
+```
+> meson setup builddir --prefix %USERPROFILE%/build/llvm-mingw --buildtype=release
+> meson install -C builddir
+```
+
+[[nvim_build]]

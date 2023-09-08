@@ -21,9 +21,9 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+a' -Function BeginningOfLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+m' -Function AcceptLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
 
-Import-Module -Name CompletionPredictor
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView
+# Import-Module -Name CompletionPredictor
+# Set-PSReadLineOption -PredictionSource History
+# Set-PSReadLineOption -PredictionViewStyle ListView
 
 # ??
 Set-PSReadlineKeyHandler -Chord Ctrl+[ -ScriptBlock { "hello" }
@@ -36,7 +36,7 @@ Remove-Item alias:diff -force
 Remove-Item -Path Function:\mkdir
 
 # Remove-Item alias:ls
-Import-Module -Name Terminal-Icons
+# Import-Module -Name Terminal-Icons
 # function ls()
 # {
 #     lsd $args
@@ -255,22 +255,22 @@ function dotpull
     git pull
     Pop-Location
 }
-function apkget
-{
-    $apk = $(adb shell pm list packages -3 | fzf)
-    if($apk && $apk.startswith("package:"))
-    {
-        $apk = $apk.Trim()
-        $name = $apk.SubString(8)
-        Write-Output "name: ${name}"
-
-        $tmp_name = $(adb shell pm path $name).Trim()
-        if($tmp_name && $tmp_name.startswith("package:"))
-        {
-            $path = $tmp_name.SubString(8)
-            Write-Output "path: ${path}"
-            adb pull "${path}" "${name}.apk"
-        }
-    }
-}
+# function apkget
+# {
+#     $apk = $(adb shell pm list packages -3 | fzf)
+#     if($apk && $apk.startswith("package:"))
+#     {
+#         $apk = $apk.Trim()
+#         $name = $apk.SubString(8)
+#         Write-Output "name: ${name}"
+# 
+#         $tmp_name = $(adb shell pm path $name).Trim()
+#         if($tmp_name && $tmp_name.startswith("package:"))
+#         {
+#             $path = $tmp_name.SubString(8)
+#             Write-Output "path: ${path}"
+#             adb pull "${path}" "${name}.apk"
+#         }
+#     }
+# }
 
