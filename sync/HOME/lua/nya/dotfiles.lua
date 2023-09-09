@@ -1,4 +1,5 @@
 local PROMPT = require "nya.prompt"
+local NYA = require "nya.util"
 
 local M = {
   env = {
@@ -122,12 +123,45 @@ function M.setup()
     if cmd == "vc" then
       PROMPT.title = " "
       nyagos.exec 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
+      nyagos.exec "which cl"
     elseif cmd == "llvm" then
       PROMPT.title = "🐉"
       nyagos.envadd("PATH", "D:\\llvm-mingw-20230614-ucrt-x86_64\\bin")
+      nyagos.envadd("PATH", "D:\\llvm-mingw-20230130-ucrt-x86_64\\bin")
+      nyagos.exec "which clang && clang --version"
+      print [[
+[constants]
+toolchain = 'D:/llvm-mingw-20230130-ucrt-x86_64'
+; toolchain = 'D:/msys64/clang64'
+
+[built-in options]
+cpp_args = ['-stdlib=libc++']
+cpp_link_args = cpp_args + ['-static-libstdc++']
+
+[binaries]
+c= toolchain / 'bin/clang'
+cpp= toolchain / 'bin/clang++'
+ar = toolchain / 'bin/ar'
+dlltool = toolchain/ 'bin/dlltool'
+lib = toolchain/ 'bin/lib'
+ranlib = toolchain/ 'bin/ranlib'
+windres  = toolchain / 'bin/windres.exe'
+]]
     elseif cmd == "zig" then
       PROMPT.title = "⚡"
       nyagos.envadd("PATH", "C:\\Python310\\lib\\site-packages\\ziglang")
+      nyagos.envadd("PATH", "C:\\Python311\\lib\\site-packages\\ziglang")
+      nyagos.exec "which zig && zig version"
+      print [[
+[binaries]
+c = ['zig', 'cc']
+cpp = ['zig', 'c++']
+ar = ['zig', 'ar']
+dlltool = ['zig', 'dlltool']
+lib = ['zig', 'lib']
+ranlib = ['zig', 'ranlib']
+windres  = 'D:/llvm-mingw-20230614-ucrt-x86_64/bin/x86_64-w64-mingw32uwp-windres.exe'
+]]
     else
       print "unknown"
       return 1

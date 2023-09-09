@@ -101,7 +101,11 @@ end
 ---@param path string
 ---@return boolean
 function M.is_exists(path)
-  return M.is_readable(path) and true or false
+  return nyagos.stat(path) and true or false
+end
+
+function M.is_dir(path)
+  return nyagos.stat(path).isdir
 end
 
 return M
