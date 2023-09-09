@@ -219,7 +219,7 @@
         </div>
         <article role="main">
           <p>[[pdb]]</p>
-<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022">C++ オブジェクトのカスタム ビューを作成する - Visual Studio (Windows) | Microsoft Learn</a></p>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022">C++ オブジェクトのカスタム ビューを作成する | Microsoft Learn</a></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://code.visualstudio.com/docs/cpp/natvis">The Natvis framework provides custom views for native C++ objects</a></p></li>
 <li><p><a class="reference external" href="https://learn.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022">Create custom views of C++ objects - Visual Studio (Windows) | Microsoft Learn</a></p></li>
@@ -228,6 +228,7 @@
 <li><p>@2020 <a class="reference external" href="https://srz-zumix.blogspot.com/2020/05/visual-studio-natvisnatstepfilter.html">ブログズミ: [Visual Studio] .natvis/.natstepfilter をプロジェクトに追加してウォッチ・ステップインしやすくする</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://qiita.com/utisam/items/dd8717e007326e360e41">組込 1 年目のエンジニアが開発環境を整備した話 - Qiita</a></p></li>
 <li><p>@2014 <a class="reference external" href="https://mariusbancila.ro/blog/2014/06/04/per-project-natvis-files-in-visual-studio-14/">Fetching Title#n4u1</a></p></li>
+<li><p>@2015 <a class="reference external" href="https://qiita.com/bigengelt/items/91a4eff6a8385a30f6ae">.natvisを使ってVisual Studioのデバッグを見やすくする - Qiita</a></p></li>
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="c-teamblog">
 <h1>C++TeamBlog<a class="headerlink" href="#c-teamblog" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -238,8 +239,121 @@
 <li><p>@2013 <a class="reference external" href="https://devblogs.microsoft.com/cppblog/using-visual-studio-2013-to-write-maintainable-native-visualizations-natvis/">Using Visual Studio 2013 to write maintainable native visualizations (natvis) - C++ Team Blog</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="path">
-<h1>path<a class="headerlink" href="#path" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="format">
+<h1>format<a class="headerlink" href="#format" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<blockquote>
+<div><p>関数の評価や副作用は許可されません</p>
+</div></blockquote>
+<section id="debugger-function">
+<h2>debugger function<a class="headerlink" href="#debugger-function" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/visualstudio/debugger/expressions-in-the-debugger?view=vs-2022#BKMK_Using_debugger_intrinisic_functions_to_maintain_state">デバッガーでの式 - Visual Studio (Windows) | Microsoft Learn</a></p></li>
+</ul>
+</section>
+<section id="context">
+<h2>context<a class="headerlink" href="#context" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/visualstudio/debugger/context-operator-cpp?view=vs-2022">デバッガーでのコンテキスト演算子 (C++) | Microsoft Learn</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="type">
+<h1>Type<a class="headerlink" href="#type" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Type</span> <span class="na">Name=</span><span class="s">"std::string"</span><span class="nt">&gt;</span> // typedef なのでマッチしない
+<span class="nt">&lt;/Type&gt;</span>
+
+<span class="nt">&lt;TYpe</span> <span class="na">Name=</span><span class="s">"std::basic_string&amp;lt;char,*&amp;gt;"</span><span class="nt">&gt;</span> // template の具体型指定と *
+<span class="nt">&lt;/Type&gt;</span>
+</pre></div>
+</div>
+<section id="name">
+<h2>Name<a class="headerlink" href="#name" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>template 引数</p>
+<ul>
+<li><p>`*``: wildcard</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$T1</span></code>、<code class="docutils literal notranslate"><span class="pre">$T2</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="displaystring">
+<h2>DisplayString<a class="headerlink" href="#displaystring" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>中かっこ内のすべてのものは式</p></li>
+<li><p>二重中かっこ (<code class="docutils literal notranslate"><span class="pre">{{</span></code> または <code class="docutils literal notranslate"><span class="pre">}}</span></code>) を使用して中かっこをエスケープ</p></li>
+</ul>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Type</span> <span class="na">Name=</span><span class="s">"CPoint"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;DisplayString&gt;</span>{{x={x} y={y}}}<span class="nt">&lt;/DisplayString&gt;</span>
+<span class="nt">&lt;/Type&gt;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/visualstudio/debugger/format-specifiers-in-cpp?view=vs-2022#BKMK_Visual_Studio_2012_format_specifiers">デバッガーでの書式指定子 (C++) | Microsoft Learn</a></p>
+</section>
+<section id="stringview">
+<h2>StringView<a class="headerlink" href="#stringview" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>テキストビジュアライザー</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Type</span> <span class="na">Name=</span><span class="s">"ATL::CStringT&amp;lt;wchar_t,*&amp;gt;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;DisplayString&gt;</span>{m_pszData,su}<span class="nt">&lt;/DisplayString&gt;</span>
+  <span class="nt">&lt;StringView&gt;</span>m_pszData,su<span class="nt">&lt;/StringView&gt;</span>
+<span class="nt">&lt;/Type&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="expand">
+<h2>Expand<a class="headerlink" href="#expand" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>子要素のビジュアライズ。</p>
+</section>
+<section id="expand-item">
+<h2>Expand &gt; Item<a class="headerlink" href="#expand-item" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Type</span> <span class="na">Name=</span><span class="s">"CRect"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;DisplayString&gt;</span>{{top={top} bottom={bottom} left={left} right={right}}}<span class="nt">&lt;/DisplayString&gt;</span>
+  <span class="nt">&lt;Expand&gt;</span>
+    <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"Width"</span><span class="nt">&gt;</span>right - left<span class="nt">&lt;/Item&gt;</span>
+    <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"Height"</span><span class="nt">&gt;</span>bottom - top<span class="nt">&lt;/Item&gt;</span>
+  <span class="nt">&lt;/Expand&gt;</span>
+<span class="nt">&lt;/Type&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="expand-arrayitems">
+<h2>Expand &gt; ArrayItems<a class="headerlink" href="#expand-arrayitems" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Type</span> <span class="na">Name=</span><span class="s">"std::vector&amp;lt;*&amp;gt;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;DisplayString&gt;</span>{{size = {_Mylast - _Myfirst}}}<span class="nt">&lt;/DisplayString&gt;</span>
+  <span class="nt">&lt;Expand&gt;</span>
+    <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"[size]"</span><span class="nt">&gt;</span>_Mylast - _Myfirst<span class="nt">&lt;/Item&gt;</span>
+    <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"[capacity]"</span><span class="nt">&gt;</span>(_Myend - _Myfirst)<span class="nt">&lt;/Item&gt;</span>
+    <span class="nt">&lt;ArrayItems&gt;</span>
+      <span class="nt">&lt;Size&gt;</span>_Mylast - _Myfirst<span class="nt">&lt;/Size&gt;</span>
+      <span class="nt">&lt;ValuePointer&gt;</span>_Myfirst<span class="nt">&lt;/ValuePointer&gt;</span>
+    <span class="nt">&lt;/ArrayItems&gt;</span>
+  <span class="nt">&lt;/Expand&gt;</span>
+<span class="nt">&lt;/Type&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>属性<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="optional">
+<h3>Optional<a class="headerlink" href="#optional" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>失敗した場合無視される</p>
+</section>
+<section id="conditional">
+<h3>Conditional<a class="headerlink" href="#conditional" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>条件が一致した場合のみ</p>
+</section>
+<section id="includeview">
+<h3>IncludeView<a class="headerlink" href="#includeview" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>可視性</p>
+</section>
+<section id="excludeview">
+<h3>ExcludeView<a class="headerlink" href="#excludeview" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>可視性</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>配置場所<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="project">
 <h2>project<a class="headerlink" href="#project" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-json5 notranslate"><div class="highlight"><pre><span></span>// launch.json
@@ -275,9 +389,6 @@
 <h2>user<a class="headerlink" href="#user" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\Documents/Visual</span> <span class="pre">Studio</span> <span class="pre">2013/Visualizers/*.natvis</span></code>
 <code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\Documents\Visual</span> <span class="pre">Studio</span> <span class="pre">2022\Visualizer/*.natvis</span></code></p>
-<ul class="simple">
-<li><p>@2015 <a class="reference external" href="https://qiita.com/bigengelt/items/91a4eff6a8385a30f6ae">.natvisを使ってVisual Studioのデバッグを見やすくする - Qiita</a></p></li>
-</ul>
 </section>
 <section id="sytem">
 <h2>sytem<a class="headerlink" href="#sytem" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -285,91 +396,9 @@
 <code class="docutils literal notranslate"><span class="pre">&lt;VS</span> <span class="pre">Installation</span> <span class="pre">Folder&gt;\Common7\Packages\Debugger\Visualizers_</span></code></p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>書式<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="string">
-<h2>string<a class="headerlink" href="#string" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/visualstudio/debugger/format-specifiers-in-cpp?view=vs-2022">デバッガーでの書式指定子 (C++) - Visual Studio (Windows) | Microsoft Learn</a></p>
-<section id="std-u8string">
-<h3>std::u8string<a class="headerlink" href="#std-u8string" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
-<span class="nt">&lt;AutoVisualizer</span> <span class="na">xmlns=</span><span class="s">"http://schemas.microsoft.com/vstudio/debugger/natvis/2010"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;Type</span> <span class="na">Name=</span><span class="s">"std::basic_string&amp;lt;char8_t,*&amp;gt;"</span> <span class="na">Priority=</span><span class="s">"High"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;Intrinsic</span> <span class="na">Name=</span><span class="s">"size"</span> <span class="na">Expression=</span><span class="s">"_Mypair._Myval2._Mysize"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;Intrinsic</span> <span class="na">Name=</span><span class="s">"capacity"</span> <span class="na">Expression=</span><span class="s">"_Mypair._Myval2._Myres"</span> <span class="nt">/&gt;</span>
-    <span class="cm">&lt;!-- _BUF_SIZE = 16 / sizeof(char) &amp;lt; 1 ? 1 : 16 / sizeof(char) == 16 --&gt;</span>
-    <span class="nt">&lt;Intrinsic</span> <span class="na">Name=</span><span class="s">"bufSize"</span> <span class="na">Expression=</span><span class="s">"16"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;Intrinsic</span> <span class="na">Name=</span><span class="s">"isShortString"</span> <span class="na">Expression=</span><span class="s">"capacity() &amp;lt; bufSize()"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;Intrinsic</span> <span class="na">Name=</span><span class="s">"isLongString"</span> <span class="na">Expression=</span><span class="s">"capacity() &amp;gt;= bufSize()"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;DisplayString</span> <span class="na">Condition=</span><span class="s">"isShortString()"</span><span class="nt">&gt;</span>{_Mypair._Myval2._Bx._Buf,nas8}<span class="nt">&lt;/DisplayString&gt;</span>
-    <span class="nt">&lt;DisplayString</span> <span class="na">Condition=</span><span class="s">"isLongString()"</span><span class="nt">&gt;</span>{_Mypair._Myval2._Bx._Ptr,nas8}<span class="nt">&lt;/DisplayString&gt;</span>
-    <span class="nt">&lt;StringView</span> <span class="na">Condition=</span><span class="s">"isShortString()"</span><span class="nt">&gt;</span>_Mypair._Myval2._Bx._Buf,nas8<span class="nt">&lt;/StringView&gt;</span>
-    <span class="nt">&lt;StringView</span> <span class="na">Condition=</span><span class="s">"isLongString()"</span><span class="nt">&gt;</span>_Mypair._Myval2._Bx._Ptr,nas8<span class="nt">&lt;/StringView&gt;</span>
-    <span class="nt">&lt;Expand&gt;</span>
-      <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"[size]"</span> <span class="na">ExcludeView=</span><span class="s">"simple"</span><span class="nt">&gt;</span>size()<span class="nt">&lt;/Item&gt;</span>
-      <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"[capacity]"</span> <span class="na">ExcludeView=</span><span class="s">"simple"</span><span class="nt">&gt;</span>capacity()<span class="nt">&lt;/Item&gt;</span>
-      <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"[allocator]"</span> <span class="na">ExcludeView=</span><span class="s">"simple"</span><span class="nt">&gt;</span>_Mypair<span class="nt">&lt;/Item&gt;</span>
-      <span class="nt">&lt;ArrayItems&gt;</span>
-        <span class="nt">&lt;Size&gt;</span>_Mypair._Myval2._Mysize<span class="nt">&lt;/Size&gt;</span>
-        <span class="nt">&lt;ValuePointer</span> <span class="na">Condition=</span><span class="s">"isShortString()"</span><span class="nt">&gt;</span>_Mypair._Myval2._Bx._Buf<span class="nt">&lt;/ValuePointer&gt;</span>
-        <span class="nt">&lt;ValuePointer</span> <span class="na">Condition=</span><span class="s">"isLongString()"</span><span class="nt">&gt;</span>_Mypair._Myval2._Bx._Ptr<span class="nt">&lt;/ValuePointer&gt;</span>
-      <span class="nt">&lt;/ArrayItems&gt;</span>
-    <span class="nt">&lt;/Expand&gt;</span>
-  <span class="nt">&lt;/Type&gt;</span>
-<span class="nt">&lt;/AutoVisualizer&gt;</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="stl">
-<h2>STL<a class="headerlink" href="#stl" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/microsoft/STL/blob/main/stl/debugger/STL.natvis#L172C17-L209C10">STL/stl/debugger/STL.natvis at main · microsoft/STL · GitHub</a></p></li>
-</ul>
-<section id="std-variant">
-<h3>std::variant<a class="headerlink" href="#std-variant" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/54458842/how-to-display-template-parameter-type-name-in-natvis">visual c++ - How to display template parameter type name in natvis? - Stack Overflow</a></p></li>
-</ul>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">&lt;Type</span>
-        <span class="na">Name=</span><span class="s">"std::variant&amp;lt;std::monostate,bool,float,*&amp;gt;"</span>
-        <span class="na">Priority=</span><span class="s">"High"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;DisplayString</span> <span class="na">Condition=</span><span class="s">"_Which==0"</span><span class="nt">&gt;</span>{{null}}<span class="nt">&lt;/DisplayString&gt;</span>
-        <span class="nt">&lt;DisplayString</span> <span class="na">Condition=</span><span class="s">"_Which==1"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">&gt;</span>{{bool}}<span class="nt">&lt;/DisplayString&gt;</span>
-        <span class="nt">&lt;DisplayString</span> <span class="na">Condition=</span><span class="s">"_Which==2"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">&gt;</span>{{float}}<span class="nt">&lt;/DisplayString&gt;</span>
-        <span class="nt">&lt;DisplayString</span> <span class="na">Condition=</span><span class="s">"_Which==3"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">&gt;</span>{{u8string}}<span class="nt">&lt;/DisplayString&gt;</span>
-        <span class="nt">&lt;DisplayString</span> <span class="na">Condition=</span><span class="s">"_Which==4"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">&gt;</span>{{array}}<span class="nt">&lt;/DisplayString&gt;</span>
-        <span class="nt">&lt;DisplayString</span> <span class="na">Condition=</span><span class="s">"_Which==5"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">&gt;</span>{{object}}<span class="nt">&lt;/DisplayString&gt;</span>
-        <span class="nt">&lt;Expand&gt;</span>
-            <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"which"</span><span class="nt">&gt;</span>_Which<span class="nt">&lt;/Item&gt;</span>
-            <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"value0"</span> <span class="na">Condition=</span><span class="s">"_Which==0"</span><span class="nt">&gt;</span>null<span class="nt">&lt;/Item&gt;</span>
-            <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"value1"</span> <span class="na">Condition=</span><span class="s">"_Which==1"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">&gt;</span>std::get<span class="ni">&amp;lt;</span>bool<span class="ni">&amp;gt;</span>(*this)<span class="nt">&lt;/Item&gt;</span>
-            <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"value2"</span> <span class="na">Condition=</span><span class="s">"_Which==2"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">&gt;</span>std::get<span class="ni">&amp;lt;</span>float<span class="ni">&amp;gt;</span>()<span class="nt">&lt;/Item&gt;</span>
-            <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"value3"</span> <span class="na">Condition=</span><span class="s">"_Which==3"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">&gt;</span>std::get<span class="ni">&amp;lt;</span>std::u8string<span class="ni">&amp;gt;</span>()<span class="nt">&lt;/Item&gt;</span>
-            <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"value4"</span> <span class="na">Condition=</span><span class="s">"_Which==4"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">&gt;</span>[]<span class="nt">&lt;/Item&gt;</span>
-            <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"value5"</span> <span class="na">Condition=</span><span class="s">"_Which==5"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">&gt;</span>{{}}<span class="nt">&lt;/Item&gt;</span>
-        <span class="nt">&lt;/Expand&gt;</span>
-    <span class="nt">&lt;/Type&gt;</span>
-</pre></div>
-</div>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="libstc">
-<h1>libstc++<a class="headerlink" href="#libstc" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">compiler</span></code> を変えると <code class="docutils literal notranslate"><span class="pre">STL</span></code> の実装が変わる。
-<code class="docutils literal notranslate"><span class="pre">NATVIS</span></code> も変わる。</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://source.chromium.org/chromium/chromium/src/+/main:tools/win/DebugVisualizers/libc++.natvis;drc=79b4f8b9d4a9dc7130463d2ca286f0b5b8e3d962">https://source.chromium.org/chromium/chromium/src/+/main:tools/win/DebugVisualizers/libc++.natvis;drc=79b4f8b9d4a9dc7130463d2ca286f0b5b8e3d962</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="libc">
-<h1>libc++<a class="headerlink" href="#libc" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/microsoft/vscode-cpptools/issues/3423">Please consider shipping debugger visualizers for libstdc++/libc++ · Issue #3423 · microsoft/vscode-cpptools · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://discourse.llvm.org/t/contributing-debug-visualizers-for-libc/51956/4">Contributing debug visualizers for libc++ - Runtimes / C++ - LLVM Discussion Forums</a></p></li>
-<li><p><a class="reference external" href="https://chromium.googlesource.com/chromium/src/+/HEAD/build/config/c++/libc++.natvis">build/config/c++/libc++.natvis - chromium/src - Git at Google</a></p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="natvis">
+<h1>Natvis 診断<a class="headerlink" href="#natvis" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>VSCode ?</p>
 </section>
 
         </article>
@@ -406,26 +435,35 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">C++TeamBlog</a></li>
-<li><a class="reference internal" href="#path">path</a><ul>
+<li><a class="reference internal" href="#format">format</a><ul>
+<li><a class="reference internal" href="#debugger-function">debugger function</a></li>
+<li><a class="reference internal" href="#context">context</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type">Type</a><ul>
+<li><a class="reference internal" href="#name">Name</a></li>
+<li><a class="reference internal" href="#displaystring">DisplayString</a></li>
+<li><a class="reference internal" href="#stringview">StringView</a></li>
+<li><a class="reference internal" href="#expand">Expand</a></li>
+<li><a class="reference internal" href="#expand-item">Expand &gt; Item</a></li>
+<li><a class="reference internal" href="#expand-arrayitems">Expand &gt; ArrayItems</a></li>
+<li><a class="reference internal" href="#id1">属性</a><ul>
+<li><a class="reference internal" href="#optional">Optional</a></li>
+<li><a class="reference internal" href="#conditional">Conditional</a></li>
+<li><a class="reference internal" href="#includeview">IncludeView</a></li>
+<li><a class="reference internal" href="#excludeview">ExcludeView</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">配置場所</a><ul>
 <li><a class="reference internal" href="#project">project</a></li>
 <li><a class="reference internal" href="#cmake">cmake</a></li>
 <li><a class="reference internal" href="#user">user</a></li>
 <li><a class="reference internal" href="#sytem">sytem</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id1">書式</a><ul>
-<li><a class="reference internal" href="#string">string</a><ul>
-<li><a class="reference internal" href="#std-u8string">std::u8string</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#stl">STL</a><ul>
-<li><a class="reference internal" href="#std-variant">std::variant</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#libstc">libstc++</a></li>
-<li><a class="reference internal" href="#libc">libc++</a></li>
+<li><a class="reference internal" href="#natvis">Natvis 診断</a></li>
 </ul>
 
           </div>
