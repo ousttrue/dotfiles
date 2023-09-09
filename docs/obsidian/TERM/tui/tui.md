@@ -9,6 +9,10 @@
 [[turbo_vision]]
 [[conpty]]
 
+## nocurses
+- [GitHub - LionyxML/nocurses: nocurses.h - A terminal screen manipulation library (colors, position, clears, attributes,...)](https://github.com/LionyxML/nocurses)
+- [GitHub - osch/lua-nocurses: A terminal screen manipulation library](https://github.com/osch/lua-nocurses)
+
 ## curses
 [[curses]]
 

@@ -338,4 +338,11 @@ function M.get_colorscheme()
   return "habamax", "dark"
 end
 
+--- https://wezfurlong.org/wezterm/escape-sequences.html#operating-system-command-sequences
+---@param n integer
+---@param value string
+function M.send_osc(n, value)
+  io.stdout:write(string.format("\x1b]%d;%s\x1b\\", n, value))
+end
+
 return M
