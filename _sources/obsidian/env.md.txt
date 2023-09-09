@@ -12,6 +12,21 @@
 [Local]keyboard visualize
 ```
 
+# plan
+- git
+- wezterm
+- golang
+	- build nyagos
+	- symbolic link
+- aqua
+	- fzf, ghq...
+- python3
+	- pip install zig ninja cmake
+	- build luajit gettext iconv
+	- build neovim 
+	- luarocks
+	- [Using Neovim as Lua interpreter with Luarocks](https://zignar.net/2023/01/21/using-luarocks-as-lua-interpreter-with-luarocks/)
+
 # windows
 
 - llvm-mingw

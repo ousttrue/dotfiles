@@ -20,3 +20,9 @@
 # 自作
 ## kilo
 [[kilo]]
+
+## Lite
+`SDL`
+[GitHub - rxi/lite: A lightweight text editor written in Lua](https://github.com/rxi/lite)
+
+
