@@ -1,14 +1,12 @@
-local M = {
-  title = "🐈",
-}
-
 local NYA = require "nya.util"
 
 local V = require "common.vars"
-local cm_str = require "common.string"
-local cm = require "common"
-local sys_name = cm.get_system()
-
+local STR = require "common.string"
+local COM = require "common"
+local SYS_NAME = COM.get_system()
+local M = {
+  title = SYS_NAME == "windows" and "🐱" or "🐧",
+}
 ---@param fg string
 ---@param bg string
 local function fg_bg_attr(fg, bg)
@@ -54,7 +52,7 @@ end
 
 local function get_git_status()
   local git_status = NYA.raweval("git", "status", "--porcelain", "--branch")
-  local lines = cm_str.split(git_status, "\n")
+  local lines = STR.split(git_status, "\n")
   local sync_status, n = string.match(lines[1], "%[(%w+)%s+(%d+)%]")
 
   local sync = " "
@@ -108,11 +106,11 @@ function M.prompt(this)
   end
 
   -- start
-  local start = sys_name == "windows" and "red" or "blue"
+  local start = SYS_NAME == "windows" and "red" or "blue"
   local sep = new_sep(start)
 
   -- path
-  local prefix = sys_name == "windows" and "🐱" or "🐧"
+  local prefix = M.title
   local current = get_current()
   local prompt = "$e[0m" .. fg_bg_attr(V.fg.white, V.bg[start]) .. prefix .. "$s" .. current
 

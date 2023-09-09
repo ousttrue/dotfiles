@@ -1,20 +1,29 @@
-# dotfiles
+<p align="center" width="100%">
+<img src="./logo/aqua_horizontal.svg" width="400">
+</p>
 
-- used [doit](https://pydoit.org/)
-- dodo.py
+#
 
-## symbolic link
+[![Build Status](https://github.com/aquaproj/aqua/workflows/test/badge.svg)](https://github.com/aquaproj/aqua/actions)
+[![GitHub last commit](https://img.shields.io/github/last-commit/aquaproj/aqua.svg)](https://github.com/aquaproj/aqua)
+[![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat-square)](https://raw.githubusercontent.com/aquaproj/aqua/main/LICENSE)
 
-- from `sync/HOME` to `$HOME` or `%USERPROFILE%`
-- from `sync/APPDATA` to `%USERPROFILE%/AppData`
-  - %ADDDATA% => `%USERPROFILE%/AppData/Roaming`
-  - %LOCALADDDATA% => `%USERPROFILE%/AppData/Local`
-- cargo
-- go
-- pip
+[Document](https://aquaproj.github.io/) | [Contributing](CONTRIBUTING.md) | [Logo](logo)
 
-## memo
+Declarative CLI Version Manager written in Go.
 
-- pkgconfig-lite and set `PKG_CONFIG_PATH` to `PREFIX/lib/pkgconfig`
-- win_flex
+- Switch tool versions per project
+- Unify tool versions and how to install in your teams and CI
+- Continuous update by Renovate
+- Lazy Install
+- Ecosystem by Registry
+- Secure
+- Easy to use
 
+[![Star History Chart](https://api.star-history.com/svg?repos=aquaproj/aqua&type=Date)](https://star-history.com/#aquaproj/aqua&Date)
+
+## License
+
+[MIT](LICENSE)
+
+About the license of logo, please see [here](logo/README.md#license).

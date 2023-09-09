@@ -34,8 +34,26 @@ function M.split(str, delimiter)
   return t
 end
 
-function M.starts_with(str, start)
-  return true
+---@param str string
+---@param target string
+---@return boolean
+function M.starts_with(str, target)
+  if #str < #target then
+    return false
+  end
+
+  return str:sub(1, #target) == target
+end
+
+---@param str string
+---@param target string
+---@return boolean
+function M.ends_with(str, target)
+  if #str < #target then
+    return false
+  end
+
+  return str:sub(#str - #target) == target
 end
 
 return M
