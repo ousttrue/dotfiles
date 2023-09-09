@@ -58,7 +58,7 @@ local plugins = {
     event = "VeryLazy",
     init = function()
       vim.o.timeout = true
-      vim.o.timeoutlen = 300
+      vim.o.timeoutlen = 500
     end,
     opts = {
       -- your configuration comes here
@@ -68,7 +68,29 @@ local plugins = {
   },
 
   -- icon
-  { "stevearc/dressing.nvim" },
+  {
+    "ibhagwan/fzf-lua",
+    config = function()
+      require("fzf-lua").setup {}
+    end,
+  },
+  {
+    "stevearc/dressing.nvim",
+    config = function()
+      require("dressing").setup {
+        select = {
+          -- Priority list of preferred vim.select implementations
+          backend = { "fzf_lua" },
+          fzf_lua = {
+            winopts = {
+              height = 0.9,
+              width = 0.8,
+            },
+          },
+        },
+      }
+    end,
+  },
   {
     "ziontee113/icon-picker.nvim",
     config = function()
