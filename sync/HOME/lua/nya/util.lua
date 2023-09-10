@@ -77,7 +77,6 @@ function M.which(cmd)
 
   -- ln: built-in command
   local m = string.match(res, "^([^:]+): built%-in command")
-  -- if m == cmd then
   if m then
     return nil, "builtin"
   end

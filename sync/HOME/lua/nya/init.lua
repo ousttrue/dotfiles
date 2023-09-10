@@ -67,6 +67,7 @@ local function setup_path()
     else
       nyagos.envadd("PATH", to_path(HOME .. "/.local/share/aquaproj-aqua/bin"))
     end
+    nyagos.envadd("PATH", to_path(HOME .. "/build/gcc/bin"))
   end
 
   nyagos.envadd("PATH", to_path(HOME .. "/build/zig/bin"))
@@ -185,16 +186,29 @@ local function setup_alias()
     "mv",
     "rm",
     "mkdir",
+    "rmdir",
     "xz",
     "ln",
     "tr",
+    "ps",
   }
   for _, v in ipairs(BUSYBOX_TOOLS) do
     local has, status = NYA.which(v)
     if not has then
-      local alt = string.format("~/busybox/%s", v)
-      if NYA.which(alt) then
-        nyagos.alias[v] = string.format("%s $*", alt)
+      if status == "builtin" then
+        -- Posix
+        local alt = string.format("/usr/bin/%s", v)
+        if NYA.which(alt) then
+          -- overwrite builtin
+          -- print("overwrite", v)
+          nyagos.alias[v] = string.format("%s $*", alt)
+        end
+      else
+        -- Windows
+        local alt = string.format("~/busybox/%s", v)
+        if NYA.which(alt) then
+          nyagos.alias[v] = string.format("%s $*", alt)
+        end
       end
     end
   end
@@ -288,7 +302,7 @@ function M.setup()
   nyagos.skk {
     user = "~/.go-skk-jisyo", -- ユーザ辞書
     "~/.skk/SKK-JISYO.L", -- システム辞書(ラージ)
-    "~/.skk/SKK-JISYO.emoji", -- システム辞書(絵文字)
+    -- "~/.skk/SKK-JISYO.emoji", -- システム辞書(絵文字)
   }
   require("nya.history").setup()
   require("nya.completion").setup()
@@ -301,7 +315,7 @@ function M.setup()
       local result = nyagos.eval "fd -t directory | fzf"
       nyagos.eval("cd " .. result)
       this:call "CLEAR_SCREEN"
-      return ""
+      return
     end
 
     -- local args = nyagos.argsfilter(this.text)
@@ -314,9 +328,11 @@ function M.setup()
     local cmd = string.format('globtest %s | fzf --header="%s"', word, word)
     local result = nyagos.eval(cmd)
     this:call "CLEAR_SCREEN"
-    if result and #result > 0 then
-      this:replacefrom(pos, result)
+    if not result or #result == 0 then
+      return
     end
+
+    this:replacefrom(pos, result)
   end)
 
   nyagos.bindkey("C_H", function(this)
@@ -336,6 +352,21 @@ function M.setup()
 
   nyagos.alias.title = function(args)
     PROMPT.title = unpack(args.rawargs)
+  end
+
+  nyagos.alias.mkcd = function(args)
+    -- mkdir
+    local dst = unpack(args.rawargs)
+    if not nyagos.stat(dst) then
+      local cmd = "mkdir -p " .. dst
+      print(cmd)
+      local ret = nyagos.exec(cmd)
+      if ret ~= 0 then
+        return ret
+      end
+    end
+    -- cd
+    nyagos.exec("cd " .. dst)
   end
 
   nyagos.prompt = PROMPT.prompt

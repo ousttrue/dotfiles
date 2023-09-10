@@ -15,10 +15,8 @@ local config = {
   initial_rows = 52,
 }
 
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-  --
-  -- Windows
-  --
+---@param config table
+local function setup_windows(config)
   config.font_size = 13.0 -- 4k monitor with DPI scaling
   local PWSH = { "C:/Program Files/PowerShell/7/pwsh.exe", "-nologo" }
   local NUSHELL = { HOME .. "/.cargo/bin/nu.exe" }
@@ -37,17 +35,17 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     if dom then
       dom.default_cwd = "~"
       local m = string.match(dom.name, "^WSL:(.+)")
-      if m then
-        --   dom.default_prog = { "~/go/bin/nyagos" }
-        -- dom.default_cwd = string.format("//wsl$/%s/home/%s", m, os.getenv "USERNAME")
-      end
+      -- if m then
+      --     dom.default_prog = { "~/go/bin/nyagos" }
+      --   dom.default_cwd = string.format("//wsl$/%s/home/%s", m, os.getenv "USERNAME")
+      -- end
     end
   end
   config.wsl_domains = wsl_domains
-else
-  --
-  -- Linux
-  --
+end
+
+---@param config table
+local function setup_linux(config)
   local NYAGOS = { HOME .. "/go/bin/nyagos" }
   if file_exists(NYAGOS[1]) then
     config.default_prog = NYAGOS
@@ -61,6 +59,12 @@ else
   else
     config.font_size = 11.0 -- raw font size
   end
+end
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  setup_windows(config)
+else
+  setup_linux(config)
 end
 
 config.keys = {

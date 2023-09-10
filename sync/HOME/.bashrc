@@ -60,9 +60,11 @@ else
 		SYSTEM_COLOR="cyan"
 		PLATFORM=LINUX
 		ICON=🐧
-		export LD_LIBRARY_PATH=$HOME/prefix/lib64
-		export PKG_CONFIG_PATH=$HOME/prefix/lib64/pkgconfig:$HOME/prefix/share/pkgconfig
-		export PYTHONPATH=$HOME/prefix/lib/python3.10/site-packages
+		BUILD_ROOT=${HOME}/build/gcc
+		BUILD_ROOT_LIB=${BUILD_ROOT}/lib
+		export LD_LIBRARY_PATH=${BUILD_ROOT_LIB}
+		export PKG_CONFIG_PATH=${BUILD_ROOT_LIB}/pkgconfig
+		export PYTHONPATH=${HOME}/prefix/lib/python3.10/site-packages
 	fi
 fi
 
@@ -93,6 +95,7 @@ path_unshift "$HOME/go/bin"
 path_push "/usr/lib/go-1.20/bin"
 # rust
 path_unshift "$HOME/.cargo/bin"
+path_unshift "$HOME/build/gcc/bin"
 
 if which zoxide >/dev/null 2>&1; then
 	eval "$(zoxide init bash)"
