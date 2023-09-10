@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,156 +212,15 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[OpenXR]]
-[[lua]]</p>
-<p><a class="reference external" href="https://lovr.org/docs/Getting_Started">LÖVR</a></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/bjornbytes/lovr">GitHub - bjornbytes/lovr: Lua Virtual Reality Framework</a></p></li>
-<li><p><a class="reference external" href="https://github.com/bjornbytes/lovr-docs">GitHub - bjornbytes/lovr-docs: Documentation for LÖVR</a></p></li>
+          <ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tboox/ltui">GitHub - tboox/ltui: 🍖 A cross-platform terminal ui library based on Lua</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>0.16<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>vulkan
-standard 未実装？</p>
-</section>
-<section id="id2">
-<h2>0.15<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>スタンドアロンの lua から動くようにして lua のデバッガをアタッチできないか？</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="build">
-<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lua">
-<h1>lua<a class="headerlink" href="#lua" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    "Lua.workspace.library": [
-        "${3rd}/lovr/library"
-    ],
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="headset">
-<h1>Headset<a class="headerlink" href="#headset" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="desktop">
-<h2>Desktop<a class="headerlink" href="#desktop" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>glfw window</p>
-<p><code class="docutils literal notranslate"><span class="pre">src\api\l_headset.c</span></code></p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">l_lovrHeadsetUpdate</span><span class="p">(</span><span class="n">lua_State</span><span class="o">*</span><span class="w"> </span><span class="n">L</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p>👇
-<code class="docutils literal notranslate"><span class="pre">src\modules\headset\headset_desktop.c</span></code></p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">pitch</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">yaw</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="n">state</span><span class="p">;</span><span class="w"></span>
-
-<span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">desktop_update</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="graphics">
-<h1>graphics<a class="headerlink" href="#graphics" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://lovr.org/docs/lovr.graphics">LÖVR</a></p></li>
-<li><p><a class="reference external" href="https://lovr.org/docs/Pass">LÖVR</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="build-for-quest">
-<h1>build for Quest<a class="headerlink" href="#build-for-quest" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">-U_FORTIFY_SOURCE</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://android-developers.googleblog.com/2017/04/fortify-in-android.html">Android Developers Blog: FORTIFY in Android</a></p></li>
-<li><p><a class="reference external" href="https://github.com/android/ndk/issues/1371">[question] What's the correct way to disable FORTIFY_SOURCE? · Issue #1371 · android/ndk · GitHub</a></p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    "cmake.configureSettings": {
-        "CMAKE_TOOLCHAIN_FILE": "${env:ANDROID_HOME}/ndk/21.4.7075529/build/cmake/android.toolchain.cmake",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-        "ANDROID": "ON",
-        "ANDROID_SDK": "${env:ANDROID_HOME}",
-        "ANDROID_BUILD_TOOLS_VERSION": "30.0.3",
-        "ANDROID_PLATFORM": "android-26",
-        "ANDROID_NATIVE_API_LEVEL": "26",
-        "ANDROID_ABI": "arm64-v8a",
-        "CMAKE_ANDROID_ARCH_ABI": "arm64-v8a",
-        "LOVR_USE_LUAJIT": "OFF",
-        "ANDROID_KEYSTORE": "${env:USERPROFILE}/.android/debug.keystore",
-        "ANDROID_KEYSTORE_PASS": "pass:android",
-        "ANDROID_KEY_PASS": "pass:android",
-    },
-}
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lodr">
-<h1>lodr<a class="headerlink" href="#lodr" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/bjornbytes/lodr">GitHub - bjornbytes/lodr: Live-reload wrapper for Lovr</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lite-lovr">
-<h1>lite-lovr<a class="headerlink" href="#lite-lovr" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/jmiskovic/lite-lovr">GitHub - jmiskovic/lite-lovr: A lightweight text editor written in Lua</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lovr-ui">
-<h1>lovr-ui<a class="headerlink" href="#lovr-ui" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/immortalx74/lovr-ui">GitHub - immortalx74/lovr-ui: An immediate mode VR GUI library for LÖVR</a></p></li>
-<li><p><a class="reference external" href="https://github.com/bjornbytes/lovr-ui">GitHub - bjornbytes/lovr-ui</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lovr-pointer">
-<h1>lovr-pointer<a class="headerlink" href="#lovr-pointer" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/bjornbytes/lovr-pointer">GitHub - bjornbytes/lovr-pointer: Point at objects in VR</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lovr-mouse">
-<h1>lovr-mouse<a class="headerlink" href="#lovr-mouse" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/bjornbytes/lovr-mouse">GitHub - bjornbytes/lovr-mouse: A mouse module for LÖVR</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lovr-keyboard">
-<h1>lovr-keyboard<a class="headerlink" href="#lovr-keyboard" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/bjornbytes/lovr-keyboard">GitHub - bjornbytes/lovr-keyboard: Keyboard support for LÖVR</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lovr-procmesh">
-<h1>lovr-procmesh<a class="headerlink" href="#lovr-procmesh" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/jmiskovic/lovr-procmesh">GitHub - jmiskovic/lovr-procmesh: Generation of mesh primitives and constructive solid geometry operations</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="plugins">
-<h1>plugins<a class="headerlink" href="#plugins" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://lovr.org/docs/Plugins">LÖVR</a></p></li>
-</ul>
-<section id="network">
-<h2>Network<a class="headerlink" href="#network" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[lua_socket]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/brainrom/lovr-luasocket">GitHub - brainrom/lovr-luasocket: Cmake-buildable libluasocket for LOVR</a></p></li>
-</ul>
-</section>
-</section>
 
         </article>
       </div>
@@ -376,7 +235,7 @@ standard 未実装？</p>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/CG/vr/lovr.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/lua/lua_tui.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -384,47 +243,8 @@ standard 未実装？</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">0.16</a></li>
-<li><a class="reference internal" href="#id2">0.15</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#build">build</a></li>
-<li><a class="reference internal" href="#lua">lua</a></li>
-<li><a class="reference internal" href="#headset">Headset</a><ul>
-<li><a class="reference internal" href="#desktop">Desktop</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#graphics">graphics</a></li>
-<li><a class="reference internal" href="#build-for-quest">build for Quest</a></li>
-<li><a class="reference internal" href="#lodr">lodr</a></li>
-<li><a class="reference internal" href="#lite-lovr">lite-lovr</a></li>
-<li><a class="reference internal" href="#lovr-ui">lovr-ui</a></li>
-<li><a class="reference internal" href="#lovr-pointer">lovr-pointer</a></li>
-<li><a class="reference internal" href="#lovr-mouse">lovr-mouse</a></li>
-<li><a class="reference internal" href="#lovr-keyboard">lovr-keyboard</a></li>
-<li><a class="reference internal" href="#lovr-procmesh">lovr-procmesh</a></li>
-<li><a class="reference internal" href="#plugins">plugins</a><ul>
-<li><a class="reference internal" href="#network">Network</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

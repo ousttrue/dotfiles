@@ -5,7 +5,10 @@
 - @2022 [WebRTC を今から学ぶ人に向けて](https://zenn.dev/voluntas/scraps/82b9e111f43ab3)
 	- [はじめに | 好奇心旺盛な人のためのWebRTC](https://webrtcforthecurious.com/ja/)
 
- [[SDP]]
+[[SDP]]
+
+- ローカルサーバーの host
+- WebBrowser とそれ以外の相互接続
  
 # RTCPeerConnection
 - @2019 [addTransceiver() と addTrack() の使い分け - console.lealog();](https://lealog.hateblo.jp/entry/2019/03/12/114529)
@@ -21,6 +24,9 @@
 
 ## go
 [[pion]]
+
+## c
+[[Janus]]
 
 ## Browser
 ```js

@@ -225,6 +225,17 @@
 <h1>Dynamic<a class="headerlink" href="#dynamic" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="https://qiita.com/false-git@github/items/4b531467788b446a18d2">ライブラリとは何なのか？ - Qiita</a></p>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="libtool-error-only-absolute-run-paths-are-allowed">
+<h1>libtool error: only absolute run-paths are allowed<a class="headerlink" href="#libtool-error-only-absolute-run-paths-are-allowed" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">configure</span> <span class="pre">--prefix</span></code> のミス</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># nyagos では $HOME は展開されない。%HOME% とする
+./configure --prefix=$HOME/local
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/45968651/libtool-error-only-absolute-run-paths-are-allowed">clang - libtool error: only absolute run-paths are allowed - Stack Overflow</a></p></li>
+</ul>
+</section>
 
         </article>
       </div>
@@ -261,6 +272,7 @@
             <ul>
 <li><a class="reference internal" href="#">Static</a></li>
 <li><a class="reference internal" href="#dynamic">Dynamic</a></li>
+<li><a class="reference internal" href="#libtool-error-only-absolute-run-paths-are-allowed">libtool error: only absolute run-paths are allowed</a></li>
 </ul>
 
           </div>

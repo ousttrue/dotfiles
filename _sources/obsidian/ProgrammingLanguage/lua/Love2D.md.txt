@@ -3,11 +3,24 @@
 - [LÖVE - Free 2D Game Engine](https://love2d.org/)
 	- [LOVE](https://love2d.org/wiki/Main_Page)
 
-`$ love.exe {MAIN_LUA_FOLDER}`
+- [LÖVE(Love2D) プログラミング入門](https://love2d-programming.com/)
+- @2021 [Love2D(Lua)でゲームをつくる](https://zenn.dev/m9m/scraps/52a88a63cdd1f4) [[luajit]] [[luarocks]]
 
-- [LÖVEのいろは](https://hakolife.net/love2d/)
-- [Love2D(Lua)でゲームをつくる](https://zenn.dev/m9m/scraps/52a88a63cdd1f4)
 
+# version
+## 11.4
+@2022
+
+# project
++ 📁root
+	+ main.lua (entry point)
+```
+# launch
+> love . # folder arg
+```
+
+# vscode
+custom interpleter
 ```json:.vscode/settings.json
 {
       "Lua.diagnostics.globals": [
@@ -21,11 +34,20 @@
 ```
 
 # build
+
+## Ubuntu
+- libsdl2-dev
+- libmodplug-dev
+- libtheora-dev
+- libmpg123-dev
+
+## Windows
 - [Building LÖVE/megasource 2019 (日本語) - LOVE](https://love2d.org/wiki/Building_L%C3%96VE/megasource_2019_(%E6%97%A5%E6%9C%AC%E8%AA%9E))
 依存ライブラリーがたくさんあるので、Windows向けの配布がある。
 
 こっちでビルドできる
 - [GitHub - love2d/megasource: Megasource is a CMake-buildable collection of all LÖVE dependencies.](https://github.com/love2d/megasource)
+
 # debugger
 コマンドライン引数。
 `love.dll` が最初から分かれているので、起動スクリプトがあればデバッグできそう？
@@ -38,5 +60,12 @@
 
 slandalone lua の `-e` オプションを追加するのが良いか？
 
+# testing
+- [GitHub - gtrogers/Cute: Micro unit testing for Love2d](https://github.com/gtrogers/Cute)
+
 # 3D
-[GitHub - rozenmad/Menori: Library for 3D rendering with LÖVE.](https://github.com/rozenmad/MenoriO)
+- [GitHub - rozenmad/Menori: Library for 3D rendering with LÖVE.](https://github.com/rozenmad/Menori)
+- [GitHub - groverburger/g3d: Simple and easy 3D engine for LÖVE.](https://github.com/groverburger/g3d)
+- [GitHub - 3dreamengine/3DreamEngine: 3DreamEngine is an *awesome* 3d engine for LÖVE.](https://github.com/3dreamengine/3DreamEngine)
+
+- [GitHub - excessive/love3d-demos: Various LÖVE3D demos and examples to get you started.](https://github.com/excessive/love3d-demos)

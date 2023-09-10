@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>lua 関連のファルダ配置 - shell note ドキュメント</title>
+        <title>nvim - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -218,153 +218,36 @@
           </label>
         </div>
         <article role="main">
-          <p>開発環境案</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Docker]language server
-👆
-[Docker]editor toolchain Shell
-👆
-[Dokcer/git maintenance]ProjectFolder MultiPlexer Shell
-👆
-[Local]term
-👆             👇
-[Local]keyboard visualize
-</pre></div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="lua">
-<h1>lua 関連のファルダ配置<a class="headerlink" href="#lua" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[luarocks]]</p>
-<p>root を決めて、そこに <code class="docutils literal notranslate"><span class="pre">luarocks</span></code> をインストールする。</p>
+          <p>[[lua]] の型付け transpiler ?
+typescript の lua 版みたいな?</p>
+<p><a class="reference external" href="https://pdesaulniers.github.io/tl/tutorial.html">Programming With Types in Teal | tl</a></p>
 <ul class="simple">
-<li><p>LUA_PATH</p></li>
-<li><p>CLUA_PATH</p></li>
-<li><p>PATH
-を設定する。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lua</span></code> の <code class="docutils literal notranslate"><span class="pre">bin</span></code>, <code class="docutils literal notranslate"><span class="pre">include</span></code>, <code class="docutils literal notranslate"><span class="pre">lib</span></code> への参照</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lua</span></code> をビルドした toolchain への参照
-を揃えるべし。</p></li>
+<li><p><a class="reference external" href="https://github.com/teal-language/tl">GitHub - teal-language/tl: The compiler for Teal, a typed dialect of Lua</a></p></li>
+<li><p><a class="reference external" href="https://github.com/teal-language/tl/tree/master/docs">tl/docs at master · teal-language/tl · GitHub</a></p></li>
 </ul>
-<p>つまり、</p>
+<section class="tex2jax_ignore mathjax_ignore" id="nvim">
+<h1>nvim<a class="headerlink" href="#nvim" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>NeoVim</p></li>
-<li><p>LuaRocks</p></li>
-<li><p>nyagos, wezterm
-を統合したフォルダ配置が必要だ。</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">~/build/${TOOLCHAIN}/lua</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">luajit</span></code>
-neovim の cmake の subproject 発見能力に問題があり、
-<code class="docutils literal notranslate"><span class="pre">USE_BUNDLED_LUAJIT=off</span></code> の場合は、システムにインストールした <code class="docutils literal notranslate"><span class="pre">luajit</span></code> でないと発見できない。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">luajit</span> <span class="n">libluajit</span><span class="o">-</span><span class="mf">5.1</span><span class="o">-</span><span class="n">dev</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">neovim</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; cmake -G Ninja -S cmake.deps/ -B .deps -DCMAKE_BUILD_TYPE=Release -DUSE_BUNDLED_LUAJIT=off
-
-&gt; ldd `which nvim`
-        linux-vdso.so.1 (0x00007ffde17f9000)
-        libluajit-5.1.so.2 =&gt; /lib/x86_64-linux-gnu/libluajit-5.1.so.2 (0x00007f871db72000)
-        libm.so.6 =&gt; /lib/x86_64-linux-gnu/libm.so.6 (0x00007f871da8b000)
-        libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f871d000000)
-        libdl.so.2 =&gt; /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f871da86000)
-        libgcc_s.so.1 =&gt; /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f871da66000)
-        /lib64/ld-linux-x86-64.so.2 (0x00007f871dc15000)
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">luarock</span></code></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">BUILD_ROOT</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/build/gcc
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">BUILD_ROOT</span><span class="si">}</span>/lib/x86_64-linux-gnu
-<span class="nb">export</span> <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">BUILD_ROOT</span><span class="si">}</span>/lib/x86_64-linux-gnu/pkgconfig
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; ./configure --prefix=$HOME/build/gcc
-
-Configuring LuaRocks version 3.9.2...
-
-Lua version detected: 5.1
-Lua interpreter found: ${HOME}/build/gcc/bin/luajit
-lua.h found: ${HOME}/build/gcc/include/lua.h
-unzip found in PATH: /usr/bin
-
-Done configuring.
-
-LuaRocks will be installed at......: ${HOME}/build/gcc
-LuaRocks will install rocks at.....: ${HOME}/build/gcc
-LuaRocks configuration directory...: ${HOME}/build/gcc/etc/luarocks
-Using Lua from.....................: ${HOME}/build/gcc
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="plan">
-<h1>plan<a class="headerlink" href="#plan" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>git</p></li>
-<li><p>wezterm</p></li>
-<li><p>golang</p>
-<ul>
-<li><p>build nyagos</p></li>
-<li><p>symbolic link</p></li>
-</ul>
-</li>
-<li><p>aqua</p>
-<ul>
-<li><p>fzf, ghq...</p></li>
-</ul>
-</li>
-<li><p>rustup / cargo</p>
-<ul>
-<li><p>globtest</p></li>
-</ul>
-</li>
-<li><p>python3</p>
-<ul>
-<li><p>pip install zig ninja cmake</p></li>
-<li><p>build luajit gettext iconv</p></li>
-<li><p>build neovim</p></li>
-<li><p>luarocks</p></li>
-<li><p><a class="reference external" href="https://zignar.net/2023/01/21/using-luarocks-as-lua-interpreter-with-luarocks/">Using Neovim as Lua interpreter with Luarocks</a></p></li>
-</ul>
-</li>
+<li><p><a class="reference external" href="https://github.com/svermeulen/nvim-teal-maker">GitHub - svermeulen/nvim-teal-maker: Neovim plugin that adds plugin support for teal language</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="windows">
-<h1>windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="cyan">
+<h1>cyan<a class="headerlink" href="#cyan" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>llvm-mingw</p></li>
-<li><p>golang</p></li>
-<li><p>python</p>
-<ul>
-<li><p>cmake</p></li>
-<li><p>ninja</p></li>
-</ul>
-</li>
-<li><p>aqua</p>
-<ul>
-<li><p>stylua</p>
-<ul>
-<li><p>neovim</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">%USERPROFILE%/build/llvm-mingw</span></code>
-に構築</p>
-<ul class="simple">
-<li><p>luajit</p></li>
-<li><p>gettext</p></li>
-<li><p>iconv</p></li>
-<li><p>neovim</p></li>
-<li><p>lua language server</p></li>
-<li><p>gtk</p>
-<ul>
-<li><p>gst</p></li>
-</ul>
-</li>
+<li><p><a class="reference external" href="https://github.com/teal-language/cyan">GitHub - teal-language/cyan: The Teal build system and project manager</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="docker">
-<h1>docker<a class="headerlink" href="#docker" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>formatter と language server ?</p>
+<section class="tex2jax_ignore mathjax_ignore" id="language-server">
+<h1>language server<a class="headerlink" href="#language-server" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/teal-language/teal-language-server">GitHub - teal-language/teal-language-server: A language server for Teal, a typed dialect of Lua</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="treesitter">
+<h1>treesitter<a class="headerlink" href="#treesitter" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/euclidianAce/tree-sitter-teal">GitHub - euclidianAce/tree-sitter-teal: A tree sitter grammar for Teal, a typed dialect of Lua</a></p></li>
+</ul>
 </section>
 
         </article>
@@ -380,7 +263,7 @@ Using Lua from.....................: ${HOME}/build/gcc
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/env.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/teal.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -400,10 +283,10 @@ Using Lua from.....................: ${HOME}/build/gcc
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">lua 関連のファルダ配置</a></li>
-<li><a class="reference internal" href="#plan">plan</a></li>
-<li><a class="reference internal" href="#windows">windows</a></li>
-<li><a class="reference internal" href="#docker">docker</a></li>
+<li><a class="reference internal" href="#">nvim</a></li>
+<li><a class="reference internal" href="#cyan">cyan</a></li>
+<li><a class="reference internal" href="#language-server">language server</a></li>
+<li><a class="reference internal" href="#treesitter">treesitter</a></li>
 </ul>
 
           </div>

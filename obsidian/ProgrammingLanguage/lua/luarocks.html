@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>user rocks - shell note ドキュメント</title>
+        <title>articles - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -219,16 +219,98 @@
         </div>
         <article role="main">
           <p>[[lua]]</p>
+<p><a class="reference external" href="https://luarocks.org/">LuaRocks - The Lua package manager</a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="articles">
+<h1>articles<a class="headerlink" href="#articles" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/mah0x211/items/a07a2628f129285a9337">LuaRocks で Lua のモジュールを管理する - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://luarocks.org/">LuaRocks - The Lua package manager</a></p></li>
-<li><p><a class="reference external" href="https://github.com/luarocks/luarocks">GitHub - luarocks/luarocks: LuaRocks is the package manager for the Lua programming language.</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://qiita.com/iwai/items/61419987a1d859245dde#lua_path">LuaRocksで環境ごとにパッケージをインストールしてパスを通す - Qiita</a></p></li>
+<li><p>@2014 <a class="reference external" href="https://qiita.com/mah0x211/items/a07a2628f129285a9337">LuaRocks で Lua のモジュールを管理する - Qiita</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="user-rocks">
-<h1>user rocks<a class="headerlink" href="#user-rocks" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="project-rocks">
-<h1>project rocks<a class="headerlink" href="#project-rocks" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="install">
+<h1>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>普通の lua script。だが、</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">lua5</span><span class="mf">.1</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">luarocks</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span> <span class="n">module</span> <span class="s1">'luarocks.core.cfg'</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/luarocks/luarocks/issues/885">Windows mingw compilation issues - module 'luarocks.core.cfg' not found · Issue #885 · luarocks/luarocks · GitHub</a></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="cp">#!/usr/bin/env lua-any</span>
+<span class="c1">-- Lua-Versions: 5.1 5.2 5.3 5.4</span>
+<span class="c1">-- Load cfg first so that the loader knows it is running inside LuaRocks</span>
+<span class="kd">local</span> <span class="n">cfg</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">"luarocks.core.cfg"</span><span class="p">)</span>
+
+<span class="kd">local</span> <span class="n">loader</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">"luarocks.loader"</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">cmd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">"luarocks.cmd"</span><span class="p">)</span>
+
+<span class="kd">local</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">"LuaRocks main command-line interface"</span>
+
+<span class="kd">local</span> <span class="n">commands</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="n">init</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.init"</span><span class="p">,</span>
+   <span class="n">pack</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.pack"</span><span class="p">,</span>
+   <span class="n">unpack</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.unpack"</span><span class="p">,</span>
+   <span class="n">build</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.build"</span><span class="p">,</span>
+   <span class="n">install</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.install"</span><span class="p">,</span>
+   <span class="n">search</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.search"</span><span class="p">,</span>
+   <span class="n">list</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.list"</span><span class="p">,</span>
+   <span class="n">remove</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.remove"</span><span class="p">,</span>
+   <span class="n">make</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.make"</span><span class="p">,</span>
+   <span class="n">download</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.download"</span><span class="p">,</span>
+   <span class="n">path</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.path"</span><span class="p">,</span>
+   <span class="n">show</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.show"</span><span class="p">,</span>
+   <span class="n">new_version</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.new_version"</span><span class="p">,</span>
+   <span class="n">lint</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.lint"</span><span class="p">,</span>
+   <span class="n">write_rockspec</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.write_rockspec"</span><span class="p">,</span>
+   <span class="n">purge</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.purge"</span><span class="p">,</span>
+   <span class="n">doc</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.doc"</span><span class="p">,</span>
+   <span class="n">upload</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.upload"</span><span class="p">,</span>
+   <span class="n">config</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.config"</span><span class="p">,</span>
+   <span class="n">which</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.which"</span><span class="p">,</span>
+   <span class="n">test</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.test"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">cmd</span><span class="p">.</span><span class="n">run_command</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="n">commands</span><span class="p">,</span> <span class="s2">"luarocks.cmd.external"</span><span class="p">,</span> <span class="p">...)</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; luarocks path
+<span class="nb">export</span> <span class="nv">LUA_PATH</span><span class="o">=</span><span class="s1">'</span>
+<span class="s1">${PREFIX}/share/lua/5.1/?.lua;</span>
+<span class="s1">${LUA_PATH};</span>
+<span class="s1">${USER_ROKCS}/share/lua/5.1/?.lua;</span>
+<span class="s1">${USER_ROKCS}/share/lua/5.1/?/init.lua;</span>
+<span class="s1">${PREFIX}/share/lua/5.1/?/init.lua</span>
+<span class="s1">'</span>
+
+<span class="nb">export</span> <span class="nv">LUA_CPATH</span><span class="o">=</span><span class="s1">'</span>
+<span class="s1">./?.so;</span>
+<span class="s1">/usr/local/lib/lua/5.1/?.so;</span>
+<span class="s1">/usr/lib/x86_64-linux-gnu/lua/5.1/?.so;</span>
+<span class="s1">/usr/local/lib/lua/5.1/loadall.so;</span>
+<span class="s1">${USER_ROCKS}/lib/lua/5.1/?.so;</span>
+<span class="s1">${PREFIX}/lib/lua/5.1/?.so</span>
+<span class="s1">'</span>
+
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s1">'</span>
+<span class="s1">${USER_ROCKS}/bin:</span>
+<span class="s1">${PATH}:</span>
+<span class="s1">${PREFIX}/bin:</span>
+<span class="s1">'</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="system-wide">
+<h1>system-wide<a class="headerlink" href="#system-wide" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/local/lib/luarocks</span></code>
+=&gt;
+<code class="docutils literal notranslate"><span class="pre">/usr/local/lib/luarocks/bin/</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="per-user">
+<h1>per-user<a class="headerlink" href="#per-user" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">$HOME/.luarocks/rocks/</span></code>
+=&gt;
+<code class="docutils literal notranslate"><span class="pre">$HOME/.luarocks/bin/</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="per-project">
+<h1>per-project<a class="headerlink" href="#per-project" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="hererocks">
 <h1>hererocks<a class="headerlink" href="#hererocks" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -275,8 +357,11 @@ master
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">user rocks</a></li>
-<li><a class="reference internal" href="#project-rocks">project rocks</a></li>
+<li><a class="reference internal" href="#">articles</a></li>
+<li><a class="reference internal" href="#install">install</a></li>
+<li><a class="reference internal" href="#system-wide">system-wide</a></li>
+<li><a class="reference internal" href="#per-user">per-user</a></li>
+<li><a class="reference internal" href="#per-project">per-project</a></li>
 <li><a class="reference internal" href="#hererocks">hererocks</a></li>
 </ul>
 

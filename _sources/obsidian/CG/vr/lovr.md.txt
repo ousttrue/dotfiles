@@ -6,13 +6,13 @@
 - [GitHub - bjornbytes/lovr-docs: Documentation for LÖVR](https://github.com/bjornbytes/lovr-docs)
 
 # Version
-## `0.16`
+## 0.16
 vulkan
-
 standard 未実装？
-
 ## 0.15
 スタンドアロンの lua から動くようにして lua のデバッガをアタッチできないか？
+
+# build
 
 # lua
 `.vscode/settings.json`
