@@ -105,6 +105,7 @@ windres  = toolchain / 'bin/windres.exe'
       PROMPT.title = "⚡"
       nyagos.envadd("PATH", "C:\\Python310\\lib\\site-packages\\ziglang")
       nyagos.envadd("PATH", "C:\\Python311\\lib\\site-packages\\ziglang")
+      nyagos.envadd("PATH", "~/.local/lib/python3.10/site-packages/ziglang")
       nyagos.exec "which zig && zig version"
       print [[
 [binaries]
