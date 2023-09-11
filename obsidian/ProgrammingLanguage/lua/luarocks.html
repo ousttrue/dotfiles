@@ -229,48 +229,6 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="install">
 <h1>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>普通の lua script。だが、</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">lua5</span><span class="mf">.1</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">luarocks</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span> <span class="n">module</span> <span class="s1">'luarocks.core.cfg'</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
-</pre></div>
-</div>
-<p><a class="reference external" href="https://github.com/luarocks/luarocks/issues/885">Windows mingw compilation issues - module 'luarocks.core.cfg' not found · Issue #885 · luarocks/luarocks · GitHub</a></p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="cp">#!/usr/bin/env lua-any</span>
-<span class="c1">-- Lua-Versions: 5.1 5.2 5.3 5.4</span>
-<span class="c1">-- Load cfg first so that the loader knows it is running inside LuaRocks</span>
-<span class="kd">local</span> <span class="n">cfg</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">"luarocks.core.cfg"</span><span class="p">)</span>
-
-<span class="kd">local</span> <span class="n">loader</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">"luarocks.loader"</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">cmd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">"luarocks.cmd"</span><span class="p">)</span>
-
-<span class="kd">local</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">"LuaRocks main command-line interface"</span>
-
-<span class="kd">local</span> <span class="n">commands</span> <span class="o">=</span> <span class="p">{</span>
-   <span class="n">init</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.init"</span><span class="p">,</span>
-   <span class="n">pack</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.pack"</span><span class="p">,</span>
-   <span class="n">unpack</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.unpack"</span><span class="p">,</span>
-   <span class="n">build</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.build"</span><span class="p">,</span>
-   <span class="n">install</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.install"</span><span class="p">,</span>
-   <span class="n">search</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.search"</span><span class="p">,</span>
-   <span class="n">list</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.list"</span><span class="p">,</span>
-   <span class="n">remove</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.remove"</span><span class="p">,</span>
-   <span class="n">make</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.make"</span><span class="p">,</span>
-   <span class="n">download</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.download"</span><span class="p">,</span>
-   <span class="n">path</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.path"</span><span class="p">,</span>
-   <span class="n">show</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.show"</span><span class="p">,</span>
-   <span class="n">new_version</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.new_version"</span><span class="p">,</span>
-   <span class="n">lint</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.lint"</span><span class="p">,</span>
-   <span class="n">write_rockspec</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.write_rockspec"</span><span class="p">,</span>
-   <span class="n">purge</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.purge"</span><span class="p">,</span>
-   <span class="n">doc</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.doc"</span><span class="p">,</span>
-   <span class="n">upload</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.upload"</span><span class="p">,</span>
-   <span class="n">config</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.config"</span><span class="p">,</span>
-   <span class="n">which</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.which"</span><span class="p">,</span>
-   <span class="n">test</span> <span class="o">=</span> <span class="s2">"luarocks.cmd.test"</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="n">cmd</span><span class="p">.</span><span class="n">run_command</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="n">commands</span><span class="p">,</span> <span class="s2">"luarocks.cmd.external"</span><span class="p">,</span> <span class="p">...)</span>
-</pre></div>
-</div>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; luarocks path
 <span class="nb">export</span> <span class="nv">LUA_PATH</span><span class="o">=</span><span class="s1">'</span>
 <span class="s1">${PREFIX}/share/lua/5.1/?.lua;</span>
@@ -296,6 +254,25 @@
 <span class="s1">'</span>
 </pre></div>
 </div>
+<section id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/luarocks/luarocks/tree/master">GitHub - luarocks/luarocks: LuaRocks is the package manager for the Lua programming language.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Windows">Installation instructions for Windows · luarocks/luarocks Wiki · GitHub</a>
+<code class="docutils literal notranslate"><span class="pre">install.bat</span></code> を改造するべし</p></li>
+</ul>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span># 独立したフォルダを指定するのがよい(クリアされる)
+&gt; luajit install.bat /P %USERPROFILE%/luarocks /NOADMIN /MW /F
+</pre></div>
+</div>
+</section>
+<section id="posix">
+<h2>Posix<a class="headerlink" href="#posix" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./configure --prefix=$HOME/prefix
+$ make install
+</pre></div>
+</div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="system-wide">
 <h1>system-wide<a class="headerlink" href="#system-wide" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -358,7 +335,11 @@ master
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">articles</a></li>
-<li><a class="reference internal" href="#install">install</a></li>
+<li><a class="reference internal" href="#install">install</a><ul>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+<li><a class="reference internal" href="#posix">Posix</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#system-wide">system-wide</a></li>
 <li><a class="reference internal" href="#per-user">per-user</a></li>
 <li><a class="reference internal" href="#per-project">per-project</a></li>

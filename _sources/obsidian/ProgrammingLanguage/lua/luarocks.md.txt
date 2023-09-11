@@ -7,50 +7,6 @@
 - @2014 [LuaRocks で Lua のモジュールを管理する - Qiita](https://qiita.com/mah0x211/items/a07a2628f129285a9337)
 
 # install
-普通の lua script。だが、
-```
-/usr/bin/lua5.1: /usr/bin/luarocks:4: module 'luarocks.core.cfg' not found:
-```
-[Windows mingw compilation issues - module 'luarocks.core.cfg' not found · Issue #885 · luarocks/luarocks · GitHub](https://github.com/luarocks/luarocks/issues/885)
-
-```lua
-#!/usr/bin/env lua-any
--- Lua-Versions: 5.1 5.2 5.3 5.4
--- Load cfg first so that the loader knows it is running inside LuaRocks
-local cfg = require("luarocks.core.cfg")
-
-local loader = require("luarocks.loader")
-local cmd = require("luarocks.cmd")
-
-local description = "LuaRocks main command-line interface"
-
-local commands = {
-   init = "luarocks.cmd.init",
-   pack = "luarocks.cmd.pack",
-   unpack = "luarocks.cmd.unpack",
-   build = "luarocks.cmd.build",
-   install = "luarocks.cmd.install",
-   search = "luarocks.cmd.search",
-   list = "luarocks.cmd.list",
-   remove = "luarocks.cmd.remove",
-   make = "luarocks.cmd.make",
-   download = "luarocks.cmd.download",
-   path = "luarocks.cmd.path",
-   show = "luarocks.cmd.show",
-   new_version = "luarocks.cmd.new_version",
-   lint = "luarocks.cmd.lint",
-   write_rockspec = "luarocks.cmd.write_rockspec",
-   purge = "luarocks.cmd.purge",
-   doc = "luarocks.cmd.doc",
-   upload = "luarocks.cmd.upload",
-   config = "luarocks.cmd.config",
-   which = "luarocks.cmd.which",
-   test = "luarocks.cmd.test",
-}
-
-cmd.run_command(description, commands, "luarocks.cmd.external", ...)
-```
-
 ```sh
 > luarocks path
 export LUA_PATH='
@@ -75,6 +31,22 @@ ${USER_ROCKS}/bin:
 ${PATH}:
 ${PREFIX}/bin:
 '
+```
+
+## Windows
+- [GitHub - luarocks/luarocks: LuaRocks is the package manager for the Lua programming language.](https://github.com/luarocks/luarocks/tree/master)
+- [Installation instructions for Windows · luarocks/luarocks Wiki · GitHub](https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Windows)
+`install.bat` を改造するべし
+```lua
+# 独立したフォルダを指定するのがよい(クリアされる)
+> luajit install.bat /P %USERPROFILE%/luarocks /NOADMIN /MW /F
+```
+
+## Posix
+
+```
+$ ./configure --prefix=$HOME/prefix
+$ make install
 ```
 
 # system-wide
