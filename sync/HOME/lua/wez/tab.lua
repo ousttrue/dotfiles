@@ -22,8 +22,7 @@ local function on_format_window_title(tab, pane, tabs, panes, config)
     return "🔎" .. tab.active_pane.title
   end
 
-  -- carbonfox
-  return string.format("domain=%s, color_scheme=%s", pane.domain_name, config.color_scheme)
+  return string.format("version=%s, domain=%s, color_scheme=%s", wezterm.version, pane.domain_name, config.color_scheme)
 end
 
 ---

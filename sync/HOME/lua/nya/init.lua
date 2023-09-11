@@ -20,20 +20,11 @@ end
 
 local function get_nvim()
   local list = {}
-  if nyagos.env.USERPROFILE then
-    table.insert(list, nyagos.env.USERPROFILE .. "/local/bin/nvim.exe")
-    table.insert(list, nyagos.env.USERPROFILE .. "/neovim/bin/nvim.exe")
-    table.insert(list, nyagos.env.PROGRAMFILES .. "/Neovim/bin/nvim.exe")
-  end
-  if nyagos.env.LOCALAPPDATA then
-    table.insert(list, nyagos.env.LOCALAPPDATA .. "/Programs/Neovim/bin/nvim.exe")
-  end
-  if nyagos.env.HOME then
-    table.insert(list, nyagos.env.HOME .. "/local/bin/nvim")
-  end
+  table.insert(list, HOME .. "/build/mingw/bin/nvim")
+  table.insert(list, HOME .. "/build/gcc/bin/nvim")
 
   for _, v in ipairs(list) do
-    if NYA.is_exists(v) then
+    if NYA.which(v) then
       return v
     end
   end
@@ -75,7 +66,11 @@ local function setup_path()
   nyagos.envadd("PATH", to_path(HOME .. "/.cargo/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/local/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/.local/bin"))
-  -- nyagos.envadd("PATH", "~/.local/share/aquaproj-aqua/bat")
+  nyagos.envadd("PATH", to_path(HOME .. "/build/mingw/bin"))
+  nyagos.envadd("PATH", to_path(HOME .. "/build/gcc/bin"))
+  nyagos.envadd("PATH", to_path(HOME .. "/luarocks"))
+  nyagos.envadd("PATH", to_path(HOME .. "/love2d"))
+
   local DEL_PATH = {
     "Oculus",
     "TortoiseGit",
@@ -308,6 +303,7 @@ function M.setup()
   require("nya.completion").setup()
   require("nya.zoxide").setup()
   require("nya.dotfiles").setup()
+  require("nya.toolchain").setup()
 
   nyagos.bindkey("C_R", function(this)
     local resun = ""

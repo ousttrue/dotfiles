@@ -55,3 +55,6 @@ package manager
 - [Jbuilder (Dune) でもっと楽に OCaml プロジェクトを作る - Qiita](https://qiita.com/keigoi/items/a68298fcd39322004fed)
 - [OCaml でコードを書き始めるチュートリアル - HackMD](https://hackmd.io/@anqou/HkyLTTKPs)
 - [Duneで始めるOCaml project - ohbarye](https://scrapbox.io/ohbarye/Dune%E3%81%A7%E5%A7%8B%E3%82%81%E3%82%8BOCaml_project)
+
+# docker
+- [最も小さいOCamlのDockerコンテナイメージの作り方(2022版)](https://v2.aintek.xyz/posts/minimum-docker-for-ocaml)
