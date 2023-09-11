@@ -62,6 +62,31 @@ function M.setup()
       tabline = 1000,
       winbar = 500,
     },
+    winbar = {
+      lualine_a = {
+        { "filename", path = 1 },
+      },
+      lualine_b = {
+        "aerial",
+      },
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {
+        "diff",
+      },
+      lualine_z = {
+        "location",
+        "progress",
+      },
+    },
+    inactive_winbar = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {},
+    },
     sections = {
       -- lualine_a = { "branch" },
       lualine_b = {},
@@ -72,39 +97,13 @@ function M.setup()
         lsp_names,
       },
       lualine_y = {
-        "diff",
-      },
-      lualine_z = {
-        "mode",
-      },
-    },
-    winbar = {
-      lualine_a = {
-        { "filename", path = 1 },
-      },
-      lualine_b = {
-        "aerial",
-      },
-      lualine_c = {},
-      lualine_x = {
-        "location",
-        "progress",
-      },
-      lualine_y = {
         "filetype",
       },
       lualine_z = {
+        -- "mode",
         "encoding",
         "fileformat",
       },
-    },
-    inactive_winbar = {
-      lualine_a = {},
-      lualine_b = {},
-      lualine_c = {},
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = {},
     },
   }
 end

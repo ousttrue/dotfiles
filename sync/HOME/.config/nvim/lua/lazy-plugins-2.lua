@@ -53,6 +53,27 @@ local plugins = {
   -- make_colorscheme("yasukotelin/shirotelin", "shirotelin", "light", "mac"),
   --
 
+  -- { "Bekaboo/dropbar.nvim" },
+  {
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require("symbols-outline").setup()
+    end,
+  },
+  {
+    "gw31415/fzyselect.vim",
+    config = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "fzyselect",
+        callback = function()
+          vim.keymap.set("n", "i", "<Plug>(fzyselect-fzy)", { buffer = true })
+          vim.keymap.set("n", "<cr>", "<Plug>(fzyselect-retu)", { buffer = true })
+          vim.keymap.set("n", "<esc>", "<cmd>clo<cr>", { buffer = true })
+        end,
+      })
+      vim.ui.select = require("fzyselect").start
+    end,
+  },
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
