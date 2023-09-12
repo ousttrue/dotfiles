@@ -26,9 +26,11 @@ set(DEPS_INSTALL_DIR "${CMAKE_BINARY_DIR}/usr")
 - @2019 [CMakeのExternalProjectで外部プロジェクトのビルドシステムに環境変数を渡す - 低レイヤ強くなりたい組込み屋さんのブログ](https://tomo-wait-for-it-yuki.hatenablog.com/entry/2019/03/24/050000)
 - @2015 [CMake ExternalProject 事始め - Qiita](https://qiita.com/trairia/items/d20860d61f0e1eb2fb72)
 
-# nvim
-## DEPS_PREFIX
-
+# mingw
+```
+> D:/msys64/usr/bin/ls  build/mingw/bin
+cat.exe  libiconv-2.dll  libintl-8.dll  lua51.dll  nvim.exe  platforms  tee.exe  win32yank.exe  xxd.exe
+```
 
 # llvm-mingw
 ## luajit
