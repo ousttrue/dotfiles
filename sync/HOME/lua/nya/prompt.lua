@@ -98,6 +98,50 @@ local function get_current()
   end
 end
 
+---@param src string
+---@return string
+local function remove_escape_sequence(src)
+  return src:gsub("$e%[%d+;%d+;1m", ""):gsub("$e%[%d+;1m", "")
+end
+
+-- https://github.com/aperezdc/lua-wcwidth
+---@param src string
+---@return integer
+function get_string_width(src)
+  local width = 0
+  for p, c in utf8.codes(src) do
+    if 0 ~= bit32.band(c, 0x7FFFFF80) then
+      if 0xFF61 <= c and c <= 0xFF9F then
+        width = width + 1
+      else
+        width = width + 2
+      end
+    else
+      width = width + 1
+    end
+  end
+  return width
+end
+
+---@param str string
+---@return integer
+local function get_cols(str)
+  -- local raw = remove_escape_sequence(str)
+  return get_string_width(str)
+end
+
+---@param left string
+---@param right string
+---@return string
+local function get_padding(left, right)
+  local cols = nyagos.getviewwidth() - get_cols(left) - get_cols(right)
+  local padding = ""
+  for i = 1, cols do
+    padding = padding .. " "
+  end
+  return padding
+end
+
 function M.prompt(this)
   -- error check
   local error = false
@@ -141,11 +185,19 @@ function M.prompt(this)
   end
 
   local error_color = error and "red" or "green"
-  prompt = prompt
-    .. sep("default", "default")
+
+  local left = prompt .. sep("default", "default")
+
+  local right = "right"
+
+  local padding = get_padding(left, right)
+
+  prompt = left
+    -- .. padding
+    -- .. right
     .. "$_" -- '\n'
     .. fg_bg_attr(V.fg[error_color], V.bg.default)
-    .. ">"
+    .. "%"
     .. fg_bg_attr(V.fg.default, V.bg.default)
     .. "$s" -- 'space'
 
