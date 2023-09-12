@@ -14,6 +14,8 @@
 - @2023 [Godot 4 VR開発メモ - フレームシンセシス](https://framesynthesis.jp/tech/godot/vr/)
 - @2022 [Godot 4.0のドキュメンテーション機能を試してみる](https://zenn.dev/slm/articles/dac2d679d2dd6c)
 
+- @2022 [Godot Game Engine 4.0 勉強メモ｜NwSnKn](https://note.com/nwsnkn/n/nf9e17fd5a93f)
+
 ## 3
 
 # GDNative
@@ -26,4 +28,7 @@
 - [Your first 3D game — Godot Engine (stable) documentation in English](https://docs.godotengine.org/en/stable/getting_started/first_3d_game/index.html)
 ## Asset Library
 - [About the Asset Library — Godot Engine (stable) documentation in English](https://docs.godotengine.org/en/stable/community/asset_library/what_is_assetlib.html#doc-what-is-assetlib)
+# build
+## mingw
+- [Compiling for Windows — Godot Engine (stable) documentation in English](https://docs.godotengine.org/en/stable/contributing/development/compiling/compiling_for_windows.html)
 
