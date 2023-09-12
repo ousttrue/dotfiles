@@ -1,16 +1,29 @@
 [[pdb]]
+[[natvis_msvcp]] [[natvis_libc++]] [[natvis_libstdc++]]
 
-[C++ オブジェクトのカスタム ビューを作成する | Microsoft Learn](https://learn.microsoft.com/ja-jp/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022)
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+</AutoVisualizer>
+```
 
-- [The Natvis framework provides custom views for native C++ objects](https://code.visualstudio.com/docs/cpp/natvis)
-- [Create custom views of C++ objects - Visual Studio (Windows) | Microsoft Learn](https://learn.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022)
+[Create custom views of C++ objects - Visual Studio (Windows) | Microsoft Learn](https://learn.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022)
+- [C++ オブジェクトのカスタム ビューを作成する | Microsoft Learn](https://learn.microsoft.com/ja-jp/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022)
+
+- [Visual Studio Code documentation search](https://code.visualstudio.com/Search?q=natvis)
+
 - [STL/stl/debugger/STL.natvis at main · microsoft/STL · GitHub](https://github.com/microsoft/STL/blob/main/stl/debugger/STL.natvis)
 
 - @2023 [C++&Visual Studio 便利なデバッグ変数情報の視覚化（natvis）と関数使用時の注意 - potisanのプログラミングメモ](https://potisan-programming-memo.hatenablog.jp/entry/2023/01/12/062155)
+`struct`
+
 - @2020 [ブログズミ: [Visual Studio] .natvis/.natstepfilter をプロジェクトに追加してウォッチ・ステップインしやすくする](https://srz-zumix.blogspot.com/2020/05/visual-studio-natvisnatstepfilter.html)
 - @2020 [組込 1 年目のエンジニアが開発環境を整備した話 - Qiita](https://qiita.com/utisam/items/dd8717e007326e360e41)
 - @2014 [Fetching Title#n4u1](https://mariusbancila.ro/blog/2014/06/04/per-project-natvis-files-in-visual-studio-14/)
 - @2015 [.natvisを使ってVisual Studioのデバッグを見やすくする - Qiita](https://qiita.com/bigengelt/items/91a4eff6a8385a30f6ae)
+
+## std::variant
+[visual c++ - How to display template parameter type name in natvis? - Stack Overflow](https://stackoverflow.com/questions/54458842/how-to-display-template-parameter-type-name-in-natvis)
 
 # C++TeamBlog
 - [Project Support for Natvis - C++ Team Blog](https://devblogs.microsoft.com/cppblog/project-support-for-natvis/)
@@ -27,6 +40,10 @@
 
 ## context
 - [デバッガーでのコンテキスト演算子 (C++) | Microsoft Learn](https://learn.microsoft.com/ja-jp/visualstudio/debugger/context-operator-cpp?view=vs-2022)
+
+## Schema
+- [The Natvis framework provides custom views for native C++ objects](https://code.visualstudio.com/docs/cpp/natvis)
+
 
 # Type
 

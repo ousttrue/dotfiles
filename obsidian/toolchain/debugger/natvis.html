@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>C++TeamBlog - shell note ドキュメント</title>
+        <title>std::variant - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,18 +218,29 @@
           </label>
         </div>
         <article role="main">
-          <p>[[pdb]]</p>
-<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022">C++ オブジェクトのカスタム ビューを作成する | Microsoft Learn</a></p>
+          <p>[[pdb]]
+[[natvis_msvcp]] [[natvis_libc++]] [[natvis_libstdc++]]</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;AutoVisualizer</span> <span class="na">xmlns=</span><span class="s">"http://schemas.microsoft.com/vstudio/debugger/natvis/2010"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/AutoVisualizer&gt;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://learn.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022">Create custom views of C++ objects - Visual Studio (Windows) | Microsoft Learn</a></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://code.visualstudio.com/docs/cpp/natvis">The Natvis framework provides custom views for native C++ objects</a></p></li>
-<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022">Create custom views of C++ objects - Visual Studio (Windows) | Microsoft Learn</a></p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2022">C++ オブジェクトのカスタム ビューを作成する | Microsoft Learn</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/Search?q=natvis">Visual Studio Code documentation search</a></p></li>
 <li><p><a class="reference external" href="https://github.com/microsoft/STL/blob/main/stl/debugger/STL.natvis">STL/stl/debugger/STL.natvis at main · microsoft/STL · GitHub</a></p></li>
-<li><p>@2023 <a class="reference external" href="https://potisan-programming-memo.hatenablog.jp/entry/2023/01/12/062155">C++&amp;Visual Studio 便利なデバッグ変数情報の視覚化（natvis）と関数使用時の注意 - potisanのプログラミングメモ</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://potisan-programming-memo.hatenablog.jp/entry/2023/01/12/062155">C++&amp;Visual Studio 便利なデバッグ変数情報の視覚化（natvis）と関数使用時の注意 - potisanのプログラミングメモ</a>
+<code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
 <li><p>@2020 <a class="reference external" href="https://srz-zumix.blogspot.com/2020/05/visual-studio-natvisnatstepfilter.html">ブログズミ: [Visual Studio] .natvis/.natstepfilter をプロジェクトに追加してウォッチ・ステップインしやすくする</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://qiita.com/utisam/items/dd8717e007326e360e41">組込 1 年目のエンジニアが開発環境を整備した話 - Qiita</a></p></li>
 <li><p>@2014 <a class="reference external" href="https://mariusbancila.ro/blog/2014/06/04/per-project-natvis-files-in-visual-studio-14/">Fetching Title#n4u1</a></p></li>
 <li><p>@2015 <a class="reference external" href="https://qiita.com/bigengelt/items/91a4eff6a8385a30f6ae">.natvisを使ってVisual Studioのデバッグを見やすくする - Qiita</a></p></li>
 </ul>
+<section id="std-variant">
+<h1>std::variant<a class="headerlink" href="#std-variant" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://stackoverflow.com/questions/54458842/how-to-display-template-parameter-type-name-in-natvis">visual c++ - How to display template parameter type name in natvis? - Stack Overflow</a></p>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="c-teamblog">
 <h1>C++TeamBlog<a class="headerlink" href="#c-teamblog" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -254,6 +265,12 @@
 <h2>context<a class="headerlink" href="#context" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/visualstudio/debugger/context-operator-cpp?view=vs-2022">デバッガーでのコンテキスト演算子 (C++) | Microsoft Learn</a></p></li>
+</ul>
+</section>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/cpp/natvis">The Natvis framework provides custom views for native C++ objects</a></p></li>
 </ul>
 </section>
 </section>
@@ -434,10 +451,12 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">C++TeamBlog</a></li>
+<li><a class="reference internal" href="#">std::variant</a></li>
+<li><a class="reference internal" href="#c-teamblog">C++TeamBlog</a></li>
 <li><a class="reference internal" href="#format">format</a><ul>
 <li><a class="reference internal" href="#debugger-function">debugger function</a></li>
 <li><a class="reference internal" href="#context">context</a></li>
+<li><a class="reference internal" href="#schema">Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#type">Type</a><ul>
