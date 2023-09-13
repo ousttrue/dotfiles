@@ -70,6 +70,7 @@ local function setup_path()
   nyagos.envadd("PATH", to_path(HOME .. "/build/gcc/bin"))
   nyagos.envadd("PATH", to_path(HOME .. "/luarocks"))
   nyagos.envadd("PATH", to_path(HOME .. "/love2d"))
+  nyagos.envadd("PATH", to_path(nyagos.env.APPDATA .. "/LuaRocks/bin"))
 
   local DEL_PATH = {
     "Oculus",

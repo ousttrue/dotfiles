@@ -58,3 +58,6 @@ exe.setTarget(.{ .cpu_arch = .wasm32, .os_tag = .freestanding });
 
 - ⚡ [GitHub - fabioarnold/hello-webgl: Hello WebGL in Zig](https://github.com/fabioarnold/hello-webgl)
 -  [GitHub - raulgrell/zig-wasm-webgl: Using Zig and WebGL](https://github.com/raulgrell/zig-wasm-webgl)
+
+# llvm
+- [Zig's New Relationship with LLVM | Loris Cro's Blog](https://kristoff.it/blog/zig-new-relationship-llvm/)

@@ -64,58 +64,43 @@ local function get_global(d)
   return globals
 end
 
-local function get_library()
-  return vim.api.nvim_get_runtime_file("", true)
+---@param root_dir string
+---@return table
+local function get_library(root_dir)
+  -- return vim.api.nvim_get_runtime_file("", true)
+
+  return {
+    vim.env.VIMRUNTIME,
+    -- "${3rd}/luv/library"
+    -- "${3rd}/busted/library",
+  }
 end
 
 function M.setup(lspconfig, capabilities, on_attach)
   -- https://luals.github.io/wiki/settings
-  local settiings = {
+  -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
+  require("lspconfig").lua_ls.setup {
     cmd = { get_lua_ls() },
-    settings = {
-      Lua = {
-        runtime = {
-          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-          version = "LuaJIT",
-          path = {
-            "?.lua",
-            "?/init.lua",
-            dot.get_home() .. "/local/lua/?.lua",
-            dot.get_home() .. "/local/lua/?/init.lua",
-          },
-        },
-        diagnostics = {
-          enable = true,
-          globals = get_global(),
-        },
-        workspace = {
-          -- Make the server aware of Neovim runtime files
-          library = get_library(),
-          checkThirdParty = false,
-        },
-        -- Do not send telemetry data containing a randomized but unique identifier
-        telemetry = {
-          enable = false,
-        },
-        completion = {
-          callSnippet = "Replace",
-        },
-      },
-    },
-    capabilities = capabilities,
-    -- https://github.com/neovim/nvim-lspconfig/wiki/Project-local-settings
     on_init = function(client)
-      -- print(vim.inspect(client.config.capabilities))
+      local path = client.workspace_folders[1].name
+      if not vim.loop.fs_stat(path .. "/.luarc.json") and not vim.loop.fs_stat(path .. "/.luarc.jsonc") then
+        client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
+          Lua = {
+            runtime = {
+              -- Tell the language server which version of Lua you're using
+              -- (most likely LuaJIT in the case of Neovim)
+              version = "LuaJIT",
+            },
+            -- Make the server aware of Neovim runtime files
+            workspace = {
+              checkThirdParty = false,
+              library = vim.api.nvim_get_runtime_file("", true),
+            },
+          },
+        })
 
-      vim.notify("lua_ls.init: " .. client.config.root_dir, vim.log.levels.INFO)
-      if vim.endswith(client.config.root_dir, "/dotfiles") then
-        client.config.settings.Lua.diagnostics.globals = {
-          "vim",
-          "nyagos",
-        }
+        client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
       end
-
-      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
       return true
     end,
     on_attach = function(client, bufnr)
@@ -124,7 +109,60 @@ function M.setup(lspconfig, capabilities, on_attach)
     end,
   }
 
-  lspconfig.lua_ls.setup(settiings)
+  -- local settiings = {
+  --   cmd = { get_lua_ls() },
+  --   settings = {
+  --     Lua = {
+  --       runtime = {
+  --         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+  --         version = "LuaJIT",
+  --         path = {
+  --           "?.lua",
+  --           "?/init.lua",
+  --           dot.get_home() .. "/local/lua/?.lua",
+  --           dot.get_home() .. "/local/lua/?/init.lua",
+  --         },
+  --       },
+  --       diagnostics = {
+  --         enable = true,
+  --         globals = get_global(),
+  --       },
+  --       workspace = {
+  --         -- Make the server aware of Neovim runtime files
+  --         library = get_library(),
+  --         checkThirdParty = false,
+  --       },
+  --       -- Do not send telemetry data containing a randomized but unique identifier
+  --       telemetry = {
+  --         enable = false,
+  --       },
+  --       completion = {
+  --         callSnippet = "Replace",
+  --       },
+  --     },
+  --   },
+  --   capabilities = capabilities,
+  --   -- https://github.com/neovim/nvim-lspconfig/wiki/Project-local-settings
+  --   on_init = function(client)
+  --     -- print(vim.inspect(client.config.capabilities))
+  --
+  --     vim.notify("lua_ls.init: " .. client.config.root_dir, vim.log.levels.INFO)
+  --     if vim.endswith(client.config.root_dir, "/dotfiles") then
+  --       client.config.settings.Lua.diagnostics.globals = {
+  --         "vim",
+  --         "nyagos",
+  --       }
+  --     end
+  --
+  --     client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+  --     return true
+  --   end,
+  --   on_attach = function(client, bufnr)
+  --     client.server_capabilities.documentFormattingProvider = false
+  --     on_attach(client, bufnr)
+  --   end,
+  -- }
+  -- lspconfig.lua_ls.setup(settiings)
 end
 
 return M

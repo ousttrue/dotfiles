@@ -21,6 +21,9 @@ local function setup_windows(config)
   local PWSH = { "C:/Program Files/PowerShell/7/pwsh.exe", "-nologo" }
   local NUSHELL = { HOME .. "/.cargo/bin/nu.exe" }
   local NYAGOS = { HOME .. "/go/bin/nyagos.exe" }
+
+
+
   if file_exists(NYAGOS[1]) then
     config.default_prog = NYAGOS
   elseif file_exists(PWSH[1]) then

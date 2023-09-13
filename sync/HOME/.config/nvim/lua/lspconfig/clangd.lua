@@ -10,6 +10,9 @@ local clangd_list = {
   "clangd",
 }
 
+local LLVM_PREBUILT = "C:/Program Files/LLVM/bin/clangd.exe"
+local LLVM_MINGW = "D:/llvm-mingw-20230614-ucrt-x86_64/bin/clangd.exe"
+
 local fallbackFlags = {}
 -- if vim.fn.has "win32" == 1 then
 --   fallbackFlags = { "/std:c++latest" }
@@ -19,7 +22,8 @@ local fallbackFlags = {}
 
 local function get_clangd()
   if vim.fn.has "win32" == 1 then
-    return "C:/Program Files/LLVM/bin/clangd.exe"
+    return LLVM_MINGW
+    -- return LLVM_PREBUILT
   else
     for _, exe in pairs(clangd_list) do
       if dot.which(exe) then
@@ -59,7 +63,6 @@ function M.setup(lspconfig, capabilities, on_attach)
       "--header-insertion=never",
       "--clang-tidy",
       "--enable-config",
-      "--query-driver='C:/Program Files/LLVM/bin/clang-cl.exe'",
     },
     -- handlers = lsp_status.extensions.clangd.setup(),
     init_options = {
