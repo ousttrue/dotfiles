@@ -8,3 +8,7 @@
 - @2020 [lldbでdebugをtuiで表示したい - 雑なメモ書き](https://hiroyukim.hatenablog.com/entry/2020/01/16/143209)
 - @2019 [Peeter Joot's Blog » The lldb TUI (text user interface)](https://peeterjoot.com/2019/08/26/the-lldb-tui-text-user-interface/)
 
+# codelldb
+[[dap]]
+
+- [Windows · vadimcn/codelldb Wiki · GitHub](https://github.com/vadimcn/codelldb/wiki/Windows)

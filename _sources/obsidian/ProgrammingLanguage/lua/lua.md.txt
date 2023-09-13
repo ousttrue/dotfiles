@@ -19,6 +19,9 @@ http://www.lua.org/work/doc/#changes
 ## `5.3
 [Lua 5.3 Reference Manual#Incompatibilities with the Previous Version](http://www.lua.org/manual/5.3/manual.html#8)
 
+- bit operator
+- [Lua(JIT)のbit演算](https://zenn.dev/uga_rosa/articles/5c6272ab8db9a1)
+
 - integer
 - [Lua 5.3 Bytecode Reference — Ravi Programming Language 0.1 documentation](https://the-ravi-programming-language.readthedocs.io/en/latest/lua_bytecode_reference.html)
 	
@@ -69,6 +72,9 @@ https://www.lua.org/manual/5.1/manual.html#7
 ```lua
 require("lldebugger").start()
 ```
+
+## tui
+- [spilt / lua-debug-tui — Bitbucket](https://bitbucket.org/spilt/lua-debug-tui/src/master/)
 
 # table
 - [Luaのちょっと分かりにくいけど便利かもしれない機能 - yappyの日記](https://yappy-t.hatenadiary.org/entry/20100325/1269536711)
