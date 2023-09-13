@@ -34,12 +34,13 @@ ${PREFIX}/bin:
 ```
 
 ## config
+
 ```lua
 -- config-5.1.lua
 local_by_default=true
 config={
 	variables={
-		MD5SUM="",
+		MD5SUM = [[D:/msys64/usr/bin/md5sum.exe]],
 	}
 }
 ```
