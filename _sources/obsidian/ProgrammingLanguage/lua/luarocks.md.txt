@@ -33,6 +33,17 @@ ${PREFIX}/bin:
 '
 ```
 
+## config
+```lua
+-- config-5.1.lua
+local_by_default=true
+config={
+	variables={
+		MD5SUM="",
+	}
+}
+```
+
 ## Windows
 - [GitHub - luarocks/luarocks: LuaRocks is the package manager for the Lua programming language.](https://github.com/luarocks/luarocks/tree/master)
 - [Installation instructions for Windows · luarocks/luarocks Wiki · GitHub](https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Windows)
@@ -44,6 +55,21 @@ ${PREFIX}/bin:
 
 ### tools
 ダブルクォートが余分について `md5sum` のサーチに失敗する。
+
+```lua
+-- luarocks config
+variables = {
+   MD5SUM = "\"C:/User/bin/tools/md5sum.exe\"", -- 👈
+}
+```
+👇
+```lua
+--config-5.1.lua
+variables = {
+  MD5SUM = [[D:/msys64/usr/bin/md5sum.exe]],
+}
+```
+
 `tools`
 ```lua
 function unquote(str)

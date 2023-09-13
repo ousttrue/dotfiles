@@ -12,6 +12,7 @@
     ],
 ```
 
+
 # lspconfig
 - [nvim-lspconfig/server_configurations.md at master · neovim/nvim-lspconfig · GitHub](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls)
 
@@ -45,6 +46,24 @@ require'lspconfig'.lua_ls.setup {
 [NeoVim API information not working with lua-language-server (sumneko) - Language Server Protocol (LSP) - Neovim Discourse](https://neovim.discourse.group/t/neovim-api-information-not-working-with-lua-language-server-sumneko/2162)
 
 => [GitHub - folke/neodev.nvim: 💻 Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.](https://github.com/folke/neodev.nvim)
+
+# folder local
+
+`project root` に空の `.luarc.json`を配置しておく
+`lua_ls` の問い合わせに、`apply and modify`
+👇
+```json
+{
+  "workspace": {
+    "checkThirdParty": true,
+    "library": ["${3rd}/love2d/library"]
+  },
+  "runtime.version": "LuaJIT",
+  "runtime.special": {
+    "love.filesystem.load": "loadfile"
+  }
+}
+```
 
 # nvim
 起動速くするには？

@@ -238,6 +238,83 @@ namespace <code class="docutils literal notranslate"><span class="pre">std::__1<
 <span class="nt">&lt;/Type&gt;</span>
 </pre></div>
 </div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>  <span class="nt">&lt;Type</span> <span class="na">Name=</span><span class="s">"std::__1::unordered_map&amp;lt;*&amp;gt;"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Intrinsic</span> <span class="na">Name=</span><span class="s">"size"</span> <span class="na">Expression=</span><span class="s">"*(size_type*)&amp;amp;__table_.__p2_"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Intrinsic</span> <span class="na">Name=</span><span class="s">"bucket_count"</span>
+      <span class="na">Expression=</span><span class="s">"*(size_type*)&amp;amp;</span>
+<span class="s">                    ((__table::__bucket_list_deleter*)</span>
+<span class="s">                        ((void**)&amp;amp;__table_.__bucket_list_ + 1))</span>
+<span class="s">                        -&amp;gt;__data_"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;DisplayString&gt;</span>{{ size={size()} }}<span class="nt">&lt;/DisplayString&gt;</span>
+    <span class="nt">&lt;Expand&gt;</span>
+      <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"[bucket_count]"</span><span class="nt">&gt;</span>bucket_count()<span class="nt">&lt;/Item&gt;</span>
+      <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"[load_factor]"</span><span class="nt">&gt;</span>
+        bucket_count() != 0 ? (float)size() / bucket_count() : 0.f<span class="nt">&lt;/Item&gt;</span>
+      <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"[max_load_factor]"</span><span class="nt">&gt;</span>*(float*)<span class="ni">&amp;amp;</span>__table_.__p3_<span class="nt">&lt;/Item&gt;</span>
+      <span class="cm">&lt;!-- Use CustomListItems instead of LinkedListItems because we</span>
+<span class="cm">        need to cast to __table::__node_pointer and LinkedListItems</span>
+<span class="cm">        evaluates &lt;Value&gt; in the context of the node, not of the container,</span>
+<span class="cm">        so we'd have to say std::unordered_map&lt;$T1,...&gt;::__table::__node_pointer</span>
+<span class="cm">        and then we couldn't share this &lt;Type&gt; between unordered_(multi)map</span>
+<span class="cm">        and unordered_(multi)set. --&gt;</span>
+      <span class="nt">&lt;CustomListItems&gt;</span>
+        <span class="nt">&lt;Variable</span> <span class="na">Name=</span><span class="s">"node"</span>
+          <span class="na">InitialValue=</span><span class="s">"*(__table::__next_pointer*)&amp;amp;__table_.__p1_"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;Size&gt;</span>size()<span class="nt">&lt;/Size&gt;</span>
+        <span class="nt">&lt;Loop&gt;</span>
+          <span class="nt">&lt;Item&gt;</span>(*(__table::__node_pointer*)<span class="ni">&amp;amp;</span>node)-<span class="ni">&amp;gt;</span>__value_<span class="nt">&lt;/Item&gt;</span>
+          <span class="nt">&lt;Exec&gt;</span>node = node-<span class="ni">&amp;gt;</span>__next_<span class="nt">&lt;/Exec&gt;</span>
+        <span class="nt">&lt;/Loop&gt;</span>
+      <span class="nt">&lt;/CustomListItems&gt;</span>
+    <span class="nt">&lt;/Expand&gt;</span>
+  <span class="nt">&lt;/Type&gt;</span>
+
+  <span class="nt">&lt;Type</span> <span class="na">Name=</span><span class="s">"std::__1::vector&amp;lt;*&amp;gt;"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Intrinsic</span> <span class="na">Name=</span><span class="s">"size"</span> <span class="na">Expression=</span><span class="s">"__end_ - __begin_"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;DisplayString&gt;</span>{{ size={size()} }}<span class="nt">&lt;/DisplayString&gt;</span>
+    <span class="nt">&lt;Expand&gt;</span>
+      <span class="nt">&lt;ArrayItems&gt;</span>
+        <span class="nt">&lt;Size&gt;</span>size()<span class="nt">&lt;/Size&gt;</span>
+        <span class="nt">&lt;ValuePointer&gt;</span>__begin_<span class="nt">&lt;/ValuePointer&gt;</span>
+      <span class="nt">&lt;/ArrayItems&gt;</span>
+    <span class="nt">&lt;/Expand&gt;</span>
+  <span class="nt">&lt;/Type&gt;</span>
+
+  <span class="nt">&lt;Type</span> <span class="na">Name=</span><span class="s">"std::__1::shared_ptr&amp;lt;*&amp;gt;"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;DisplayString&gt;</span>[shared_ptr]<span class="nt">&lt;/DisplayString&gt;</span>
+    <span class="nt">&lt;Expand&gt;</span>
+      <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"ptr"</span><span class="nt">&gt;</span>right - left<span class="nt">&lt;/Item&gt;</span>
+    <span class="nt">&lt;/Expand&gt;</span>
+  <span class="nt">&lt;/Type&gt;</span>
+
+  <span class="nt">&lt;Type</span> <span class="na">Name=</span><span class="s">"std::__1::basic_string&amp;lt;char8_t,*&amp;gt;"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Intrinsic</span> <span class="na">Name=</span><span class="s">"is_long"</span>
+      <span class="na">Expression=</span><span class="s">"*(((char*)this)) &amp;amp; 0x01"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;DisplayString</span> <span class="na">Condition=</span><span class="s">"is_long()"</span><span class="nt">&gt;</span>{*(((char8_t**)this)+2),s8}<span class="nt">&lt;/DisplayString&gt;</span>
+    <span class="nt">&lt;DisplayString</span> <span class="na">Condition=</span><span class="s">"!is_long()"</span><span class="nt">&gt;</span>{((char8_t*)this)+1,s8}<span class="nt">&lt;/DisplayString&gt;</span>
+    <span class="nt">&lt;Expand&gt;</span>
+      <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"[is_long]"</span><span class="nt">&gt;</span>is_long()<span class="nt">&lt;/Item&gt;</span>
+      <span class="cm">&lt;!-- &lt;Item Name="[size]" Condition="is_long()" --&gt;</span>
+      <span class="cm">&lt;!--     ExcludeView="simple"&gt;((size_t*)this)[1]&lt;/Item&gt; --&gt;</span>
+      <span class="cm">&lt;!-- &lt;Item Name="[size]" Condition="!is_long()" --&gt;</span>
+      <span class="cm">&lt;!--     ExcludeView="simple"&gt;*(((char*)this))&lt;/Item&gt; --&gt;</span>
+      <span class="cm">&lt;!-- &lt;Item Name="[capacity]" Condition="is_long()" ExcludeView="simple"&gt; --&gt;</span>
+      <span class="cm">&lt;!--   ((size_t*)this)[2] &amp;amp; (~((size_t)0) &amp;gt;&amp;gt; 1) --&gt;</span>
+      <span class="cm">&lt;!-- &lt;/Item&gt; --&gt;</span>
+      <span class="cm">&lt;!-- &lt;Item Name="[capacity]" Condition="!is_long()" --&gt;</span>
+      <span class="cm">&lt;!--     ExcludeView="simple"&gt;22&lt;/Item&gt; --&gt;</span>
+      <span class="cm">&lt;!-- &lt;ArrayItems&gt; --&gt;</span>
+      <span class="cm">&lt;!--   &lt;Size Condition="is_long()"&gt;((size_t*)this)[1]&lt;/Size&gt; --&gt;</span>
+      <span class="cm">&lt;!--   &lt;Size Condition="!is_long()"&gt; --&gt;</span>
+      <span class="cm">&lt;!--     *(((char*)this) + 3*sizeof(size_t) - 1) --&gt;</span>
+      <span class="cm">&lt;!--   &lt;/Size&gt; --&gt;</span>
+      <span class="cm">&lt;!--   &lt;ValuePointer Condition="is_long()"&gt;*(char**)this&lt;/ValuePointer&gt; --&gt;</span>
+      <span class="cm">&lt;!--   &lt;ValuePointer Condition="!is_long()"&gt;(char*)this&lt;/ValuePointer&gt; --&gt;</span>
+      <span class="cm">&lt;!-- &lt;/ArrayItems&gt; --&gt;</span>
+    <span class="nt">&lt;/Expand&gt;</span>
+  <span class="nt">&lt;/Type&gt;</span>
+</pre></div>
+</div>
 </section>
 
         </article>

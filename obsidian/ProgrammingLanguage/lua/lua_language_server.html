@@ -272,6 +272,24 @@
 <p>=&gt; <a class="reference external" href="https://github.com/folke/neodev.nvim">GitHub - folke/neodev.nvim: 💻 Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.</a></p>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="folder-local">
+<h1>folder local<a class="headerlink" href="#folder-local" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">project</span> <span class="pre">root</span></code> に空の <code class="docutils literal notranslate"><span class="pre">.luarc.json</span></code>を配置しておく
+<code class="docutils literal notranslate"><span class="pre">lua_ls</span></code> の問い合わせに、<code class="docutils literal notranslate"><span class="pre">apply</span> <span class="pre">and</span> <span class="pre">modify</span></code>
+👇</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">"workspace"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"checkThirdParty"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"library"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"${3rd}/love2d/library"</span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">"runtime.version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LuaJIT"</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">"runtime.special"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"love.filesystem.load"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loadfile"</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="nvim">
 <h1>nvim<a class="headerlink" href="#nvim" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>起動速くするには？</p>
@@ -320,6 +338,7 @@
 <li><a class="reference internal" href="#nvim-api">nvim API</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#folder-local">folder local</a></li>
 <li><a class="reference internal" href="#nvim">nvim</a></li>
 </ul>
 
