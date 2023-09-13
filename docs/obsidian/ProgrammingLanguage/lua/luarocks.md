@@ -42,6 +42,19 @@ ${PREFIX}/bin:
 > luajit install.bat /P %USERPROFILE%/luarocks /NOADMIN /MW /F
 ```
 
+### tools
+ダブルクォートが余分について `md5sum` のサーチに失敗する。
+`tools`
+```lua
+function unquote(str)
+  if string.sub(str, 1, 1)=='"' and string.sub(str, -1)=='"' then
+    return string.sub(str, 2,-2)
+  else
+    return str
+  end
+end
+```
+
 ## Posix
 
 ```

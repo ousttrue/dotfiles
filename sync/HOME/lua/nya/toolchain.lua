@@ -117,6 +117,9 @@ lib = ['zig', 'lib']
 ranlib = ['zig', 'ranlib']
 windres  = 'D:/llvm-mingw-20230614-ucrt-x86_64/bin/x86_64-w64-mingw32uwp-windres.exe'
 ]]
+    elseif cmd == "busybox" then
+      PROMPT.title = "🧰"
+      nyagos.envadd("PATH", "~/busybox")
     else
       print "unknown"
       return 1

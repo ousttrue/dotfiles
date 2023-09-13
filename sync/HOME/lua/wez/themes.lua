@@ -9,7 +9,6 @@ M.list = {
   "Ciapre",
   "DimmedMonokai",
   "Fahrenheit",
-  "Green Screen (base16)",
   "Hacktober",
   "Man Page",
   "MonaLisa",
