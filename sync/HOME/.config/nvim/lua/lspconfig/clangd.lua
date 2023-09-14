@@ -22,8 +22,8 @@ local fallbackFlags = {}
 
 local function get_clangd()
   if vim.fn.has "win32" == 1 then
-    return LLVM_MINGW
-    -- return LLVM_PREBUILT
+    -- return LLVM_MINGW
+    return LLVM_PREBUILT
   else
     for _, exe in pairs(clangd_list) do
       if dot.which(exe) then
