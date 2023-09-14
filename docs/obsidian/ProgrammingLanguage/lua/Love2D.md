@@ -60,6 +60,9 @@ custom interpleter
 
 slandalone lua の `-e` オプションを追加するのが良いか？
 
+`lua local-debug` でデバッグするのがよい。
+- [GitHub - tomblind/local-lua-debugger-vscode: Local Lua Debugger for VSCode](https://github.com/tomblind/local-lua-debugger-vscode)
+
 # testing
 - [GitHub - gtrogers/Cute: Micro unit testing for Love2d](https://github.com/gtrogers/Cute)
 
@@ -69,3 +72,7 @@ slandalone lua の `-e` オプションを追加するのが良いか？
 - [GitHub - 3dreamengine/3DreamEngine: 3DreamEngine is an *awesome* 3d engine for LÖVE.](https://github.com/3dreamengine/3DreamEngine)
 
 - [GitHub - excessive/love3d-demos: Various LÖVE3D demos and examples to get you started.](https://github.com/excessive/love3d-demos)
+
+# gui
+- [Reference](http://airstruck.github.io/luigi/doc/classes/Widget.html)
+- [GitHub - vrld/suit: Immediate Mode GUI library for LÖVE](https://github.com/vrld/SUIT)

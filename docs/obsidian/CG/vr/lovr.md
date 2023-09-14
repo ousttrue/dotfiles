@@ -1,4 +1,4 @@
-[[OpenXR]]
+[[OpenXR]] [[Love2D]]
 [[lua]]
 
 [LÖVR](https://lovr.org/docs/Getting_Started)
