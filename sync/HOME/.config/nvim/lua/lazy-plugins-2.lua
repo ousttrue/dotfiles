@@ -12,15 +12,19 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local function make_colorscheme(repos, name, bg, sys)
+---@param repos string
+---@varagss opt {name: string, bg: string, sys: string?}
+local function make_colorscheme(repos, ...)
   local plugin = {
     repos,
   }
-  if sys then
-    plugin.config = function()
-      -- vim.cmd(string.format("colorscheme %s", name))
-      require("dot").colorscheme[sys] = { name, bg }
-      -- print(vim.inspect(require("dot").colorscheme))
+  for _, opt in ipairs { ... } do
+    if opt.sys then
+      plugin.config = function()
+        -- vim.cmd(string.format("colorscheme %s", name))
+        require("dot").colorscheme[opt.sys] = { opt.name, opt.bg }
+        -- print(vim.inspect(require("dot").colorscheme))
+      end
     end
   end
   return plugin
@@ -30,12 +34,16 @@ local plugins = {
   { "rktjmp/lush.nvim" },
 
   -- dark
-  make_colorscheme("marcopaganini/termschool-vim-theme", "termschool", "dark"),
-  make_colorscheme("folke/tokyonight.nvim", "tokyonight", "dark"),
-  make_colorscheme("EdenEast/nightfox.nvim", "nightfox", "dark"),
-  make_colorscheme("jnurmine/Zenburn", "zenburn", "dark", "msys"),
-  make_colorscheme("shaunsingh/moonlight.nvim", "moonlight", "dark", "mingw64"),
-  make_colorscheme("savq/melange-nvim", "melange", "dark"),
+  make_colorscheme("marcopaganini/termschool-vim-theme", { name = "termschool", bg = "dark" }),
+  make_colorscheme("folke/tokyonight.nvim", { name = "tokyonight", bg = "dark" }),
+  make_colorscheme(
+    "EdenEast/nightfox.nvim",
+    { name = "nightfox", bg = "dark" },
+    { name = "carbonfox", bg = "dark", sys = "windows" }
+  ),
+  make_colorscheme("jnurmine/Zenburn", { name = "zenburn", bg = "dark", sys = "msys" }),
+  make_colorscheme("shaunsingh/moonlight.nvim", { name = "moonlight", bg = "dark", sys = "mingw64" }),
+  make_colorscheme("savq/melange-nvim", { name = "melange", bg = "dark" }),
   -- too short
   -- make_colorscheme("fenetikm/falcon", "falcon", "dark"),
   -- make_colorscheme("shaunsingh/nord.nvim", "nord", "dark"),
@@ -43,13 +51,13 @@ local plugins = {
   -- make_colorscheme("cocopon/iceberg.vim", "iceberg", "dark"),
   -- make_colorscheme("AlessandroYorba/Sierra", "sierra", "dark"),
 
-  make_colorscheme("mcchrish/zenbones.nvim", "zenbones", "light"),
-  make_colorscheme("xero/miasma.nvim", "miasma", "dark", "linux"),
+  make_colorscheme("mcchrish/zenbones.nvim", { name = "zenbones", bg = "light" }),
+  make_colorscheme("xero/miasma.nvim", { name = "miasma", bg = "dark", sys = "linux" }),
   -- make_colorscheme("FrenzyExists/aquarium-vim", "aquarium"),
-  make_colorscheme("junegunn/seoul256.vim", "seoul256", "light", "wsl"),
+  make_colorscheme("junegunn/seoul256.vim", { name = "seoul256", bg = "light", sys = "wsl" }),
   -- make_colorscheme("ldelossa/vimdark", "vimdark"),
   -- make_colorscheme("Mitgorakh/snow", "snow", "light", "mac"),
-  make_colorscheme("NLKNguyen/papercolor-theme", "PaperColor", "light", "mac"),
+  make_colorscheme("NLKNguyen/papercolor-theme", { name = "PaperColor", bg = "light", sys = "mac" }),
   -- make_colorscheme("yasukotelin/shirotelin", "shirotelin", "light", "mac"),
   --
 
