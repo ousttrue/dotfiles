@@ -1,5 +1,7 @@
 - [【Neovim】toggleterm.nvimとlazygitを組み合わせてgit操作を快適にする](https://zenn.dev/koga1020/articles/524e4c8c80db24)
 
+- [GitHub - ray-x/forgit.nvim: Interactive fzf+git for Neovim. I remembered the git commands so you wont forget.](https://github.com/ray-x/forgit.nvim)
+
 # gitsigns
 - [gitsigns - Commentary of Dotfiles](https://coralpink.github.io/commentary/neovim/plugin/gitsigns.html)
 
