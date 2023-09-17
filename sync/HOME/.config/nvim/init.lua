@@ -383,10 +383,31 @@ augroup END
 if vim.env.MSYSTEM then
   require "packer_setup"
 else
-  require "lazy-plugins-2"
+  local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+  if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system {
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable", -- latest stable release
+      lazypath,
+    }
+  end
+  vim.opt.rtp:prepend(lazypath)
+
+  -- Example using a list of specs with the default options
+  vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+
+  -- require("lazy").setup "lazy.plugins"
+  require("lazy").setup {
+    { import = "lazy.plugins" },
+    { import = "lazy.colorschemes" },
+  }
 end
 
 local cs, bg = dot.get_colorscheme()
+print(cs, bg)
 vim.o.background = bg
 vim.cmd(string.format("colorscheme %s", cs))
 

@@ -1,4 +1,6 @@
 local PROMPT = require "nya.prompt"
+local STR = require "common.string"
+local NYA = require "nya.util"
 local M = {
   toolchains = {
     -- zapcc
@@ -120,6 +122,19 @@ windres  = 'D:/llvm-mingw-20230614-ucrt-x86_64/bin/x86_64-w64-mingw32uwp-windres
     elseif cmd == "busybox" then
       PROMPT.title = "🧰"
       nyagos.envadd("PATH", "~/busybox")
+    elseif cmd == "luarocks" then
+      PROMPT.title = "🪨"
+      local lines = STR.split(NYA.evalf "luarocks path", "\n")
+      for _, l in ipairs(lines) do
+        local k, v = l:match "SET ([^=]+)=(.*)"
+        if k == "PATH" then
+          --
+        elseif k == "LUA_PATH" then
+          nyagos.env[k]= v
+        elseif k == "LUA_CPATH" then
+          nyagos.env[k]= v
+        end
+      end
     else
       print "unknown"
       return 1

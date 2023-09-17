@@ -21,6 +21,9 @@ GUI => TUI(PTY) => CUI
 ### uim-fep
 - http://quasiquote.org/log2/uim/Programming/Scheme/2010/12/23/skkserv
 
+### sentimental-skk
+[GitHub - saitoha/sentimental-skk: 三 三 ( ´_ゝ`）＜ Japanese Input Method SKK (Simple Kana to Kanji conversion) on your terminal](https://github.com/saitoha/sentimental-skk)
+
 ## CUi
 
 

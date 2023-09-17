@@ -284,13 +284,13 @@ local function setup_alias()
 end
 
 function M.setup()
-  if COM.get_system() == "windows" then
-    -- https://learn.microsoft.com/ja-jp/windows-server/administration/windows-commands/chcp
-    if not NYA.evalf("chcp"):match "65001" then
-      -- utf-8 mode
-      NYA.evalf "chcp 65001"
-    end
-  end
+  -- if COM.get_system() == "windows" then
+  --   -- https://learn.microsoft.com/ja-jp/windows-server/administration/windows-commands/chcp
+  --   if not NYA.evalf("chcp"):match "65001" then
+  --     -- utf-8 mode
+  --     NYA.evalf "chcp 65001"
+  --   end
+  -- end
 
   nyagos.env.AQUA_GLOBAL_CONFIG = HOME .. "/dotfiles/aqua.yaml"
 

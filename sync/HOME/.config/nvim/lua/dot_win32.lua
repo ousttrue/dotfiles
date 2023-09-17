@@ -47,7 +47,8 @@ function M.get_codepage()
   --   vim.fn.system [[pwsh -NoProfile -Command "Get-ItemPropertyValue HKLM:\SYSTEM\CurrentControlSet\Control\Nls\CodePage OEMCP"]]
   -- local cp = tonumber(ret)
   -- return cp
-  return kernel32.GetConsoleCP()
+  -- return kernel32.GetConsoleCP()
+  return 932
 end
 
 local function ToWide(in_Src, codepage)

@@ -125,11 +125,15 @@ if (GetConsoleScreenBufferInfo(hConsole, &csbi))
 
 ## Write
 
+[Windowsのコマンドプロンプトで色付き文字やUnicodeを表示する。](https://zenn.dev/s3pt3mb3r/articles/daefc84513f832)
+
 ### EscapeSequence
  [[vt100]]
  
 `ENABLE_VIRTUAL_TERMINAL_PROCESSING`
+`ENABLE_WRAP_AT_EOL_OUTPUT`
 - [SetConsoleMode 関数 - Windows Console | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/console/setconsolemode)
+- [End of line cursor position differences when app is run in Windows Terminal · Issue #8312 · microsoft/terminal · GitHub](https://github.com/microsoft/terminal/issues/8312)
 
 - [Windows向けのプログラムでANSIエスケープシーケンスを使うには - Qiita](https://qiita.com/mod_poppo/items/2ff384530c6f3215c635)
 - [Console Virtual Terminal Sequences - Windows Console | Microsoft Learn](https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences)

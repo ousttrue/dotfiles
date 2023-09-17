@@ -22,8 +22,6 @@ local function setup_windows(config)
   local NUSHELL = { HOME .. "/.cargo/bin/nu.exe" }
   local NYAGOS = { HOME .. "/go/bin/nyagos.exe" }
 
-
-
   if file_exists(NYAGOS[1]) then
     config.default_prog = NYAGOS
   elseif file_exists(PWSH[1]) then
@@ -31,6 +29,7 @@ local function setup_windows(config)
   elseif file_exists(NUSHELL[1]) then
     config.default_prog = NUSHELL
   end
+  -- config.allow_win32_input_mode = false
 
   -- wsl
   local wsl_domains = wezterm.default_wsl_domains()

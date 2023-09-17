@@ -57,6 +57,9 @@ int main() {
 - [Event Loops and NCurses – LinuxJedi's /dev/null](https://linuxjedi.co.uk/2020/04/29/event-loops-and-ncurses/)
 > keyboard/mouse input, resize and refresh handling
 
+# uv_idle_t
+[uvbook -- libuvの仕組みとidle-basicの解説 · wshito's diary](http://diary.wshito.com/comp/lisp/uvbook/uvbook-idle-basic/)
+
 # zig
 - [Simplistic libuv wrapper example in Zig · GitHub](https://gist.github.com/Qix-/a53c46b0ff25a38a24a49c1dcea28d54)
 
