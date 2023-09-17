@@ -2,7 +2,6 @@ return {
   "folke/neodev.nvim",
   "folke/which-key.nvim",
   { "folke/neoconf.nvim", cmd = "Neoconf" },
-
   {
     "monaqa/dial.nvim",
     config = function()
@@ -30,6 +29,14 @@ return {
       vim.keymap.set("v", "g<C-x>", function()
         require("dial.map").manipulate("decrement", "gvisual")
       end)
+    end,
+  },
+  {
+    "ziontee113/icon-picker.nvim",
+    config = function()
+      require("icon-picker").setup {
+        disable_legacy_commands = true,
+      }
     end,
   },
 }

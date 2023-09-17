@@ -6,7 +6,7 @@ function M.setup()
       separator_style = "slant",
       show_close_icon = true,
       -- close_icon = "",
-      buffer_close_icon = "❌",
+      buffer_close_icon = "",
       hover = {
         enabled = true,
         delay = 200,
