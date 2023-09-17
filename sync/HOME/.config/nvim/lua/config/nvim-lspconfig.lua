@@ -1,3 +1,6 @@
+local DOT = require('dot')
+-- local CMP = DOT.safe_require("cmp_nvim_lsp")
+
 local M = {}
 function M.setup()
   local dot = require "dot"
@@ -12,12 +15,15 @@ function M.setup()
     -- client.server_capabilities.semanticTokensProvider = nil
   end
 
-  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
   -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
-  local capabilities = require("cmp_nvim_lsp").default_capabilities()
+--   if CMP then
+--   capabilities = CMP.default_capabilities()
+-- end
   -- print(vim.inspect(capabilities))
 
   require("lspconfig.lua_ls").setup(lspconfig, capabilities, on_attach)
+
   if true then
     require("lspconfig.clangd").setup(lspconfig, capabilities, on_attach)
   else

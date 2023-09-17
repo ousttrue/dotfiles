@@ -345,4 +345,13 @@ function M.send_osc(n, value)
   io.stdout:write(string.format("\x1b]%d;%s\x1b\\", n, value))
 end
 
+function M.safe_require(module_name)
+    local status_ok, module = pcall(require, module_name)
+    if not status_ok then
+        vim.notify("Couldn't load module '" .. module_name .. "'")
+        do return end
+    end
+    return module
+end
+
 return M

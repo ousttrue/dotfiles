@@ -2,6 +2,8 @@
 local g = vim.g
 local opt = vim.opt
 local dot = require "dot"
+---@class uv
+local uv = vim.loop
 
 vim.opt.clipboard = "unnamedplus"
 if vim.fn.has "wsl" == 1 then
@@ -119,6 +121,9 @@ vim.cmd [[
 " autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 " autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow
 ]]
+
+vim.keymap.set("n", ")", ":BufferLineCycleNext<CR>", { noremap = true })
+vim.keymap.set("n", "(", ":BufferLineCyclePrev<CR>", { noremap = true })
 
 vim.keymap.set({ "i", "c" }, "<C-e>", "<END>")
 vim.keymap.set({ "i", "c" }, "<C-a>", "<HOME>")
@@ -298,7 +303,7 @@ end
 vim.keymap.set("n", "K", function()
   vim.lsp.buf.hover()
 end, { noremap = true })
-vim.keymap.set("n", "ff", vim.lsp.buf.format, { noremap = true })
+vim.keymap.set("n", "ff", ":GuardFmt<CR>", { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
@@ -403,6 +408,10 @@ else
   require("lazy").setup {
     { import = "lazy.plugins" },
     { import = "lazy.colorschemes" },
+    { import = "lazy.telescope" },
+    { import = "lazy.filer" },
+    { import = "lazy.coding" },
+    { import = "lazy.git" },
   }
 end
 
@@ -410,6 +419,8 @@ local cs, bg = dot.get_colorscheme()
 print(cs, bg)
 vim.o.background = bg
 vim.cmd(string.format("colorscheme %s", cs))
+
+require("keymap").setup()
 
 -- vim.cmd [[
 -- augroup fuga_reload

@@ -1,4 +1,5 @@
 local M = {}
+local DOT = require "dot"
 
 function M.setup()
   local actions = require "telescope.actions"
@@ -6,7 +7,6 @@ function M.setup()
   local sorters = require "telescope.sorters"
   local builtin = require "telescope.builtin"
   local utils = require "telescope.utils"
-  local dot = require "dot"
   telescope.load_extension "emoji"
   telescope.load_extension "notify"
 
@@ -34,7 +34,7 @@ function M.setup()
     },
   }
 
-  if dot.get_system() ~= "msys" then
+  if DOT.get_system() ~= "msys" then
     setup.vimgrep_arguments = {
       "rg",
       "--color=never",
