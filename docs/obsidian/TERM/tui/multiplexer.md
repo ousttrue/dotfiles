@@ -21,6 +21,9 @@
 ## dvtm
 https://github.com/martanne/dvtm
 
+## libtickit
+- [libtickit](http://www.leonerd.org.uk/code/libtickit/)
+
 # vim
 [GitHub - yazgoo/vmux: helper for multiplexing terminals with vim/neovim](https://github.com/yazgoo/vmux)
 

@@ -3,6 +3,15 @@ local M = {}
 function M.setup()
   require("bufferline").setup {
     options = {
+      separator_style = "slant",
+      show_close_icon = true,
+      -- close_icon = "",
+      buffer_close_icon = "❌",
+      hover = {
+        enabled = true,
+        delay = 200,
+        reveal = { "close" },
+      },
       ---@param buf_number integer
       ---@return boolean
       custom_filter = function(buf_number)

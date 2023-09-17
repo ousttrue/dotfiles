@@ -383,6 +383,8 @@ augroup HLExtend
 augroup END
 ]]
 
+require("keymap").setup()
+
 -- package manager
 -- require "lazy-plugins"
 if vim.env.MSYSTEM then
@@ -412,6 +414,7 @@ else
     { import = "lazy.filer" },
     { import = "lazy.coding" },
     { import = "lazy.git" },
+    { import = "lazy.line" },
   }
 end
 
@@ -419,8 +422,6 @@ local cs, bg = dot.get_colorscheme()
 print(cs, bg)
 vim.o.background = bg
 vim.cmd(string.format("colorscheme %s", cs))
-
-require("keymap").setup()
 
 -- vim.cmd [[
 -- augroup fuga_reload
