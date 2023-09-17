@@ -20,6 +20,7 @@ end
 
 local function get_nvim()
   local list = {}
+  table.insert(list, HOME .. "/neovim/bin/nvim")
   table.insert(list, HOME .. "/build/mingw/bin/nvim")
   table.insert(list, HOME .. "/build/gcc/bin/nvim")
 
@@ -189,6 +190,7 @@ local function setup_alias()
     "ln",
     "tr",
     "ps",
+    "cat",
   }
   for _, v in ipairs(BUSYBOX_TOOLS) do
     local has, status = NYA.which(v)

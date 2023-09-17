@@ -66,6 +66,7 @@ int main() {
 [node.jsを支えるlibuvのチュートリアル"uvbook" :ユーティリティ - 自由課題](https://kimitok.hateblo.jp/entry/2014/04/24/231854)
 
 # uv_work_t
+- [Thread pool work scheduling - libuv documentation](https://docs.libuv.org/en/v1.x/threadpool.html)
 - [libuvに関する覚書(4) : スレッド uv_work_t, uv_async_t](https://www.usagi1975.com/052220180938/)
 
 ```c

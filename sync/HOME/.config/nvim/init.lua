@@ -24,6 +24,8 @@ if vim.fn.has "wsl" == 1 then
 end
 if vim.fn.has "win32" == 1 then
   vim.keymap.set("n", "<C-z>", "<Nop>")
+
+  vim.g.sqlite_clib_path = "D:/msys64/mingw64/bin/libsqlite3-0.dll"
 end
 
 -- Remap leader and local leader to <Space>
@@ -416,6 +418,7 @@ else
     { import = "lazy.coding" },
     { import = "lazy.git" },
     { import = "lazy.line" },
+    { import = "lazy.completion" },
   }
 end
 
