@@ -21,3 +21,10 @@
 - [GitHub - mlomb/flexui: A light UI for C++ with XML and CSS support](https://github.com/mlomb/flexui)
 
 # Grid
+
+
+# attribute selector
+- [属性セレクター - CSS: カスケーディングスタイルシート | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/Attribute_selectors)
+- [属性セレクター - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors)
+- [[attribute] | CSS-Tricks - CSS-Tricks](https://css-tricks.com/almanac/selectors/a/attribute/)
+

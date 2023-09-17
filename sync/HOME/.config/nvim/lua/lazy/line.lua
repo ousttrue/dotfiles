@@ -12,13 +12,15 @@ return {
       require("config.lualine").setup()
     end,
   },
-  {
-    "akinsho/bufferline.nvim",
-    -- tag = "v3.*",
-    -- dependencies = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("config.bufferline").setup()
-    end,
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   -- tag = "v3.*",
+  --   -- dependencies = "nvim-tree/nvim-web-devicons",
+  --   config = function()
+  --     require("config.bufferline").setup()
+  --   end,
+  -- },
   -- { "nanozuki/tabby.nvim" },
+  -- {
+  -- { "romgrk/barbar.nvim" },
 }

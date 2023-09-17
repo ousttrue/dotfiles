@@ -33,9 +33,10 @@ g.maplocalleader = " "
 -- disable netrw's gx mapping.
 g.netrw_nogx = true
 
-vim.cmd [[execute "set colorcolumn=" . join(range(81, 9999), ',')]]
-opt.cursorline = true
+-- vim.cmd [[execute "set colorcolumn=" . join(range(81, 9999), ',')]]
+-- opt.cursorline = true
 -- opt.autowrite = true
+opt.showtabline = 1
 opt.completeopt = "menu,preview"
 opt.ambiwidth = "single"
 opt.termguicolors = true -- Enable colors in terminal
@@ -50,7 +51,7 @@ opt.updatetime = 250 --Decrease update time
 opt.signcolumn = "yes" -- Always show sign column
 opt.clipboard = "unnamedplus" -- Access system clipboard
 opt.laststatus = 3
-opt.winbar = "%f"
+-- opt.winbar = "%f"
 opt.fileformats = "unix"
 
 opt.tabstop = 4

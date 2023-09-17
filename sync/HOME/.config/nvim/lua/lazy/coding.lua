@@ -29,6 +29,8 @@ return {
     config = function()
       local ft = require "guard.filetype"
       ft("lua"):fmt "stylua"
+      ft("c"):fmt "lsp"
+      ft("cpp"):fmt "lsp"
     end,
   },
   {
