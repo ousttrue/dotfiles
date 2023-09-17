@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>UserCSS - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -219,9 +219,17 @@
         </div>
         <article role="main">
           <p>[[css]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="usercss">
+<h1>UserCSS<a class="headerlink" href="#usercss" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/openstyles/stylus">GitHub - openstyles/stylus: Stylus - Userstyles Manager</a></p></li>
+<li><p><a class="reference external" href="https://github.com/openstyles/stylus/wiki/Usercss">UserCSS · openstyles/stylus Wiki · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://github.com/openstyles/stylus/wiki/Editor#usercss-mode">Editor · openstyles/stylus Wiki · GitHub</a></p></li>
+</ul>
 <div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">-moz-document</span><span class="w"> </span><span class="nt">domain</span><span class="o">(</span><span class="s2">"hatenablog.com"</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c">/* ここにコードを挿入... */</span><span class="w"></span>
-<span class="w">    </span><span class="nt">div</span><span class="o">[</span><span class="nt">class</span><span class="o">=</span><span class="s2">"entry-content"</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c">/*div[class="entry-content"] {*/</span><span class="w"></span>
+<span class="w">    </span><span class="nt">div</span><span class="p">.</span><span class="nc">entry-content</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="nt">article</span><span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="s2">"sleeping-ads"</span><span class="o">]</span><span class="w"> </span><span class="nt">div</span><span class="o">[</span><span class="nt">class</span><span class="o">=</span><span class="s2">"entry-inner"</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -233,6 +241,16 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">x</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="k">float</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">padding-top</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>

@@ -3,6 +3,7 @@
 # book
 - [Table of Contents — An Introduction to libuv](https://nikhilm.github.io/uvbook/)
 	- [uvbook -- libuvの仕組みとidle-basicの解説 · wshito's diary](http://diary.wshito.com/comp/lisp/uvbook/uvbook-idle-basic/)
+	- [node.jsを支えるlibuvのチュートリアル"uvbook" :スレッド](https://kimitok.hateblo.jp/entry/2014/04/16/223643) 
 
 - @2014 [node.jsを支えるlibuvのチュートリアル"uvbook" :目次 - 自由課題](https://kimitok.hateblo.jp/entry/2014/03/30/184206)
 	- [node.jsを支えるlibuvのチュートリアル"uvbook" :基礎 - 自由課題](https://kimitok.hateblo.jp/entry/2014/03/30/185544)
@@ -50,6 +51,7 @@ int main() {
 [uv_process_t — Process handle — libuv documentation](http://docs.libuv.org/en/v1.x/process.html)
 - [c - libuv: difference between fork and uv_spawn? - Stack Overflow](https://stackoverflow.com/questions/70031085/libuv-difference-between-fork-and-uv-spawn)
 
+
 # uv_pipe_t
 
 # uv_poll_t
@@ -59,6 +61,35 @@ int main() {
 
 # uv_idle_t
 [uvbook -- libuvの仕組みとidle-basicの解説 · wshito's diary](http://diary.wshito.com/comp/lisp/uvbook/uvbook-idle-basic/)
+
+## uv_timer_t
+[node.jsを支えるlibuvのチュートリアル"uvbook" :ユーティリティ - 自由課題](https://kimitok.hateblo.jp/entry/2014/04/24/231854)
+
+# uv_work_t
+- [Thread pool work scheduling - libuv documentation](https://docs.libuv.org/en/v1.x/threadpool.html)
+- [libuvに関する覚書(4) : スレッド uv_work_t, uv_async_t](https://www.usagi1975.com/052220180938/)
+
+```c
+void worker(uv_work_t *req) {
+}
+
+void worker_after(uv_work_t *req, int status) {
+}
+
+uv_work_t work;
+uv_queue_work(loop, &work, task, callback);
+```
+
+# uv_async_t
+- [libuvに関する覚書(4) : スレッド uv_work_t, uv_async_t](https://www.usagi1975.com/052220180938/)
+- thread data
+- thread func
+- end callback
+
+```c
+uv_async_t async;
+uv_async_init(loop, &async, worker_progress);
+```
 
 # zig
 - [Simplistic libuv wrapper example in Zig · GitHub](https://gist.github.com/Qix-/a53c46b0ff25a38a24a49c1dcea28d54)

@@ -225,6 +225,7 @@
 <li><p><a class="reference external" href="https://nikhilm.github.io/uvbook/">Table of Contents — An Introduction to libuv</a></p>
 <ul>
 <li><p><a class="reference external" href="http://diary.wshito.com/comp/lisp/uvbook/uvbook-idle-basic/">uvbook -- libuvの仕組みとidle-basicの解説 · wshito's diary</a></p></li>
+<li><p><a class="reference external" href="https://kimitok.hateblo.jp/entry/2014/04/16/223643">node.jsを支えるlibuvのチュートリアル"uvbook" :スレッド</a></p></li>
 </ul>
 </li>
 <li><p>@2014 <a class="reference external" href="https://kimitok.hateblo.jp/entry/2014/03/30/184206">node.jsを支えるlibuvのチュートリアル"uvbook" :目次 - 自由課題</a></p>
@@ -312,6 +313,40 @@
 <section class="tex2jax_ignore mathjax_ignore" id="uv-idle-t">
 <h1>uv_idle_t<a class="headerlink" href="#uv-idle-t" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="http://diary.wshito.com/comp/lisp/uvbook/uvbook-idle-basic/">uvbook -- libuvの仕組みとidle-basicの解説 · wshito's diary</a></p>
+<section id="uv-timer-t">
+<h2>uv_timer_t<a class="headerlink" href="#uv-timer-t" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://kimitok.hateblo.jp/entry/2014/04/24/231854">node.jsを支えるlibuvのチュートリアル"uvbook" :ユーティリティ - 自由課題</a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="uv-work-t">
+<h1>uv_work_t<a class="headerlink" href="#uv-work-t" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.libuv.org/en/v1.x/threadpool.html">Thread pool work scheduling - libuv documentation</a></p></li>
+<li><p><a class="reference external" href="https://www.usagi1975.com/052220180938/">libuvに関する覚書(4) : スレッド uv_work_t, uv_async_t</a></p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">worker</span><span class="p">(</span><span class="n">uv_work_t</span><span class="w"> </span><span class="o">*</span><span class="n">req</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">worker_after</span><span class="p">(</span><span class="n">uv_work_t</span><span class="w"> </span><span class="o">*</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">uv_work_t</span><span class="w"> </span><span class="n">work</span><span class="p">;</span><span class="w"></span>
+<span class="n">uv_queue_work</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">work</span><span class="p">,</span><span class="w"> </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">callback</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="uv-async-t">
+<h1>uv_async_t<a class="headerlink" href="#uv-async-t" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.usagi1975.com/052220180938/">libuvに関する覚書(4) : スレッド uv_work_t, uv_async_t</a></p></li>
+<li><p>thread data</p></li>
+<li><p>thread func</p></li>
+<li><p>end callback</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">uv_async_t</span><span class="w"> </span><span class="n">async</span><span class="p">;</span><span class="w"></span>
+<span class="n">uv_async_init</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">async</span><span class="p">,</span><span class="w"> </span><span class="n">worker_progress</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="zig">
 <h1>zig<a class="headerlink" href="#zig" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -374,7 +409,12 @@
 <li><a class="reference internal" href="#id1">ncurses</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#uv-idle-t">uv_idle_t</a></li>
+<li><a class="reference internal" href="#uv-idle-t">uv_idle_t</a><ul>
+<li><a class="reference internal" href="#uv-timer-t">uv_timer_t</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#uv-work-t">uv_work_t</a></li>
+<li><a class="reference internal" href="#uv-async-t">uv_async_t</a></li>
 <li><a class="reference internal" href="#zig">zig</a></li>
 <li><a class="reference internal" href="#gtk">gtk</a></li>
 </ul>
