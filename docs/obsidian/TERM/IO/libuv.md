@@ -30,10 +30,11 @@ int main() {
 
 - [Big Sky :: libuvのループはリファレンスの減少でも止められる。](https://mattn.kaoriya.net/software/lang/c/20111213134522.htm)
 
-# socket
+# uv_stream_t
+## socket
 - [第4回 libuv C10K〜C100K サーバサンプル [C++] | Netsphere Laboratories](https://www.nslabs.jp/libuv-c10k-server.rhtml)
 
-# tty
+## tty
 - [uv_tty_t — TTY handle — libuv documentation](http://docs.libuv.org/en/v1.x/tty.html)
 
 ## write(vt100 escape sequence)
@@ -47,7 +48,10 @@ int main() {
 ## ncurses
 - [Event Loops and NCurses – LinuxJedi's /dev/null](https://linuxjedi.co.uk/2020/04/29/event-loops-and-ncurses/)
 
-# process
+# uv_signal_t
+[uv_signal_t — Signal handle - libuv documentation](https://docs.libuv.org/en/v1.x/signal.html)
+
+# uv_process_t
 [uv_process_t — Process handle — libuv documentation](http://docs.libuv.org/en/v1.x/process.html)
 - [c - libuv: difference between fork and uv_spawn? - Stack Overflow](https://stackoverflow.com/questions/70031085/libuv-difference-between-fork-and-uv-spawn)
 

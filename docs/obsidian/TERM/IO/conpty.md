@@ -102,6 +102,14 @@ if (GetConsoleScreenBufferInfo(hConsole, &csbi))
 		
 ## Resize の通知
 
+```c
+    COORD size;
+    size.X = GetViewWidth(e.Source);
+    size.Y = GetViewHeight(e.Source);
+    // Call pseudoconsole API to inform buffer dimension update
+    ResizePseudoConsole(m_hpc, size);
+```
+
 ## API
 ### CreatePseudoConsole
 - [CreatePseudoConsole function - Windows Console | Microsoft Docs](https://docs.microsoft.com/en-us/windows/console/createpseudoconsole)

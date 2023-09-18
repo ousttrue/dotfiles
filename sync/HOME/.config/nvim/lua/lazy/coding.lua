@@ -60,4 +60,13 @@ return {
       require("config.aerial").setup()
     end,
   },
+  -- treesitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    -- run = function()
+    --   require("nvim-treesitter.install").update { with_sync = true }
+    -- end,
+    config = require("config.nvim-treesitter").setup,
+    dependencies = "nvim-treesitter/playground",
+  },
 }
