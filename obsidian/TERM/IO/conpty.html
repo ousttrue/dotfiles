@@ -339,6 +339,13 @@ from <code class="docutils literal notranslate"><span class="pre">17733</span></
 </section>
 <section id="resize">
 <h2>Resize の通知<a class="headerlink" href="#resize" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">COORD</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">size</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetViewWidth</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Source</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">size</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetViewHeight</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Source</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Call pseudoconsole API to inform buffer dimension update</span>
+<span class="w">    </span><span class="n">ResizePseudoConsole</span><span class="p">(</span><span class="n">m_hpc</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
 <section id="api">
 <h2>API<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h2>
