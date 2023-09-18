@@ -54,4 +54,10 @@ return {
       -- "b0o/schemastore.nvim",
     },
   },
+  {
+    "stevearc/aerial.nvim",
+    config = function()
+      require("config.aerial").setup()
+    end,
+  },
 }
