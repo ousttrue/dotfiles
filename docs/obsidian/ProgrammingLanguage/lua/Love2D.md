@@ -68,10 +68,18 @@ slandalone lua の `-e` オプションを追加するのが良いか？
 
 # 3D
 - [GitHub - rozenmad/Menori: Library for 3D rendering with LÖVE.](https://github.com/rozenmad/Menori)
-- [GitHub - groverburger/g3d: Simple and easy 3D engine for LÖVE.](https://github.com/groverburger/g3d)
+`glTF loader`, `GPU skinning`
+
 - [GitHub - 3dreamengine/3DreamEngine: 3DreamEngine is an *awesome* 3d engine for LÖVE.](https://github.com/3dreamengine/3DreamEngine)
+`glTF`, `vox`, 
+
+- [GitHub - groverburger/g3d: Simple and easy 3D engine for LÖVE.](https://github.com/groverburger/g3d)
+`samples`
 
 - [GitHub - excessive/love3d-demos: Various LÖVE3D demos and examples to get you started.](https://github.com/excessive/love3d-demos)
+
+## morphtarget
+- [GitHub - RNavega/2DMeshAnimation-Love: LÖVE (Love2D) example of an animated 2D mesh](https://github.com/RNavega/2DMeshAnimation-Love)
 
 # gui
 - [Reference](http://airstruck.github.io/luigi/doc/classes/Widget.html)

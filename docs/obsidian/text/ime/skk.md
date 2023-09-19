@@ -2,47 +2,53 @@
 
 [リンク集 - SKK辞書Wiki](http://openlab.ring.gr.jp/skk/wiki/wiki.cgi?page=%A5%EA%A5%F3%A5%AF%BD%B8)
 
-
 GUI => TUI(PTY) => CUI
 
-# frontend
-## GUI
+- `sticky shift`
 
-### Windows
-#### skkfep
+# articles
+- @2020 [かな漢字変換プログラム SKK の紹介 | Emacs JP](https://emacs-jp.github.io/tips/skk-intro)
+- @2023 [SKK実装入門 (1) ローマ字 -> ひらがな変換](https://zenn.dev/uga_rosa/articles/ec5281d5a95a57)
+
+# 辞書登録モード
+- @2023 [日本語IMEの変換ミスを解決するSKKが便利な話](https://zenn.dev/toriwasa/articles/946af5939093dc)
+
+# keybind
+- [AquaSKK プロジェクト::キー割り当て](https://aquaskk.osdn.jp/keymap.html)
+
+# frontend
+## Windows
+### skkfep
 - [SKK日本語入力FEP 今だ！インストールだ！](http://coexe.web.fc2.com/skkinstall.html)
-#### Corvusskk
+### Corvusskk
 [Corvusskk](https://github.com/nathancorvussolis/corvusskk)
 - @2023  [【レビュー】Windowsストアアプリ上での動作に対応した「SKK」風日本語入力システム「CorvusSKK」 - 窓の杜](https://forest.watch.impress.co.jp/docs/review/567771.html)
 
 ## TUI
 
 - [GitHub - uobikiemukot/yaskk: yet another skk for terminal](https://github.com/uobikiemukot/yaskk)
+- [GitHub - hymkor/gm: Golang Minimal text editor (凸)/](https://github.com/hymkor/gm)
 ### uim-fep
 - http://quasiquote.org/log2/uim/Programming/Scheme/2010/12/23/skkserv
 
 ### sentimental-skk
 [GitHub - saitoha/sentimental-skk: 三 三 ( ´_ゝ`）＜ Japanese Input Method SKK (Simple Kana to Kanji conversion) on your terminal](https://github.com/saitoha/sentimental-skk)
 
-## CUi
-
-
-## App
-- [GitHub - hymkor/gm: Golang Minimal text editor (凸)/](https://github.com/hymkor/gm)
-
-### vim
-#### skkeleton
+## vim
+### skkeleton
 - @2021 [新しいVim用日本語入力プラグインを作った](https://zenn.dev/kuu/articles/vac2021-skkeleton)
-#### skkim.vim
+### skkim.vim
 - @2011 https://gist.github.com/mattn/1504949
-#### eskk
+### eskk
 - @2000? [[eskk]]
-#### skk.vim
+- @2021 [eskk.vimで 日本語をバリバリ打とう。](https://zenn.dev/kouta/articles/87947515bff4da)
+
+### skk.vim
 - @2010 [vim-jp » Hack #123: VimでSKK日本語入力環境を実現する](https://vim-jp.org/vim-users-jp/2010/02/09/Hack-123.html)
 - @2006 http://kstn.fc2web.com/seikana_zisyo.html
 
-### emacs
-#### ddskk
+## emacs
+### ddskk
 - [openlab.ring.gr.jp/skk/skk-manual/skk-15.1.pdf](http://openlab.ring.gr.jp/skk/skk-manual/skk-15.1.pdf)
 
 # lib
