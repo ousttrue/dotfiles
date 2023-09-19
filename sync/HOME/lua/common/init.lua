@@ -49,10 +49,9 @@ local function get_system()
     return "linux"
   end
 end
+local system_name, sub_system = get_system()
 
 function M.get_system()
-  local system_name, sub_system = get_system()
-
   -- cache
   -- M.get_system = function()
   --   return system_name, sub_system
@@ -84,5 +83,13 @@ M.day_map = {
   ["5"] = "金",
   ["6"] = "土",
 }
+
+function M.to_path(src)
+  if system_name == "windows" then
+    return string.gsub(src, "/", "\\")
+  else
+    return string.gsub(src, "\\", "/")
+  end
+end
 
 return M

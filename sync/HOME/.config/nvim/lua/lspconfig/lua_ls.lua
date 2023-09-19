@@ -96,6 +96,13 @@ function M.setup(lspconfig, capabilities, on_attach)
               checkThirdParty = false,
               library = vim.api.nvim_get_runtime_file("", true),
             },
+
+            format = {
+              defaultConfig = {
+                indent_style = "space",
+                indent_size = "2",
+              },
+            },
           },
         })
 

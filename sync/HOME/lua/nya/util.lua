@@ -33,7 +33,7 @@ end
 ---pushd して 連続でコマンドを実行する
 ---@param chdir string
 ---@param cmds string[]
----@return integer
+---@return integer zero_if_success
 function M.batch(chdir, cmds)
   local ret, error = nyagos.exec("pushd " .. chdir .. " >" .. NULDEV)
   if ret ~= 0 then

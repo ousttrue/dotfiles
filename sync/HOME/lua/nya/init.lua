@@ -6,17 +6,10 @@ local COM = require "common"
 local STR = require "common.string"
 local PATH = require "common.path"
 local PROMPT = require "nya.prompt"
+local SYMLINK = require "nya.symlink"
 
 local SYSTEM_NAME, SUBSYSTEM = COM.get_system()
 local HOME = PATH.get_home()
-
-local function to_path(src)
-  if SYSTEM_NAME == "windows" then
-    return string.gsub(src, "/", "\\")
-  else
-    return string.gsub(src, "\\", "/")
-  end
-end
 
 local function get_nvim()
   local list = {}
@@ -49,30 +42,30 @@ local function setup_path()
 
   if nyagos.env.USERPROFILE then
     if nyagos.env.XDG_DATA_HOME then
-      nyagos.envadd("PATH", to_path(nyagos.env.XDG_DATA_HOME .. "/aquaproj-aqua/bat"))
+      nyagos.envadd("PATH", COM.to_path(nyagos.env.XDG_DATA_HOME .. "/aquaproj-aqua/bat"))
     else
-      nyagos.envadd("PATH", to_path(HOME .. "/AppData/Local/aquaproj-aqua/bat"))
+      nyagos.envadd("PATH", COM.to_path(HOME .. "/AppData/Local/aquaproj-aqua/bat"))
     end
   else
     if nyagos.env.XDG_DATA_HOME then
-      nyagos.envadd("PATH", to_path(nyagos.env.XDG_DATA_HOME .. "/.local/share/aquaproj-aqua/bin"))
+      nyagos.envadd("PATH", COM.to_path(nyagos.env.XDG_DATA_HOME .. "/.local/share/aquaproj-aqua/bin"))
     else
-      nyagos.envadd("PATH", to_path(HOME .. "/.local/share/aquaproj-aqua/bin"))
+      nyagos.envadd("PATH", COM.to_path(HOME .. "/.local/share/aquaproj-aqua/bin"))
     end
-    nyagos.envadd("PATH", to_path(HOME .. "/build/gcc/bin"))
+    nyagos.envadd("PATH", COM.to_path(HOME .. "/build/gcc/bin"))
   end
 
-  nyagos.envadd("PATH", to_path(HOME .. "/build/zig/bin"))
-  nyagos.envadd("PATH", to_path(HOME .. "/go/bin"))
-  nyagos.envadd("PATH", to_path(HOME .. "/.cargo/bin"))
-  nyagos.envadd("PATH", to_path(HOME .. "/local/bin"))
-  nyagos.envadd("PATH", to_path(HOME .. "/.local/bin"))
-  nyagos.envadd("PATH", to_path(HOME .. "/build/mingw/bin"))
-  nyagos.envadd("PATH", to_path(HOME .. "/build/gcc/bin"))
-  nyagos.envadd("PATH", to_path(HOME .. "/luarocks"))
-  nyagos.envadd("PATH", to_path(HOME .. "/love2d"))
-  if(nyagos.env.APPDATA) then
-      nyagos.envadd("PATH", to_path(nyagos.env.APPDATA .. "/LuaRocks/bin"))
+  nyagos.envadd("PATH", COM.to_path(HOME .. "/build/zig/bin"))
+  nyagos.envadd("PATH", COM.to_path(HOME .. "/go/bin"))
+  nyagos.envadd("PATH", COM.to_path(HOME .. "/.cargo/bin"))
+  nyagos.envadd("PATH", COM.to_path(HOME .. "/local/bin"))
+  nyagos.envadd("PATH", COM.to_path(HOME .. "/.local/bin"))
+  nyagos.envadd("PATH", COM.to_path(HOME .. "/build/mingw/bin"))
+  nyagos.envadd("PATH", COM.to_path(HOME .. "/build/gcc/bin"))
+  nyagos.envadd("PATH", COM.to_path(HOME .. "/luarocks"))
+  nyagos.envadd("PATH", COM.to_path(HOME .. "/love2d"))
+  if nyagos.env.APPDATA then
+    nyagos.envadd("PATH", COM.to_path(nyagos.env.APPDATA .. "/LuaRocks/bin"))
   end
 
   local DEL_PATH = {
@@ -251,14 +244,22 @@ local function setup_alias()
     end
   end
 
+  function nyagos.alias.iter(args)
+    local dot_dir = HOME .. "/dotfiles"
+    SYMLINK.create_links(COM.to_path(dot_dir .. "/sync/HOME"), HOME)
+  end
+
   function nyagos.alias.dot(args)
     local cmd = unpack(args.rawargs)
     local dot_dir = HOME .. "/dotfiles"
     if cmd == "pull" then
-      return NYA.batch(dot_dir, {
+      NYA.batch(dot_dir, {
         "git pull",
-        -- doit
       })
+      SYMLINK.create_links(COM.to_path(dot_dir .. "/sync/HOME"), HOME)
+      if SYSTEM_NAME == "windows" then
+        SYMLINK.create_links(COM.to_path(dot_dir .. "/sync/APPDATA"), COM.to_path(HOME .. "/AppData"))
+      end
     elseif cmd == "push" then
       return NYA.batch(dot_dir, {
         "git add .",

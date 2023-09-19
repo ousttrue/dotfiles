@@ -10,7 +10,6 @@ M.list = {
   "DimmedMonokai",
   "Fahrenheit",
   "Hacktober",
-  "Man Page",
   "MonaLisa",
   "N0tch2k",
   "nightfox",
