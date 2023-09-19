@@ -419,6 +419,7 @@ else
     { import = "lazy.git" },
     { import = "lazy.line" },
     { import = "lazy.completion" },
+    { import = "lazy.treesitter" },
   }
 end
 
