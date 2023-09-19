@@ -1,3 +1,5 @@
+[[ime]][[azik]]
+
 	[@nathancorvussolis](https://nathancorvussolis.github.io/)
 
 [リンク集 - SKK辞書Wiki](http://openlab.ring.gr.jp/skk/wiki/wiki.cgi?page=%A5%EA%A5%F3%A5%AF%BD%B8)
@@ -10,8 +12,23 @@ GUI => TUI(PTY) => CUI
 - @2020 [かな漢字変換プログラム SKK の紹介 | Emacs JP](https://emacs-jp.github.io/tips/skk-intro)
 - @2023 [SKK実装入門 (1) ローマ字 -> ひらがな変換](https://zenn.dev/uga_rosa/articles/ec5281d5a95a57)
 
-# 辞書登録モード
+# ローマ字
+- [SKKで正字正かな](http://kstn.fc2web.com/skk_seikana.html)
+- [変換/無変換キーでSKKのモードを変更する設定 · GitHub](https://gist.github.com/zonkyy/6404756)
+- [かな入力時のローマ字変換にルール追加. - とりあえず暇だったし何となくはじめたブログ](https://khiker.hatenablog.jp/entry/20070120/emacs_skk)
+- [corvusskk/installer/config-sample/kanatable.txt at 2.5.0 · nathancorvussolis/corvusskk · GitHub](https://github.com/nathancorvussolis/corvusskk/blob/2.5.0/installer/config-sample/kanatable.txt)
+
+# 辞書
 - @2023 [日本語IMEの変換ミスを解決するSKKが便利な話](https://zenn.dev/toriwasa/articles/946af5939093dc)
+- [SKK辞書をパワーアップしてみた: 濃密金石文](http://nmksb.seesaa.net/article/476827902.html)
+
+## format
+- @2016 [SKK-JISYO.lisp - みずぴー日記](https://mzp.hatenablog.com/entry/2016/04/19/214222)
+```
+# 見出し /変換候補;annotation/
+なごや /名古屋;愛知/那古屋/
+```
+- @2018 [SKKを仮に実装する場合の難しそうなところ - 旅とプログラミングを少々](https://naokiri.hatenablog.com/entry/2018/05/04/102105)
 
 # keybind
 - [AquaSKK プロジェクト::キー割り当て](https://aquaskk.osdn.jp/keymap.html)

@@ -67,6 +67,7 @@ int main() {
 [uvbook -- libuvの仕組みとidle-basicの解説 · wshito's diary](http://diary.wshito.com/comp/lisp/uvbook/uvbook-idle-basic/)
 
 ## uv_timer_t
+[uv_timer_t — Timer handle - libuv documentation](https://docs.libuv.org/en/v1.x/timer.html)
 [node.jsを支えるlibuvのチュートリアル"uvbook" :ユーティリティ - 自由課題](https://kimitok.hateblo.jp/entry/2014/04/24/231854)
 
 # uv_work_t
