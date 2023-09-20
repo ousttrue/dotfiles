@@ -3,7 +3,9 @@ local M = {}
 -- workaround
 local org = vim.lsp.handlers['window/showMessageRequest']
 vim.lsp.handlers['window/showMessageRequest'] = function(...)
-  if vim.bo.filetype ~= 'lua' then
+  if vim.bo.filetype == 'lua' then
+    return vim.NIL
+  else
     return org(...)
   end
 end
@@ -84,7 +86,12 @@ local function get_library(root_dir)
   }
 end
 
+---@param lspconfig any
+---@param capabilities any vim.lsp.client.capabilities
+---@param on_attach function
 function M.setup(lspconfig, capabilities, on_attach)
+  capabilities.window.showMessage = nil
+
   -- https://luals.github.io/wiki/settings
   -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
   require("lspconfig").lua_ls.setup {
@@ -120,6 +127,7 @@ function M.setup(lspconfig, capabilities, on_attach)
     end,
     on_attach = function(client, bufnr)
       -- client.server_capabilities.executeCommandProvider = false
+      client.capabilities.window.showMessage = nil
       on_attach(client, bufnr)
     end,
   }
