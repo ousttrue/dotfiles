@@ -434,3 +434,5 @@ vim.cmd(string.format("colorscheme %s", cs))
 --   autocmd bufWritePost dot.lua :lua require('dot').reload_hl()
 -- augroup END
 -- ]]
+
+-- vim.lsp.set_log_level('debug')
