@@ -15,6 +15,10 @@ local function iter_dir(dir)
   end
 end
 
+local RED = '\27[31m.'
+local GREEN = '\27[32m-'
+local DEFAULT = '\27[0m'
+
 ---@param base_dir string
 ---@param dst_dir string
 function M.create_links(base_dir, dst_dir)
@@ -22,9 +26,9 @@ function M.create_links(base_dir, dst_dir)
     local rel = string.sub(src, #base_dir + 2)
     local dst = COM.to_path(dst_dir .. "/" .. rel)
     if NYA.is_exists(dst) then
-      print("-", src)
+      print(GREEN, src, DEFAULT)
     else
-      print(".", rel, base_dir, "=>", dst_dir)
+      print(RED, rel, base_dir, "=>", dst_dir, DEFAULT)
       NYA.evalf("ln -sf %s %s", src, dst)
     end
   end

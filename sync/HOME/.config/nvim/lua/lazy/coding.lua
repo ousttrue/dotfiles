@@ -19,7 +19,17 @@ return {
       end)
     end,
   },
-  -- { "ckipp01/stylua-nvim", opts={}},
+  {
+    "ckipp01/stylua-nvim",
+    config = function()
+      if vim.bo.filetype == 'lua' then
+        local opts = { noremap = true, silent = true }
+        vim.keymap.set("n", "ff", require("stylua-nvim").format_file, opts)
+      else
+        vim.keymap.set("n", "ff", vim.lsp.buf.format, { noremap = true })
+      end
+    end
+  },
   -- {
   --   "nvimdev/guard.nvim",
   --   -- Builtin configuration, optional
