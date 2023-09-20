@@ -24,7 +24,7 @@ function M.create_links(base_dir, dst_dir)
     if NYA.is_exists(dst) then
       print("-", src)
     else
-      print(".", src)
+      print(".", rel, base_dir, "=>", dst_dir)
       NYA.evalf("ln -sf %s %s", src, dst)
     end
   end

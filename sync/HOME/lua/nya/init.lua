@@ -188,20 +188,15 @@ local function setup_alias()
   for _, v in ipairs(BUSYBOX_TOOLS) do
     local has, status = NYA.which(v)
     if not has then
-      if status == "builtin" then
+      local alt = ""
+      if SYSTEM_NAME == "windows" then
         -- Posix
-        local alt = string.format("/usr/bin/%s", v)
-        if NYA.which(alt) then
-          -- overwrite builtin
-          -- print("overwrite", v)
-          nyagos.alias[v] = string.format("%s $*", alt)
-        end
+        alt = string.format("~/busybox/%s", v)
       else
-        -- Windows
-        local alt = string.format("~/busybox/%s", v)
-        if NYA.which(alt) then
-          nyagos.alias[v] = string.format("%s $*", alt)
-        end
+        alt = string.format("/usr/bin/%s", v)
+      end
+      if NYA.which(alt) then
+        nyagos.alias[v] = string.format("%s $*", alt)
       end
     end
   end
