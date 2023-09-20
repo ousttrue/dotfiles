@@ -84,3 +84,7 @@ slandalone lua の `-e` オプションを追加するのが良いか？
 # gui
 - [Reference](http://airstruck.github.io/luigi/doc/classes/Widget.html)
 - [GitHub - vrld/suit: Immediate Mode GUI library for LÖVE](https://github.com/vrld/SUIT)
+
+# imgui
+## cimgui
+- [GitHub - apicici/cimgui-love: LÖVE module for Dear ImGui obtained by wrapping cimgui with LuaJIT FFI.](https://github.com/apicici/cimgui-love)

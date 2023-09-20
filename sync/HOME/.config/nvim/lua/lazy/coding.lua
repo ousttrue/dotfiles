@@ -20,19 +20,19 @@ return {
     end,
   },
   -- { "ckipp01/stylua-nvim", opts={}},
-  {
-    "nvimdev/guard.nvim",
-    -- Builtin configuration, optional
-    dependencies = {
-      "nvimdev/guard-collection",
-    },
-    config = function()
-      local ft = require "guard.filetype"
-      ft("lua"):fmt "stylua"
-      ft("c"):fmt "lsp"
-      ft("cpp"):fmt "lsp"
-    end,
-  },
+  -- {
+  --   "nvimdev/guard.nvim",
+  --   -- Builtin configuration, optional
+  --   dependencies = {
+  --     "nvimdev/guard-collection",
+  --   },
+  --   config = function()
+  --     local ft = require "guard.filetype"
+  --     ft("lua"):fmt "stylua"
+  --     ft("c"):fmt "lsp"
+  --     ft("cpp"):fmt "lsp"
+  --   end,
+  -- },
   {
     "folke/neodev.nvim",
     config = function()
