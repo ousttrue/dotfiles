@@ -1,4 +1,5 @@
 [[nvim]]
+[[nvim_virtualtext]]
 
 [Nvim documentation: diagnostic](https://neovim.io/doc/user/diagnostic.html)
 
