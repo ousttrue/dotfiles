@@ -1,7 +1,7 @@
 
 # 質点シミュレーション
 角速度を扱わない。Spring、Cloth
-[[PointMassSimulation]]
+[[MassSpringDumperSystem]]
 
 # 剛体シミュレーション
 角速度、トルク、慣性Inertia
