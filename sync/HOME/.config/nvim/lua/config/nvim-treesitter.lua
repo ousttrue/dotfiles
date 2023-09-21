@@ -17,7 +17,6 @@ function M.setup()
       "css",
       "c_sharp",
       "toml",
-      "nu",
       "go",
       "bash",
       "json",
@@ -25,6 +24,8 @@ function M.setup()
       "typescript",
       "javascript",
       "tsx",
+
+      -- "nu",
     },
 
     indent = {

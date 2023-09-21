@@ -306,7 +306,7 @@ end
 vim.keymap.set("n", "K", function()
   vim.lsp.buf.hover()
 end, { noremap = true })
-vim.keymap.set("n", "ff", vim.lsp.buf.format, { noremap = true })
+-- vim.keymap.set("n", "ff", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })

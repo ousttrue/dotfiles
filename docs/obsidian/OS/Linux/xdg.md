@@ -4,6 +4,9 @@
 - `XDG_CONFIG_HOME` => `~/.config`
 - `XDG_CACHE_HOME` => `~/.cache`
 - `XDG_DATA_HOME` => `~/.local/share`
+[[nvim]]
+
+[Windows: Windowsに'XDG Base Directory'を導入する](https://zenn.dev/atsushifx/articles/winhack-environ-xdg-base)
 
 ## share
 Note that 'D:/msys64/mingw64/share' is not in the search path

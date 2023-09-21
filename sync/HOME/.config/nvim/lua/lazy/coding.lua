@@ -22,12 +22,14 @@ return {
   {
     "ckipp01/stylua-nvim",
     config = function()
-      if vim.bo.filetype == 'lua' then
-        local opts = { noremap = true, silent = true }
-        vim.keymap.set("n", "ff", require("stylua-nvim").format_file, opts)
-      else
-        vim.keymap.set("n", "ff", vim.lsp.buf.format, { noremap = true })
+      local function ff()
+        if vim.bo.filetype == 'lua' then
+          require("stylua-nvim").format_file()
+        else
+          vim.lsp.buf.format()
+        end
       end
+      vim.keymap.set("n", "ff", ff, { noremap = true })
     end
   },
   -- {

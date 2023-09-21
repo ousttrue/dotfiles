@@ -1,5 +1,7 @@
 [コンパイラ・C++ 標準の判定 · GitHub](https://gist.github.com/treastrain/483a2d233560dc99fda8e59b6fd03361)
 
+- [低レイヤを知りたい人のためのCコンパイラ作成入門](https://www.sigbus.info/compilerbook)
+
 # MSVC
 ## msvcrt
 ## ucrt

@@ -60,6 +60,13 @@ nvim +Tutor
 - Lua API improvements
 - LSP support improvements (v3.16 spec coverage, configuration)
 
+# XDG
+
+|xdg|unix|windows|
+|-|-|-|
+|XDG_CONFIG_HOME|~/.config/nvim|%LOCALAPPDATA%/nvim|
+|XDG_DATA_HOIME|~/.local/share/nvim|%LOCALAPPDATA%/nvim-data|
+
 # build
 - [Building Neovim · neovim/neovim Wiki · GitHub](https://github.com/neovim/neovim/wiki/Building-Neovim#building-on-windows)
 - @2021 [WindowsでのNeovim build方法 - Qiita](https://qiita.com/Elgonian/items/5e0b17c00372782c6d42)
