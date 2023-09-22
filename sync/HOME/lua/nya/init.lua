@@ -251,6 +251,7 @@ local function setup_alias()
       NYA.batch(dot_dir, {
         "git pull",
       })
+      -- TODO: clear dead link
       SYMLINK.create_links(COM.to_path(dot_dir .. "/sync/HOME"), HOME)
       if SYSTEM_NAME == "windows" then
         SYMLINK.create_links(COM.to_path(dot_dir .. "/sync/APPDATA"), COM.to_path(HOME .. "/AppData"))

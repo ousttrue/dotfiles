@@ -1,32 +1,32 @@
 -- local api = vim.api
 local g = vim.g
 local opt = vim.opt
-local dot = require "dot"
+local dot = require("dot")
 ---@class uv
 local uv = vim.loop
-local STR = require "common.string"
+local STR = require("common.string")
 
 vim.opt.clipboard = "unnamedplus"
-if vim.fn.has "wsl" == 1 then
-  if vim.fn.executable "win32yank.exe" == 1 then
-    vim.g.clipboard = {
-      name = "win32yank-wsl",
-      copy = {
-        ["+"] = "win32yank.exe -i --crlf",
-        ["*"] = "win32yank.exe -i --crlf",
-      },
-      paste = {
-        ["+"] = "win32yank.exe -o --crlf",
-        ["*"] = "win32yank.exe -o --crlf",
-      },
-      cache_enable = 0,
-    }
-  end
+if vim.fn.has("wsl") == 1 then
+	if vim.fn.executable("win32yank.exe") == 1 then
+		vim.g.clipboard = {
+			name = "win32yank-wsl",
+			copy = {
+				["+"] = "win32yank.exe -i --crlf",
+				["*"] = "win32yank.exe -i --crlf",
+			},
+			paste = {
+				["+"] = "win32yank.exe -o --crlf",
+				["*"] = "win32yank.exe -o --crlf",
+			},
+			cache_enable = 0,
+		}
+	end
 end
-if vim.fn.has "win32" == 1 then
-  vim.keymap.set("n", "<C-z>", "<Nop>")
+if vim.fn.has("win32") == 1 then
+	vim.keymap.set("n", "<C-z>", "<Nop>")
 
-  vim.g.sqlite_clib_path = "D:/msys64/mingw64/bin/libsqlite3-0.dll"
+	vim.g.sqlite_clib_path = "D:/msys64/mingw64/bin/libsqlite3-0.dll"
 end
 
 -- Remap leader and local leader to <Space>
@@ -39,7 +39,7 @@ g.netrw_nogx = true
 -- vim.cmd [[execute "set colorcolumn=" . join(range(81, 9999), ',')]]
 -- opt.cursorline = true
 -- opt.autowrite = true
-opt.showtabline = 1
+opt.showtabline = 3
 opt.completeopt = "menu,preview"
 opt.ambiwidth = "single"
 opt.termguicolors = true -- Enable colors in terminal
@@ -63,11 +63,11 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.list = true
 opt.listchars = {
-  eol = "$",
-  tab = ">-",
-  trail = "~",
-  extends = ">",
-  precedes = "<",
+	eol = "$",
+	tab = ">-",
+	trail = "~",
+	extends = ">",
+	precedes = "<",
 }
 opt.belloff = "all"
 opt.swapfile = false
@@ -88,26 +88,26 @@ opt.makeprg = "meson install -C builddir --tags runtime"
 opt.makeprg = "meson install -C builddir --tags runtime"
 
 vim.keymap.set({ "n", "i" }, "<F7>", function()
-  -- vim.cmd "make!"
-  -- vim.cmd "wa"
-  vim.cmd "stopinsert"
-  local qfu = require "qfu"
-  qfu.async_make()
+	-- vim.cmd "make!"
+	-- vim.cmd "wa"
+	vim.cmd("stopinsert")
+	local qfu = require("qfu")
+	qfu.async_make()
 end)
 
 vim.keymap.set("n", "<F8>", function()
-  vim.cmd "bel copen"
-  local qfu = require "qfu"
-  qfu.Qf_filter()
+	vim.cmd("bel copen")
+	local qfu = require("qfu")
+	qfu.Qf_filter()
 end)
 vim.keymap.set("n", "<C-k>", "<Tab>", { noremap = true })
 vim.keymap.set("n", "<Tab>", function()
-  local items = vim.fn.getqflist()
-  if #items > 1 then
-    vim.cmd "cn"
-  elseif #items == 1 then
-    vim.cmd "cc"
-  end
+	local items = vim.fn.getqflist()
+	if #items > 1 then
+		vim.cmd("cn")
+	elseif #items == 1 then
+		vim.cmd("cc")
+	end
 end)
 vim.keymap.set("n", "<S-Tab>", "<cmd>cp<CR>", {})
 vim.keymap.set("n", "<C-n>", ":cnewer<CR>", { noremap = true, silent = true })
@@ -115,7 +115,7 @@ vim.keymap.set("n", "<C-p>", ":colder<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "]q", ":cnewer<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "[q", ":colder<CR>", { noremap = true, silent = true })
 
-vim.cmd [[
+vim.cmd([[
 " " Highlight on yank
 " augroup YankHighlight
 "   autocmd!
@@ -124,14 +124,11 @@ vim.cmd [[
 
 " autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 " autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow
-]]
-
-vim.keymap.set("n", ")", ":BufferLineCycleNext<CR>", { noremap = true })
-vim.keymap.set("n", "(", ":BufferLineCyclePrev<CR>", { noremap = true })
+]])
 
 vim.keymap.set({ "i", "c" }, "<C-e>", "<END>")
 vim.keymap.set({ "i", "c" }, "<C-a>", "<HOME>")
-vim.cmd "packadd cfilter"
+vim.cmd("packadd cfilter")
 
 -- opt.completeopt = "menuone,noinsert"
 vim.keymap.set("i", "<C-j>", "<C-x><C-o>")
@@ -148,50 +145,51 @@ vim.keymap.set("i", "<C-j>", "<C-x><C-o>")
 -- vim.keymap.set("n", "<Leader>c", "<C-l>", { noremap = true })
 vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
 local function write_buffer()
-  if vim.startswith(vim.fn.mode(), "i") then
-    vim.cmd "stopinsert"
-  end
-  -- vim.lsp.buf.format { async = false }
-  vim.api.nvim_command "write"
+	if vim.startswith(vim.fn.mode(), "i") then
+		vim.cmd("stopinsert")
+	end
+	-- vim.lsp.buf.format { async = false }
+	vim.api.nvim_command("write")
 end
 vim.keymap.set("n", "<C-s>", write_buffer, { noremap = true })
 vim.keymap.set("i", "<C-s>", write_buffer, { noremap = true })
 vim.keymap.set("n", "t", "zt")
 
 local function should_close(bufnr)
-  local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-  for i, t in ipairs { "fugitive", "help" } do
-    if filetype == t then
-      return true
-    end
-  end
-  if vim.api.nvim_win_get_config(0).zindex then
-    return true
-  end
-  if vim.fn.buflisted(bufnr) then
-    return false
-  end
-  return true
+	local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+	for i, t in ipairs({ "fugitive", "help" }) do
+		if filetype == t then
+			return true
+		end
+	end
+	if vim.api.nvim_win_get_config(0).zindex then
+		return true
+	end
+	if vim.fn.buflisted(bufnr) then
+		return false
+	end
+	return true
 end
 
 local function close_buffer_or_window()
-  local currentBufNum = vim.fn.bufnr "%"
-  if should_close(currentBufNum) then
-    vim.cmd "close"
-  else
-    -- buffer 切り替え｀
-    vim.cmd "BufferLineCycleNext"
-    local newBufNum = vim.fn.bufnr "%"
-    if newBufNum == currentBufNum then
-      vim.cmd "enew"
-    end
-    -- 非表示になった buffer を削除
-    vim.cmd("silent bwipeout " .. currentBufNum)
-    --   bwipeoutに失敗した場合はウインドウ上のバッファを復元
-    if vim.fn.bufloaded(currentBufNum) ~= 0 then
-      vim.cmd("buffer " .. currentBufNum)
-    end
-  end
+	local currentBufNum = vim.fn.bufnr("%")
+	if should_close(currentBufNum) then
+		vim.cmd("close")
+	else
+		-- buffer 切り替え｀
+		-- vim.cmd "BufferLineCycleNext"
+		vim.cmd("BufferNext")
+		local newBufNum = vim.fn.bufnr("%")
+		if newBufNum == currentBufNum then
+			vim.cmd("enew")
+		end
+		-- 非表示になった buffer を削除
+		vim.cmd("silent bwipeout " .. currentBufNum)
+		--   bwipeoutに失敗した場合はウインドウ上のバッファを復元
+		if vim.fn.bufloaded(currentBufNum) ~= 0 then
+			vim.cmd("buffer " .. currentBufNum)
+		end
+	end
 end
 vim.keymap.set("n", "<C-q>", close_buffer_or_window, { noremap = true })
 vim.keymap.set("n", "Q", close_buffer_or_window, { noremap = true })
@@ -214,86 +212,86 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- lsp
-vim.lsp.set_log_level "off"
+vim.lsp.set_log_level("off")
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-vim.diagnostic.config {
-  virtual_text = false,
-}
+vim.diagnostic.config({
+	virtual_text = false,
+})
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = dot.border,
+	border = dot.border,
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = dot.border,
+	border = dot.border,
 })
 
-vim.diagnostic.config {
-  float = { border = dot.border },
-}
+vim.diagnostic.config({
+	float = { border = dot.border },
+})
 local diag_signs = vim.diagnostic.handlers.signs
 
 local filter_types = {
-  "optional",
-  "string_view",
-  "filesystem",
-  "u8string",
-  "span",
-  "string_view",
-  -- c++23
-  "expected",
+	"optional",
+	"string_view",
+	"filesystem",
+	"u8string",
+	"span",
+	"string_view",
+	-- c++23
+	"expected",
 }
 local filter_template = {
-  "No template named '%s' in namespace 'std'",
-  "No type named '%s' in namespace 'std'",
-  "No member named '%s' in namespace 'std'",
-  "Decomposition declarations are a C++17 extension",
+	"No template named '%s' in namespace 'std'",
+	"No type named '%s' in namespace 'std'",
+	"No member named '%s' in namespace 'std'",
+	"Decomposition declarations are a C++17 extension",
 }
 local prefix_list = {
-  "In included file: ",
+	"In included file: ",
 }
 local function starts_with(str, key)
-  return string.sub(str, 1, #key) == key
+	return string.sub(str, 1, #key) == key
 end
 local function is_filter(msg)
-  for _, t in ipairs(filter_types) do
-    for _, template in ipairs(filter_template) do
-      if starts_with(msg, string.format(template, t)) then
-        return true
-      end
-      for _, p in ipairs(prefix_list) do
-        if starts_with(msg, string.format(p .. template, t)) then
-          return true
-        end
-      end
-    end
-  end
+	for _, t in ipairs(filter_types) do
+		for _, template in ipairs(filter_template) do
+			if starts_with(msg, string.format(template, t)) then
+				return true
+			end
+			for _, p in ipairs(prefix_list) do
+				if starts_with(msg, string.format(p .. template, t)) then
+					return true
+				end
+			end
+		end
+	end
 end
 
-if vim.fn.has "win32" == 1 then
-  vim.diagnostic.handlers.signs = {
+if vim.fn.has("win32") == 1 then
+	vim.diagnostic.handlers.signs = {
 
-    show = function(namespace, bufnr, diagnostics, opts)
-      -- print(vim.inspect(diagnostics))
-      local filtered = {}
-      for _, d in ipairs(diagnostics) do
-        if is_filter(d.message) then
-          print "skip"
-        else
-          -- print(vim.inspect(d))
-          table.insert(filtered, d)
-        end
-      end
-      diag_signs.show(namespace, bufnr, filtered, opts)
-    end,
+		show = function(namespace, bufnr, diagnostics, opts)
+			-- print(vim.inspect(diagnostics))
+			local filtered = {}
+			for _, d in ipairs(diagnostics) do
+				if is_filter(d.message) then
+					print("skip")
+				else
+					-- print(vim.inspect(d))
+					table.insert(filtered, d)
+				end
+			end
+			diag_signs.show(namespace, bufnr, filtered, opts)
+		end,
 
-    hide = diag_signs.hide,
-  }
+		hide = diag_signs.hide,
+	}
 end
 
 --
@@ -305,9 +303,8 @@ end
 --   underline = true,
 -- })
 vim.keymap.set("n", "K", function()
-  vim.lsp.buf.hover()
+	vim.lsp.buf.hover()
 end, { noremap = true })
--- vim.keymap.set("n", "ff", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
@@ -334,7 +331,7 @@ vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { noremap = true })
 vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, { noremap = true })
 vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, { noremap = true })
 vim.keymap.set("n", "<Leader>wl", function()
-  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end)
 -- C-[: ESC
 -- C-O: back
@@ -349,76 +346,87 @@ vim.keymap.set("n", "<C-]>", "<cmd>tjump<CR>")
 -- )
 
 local function floating_window()
-  local buf = vim.api.nvim_create_buf(false, true)
+	local buf = vim.api.nvim_create_buf(false, true)
 
-  for i, client in ipairs(vim.lsp.get_active_clients()) do
-    vim.api.nvim_buf_set_lines(buf, -1, -1, false, vim.split(vim.inspect(client.server_capabilities), "\n"))
-    -- print(vim.split(vim.inspect(client.server_capabilities), '\n'))
-  end
+	for i, client in ipairs(vim.lsp.get_active_clients()) do
+		vim.api.nvim_buf_set_lines(buf, -1, -1, false, vim.split(vim.inspect(client.server_capabilities), "\n"))
+		-- print(vim.split(vim.inspect(client.server_capabilities), '\n'))
+	end
 
-  local win = vim.api.nvim_open_win(buf, 0, {
-    relative = "win",
-    width = 50,
-    height = 20,
-    col = 0,
-    row = 1,
-    anchor = "NW",
-    border = dot.border,
-  })
+	local win = vim.api.nvim_open_win(buf, 0, {
+		relative = "win",
+		width = 50,
+		height = 20,
+		col = 0,
+		row = 1,
+		anchor = "NW",
+		border = dot.border,
+	})
 end
 vim.keymap.set("n", "gx", floating_window, { noremap = true })
 vim.api.nvim_set_keymap("n", "gh", ":Inspect<CR>", {})
-vim.cmd [[command! VimSyntaxTest :source $VIMRUNTIME/syntax/hitest.vim]]
-vim.cmd [[command! ReloadHl :lua require('dot').reload_hl()]]
-vim.cmd [[command! CrLfToLf :%s/\r$//]]
+vim.cmd([[command! VimSyntaxTest :source $VIMRUNTIME/syntax/hitest.vim]])
+vim.cmd([[command! ReloadHl :lua require('dot').reload_hl()]])
+vim.cmd([[command! CrLfToLf :%s/\r$//]])
 
 function COPY_PATH()
-  vim.cmd [[
+	vim.cmd([[
   let @* = expand('%:.')
   let @" = expand('%:.')
-  ]]
+  ]])
 end
 
-vim.cmd [[
+vim.cmd([[
 augroup HLExtend
   autocmd!
   autocmd ColorScheme * lua require('dot').extend_hl()
   autocmd ColorScheme * lua require('dot').extend_hl_ts()
 augroup END
-]]
+]])
 
 require("keymap").setup()
 
 -- package manager
 -- require "lazy-plugins"
 if vim.env.MSYSTEM then
-  require "packer_setup"
+	require("packer_setup")
 else
-  local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-  if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system {
-      "git",
-      "clone",
-      "--filter=blob:none",
-      "https://github.com/folke/lazy.nvim.git",
-      "--branch=stable", -- latest stable release
-      lazypath,
-    }
-  end
-  vim.opt.rtp:prepend(lazypath)
+	local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+	if not vim.loop.fs_stat(lazypath) then
+		vim.fn.system({
+			"git",
+			"clone",
+			"--filter=blob:none",
+			"https://github.com/folke/lazy.nvim.git",
+			"--branch=stable", -- latest stable release
+			lazypath,
+		})
+	end
+	vim.opt.rtp:prepend(lazypath)
 
-  -- Example using a list of specs with the default options
-  vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+	-- Example using a list of specs with the default options
+	vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
-  -- require("lazy").setup "lazy.plugins"
-  local opts = {}
-  for name in dot.scandir(dot.get_home() .. "/.config/nvim/lua/lazy") do
-    if STR.ends_with(name, ".lua") then
-      local mod = name:sub(1, -5)
-      table.insert(opts, { import = "lazy." .. mod })
-    end
-  end
+	-- require("lazy").setup "lazy.plugins"
+	local opts = {}
+	for name in dot.scandir(dot.get_home() .. "/.config/nvim/lua/lazy") do
+		if STR.ends_with(name, ".lua") then
+			local mod = name:sub(1, -5)
+			table.insert(opts, { import = "lazy." .. mod })
+		end
+	end
+	require("lazy").setup(opts)
 end
+
+local function ff()
+	if vim.bo.filetype == "lua" then
+		-- require("stylua-nvim").format_file()
+		vim.cmd([[:Neoformat]])
+	else
+		vim.lsp.buf.format()
+	end
+end
+vim.keymap.set("n", "ff", ff, { noremap = true })
 
 local cs, bg = dot.get_colorscheme()
 print(cs, bg)
