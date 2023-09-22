@@ -6,6 +6,11 @@
 - [LÖVE(Love2D) プログラミング入門](https://love2d-programming.com/)
 - @2021 [Love2D(Lua)でゲームをつくる](https://zenn.dev/m9m/scraps/52a88a63cdd1f4) [[luajit]] [[luarocks]]
 
+# sample
+- [Lead Haul by YouDoYouBuddy](https://youdoyoubuddy.itch.io/lead-haul)
+- [GitHub - excessive/love3d: A 3D extension for LÖVE 0.10](https://github.com/excessive/love3d/)
+- [GitHub - CapsAdmin/goluwa: game engine and framework written in luajit](https://github.com/CapsAdmin/goluwa)
+- [GitHub - CelestialCartographers/Loenn: A Visual Map Maker and Level Editor for the game Celeste but better than the other one](https://github.com/CelestialCartographers/Loenn)
 
 # version
 ## 11.4

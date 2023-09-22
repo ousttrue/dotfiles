@@ -1,0 +1,1 @@
+- @2017 [無料でオープンソースな架空のレトロゲーム機「TIC-80」の紹介 - kitao's blog](https://tkitao.hatenablog.com/entry/2017/11/19/135714)
