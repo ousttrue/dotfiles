@@ -53,7 +53,7 @@ function M.ends_with(str, target)
     return false
   end
 
-  return str:sub(#str - #target) == target
+  return str:sub(-#target) == target
 end
 
 return M

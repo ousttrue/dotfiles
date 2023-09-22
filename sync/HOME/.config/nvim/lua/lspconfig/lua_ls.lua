@@ -2,13 +2,13 @@ local M = {}
 
 -- workaround
 local org = vim.lsp.handlers['window/showMessageRequest']
-vim.lsp.handlers['window/showMessageRequest'] = function(...)
-  if vim.bo.filetype == 'lua' then
-    return vim.NIL
-  else
-    return org(...)
-  end
-end
+-- vim.lsp.handlers['window/showMessageRequest'] = function(...)
+--   if vim.bo.filetype == 'lua' then
+--     return vim.NIL
+--   else
+--     return org(...)
+--   end
+-- end
 
 local dot = require "dot"
 local path = require "plenary.path"

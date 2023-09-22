@@ -4,6 +4,7 @@ local opt = vim.opt
 local dot = require "dot"
 ---@class uv
 local uv = vim.loop
+local STR = require "common.string"
 
 vim.opt.clipboard = "unnamedplus"
 if vim.fn.has "wsl" == 1 then
@@ -410,17 +411,13 @@ else
   vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
   -- require("lazy").setup "lazy.plugins"
-  require("lazy").setup {
-    { import = "lazy.plugins" },
-    { import = "lazy.colorschemes" },
-    { import = "lazy.telescope" },
-    { import = "lazy.filer" },
-    { import = "lazy.coding" },
-    { import = "lazy.git" },
-    { import = "lazy.line" },
-    { import = "lazy.completion" },
-    { import = "lazy.treesitter" },
-  }
+  local opts = {}
+  for name in dot.scandir(dot.get_home() .. "/.config/nvim/lua/lazy") do
+    if STR.ends_with(name, ".lua") then
+      local mod = name:sub(1, -5)
+      table.insert(opts, { import = "lazy." .. mod })
+    end
+  end
 end
 
 local cs, bg = dot.get_colorscheme()

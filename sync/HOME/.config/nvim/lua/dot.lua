@@ -1,5 +1,8 @@
 local M = {}
 
+---@type uv
+local luv = vim.loop
+
 local function get_system()
   if vim.fn.has "wsl" ~= 0 then
     return "wsl"
@@ -346,12 +349,22 @@ function M.send_osc(n, value)
 end
 
 function M.safe_require(module_name)
-    local status_ok, module = pcall(require, module_name)
-    if not status_ok then
-        vim.notify("Couldn't load module '" .. module_name .. "'")
-        do return end
+  local status_ok, module = pcall(require, module_name)
+  if not status_ok then
+    vim.notify("Couldn't load module '" .. module_name .. "'")
+    do
+      return
     end
-    return module
+  end
+  return module
+end
+
+---@return fun():name: string, type: string
+function M.scandir(path)
+  local fs = luv.fs_scandir(path)
+  return function()
+    return luv.fs_scandir_next(fs)
+  end
 end
 
 return M
