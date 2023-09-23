@@ -12,7 +12,12 @@
 - [GitHub - CapsAdmin/goluwa: game engine and framework written in luajit](https://github.com/CapsAdmin/goluwa)
 - [GitHub - CelestialCartographers/Loenn: A Visual Map Maker and Level Editor for the game Celeste but better than the other one](https://github.com/CelestialCartographers/Loenn)
 
+# shader
+- [GitHub - camchenry/shaderview: A GLSL shader development tool for the LÖVE game framework.](https://github.com/camchenry/shaderview)
+
 # version
+[Version History - LOVE](https://love2d.org/wiki/Version_History)
+
 ## 11.4
 @2022
 
@@ -23,6 +28,9 @@
 # launch
 > love . # folder arg
 ```
+
+- [GitHub - camchenry/Love2D-Template: A game development template for LÖVE.](https://github.com/camchenry/Love2D-Template)
+- [GitHub - dschneider/love-boilerplate: A boilerplate template for the awesome LÖVE (love2d) framework](https://github.com/dschneider/love-boilerplate)
 
 # vscode
 custom interpleter

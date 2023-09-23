@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../../genindex.html" /><link rel="search" title="検索" href="../../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Engine - shell note ドキュメント</title>
+        <title>Setup - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
@@ -222,6 +222,18 @@
 [[OpenGL_Text]] [[matrix]]
 [[UBO]] [[SSBO]] [[PBO]]
 [[spir-v]] [[OpenGLES]] [[glsl]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Triangle</p></li>
+<li><p>2D Camera</p></li>
+<li><p>3D Projection</p></li>
+<li><p>MouseWheel</p></li>
+<li><p>MouseSfhit</p></li>
+<li><p>YawPitch</p></li>
+<li><p>EuclideanTransfrom</p></li>
+</ol>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="engine">
 <h1>Engine<a class="headerlink" href="#engine" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -242,47 +254,47 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>#version 460</p></td>
+<tr class="row-even"><td><p>460</p></td>
 <td><p>4.6</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>#version 430</p></td>
+<tr class="row-odd"><td><p>430</p></td>
 <td><p>4.3</p></td>
 <td><p>[[SSBO]], [[OpenGL_compute_shader]]</p></td>
 </tr>
-<tr class="row-even"><td><p>#version 420</p></td>
+<tr class="row-even"><td><p>420</p></td>
 <td><p>4.2</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>#version 410</p></td>
+<tr class="row-odd"><td><p>410</p></td>
 <td><p>4.1</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p>#version 400</p></td>
+<tr class="row-even"><td><p>400</p></td>
 <td><p>4.0</p></td>
 <td><p>[[d3d11]]相当</p></td>
 </tr>
-<tr class="row-odd"><td><p>#version 330</p></td>
+<tr class="row-odd"><td><p>330</p></td>
 <td><p>3.3</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p>#version 150</p></td>
+<tr class="row-even"><td><p>150</p></td>
 <td><p>3.2</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>#version 140</p></td>
+<tr class="row-odd"><td><p>140</p></td>
 <td><p>3.1</p></td>
 <td><p>[[UBO]]</p></td>
 </tr>
-<tr class="row-even"><td><p>#version 130</p></td>
+<tr class="row-even"><td><p>130</p></td>
 <td><p>3.0</p></td>
 <td><p>attribute =&gt; in, varying =&gt; out, texelFetch</p></td>
 </tr>
-<tr class="row-odd"><td><p>#version 120</p></td>
+<tr class="row-odd"><td><p>120</p></td>
 <td><p>2.1</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p>#version 110</p></td>
+<tr class="row-even"><td><p>110</p></td>
 <td><p>2.0</p></td>
 <td><p></p></td>
 </tr>
@@ -354,7 +366,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Engine</a></li>
+<li><a class="reference internal" href="#">Setup</a></li>
+<li><a class="reference internal" href="#engine">Engine</a></li>
 <li><a class="reference internal" href="#version">Version</a><ul>
 <li><a class="reference internal" href="#id1">4.3</a></li>
 <li><a class="reference internal" href="#id2">3.1</a></li>

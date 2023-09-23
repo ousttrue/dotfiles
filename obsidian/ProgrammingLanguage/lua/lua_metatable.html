@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>metatable の単位。instance or class - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,17 +212,70 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>strings, numbers, nil, functions and lightuserdata have a single metatable for the whole type. tables and full userdata have a metatable for each instance.</p>
+          <section class="tex2jax_ignore mathjax_ignore" id="metatable-instance-or-class">
+<h1>metatable の単位。instance or class<a class="headerlink" href="#metatable-instance-or-class" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>strings, numbers, nil, functions and lightuserdata have a single metatable for the whole type. tables and full userdata have a metatable for each instance.</p>
 <p>from the docs:</p>
 <blockquote>
 <div><p>Tables and full userdata have individual metatables (although multiple tables and userdata can share their metatables). Values of all other types share one single metatable per type; that is, there is one single metatable for all numbers, one for all strings, etc.strings, etc.</p>
 </div></blockquote>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cats">
+<h1>型情報(cats)を踏まえた構成<a class="headerlink" href="#cats" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[lua_language_server]]</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">---@class SomeInstance</span>
+<span class="c1">---@field nmae string</span>
+
+<span class="c1">---@class Some: SomeInstance</span>
+<span class="kd">local</span> <span class="n">Some</span><span class="p">{}</span>
+<span class="n">Some</span><span class="p">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">Some</span>
+
+<span class="c1">---factory</span>
+<span class="c1">---@param name string</span>
+<span class="c1">---@return Some</span>
+<span class="kr">function</span> <span class="nc">Some</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+  <span class="c1">---@type SomeInstance</span>
+  <span class="kd">local</span> <span class="n">instance</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span>
+  <span class="p">}</span>
+  <span class="kr">return</span> <span class="nb">setmetatable</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">Some</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">Some</span><span class="p">:</span><span class="nf">hello</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">---メソッド。演算子オーバーロード</span>
+<span class="kr">function</span> <span class="nc">Some</span><span class="p">:</span><span class="nf">__add</span><span class="p">(</span><span class="n">rhs</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">Some</span>
+</pre></div>
+</div>
+<section id="index">
+<h2><code class="docutils literal notranslate"><span class="pre">__index</span></code> と <code class="docutils literal notranslate"><span class="pre">:</span></code><a class="headerlink" href="#index" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>通常のメソッドと、演算子オーバーロード類を同じ table に定義できる。</p>
+<p>static 関数のメソッド呼び出しと メンバー関数呼び出し両方に、<code class="docutils literal notranslate"><span class="pre">:</span></code> が適用可能であるが <code class="docutils literal notranslate"><span class="pre">:</span></code> をメンバー関数呼び出し専用にする。</p>
+</section>
+<section id="call">
+<h2><code class="docutils literal notranslate"><span class="pre">__call</span></code> をコンストラクターに使わない<a class="headerlink" href="#call" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>コールには２つの意味がある、
+<code class="docutils literal notranslate"><span class="pre">self</span></code> が型を表すときは、コンストラクター。
+<code class="docutils literal notranslate"><span class="pre">self</span></code> がインスタンスを表すときは、関数オブジェクトの呼び出し。
+前者を捨てて <code class="docutils literal notranslate"><span class="pre">new</span></code> 関数を使う規約にする。
+次項も参照のこと。</p>
+</section>
+<section id="id1">
+<h2>継承は要らないのでは？<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ポリモーフィズムを使う局面ある？</p>
+</section>
+</section>
 
         </article>
       </div>
@@ -245,8 +298,30 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">metatable の単位。instance or class</a></li>
+<li><a class="reference internal" href="#cats">型情報(cats)を踏まえた構成</a><ul>
+<li><a class="reference internal" href="#index"><code class="docutils literal notranslate"><span class="pre">__index</span></code> と <code class="docutils literal notranslate"><span class="pre">:</span></code></a></li>
+<li><a class="reference internal" href="#call"><code class="docutils literal notranslate"><span class="pre">__call</span></code> をコンストラクターに使わない</a></li>
+<li><a class="reference internal" href="#id1">継承は要らないのでは？</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
