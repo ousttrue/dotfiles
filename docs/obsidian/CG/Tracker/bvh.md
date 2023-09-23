@@ -20,6 +20,7 @@
 - [cgspeed](https://sites.google.com/a/cgspeed.com/cgspeed/motion-capture/cmu-bvh-conversion)
 - [cgspeed - Motion Capture](https://sites.google.com/a/cgspeed.com/cgspeed/motion-capture)
 - [cgspeed - The Daz-friendly BVH release of CMU's motion capture database](https://sites.google.com/a/cgspeed.com/cgspeed/motion-capture/the-daz-friendly-bvh-release-of-cmus-motion-capture-database)
+- [100+ Best Free Motion Capture Files - RockThe3D](http://www.rockthe3d.com/100-best-free-motion-capture-files/)
 
 ## bandai namco
 - [GitHub - BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset: This repository provides motion datasets collected by Bandai Namco Research Inc](https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset)

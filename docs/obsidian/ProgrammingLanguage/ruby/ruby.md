@@ -1,9 +1,13 @@
 [[mruby]]
 
-`3.1.3`
 - [オブジェクト指向スクリプト言語 Ruby](https://www.ruby-lang.org/ja/)
 
+@2018 [Rubyのサンドボックスを作って、evalするBotを作った - kinoppyd dev](https://kinoppyd.dev/blog/ruby-sandbox-eval-bot/)
+
 # version
+[Ruby のリリース一覧](https://www.ruby-lang.org/ja/downloads/releases/)
+## 3.2
+- @2022
 ## 3.1
 - @2021 [サンプルコードでわかる！Ruby 3.1の主な新機能と変更点 - Qiita](https://qiita.com/jnchito/items/bcd9b7f59bf4b30ea5b3)
 ### YJIT
@@ -12,7 +16,7 @@
 - @2022 [Ruby が YJIT でなんで速くなるのか？ Lazy Basic Block Versioning をサクッと理解してみた - estie inside blog](https://www.estie.jp/blog/entry/2022/08/15/153357)
 - [「Ruby 3.1.0」がリリース ～プロセス内JITコンパイラー「YJIT」をマージ【2022年1月5日追記】 - 窓の杜](https://forest.watch.impress.co.jp/docs/news/1377364.html)
 
-## 3.2 
+## 3.0 
 - @2021 [2020年リリース「Ruby 3.0.0」の変更点・新機能を解説 ｜パーソルテクノロジースタッフのエンジニア派遣](https://persol-tech-s.co.jp/hatalabo/it_engineer/540.html)
 
 # vscode

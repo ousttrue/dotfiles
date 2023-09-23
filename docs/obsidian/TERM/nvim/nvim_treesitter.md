@@ -2,6 +2,7 @@
 [[treesitter]]
 
 - @2022 [Code Folding in Neovim with Tree-sitter :: John Maguire](https://www.jmaguire.tech/posts/treesitter_folding/)
+- @2023 [Markdownのコードブロックとかテキストの文脈に合わせて背景色を変えるtsnode-marker.nvimを作った | Atusy's blog](https://blog.atusy.net/2023/04/19/tsnode-marker-nvim/)
 
 # nvim version
 ## 0.9

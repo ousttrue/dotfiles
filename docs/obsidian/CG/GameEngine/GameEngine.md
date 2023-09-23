@@ -8,6 +8,8 @@
 
 - [GitHub - jmorton06/Lumos: Cross-Platform C++ 2D/3D game engine](https://github.com/jmorton06/Lumos)
 
+- [GitHub - andreasdr/tdme2: TDME2 - ThreeDeeMiniEngine2 is a lightweight, multi-platform 3D engine including tools suited for 3D game/application development using C++, MiniScript, GLSL, ...](https://github.com/andreasdr/tdme2)
+
 # vulkan
 - [GitHub - ajweeks/FlexEngine: Cross-platform game engine with Vulkan backend](https://github.com/ajweeks/FlexEngine)
 # raylib
