@@ -5,11 +5,24 @@ return {
     "sbdchd/neoformat",
     config = function()
       vim.g.neoformat_enabled_html = { "prettier" }
+      vim.g.neoformat_enabled_glsl = { "clang-format" }
       local function formatter()
         vim.cmd [[:Neoformat]]
       end
       DOT.formatters.lua = formatter
       DOT.formatters.html = formatter
+      DOT.formatters.json = formatter
+    end,
+  },
+  {
+    "rhysd/vim-clang-format",
+    config = function()
+      vim.cmd [[let g:clang_format#command = "C:/Program Files/LLVM/bin/clang-format.exe"]]
+
+      local function formatter()
+        vim.cmd [[:ClangFormat]]
+      end
+      DOT.formatters.glsl = formatter
     end,
   },
   -- {

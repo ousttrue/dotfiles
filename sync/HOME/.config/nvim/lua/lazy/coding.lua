@@ -43,4 +43,5 @@ return {
     },
   },
   { "RRethy/vim-illuminate" },
+  { "tikhomirov/vim-glsl" },
 }

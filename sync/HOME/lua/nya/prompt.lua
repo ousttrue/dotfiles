@@ -154,8 +154,14 @@ function M.prompt(this)
   local sep = new_sep(start)
 
   -- path
-  local prefix = M.title
   local current = get_current()
+  if STR.ends_with(nyagos.getwd(), "dotfiles") then
+    M.title = " "
+  else
+    M.title = SYS_NAME == "windows" and "🐱" or "🐧"
+  end
+  local prefix = M.title
+
   local prompt = "$e[0m" .. fg_bg_attr(V.fg.white, V.bg[start]) .. prefix .. "$s" .. current
 
   -- git
