@@ -1,4 +1,6 @@
-local M = {}
+local M = {
+  formatters = {},
+}
 
 ---@type uv
 local luv = vim.loop

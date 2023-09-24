@@ -1,6 +1,8 @@
 [GitHub - meetecho/janus-gateway: Janus WebRTC Server](https://github.com/meetecho/janus-gateway)
 
-- @2020 [Site Unreachable](https://www.mikan-tech.net/entry/2020/05/02/173000)
+- @2023 [メモ：お手軽にWebRTCでVideoChatをしたいので、Janus-gatewayをAWS EC2やRaspberry Pi4上に立てたときのメモ - cvl-robot's diary](https://cvl-robot.hateblo.jp/entry/2023/02/01/203417)
+- @2022 [GStreamer から WebRTC Janus に配信を行う](https://www.gclue.jp/2022/09/gstreamer-webrtc-janus.html)
+- @2020 [Janusで自前のWebRTCビデオチャットサーバー - みかんのゆるふわ技術ブログ](https://www.mikan-tech.net/entry/2020/05/02/173000)
 
 # lua plugin
 [[lua]]
