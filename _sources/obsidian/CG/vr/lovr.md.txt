@@ -3,7 +3,6 @@
 
 [LÖVR](https://lovr.org/docs/Getting_Started)
 - [GitHub - bjornbytes/lovr: Lua Virtual Reality Framework](https://github.com/bjornbytes/lovr)
-- [GitHub - bjornbytes/lovr-docs: Documentation for LÖVR](https://github.com/bjornbytes/lovr-docs)
 
 # Version
 ## 0.16
@@ -12,9 +11,14 @@ standard 未実装？
 ## 0.15
 スタンドアロンの lua から動くようにして lua のデバッガをアタッチできないか？
 
-# build
+# samples
+- [GitHub - bjornbytes/lovr-docs: Documentation for LÖVR](https://github.com/bjornbytes/lovr-docs)
 
-# lua
+- [GitHub - sophiabaldonado/layout: VR world builder](https://github.com/sophiabaldonado/layout)
+# webxr
+`lovr.wasm`
+
+# LanguageServer
 `.vscode/settings.json`
 ```json
     "Lua.workspace.library": [
@@ -43,10 +47,18 @@ static double desktop_update(void) {
 ```
 
 # graphics
-- [LÖVR](https://lovr.org/docs/lovr.graphics)
-- [LÖVR](https://lovr.org/docs/Pass)
+- [lovr.graphics LÖVR](https://lovr.org/docs/lovr.graphics)
+- [Pass LÖVR](https://lovr.org/docs/Pass)
 
-# build for Quest
+# build
+## Desktop
+
+```sh
+# -G Ninja にすると何故か --build で失敗する
+cmake -S . -B build
+```
+
+## Android
 
 `-U_FORTIFY_SOURCE`
 - [Android Developers Blog: FORTIFY in Android](https://android-developers.googleblog.com/2017/04/fortify-in-android.html)
@@ -97,6 +109,7 @@ static double desktop_update(void) {
 
 # plugins
 - [LÖVR](https://lovr.org/docs/Plugins)
+
 ## Network
 [[lua_socket]]
 - [GitHub - brainrom/lovr-luasocket: Cmake-buildable libluasocket for LOVR](https://github.com/brainrom/lovr-luasocket)

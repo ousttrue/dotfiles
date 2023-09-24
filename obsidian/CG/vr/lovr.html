@@ -223,7 +223,6 @@
 <p><a class="reference external" href="https://lovr.org/docs/Getting_Started">LÖVR</a></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/bjornbytes/lovr">GitHub - bjornbytes/lovr: Lua Virtual Reality Framework</a></p></li>
-<li><p><a class="reference external" href="https://github.com/bjornbytes/lovr-docs">GitHub - bjornbytes/lovr-docs: Documentation for LÖVR</a></p></li>
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -237,11 +236,19 @@ standard 未実装？</p>
 <p>スタンドアロンの lua から動くようにして lua のデバッガをアタッチできないか？</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="build">
-<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="samples">
+<h1>samples<a class="headerlink" href="#samples" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/bjornbytes/lovr-docs">GitHub - bjornbytes/lovr-docs: Documentation for LÖVR</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sophiabaldonado/layout">GitHub - sophiabaldonado/layout: VR world builder</a></p></li>
+</ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="lua">
-<h1>lua<a class="headerlink" href="#lua" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="webxr">
+<h1>webxr<a class="headerlink" href="#webxr" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">lovr.wasm</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="languageserver">
+<h1>LanguageServer<a class="headerlink" href="#languageserver" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    "Lua.workspace.library": [
         "${3rd}/lovr/library"
@@ -274,12 +281,21 @@ standard 未実装？</p>
 <section class="tex2jax_ignore mathjax_ignore" id="graphics">
 <h1>graphics<a class="headerlink" href="#graphics" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://lovr.org/docs/lovr.graphics">LÖVR</a></p></li>
-<li><p><a class="reference external" href="https://lovr.org/docs/Pass">LÖVR</a></p></li>
+<li><p><a class="reference external" href="https://lovr.org/docs/lovr.graphics">lovr.graphics LÖVR</a></p></li>
+<li><p><a class="reference external" href="https://lovr.org/docs/Pass">Pass LÖVR</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="build-for-quest">
-<h1>build for Quest<a class="headerlink" href="#build-for-quest" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="build">
+<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id3">
+<h2>Desktop<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># -G Ninja にすると何故か --build で失敗する</span>
+cmake -S . -B build
+</pre></div>
+</div>
+</section>
+<section id="android">
+<h2>Android<a class="headerlink" href="#android" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">-U_FORTIFY_SOURCE</span></code></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://android-developers.googleblog.com/2017/04/fortify-in-android.html">Android Developers Blog: FORTIFY in Android</a></p></li>
@@ -305,6 +321,7 @@ standard 未実装？</p>
 }
 </pre></div>
 </div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="lodr">
 <h1>lodr<a class="headerlink" href="#lodr" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -401,14 +418,19 @@ standard 未実装？</p>
 <li><a class="reference internal" href="#id2">0.15</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#build">build</a></li>
-<li><a class="reference internal" href="#lua">lua</a></li>
+<li><a class="reference internal" href="#samples">samples</a></li>
+<li><a class="reference internal" href="#webxr">webxr</a></li>
+<li><a class="reference internal" href="#languageserver">LanguageServer</a></li>
 <li><a class="reference internal" href="#headset">Headset</a><ul>
 <li><a class="reference internal" href="#desktop">Desktop</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#graphics">graphics</a></li>
-<li><a class="reference internal" href="#build-for-quest">build for Quest</a></li>
+<li><a class="reference internal" href="#build">build</a><ul>
+<li><a class="reference internal" href="#id3">Desktop</a></li>
+<li><a class="reference internal" href="#android">Android</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#lodr">lodr</a></li>
 <li><a class="reference internal" href="#lite-lovr">lite-lovr</a></li>
 <li><a class="reference internal" href="#lovr-ui">lovr-ui</a></li>
