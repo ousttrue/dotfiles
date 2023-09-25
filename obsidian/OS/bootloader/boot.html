@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>partition構成 - shell note ドキュメント</title>
+        <title>grub2 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,48 +218,18 @@
           </label>
         </div>
         <article role="main">
-          <p>[[boot]]</p>
+          <p>[[UEFI]]
+[[PXE]]
+[[iPXE]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="grub2">
+<h1>grub2<a class="headerlink" href="#grub2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[grub2]]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="refined">
+<h1>refined<a class="headerlink" href="#refined" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://wiki.archlinux.jp/index.php/REFInd">rEFInd - ArchWiki</a></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://orumin.blogspot.com/2013/01/grubefi.html">GRUBとEFIの組み合わせで使うときのメモ またはEFI全般のtips</a></p></li>
-<li><p><a class="reference external" href="https://falog.net/kotesaki-os001/">小手先でつくる自作OS – UEFI bootからkernelロードまで | ふぁろぐねっと</a></p></li>
-<li><p><a class="reference external" href="https://orumin.blogspot.com/2014/12/4.html">ブートローダーは4行で実装される</a></p></li>
-<li><p><a class="reference external" href="http://yuma.ohgami.jp/UEFI-Bare-Metal-Programming/index.html">フルスクラッチで作る!UEFIベアメタルプログラミング</a></p></li>
-<li><p><a class="reference external" href="http://yuma.ohgami.jp/ubmp/UEFI-Bare-Metal-Programming_20170811.pdf">yuma.ohgami.jp/ubmp/UEFI-Bare-Metal-Programming_20170811.pdf</a></p></li>
-<li><p><a class="reference external" href="https://sksat.hatenablog.com/entry/2020/12/21/212651">RustでUEFIアプリケーションを書く 2020 Edition - 重力に縋るな</a></p></li>
-<li><p><a class="reference external" href="https://zenn.dev/nokute/articles/7b085ad55e174a">UEFI エミュレータで遊ぶ</a></p></li>
-<li><p><a class="reference external" href="https://knowledge.sakura.ad.jp/22963/">現代における自作OSの難しさ 〜自作OSのいまと昔 [第2回] | さくらのナレッジ</a></p></li>
-</ul>
-<section id="partition">
-<h1>partition構成<a class="headerlink" href="#partition" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<blockquote>
-<div><p>ストレージの第一パーティションをUEFIのシステムパーティション
-FAT32
-512MB くらい？</p>
-</div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda1</span>       <span class="mi">511</span><span class="n">M</span>  <span class="mf">4.0</span><span class="n">K</span>  <span class="mi">511</span><span class="n">M</span>   <span class="mi">1</span><span class="o">%</span> <span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">efi</span>
-</pre></div>
-</div>
-</section>
-<section id="uefi">
-<h1>UEFIブートマネージャー<a class="headerlink" href="#uefi" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section id="efibootmgr">
-<h1>efibootmgr<a class="headerlink" href="#efibootmgr" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section id="application">
-<h1>Application<a class="headerlink" href="#application" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://ja.wikibooks.org/wiki/UEFI%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9/Hello_World%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0">UEFIアプリケーションの書き方/Hello Worldプログラム - Wikibooks</a></p>
-</section>
-<section id="gnu-efi">
-<h1>gnu-efi<a class="headerlink" href="#gnu-efi" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/tnishinaga/items/40755f414557faf45dcb">gnu-efiでUEFI遊びをはじめよう - Qiita</a></p></li>
-</ul>
-</section>
-<section id="edk2">
-<h1>EDK2<a class="headerlink" href="#edk2" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://osdev-jp.readthedocs.io/ja/latest/2017/create-uefi-app-with-edk2.html">EDK II で UEFI アプリケーションを作る — osdev-jp core docs 1.0 ドキュメント</a></p></li>
+<li><p><a class="reference external" href="https://www.rodsbooks.com/refind/">The rEFInd Boot Manager</a></p></li>
 </ul>
 </section>
 
@@ -276,7 +246,7 @@ FAT32
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/OS/Linux/UEFI.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/OS/bootloader/boot.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -296,12 +266,8 @@ FAT32
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">partition構成</a></li>
-<li><a class="reference internal" href="#uefi">UEFIブートマネージャー</a></li>
-<li><a class="reference internal" href="#efibootmgr">efibootmgr</a></li>
-<li><a class="reference internal" href="#application">Application</a></li>
-<li><a class="reference internal" href="#gnu-efi">gnu-efi</a></li>
-<li><a class="reference internal" href="#edk2">EDK2</a></li>
+<li><a class="reference internal" href="#">grub2</a></li>
+<li><a class="reference internal" href="#refined">refined</a></li>
 </ul>
 
           </div>

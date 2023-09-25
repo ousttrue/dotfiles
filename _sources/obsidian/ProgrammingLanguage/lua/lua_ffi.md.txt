@@ -1,8 +1,11 @@
 [[lua]]
 
+
 # LuaJIT FFI
 [[luajit]]
 - [FFI Library](https://luajit.org/ext_ffi.html)
+	- [ffi.* API Functions](https://luajit.org/ext_ffi_api.html)
+- [LuaJIT FFIでモジュールを書く時のハウツー · hnakamur's blog](https://hnakamur.github.io/blog/2020/03/21/how-to-write-luajit-ffi-module/)
 
 # CFFI
 [[libffi]]

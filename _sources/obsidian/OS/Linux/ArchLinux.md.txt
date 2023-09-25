@@ -5,27 +5,39 @@
 # Install
 	pacstrap /mnt base linux linux-firmware
 	genfstab -U /mnt >> /mnt/etc/fstab
-	
+
+## chroot
+```
+# pacman -S vim dhcpcd
+```
+ 
 * passwd
-* boot loader
-- network
-	- dhcp
-		- /etc/systemd/network/conf
-```
-systemctl enable systemd-networkd.service`
-systemctl start systemd-networkd.service`
-systemctl enable systemd-resolved.service`
-systemctl start systemd-resolved.service`
-ln -sf /run/systemd/resolve/resolv.conf /etc/resolve.conf`
-```
+* boot loader [[boot]]
+
 - user
-- ssh
 ```
-systemctl enable sshd.service
-systemctl start sshd.service
+# useradd -m USER_NAME
+# passwd USER_NAME
 ```
 
-- sudo
+## dhcpcd
+```
+# pacman -S dhcpcd
+# systemctl start dhcpcd@enp3s0.service
+# systemctl enable dhcpcd@enp3s0.service
+```
+
+## openssh
+```
+pacman -S openssh
+systemctl start sshd.service
+systemctl enable sshd.service
+```
+
+## reboot
+```
+# dhcpcd enp3s0
+```
 
 ## pacman
 [[pacman]]

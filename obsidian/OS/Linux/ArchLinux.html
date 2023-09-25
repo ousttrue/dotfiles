@@ -228,39 +228,45 @@
 genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
 </pre></div>
 </div>
+<section id="chroot">
+<h2>chroot<a class="headerlink" href="#chroot" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># pacman -S vim dhcpcd</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>passwd</p></li>
-<li><p>boot loader</p></li>
+<li><p>boot loader [[boot]]</p></li>
 </ul>
-<ul class="simple">
-<li><p>network</p>
-<ul>
-<li><p>dhcp</p>
-<ul>
-<li><p>/etc/systemd/network/conf</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>systemctl enable systemd-networkd.service`
-systemctl start systemd-networkd.service`
-systemctl enable systemd-resolved.service`
-systemctl start systemd-resolved.service`
-ln -sf /run/systemd/resolve/resolv.conf /etc/resolve.conf`
-</pre></div>
-</div>
 <ul class="simple">
 <li><p>user</p></li>
-<li><p>ssh</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">systemctl</span> <span class="n">enable</span> <span class="n">sshd</span><span class="o">.</span><span class="n">service</span>
-<span class="n">systemctl</span> <span class="n">start</span> <span class="n">sshd</span><span class="o">.</span><span class="n">service</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># useradd -m USER_NAME</span>
+<span class="c1"># passwd USER_NAME</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>sudo</p></li>
-</ul>
+</section>
+<section id="dhcpcd">
+<h2>dhcpcd<a class="headerlink" href="#dhcpcd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># pacman -S dhcpcd</span>
+<span class="c1"># systemctl start dhcpcd@enp3s0.service</span>
+<span class="c1"># systemctl enable dhcpcd@enp3s0.service</span>
+</pre></div>
+</div>
+</section>
+<section id="openssh">
+<h2>openssh<a class="headerlink" href="#openssh" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">openssh</span>
+<span class="n">systemctl</span> <span class="n">start</span> <span class="n">sshd</span><span class="o">.</span><span class="n">service</span>
+<span class="n">systemctl</span> <span class="n">enable</span> <span class="n">sshd</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+</section>
+<section id="reboot">
+<h2>reboot<a class="headerlink" href="#reboot" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># dhcpcd enp3s0</span>
+</pre></div>
+</div>
+</section>
 <section id="pacman">
 <h2>pacman<a class="headerlink" href="#pacman" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>[[pacman]]</p>
@@ -318,6 +324,10 @@ ln -sf /run/systemd/resolve/resolv.conf /etc/resolve.conf`
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Install</a><ul>
+<li><a class="reference internal" href="#chroot">chroot</a></li>
+<li><a class="reference internal" href="#dhcpcd">dhcpcd</a></li>
+<li><a class="reference internal" href="#openssh">openssh</a></li>
+<li><a class="reference internal" href="#reboot">reboot</a></li>
 <li><a class="reference internal" href="#pacman">pacman</a></li>
 </ul>
 </li>
