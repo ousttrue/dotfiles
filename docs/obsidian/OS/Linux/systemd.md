@@ -1,10 +1,15 @@
 [[dbus]]
 
+- [systemctl コマンド - Qiita](https://qiita.com/sinsengumi/items/24d726ec6c761fc75cc9)
 - @2019 [これからSystemd入門する - Qiita](https://qiita.com/bluesDD/items/eaf14408d635ffd55a18)
 
-# systemd
 `initプロセス`
 > systemdはカーネルによって最初に起動されるプログラムです。一番最初に起動するのでプロセスIDは１です。
+
+# list
+```
+systemctl list-unit-files -t service
+```
 
 # /var/log/journal
 ログ
