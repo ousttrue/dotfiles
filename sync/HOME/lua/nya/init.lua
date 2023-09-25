@@ -11,20 +11,8 @@ local SYMLINK = require "nya.symlink"
 local SYSTEM_NAME, SUBSYSTEM = COM.get_system()
 local HOME = PATH.get_home()
 
-local function get_nvim()
-  local list = {}
-  table.insert(list, HOME .. "/neovim/bin/nvim")
-  table.insert(list, HOME .. "/build/mingw/bin/nvim")
-  table.insert(list, HOME .. "/build/gcc/bin/nvim")
-
-  for _, v in ipairs(list) do
-    if NYA.which(v) then
-      return v
-    end
-  end
-end
-
 local function setup_path()
+  nyagos.envadd('PATH', '~/neovim/bin')
   if nyagos.env.USERPROFILE then
     if nyagos.stat "C:/Python310/python.exe" then
       nyagos.envadd("PATH", "C:\\Python310\\Scripts")
@@ -133,6 +121,17 @@ local function setup_alias()
     end
   end
 
+  if SYSTEM_NAME=='linux' and SUBSYSTEM == 'arch' then
+
+  function nyagos.alias.fpkg(args)
+    local result = NYA.evalf 'pacman -Sl | cut -d " " -f 2 | fzf --preview "pacman -Si {}"'
+    if #result > 0 then
+      nyagos.exec("sudo pacman -S " .. result)
+    end
+  end
+
+  else
+
   function nyagos.alias.fpkg(args)
     local result = NYA.evalf 'apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}"'
     if #result > 0 then
@@ -146,13 +145,12 @@ local function setup_alias()
       nyagos.exec("sudo apt uninstall " .. result)
     end
   end
+  end
 
-  local NVIM = get_nvim()
-  if NVIM then
-    nyagos.alias.nvim = NVIM .. " $*"
-    nyagos.alias.v = NVIM .. " $*"
-  else
+  if NYA.which "nvim" then
     nyagos.alias.v = "nvim $*"
+  else
+    nyagos.alias.v = "vim $*"
   end
 
   if NYA.which "exa" then

@@ -60,7 +60,12 @@ tnoremap <silent> <ESC> <C-\><C-n>
 nnoremap <C-l> :nohlsearch<CR><C-l>
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <C-[>:w<CR>
+nnoremap <C-d> :qa<CR>
 nnoremap <F7> :make<CR>
+nnoremap <Esc>h <C-w>h
+nnoremap <Esc>j <C-w>j
+nnoremap <Esc>k <C-w>k
+nnoremap <Esc>l <C-w>l
 
 au BufNewFile,BufRead *.xsh setf python
 au FileType python setlocal formatprg=autopep8

@@ -41,6 +41,8 @@ local function get_system()
     local content = f:read("*a"):lower()
     if content:match "ubuntu" then
       return "linux", "ubuntu"
+    elseif content:match "arch" then
+      return "linux", "arch"
     else
       return "linux"
     end

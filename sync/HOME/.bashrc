@@ -15,6 +15,7 @@ function share_history {
 shopt -u histappend
 export HISTSIZE=9999
 
+export LUA_PATH="$HOME/lua/?.lua;$HOME/lua/?/init.lua"
 export HTTP_HOME='~/dotfiles/home.html'
 export XDG_MUSIC_DIR=$HOME/Music
 if [ -v MSYSTEM ]; then
@@ -51,21 +52,32 @@ if [ -v MSYSTEM ]; then
 		ICON=🍄
 	fi
 else
-	if grep -qi microsoft /proc/version; then
-		# echo "Ubuntu on Windows"
-		SYSTEM_COLOR="purple"
-		PLATFORM=WSL
-		ICON=🚇
-	else
+	if grep -qi "Arch Linux" /etc/os-release; then
 		SYSTEM_COLOR="cyan"
 		PLATFORM=LINUX
+        DIST="arch"
+		ICON=󰣇 
+	elif grep -qi "Ubuntu" /etc/os-release; then
+		SYSTEM_COLOR="red"
+		PLATFORM=LINUX
+        DIST="ubunts"
+		ICON= 
+	else
+		SYSTEM_COLOR="green"
+		PLATFORM=LINUX
 		ICON=🐧
-		BUILD_ROOT=${HOME}/build/gcc
-		BUILD_ROOT_LIB=${BUILD_ROOT}/lib
-		export LD_LIBRARY_PATH=${BUILD_ROOT_LIB}
-		export PKG_CONFIG_PATH=${BUILD_ROOT_LIB}/pkgconfig
-		export PYTHONPATH=${HOME}/prefix/lib/python3.10/site-packages
 	fi
+
+    BUILD_ROOT=${HOME}/build/gcc
+    BUILD_ROOT_LIB=${BUILD_ROOT}/lib
+    export LD_LIBRARY_PATH=${BUILD_ROOT_LIB}
+    export PKG_CONFIG_PATH=${BUILD_ROOT_LIB}/pkgconfig
+    export PYTHONPATH=${HOME}/prefix/lib/python3.10/site-packages
+
+	if grep -qi microsoft /proc/version; then
+        IS_WSL=1
+		ICON=🚇
+    fi
 fi
 
 if [ -v LANG ]; then
@@ -183,7 +195,7 @@ function femg {
 	fi
 }
 
-if [ -v MSYSTEM ]; then
+if [ -v MSYSTEM -o "$DIST" = "arch" ]; then
 	function fpkg {
 		local selected=$(pacman -Sl | cut -d " " -f 2 | fzf --preview "pacman -Si {}")
 		if [[ ${selected} =~ [^\s] ]]; then
@@ -191,7 +203,7 @@ if [ -v MSYSTEM ]; then
 		fi
 	}
 
-else
+elif [ DIST = "ubunts" ]; then
 	function fpkg {
 		local selected=$(apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}")
 		if [[ ${selected} =~ [^\s] ]]; then
