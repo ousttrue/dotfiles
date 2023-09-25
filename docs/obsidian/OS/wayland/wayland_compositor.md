@@ -32,6 +32,15 @@ int main(int argc, char *argv[])
 - [wlroots](https://github.com/swaywm/wlroots)
 - [Introduction -](https://way-cooler.org/book/wayland_introduction.html)
 
+## Hyprland
+[GitHub - hyprwm/Hyprland: Hyprland is a highly customizable dynamic tiling Wayland compositor that doesn't sacrifice on its looks.](https://github.com/hyprwm/Hyprland)
+
+- [Arch LinuxとHyprlandをインストールする - Qiita](https://qiita.com/k0kubun/items/f80817d34a3eba5122bc#nvidia%E7%94%A8%E3%81%AE%E5%AF%BE%E5%BF%9C)
+- [NixOSとHyprlandで最強のLinuxデスクトップ環境を作る](https://zenn.dev/asa1984/scraps/e4d8b9947d8351)
+
+## tinywl
+[tinywl · master · wlroots / wlroots · GitLab](https://gitlab.freedesktop.org/wlroots/wlroots/-/tree/master/tinywl)
+
 ## sway
 [[sway]]
 
