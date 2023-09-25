@@ -42,6 +42,6 @@ return {
       -- "b0o/schemastore.nvim",
     },
   },
-  { "RRethy/vim-illuminate" },
+  -- { "RRethy/vim-illuminate" },
   { "tikhomirov/vim-glsl" },
 }

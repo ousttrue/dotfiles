@@ -18,3 +18,4 @@ packages:
 - name: sharkdp/fd@v8.7.0
 - name: FiloSottile/mkcert@v1.4.4
 - name: ajeetdsouza/zoxide@v0.9.2
+- name: extrawurst/gitui@v0.24.3
