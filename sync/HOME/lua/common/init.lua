@@ -38,8 +38,6 @@ local function get_system()
       return "linux"
     end
     f:close()
-  else
-    return "linux"
   end
 
   if os.getenv "USERPROFILE" then
@@ -51,6 +49,7 @@ local function get_system()
     end
   end
 
+  return "unknown"
 end
 local system_name, sub_system = get_system()
 
