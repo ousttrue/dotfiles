@@ -77,8 +77,21 @@ config.keys = {
 require("wez.tab").setup(config)
 require("wez.keybinds").setup(config)
 
-config.tls_servers = {{
-    bind_address = '0.0.0.0:8080',
-}}
+config.tls_servers = { {
+  bind_address = "0.0.0.0:8080",
+} }
+
+config.tls_clients = {
+  {
+    -- A handy alias for this session; you will use `wezterm connect server.name`
+    -- to connect to it.
+    name = "wsl",
+    -- The host:port for the remote host
+    remote_address = "wsl:8080",
+    -- The value can be "user@host:port"; it accepts the same syntax as the
+    -- `wezterm ssh` subcommand.
+    bootstrap_via_ssh = "wsl",
+  },
+}
 
 return config

@@ -11,6 +11,16 @@
 systemctl list-unit-files -t service
 ```
 
+# unit
+
+## user level
+`~/.config/systemd/user/mpd.service`
+
+https://wiki.archlinux.jp/index.php/Systemd/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC#.E3.83.A6.E3.83.BC.E3.82.B6.E3.83.BC.E3.83.A6.E3.83.8B.E3.83.83.E3.83.88.E3.82.92.E6.9B.B8.E3.81.8F
+
+- [ユーザレベルで systemd のユニットファイルを書くときの注意点](https://zenn.dev/noraworld/articles/systemd-unit-files-user-level-tips)
+- @2019 [systemd のユニットファイルの作り方 | 晴耕雨読](https://tex2e.github.io/blog/linux/create-my-systemd-service)
+
 # /var/log/journal
 ログ
 `$ sudo journalctl -f -u サービス名`

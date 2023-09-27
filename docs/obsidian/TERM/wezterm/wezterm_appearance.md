@@ -66,8 +66,6 @@ config.show_new_tab_button_in_tab_bar = false
 `OSC 1` (Icon/Tab title changing) 
 `OSC 2` (Window title changing)
 - [get_title - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/pane/get_title.html)
+
 ## user_vars
-[[escape_sequence]] 
-`OSC 1337` iTerm2
-- [Proprietary Escape Codes - Documentation - iTerm2 - macOS Terminal Replacement](https://iterm2.com/documentation-escape-codes.html)
-- [get_user_vars - Wez's Terminal Emulator](https://wezfurlong.org/wezterm/config/lua/pane/get_user_vars.html)
+[[wezterm_user_var]]
