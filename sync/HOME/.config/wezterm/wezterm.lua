@@ -77,4 +77,8 @@ config.keys = {
 require("wez.tab").setup(config)
 require("wez.keybinds").setup(config)
 
+config.tls_servers = {{
+    bind_address = '0.0.0.0:8080',
+}}
+
 return config
