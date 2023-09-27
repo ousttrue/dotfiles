@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>padding - shell note ドキュメント</title>
+        <title>default - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,98 +212,16 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
           <p>[[wezterm]]</p>
-<p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/window/index.html">object: Window - Wez's Terminal Emulator</a></p>
-<p><a class="reference external" href="https://wezfurlong.org/wezterm/config/appearance.html#defining-your-own-colors">Colors &amp; Appearance - Wez's Terminal Emulator</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+------------------------------+</span>
-<span class="o">+</span> <span class="n">window</span>                       <span class="o">|</span>
-<span class="o">+------------------------------+</span>
-<span class="o">+</span> <span class="n">left</span> <span class="o">/</span><span class="p">[</span><span class="n">tab0</span><span class="p">][</span><span class="n">tab1</span><span class="p">]</span><span class="o">.../</span> <span class="n">right</span> <span class="o">|</span>
-<span class="o">+------------------------------+</span>
-<span class="o">|</span>             <span class="o">|</span>                <span class="o">|</span>
-<span class="o">|</span>  <span class="n">pane</span>       <span class="o">|</span>  <span class="n">pane</span>          <span class="o">|</span>
-<span class="o">|</span>             <span class="o">|</span>                <span class="o">|</span>
-<span class="o">+------------------------------+</span>
-</pre></div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="padding">
-<h1>padding<a class="headerlink" href="#padding" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/config/window_padding.html">window_padding - Wez's Terminal Emulator</a></p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="p">.</span><span class="n">window_padding</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="n">top</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="tabbar">
-<h1>tabbar<a class="headerlink" href="#tabbar" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/config/tab_bar_style.html">tab_bar_style - Wez's Terminal Emulator</a>
-<a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html">format-tab-title - Wez's Terminal Emulator</a>
-<a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/config/show_new_tab_button_in_tab_bar.html">show_new_tab_button_in_tab_bar - Wez's Terminal Emulator</a></p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">wezterm</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="s1">'update-right-status'</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">pane</span><span class="p">)</span>
-  <span class="n">window</span><span class="p">:</span><span class="n">set_left_status</span> <span class="s1">'left'</span>
-  <span class="n">window</span><span class="p">:</span><span class="n">set_right_status</span> <span class="s1">'right'</span>
-<span class="kr">end</span><span class="p">)</span>
-
-<span class="n">config</span><span class="p">.</span><span class="n">use_fancy_tab_bar</span> <span class="o">=</span> <span class="kc">false</span>
-<span class="n">config</span><span class="p">.</span><span class="n">show_tabs_in_tab_bar</span> <span class="o">=</span> <span class="kc">false</span>
-<span class="n">config</span><span class="p">.</span><span class="n">show_new_tab_button_in_tab_bar</span> <span class="o">=</span> <span class="kc">false</span>
-</pre></div>
-</div>
-<section id="left-right">
-<h2>left &amp; right<a class="headerlink" href="#left-right" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://coralpink.github.io/commentary/wezterm/status.html">Status Bar - Commentary of Dotfiles</a></p></li>
-<li><p><a class="reference external" href="https://github.com/wez/wezterm/issues/500">Tmux Like Status Bar · Issue #500 · wez/wezterm · GitHub</a></p></li>
-</ul>
-</section>
-<section id="event">
-<h2>event<a class="headerlink" href="#event" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/window-events/update-status.html">update-status - Wez's Terminal Emulator</a></p>
-</section>
-<section id="setter">
-<h2>setter<a class="headerlink" href="#setter" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/window/set_left_status.html">set_left_status - Wez's Terminal Emulator</a>
-<a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/window/set_right_status.html">set_right_status - Wez's Terminal Emulator</a></p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="tab">
-<h1>tab<a class="headerlink" href="#tab" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/TabInformation.html">object: TabInformation - Wez's Terminal Emulator</a></p></li>
-<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/PaneInformation.html">object: PaneInformation - Wez's Terminal Emulator</a></p></li>
-</ul>
-<section id="title">
-<h2>title<a class="headerlink" href="#title" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="pane">
-<h1>pane<a class="headerlink" href="#pane" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/PaneInformation.html">object: PaneInformation - Wez's Terminal Emulator</a></p></li>
-</ul>
-<section id="id1">
-<h2>title<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[escape_sequence]]
-<code class="docutils literal notranslate"><span class="pre">OSC</span> <span class="pre">1</span></code> (Icon/Tab title changing)
-<code class="docutils literal notranslate"><span class="pre">OSC</span> <span class="pre">2</span></code> (Window title changing)</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/pane/get_title.html">get_title - Wez's Terminal Emulator</a></p></li>
-</ul>
-</section>
-<section id="user-vars">
-<h2>user_vars<a class="headerlink" href="#user-vars" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[wezterm_user_var]]</p>
-</section>
+<section class="tex2jax_ignore mathjax_ignore" id="default">
+<h1>default<a class="headerlink" href="#default" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">config.disable_default_key_bindings</span> <span class="pre">=</span> <span class="pre">true</span></code></p>
 </section>
 
         </article>
@@ -319,7 +237,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/TERM/wezterm/wezterm_appearance.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/TERM/wezterm/wezterm_keymap.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -327,39 +245,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">padding</a></li>
-<li><a class="reference internal" href="#tabbar">tabbar</a><ul>
-<li><a class="reference internal" href="#left-right">left &amp; right</a></li>
-<li><a class="reference internal" href="#event">event</a></li>
-<li><a class="reference internal" href="#setter">setter</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#tab">tab</a><ul>
-<li><a class="reference internal" href="#title">title</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#pane">pane</a><ul>
-<li><a class="reference internal" href="#id1">title</a></li>
-<li><a class="reference internal" href="#user-vars">user_vars</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

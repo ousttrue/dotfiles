@@ -13,3 +13,6 @@ vim 文字コード
 
 # replace
 - [Vimでs/正規表現/関数/ substituteで置換後文字列を関数にする方法 | コマンドの達人](https://life-is-command.com/vim-sub-replace-expression/)
+
+# 日本語
+- [Vimでの日本語編集がはかどるキーマッピング - Qiita](https://qiita.com/ssh0/items/9e7f0d8b8f033183dd0b)o
