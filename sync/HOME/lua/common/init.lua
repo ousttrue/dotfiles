@@ -27,15 +27,6 @@ local function get_system()
     return "wsl", wsl
   end
 
-  if os.getenv "USERPROFILE" then
-    local msys = os.getenv "MSYSTEM"
-    if msys then
-      return "windows", msys:lower()
-    else
-      return "windows"
-    end
-  end
-
   local f = io.open("/etc/os-release", "r")
   if f then
     local content = f:read("*a"):lower()
@@ -50,6 +41,16 @@ local function get_system()
   else
     return "linux"
   end
+
+  if os.getenv "USERPROFILE" then
+    local msys = os.getenv "MSYSTEM"
+    if msys then
+      return "windows", msys:lower()
+    else
+      return "windows"
+    end
+  end
+
 end
 local system_name, sub_system = get_system()
 

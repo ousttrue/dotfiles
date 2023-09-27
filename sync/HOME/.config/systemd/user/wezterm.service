@@ -1,0 +1,12 @@
+[Unit]
+Description=WezTerm
+Documentation=
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/wezterm-mux-server --daemonize
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
