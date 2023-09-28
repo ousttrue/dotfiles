@@ -1,8 +1,8 @@
-diff --git main.c main.c
-index 0082068..093eee2 100644
---- main.c
-+++ main.c
-@@ -6957,3 +6957,11 @@ DEFUN(cursorBottom, CURSOR_BOTTOM, "Move cursor to the bottom of the screen")
+diff --git a/main.c b/main.c
+index ced6f409..a1dad263 100644
+--- a/main.c
++++ b/main.c
+@@ -6958,3 +6958,11 @@ DEFUN(cursorBottom, CURSOR_BOTTOM, "Move cursor to the bottom of the screen")
      arrangeLine(Currentbuf);
      displayBuffer(Currentbuf, B_NORMAL);
  }
@@ -14,13 +14,13 @@ index 0082068..093eee2 100644
 +    displayBuffer(Currentbuf, B_NORMAL);
 +}
 +
-diff --git proto.h proto.h
-index be9d64a..d23d1f0 100644
---- proto.h
-+++ proto.h
-@@ -831,3 +831,5 @@ long lrand48(void);
+diff --git a/proto.h b/proto.h
+index 66d497e0..44b7a947 100644
+--- a/proto.h
++++ b/proto.h
+@@ -832,3 +832,5 @@ long lrand48(void);
  #endif
  
- extern Str base64_encode(const char *src, size_t len);
+ extern Str base64_encode(const unsigned char *src, size_t len);
 +extern void cursorLineTop(void);
 +

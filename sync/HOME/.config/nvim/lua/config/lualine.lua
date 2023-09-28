@@ -18,7 +18,7 @@ local lsp_names = function()
 end
 
 -- https://qiita.com/Liquid-system/items/b95e8aec02c6b0de4235
-function lsp_name()
+local function lsp_name()
   local msg = "No Active"
   local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
   local clients = vim.lsp.get_active_clients()
@@ -32,6 +32,23 @@ function lsp_name()
     end
   end
   return msg
+end
+
+local skk_mode_map = {
+  hira = "あ",
+  kata = "ア",
+  ascii = "aA",
+  zenei = "ａ",
+  hankata = "ｧｱ",
+  abbrev = "aあ",
+}
+local function skk_mode()
+  local m = skk_mode_map[vim.api.nvim_get_var "skkeleton#mode"]
+  if m then
+    return m
+  else
+    return ''
+  end
 end
 
 function M.setup()
@@ -89,7 +106,8 @@ function M.setup()
     },
     sections = {
       -- lualine_a = { "branch" },
-      lualine_b = {},
+      lualine_a = { "mode" },
+      lualine_b = { skk_mode },
       lualine_c = {
         -- "diagnostics",
       },

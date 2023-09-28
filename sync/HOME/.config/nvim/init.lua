@@ -408,14 +408,21 @@ else
   vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
   -- require("lazy").setup "lazy.plugins"
-  local opts = {}
+  local opts = {
+    change_detection = {
+      -- automatically check for config file changes and reload the ui
+      enabled = true,
+      notify = false, -- get a notification when changes are found
+    },
+  }
+  local plugins = {}
   for name in dot.scandir(dot.get_home() .. "/.config/nvim/lua/lazy") do
     if STR.ends_with(name, ".lua") then
       local mod = name:sub(1, -5)
-      table.insert(opts, { import = "lazy." .. mod })
+      table.insert(plugins, { import = "lazy." .. mod })
     end
   end
-  require("lazy").setup(opts)
+  require("lazy").setup(plugins, opts)
 end
 
 local function ff()

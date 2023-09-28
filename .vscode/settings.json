@@ -5,4 +5,5 @@
         "--compile-commands-dir=${workspaceFolder}/builddir",
         "--header-insertion=never",
     ],
+    "mesonbuild.configureOnOpen": false,
 }

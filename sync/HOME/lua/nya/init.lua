@@ -12,7 +12,7 @@ local SYSTEM_NAME, SUBSYSTEM = COM.get_system()
 local HOME = PATH.get_home()
 
 local function setup_path()
-  nyagos.envadd('PATH', '~/neovim/bin')
+  nyagos.envadd("PATH", "~/neovim/bin")
   if nyagos.env.USERPROFILE then
     if nyagos.stat "C:/Python310/python.exe" then
       nyagos.envadd("PATH", "C:\\Python310\\Scripts")
@@ -27,6 +27,8 @@ local function setup_path()
     -- nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.1969+d525ecb52")
     nyagos.envadd("PATH", nyagos.env.USERPROFILE .. "\\local\\src\\zig-windows-x86_64-0.11.0-dev.2196+bc0f24691")
   end
+
+  nyagos.envadd("DENO_INSTALL", "~/.deno")
 
   if nyagos.env.USERPROFILE then
     if nyagos.env.XDG_DATA_HOME then
@@ -55,6 +57,7 @@ local function setup_path()
   if nyagos.env.APPDATA then
     nyagos.envadd("PATH", COM.to_path(nyagos.env.APPDATA .. "/LuaRocks/bin"))
   end
+  nyagos.envadd("PATH", COM.to_path(HOME .. "/.deno/bin"))
 
   local DEL_PATH = {
     "Oculus",
@@ -121,30 +124,27 @@ local function setup_alias()
     end
   end
 
-  if SYSTEM_NAME=='linux' and SUBSYSTEM == 'arch' then
-
-  function nyagos.alias.fpkg(args)
-    local result = NYA.evalf 'pacman -Sl | cut -d " " -f 2 | fzf --preview "pacman -Si {}"'
-    if #result > 0 then
-      nyagos.exec("sudo pacman -S " .. result)
+  if SYSTEM_NAME == "linux" and SUBSYSTEM == "arch" then
+    function nyagos.alias.fpkg(args)
+      local result = NYA.evalf 'pacman -Sl | cut -d " " -f 2 | fzf --preview "pacman -Si {}"'
+      if #result > 0 then
+        nyagos.exec("sudo pacman -S " .. result)
+      end
     end
-  end
-
   else
-
-  function nyagos.alias.fpkg(args)
-    local result = NYA.evalf 'apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}"'
-    if #result > 0 then
-      nyagos.exec("sudo apt install " .. result)
+    function nyagos.alias.fpkg(args)
+      local result = NYA.evalf 'apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}"'
+      if #result > 0 then
+        nyagos.exec("sudo apt install " .. result)
+      end
     end
-  end
 
-  function nyagos.alias.fapu(args)
-    local result = NYA.evalf 'apt-cache pkgnames | fzf --preview "apt-cache show {}"'
-    if #result > 0 then
-      nyagos.exec("sudo apt uninstall " .. result)
+    function nyagos.alias.fapu(args)
+      local result = NYA.evalf 'apt-cache pkgnames | fzf --preview "apt-cache show {}"'
+      if #result > 0 then
+        nyagos.exec("sudo apt uninstall " .. result)
+      end
     end
-  end
   end
 
   if NYA.which "nvim" then

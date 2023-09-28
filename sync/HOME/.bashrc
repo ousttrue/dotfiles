@@ -108,6 +108,8 @@ path_push "/usr/lib/go-1.20/bin"
 # rust
 path_unshift "$HOME/.cargo/bin"
 path_unshift "$HOME/build/gcc/bin"
+# deno
+path_push "$HOME/.deno/bin"
 
 if which zoxide >/dev/null 2>&1; then
 	eval "$(zoxide init bash)"
