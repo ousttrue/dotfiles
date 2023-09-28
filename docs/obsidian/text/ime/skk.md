@@ -52,17 +52,8 @@ GUI => TUI(PTY) => CUI
 [GitHub - saitoha/sentimental-skk: 三 三 ( ´_ゝ`）＜ Japanese Input Method SKK (Simple Kana to Kanji conversion) on your terminal](https://github.com/saitoha/sentimental-skk)
 
 ## vim
-### skkeleton
-- @2021 [新しいVim用日本語入力プラグインを作った](https://zenn.dev/kuu/articles/vac2021-skkeleton)
-### skkim.vim
-- @2011 https://gist.github.com/mattn/1504949
-### eskk
-- @2000? [[eskk]]
-- @2021 [eskk.vimで 日本語をバリバリ打とう。](https://zenn.dev/kouta/articles/87947515bff4da)
+[[vim_skk]]
 
-### skk.vim
-- @2010 [vim-jp » Hack #123: VimでSKK日本語入力環境を実現する](https://vim-jp.org/vim-users-jp/2010/02/09/Hack-123.html)
-- @2006 http://kstn.fc2web.com/seikana_zisyo.html
 
 ## emacs
 ### ddskk
