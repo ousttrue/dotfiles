@@ -235,6 +235,29 @@
 <li><p><a class="reference external" href="https://wezfurlong.org/wezterm/config/lua/TlsDomainServer.html">object: TlsDomainServer - Wez's Terminal Emulator</a></p></li>
 </ul>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="wsl">
+<h1>wsl<a class="headerlink" href="#wsl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ssh</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">openssh</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+<p>sh</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!/bin/sh
+/bin/bash --login -c wezterm-mux-server --daemonize &amp;
+</pre></div>
+</div>
+<p>unit</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">systemctl</span> <span class="o">--</span><span class="n">user</span> <span class="n">enable</span> <span class="n">wezterm</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>起動保持</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">wsl</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">--</span><span class="n">login</span> <span class="o">-</span><span class="n">c</span> <span class="n">btm</span>
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
@@ -271,6 +294,7 @@
             <ul>
 <li><a class="reference internal" href="#">event: mux-startup</a></li>
 <li><a class="reference internal" href="#tlsdomainserver">TLSDomainServer</a></li>
+<li><a class="reference internal" href="#wsl">wsl</a></li>
 </ul>
 
           </div>
