@@ -23,6 +23,7 @@ GUI => TUI(PTY) => CUI
 - [SKK辞書をパワーアップしてみた: 濃密金石文](http://nmksb.seesaa.net/article/476827902.html)
 
 ## format
+- [SKK用語集 - SKK辞書Wiki](http://openlab.ring.gr.jp/skk/wiki/wiki.cgi?page=SKK%CD%D1%B8%EC%BD%B8)
 - @2016 [SKK-JISYO.lisp - みずぴー日記](https://mzp.hatenablog.com/entry/2016/04/19/214222)
 ```
 # 見出し /変換候補;annotation/
