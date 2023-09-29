@@ -86,3 +86,7 @@ https://github.com/nathancorvussolis/pcrvskkserv
 # dict
 - [GitHub - ymrl/SKK-JISYO.emoji-ja: 日本語の読みから Emoji に変換するための SKK 辞書 😂](https://github.com/ymrl/SKK-JISYO.emoji-ja)
 - [GitHub - skk-dev/skktools: SKK dictionary maintenance tools](https://github.com/skk-dev/skktools)
+
+# tools
+- [GitHub - skk-dev/skktools: SKK dictionary maintenance tools](https://github.com/skk-dev/skktools)
+	- [skktools/skkdic-sort.c at master · skk-dev/skktools · GitHub](https://github.com/skk-dev/skktools/blob/master/skkdic-sort.c)
