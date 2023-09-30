@@ -1,7 +1,6 @@
 local M = {}
 M.list = {
   "Afterglow",
-  "Atelier Dune Light (base16)",
   "Azu (Gogh)",
   "Belafonte Day",
   "Black Metal (base16)",
