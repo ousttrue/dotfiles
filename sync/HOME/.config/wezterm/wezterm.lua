@@ -9,6 +9,7 @@ local HOME = require("common.path").get_home()
 
 local config = {
   use_ime = true,
+  ime_preedit_rendering = "System",
   color_scheme = require("wez.themes").get_today(),
   warn_about_missing_glyphs = false,
   initial_cols = 126,

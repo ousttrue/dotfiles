@@ -7,6 +7,7 @@
 GUI => TUI(PTY) => CUI
 
 - `sticky shift`
+- `sands`
 
 # articles
 - @2020 [かな漢字変換プログラム SKK の紹介 | Emacs JP](https://emacs-jp.github.io/tips/skk-intro)
