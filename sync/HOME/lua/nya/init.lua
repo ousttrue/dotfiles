@@ -73,7 +73,6 @@ local function setup_path()
     -- "dotnet",
     "sql",
     -- "nodejs",
-    "deno",
     -- "npm",
     "Microsoft",
   }
