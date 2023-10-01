@@ -63,7 +63,7 @@ imap <C-j> <Plug>(skkeleton-toggle)
 cmap <C-j> <Plug>(skkeleton-toggle)
 function! s:skkeleton_init() abort
   call skkeleton#config({
-    \'globalJisyo':"~/.skk/SKK-JISYO.L",
+    \'globalDictionaries':["~/.skk/SKK-JISYO.L"],
     \'userJisyo':"~/.skkeleton",
     \ 'eggLikeNewline': v:true
     \ })

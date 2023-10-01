@@ -182,6 +182,9 @@ function M.extend_hl_ts()
 end
 
 function M.extend_hl()
+  vim.api.nvim_set_hl(0, "Cursor", { fg = "NONE", bg = "Green" })
+  vim.api.nvim_set_hl(0, "CursorIM", { fg = "NONE", bg = "Purple" })
+
   vim.api.nvim_set_hl(0, "Delimiter", { link = "Statement" })
 
   -- String: literal: true, false, nil, 0, ""

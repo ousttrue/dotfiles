@@ -8,15 +8,20 @@ keymap M TAB_LINK
 keymap T TAB_GOTO ~/dotfiles/home.html
 keymap 0 LINE_BEGIN
 
-keymap B PREV
-keymap F NEXT
-keymap b PREV_WORD
+keymap , PREV
+keymap . NEXT
+keymap B CURSOR_TOP
+keymap F CURSOR_BOTTOM
+keymap y BEGIN
+keymap Y END
+
+#keymap b PREV_WORD
+keymap b PREV_PAGE
 keymap i PREV_PAGE
 keymap SPC NEXT_PAGE
 keymap > UP
 keymap < DOWN
-keymap , CURSOR_TOP
-keymap . CURSOR_BOTTOM
+
 
 keymap j MOVE_DOWN1
 keymap k MOVE_UP1
@@ -30,3 +35,4 @@ keymap ";" MARK_URL
 
 # custom
 keymap t CURSORLINE_TOP
+keymap u CURSORLINE_TOP
