@@ -1,6 +1,6 @@
 [[skk]]
 
-各種実装のメモ
+# 実装のメモ
 
 |platform|impl|memo|
 |-|-|-|
@@ -14,4 +14,5 @@
 |vim|skk.vim|
 |emacs|ddskk|
 |mac|AquaSKK||
+
 
