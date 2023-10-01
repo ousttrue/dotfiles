@@ -181,6 +181,7 @@ local function setup_alias()
     "tr",
     "ps",
     "cat",
+    "chmod",
   }
   for _, v in ipairs(BUSYBOX_TOOLS) do
     local has, status = NYA.which(v)
@@ -293,11 +294,11 @@ function M.setup()
   setup_path()
   setup_alias()
   -- use "git.lua"
-  nyagos.skk {
-    user = "~/.go-skk-jisyo", -- ユーザ辞書
-    "~/.skk/SKK-JISYO.L", -- システム辞書(ラージ)
-    -- "~/.skk/SKK-JISYO.emoji", -- システム辞書(絵文字)
-  }
+  -- nyagos.skk {
+  --   user = "~/.go-skk-jisyo", -- ユーザ辞書
+  --   "~/.skk/SKK-JISYO.L", -- システム辞書(ラージ)
+  --   -- "~/.skk/SKK-JISYO.emoji", -- システム辞書(絵文字)
+  -- }
   require("nya.history").setup()
   require("nya.completion").setup()
   require("nya.zoxide").setup()

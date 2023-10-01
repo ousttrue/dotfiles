@@ -6,12 +6,14 @@ return {
     config = function()
       vim.g.neoformat_enabled_html = { "prettier" }
       vim.g.neoformat_enabled_glsl = { "clang-format" }
+      vim.g.neoformat_enabled_python = { "black" }
       local function formatter()
         vim.cmd [[:Neoformat]]
       end
       DOT.formatters.lua = formatter
       DOT.formatters.html = formatter
       DOT.formatters.json = formatter
+      DOT.formatters.python = formatter
     end,
   },
   {
