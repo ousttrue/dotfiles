@@ -1,4 +1,4 @@
-[[ime]][[azik]]
+[[ime]] [[azik]]
 
 	[@nathancorvussolis](https://nathancorvussolis.github.io/)
 
@@ -8,6 +8,11 @@ GUI => TUI(PTY) => CUI
 
 - `sticky shift`
 - `sands`
+
+# モードとキーマップ
+
+## keymap の遷移
+[fixedpoint.jp - SKK の submode 遷移 (2010-02-19)](https://fixedpoint.jp/2010/02/19/skk-graph.html)
 
 # articles
 - @2020 [かな漢字変換プログラム SKK の紹介 | Emacs JP](https://emacs-jp.github.io/tips/skk-intro)
