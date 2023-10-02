@@ -228,7 +228,8 @@
 <li><p><a class="reference external" href="https://neovim.io/doc/user/luvref.html">Luvref - Neovim docs</a></p></li>
 <li><p><a class="reference external" href="https://teukka.tech/vimloop.html">🔁 Using LibUV in Neovim</a></p></li>
 </ul>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">uv</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">uv</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">---@class uv</span>
+<span class="kd">local</span> <span class="n">uv</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">uv</span>
 </pre></div>
 </div>
 </section>
@@ -238,6 +239,25 @@
 <li><p><a class="reference external" href="https://neovim.io/doc/user/luvref.html#luv-file-system-operations">Luvref - Neovim docs</a></p></li>
 <li><p><a class="reference external" href="https://github.com/aantron/luv/blob/master/docs/filesystem.rst">luv/docs/filesystem.rst at master · aantron/luv · GitHub</a></p></li>
 </ul>
+</section>
+<section id="iter-dir">
+<h1>iter dir<a class="headerlink" href="#iter-dir" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span>  <span class="kd">local</span> <span class="n">fs</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">uv</span><span class="p">.</span><span class="n">fs_scandir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">err</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+    <span class="kr">return</span>
+  <span class="kr">end</span>
+  <span class="kr">if</span> <span class="n">fs</span> <span class="kr">then</span>
+    <span class="kr">while</span> <span class="kc">true</span> <span class="kr">do</span>
+      <span class="kd">local</span> <span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">uv</span><span class="p">.</span><span class="n">fs_scandir_next</span><span class="p">(</span><span class="n">fs</span><span class="p">)</span>
+      <span class="kr">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="kr">then</span>
+        <span class="kr">break</span>
+      <span class="kr">end</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -275,6 +295,7 @@
             <ul>
 <li><a class="reference internal" href="#">nvim</a></li>
 <li><a class="reference internal" href="#filesystem">filesystem</a></li>
+<li><a class="reference internal" href="#iter-dir">iter dir</a></li>
 </ul>
 
           </div>
