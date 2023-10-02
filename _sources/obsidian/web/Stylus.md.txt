@@ -6,6 +6,15 @@
 - [Editor · openstyles/stylus Wiki · GitHub](https://github.com/openstyles/stylus/wiki/Editor#usercss-mode)
 
 ```css
+[class*="sleeping-ad"] {
+    display: none;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+```
+
+```css
 @-moz-document domain("hatenablog.com") {
     /* ここにコードを挿入... */
     /*div[class="entry-content"] {*/
