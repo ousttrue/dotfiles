@@ -1,4 +1,4 @@
-[[wsl]]
+[[OS/Linux/wsl]]
 [[Android]]
 [[qemu]]
 
