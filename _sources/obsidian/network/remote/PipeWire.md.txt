@@ -1,6 +1,7 @@
 [[RDP]]
 
 - [PipeWire](https://pipewire.org/)
+	- [PipeWire: PipeWire](https://docs.pipewire.org/index.html)
 - [Jonas Ådahl / gnome-remote-desktop · GitLab](https://gitlab.gnome.org/jadahl/gnome-remote-desktop)
 - [PipeWire - Gentoo Wiki](https://wiki.gentoo.org/wiki/PipeWire)
 
@@ -11,3 +12,5 @@
 - @2021 [Debian 11 に PipeWire をインストールしてみた: LinuxでCD音楽再生 Debian編](http://kanzou5.seesaa.net/article/483841659.html)
 - @2021 [Ubuntu 21.04 で PipeWire オーディオ サービスを有効にして PulseAudio を置き換える方法 - WebSetNet](https://websetnet.net/ja/how-to-enable-pipewire-audio-service-to-replace-pulseaudio-in-ubuntu-21-04/)
 - @2021 [Debian bullseyeでPipeWireに切り替えてPulseAudioに戻したらA2DPが使えなくなった – matoken's meme](https://matoken.org/blog/2021/12/16/debian-bullseye-can-no-longer-use-a2dp/)
+
+

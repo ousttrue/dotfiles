@@ -42,7 +42,7 @@ dbus-send --print-reply --system --dest=org.bluez /org/bluez/hci0 --type=method_
 ```
 
 # WSL
-[[wsl]]
+[[OS/Linux/wsl]]
 - @2019 [WSL（CentOS7）でsystemctlを実行するとFailed to get D-Bus connection: Operation not permittedになる - Qiita](https://qiita.com/mzmiyabi/items/fec2c211e0325a5460a8)
 
 # DBus-Next

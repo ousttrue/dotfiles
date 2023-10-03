@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>distribution 管理 - shell note ドキュメント</title>
+        <title>/etc/wsl.conf - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -219,82 +219,8 @@
         </div>
         <article role="main">
           <p>[[wslg]]
-[[Linux]]</p>
-<section class="tex2jax_ignore mathjax_ignore" id="distribution">
-<h1>distribution 管理<a class="headerlink" href="#distribution" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">wsl</span> <span class="o">--</span><span class="nb">list</span> <span class="o">--</span><span class="n">verbose</span>
-  <span class="n">NAME</span>               <span class="n">STATE</span>           <span class="n">VERSION</span>
-<span class="o">*</span> <span class="n">Arch</span>               <span class="n">Stopped</span>         <span class="mi">2</span>
-  <span class="n">Ubuntu</span><span class="o">-</span><span class="n">CommPrev</span>    <span class="n">Stopped</span>         <span class="mi">2</span>
-</pre></div>
-</div>
-<section id="id1">
-<h2>削除<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">wsl</span> <span class="o">--</span><span class="n">unregister</span>
-</pre></div>
-</div>
-</section>
-<section id="install">
-<h2>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; wsl --list --online
-インストールできる有効なディストリビューションの一覧を次に示します。
-'wsl --install -d &lt;Distro&gt;' を使用してインストールします。
-
-NAME            FRIENDLY NAME
-Ubuntu          Ubuntu
-Debian          Debian GNU/Linux
-kali-linux      Kali Linux Rolling
-openSUSE-42     openSUSE Leap 42
-SLES-12         SUSE Linux Enterprise Server v12
-Ubuntu-16.04    Ubuntu 16.04 LTS
-Ubuntu-18.04    Ubuntu 18.04 LTS
-Ubuntu-20.04    Ubuntu 20.04 LTS
-</pre></div>
-</div>
-</section>
-<section id="import">
-<h2>import<a class="headerlink" href="#import" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/windows/wsl/use-custom-distro">WSL で使用する Linux ディストリビューションをインポートする | Microsoft Learn</a>
-root file system の tar を import する</p></li>
-</ul>
-<section id="arch">
-<h3>arch<a class="headerlink" href="#arch" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://wiki.archlinux.jp/index.php/WSL_%E3%81%AB%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">WSL にインストール - ArchWiki</a></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">wsl</span> <span class="o">--</span><span class="kn">import</span> <span class="o">&lt;</span><span class="n">DistributionName</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">InstallLocation</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">FileName</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">version</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</section>
-<section id="gentoo">
-<h3>gentoo<a class="headerlink" href="#gentoo" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>[[gentoo]]</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; wsl --import gentoo ${env:USERPROFILE}\AppData\Local\WSL\Gentoo\ .\stage3-amd64-openrc-20211121T170545Z.tar --version 2
-</pre></div>
-</div>
-</section>
-<section id="ubuntu">
-<h3>ubuntu<a class="headerlink" href="#ubuntu" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>[[Ubuntu]]</p>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://level69.net/archives/27563">WSL(2)でOSを手動で無限に追加（インポート）する方法 - 技術的な何か。</a></p>
-<ul>
-<li><p>https://cloud-images.ubuntu.com/wsl/</p></li>
-</ul>
-</li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">wsl</span> <span class="o">--</span><span class="kn">import</span> <span class="nn">kinetic</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">oustt</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">WSL</span>\<span class="n">kinetic</span> <span class="o">.</span>\<span class="n">ubuntu</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">wsl</span><span class="o">-</span><span class="n">amd64</span><span class="o">-</span><span class="n">wsl</span><span class="o">.</span><span class="n">rootfs</span><span class="o">.</span><span class="n">tar</span> <span class="o">--</span><span class="n">version</span> <span class="mi">2</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># adduser -G sudo $myUsername</span>
-<span class="c1"># echo -e "[user]\ndefault=$myUsername" &gt;&gt; /etc/wsl.conf</span>
-<span class="c1"># passwd $myUsername</span>
-</pre></div>
-</div>
-</section>
-</section>
-</section>
+[[Linux]]
+[[wsl_windows_side]]</p>
 <section class="tex2jax_ignore mathjax_ignore" id="etc-wsl-conf">
 <h1>/etc/wsl.conf<a class="headerlink" href="#etc-wsl-conf" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">user</span><span class="p">]</span>
@@ -315,12 +241,14 @@ root file system の tar を import する</p></li>
 <li><p>@2022 <a class="reference external" href="https://forest.watch.impress.co.jp/docs/news/1441775.html">「Windows Subsystem for Linux」が「systemd」に対応へ - 窓の杜</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="vscode">
-<h1>vscode<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="app">
+<h1>app<a class="headerlink" href="#app" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="vscode">
+<h2>vscode<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal notranslate"> <span class="pre">/mnt/c/Users/USER_NAME/AppData/Local/Programs/Microsoft\</span> <span class="pre">VS\</span> <span class="pre">Code/bin/code</span></code>
 でインストールできる。</p>
 <section id="error">
-<h2>error<a class="headerlink" href="#error" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>error<a class="headerlink" href="#error" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ code
 &lt;3&gt;WSL (6658) ERROR: UtilConnectUnix:510: connect failed 2
 </pre></div>
@@ -330,17 +258,6 @@ root file system の tar を import する</p></li>
 </ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="terminal">
-<h1>terminal<a class="headerlink" href="#terminal" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/mintty/wsltty">GitHub - mintty/wsltty: Mintty as a terminal for Bash on Ubuntu on Windows / WSL</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="app-launch">
-<h1>app launch<a class="headerlink" href="#app-launch" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Windows</span>\<span class="n">System32</span>\<span class="n">wsl</span><span class="o">.</span><span class="n">exe</span> <span class="o">--</span><span class="n">distribution</span> <span class="n">kinetic</span> <span class="o">--</span><span class="n">cd</span> <span class="o">~</span> <span class="n">bash</span> <span class="o">--</span><span class="n">login</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">c</span> <span class="s2">"gnome-terminal --geometry=120x60 -- ~/local/bin/attatch_or_start"</span>
-</pre></div>
-</div>
 </section>
 
         </article>
@@ -376,24 +293,14 @@ root file system の tar を import する</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">distribution 管理</a><ul>
-<li><a class="reference internal" href="#id1">削除</a></li>
-<li><a class="reference internal" href="#install">install</a></li>
-<li><a class="reference internal" href="#import">import</a><ul>
-<li><a class="reference internal" href="#arch">arch</a></li>
-<li><a class="reference internal" href="#gentoo">gentoo</a></li>
-<li><a class="reference internal" href="#ubuntu">ubuntu</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#etc-wsl-conf">/etc/wsl.conf</a></li>
+<li><a class="reference internal" href="#">/etc/wsl.conf</a></li>
+<li><a class="reference internal" href="#app">app</a><ul>
 <li><a class="reference internal" href="#vscode">vscode</a><ul>
 <li><a class="reference internal" href="#error">error</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#terminal">terminal</a></li>
-<li><a class="reference internal" href="#app-launch">app launch</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

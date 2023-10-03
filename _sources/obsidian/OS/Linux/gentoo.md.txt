@@ -3,7 +3,7 @@
 - [Downloads – Gentoo Linux](https://www.gentoo.org/downloads/)
 
 # WSL
-[[wsl]]
+[[OS/Linux/wsl]]
 - [Gentoo in WSL - Gentoo Wiki](https://wiki.gentoo.org/wiki/Gentoo_in_WSL)
 - @2022 [Gentoo on WSL2](https://zenn.dev/nanasess/articles/gentoo-on-wsl2)
 

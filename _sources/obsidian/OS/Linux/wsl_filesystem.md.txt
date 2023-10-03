@@ -1,5 +1,5 @@
 wsl filesystem
-[[wsl]]
+[[OS/Linux/wsl]]
 
 	https://stackoverflow.com/questions/50172869/vs15-does-not-recognize-files-cloned-by-git-after-1803-update
 	[RS4のWindows Subsystem for Linuxでのwsl.confによる初期設定 http://ascii.jp/elem/000/001/634/1634120/]

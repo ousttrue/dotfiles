@@ -1,5 +1,5 @@
 Amazon Linux 2
-[[wsl]] [[Linux]] [[CentOS]]
+[[OS/Linux/wsl]] [[Linux]] [[CentOS]]
 
 - https://aws.amazon.com/jp/amazon-linux-2/faqs/
 
