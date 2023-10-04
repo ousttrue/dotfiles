@@ -21,6 +21,7 @@ return {
 
   -- dark
   make_colorscheme("marcopaganini/termschool-vim-theme", { name = "termschool", bg = "dark" }),
+  make_colorscheme("haxibami/urara.vim", { name = "urara", bg = "dark" }),
   make_colorscheme("folke/tokyonight.nvim", { name = "tokyonight", bg = "dark" }),
   make_colorscheme(
     "EdenEast/nightfox.nvim",
