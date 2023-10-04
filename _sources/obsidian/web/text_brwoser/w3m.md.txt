@@ -7,6 +7,13 @@ content => buffer => display => term
 message => term
 ```
 
+# copy url
+- @2005 [w3m から url を X のクリップボードへコピー - (((memo)))](https://emacsjjj.hatenadiary.org/entry/20050625/p1)
+```sh
+#!/bin/sh
+echo "$1" | tr -d '\n' | xclip
+```
+
 # CESU-8
 サロゲートペア
 - Compatibility Encoding Scheme for UTF-16: 8-Bit (CESU-8)

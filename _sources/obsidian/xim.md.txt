@@ -1,0 +1,1 @@
+- @2020 [X11環境でIMEの仮入力の情報を取得する | 己の不学を恥じる](https://garasubo.github.io/hexo/2020/01/25/xim.html)

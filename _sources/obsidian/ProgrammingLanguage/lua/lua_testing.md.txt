@@ -7,3 +7,21 @@
 
 [[nvim]]
 - [GitHub - notomo/vusted: A busted wrapper for testing neovim plugin](https://github.com/notomo/vusted)
+
+```sh
+ANSICON=1 busted tests
+```
+
+# luassert
+[GitHub - lunarmodules/luassert: Assertion library for Lua](https://github.com/lunarmodules/luassert)
+
+```lua
+---@cast assert luassert.internal
+
+--- 普通じゃない関数定義しているのでこっち w
+---@cast assert table
+
+```
+
+## version
+### 1.9
