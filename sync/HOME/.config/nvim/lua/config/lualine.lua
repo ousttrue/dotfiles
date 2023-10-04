@@ -38,16 +38,25 @@ local skk_mode_map = {
   hira = "あ",
   kata = "ア",
   ascii = "aA",
-  zenei = "ａ",
+  zenkaku = "全",
   hankata = "ｧｱ",
   abbrev = "aあ",
 }
+local function mode_name()
+  local mode = skk_mode_map[vim.api.nvim_get_var "skkeleton#mode"]
+  local name = skk_mode_map[mode]
+  if name then
+    return name
+  end
+  return mode
+end
+
 local function skk_mode()
-  local m = skk_mode_map[vim.api.nvim_get_var "skkeleton#mode"]
+  local m = mode_name()
   if m then
     return m
   else
-    return ''
+    return ""
   end
 end
 
