@@ -50,7 +50,6 @@ GUI => TUI(PTY) => CUI
 
 ## TUI
 
-- [GitHub - uobikiemukot/yaskk: yet another skk for terminal](https://github.com/uobikiemukot/yaskk)
 - [GitHub - hymkor/gm: Golang Minimal text editor (凸)/](https://github.com/hymkor/gm)
 ### uim-fep
 - http://quasiquote.org/log2/uim/Programming/Scheme/2010/12/23/skkserv

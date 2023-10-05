@@ -220,8 +220,8 @@
         <article role="main">
           <p>internal を含むように生成。</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">cd</span> cimgui
-cimgui&gt; <span class="nv">LUA_PATH</span><span class="o">=</span>./?.lua D:/msys64/mingw64/bin/luajit generator.lua cl <span class="s2">"internal"</span>
-cimgui&gt; cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+cimgui&gt; <span class="nv">LUA_PATH</span><span class="o">=</span>./?.lua D:/msys64/mingw64/bin/luajit generator.lua cl <span class="s2">"internal freetype"</span>
+cimgui&gt; cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DCMAKE_CXX_FLAGS<span class="o">=</span>-DIMGUI_USE_WCHAR32<span class="o">=</span><span class="m">1</span>
 cimgui&gt; cmake --build build
 cimgui&gt; ls build
 build/cmake.dll
