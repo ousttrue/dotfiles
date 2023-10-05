@@ -5,7 +5,7 @@
 |platform|impl|memo|
 |-|-|-|
 |term|skkfep||
-|term|yaskk||
+|term|yaskk|[GitHub - uobikiemukot/yaskk: yet another skk for terminal](https://github.com/uobikiemukot/yaskk)|
 |X|ibus-skk|[[libskk]]|
 |X,term|uim-skk|[[uim]]に内包|
 |Windows|CorvusSKK|
