@@ -9,6 +9,13 @@
 ## shell
 - [bashの .bash_profile と .bashrc の挙動の整理と使い分け方 - Qiita](https://qiita.com/ono_matope/items/feebac51afb346d9db0e)
 
+## 3
+- OSX はこれ。
+```sh
+if [ -v hoge ]; then # 👈 無い
+fi
+```
+
 # 関数
 - @2020 [bashで関数を書く - やってみる](https://ytyaru.hatenablog.com/entry/2020/06/14/000000)
 

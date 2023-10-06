@@ -1,6 +1,9 @@
 return {
   "folke/neodev.nvim",
   "folke/which-key.nvim",
+  {
+    "simeji/winresizer",
+  },
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   {
     "monaqa/dial.nvim",
