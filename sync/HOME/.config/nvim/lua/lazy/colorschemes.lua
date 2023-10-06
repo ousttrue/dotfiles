@@ -21,7 +21,7 @@ return {
 
   -- dark
   make_colorscheme("marcopaganini/termschool-vim-theme", { name = "termschool", bg = "dark" }),
-  make_colorscheme("haxibami/urara.vim", { name = "urara", bg = "dark" }),
+  make_colorscheme("haxibami/urara.vim", { name = "urara", bg = "dark", sys = "mac" }),
   make_colorscheme("folke/tokyonight.nvim", { name = "tokyonight", bg = "dark" }),
   make_colorscheme(
     "EdenEast/nightfox.nvim",
@@ -44,7 +44,7 @@ return {
   make_colorscheme("junegunn/seoul256.vim", { name = "seoul256", bg = "light", sys = "wsl" }),
   -- make_colorscheme("ldelossa/vimdark", "vimdark"),
   -- make_colorscheme("Mitgorakh/snow", "snow", "light", "mac"),
-  make_colorscheme("NLKNguyen/papercolor-theme", { name = "PaperColor", bg = "light", sys = "mac" }),
+  make_colorscheme("NLKNguyen/papercolor-theme", { name = "PaperColor", bg = "light" }),
   -- make_colorscheme("yasukotelin/shirotelin", "shirotelin", "light", "mac"),
   --
 }

@@ -78,12 +78,11 @@ def mkdir(path: pathlib.Path):
 
 
 def mklink(src, targets):
-    match targets:
-        case list():
+    if isinstance(targets, list):
             dst = pathlib.Path(targets[0])
-        case pathlib.Path():
+    elif isinstance(targets, pathlib.Path):
             dst = targets
-        case _:
+    else:
             raise RuntimeError(f'{targets}')
     if dst.exists() or dst.is_symlink():
         print(f'rm {dst}')

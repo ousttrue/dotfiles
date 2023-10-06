@@ -44,7 +44,9 @@ set belloff=all
 set noswapfile noundofile nobackup
 set hlsearch
 set hidden
-set termguicolors
+if has('osx') != 1
+    set termguicolors
+endif
 set number
 " set clipboard=unnamedplus
 set clipboard+=unnamed
@@ -70,5 +72,4 @@ nnoremap <Esc>l <C-w>l
 au BufNewFile,BufRead *.xsh setf python
 au FileType python setlocal formatprg=autopep8
 au FileType html setlocal ts=2 sts=2 sw=2 et
-
 

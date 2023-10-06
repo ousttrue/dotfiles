@@ -12,7 +12,7 @@ autoload -Uz add-zsh-hook
 compinit
 # End of lines added by compinstall
 
-umask 002
+umask 022
 setopt EXTENDED_GLOB
 setopt IGNOREEOF
 setopt share_history
@@ -22,6 +22,7 @@ bindkey '^N' history-beginning-search-forward
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 compctl -M 'm:{a-z}={A-Z}'
 
+export LANG=ja_JP.UTF-8
 export GHQ_ROOT="$HOME/ghq"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -29,6 +30,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export FZF_DEFAULT_OPTS="--layout=reverse "
 export SHELL=`which zsh`
+export LUA_PATH="$HOME/lua/?.lua;$HOME/lua/?/init.lua"
 
 export MANPAGER='less -iscrL'
 # if which bat >/dev/null 2>&1; then
@@ -40,6 +42,8 @@ export MANPAGER='less -iscrL'
 path=("$HOME/local/bin" $path)
 path=("$HOME/go/bin" $path)
 path=("$HOME/.cargo/bin" $path)
+path=("$HOME/.deno/bin" $path)
+path=("$HOME/.fzf/bin" $path)
 
 alias grep="grep --color"
 alias pstree="pstree -A"
@@ -133,3 +137,5 @@ function prompt_precmd() {
 add-zsh-hook precmd prompt_precmd
 add-zsh-hook precmd _vcs_git_indicator
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

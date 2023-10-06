@@ -1,3 +1,11 @@
+-- setup: LUA_PATH="$HOME/lua/?.lua;$HOME/lua/?/init.lua"
+if os.getenv('USERPROFILE') then
+  -- windows
+else
+  local home = os.getenv('HOME')
+  package.path = string.format("%s;%s/lua/?.lua;%s/lua/?/init.lua", package.path, home, home)
+end
+
 ---@class wezterm
 local wezterm = require "wezterm"
 
@@ -64,9 +72,21 @@ local function setup_linux(config)
   end
 end
 
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-  setup_windows(config)
+local function setup_osx(config)
+  config.font_size = 14.0 -- raw font size
+end
+
+local TARGET_MAP = {
+  ['aarch64-apple-darwin'] = setup_osx,
+  ['x86_64-pc-windows-msvc'] = setup_windows,
+  ['x86_64-unknown-linux-gnu'] = setup_linux,
+}
+
+local setup = TARGET_MAP[wezterm.target_triple]
+if setup then
+  setup(config)
 else
+  -- fallback
   setup_linux(config)
 end
 
