@@ -1,13 +1,16 @@
-[[skk]]
+[[skk]] [[ime]]
 
 # 実装のメモ
 
 |platform|impl|memo|
 |-|-|-|
-|term|skkfep||
 |term|yaskk|[GitHub - uobikiemukot/yaskk: yet another skk for terminal](https://github.com/uobikiemukot/yaskk)|
-|X|ibus-skk|[[libskk]]|
+|term|skkfep||
 |X,term|uim-skk|[[uim]]に内包|
+|X|ibus-skk|`libskk`|
+|X|fcitx-skk|`libskk` [GitHub - fcitx/fcitx-skk](https://github.com/fcitx/fcitx-skk)|
+|X|fcitx5-skk|`libskk` [GitHub - fcitx/fcitx5-skk](https://github.com/fcitx/fcitx5-skk)|
+|X|fcitx5-cskk|`libcskk` [GitHub - fcitx/fcitx5-skk](https://github.com/fcitx/fcitx5-skk)|
 |Windows|CorvusSKK|
 |vim|skkeleton|
 |vim|eskk|
@@ -24,3 +27,8 @@
 ## cskk
 `rust` `fcitx`
 - [GitHub - naokiri/cskk: SKK (Simple Kana Kanji henkan) library](https://github.com/naokiri/cskk)
+
+## libskk
+`ibus`
+- [GitHub - ueno/libskk: Japanese SKK input method library](https://github.com/ueno/libskk)
+- `sticky shift` [Site Unreachable](https://mako-note.com/ja/ibus-skk-stickyshift/)

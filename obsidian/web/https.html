@@ -223,10 +223,9 @@
 <ul class="simple">
 <li><p>@2022 <a class="reference external" href="https://www.mitsue.co.jp/knowledge/blog/frontend/202208/30_1021.html">ローカル環境でもHTTPS接続する理由と方法 | フロントエンドBlog | ミツエーリンクス</a></p></li>
 </ul>
-<section id="mkcert">
-<h2>mkcert<a class="headerlink" href="#mkcert" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">golang</span></code> [[aqua]]  で入れるとよい</p>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="host">
+<h1>host<a class="headerlink" href="#host" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="node">
 <h2>node<a class="headerlink" href="#node" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
@@ -235,6 +234,12 @@
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; http-server -c-1 . --ssl --key cert/localhost+2-key.pem --cert cert/localhost+2.pem --port <span class="m">8000</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dev.classmethod.jp/articles/tried-local-ssl-proxy-x-nextjs/">[小ネタ]local-ssl-proxyを利用したNext.js開発環境のHTTPSアクセスを簡単にしてみた | DevelopersIO</a></p></li>
+</ul>
+</section>
+<section id="nginx">
+<h2>nginx<a class="headerlink" href="#nginx" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="ca">
@@ -242,6 +247,10 @@
 <ul class="simple">
 <li><p>@2021 <a class="reference external" href="https://zenn.dev/jeffi7/articles/10f7b12d6044ad">localhost を https 化する ~独自CA証明書を作って~</a></p></li>
 </ul>
+<section id="mkcert">
+<h2>mkcert<a class="headerlink" href="#mkcert" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">golang</span></code> [[aqua]]  で入れるとよい</p>
+</section>
 </section>
 
         </article>
@@ -277,12 +286,16 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">local</a><ul>
-<li><a class="reference internal" href="#mkcert">mkcert</a></li>
+<li><a class="reference internal" href="#">local</a></li>
+<li><a class="reference internal" href="#host">host</a><ul>
 <li><a class="reference internal" href="#node">node</a></li>
+<li><a class="reference internal" href="#nginx">nginx</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ca">独自CA証明書</a></li>
+<li><a class="reference internal" href="#ca">独自CA証明書</a><ul>
+<li><a class="reference internal" href="#mkcert">mkcert</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

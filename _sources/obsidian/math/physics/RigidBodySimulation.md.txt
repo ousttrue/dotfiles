@@ -3,6 +3,8 @@
 
 - [GitHub - wbierbower/awesome-physics: 🌌 A collaborative list of awesome software for exploring Physics concepts](https://github.com/wbierbower/awesome-physics)
 
+[GitHub - xissburg/edyn: Edyn is a real-time physics engine organized as an ECS.](https://github.com/xissburg/edyn)
+
 - @2013  [剛体シミュレーションをまとめてみる - Qiita](https://qiita.com/edo_m18/items/6051d2d8e422a41d0c13)
 	- @2013 [自作2D物理エンジンを作った話 - Qiita](https://qiita.com/edo_m18/items/f7698c5bd262df4f9cf3)
 - @2008 [https://cedec.cesa.or.jp/2008/archives/file/pg07.pdf](https://cedec.cesa.or.jp/2008/archives/file/pg07.pdf)

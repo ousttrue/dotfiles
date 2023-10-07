@@ -7,3 +7,5 @@
 # UserApplication
 [[PulseAudio]]
 [[wayland]]
+
+# xubunts
