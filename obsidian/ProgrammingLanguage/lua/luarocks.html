@@ -229,7 +229,6 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="tree">
 <h1>tree<a class="headerlink" href="#tree" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>tree のどこに入っているか法則性は無い w</p>
 <section id="lfs">
 <h2>lfs<a class="headerlink" href="#lfs" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">APPDATA</span><span class="o">%/</span><span class="n">LuaRocks</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">lua</span><span class="o">/</span><span class="mf">5.1</span><span class="o">/</span><span class="n">lfs</span><span class="o">.</span><span class="n">dll</span>
@@ -239,6 +238,10 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="install">
 <h1>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Windows">Installation instructions for Windows · luarocks/luarocks Wiki · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://github.com/luarocks/luarocks/wiki/File-locations">File locations · luarocks/luarocks Wiki · GitHub</a></p></li>
+</ul>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; luarocks path
 <span class="nb">export</span> <span class="nv">LUA_PATH</span><span class="o">=</span><span class="s1">'</span>
 <span class="s1">${PREFIX}/share/lua/5.1/?.lua;</span>
@@ -264,57 +267,6 @@
 <span class="s1">'</span>
 </pre></div>
 </div>
-<section id="config">
-<h2>config<a class="headerlink" href="#config" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- config-5.1.lua</span>
-<span class="n">local_by_default</span><span class="o">=</span><span class="kc">true</span>
-<span class="n">config</span><span class="o">=</span><span class="p">{</span>
-	<span class="n">variables</span><span class="o">=</span><span class="p">{</span>
-		<span class="n">MD5SUM</span> <span class="o">=</span> <span class="s">[[D:/msys64/usr/bin/md5sum.exe]]</span><span class="p">,</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</section>
-<section id="windows">
-<h2>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/luarocks/luarocks/tree/master">GitHub - luarocks/luarocks: LuaRocks is the package manager for the Lua programming language.</a></p></li>
-<li><p><a class="reference external" href="https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Windows">Installation instructions for Windows · luarocks/luarocks Wiki · GitHub</a>
-<code class="docutils literal notranslate"><span class="pre">install.bat</span></code> を改造するべし</p></li>
-</ul>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span># 独立したフォルダを指定するのがよい(クリアされる)
-&gt; luajit install.bat /P %USERPROFILE%/luarocks /NOADMIN /MW /F
-</pre></div>
-</div>
-<section id="tools">
-<h3>tools<a class="headerlink" href="#tools" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>ダブルクォートが余分について <code class="docutils literal notranslate"><span class="pre">md5sum</span></code> のサーチに失敗する。</p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- luarocks config</span>
-<span class="n">variables</span> <span class="o">=</span> <span class="p">{</span>
-   <span class="n">MD5SUM</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\"</span><span class="s2">C:/User/bin/tools/md5sum.exe</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span> <span class="c1">-- 👈</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>👇</p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">--config-5.1.lua</span>
-<span class="n">variables</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="n">MD5SUM</span> <span class="o">=</span> <span class="s">[[D:/msys64/usr/bin/md5sum.exe]]</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">tools</span></code></p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">unquote</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-  <span class="kr">if</span> <span class="nb">string.sub</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="s1">'"'</span> <span class="ow">and</span> <span class="nb">string.sub</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="s1">'"'</span> <span class="kr">then</span>
-    <span class="kr">return</span> <span class="nb">string.sub</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-  <span class="kr">else</span>
-    <span class="kr">return</span> <span class="n">str</span>
-  <span class="kr">end</span>
-<span class="kr">end</span>
-</pre></div>
-</div>
-</section>
-</section>
 <section id="posix">
 <h2>Posix<a class="headerlink" href="#posix" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./configure --prefix=$HOME/prefix
@@ -389,11 +341,6 @@ master
 </ul>
 </li>
 <li><a class="reference internal" href="#install">install</a><ul>
-<li><a class="reference internal" href="#config">config</a></li>
-<li><a class="reference internal" href="#windows">Windows</a><ul>
-<li><a class="reference internal" href="#tools">tools</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#posix">Posix</a></li>
 </ul>
 </li>

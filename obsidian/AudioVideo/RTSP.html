@@ -218,12 +218,56 @@
           </label>
         </div>
         <article role="main">
-          <p>[[streaming]]</p>
+          <p>[[streaming]]
+[[gst_rtp_rtsp]]</p>
 <p><a class="reference external" href="https://systemk-camera.jp/camera-blog/knowledge/what-rtsp.php">RTSP(Real Time Streaming Protocol)とは？ネットワークカメラに関する知識 - システムケイカメラ</a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="rtsp">
 <h1>RTSP<a class="headerlink" href="#rtsp" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">TCP</span></code>
 制御</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="server">
+<h1>Server<a class="headerlink" href="#server" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="rtsp-simple-server">
+<h2>rtsp-simple-server<a class="headerlink" href="#rtsp-simple-server" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/bluenviron/mediamtx">GitHub - bluenviron/mediamtx: Ready-to-use SRT / WebRTC / RTSP / RTMP / LL-HLS media server and media proxy that allows to read, publish, proxy and record video and audio streams.</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://qiita.com/k-yamada-github/items/1deaa6e81081e4a1aa35">macでrtspサーバを立てる - Qiita</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">proxy</span></code> @2021 <a class="reference external" href="https://ji1jdi.hatenablog.com/entry/2021/07/19/071027">RTSPプロキシを立てる - モールス練習帖</a></p></li>
+</ul>
+</section>
+<section id="ffserver">
+<h2>ffserver<a class="headerlink" href="#ffserver" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/pinto0309/scraps/33d7687dc8fbb1">ffmpeg で RTSP MP4配信サーバー環境の構築</a></p></li>
+</ul>
+</section>
+<section id="obs">
+<h2>OBS<a class="headerlink" href="#obs" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/iamscottxu/obs-rtspserver/blob/master/README_ja-JP.md">obs-rtspserver/README_ja-JP.md at master · iamscottxu/obs-rtspserver · GitHub</a></p></li>
+</ul>
+</section>
+<section id="test-launch">
+<h2>test-launch<a class="headerlink" href="#test-launch" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">gst</span></code>
+server/client 機能。publish は無い</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="publish">
+<h1>Publish<a class="headerlink" href="#publish" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="ffmpeg">
+<h2>ffmpeg<a class="headerlink" href="#ffmpeg" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="client">
+<h1>Client<a class="headerlink" href="#client" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="gstreamer">
+<h2>gstreamer<a class="headerlink" href="#gstreamer" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id1">
+<h2>ffmpeg<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="rtp">
 <h1>RTP<a class="headerlink" href="#rtp" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -265,6 +309,22 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">RTSP</a></li>
+<li><a class="reference internal" href="#server">Server</a><ul>
+<li><a class="reference internal" href="#rtsp-simple-server">rtsp-simple-server</a></li>
+<li><a class="reference internal" href="#ffserver">ffserver</a></li>
+<li><a class="reference internal" href="#obs">OBS</a></li>
+<li><a class="reference internal" href="#test-launch">test-launch</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#publish">Publish</a><ul>
+<li><a class="reference internal" href="#ffmpeg">ffmpeg</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#client">Client</a><ul>
+<li><a class="reference internal" href="#gstreamer">gstreamer</a></li>
+<li><a class="reference internal" href="#id1">ffmpeg</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#rtp">RTP</a></li>
 </ul>
 
