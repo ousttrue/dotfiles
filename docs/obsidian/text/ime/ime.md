@@ -2,6 +2,19 @@
 
 - [接続辞書と日本語入力 - 増井俊之](https://helpfeel.com/masui/%E6%8E%A5%E7%B6%9A%E8%BE%9E%E6%9B%B8%E3%81%A8%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B-5c3aba7238278d001786f25e)
 
+# im-config
+auto start ibus, fcitx, uim ...
+
+
+|im|each app|
+|-|-|
+|IIIMF||
+|scim|有り|
+|uim|
+|ibus|
+|fcitx|
+|fcitx5|
+
 # XIM
 ## [[XWindow]] inputmethod
 

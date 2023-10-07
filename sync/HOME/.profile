@@ -14,13 +14,13 @@ export _PROFILE_=1
 # fcitx5 --disable=wayland&
 
 # ibus
-if which ibus-daemon > /dev/null 2>&1; then
-    export GTK_IM_MODULE=ibus
-    export QT_IM_MODULE=ibus
-    export XMODIFIERS=@im=ibus
-    export DefaultIMModule=ibus
-    ibus-daemon --daemonize --xim --replace
-fi
+# if which ibus-daemon > /dev/null 2>&1; then
+#     export GTK_IM_MODULE=ibus
+#     export QT_IM_MODULE=ibus
+#     export XMODIFIERS=@im=ibus
+#     export DefaultIMModule=ibus
+#     ibus-daemon --daemonize --xim --replace
+# fi
 
 export GLTF_SAMPLE_MODELS="$HOME/ghq/github.com/KhronosGroup/glTF-Sample-Models"
 export VRM_SAMPLES="$HOME/ghq/github.com/madjin/vrm-samples"

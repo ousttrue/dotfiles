@@ -1,4 +1,3 @@
-#blue
 [[WindowManager]]
 
 [[XWindow]]
@@ -11,6 +10,11 @@
 # menu
 `.config/openbox/menu.xml`
 - [Help:Menus - Openbox](http://openbox.org/wiki/Help:Menus)
+
+# session
+- [Ubuntu 22.04 LTSをOpenobox+Tint2ベースの環境に変更する｜takamitsu_h](https://note.com/vsrx/n/na5784cb35785)
+
+`/usr/share/xsessions/openbox.desktop`
 
 # wayland
 ## waybox

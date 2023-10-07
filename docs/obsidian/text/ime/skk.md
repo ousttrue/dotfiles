@@ -66,7 +66,6 @@ GUI => TUI(PTY) => CUI
 - [openlab.ring.gr.jp/skk/skk-manual/skk-15.1.pdf](http://openlab.ring.gr.jp/skk/skk-manual/skk-15.1.pdf)
 
 # lib
-- [GitHub - ueno/libskk: Japanese SKK input method library](https://github.com/ueno/libskk)
 - [GitHub - naokiri/cskk: SKK (Simple Kana Kanji henkan) library](https://github.com/naokiri/cskk)
 
 # server

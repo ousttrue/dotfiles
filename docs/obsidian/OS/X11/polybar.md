@@ -2,7 +2,6 @@
 
 `~/.config/polybar/config.ini`
 
-- [Polybarの導入 - RINotes](https://tonooo71.github.io/posts/polybar)
 - [Polybarの設定 - RINotes](https://tonooo71.github.io/posts/polybar-setting)
 - [GTK+のAdapta-Noktoが気に入りすぎてPolybarテーマを作った - Qiita](https://qiita.com/matoruru/items/ab491eac6b2b74e3ce3b)
 - [playerctlを使ってpolybarにSpotifyの曲情報を表示する - tosuke](https://scrapbox.io/tosuke/playerctl%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6polybar%E3%81%ABSpotify%E3%81%AE%E6%9B%B2%E6%83%85%E5%A0%B1%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B)

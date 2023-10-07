@@ -17,5 +17,6 @@
       "key": "ArrowRight"
     }
   ],
-  "editor:toggle-bold": []
+  "editor:toggle-bold": [],
+  "auto-card-link:auto-card-link-enhance-selected-url": []
 }

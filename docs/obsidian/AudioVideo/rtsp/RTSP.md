@@ -9,10 +9,8 @@
 
 # Server
 ## rtsp-simple-server
-- [GitHub - bluenviron/mediamtx: Ready-to-use SRT / WebRTC / RTSP / RTMP / LL-HLS media server and media proxy that allows to read, publish, proxy and record video and audio streams.](https://github.com/bluenviron/mediamtx)
+[[mediamtx]]
 
-- @2022 [macでrtspサーバを立てる - Qiita](https://qiita.com/k-yamada-github/items/1deaa6e81081e4a1aa35)
-- `proxy` @2021 [RTSPプロキシを立てる - モールス練習帖](https://ji1jdi.hatenablog.com/entry/2021/07/19/071027)
 
 ## ffserver
 - [ffmpeg で RTSP MP4配信サーバー環境の構築](https://zenn.dev/pinto0309/scraps/33d7687dc8fbb1)
@@ -24,12 +22,19 @@
 `gst`
 server/client 機能。publish は無い
 
-# Publish
-## ffmpeg
+## Kinesis Video Streams
+配信サービス
 
+# Publish
+## gstreamer
+`rtspclientsink`
+
+## ffmpeg
 
 # Client
 ## gstreamer
+`rtspsrc`
+
 ## ffmpeg
 
 # RTP

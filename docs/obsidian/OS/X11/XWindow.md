@@ -22,6 +22,11 @@ aliases: [X11, xorg]
 `setxkbmap us`
 `setxkbmap jp`
 
-ibus に自動でキーマップを変える動作がある。
+setxkbmap -query | grep layout
+
+# ibus で setxkbmap jp
+
+- @2015 [続・GNOME 3.14でキーボードレイアウトがjpにならない](https://www.archlinux.site/2015/01/gnome-314jp.html)
+
 advanced の
 - [ ] `use system keyboard layout` を使うべし！

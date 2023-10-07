@@ -1,7 +1,4 @@
-[[DirectShow]]
-[[gtk]]
-[[gst_element]]
-[[WebRTC]]
+[[DirectShow]] [[gtk]] [[gst_element]] [[WebRTC]] [[streaming]]
 
 [GStreamer: open source multimedia framework](https://gstreamer.freedesktop.org/)
 
