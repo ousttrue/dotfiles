@@ -34,6 +34,11 @@ $ gst-launch-1.0 rtspsrc location=rtsp://127.0.0.1:8554/test ! decodebin ! autov
 
 # rtspclientsink (publish)
 - `rtspclientsink` @2022 [macでrtspサーバを立てる - Qiita](https://qiita.com/k-yamada-github/items/1deaa6e81081e4a1aa35)
+```
+$ gstk-launch-1.0 videotestsrc ! timeoverlay font-desc="Sans 36" ! capsfilter caps="video/x-raw" ! queue ! x264enc ! rtspclientsink location=rtsp://localhost:8554/mystream
+```
+
+x264 などのrtspが対応するvideoエンコーディlングが必要(rawはだめ)
 
 # rtspsrc (client)
 - [rtspsrc](https://gstreamer.freedesktop.org/documentation/rtsp/rtspsrc.html?gi-language=c)

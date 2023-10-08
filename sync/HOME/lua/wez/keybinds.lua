@@ -46,7 +46,6 @@ end
 function M.setup(config)
   config.disable_default_key_bindings = true
   config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
-  config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
   -- config.leader = { key = "x", mods = "CTRL", timeout_milliseconds = 1000 }
   config.launch_menu = {
     {

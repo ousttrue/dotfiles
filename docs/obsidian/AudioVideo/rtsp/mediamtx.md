@@ -16,3 +16,9 @@
 2023/10/07 21:27:31 INF [WebRTC] listener opened on :8889 (HTTP)
 2023/10/07 21:27:31 INF [SRT] listener opened on :8890 (UDP)
 ```
+
+# rtsp://localhost:8554/mystream
+
+# http://localhost:8889/mystream
+
+# mediamtx.yml
