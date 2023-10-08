@@ -263,6 +263,10 @@ OK: <code class="docutils literal notranslate"><span class="pre">vlc</span></cod
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">rtspclientsink</span></code> @2022 <a class="reference external" href="https://qiita.com/k-yamada-github/items/1deaa6e81081e4a1aa35">macでrtspサーバを立てる - Qiita</a></p></li>
 </ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gstk-launch-1.0 videotestsrc ! timeoverlay font-desc="Sans 36" ! capsfilter caps="video/x-raw" ! queue ! x264enc ! rtspclientsink location=rtsp://localhost:8554/mystream
+</pre></div>
+</div>
+<p>x264 などのrtspが対応するvideoエンコーディlングが必要(rawはだめ)</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="rtspsrc-client">
 <h1>rtspsrc (client)<a class="headerlink" href="#rtspsrc-client" title="このヘッドラインへのパーマリンク">¶</a></h1>

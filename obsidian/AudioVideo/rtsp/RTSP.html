@@ -218,13 +218,12 @@
           </label>
         </div>
         <article role="main">
-          <p>[[streaming]]
-[[gst_rtp_rtsp]]</p>
-<p><a class="reference external" href="https://systemk-camera.jp/camera-blog/knowledge/what-rtsp.php">RTSP(Real Time Streaming Protocol)とは？ネットワークカメラに関する知識 - システムケイカメラ</a></p>
+          <p>[[streaming]]</p>
+<p><code class="docutils literal notranslate"><span class="pre">protocal概説</span></code> <a class="reference external" href="https://systemk-camera.jp/camera-blog/knowledge/what-rtsp.php">RTSP(Real Time Streaming Protocol)とは？ネットワークカメラに関する知識 - システムケイカメラ</a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="rtsp">
 <h1>RTSP<a class="headerlink" href="#rtsp" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">TCP</span></code>
-制御</p>
+<p><code class="docutils literal notranslate"><span class="pre">TCP</span></code> 制御
+<code class="docutils literal notranslate"><span class="pre">UDP</span></code> Data</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="server">
 <h1>Server<a class="headerlink" href="#server" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -246,7 +245,7 @@
 </section>
 <section id="test-launch">
 <h2>test-launch<a class="headerlink" href="#test-launch" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">gst</span></code>
+<p>[[gst_rtp_rtsp]]
 server/client 機能。publish は無い</p>
 </section>
 <section id="kinesis-video-streams">
@@ -254,30 +253,20 @@ server/client 機能。publish は無い</p>
 <p>配信サービス</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="publish">
-<h1>Publish<a class="headerlink" href="#publish" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="gstreamer">
-<h2>gstreamer<a class="headerlink" href="#gstreamer" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">rtspclientsink</span></code></p>
-</section>
-<section id="ffmpeg">
-<h2>ffmpeg<a class="headerlink" href="#ffmpeg" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="client">
 <h1>Client<a class="headerlink" href="#client" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>gstreamer<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">rtspsrc</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">rtsp://host:8554/stream</span></code></p>
+<p>host に注意。正しい IP Address を指定するべし。
+例えば、 WSL上のServerにWindowsからアクセスする場合は、<code class="docutils literal notranslate"><span class="pre">172.40.xx.xx</span></code> を使うべし。</p>
+<p>[[gst_rtp_rtsp]]
+[[ffmpeg]]
+[[obs]]
+[[vlc]]</p>
 </section>
-<section id="id2">
-<h2>ffmpeg<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="rtp">
-<h1>RTP<a class="headerlink" href="#rtp" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">UDP</span></code>
-配信</p>
+<section class="tex2jax_ignore mathjax_ignore" id="publish">
+<h1>Publish<a class="headerlink" href="#publish" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[gst_rtp_rtsp]]
+[[ffmpeg]]</p>
 </section>
 
         </article>
@@ -322,17 +311,8 @@ server/client 機能。publish は無い</p>
 <li><a class="reference internal" href="#kinesis-video-streams">Kinesis Video Streams</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#publish">Publish</a><ul>
-<li><a class="reference internal" href="#gstreamer">gstreamer</a></li>
-<li><a class="reference internal" href="#ffmpeg">ffmpeg</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#client">Client</a><ul>
-<li><a class="reference internal" href="#id1">gstreamer</a></li>
-<li><a class="reference internal" href="#id2">ffmpeg</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#rtp">RTP</a></li>
+<li><a class="reference internal" href="#client">Client</a></li>
+<li><a class="reference internal" href="#publish">Publish</a></li>
 </ul>
 
           </div>
