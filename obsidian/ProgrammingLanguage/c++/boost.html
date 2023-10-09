@@ -230,11 +230,94 @@
 <section class="tex2jax_ignore mathjax_ignore" id="env">
 <h1>Env<a class="headerlink" href="#env" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">mesonbuild/dependencies/boost.py</span></code></p>
-<section id="boost-root">
-<h2>BOOST_ROOT<a class="headerlink" href="#boost-root" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
-<section id="boost-includedir-and-boost-librarydir">
-<h2>BOOST_INCLUDEDIR and BOOST_LIBRARYDIR<a class="headerlink" href="#boost-includedir-and-boost-librarydir" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="meson-boost-root">
+<h1>meson: BOOST_ROOT<a class="headerlink" href="#meson-boost-root" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>BOOST_INCLUDE を使おう!</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="build">
+<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ b2.exe install --prefix<span class="o">=</span>lib64 address-model<span class="o">=</span><span class="m">64</span> --with-thread --with-date_time --with-timer --with-log
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="o">-</span> <span class="n">atomic</span>                   <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">chrono</span>                   <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">container</span>                <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">context</span>                  <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">contract</span>                 <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">coroutine</span>                <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">date_time</span>                <span class="p">:</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">exception</span>                <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">fiber</span>                    <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">filesystem</span>               <span class="p">:</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">graph</span>                    <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">graph_parallel</span>           <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">headers</span>                  <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">iostreams</span>                <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">json</span>                     <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">locale</span>                   <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">log</span>                      <span class="p">:</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">math</span>                     <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">mpi</span>                      <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">nowide</span>                   <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">program_options</span>          <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">python</span>                   <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">random</span>                   <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">regex</span>                    <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">serialization</span>            <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">stacktrace</span>               <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">system</span>                   <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">test</span>                     <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">thread</span>                   <span class="p">:</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">timer</span>                    <span class="p">:</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">type_erasure</span>             <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">url</span>                      <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+    <span class="o">-</span> <span class="n">wave</span>                     <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
+</pre></div>
+</div>
+<section id="winver">
+<h2>WINVER<a class="headerlink" href="#winver" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/cpp/porting/modifying-winver-and-win32-winnt?view=msvc-170">WINVER および _WIN32_WINNT の更新 | Microsoft Learn</a></p>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>nt</p></th>
+<th class="head"><p>BOOST_USE_WINAPI_VERSION</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>nt5</p></td>
+<td><p>0x0501</p></td>
+</tr>
+<tr class="row-odd"><td><p>nt6</p></td>
+<td><p>0x0600</p></td>
+</tr>
+<tr class="row-even"><td><p>nt62</p></td>
+<td><p>0x0602</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>b2 の後ろにこれ
+<code class="docutils literal notranslate"><span class="pre">define=BOOST_USE_WINAPI_VERSION=0x0602</span></code></p>
+<p>のようにした場合 <code class="docutils literal notranslate"><span class="pre">-D_WIN32_WINNT=0x0501</span></code> となるようで <code class="docutils literal notranslate"><span class="pre">nt5</span></code> というシンボルになるようだ。
+<code class="docutils literal notranslate"><span class="pre">b2</span></code> と <code class="docutils literal notranslate"><span class="pre">project</span></code> で <code class="docutils literal notranslate"><span class="pre">_WIN32_WINNT</span></code> が一致していないと <code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">reference</span></code> になる。</p>
+<p><a class="reference external" href="https://qiita.com/hkuno/items/7b8daa37d9b68e390d7e">WINVER, _WIN32_WINNT の設定値 - Qiita</a></p>
+<p><a class="reference external" href="https://boostjp.github.io/document/version/1_78_0.html#log">Boost 1.78.0リリースノート - boostjp</a></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp"># 0x0602</span>
+<span class="cp">#               if BOOST_USE_WINAPI_VERSION &gt;= BOOST_WINAPI_VERSION_WIN8</span>
+<span class="cp">#                   define BOOST_LOG_VERSION_NAMESPACE v2s_mt_nt62</span>
+<span class="cp">#</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">boost::log::v2s_mt_nt62</span></code></p>
+</section>
+<section id="meson-boost-includedir">
+<h2>meson: BOOST_INCLUDEDIR<a class="headerlink" href="#meson-boost-includedir" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">prefix/include/BOOST_VERSION</span></code>
+一個深い！</p>
+</section>
+<section id="meson-boost-librarydir">
+<h2>meson: BOOST_LIBRARYDIR<a class="headerlink" href="#meson-boost-librarydir" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">prefix/lib</span></code></p>
 </section>
 </section>
 
@@ -275,9 +358,12 @@
 <li><a class="reference internal" href="#id1">1.82</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#env">Env</a><ul>
-<li><a class="reference internal" href="#boost-root">BOOST_ROOT</a></li>
-<li><a class="reference internal" href="#boost-includedir-and-boost-librarydir">BOOST_INCLUDEDIR and BOOST_LIBRARYDIR</a></li>
+<li><a class="reference internal" href="#env">Env</a></li>
+<li><a class="reference internal" href="#meson-boost-root">meson: BOOST_ROOT</a></li>
+<li><a class="reference internal" href="#build">build</a><ul>
+<li><a class="reference internal" href="#winver">WINVER</a></li>
+<li><a class="reference internal" href="#meson-boost-includedir">meson: BOOST_INCLUDEDIR</a></li>
+<li><a class="reference internal" href="#meson-boost-librarydir">meson: BOOST_LIBRARYDIR</a></li>
 </ul>
 </li>
 </ul>

@@ -251,8 +251,9 @@
 </pre></div>
 </div>
 <p>👆
-<code class="docutils literal notranslate"><span class="pre">rtsp://127.0.0.1:8554/test</span></code>
-OK: <code class="docutils literal notranslate"><span class="pre">vlc</span></code></p>
+client OK: <code class="docutils literal notranslate"><span class="pre">vlc</span></code>
+<code class="docutils literal notranslate"><span class="pre">rtsp://127.0.0.1:8554/test</span></code></p>
+<p>client OK: <code class="docutils literal notranslate"><span class="pre">gst</span></code></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gst-launch-1.0 rtspsrc <span class="nv">location</span><span class="o">=</span>rtsp://127.0.0.1:8554/test ! decodebin ! autovideosink
 </pre></div>
 </div>
@@ -272,6 +273,12 @@ OK: <code class="docutils literal notranslate"><span class="pre">vlc</span></cod
 <h1>rtspsrc (client)<a class="headerlink" href="#rtspsrc-client" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://gstreamer.freedesktop.org/documentation/rtsp/rtspsrc.html?gi-language=c">rtspsrc</a></p></li>
+</ul>
+<p>localhost ではだめだった?host名注意！</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rtspsrc location=rtsp://127.0.0.1:8554/mystream ! decodebin ! autovideosink
+</pre></div>
+</div>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">capsfilter</span></code> @2020 <a class="reference external" href="https://senooken.jp/post/2020/11/20/4781/">GStreamerでの映像+音声RTP/RTSPの再生 – Kenchant</a></p></li>
 </ul>
 </section>
