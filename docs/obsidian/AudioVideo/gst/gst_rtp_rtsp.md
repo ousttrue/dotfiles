@@ -26,8 +26,10 @@ auto server = gst_rtsp_server_new();
 $ GST_DEBUG=3. /test-launch '( videotestsrc ! x264enc ! rtph264pay name=pay0 pt=96 )'
 ```
 👆
+client OK: `vlc`
 `rtsp://127.0.0.1:8554/test`
-OK: `vlc`
+
+client OK: `gst`
 ```sh
 $ gst-launch-1.0 rtspsrc location=rtsp://127.0.0.1:8554/test ! decodebin ! autovideosink
 ```
@@ -42,6 +44,11 @@ x264 などのrtspが対応するvideoエンコーディlングが必要(rawは�
 
 # rtspsrc (client)
 - [rtspsrc](https://gstreamer.freedesktop.org/documentation/rtsp/rtspsrc.html?gi-language=c)
+
+localhost ではだめだった?host名注意！
+```
+$ rtspsrc location=rtsp://127.0.0.1:8554/mystream ! decodebin ! autovideosink
+```
 
 - `capsfilter` @2020 [GStreamerでの映像+音声RTP/RTSPの再生 – Kenchant](https://senooken.jp/post/2020/11/20/4781/)
 
