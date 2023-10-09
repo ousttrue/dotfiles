@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>ubuntu - shell note ドキュメント</title>
+        <title>構成 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -224,54 +224,63 @@
 <li><p>@2022 <a class="reference external" href="https://www.gclue.jp/2022/09/gstreamer-webrtc-janus.html">GStreamer から WebRTC Janus に配信を行う</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://www.mikan-tech.net/entry/2020/05/02/173000">Janusで自前のWebRTCビデオチャットサーバー - みかんのゆるふわ技術ブログ</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="ubuntu">
-<h1>ubuntu<a class="headerlink" href="#ubuntu" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[systemd]]</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>% sudo apt install janus
-% systemctl list-unit-files --type=service | grep janus
-janus.service enabled enabled
-
-% dpkg -L janus-demos
-/.
-/usr
-/usr/share
-/usr/share/doc
-/usr/share/doc/janus-demos
-/usr/share/doc/janus-demos/README.Debian
-/usr/share/doc/janus-demos/copyright
-/usr/share/doc/janus-demos/examples
-/usr/share/doc/janus-demos/examples/adminconfig.js
-/usr/share/doc/janus-demos/examples/config.js
-/usr/share/janus
-/usr/share/janus/demos
-
-% sudo apt install nginx
-% ls /var/www/html/
-index.nginx-debian.html
-
-$ sudo mv /var/www/html /var/www/html.bak
-$ sudo ln -s /usr/share/janus/demos /var/www/html
+<p><code class="docutils literal notranslate"><span class="pre">janus</span></code> は server アプリ だが https を host しない。
+https server が必要である( [[WebRTC]] が [[https]] を必須とするため)
+[[docker]] で構築するのがよさそう</p>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>構成<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="n">front</span>
+<span class="o">+-----+</span><span class="n">nginxとか</span>
+<span class="o">|</span><span class="n">https</span><span class="o">|</span>
+<span class="o">+-----+</span>          <span class="o">+-----+</span>
+<span class="n">js</span> <span class="o">-------------&gt;|</span><span class="n">janus</span><span class="o">|</span>
+                 <span class="o">+-----+</span>
 </pre></div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>動かす<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://www.mikan-tech.net/entry/2020/05/02/173000">Janusで自前のWebRTCビデオチャットサーバー - みかんのゆるふわ技術ブログ</a></p></li>
-</ul>
-<p>server, iceServers, token, apiSecrets が供給される仕組み？</p>
+<p>front の js
+server, iceServers, token, apiSecrets が供給される仕組み？</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span>			<span class="nx">janus</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Janus</span><span class="p">(</span>
 				<span class="p">{</span>
 					<span class="nx">server</span><span class="o">:</span> <span class="nx">server</span><span class="p">,</span>
 					<span class="nx">iceServers</span><span class="o">:</span> <span class="nx">iceServers</span><span class="p">,</span>
 					<span class="nx">token</span><span class="o">:</span> <span class="nx">token</span><span class="p">,</span>
-					<span class="nx">apisecret</span><span class="o">:</span> <span class="nx">apisecret</span><span class="p">,</span>
+<span class="nx">j</span>					<span class="nx">apisecret</span><span class="o">:</span> <span class="nx">apisecret</span><span class="p">,</span>
 	
 </pre></div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="demos">
 <h1>demos<a class="headerlink" href="#demos" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">share/janus/demos</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">L</span> <span class="n">janus</span><span class="o">-</span><span class="n">demos</span>
+<span class="o">/.</span>
+<span class="o">/</span><span class="n">usr</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">janus</span><span class="o">-</span><span class="n">demos</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">janus</span><span class="o">-</span><span class="n">demos</span><span class="o">/</span><span class="n">README</span><span class="o">.</span><span class="n">Debian</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">janus</span><span class="o">-</span><span class="n">demos</span><span class="o">/</span><span class="n">copyright</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">janus</span><span class="o">-</span><span class="n">demos</span><span class="o">/</span><span class="n">examples</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">janus</span><span class="o">-</span><span class="n">demos</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">adminconfig</span><span class="o">.</span><span class="n">js</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">janus</span><span class="o">-</span><span class="n">demos</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">config</span><span class="o">.</span><span class="n">js</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">janus</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">janus</span><span class="o">/</span><span class="n">demos</span>
+</pre></div>
+</div>
+<p>Nginx で host する。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+% sudo apt install nginx
+% ls /var/www/html/
+index.nginx-debian.html
+
+j$ sudo mv /var/www/html /var/www/html.bak
+$ sudo ln -s /usr/share/janus/demos /var/www/html
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>@2020 <a class="reference external" href="https://www.mikan-tech.net/entry/2020/05/02/173000">Janusで自前のWebRTCビデオチャットサーバー - みかんのゆるふわ技術ブログ</a></p></li>
+</ul>
 <section id="echotest">
 <h2>echotest<a class="headerlink" href="#echotest" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
@@ -281,9 +290,6 @@ $ sudo ln -s /usr/share/janus/demos /var/www/html
 <ul class="simple">
 <li><p><a class="reference external" href="https://janus.conf.meetecho.com/docs/JS.html">JavaScript API</a></p></li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="build">
-<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="lua-plugin">
 <h1>lua plugin<a class="headerlink" href="#lua-plugin" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -336,14 +342,12 @@ $ sudo ln -s /usr/share/janus/demos /var/www/html
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">ubuntu</a></li>
-<li><a class="reference internal" href="#id1">動かす</a></li>
+<li><a class="reference internal" href="#">構成</a></li>
 <li><a class="reference internal" href="#demos">demos</a><ul>
 <li><a class="reference internal" href="#echotest">echotest</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#janus-js">janus.js</a></li>
-<li><a class="reference internal" href="#build">build</a></li>
 <li><a class="reference internal" href="#lua-plugin">lua plugin</a></li>
 <li><a class="reference internal" href="#js">js</a></li>
 </ul>

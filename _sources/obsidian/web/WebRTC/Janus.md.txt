@@ -4,13 +4,37 @@
 - @2022 [GStreamer から WebRTC Janus に配信を行う](https://www.gclue.jp/2022/09/gstreamer-webrtc-janus.html)
 - @2020 [Janusで自前のWebRTCビデオチャットサーバー - みかんのゆるふわ技術ブログ](https://www.mikan-tech.net/entry/2020/05/02/173000)
 
-# ubuntu
-[[systemd]]
-```
-% sudo apt install janus
-% systemctl list-unit-files --type=service | grep janus
-janus.service enabled enabled
+`janus` は server アプリ だが https を host しない。
+https server が必要である( [[WebRTC]] が [[https]] を必須とするため)
+[[docker]] で構築するのがよさそう
 
+# 構成
+```
+
+front
++-----+nginxとか
+|https|
++-----+          +-----+
+js ------------->|janus|
+                 +-----+
+```
+
+front の js
+server, iceServers, token, apiSecrets が供給される仕組み？
+```js
+			janus = new Janus(
+				{
+					server: server,
+					iceServers: iceServers,
+					token: token,
+j					apisecret: apisecret,
+	
+```
+
+# demos
+`share/janus/demos`
+
+```
 % dpkg -L janus-demos
 /.
 /usr
@@ -24,37 +48,24 @@ janus.service enabled enabled
 /usr/share/doc/janus-demos/examples/config.js
 /usr/share/janus
 /usr/share/janus/demos
+```
+
+Nginx で host する。
+```
 
 % sudo apt install nginx
 % ls /var/www/html/
 index.nginx-debian.html
 
-$ sudo mv /var/www/html /var/www/html.bak
+j$ sudo mv /var/www/html /var/www/html.bak
 $ sudo ln -s /usr/share/janus/demos /var/www/html
 ```
-
-# 動かす
 - @2020 [Janusで自前のWebRTCビデオチャットサーバー - みかんのゆるふわ技術ブログ](https://www.mikan-tech.net/entry/2020/05/02/173000)
 
-server, iceServers, token, apiSecrets が供給される仕組み？
-```js
-			janus = new Janus(
-				{
-					server: server,
-					iceServers: iceServers,
-					token: token,
-					apisecret: apisecret,
-	
-```
-
-# demos
 ## echotest
 
 # janus.js
 - [JavaScript API](https://janus.conf.meetecho.com/docs/JS.html)
-
-# build
-
 
 # lua plugin
 [[lua]]
