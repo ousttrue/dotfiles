@@ -19,6 +19,9 @@ return {
         vim.api.nvim_feedkeys(esc, "nx", false)
         api.toggle.linewise(vim.fn.visualmode())
       end)
+
+      local ft = require "Comment.ft"
+      ft.vala = { "//%s", "/*%s*/" }
     end,
   },
   {
@@ -44,4 +47,5 @@ return {
   },
   -- { "RRethy/vim-illuminate" },
   { "tikhomirov/vim-glsl" },
+  { "vala-lang/vala.vim" },
 }

@@ -1,4 +1,4 @@
-local DOT = require('dot')
+local DOT = require "dot"
 -- local CMP = DOT.safe_require("cmp_nvim_lsp")
 
 local M = {}
@@ -17,9 +17,9 @@ function M.setup()
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
---   if CMP then
---   capabilities = CMP.default_capabilities()
--- end
+  --   if CMP then
+  --   capabilities = CMP.default_capabilities()
+  -- end
   -- print(vim.inspect(capabilities))
 
   require("lspconfig.lua_ls").setup(lspconfig, capabilities, on_attach)
@@ -112,6 +112,10 @@ function M.setup()
   lspconfig.powershell_es.setup {
     bundle_path = dot.get_home() .. "/.vscode/extensions/ms-vscode.powershell-2023.3.3/modules",
   }
+
+  if vim.fn.executable "vala-language-server" == 1 then
+    require("lspconfig").vala_ls.setup {}
+  end
 
   -- lspconfig.fsharp_language_server.setup {}
 

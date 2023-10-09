@@ -1,0 +1,10 @@
+{
+	"id": "link-name-from-url",
+	"name": "Link Name From URL",
+	"version": "1.0.0",
+	"minAppVersion": "0.12.0",
+	"description": "This plugin extracts the name of a link from its URL.",
+	"author": "AlexRazor1337",
+	"authorUrl": "https://github.com/AlexRazor1337",
+	"isDesktopOnly": false
+}

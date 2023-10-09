@@ -20,6 +20,7 @@ function M.setup()
       "go",
       "bash",
       "json",
+      "vala",
 
       "typescript",
       "javascript",

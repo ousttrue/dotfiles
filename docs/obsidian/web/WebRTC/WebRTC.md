@@ -7,6 +7,8 @@
 
 [[SDP]]
 
+- [手動でWebRTCの通信をつなげよう ーWebRTC入門2016 | HTML5Experts.jp](https://html5experts.jp/mganeko/19814/)
+
 - ローカルサーバーの host
 - WebBrowser とそれ以外の相互接続
  

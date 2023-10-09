@@ -7,6 +7,15 @@ return {
       vim.g.neoformat_enabled_html = { "prettier" }
       vim.g.neoformat_enabled_glsl = { "clang-format" }
       vim.g.neoformat_enabled_python = { "black" }
+
+      vim.cmd [[
+let g:neoformat_vala_uc = {
+    \ 'exe': 'uncrustify',
+    \ 'args': ['-c -', '-q', '-l C'],
+    \ 'stdin': 1
+\}
+]]
+      vim.g.neoformat_enabled_vala = { "uc" }
       local function formatter()
         vim.cmd [[:Neoformat]]
       end
@@ -14,6 +23,7 @@ return {
       DOT.formatters.html = formatter
       DOT.formatters.json = formatter
       DOT.formatters.python = formatter
+      DOT.formatters.vala = formatter
     end,
   },
   {
