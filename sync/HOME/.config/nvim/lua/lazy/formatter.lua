@@ -4,39 +4,20 @@ return {
   {
     "sbdchd/neoformat",
     config = function()
-      vim.g.neoformat_enabled_html = { "prettier" }
-      vim.g.neoformat_enabled_glsl = { "clang-format" }
-      vim.g.neoformat_enabled_python = { "black" }
-
-      vim.cmd [[
-let g:neoformat_vala_uc = {
-    \ 'exe': 'uncrustify',
-    \ 'args': ['-c -', '-q', '-l C'],
-    \ 'stdin': 1
-\}
-]]
-      vim.g.neoformat_enabled_vala = { "uc" }
-      local function formatter()
-        vim.cmd [[:Neoformat]]
-      end
-      DOT.formatters.lua = formatter
-      DOT.formatters.html = formatter
-      DOT.formatters.json = formatter
-      DOT.formatters.python = formatter
-      DOT.formatters.vala = formatter
+      require('config.neoformat').setup()
     end,
   },
-  {
-    "rhysd/vim-clang-format",
-    config = function()
-      vim.cmd [[let g:clang_format#command = "C:/Program Files/LLVM/bin/clang-format.exe"]]
-
-      local function formatter()
-        vim.cmd [[:ClangFormat]]
-      end
-      DOT.formatters.glsl = formatter
-    end,
-  },
+  -- {
+  --   "rhysd/vim-clang-format",
+  --   config = function()
+  --     vim.cmd [[let g:clang_format#command = "C:/Program Files/LLVM/bin/clang-format.exe"]]
+  --
+  --     local function formatter()
+  --       vim.cmd [[:ClangFormat]]
+  --     end
+  --     DOT.formatters.glsl = formatter
+  --   end,
+  -- },
   -- {
   --   "google/vim-codefmt",
   --   dependencies = {
