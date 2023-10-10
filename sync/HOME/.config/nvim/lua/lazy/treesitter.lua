@@ -13,16 +13,16 @@ return {
       require("hlargs").setup()
     end,
   },
-  {
-    "kevinhwang91/nvim-ufo",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "kevinhwang91/promise-async",
-    },
-    config = function()
-      require("config.nvim-ufo").setup()
-    end,
-  },
+  -- {
+  --   "kevinhwang91/nvim-ufo",
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "kevinhwang91/promise-async",
+  --   },
+  --   config = function()
+  --     require("config.nvim-ufo").setup()
+  --   end,
+  -- },
   {
     "stevearc/aerial.nvim",
     config = function()

@@ -218,7 +218,7 @@ function electronGetPageTitle(url) {
         }
         catch (ex) {
             console.error(ex);
-            return "Site Unreachable";
+            return `${ex}: Site Unreachable`;
         }
     });
 }
@@ -241,7 +241,7 @@ function nonElectronGetPageTitle(url) {
         }
         catch (ex) {
             console.error(ex);
-            return "Site Unreachable";
+            return `${ex}: Site Unreachable`;
         }
     });
 }
@@ -261,7 +261,7 @@ function tryGetFileType(url) {
             const response = yield fetch(url, { method: "HEAD" });
             // Ensure site returns an ok status code before scraping
             if (!response.ok) {
-                return "Site Unreachable";
+                return `${ex}: Site Unreachable`;
             }
             // Ensure site is an actual HTML page and not a pdf or 3 gigabyte video file.
             let contentType = response.headers.get("content-type");
@@ -479,7 +479,7 @@ class AutoLinkTitle extends obsidian.Plugin {
             }
             catch (error) {
                 // console.error(error)
-                return "Site Unreachable";
+                return `${ex}: Site Unreachable`;
             }
         });
     }

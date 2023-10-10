@@ -4,6 +4,13 @@ return {
   {
     "simeji/winresizer",
   },
+  {
+    "petertriho/nvim-scrollbar",
+    dependencies = "kevinhwang91/nvim-hlslens",
+    config = function()
+      require("config.nvim-scrollbar").setup()
+    end,
+  },
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   {
     "monaqa/dial.nvim",

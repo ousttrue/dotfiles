@@ -38,7 +38,7 @@ amazonlinux:2.0.20200406.0
 [[CentOS]] 7
 - @2019 [コンテナでC言語の開発環境を構築する - Qiita](https://qiita.com/Be-cricket/items/0d6da899045a1cbab3ea#dockerfile)
 
-[[rust]] 1.64~
+[[Rust]] 1.64~
 - @2022 [Increasing the glibc and Linux kernel requirements | Rust Blog](https://blog.rust-lang.org/2022/08/01/Increasing-glibc-kernel-requirements.html)
 
 - @2013 [Arch Linux - News: Update filesystem-2013.01-1 and glibc-2.17-2 together](https://archlinux.org/news/update-filesystem-201301-1-and-glibc-217-2-together/)
