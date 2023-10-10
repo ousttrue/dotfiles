@@ -1,8 +1,8 @@
 # rg
-[[rust]] grep
+[[Rust]] grep
 
 # fd
-[[rust]] find
+[[Rust]] find
 - [ファイル検索ツール fd の使い方メモ](https://zenn.dev/megeton/articles/c408511c66f45d)
 
 # fzf
@@ -12,7 +12,7 @@
 [[golang]]
 
 # bottom
-[[rust]]
+[[Rust]]
 
 # busybox
 [[busybox]]

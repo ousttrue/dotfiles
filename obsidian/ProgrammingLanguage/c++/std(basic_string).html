@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>short string optimization (SSO) - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,74 +218,53 @@
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://linuxjf.osdn.jp/JFdocs/libc-intro.html">Linux C Library (libc) について</a></p>
-<p>[[libc]]</p>
+          <p>[[cpp]] [[natvis]]</p>
 <ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/coord_e/articles/portable-binary-in-rust">Rust でバイナリを配布する</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://maskray.me/blog/2023-06-25-c++-standard-library-abi-compatibility">C++ standard library ABI compatibility | MaskRay</a></p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">libc.so.6</span></code></p>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://sourceware.org/glibc/wiki/Glibc%20Timeline">Glibc Timeline - glibc wiki</a></p></li>
-<li><p><a class="reference external" href="https://www.wdic.org/w/TECH/glibc">glibc ‐ 通信用語の基礎知識</a></p></li>
-<li><p><a class="reference external" href="https://wiki.onakasuita.org/pukiwiki/?glibc%2F%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3">glibc/バージョン - おなかすいたWiki！</a></p></li>
-</ul>
-<section id="id1">
-<h2>2.35<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>[[Ubuntu]] <code class="docutils literal notranslate"><span class="pre">22.04</span></code></p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="short-string-optimization-sso">
+<h1>short string optimization (SSO)<a class="headerlink" href="#short-string-optimization-sso" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>@2022 <a class="reference external" href="https://zenn.dev/tenka/articles/string_max_size_without_memory_allocation">std::string でメモリーアロケートが発生しない最大バイト数</a></p>
 </section>
-<section id="id2">
-<h2>2.34<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="libc">
+<h1>libc++<a class="headerlink" href="#libc" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="std-u8string">
+<h2>std::u8string<a class="headerlink" href="#std-u8string" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>[[zig]] <code class="docutils literal notranslate"><span class="pre">0.11</span></code></p></li>
+<li><p><a class="reference external" href="https://eu90h.github.io/cpp-strings.html">C++ String Layouts</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/21694302/what-are-the-mechanics-of-short-string-optimization-in-libc">c++ - What are the mechanics of short string optimization in libc++? - Stack Overflow</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://www.sobyte.net/post/2022-08/libcpp-string/">Implementation of string in libc++ - SoByte</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://joellaity.com/2020/01/31/string.html">libc++’s implementation of std::string | Joel Laity</a></p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">error</span><span class="p">:</span> <span class="n">zig</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">yet</span> <span class="n">provide</span> <span class="n">glibc</span> <span class="n">version</span> <span class="mf">2.35</span><span class="p">,</span> <span class="n">the</span> <span class="nb">max</span> <span class="n">provided</span> <span class="n">version</span> <span class="ow">is</span> <span class="mf">2.34</span>
-<span class="n">error</span><span class="p">:</span> <span class="n">unable</span> <span class="n">to</span> <span class="n">build</span> <span class="n">glibc</span> <span class="n">shared</span> <span class="n">objects</span><span class="p">:</span> <span class="n">InvalidTargetGLibCVersion</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>  <span class="nt">&lt;Type</span> <span class="na">Name=</span><span class="s">"std::__1::basic_string&amp;lt;char8_t,*&amp;gt;"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Intrinsic</span> <span class="na">Name=</span><span class="s">"is_long"</span>
+        <span class="na">Expression=</span><span class="s">"*(((char*)this)) &amp;amp; 0x01"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;DisplayString</span> <span class="na">Condition=</span><span class="s">"is_long()"</span><span class="nt">&gt;</span>{*(((char8_t**)this)+2),s8}<span class="nt">&lt;/DisplayString&gt;</span>
+    <span class="nt">&lt;DisplayString</span> <span class="na">Condition=</span><span class="s">"!is_long()"</span><span class="nt">&gt;</span>{((char8_t*)this)+1,s8}<span class="nt">&lt;/DisplayString&gt;</span>
+    <span class="nt">&lt;Expand&gt;</span>
+      <span class="nt">&lt;Item</span> <span class="na">Name=</span><span class="s">"[is_long]"</span><span class="nt">&gt;</span>is_long()<span class="nt">&lt;/Item&gt;</span>
+      <span class="cm">&lt;!-- &lt;Item Name="[size]" Condition="is_long()" --&gt;</span>
+      <span class="cm">&lt;!--     ExcludeView="simple"&gt;((size_t*)this)[1]&lt;/Item&gt; --&gt;</span>
+      <span class="cm">&lt;!-- &lt;Item Name="[size]" Condition="!is_long()" --&gt;</span>
+      <span class="cm">&lt;!--     ExcludeView="simple"&gt;*(((char*)this))&lt;/Item&gt; --&gt;</span>
+      <span class="cm">&lt;!-- &lt;Item Name="[capacity]" Condition="is_long()" ExcludeView="simple"&gt; --&gt;</span>
+      <span class="cm">&lt;!--   ((size_t*)this)[2] &amp;amp; (~((size_t)0) &amp;gt;&amp;gt; 1) --&gt;</span>
+      <span class="cm">&lt;!-- &lt;/Item&gt; --&gt;</span>
+      <span class="cm">&lt;!-- &lt;Item Name="[capacity]" Condition="!is_long()" --&gt;</span>
+      <span class="cm">&lt;!--     ExcludeView="simple"&gt;22&lt;/Item&gt; --&gt;</span>
+      <span class="cm">&lt;!-- &lt;ArrayItems&gt; --&gt;</span>
+      <span class="cm">&lt;!--   &lt;Size Condition="is_long()"&gt;((size_t*)this)[1]&lt;/Size&gt; --&gt;</span>
+      <span class="cm">&lt;!--   &lt;Size Condition="!is_long()"&gt; --&gt;</span>
+      <span class="cm">&lt;!--     *(((char*)this) + 3*sizeof(size_t) - 1) --&gt;</span>
+      <span class="cm">&lt;!--   &lt;/Size&gt; --&gt;</span>
+      <span class="cm">&lt;!--   &lt;ValuePointer Condition="is_long()"&gt;*(char**)this&lt;/ValuePointer&gt; --&gt;</span>
+      <span class="cm">&lt;!--   &lt;ValuePointer Condition="!is_long()"&gt;(char*)this&lt;/ValuePointer&gt; --&gt;</span>
+      <span class="cm">&lt;!-- &lt;/ArrayItems&gt; --&gt;</span>
+    <span class="nt">&lt;/Expand&gt;</span>
+  <span class="nt">&lt;/Type&gt;</span>
 </pre></div>
 </div>
 </section>
-<section id="id3">
-<h2>2.31<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Debian 11 Bullseye</p>
-</section>
-<section id="id4">
-<h2>2.28<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Debian 10 Buster</p>
-</section>
-<section id="id5">
-<h2>2.26<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>amazonlinux:2.0.20200406.0</p>
-</section>
-<section id="id6">
-<h2>2.17<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">x86_64-linux-gnu.2.17</span></code></p>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://qiita.com/matsumoto_sp/items/fc3d4d698bba4eb7b534">glibc のバージョンアップでアプリケーションが動かなくなった件 - Qiita</a>
-[[CentOS]] 7</p></li>
-<li><p>@2019 <a class="reference external" href="https://qiita.com/Be-cricket/items/0d6da899045a1cbab3ea#dockerfile">コンテナでC言語の開発環境を構築する - Qiita</a></p></li>
-</ul>
-<p>[[Rust]] 1.64~</p>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://blog.rust-lang.org/2022/08/01/Increasing-glibc-kernel-requirements.html">Increasing the glibc and Linux kernel requirements | Rust Blog</a></p></li>
-<li><p>@2013 <a class="reference external" href="https://archlinux.org/news/update-filesystem-201301-1-and-glibc-217-2-together/">Arch Linux - News: Update filesystem-2013.01-1 and glibc-2.17-2 together</a></p></li>
-</ul>
-<section id="zig">
-<h3>zig<a class="headerlink" href="#zig" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://andrewkelley.me/post/zig-cc-powerful-drop-in-replacement-gcc-clang.html"><code class="docutils literal notranslate"><span class="pre">zig</span> <span class="pre">cc</span></code>: a Powerful Drop-In Replacement for GCC/Clang - Andrew Kelley</a></p></li>
-<li><p><a class="reference external" href="https://github.com/ziglang/zig/issues/10840">use RHEL 7 / CentOs 7 as the baseline glibc version rather than oldest Debian under LTS · Issue #10840 · ziglang/zig · GitHub</a></p></li>
-</ul>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="build">
-<h1>別バージョンの build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="http://ryouto.jp/linux/linux_58.html">それ行けLinux～Glibc2環境の構築～</a></p></li>
-</ul>
 </section>
 
         </article>
@@ -301,7 +280,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/OS/Linux/glibc2.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/c++/std(basic_string).md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -321,19 +300,11 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">2.35</a></li>
-<li><a class="reference internal" href="#id2">2.34</a></li>
-<li><a class="reference internal" href="#id3">2.31</a></li>
-<li><a class="reference internal" href="#id4">2.28</a></li>
-<li><a class="reference internal" href="#id5">2.26</a></li>
-<li><a class="reference internal" href="#id6">2.17</a><ul>
-<li><a class="reference internal" href="#zig">zig</a></li>
+<li><a class="reference internal" href="#">short string optimization (SSO)</a></li>
+<li><a class="reference internal" href="#libc">libc++</a><ul>
+<li><a class="reference internal" href="#std-u8string">std::u8string</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a class="reference internal" href="#build">別バージョンの build</a></li>
 </ul>
 
           </div>

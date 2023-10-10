@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>Gtk3.GLArea - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,80 +212,35 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://linuxjf.osdn.jp/JFdocs/libc-intro.html">Linux C Library (libc) について</a></p>
-<p>[[libc]]</p>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/coord_e/articles/portable-binary-in-rust">Rust でバイナリを配布する</a></p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">libc.so.6</span></code></p>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://sourceware.org/glibc/wiki/Glibc%20Timeline">Glibc Timeline - glibc wiki</a></p></li>
-<li><p><a class="reference external" href="https://www.wdic.org/w/TECH/glibc">glibc ‐ 通信用語の基礎知識</a></p></li>
-<li><p><a class="reference external" href="https://wiki.onakasuita.org/pukiwiki/?glibc%2F%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3">glibc/バージョン - おなかすいたWiki！</a></p></li>
-</ul>
-<section id="id1">
-<h2>2.35<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>[[Ubuntu]] <code class="docutils literal notranslate"><span class="pre">22.04</span></code></p></li>
-</ul>
-</section>
-<section id="id2">
-<h2>2.34<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>[[zig]] <code class="docutils literal notranslate"><span class="pre">0.11</span></code></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">error</span><span class="p">:</span> <span class="n">zig</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">yet</span> <span class="n">provide</span> <span class="n">glibc</span> <span class="n">version</span> <span class="mf">2.35</span><span class="p">,</span> <span class="n">the</span> <span class="nb">max</span> <span class="n">provided</span> <span class="n">version</span> <span class="ow">is</span> <span class="mf">2.34</span>
-<span class="n">error</span><span class="p">:</span> <span class="n">unable</span> <span class="n">to</span> <span class="n">build</span> <span class="n">glibc</span> <span class="n">shared</span> <span class="n">objects</span><span class="p">:</span> <span class="n">InvalidTargetGLibCVersion</span>
+          <section class="tex2jax_ignore mathjax_ignore" id="gtk3-glarea">
+<h1>Gtk3.GLArea<a class="headerlink" href="#gtk3-glarea" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">mingw</span></code> で動いた
+<a class="reference external" href="https://github.com/AstraLuma/gltutorial-vala">GitHub - AstraLuma/gltutorial-vala: Following along http://www.opengl-tutorial.org/beginners-tutorials/ in vala</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="p">(</span><span class="s1">'gltutorial'</span><span class="p">,</span> <span class="s1">'vala'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">)</span>
+
+<span class="n">vapi_dir</span> <span class="o">=</span> <span class="n">meson</span><span class="o">.</span><span class="n">current_source_dir</span><span class="p">()</span> 
+<span class="n">add_project_arguments</span><span class="p">([</span><span class="s1">'--vapidir'</span><span class="p">,</span> <span class="n">vapi_dir</span><span class="p">],</span> <span class="n">language</span><span class="p">:</span> <span class="s1">'vala'</span><span class="p">)</span>
+
+<span class="n">executable</span><span class="p">(</span><span class="s1">'gltest'</span><span class="p">,</span> <span class="s1">'gltest.vala'</span><span class="p">,</span>
+  <span class="n">install</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+  <span class="n">dependencies</span><span class="p">:</span> <span class="p">[</span>
+    <span class="n">dependency</span><span class="p">(</span><span class="s1">'gtk+-3.0'</span><span class="p">),</span>
+    <span class="n">dependency</span><span class="p">(</span><span class="s1">'gl'</span><span class="p">),</span>
+    <span class="n">dependency</span><span class="p">(</span><span class="s1">'glew'</span><span class="p">),</span>
+    <span class="n">dependency</span><span class="p">(</span><span class="s1">'gio-2.0'</span><span class="p">),</span>
+    <span class="n">dependency</span><span class="p">(</span><span class="s1">'graphene-1.0'</span><span class="p">),</span>
+    <span class="p">],</span>
+  <span class="n">vala_args</span><span class="p">:</span> <span class="p">[</span><span class="s1">'--pkg'</span><span class="p">,</span> <span class="s1">'gl'</span><span class="p">],</span>
+  <span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="id3">
-<h2>2.31<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Debian 11 Bullseye</p>
-</section>
-<section id="id4">
-<h2>2.28<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Debian 10 Buster</p>
-</section>
-<section id="id5">
-<h2>2.26<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>amazonlinux:2.0.20200406.0</p>
-</section>
-<section id="id6">
-<h2>2.17<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">x86_64-linux-gnu.2.17</span></code></p>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://qiita.com/matsumoto_sp/items/fc3d4d698bba4eb7b534">glibc のバージョンアップでアプリケーションが動かなくなった件 - Qiita</a>
-[[CentOS]] 7</p></li>
-<li><p>@2019 <a class="reference external" href="https://qiita.com/Be-cricket/items/0d6da899045a1cbab3ea#dockerfile">コンテナでC言語の開発環境を構築する - Qiita</a></p></li>
-</ul>
-<p>[[Rust]] 1.64~</p>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://blog.rust-lang.org/2022/08/01/Increasing-glibc-kernel-requirements.html">Increasing the glibc and Linux kernel requirements | Rust Blog</a></p></li>
-<li><p>@2013 <a class="reference external" href="https://archlinux.org/news/update-filesystem-201301-1-and-glibc-217-2-together/">Arch Linux - News: Update filesystem-2013.01-1 and glibc-2.17-2 together</a></p></li>
-</ul>
-<section id="zig">
-<h3>zig<a class="headerlink" href="#zig" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://andrewkelley.me/post/zig-cc-powerful-drop-in-replacement-gcc-clang.html"><code class="docutils literal notranslate"><span class="pre">zig</span> <span class="pre">cc</span></code>: a Powerful Drop-In Replacement for GCC/Clang - Andrew Kelley</a></p></li>
-<li><p><a class="reference external" href="https://github.com/ziglang/zig/issues/10840">use RHEL 7 / CentOs 7 as the baseline glibc version rather than oldest Debian under LTS · Issue #10840 · ziglang/zig · GitHub</a></p></li>
-</ul>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="build">
-<h1>別バージョンの build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="http://ryouto.jp/linux/linux_58.html">それ行けLinux～Glibc2環境の構築～</a></p></li>
-</ul>
+<p>TODO: glib-compile-resources</p>
 </section>
 
         </article>
@@ -301,7 +256,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/OS/Linux/glibc2.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/vala/vala_opengl.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -309,36 +264,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">2.35</a></li>
-<li><a class="reference internal" href="#id2">2.34</a></li>
-<li><a class="reference internal" href="#id3">2.31</a></li>
-<li><a class="reference internal" href="#id4">2.28</a></li>
-<li><a class="reference internal" href="#id5">2.26</a></li>
-<li><a class="reference internal" href="#id6">2.17</a><ul>
-<li><a class="reference internal" href="#zig">zig</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#build">別バージョンの build</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
