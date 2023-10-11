@@ -40,10 +40,10 @@ function M.setup()
     exe = muon,
     args = {
       "fmt",
-      "-i",
-      "%:p",
+      -- "-i",
     },
-    replace = 1,
+    -- replace = 1,
+    valid_exit_codes = { 0 },
   }
   vim.g.neoformat_enabled_meson = { "muon" }
 
