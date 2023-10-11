@@ -11,7 +11,8 @@
 
 - ローカルサーバーの host
 - WebBrowser とそれ以外の相互接続
- 
+
+
 # RTCPeerConnection
 - @2019 [addTransceiver() と addTrack() の使い分け - console.lealog();](https://lealog.hateblo.jp/entry/2019/03/12/114529)
 
