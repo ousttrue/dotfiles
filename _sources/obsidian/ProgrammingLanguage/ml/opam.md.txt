@@ -7,6 +7,7 @@
 
 # Version
 ## 2.2.0 alpha
+- @2023 [opam - Platform Blog](https://opam.ocaml.org/blog/opam-2-2-0-alpha2/)
 
 ## 2.1.5
 
