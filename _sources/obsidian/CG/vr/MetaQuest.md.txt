@@ -21,3 +21,12 @@
 
 ## 28
 - [Oculus Quest 2と物理キーボード｜nuwaa](https://note.com/nuwaa/n/n83fd5f3bca4b)
+
+# Device
+## Quest3
+[[snapdragon]] `Qualcomm Snapdragon XR2 Gen 2`
+- @2023 [ついにここまで来たMR体験！「Meta Quest 3」のパススルー画質は3倍アップで歴代最強だった](https://pc.watch.impress.co.jp/docs/column/hothot/1537610.html)
+
+## QuestPro
+
+## Quest2
