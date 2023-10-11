@@ -31,9 +31,13 @@ aliases: [LanguageServerProtocol]
 - ⭐@2021 [VSCode用の言語サーバ拡張機能をPythonでつくってみた - Qiita](https://qiita.com/www-tacos/items/23e63c4572c9f52b9825)
 
 ## golang
-- [[efm-languageserver]]
+
 - @2020 [すべてのエディタでSQLの自動補完をするためにSQL Language Server(sqls)を作った - Qiita](https://qiita.com/lighttiger2505/items/5782debc59ae163a4d81)
 	- [Golangで作るSQL Language Server(sqls) - Speaker Deck](https://speakerdeck.com/lighttiger2505/golangdezuo-rusql-language-server-sqls)
+
+# linter & formatter
+- [[efm-languageserver]]
+- [GitHub - iamcco/diagnostic-languageserver: diagnostic language server integrate with linters](https://github.com/iamcco/diagnostic-languageserver)
 
 # client
 client を開始し、server を起動する。

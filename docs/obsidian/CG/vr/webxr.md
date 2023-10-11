@@ -32,9 +32,7 @@ true が返らずに詰む
 
 ```
 
-# WebRTC
-[[WebRTC]]
-- [WebRTC+WebXR でVRリモートデスクトップ - Qiita](https://qiita.com/binzume/items/52a4f4be5c316753e1b1)
+
 
 # featrure
 ## handtracking

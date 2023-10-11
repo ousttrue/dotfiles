@@ -1,5 +1,5 @@
 [[webxr]] [[WebRTC]] [[https]]
 
-どちらも https が必須。
-`nginx` 等 host する手順をまとめる。
+[GitHub - binzume/vr-workspace: WebXR workspace](https://github.com/binzume/vr-workspace)
 
+- @2022 [WebRTC+WebXR でVRリモートデスクトップ - Qiita](https://qiita.com/binzume/items/52a4f4be5c316753e1b1)

@@ -4,6 +4,9 @@
 ## 19
 ## 18
 
+# ubuntu
+- @2018 [とりあえず Ubuntu で新しい Node.js, npm をインストール - Qiita](https://qiita.com/kerupani129/items/60ee8c8becc2fe9f0d28)
+
 # CUI
 - `process.argv`
 
