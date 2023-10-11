@@ -43,6 +43,7 @@ return {
       "folke/neodev.nvim",
       -- "rcarriga/nvim-notify",
       -- "b0o/schemastore.nvim",
+      "creativenull/efmls-configs-nvim",
     },
   },
   -- { "RRethy/vim-illuminate" },

@@ -1,4 +1,4 @@
-[[lua]]
+[[lua]] [[rockspec]]
 
 [LuaRocks - The Lua package manager](https://luarocks.org/)
 
@@ -62,6 +62,9 @@ $ make install
 `$HOME/.luarocks/bin/`
 
 # per-project
+
+# luajit-rocks
+https://qiita.com/suzuryo3893/items/bd7685ea49ac81bad6f3
 
 # hererocks
 - [GitHub - luarocks/hererocks: Python script for installing Lua/LuaJIT and LuaRocks into a local directory](https://github.com/luarocks/hererocks)

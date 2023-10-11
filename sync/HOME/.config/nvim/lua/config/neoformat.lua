@@ -50,7 +50,7 @@ function M.setup()
   local function formatter()
     vim.cmd [[:Neoformat]]
   end
-  DOT.formatters.lua = formatter
+  -- DOT.formatters.lua = formatter
   DOT.formatters.html = formatter
   DOT.formatters.json = formatter
   DOT.formatters.python = formatter

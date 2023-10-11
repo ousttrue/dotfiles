@@ -48,3 +48,4 @@ console.log(value);
 - [LuaをWebAssemblyにコンパイルして実行する話 - blog::wnotes.net](https://blog.wnotes.net/posts/webassembly-lua/)
 - [Build your own WebAssembly Compiler](https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html)
 - [Modules — WebAssembly 2.0 (Draft 2022-08-11)](https://webassembly.org/docs/modules/)
+

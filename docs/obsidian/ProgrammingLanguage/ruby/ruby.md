@@ -7,7 +7,8 @@
 # version
 [Ruby のリリース一覧](https://www.ruby-lang.org/ja/downloads/releases/)
 ## 3.2
-- @2022
+- @2022 [Rubyを手軽にブラウザ上で動かすことが可能に　WebAssemblyを使って解消する、Rubyの動作環境問題 - ログミーTech](https://logmi.jp/tech/articles/327678)
+
 ## 3.1
 - @2021 [サンプルコードでわかる！Ruby 3.1の主な新機能と変更点 - Qiita](https://qiita.com/jnchito/items/bcd9b7f59bf4b30ea5b3)
 ### YJIT

@@ -7,6 +7,16 @@
 [Lua: documentation](https://www.lua.org/docs.html)
 - [LabLua - Programming Language Research](http://www.lua.inf.puc-rio.br/publications.html)
 
+# memo
+`Windows`
+- D:/msys64/mingw64/bin/luajit.exe
+- C:/neovim
+- C:/luarocks
+- PATH=D:/msys64/mingw64/bin;BUILD/mingw64/bin
+- LUA_PATH
+- LUA_CPATH
+- GTK4/GST
+
 # articles
 - [Tags - lilyum ensemble](https://nymphium.github.io/tags.html#Lua-ref)
 
