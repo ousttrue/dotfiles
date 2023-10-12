@@ -67,3 +67,14 @@ vscode
 
 [* overlay]
 https://github.com/microsoft/vcpkg/blob/master/docs/specifications/ports-overlay.md
+
+# openssl:x64-windows-static
+```
+Elapsed time to handle openssl:x64-windows-static: 3.7 min
+Total install time: 3.7 min
+The package openssl is compatible with built-in CMake targets:
+
+    find_package(OpenSSL REQUIRED)
+    target_link_libraries(main PRIVATE OpenSSL::SSL OpenSSL::Crypto)
+	
+```
