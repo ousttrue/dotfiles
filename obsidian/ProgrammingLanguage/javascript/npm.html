@@ -228,6 +228,32 @@
 <h2>12<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="package-json">
+<h1>package.json<a class="headerlink" href="#package-json" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://qiita.com/fj_yohei/items/0b7fc2bc826df23935db">package.jsonにおけるdependenciesとdevDependenciesの違い(超シンプルに) - Qiita</a></p></li>
+</ul>
+<section id="dependencies">
+<h2>dependencies<a class="headerlink" href="#dependencies" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<blockquote>
+<div><p>実行において依存する</p>
+</div></blockquote>
+<p>実行とは？<code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">XXX.js</span></code> のことぽい？
+即ち server の依存。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">socket</span><span class="o">.</span><span class="n">io</span> <span class="o">--</span><span class="n">save</span>
+</pre></div>
+</div>
+</section>
+<section id="devdependencies">
+<h2>devDependencies<a class="headerlink" href="#devdependencies" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<blockquote>
+<div><p>テストやタスクランナー系</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">socket</span><span class="o">.</span><span class="n">io</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+</section>
+</section>
 
         </article>
       </div>
@@ -265,6 +291,11 @@
 <li><a class="reference internal" href="#">version</a><ul>
 <li><a class="reference internal" href="#id1">20</a></li>
 <li><a class="reference internal" href="#id2">12</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#package-json">package.json</a><ul>
+<li><a class="reference internal" href="#dependencies">dependencies</a></li>
+<li><a class="reference internal" href="#devdependencies">devDependencies</a></li>
 </ul>
 </li>
 </ul>

@@ -1,7 +1,8 @@
 ---
-aliases: [UltraLeap]
+aliases:
+  - UltraLeap
 ---
-[[Ultraleap3Di]]
+
 
 [[XR_EXT_hand_tracking]]
 [[MotionCapture]]
@@ -15,6 +16,11 @@ aliases: [UltraLeap]
 # Version
 https://developer.leapmotion.com/releases/
 
+|version|websocket|3di|
+|-|-|-|
+|4(orion)|ok|x|
+|5(gemini)|x|ok|
+
 ## 5.7.2 Gemini
 gemini ?
 
@@ -22,6 +28,28 @@ gemini ?
 	4.4
 	4.3.4
 
+# hardware
+## controller2
+- [11年ぶりの新型 ハンドトラッキング用デバイス「Leap Motion Controller 2」が発表 - Mogura VR News](https://www.moguravr.com/leap-motion-controller-2-announcements/)
+
+## 3di
+## leapmotion
+`@2012`
+
+# websocket daemon
+`ws://localhost:6437`
+
+- @2022 [バニラな JavaScript や p5.js で Leap Motion の情報を取得する（leap.js ではなく WebSocket を利用） - Qiita](https://qiita.com/youtoy/items/efc4da1feee26186f565)
+- @2013 [LeapMotionのモーション情報をJavaScriptで取得する仕組み - Intelligent Technology's Technical Blog](https://iti.hatenablog.jp/entry/2013/11/28/172240)
+- [GitHub - leapmotion/leapjs: JavaScript client for the Leap Motion Controller](https://github.com/leapmotion/leapjs)
+
+## aframe
+- [GitHub - openleap/aframe-leap-hands: A-Frame VR component for Leap Motion.](https://github.com/openleap/aframe-leap-hands)
+
+## server
+- https://gist.github.com/jselstad/6c6cbbb558e0b1858baab185eb764960
+
+# dev
 - [Leap Motion C API: LeapC Guide](https://developer.leapmotion.com/documentation/v4/index.html)
 - [Leap Motion C API: 3D Drawing Example](https://developer.leapmotion.com/documentation/v4/glut-example.html)
 
@@ -61,3 +89,124 @@ https://developer.leapmotion.com/documentation/v4/index.html
 - [GitHub - seanschneeweiss/RoSeMotion: Hand Motion Capture from a 3D Leap Motion Controller for a Musculoskeletal Dynamic Simulation implemented in Python](https://github.com/seanschneeweiss/RoSeMotion)
 
 
+
+
+
+# LEAP_CONNECTION_MESSAGE
+```c++
+void serviceMessageLoop(){
+	LEAP_CONNECTION_MESSAGE msg;
+	while(_isRunning){
+		unsigned int timeout = 1000;
+		auto result = LeapPollConnection(connectionHandle, timeout, &msg);
+		//Handle message
+	}
+}
+```
+
+@2019 `v4` [LeapMotion SDK スタートアップ (C API / v4) - Qiita](https://qiita.com/moccos/items/0aa986714df58fb837d0)
+
+# types
+`LeapC.h`
+```c
+struct LEAP_FRAME_HEADER {
+	void* reserved;
+	int64_t frame_id;
+	int64_t timestamp;
+}
+```
+
+## LEAP_TRACKING_EVENT
+```c
+struct LEAP_TRACKING_EVENT {
+	LEAP_FRAME_HEADER info;
+	int64_t tracking_frame_id;
+	uint32_t nHands;
+	LEAP_HAND* pHands;
+	float framerate;
+};
+```
+
+## LEAP_HAND
+```c
+enum eLeapHandType {
+  eLeapHandType_Left,
+  eLeapHandType_Right
+};
+
+struct LEAP_HAND
+{
+	uint32_t id;
+	eLeapHandType type;
+
+	LEAP_DIGIT thumb;
+	LEAP_DIGIT index;
+	LEAP_DIGIT middle;
+	LEAP_DIGIT ring;
+	LEAP_DIGIT pinky;
+	LEAP_BONE arm;
+	LEAP_PALM palm;
+};
+```
+
+## LEAP_DIGIT
+指
+```c
+struct LEAP_DIGIT
+{
+	LEAP_BONE metacarpal;
+	LEAP_BONE proximal;
+	LEAP_BONE intermediate;
+	LEAP_BONE distal;
+};
+```
+
+## LEAP_BONE
+```c
+struct LEAP_BONE
+{
+	LEAP_VECTOR prev_joint;
+	LEAP_VECTOR next_joint;
+	float width;
+	LEAP_QUATERNION rotation;
+};
+
+struct LEAP_VECTOR
+{
+	float x;
+	float y;
+	float z;
+};
+```
+
+## LEAP_PALM
+```c
+struct LEAP_PALM
+{
+	LEAP_VECTOR position;
+	LEAP_VECTOR stabilized_position;
+	LEAP_VECTOR velocity;
+	LEAP_VECTOR normal;
+	float width;
+	LEAP_VECTOR direction;
+	LEAP_QUATERNION orientation;
+};
+```
+
+# eLeapEventType
+## Connection
+## ConnectionLost
+## Device
+## DeviceFailure
+## DeviceLost
+
+## Tracking
+=> `LEAP_TRACKING_EVENT`
+
+
+[[LeapMotion|UltraLeap]]
+
+- @2022 [Ultraleap 3Diを試してみた | 1→10 lab / ワンテンラボ](https://labs.1-10.com/2022/05/ultraleap-3di%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/)
+- @2022 [【比較動画あり】「UltraLeap 3Di」と「Leap Motion Controller」をVTuberが比較レビュー。より便利になった使い心地をチェック！ - MoguLive](https://www.moguravr.com/ultraleap-3di-leap-motion-controller-comparative-review/)
+- @2022 [Ultraleap 3Diを試してみた | 1→10 lab / ワンテンラボ](https://labs.1-10.com/2022/05/ultraleap-3di%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/)
+- @2022 [Leap Motion最新モデル「Ultraleap 3Di -ステレオハンドトラッキングカメラ-」がAmazonにて販売開始 | V-Tuber ZERO](https://vtub0.com/news/48851)	

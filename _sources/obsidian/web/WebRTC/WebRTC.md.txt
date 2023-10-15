@@ -1,5 +1,7 @@
 `Web Real-Time Communication`
 
+[[WebRTC_signaling]]
+
 - [WebRTC API - Web API | MDN](https://developer.mozilla.org/ja/docs/Web/API/WebRTC_API)
 
 - @2022 [WebRTC を今から学ぶ人に向けて](https://zenn.dev/voluntas/scraps/82b9e111f43ab3)
@@ -13,6 +15,9 @@
 
 - ローカルサーバーの host
 - WebBrowser とそれ以外の相互接続
+
+
+
 
 
 # RTCPeerConnection
@@ -110,3 +115,5 @@ const senderConnection = new RTCPeerConnection({
 DTLS（Datagram Transport Layer Security）
 ## SRTP
 SRTP（Secure Real-time Transport Protocol）
+
+https://dslab.work/2019/04/25/post-119/

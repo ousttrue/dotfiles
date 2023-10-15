@@ -1,3 +1,10 @@
+# 仕様的に ssl が必要なところ
+## device へのアクセス
+- webcam => [[WebRTC]]
+- vr機器 => [[webxr]]
+
+## https からの websocket(wss) ?
+よくわからん。不明
 
 # local
 - @2022 [ローカル環境でもHTTPS接続する理由と方法 | フロントエンドBlog | ミツエーリンクス](https://www.mitsue.co.jp/knowledge/blog/frontend/202208/30_1021.html)

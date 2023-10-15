@@ -11,6 +11,15 @@ standard 未実装？
 ## 0.15
 スタンドアロンの lua から動くようにして lua のデバッガをアタッチできないか？
 
+# non VR
+カメラ？
+
+# dll build
+l
+```
+cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release -DLOVR_BUILD_SHARED=ON
+```
+
 # samples
 - [GitHub - bjornbytes/lovr-docs: Documentation for LÖVR](https://github.com/bjornbytes/lovr-docs)
 

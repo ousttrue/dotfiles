@@ -101,3 +101,6 @@ slandalone lua の `-e` オプションを追加するのが良いか？
 # imgui
 ## cimgui
 - [GitHub - apicici/cimgui-love: LÖVE module for Dear ImGui obtained by wrapping cimgui with LuaJIT FFI.](https://github.com/apicici/cimgui-love)
+
+# dll
+- [Loadable love in Lua · GitHub](https://gist.github.com/markandgo/dfa7d4c1fc7b81da2ed5)
