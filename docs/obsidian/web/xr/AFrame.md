@@ -2,6 +2,10 @@
 
 > three.js framework
 
+[Progressive Enhancement in A-Frame | by James Luong | Medium](https://medium.com/@jamesluong23/progressive-enhancement-in-a-frame-f76610b2c7cb)
+[GitHub - jluong23/aframe-cityscape: A basic XR cityscape to explore](https://github.com/jluong23/aframe-cityscape)
+
+
 [A-Frame – Make WebVR](https://aframe.io/)
 - [A-Frameを使った基本的なデモの作成 - ゲーム開発 | MDN](https://developer.mozilla.org/ja/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_A-Frame)
 - [Tutorial: How to Make WebXR Games With A-Frame | by Matt Nutsch | Medium](https://medium.com/@mattnutsch/tutorial-how-to-make-webxr-games-with-a-frame-eedd98613a88)
@@ -17,6 +21,12 @@
 @202301
 - [A-Frame 1.4.0 - Custom elements V1, Oculus Quest Pro support, tons of fixes and improvements – A-Frame](https://aframe.io/blog/aframe-v1.4.0/)
 - [Entity – A-Frame](https://aframe.io/docs/1.4.0/core/entity.html)
+
+# inspector
+`ctrl-alt-i`
+
+# ECS
+[AFrame調査](https://zenn.dev/iwaken71/scraps/04c23a74c6b43d)
 
 # NAF
 - [ここまで来た！今だからこそ押さえておきたいA-Frame - じゅころぐAR](https://www.jyuko49.com/entry/2021/12/14/115950)
@@ -34,3 +44,9 @@
 
 # room
 [GitHub - omgitsraven/aframe-room-component: An A-Frame component for laying out simple rooms connected by doors.](https://github.com/omgitsraven/aframe-room-component)
+
+# GIS
+[A-Frameで街歩き - Qiita](https://qiita.com/Takayuki_Kawajiri/items/bba54a64c20c4b1d53c2)
+
+# leapmotion
+[GitHub - openleap/aframe-leap-hands: A-Frame VR component for Leap Motion.](https://github.com/openleap/aframe-leap-hands)

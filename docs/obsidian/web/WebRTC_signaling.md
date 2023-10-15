@@ -1,3 +1,15 @@
+難易度的に次の順に実験するとよい
+- 手動 datachannel(sdp と iceCandidate をまとめてコピペする)
+- websocket datachannel(sdp と iceCandidate を別々に送る)
+- https + websocket datachannel
+- https + websocket mediachannel
+- https + websocket mediachannel + stan (NAT越え。必要であれば)
+
+media (webcam) へのアクセスに https が要求されるため、
+- https + 手動 mediachannel
+から始めることになり、これはわりと手順が長くなる。
+あと、datachannel の方が `sdp` が短いのでログ表示が怖くならない。
+
 # 手動
 
 - [copy-paste](https://github.com/paullouisageneau/libdatachannel/tree/master/examples/copy-paste)
@@ -30,7 +42,7 @@ dc.onmessage = (evt) => {
 ```
 
 # WebSocket
-- [WebSocket 経由のシグナリング](https://sora-doc.shiguredo.jp/SIGNALING)
+	- @2020 [【WebRTC学習】③ シグナリングサーバを使ってP2Pを接続する - It’s now or never](https://inon29.hateblo.jp/entry/2020/02/09/124406)
+- [3-signaling-server](https://github.com/morooka-akira/webrtc-study/tree/master/examples/3-signaling-server)
 
 # STUN(nat越え)
-

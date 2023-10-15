@@ -26,7 +26,7 @@ function M.create_links(base_dir, dst_dir)
     local rel = string.sub(src, #base_dir + 2)
     local dst = COM.to_path(dst_dir .. "/" .. rel)
     if NYA.is_exists(dst) then
-      print(GREEN, src, DEFAULT)
+      -- print(GREEN, src, DEFAULT)
     else
       print(RED, rel, base_dir, "=>", dst_dir, DEFAULT)
       NYA.evalf("ln -sf %s %s", src, dst)
