@@ -24,7 +24,9 @@ $ adb devices -l
 
 ## device 認識
 - [Site Unreachable](https://developer.oculus.com/downloads/package/oculus-adb-drivers/?locale=ja_JP)
+`unauthorized` は device のドライバ無くて認識されていない？
 ```
+> adb devices
 List of devices attached
 1PASH9BHD29144         unauthorized transport_id:1
 ```
