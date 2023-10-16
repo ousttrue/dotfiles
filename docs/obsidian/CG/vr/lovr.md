@@ -4,7 +4,14 @@
 [LÖVR](https://lovr.org/docs/Getting_Started)
 - [GitHub - bjornbytes/lovr: Lua Virtual Reality Framework](https://github.com/bjornbytes/lovr)
 
+- [mermaid-lovr | Mermaid Heavy Industries resources for the Lovr engine](https://mcclure.github.io/mermaid-lovr/)
+
+- https://github.com/immortalx74/lovr-ui
+
 # Version
+## 0.17
+@2023
+
 ## 0.16
 vulkan
 standard 未実装？
@@ -18,6 +25,35 @@ standard 未実装？
 l
 ```
 cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release -DLOVR_BUILD_SHARED=ON
+```
+
+# init
+`main.lua`
+```lua
+function lovr.draw(pass)
+  for i, hand in ipairs(lovr.headset.getHands()) do
+    local x, y, z = lovr.headset.getPosition(hand)
+    pass:sphere(x, y, z, 0.1)
+  end
+end
+```
+
+`.luarc.json`
+```json
+{
+  "runtime.version": "LuaJIT",
+  "runtime.special": {
+    "love.filesystem.load": "loadfile"
+  },
+  "runtime.path": ["libs/?.lua", "libs/?/init.lua"],
+  "workspace.library": ["${3rd}/lovr/library"],
+  "format.enable": false,
+  "format.defaultConfig": {
+    "indent_style": "space",
+    "indent_size": "2"
+  },
+  "diagnostics.disable": ["empty-block", "unused-local", "unused-vararg"]
+}
 ```
 
 # samples

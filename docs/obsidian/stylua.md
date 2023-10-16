@@ -1,0 +1,9 @@
+`stylua.toml`
+```toml
+column_width = 80
+line_endings = "Unix"
+indent_type = "Spaces"
+indent_width = 2
+quote_style = "AutoPreferDouble"
+no_call_parentheses = true
+```

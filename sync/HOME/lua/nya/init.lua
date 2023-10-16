@@ -59,6 +59,12 @@ local function setup_path()
   end
   nyagos.envadd("PATH", COM.to_path(HOME .. "/.deno/bin"))
 
+  if nyagos.env.ANDROID_HOME then
+    local android_home = nyagos.env.ANDROID_HOME
+    nyagos.envadd("PATH", COM.to_path(android_home .. "/cmdline-tools/latest/bin"))
+    nyagos.envadd("PATH", COM.to_path(android_home .. "/platform-tools"))
+  end
+
   local DEL_PATH = {
     "Oculus",
     "TortoiseGit",
