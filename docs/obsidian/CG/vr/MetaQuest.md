@@ -1,9 +1,15 @@
+---
+aliases:
+  - quest
+---
+
 [[QuestMobileSDK]]
 # Version
 [Meta Quest release notes | Meta Store](https://www.meta.com/help/quest/articles/whats-new/release-notes/?utm_source=developer.oculus.com&utm_medium=oculusredirect)
 
 ## 57
 - @202309 [Meta Quest v57 Update: Unsend Image Messages, Horizon Feed, Avatars Update, and More | Meta Questブログ | Meta Store](https://www.meta.com/ja-jp/blog/quest/v57-software-unsend-image-messages-horizon-home-avatars/)
+- [Meta Quest 3 アプリ開発ガイド｜npaka](https://note.com/npaka/n/n924f19bf99b1)
 
 ## 55
 - [Meta Quest 2 / Proが最大26%速くなるv55アップデート開始。専用メッセンジャーアプリなど新機能追加 | テクノエッジ TechnoEdge](https://www.techno-edge.net/article/2023/06/23/1480.html)
@@ -31,5 +37,10 @@
 - @2023 [ついにここまで来たMR体験！「Meta Quest 3」のパススルー画質は3倍アップで歴代最強だった](https://pc.watch.impress.co.jp/docs/column/hothot/1537610.html)
 
 ## QuestPro
+`Android12`
 
 ## Quest2
+`Android10`
+
+## Quest
+`Android8`

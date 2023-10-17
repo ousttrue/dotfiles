@@ -70,6 +70,8 @@ a=max-message-size:262144
       a=* (zero or more media attribute lines)\
 
 # WHIP/WHEP
+[GitHub - medooze/whip-whep-js: WHIP and WHEP clients javascript module](https://github.com/medooze/whip-whep-js)
+
 - @2023 [WHIPとWHEPの違いについて | meteor Tech Blog](https://blog.meteor.ne.jp/2023/03/whip-whep)
 - @2023 [WebRTC のシグナリング規格 WHIP と WHEP について](https://zenn.dev/shiguredo/articles/webrtc-whip-whep)
 - [GitHub - bluenviron/mediamtx: Ready-to-use SRT / WebRTC / RTSP / RTMP / LL-HLS media server and media proxy that allows to read, publish, proxy and record video and audio streams.](https://github.com/bluenviron/mediamtx)

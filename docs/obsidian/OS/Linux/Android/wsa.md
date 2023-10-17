@@ -1,5 +1,5 @@
 [[OS/Linux/wsl]]
-[[Android]]
+[[OS/Linux/Android/Android]]
 [[qemu]]
 
 [Android™️ 用 Windows サブシステム | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/android/wsa/)

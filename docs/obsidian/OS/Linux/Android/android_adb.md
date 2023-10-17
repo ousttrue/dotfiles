@@ -1,6 +1,6 @@
 Android Debug Bridge
 
-[[Android]]
+[[OS/Linux/Android/Android]]
 [[QuestMobileSDK]]
 
 - [Android Debug Bridge（adb）  |  Android デベロッパー  |  Android Developers](https://developer.android.com/studio/command-line/adb?hl=ja)
