@@ -1,52 +1,82 @@
 [[WebRTC]]
 `Session Description Protocol`
 
+browser では [[RTCPeerConnection]] が生成してくれる。
+非ブラウザでは自前で作るかも。
+
+# SessionDescription
 [RFC 8866 - SDP: Session Description Protocol](https://tools.ietf.org/html/rfc8866)
-[RFC 8829 - JavaScript Session Establishment Protocol (JSEP)](https://datatracker.ietf.org/doc/html/rfc8829)
+`obsolete` [https://www.softfront.co.jp/tech/ietfdoc/trans/rfc4566j.txt](https://www.softfront.co.jp/tech/ietfdoc/trans/rfc4566j.txt)
 
-# Protocol
-- [WebRTCの簡易シグナリング - Qiita](https://qiita.com/massie_g/items/f5baf316652bbc6fcef1)
-## offer
-## answer
+- [シグナリング | 好奇心旺盛な人のためのWebRTC](https://webrtcforthecurious.com/ja/docs/02-signaling/)
 
-# Impl
-## ayame
-- [GitHub - OpenAyame/ayame: WebRTC Signaling Server Ayame](https://github.com/OpenAyame/ayame) 
+RFC5761 RTP session
 
-# Create Signaling Server
-- [自宅内でビデオ通信ができる「homelens」の開発録](https://zenn.dev/seita1996/articles/product-homelens)
-## broadcast 無制限
-[【WebRTC学習】③ シグナリングサーバを使ってP2Pを接続する - It’s now or never](https://inon29.hateblo.jp/entry/2020/02/09/124406)
-
-# Session
-> セッション記述部は「**一番最初にm行が出てくるまで**」
-
-- v - バージョン(Version)、0 と同じでなければなりません。
-- o - オリジン(Origin)、再交渉に便利なユニークな ID を含む。
-- s - セッション名(Session Name)、- と同じでなければなりません。
-- c - 接続データ(Connection Data)、 IN IP4 0.0.0.0 と等しくなければなりません。
-- t - タイミング(Timing)、0 0 と同じでなければなりません。
-
-## a=fingerprint
-
-## a=msid-semantic
-
-# Media
-
-
-
-- m - メディア記述(Media Description: `m=<media> <port> <proto> <fmt> ...)、詳細は以下の通りです。`
-- a - 属性(Attribute)、フリーテキストのフィールドです。これは WebRTC で最も一般的な行です。
-```
+```sdp
 v=0
-o=- 0 0 IN IP4 127.0.0.1
+o=- 2493253725758108504 2 IN IP4 127.0.0.1
 s=-
-c=IN IP4 127.0.0.1
 t=0 0
-
-m=audio 4000 RTP/AVP 111
-a=rtpmap:111 OPUS/48000/2
-m=video 4002 RTP/AVP 96
-a=rtpmap:96 VP8/90000
+a=group:BUNDLE 0
+a=extmap-allow-mixed
+a=msid-semantic: WMS
+m=application 9 UDP/DTLS/SCTP webrtc-datachannel
+c=IN IP4 0.0.0.0
+a=candidate:1427578252 1 udp 2113937151 9e195c3b-05c6-45a4-821f-dc4dc4bfc132.local 56441 typ host generation 0 network-cost 999
+a=ice-ufrag:GDdl
+a=ice-pwd:TMoSMVu8LKem7TqaktF6LqUa
+a=ice-options:trickle
+a=fingerprint:sha-256 D6:08:AF:7A:52:59:69:00:B2:8C:06:20:9C:16:EB:9D:A0:80:6C:0B:29:EB:30:51:49:72:F1:9E:1B:BC:CF:E7
+a=setup:actpass
+a=mid:0
+a=sctp-port:5000
+a=max-message-size:262144
 ```
 
+## Session
+`最初にm行が出てくるまで`
+   Session description
+      v=  (protocol version)
+      o=  (originator and session identifier)
+      s=  (session name)
+      i=* (session information)
+      u=* (URI of description)
+      e=* (email address)
+      p=* (phone number)
+      c=* (connection information -- not required if included in
+           all media descriptions)
+      b=* (zero or more bandwidth information lines)
+      One or more time descriptions:
+        ("t=", "r=" and "z=" lines; see below)
+      k=* (obsolete)
+      a=* (zero or more session attribute lines)
+      Zero or more media descriptions
+
+## Time
+   Time description
+      t=  (time the session is active)
+      r=* (zero or more repeat times)
+      z=* (optional time zone offset line)
+
+## Media
+`m から次の m もしくは最後まで`
+   Media description, if present
+      m=  (media name and transport address)
+      i=* (media title)
+      c=* (connection information -- optional if included at
+           session level)
+      b=* (zero or more bandwidth information lines)
+      k=* (obsolete)
+      a=* (zero or more media attribute lines)\
+
+# WHIP/WHEP
+- @2023 [WHIPとWHEPの違いについて | meteor Tech Blog](https://blog.meteor.ne.jp/2023/03/whip-whep)
+- @2023 [WebRTC のシグナリング規格 WHIP と WHEP について](https://zenn.dev/shiguredo/articles/webrtc-whip-whep)
+- [GitHub - bluenviron/mediamtx: Ready-to-use SRT / WebRTC / RTSP / RTMP / LL-HLS media server and media proxy that allows to read, publish, proxy and record video and audio streams.](https://github.com/bluenviron/mediamtx)
+
+## WHEP
+- [What is WHEP? – Intro to WebRTC Streaming Part 2 - DEV Community](https://dev.to/dolbyio/what-is-whep-intro-to-webrtc-streaming-part-2-3d99)
+- [GitHub - Eyevinn/whep-video-component: A web component for WHEP WebRTC video playback](https://github.com/Eyevinn/whep-video-component)
+
+## WHIP
+- `janus` @2023 [WebRTC配信技術 "WHIP" で遊ぶ - NTT Communications Engineers' Blog](https://engineers.ntt.com/entry/2023/05/19/114213)

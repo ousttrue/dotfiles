@@ -371,6 +371,24 @@ function M.setup()
     nyagos.exec("cd " .. dst)
   end
 
+  nyagos.alias.rm_submodule = function(args)
+    local module = unpack(args.rawargs)
+
+    local cmd = "git submodule deinit " .. module
+    print(cmd)
+    local ret = nyagos.exec(cmd)
+    if ret ~= 0 then
+      return ret
+    end
+
+    local cmd = "git rm " .. module
+    print(cmd)
+    local ret = nyagos.exec(cmd)
+    if ret ~= 0 then
+      return ret
+    end
+  end
+
   nyagos.prompt = PROMPT.prompt
 end
 

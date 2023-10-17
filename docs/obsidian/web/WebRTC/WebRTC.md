@@ -17,8 +17,9 @@
 - WebBrowser とそれ以外の相互接続
 
 
+- [自宅内でビデオ通信ができる「homelens」の開発録](https://zenn.dev/seita1996/articles/product-homelens)
 
-
+- [GitHub - ossrs/srs: SRS is a simple, high-efficiency, real-time video server supporting RTMP, WebRTC, HLS, HTTP-FLV, SRT, MPEG-DASH, and GB28181.](https://github.com/ossrs/srs)
 
 # RTCPeerConnection
 - @2019 [addTransceiver() と addTrack() の使い分け - console.lealog();](https://lealog.hateblo.jp/entry/2019/03/12/114529)

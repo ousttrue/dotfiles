@@ -7,6 +7,7 @@ function M.setup()
   -- vim.api.nvim_set_var("neoformat_basic_format_retab", "1")
 
   vim.g.neoformat_enabled_html = { "prettier" }
+  vim.g.neoformat_enabled_css = { "prettier" }
   vim.g.neoformat_enabled_glsl = { "clang-format" }
   vim.g.neoformat_enabled_python = { "black" }
   -- vim.g.neoformat_enabled_python = { "yapf" }
@@ -53,6 +54,7 @@ function M.setup()
   -- DOT.formatters.lua = formatter
   DOT.formatters.html = formatter
   DOT.formatters.json = formatter
+  DOT.formatters.css = formatter
   DOT.formatters.python = formatter
   DOT.formatters.vala = formatter
   DOT.formatters.meson = formatter
