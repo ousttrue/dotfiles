@@ -18,10 +18,10 @@ aliases: [EGL]
 ## 3.2
 
 ## 3.1
-- [[Android]] api level 21
+- [[OS/Linux/Android/Android]] api level 21
 
 ## 3.0
-- [[Android]] api level 18
+- [[OS/Linux/Android/Android]] api level 18
 - [[webgl]]
 
 ```c
@@ -37,4 +37,4 @@ out vec4 vColor;
 ```
 
 ## 2.0
-- [[Android]] api level 8
+- [[OS/Linux/Android/Android]] api level 8

@@ -1,4 +1,4 @@
-[[Android]]
+[[OS/Linux/Android/Android]]
 
 - [APKファイルのダウンロードとファイル構造、解析方法のまとめ - Gazee](https://gazee.net/develop/apk-structure/)
 

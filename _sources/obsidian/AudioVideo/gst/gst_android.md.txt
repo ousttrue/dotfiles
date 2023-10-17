@@ -1,5 +1,5 @@
 [[gstreamer]]
-[[Android]]
+[[OS/Linux/Android/Android]]
 
 [Installing for Android development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c)
 

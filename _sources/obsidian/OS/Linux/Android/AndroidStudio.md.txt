@@ -1,4 +1,4 @@
-[[Android]]
+[[OS/Linux/Android/Android]]
 
 - [Android Studio のインストール  |  Android デベロッパー  |  Android Developers](https://developer.android.com/studio/install)
 

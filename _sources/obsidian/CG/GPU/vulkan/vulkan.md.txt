@@ -65,7 +65,7 @@ find_package(Vulkan)
 - [「Linuxでアプリから直接画面を表示したい」　インスタンス拡張「VK_KHR_display」を使った、画面占有方法 - ログミーTech](https://logmi.jp/tech/articles/328183)
 
 # Android
-[[Android]]
+[[OS/Linux/Android/Android]]
 - [Vulkan の実装  |  Android オープンソース プロジェクト  |  Android Open Source Project](https://source.android.com/docs/core/graphics/implement-vulkan?hl=ja)
 
 # error

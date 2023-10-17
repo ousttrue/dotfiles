@@ -1,4 +1,4 @@
-[[Android]]
+[[OS/Linux/Android/Android]]
 
 [[d8]] の実行時に、 `JAVA_HOME` を設定しているのに
 `no suitable java...`

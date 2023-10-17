@@ -18,3 +18,8 @@
 
 # launcher
 - [GitHub - hiroog/TVLauncherGo: App Launcher for Oculus Go](https://github.com/hiroog/TVLauncherGo)
+
+# oculus browser
+[Open Local Html file from Oculus Quest 2 storage D... - Meta Community Forums - 1050702](https://communityforums.atmeta.com/t5/VR-Experiences/Open-Local-Html-file-from-Oculus-Quest-2-storage-Doesn-t-Work/td-p/1050702)
+
+`chrome://flags`

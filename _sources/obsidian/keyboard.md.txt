@@ -1,4 +1,4 @@
-英字 + bluetooth キーボード選別
+*英字* + bluetooth キーボード選別
 
 - 正式に `ctrl` が `A` の左にあるレイアウトは、 `mac` の日本語版のみ
 - [CtrlとCapsキーを入れ替え（管理者権限なし）｜Ryos](https://note.com/ryopc/n/ne2692434f23f)
