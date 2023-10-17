@@ -4,6 +4,7 @@
 
 - [Gstreamer](https://zenn.dev/goforbroke/scraps/77b4afa1503385)
 
+- [GStreamer を使ったアプリケーションの作成 | 株式会社ピクセラ](https://www.pixela.co.jp/products/pickup/dev/gstreamer/gst_2_write_a_simple_playback_application.html)
 - @2020 [GStreamer 事はじめ](https://www.sinby.com/seiko-udoku/20/05160.html)
 - @2019 [OpenCVのgstreamerでキャプチャすると遅延が少なかったメモ(仮) - Qiita](https://qiita.com/nakasuke_/items/84ec6cb3ddc9dee003c2)
 - @2010 [あしたのオープンソース研究所: GStreamer - 2010-01-11 - ククログ](https://www.clear-code.com/blog/2010/1/11.html)

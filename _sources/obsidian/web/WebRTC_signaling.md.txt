@@ -10,6 +10,12 @@ media (webcam) へのアクセスに https が要求されるため、
 から始めることになり、これはわりと手順が長くなる。
 あと、datachannel の方が `sdp` が短いのでログ表示が怖くならない。
 
+# vanilla
+- @2017 [WebRTCの簡易シグナリング - Qiita](https://qiita.com/massie_g/items/f5baf316652bbc6fcef1)
+
+# trickle
+
+
 # 手動
 
 - [copy-paste](https://github.com/paullouisageneau/libdatachannel/tree/master/examples/copy-paste)
@@ -46,3 +52,7 @@ dc.onmessage = (evt) => {
 - [3-signaling-server](https://github.com/morooka-akira/webrtc-study/tree/master/examples/3-signaling-server)
 
 # STUN(nat越え)
+
+
+# ayame
+- [GitHub - OpenAyame/ayame: WebRTC Signaling Server Ayame](https://github.com/OpenAyame/ayame) 

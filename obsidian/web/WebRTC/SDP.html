@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Protocol - shell note ドキュメント</title>
+        <title>SessionDescription - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -220,76 +220,96 @@
         <article role="main">
           <p>[[WebRTC]]
 <code class="docutils literal notranslate"><span class="pre">Session</span> <span class="pre">Description</span> <span class="pre">Protocol</span></code></p>
+<p>browser では [[RTCPeerConnection]] が生成してくれる。
+非ブラウザでは自前で作るかも。</p>
+<section class="tex2jax_ignore mathjax_ignore" id="sessiondescription">
+<h1>SessionDescription<a class="headerlink" href="#sessiondescription" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="https://tools.ietf.org/html/rfc8866">RFC 8866 - SDP: Session Description Protocol</a>
-<a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc8829">RFC 8829 - JavaScript Session Establishment Protocol (JSEP)</a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="protocol">
-<h1>Protocol<a class="headerlink" href="#protocol" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<code class="docutils literal notranslate"><span class="pre">obsolete</span></code> <a class="reference external" href="https://www.softfront.co.jp/tech/ietfdoc/trans/rfc4566j.txt">https://www.softfront.co.jp/tech/ietfdoc/trans/rfc4566j.txt</a></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/massie_g/items/f5baf316652bbc6fcef1">WebRTCの簡易シグナリング - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://webrtcforthecurious.com/ja/docs/02-signaling/">シグナリング | 好奇心旺盛な人のためのWebRTC</a></p></li>
 </ul>
-<section id="offer">
-<h2>offer<a class="headerlink" href="#offer" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="answer">
-<h2>answer<a class="headerlink" href="#answer" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="impl">
-<h1>Impl<a class="headerlink" href="#impl" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="ayame">
-<h2>ayame<a class="headerlink" href="#ayame" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/OpenAyame/ayame">GitHub - OpenAyame/ayame: WebRTC Signaling Server Ayame</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="create-signaling-server">
-<h1>Create Signaling Server<a class="headerlink" href="#create-signaling-server" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/seita1996/articles/product-homelens">自宅内でビデオ通信ができる「homelens」の開発録</a></p></li>
-</ul>
-<section id="broadcast">
-<h2>broadcast 無制限<a class="headerlink" href="#broadcast" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://inon29.hateblo.jp/entry/2020/02/09/124406">【WebRTC学習】③ シグナリングサーバを使ってP2Pを接続する - It’s now or never</a></p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="session">
-<h1>Session<a class="headerlink" href="#session" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<blockquote>
-<div><p>セッション記述部は「<strong>一番最初にm行が出てくるまで</strong>」</p>
-</div></blockquote>
-<ul class="simple">
-<li><p>v - バージョン(Version)、0 と同じでなければなりません。</p></li>
-<li><p>o - オリジン(Origin)、再交渉に便利なユニークな ID を含む。</p></li>
-<li><p>s - セッション名(Session Name)、- と同じでなければなりません。</p></li>
-<li><p>c - 接続データ(Connection Data)、 IN IP4 0.0.0.0 と等しくなければなりません。</p></li>
-<li><p>t - タイミング(Timing)、0 0 と同じでなければなりません。</p></li>
-</ul>
-<section id="a-fingerprint">
-<h2>a=fingerprint<a class="headerlink" href="#a-fingerprint" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="a-msid-semantic">
-<h2>a=msid-semantic<a class="headerlink" href="#a-msid-semantic" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="media">
-<h1>Media<a class="headerlink" href="#media" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>m - メディア記述(Media Description: <code class="docutils literal notranslate"><span class="pre">m=&lt;media&gt;</span> <span class="pre">&lt;port&gt;</span> <span class="pre">&lt;proto&gt;</span> <span class="pre">&lt;fmt&gt;</span> <span class="pre">...)、詳細は以下の通りです。</span></code></p></li>
-<li><p>a - 属性(Attribute)、フリーテキストのフィールドです。これは WebRTC で最も一般的な行です。</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">o</span><span class="o">=-</span> <span class="mi">0</span> <span class="mi">0</span> <span class="n">IN</span> <span class="n">IP4</span> <span class="mf">127.0.0.1</span>
-<span class="n">s</span><span class="o">=-</span>
-<span class="n">c</span><span class="o">=</span><span class="n">IN</span> <span class="n">IP4</span> <span class="mf">127.0.0.1</span>
-<span class="n">t</span><span class="o">=</span><span class="mi">0</span> <span class="mi">0</span>
-
-<span class="n">m</span><span class="o">=</span><span class="n">audio</span> <span class="mi">4000</span> <span class="n">RTP</span><span class="o">/</span><span class="n">AVP</span> <span class="mi">111</span>
-<span class="n">a</span><span class="o">=</span><span class="n">rtpmap</span><span class="p">:</span><span class="mi">111</span> <span class="n">OPUS</span><span class="o">/</span><span class="mi">48000</span><span class="o">/</span><span class="mi">2</span>
-<span class="n">m</span><span class="o">=</span><span class="n">video</span> <span class="mi">4002</span> <span class="n">RTP</span><span class="o">/</span><span class="n">AVP</span> <span class="mi">96</span>
-<span class="n">a</span><span class="o">=</span><span class="n">rtpmap</span><span class="p">:</span><span class="mi">96</span> <span class="n">VP8</span><span class="o">/</span><span class="mi">90000</span>
+<p>RFC5761 RTP session</p>
+<div class="highlight-sdp notranslate"><div class="highlight"><pre><span></span>v=0
+o=- 2493253725758108504 2 IN IP4 127.0.0.1
+s=-
+t=0 0
+a=group:BUNDLE 0
+a=extmap-allow-mixed
+a=msid-semantic: WMS
+m=application 9 UDP/DTLS/SCTP webrtc-datachannel
+c=IN IP4 0.0.0.0
+a=candidate:1427578252 1 udp 2113937151 9e195c3b-05c6-45a4-821f-dc4dc4bfc132.local 56441 typ host generation 0 network-cost 999
+a=ice-ufrag:GDdl
+a=ice-pwd:TMoSMVu8LKem7TqaktF6LqUa
+a=ice-options:trickle
+a=fingerprint:sha-256 D6:08:AF:7A:52:59:69:00:B2:8C:06:20:9C:16:EB:9D:A0:80:6C:0B:29:EB:30:51:49:72:F1:9E:1B:BC:CF:E7
+a=setup:actpass
+a=mid:0
+a=sctp-port:5000
+a=max-message-size:262144
 </pre></div>
 </div>
+<section id="session">
+<h2>Session<a class="headerlink" href="#session" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">最初にm行が出てくるまで</span></code>
+Session description
+v=  (protocol version)
+o=  (originator and session identifier)
+s=  (session name)
+i=* (session information)
+u=* (URI of description)
+e=* (email address)
+p=* (phone number)
+c=* (connection information -- not required if included in
+all media descriptions)
+b=* (zero or more bandwidth information lines)
+One or more time descriptions:
+("t=", "r=" and "z=" lines; see below)
+k=* (obsolete)
+a=* (zero or more session attribute lines)
+Zero or more media descriptions</p>
+</section>
+<section id="time">
+<h2>Time<a class="headerlink" href="#time" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Time description
+t=  (time the session is active)
+r=* (zero or more repeat times)
+z=* (optional time zone offset line)</p>
+</section>
+<section id="media">
+<h2>Media<a class="headerlink" href="#media" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">から次の</span> <span class="pre">m</span> <span class="pre">もしくは最後まで</span></code>
+Media description, if present
+m=  (media name and transport address)
+i=* (media title)
+c=* (connection information -- optional if included at
+session level)
+b=* (zero or more bandwidth information lines)
+k=* (obsolete)
+a=* (zero or more media attribute lines)\</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="whip-whep">
+<h1>WHIP/WHEP<a class="headerlink" href="#whip-whep" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://blog.meteor.ne.jp/2023/03/whip-whep">WHIPとWHEPの違いについて | meteor Tech Blog</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/shiguredo/articles/webrtc-whip-whep">WebRTC のシグナリング規格 WHIP と WHEP について</a></p></li>
+<li><p><a class="reference external" href="https://github.com/bluenviron/mediamtx">GitHub - bluenviron/mediamtx: Ready-to-use SRT / WebRTC / RTSP / RTMP / LL-HLS media server and media proxy that allows to read, publish, proxy and record video and audio streams.</a></p></li>
+</ul>
+<section id="whep">
+<h2>WHEP<a class="headerlink" href="#whep" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dev.to/dolbyio/what-is-whep-intro-to-webrtc-streaming-part-2-3d99">What is WHEP? – Intro to WebRTC Streaming Part 2 - DEV Community</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Eyevinn/whep-video-component">GitHub - Eyevinn/whep-video-component: A web component for WHEP WebRTC video playback</a></p></li>
+</ul>
+</section>
+<section id="whip">
+<h2>WHIP<a class="headerlink" href="#whip" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">janus</span></code> @2023 <a class="reference external" href="https://engineers.ntt.com/entry/2023/05/19/114213">WebRTC配信技術 "WHIP" で遊ぶ - NTT Communications Engineers' Blog</a></p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -325,25 +345,17 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Protocol</a><ul>
-<li><a class="reference internal" href="#offer">offer</a></li>
-<li><a class="reference internal" href="#answer">answer</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#impl">Impl</a><ul>
-<li><a class="reference internal" href="#ayame">ayame</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#create-signaling-server">Create Signaling Server</a><ul>
-<li><a class="reference internal" href="#broadcast">broadcast 無制限</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#session">Session</a><ul>
-<li><a class="reference internal" href="#a-fingerprint">a=fingerprint</a></li>
-<li><a class="reference internal" href="#a-msid-semantic">a=msid-semantic</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">SessionDescription</a><ul>
+<li><a class="reference internal" href="#session">Session</a></li>
+<li><a class="reference internal" href="#time">Time</a></li>
 <li><a class="reference internal" href="#media">Media</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#whip-whep">WHIP/WHEP</a><ul>
+<li><a class="reference internal" href="#whep">WHEP</a></li>
+<li><a class="reference internal" href="#whip">WHIP</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
