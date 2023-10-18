@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>dll buid 実験 - shell note ドキュメント</title>
+        <title>reload - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,50 +212,28 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
           <p>[[lovr]]</p>
-<blockquote>
-<div><p>desktop mode</p>
-</div></blockquote>
-<section class="tex2jax_ignore mathjax_ignore" id="dll-buid">
-<h1>dll buid 実験<a class="headerlink" href="#dll-buid" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DLOVR_BUILD_SHARED<span class="o">=</span>ON -DCMAKE_EXPORT_COMPILE_COMMANDS<span class="o">=</span><span class="m">1</span> -DLUAJIT_BUILD_TOOL<span class="o">=</span><span class="m">1</span>
-</pre></div>
-</div>
-<p>というより Android 版がこれを使う。
-Android 版の entry point を見るべし。</p>
-<p><code class="docutils literal notranslate"><span class="pre">src/os_android.c</span></code>
-👇
-<code class="docutils literal notranslate"><span class="pre">src/main.c</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">src/os_win32.c</span></code>
-👇
-<code class="docutils literal notranslate"><span class="pre">src/main.c</span></code></p>
-<p>下記で起動できる？</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; lua.exe etc/boot.lua 
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">lovr.dll</span></code> に <code class="docutils literal notranslate"><span class="pre">luaopen_lovr</span></code> が含まれていなかった
-👇
-<code class="docutils literal notranslate"><span class="pre">src/api/l_lovr.c</span></code></p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>L#define LOVR_EXPORT __declspec(dllexport)
-OVR_EXPORT int luaopen_lovr(lua_State *L)
-</pre></div>
-</div>
-<p>luajit.exe 作る</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># set_target_properties(luajit PROPERTIES EXCLUDE_FROM_ALL 1)</span>
-</pre></div>
-</div>
-<p>👇
-<code class="docutils literal notranslate"><span class="pre">build/luajit/src/luajit.exe</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>LUA_CPATH=build\\?.dll build/luajit etc\boot.lua
-</pre></div>
-</div>
-<p>エラーにはならんが、まだ動かぬ</p>
+<section class="tex2jax_ignore mathjax_ignore" id="reload">
+<h1>reload<a class="headerlink" href="#reload" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mcclure/lodr">GitHub - mcclure/lodr: Live-reload wrapper for Lovr</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="editor">
+<h1>editor<a class="headerlink" href="#editor" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>https://github.com/jmiskovic/lite-lovr</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="filesystem">
+<h1>filesystem<a class="headerlink" href="#filesystem" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>リモートの http とか。</p>
 </section>
 
         </article>
@@ -271,7 +249,7 @@ OVR_EXPORT int luaopen_lovr(lua_State *L)
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/lovr_glfw.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/lovr_reload.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -279,8 +257,26 @@ OVR_EXPORT int luaopen_lovr(lua_State *L)
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">reload</a></li>
+<li><a class="reference internal" href="#editor">editor</a></li>
+<li><a class="reference internal" href="#filesystem">filesystem</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
