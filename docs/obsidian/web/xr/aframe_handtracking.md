@@ -11,7 +11,7 @@
 ```
 
 ## pinch
-- @2020 [A-Frameのハンドトラッキングを試してみた - じゅころぐAR](https://www.jyuko49.com/entry/2020/12/14/214715)
+- `pinchmoved` @2020 [A-Frameのハンドトラッキングを試してみた - じゅころぐAR](https://www.jyuko49.com/entry/2020/12/14/214715)
 - [javascript - How to move an object in the aframe scene by pinching? - Stack Overflow](https://stackoverflow.com/questions/77000162/how-to-move-an-object-in-the-aframe-scene-by-pinching)
 
 # repos
@@ -24,6 +24,9 @@
 [A-Frame Hand Tracking - Grabbable Objects and Toggleable Physics - YouTube](https://www.youtube.com/watch?v=PQ2bQRERePo&ab_channel=DaniloPasquariello)
 
 - [GitHub - AdaRoseCannon/handy-work: Framework Agnostic Hand tracking for WebXR](https://github.com/AdaRoseCannon/handy-work)
+
+# magic leap
+- [Magic Leap2 の WebXR Hand Tracking （WebXR ハンドトラッキング）をA-Frameで実装してみた。 ｜Sadao Tokuyama](https://note.com/st_one/n/n736ca900cb12)
 
 # leap
 - [GitHub - openleap/aframe-leap-hands: A-Frame VR component for Leap Motion.](https://github.com/openleap/aframe-leap-hands)
