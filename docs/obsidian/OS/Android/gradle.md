@@ -1,5 +1,5 @@
 [[buildtool]]
-[[OS/Linux/Android/Android]]
+[[Android]]
 [[sdkman]]
 [[AGP]]
 

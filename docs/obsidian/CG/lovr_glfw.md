@@ -6,6 +6,8 @@
 
 ```sh
 > cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release -DLOVR_BUILD_SHARED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DLUAJIT_BUILD_TOOL=1
+> cmake --build build
+> cmake --install build --prefix $(pwd)/prefix
 ```
 
 というより Android 版がこれを使う。

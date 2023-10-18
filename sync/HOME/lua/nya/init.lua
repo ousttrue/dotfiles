@@ -54,6 +54,7 @@ local function setup_path()
   nyagos.envadd("PATH", COM.to_path(HOME .. "/build/gcc/bin"))
   nyagos.envadd("PATH", COM.to_path(HOME .. "/luarocks"))
   nyagos.envadd("PATH", COM.to_path(HOME .. "/love2d"))
+  nyagos.envadd("PATH", COM.to_path(HOME .. "/lovr"))
   if nyagos.env.APPDATA then
     nyagos.envadd("PATH", COM.to_path(nyagos.env.APPDATA .. "/LuaRocks/bin"))
   end

@@ -1,4 +1,4 @@
-[Fetching Title#667o](https://gitlab.freedesktop.org/xrdesktop/xrdesktop)[[OS/Linux/Android/Android]]
+[Fetching Title#667o](https://gitlab.freedesktop.org/xrdesktop/xrdesktop)[[Android]]
 [[ndk_gdbserver]]
 [[gradle]]
 

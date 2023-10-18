@@ -35,3 +35,20 @@ $video.src = URL.createObjectURL(stream);
 ## h264
 ## vp9
 
+
+# ScreenCaptureAPI
+[画面キャプチャ API の使用 - Web API | MDN](https://developer.mozilla.org/ja/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
+
+- [canvas](https://github.com/webrtc/samples/tree/gh-pages/src/content/getusermedia/canvas)
+- [【WebRTC】別タブをキャプチャするWebアプリを作った(クロップ・ダウンロード機能付き)](https://itc-engineering-blog.netlify.app/blogs/react-screenshot-webrtc)
+- @2019 [WebRTC ハンズオン資料 ScreenCapture ＆ マルチストリーム編 #WebRTC - Qiita](https://qiita.com/massie_g/items/f852680b16c1b14cb9e8)
+- @2017 [WebRTC の Media, Stream, Track について - ボクココ](https://www.bokukoko.info/entry/2017/03/05/221702)
+
+```js
+try {
+  let mediaStream = await navigator.mediaDevices.getDisplayMedia({video:true});
+  videoElement.srcObject = mediaStream;
+} catch (e) {
+  console.log('Unable to acquire screen capture: ' + e);
+}
+```

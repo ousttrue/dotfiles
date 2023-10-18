@@ -1,9 +1,9 @@
-[[SSG]] [[mdx]]
+[[SSG]] [[MDX]]
 
 # starter
 - [DIRECTORY: ソフトウェア/Gatsby | Ataru Kodaka Site](https://atarukodaka.github.io/software/gatsby)
 - [gatsby-starter-blog | Gatsby](https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-blog)
-- [[mdx]]
+- [[MDX]]
 - gfm
 - [Gatsby.js製のブログでMarkdownからMDXに移行する方法【gatsby-plugin-mdx】 | ベル15の開発ブログ](https://bel-itigo.com/gatsby-migrate-from-markdown-to-mdx/)
 

@@ -1,4 +1,4 @@
-[[OS/Linux/Android/Android]]
+[[Android]]
 [[golang]]
 
 # gomobile

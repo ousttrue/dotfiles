@@ -1,6 +1,6 @@
 [[FetchAPI]]
 [[StreamsAPI]]
-[[web/TLS]]
+[[web/protocol/TLS]]
 
 # protocol
 

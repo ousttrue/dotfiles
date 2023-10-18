@@ -1,4 +1,4 @@
-[[OS/Linux/Android/Android]] [[AndroidStudio]] [[java]]
+[[Android]] [[AndroidStudio]] [[java]]
 
 `jdk8`
 - @2022 [Android Studio を入れずに Android 開発環境を構築する](https://zenn.dev/110416/articles/0945183fe53740)

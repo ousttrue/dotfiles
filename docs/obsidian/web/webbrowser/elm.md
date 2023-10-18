@@ -15,7 +15,7 @@
 - [Introduction · An Introduction to Elm](https://guide.elm-lang.org/)
 
 # ssg
-[[ssg]]
+[[SSG]]
 
 # webgl
 - [ElmでWebGLしてみる](https://blog.foresta.me/posts/webgl-on-elm/)

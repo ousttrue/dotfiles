@@ -3,6 +3,9 @@ local M = {}
 function M.setup()
   require("nvim-treesitter.configs").setup {
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+    matchup = {
+      enable = true,
+    },
     ensure_installed = {
       "query",
       -- "help",

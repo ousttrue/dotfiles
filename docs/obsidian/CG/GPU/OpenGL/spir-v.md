@@ -32,5 +32,5 @@
 - [HLSLからSPIR-Vバイナリを生成する – Shader.jp](https://www.shader.jp/?page_id=2176)
 
 # Android
-[[OS/Linux/Android/Android]]
+[[Android]]
 - [Android の Vulkan シェーダー コンパイラ  |  Android NDK  |  Android Developers](https://developer.android.com/ndk/guides/graphics/shader-compilers?hl=ja)
