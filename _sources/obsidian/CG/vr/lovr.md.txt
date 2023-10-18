@@ -4,9 +4,6 @@
 [LÖVR](https://lovr.org/docs/Getting_Started)
 - [GitHub - bjornbytes/lovr: Lua Virtual Reality Framework](https://github.com/bjornbytes/lovr)
 
-- [mermaid-lovr | Mermaid Heavy Industries resources for the Lovr engine](https://mcclure.github.io/mermaid-lovr/)
-
-- https://github.com/immortalx74/lovr-ui
 
 # Version
 ## 0.17
@@ -20,23 +17,67 @@ standard 未実装？
 
 # non VR
 カメラ？
-
-# dll build
-l
-```
-cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release -DLOVR_BUILD_SHARED=ON
-```
+## default
+- left drag
+- wasd
 
 # init
 `main.lua`
 ```lua
-function lovr.draw(pass)
-  for i, hand in ipairs(lovr.headset.getHands()) do
-    local x, y, z = lovr.headset.getPosition(hand)
-    pass:sphere(x, y, z, 0.1)
-  end
+local model
+
+local customVertex = [[
+    vec4 lovrmain()
+    {
+        return Projection * View * Transform * VertexPosition;
+    }
+]]
+
+local defaultFragment = [[
+    Constants {
+        vec4 ambience;
+        vec4 lightColor;
+        vec3 lightPos;
+    };
+
+    vec4 lovrmain()
+    {
+        //diffuse
+        vec3 norm = normalize(Normal);
+        vec3 lightDir = normalize(lightPos - PositionWorld);
+        float diff = max(dot(norm, lightDir), 0.0);
+        vec4 diffuse = diff * lightColor;
+
+        vec4 baseColor = Color * getPixel(ColorTexture, UV);
+        return baseColor * (ambience + diffuse);
+    }
+]]
+
+local shader = lovr.graphics.newShader(customVertex, defaultFragment, {})
+
+function lovr.load()
+  -- Load a 3D model
+  model = lovr.graphics.newModel "monkey.obj"
+
+  -- Use a dark grey background
+  lovr.graphics.setBackgroundColor(0.2, 0.2, 0.2)
 end
-```
+
+function lovr.draw(pass)
+  -- Draw the model
+  pass:setColor(1, 1, 1)
+  pass:setShader(shader)
+  pass:send("ambience", { 0.2, 0.2, 0.2, 1.0 })
+  pass:send("lightColor", { 1.0, 1.0, 1.0, 1.0 })
+  pass:send("lightPos", { 2.0, 5.0, 0.0 })
+  pass:draw(model, -0.5, 1, -3)
+
+  -- Draw a red cube using the "cube" primitive
+  pass:setColor(1, 0, 0)
+  pass:cube(0.5, 1, -3, 0.5, lovr.timer.getTime())
+
+  return false
+end```
 
 `.luarc.json`
 ```json
@@ -58,8 +99,8 @@ end
 
 # samples
 - [GitHub - bjornbytes/lovr-docs: Documentation for LÖVR](https://github.com/bjornbytes/lovr-docs)
-
 - [GitHub - sophiabaldonado/layout: VR world builder](https://github.com/sophiabaldonado/layout)
+
 # webxr
 `lovr.wasm`
 
@@ -154,6 +195,8 @@ cmake -S . -B build
 
 # plugins
 - [LÖVR](https://lovr.org/docs/Plugins)
+- [mermaid-lovr | Mermaid Heavy Industries resources for the Lovr engine](https://mcclure.github.io/mermaid-lovr/)
+- https://github.com/immortalx74/lovr-ui
 
 ## Network
 [[lua_socket]]

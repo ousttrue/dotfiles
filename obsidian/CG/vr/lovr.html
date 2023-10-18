@@ -223,8 +223,6 @@
 <p><a class="reference external" href="https://lovr.org/docs/Getting_Started">LÖVR</a></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/bjornbytes/lovr">GitHub - bjornbytes/lovr: Lua Virtual Reality Framework</a></p></li>
-<li><p><a class="reference external" href="https://mcclure.github.io/mermaid-lovr/">mermaid-lovr | Mermaid Heavy Industries resources for the Lovr engine</a></p></li>
-<li><p>https://github.com/immortalx74/lovr-ui</p></li>
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -245,40 +243,88 @@ standard 未実装？</p>
 <section class="tex2jax_ignore mathjax_ignore" id="non-vr">
 <h1>non VR<a class="headerlink" href="#non-vr" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>カメラ？</p>
+<section id="default">
+<h2>default<a class="headerlink" href="#default" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>left drag</p></li>
+<li><p>wasd</p></li>
+</ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="dll-build">
-<h1>dll build<a class="headerlink" href="#dll-build" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>l</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">G</span> <span class="n">Ninja</span> <span class="o">-</span><span class="n">S</span> <span class="o">.</span> <span class="o">-</span><span class="n">B</span> <span class="n">build</span> <span class="o">-</span><span class="n">DCMAKE_BUILD_TYPE</span><span class="o">=</span><span class="n">Release</span> <span class="o">-</span><span class="n">DLOVR_BUILD_SHARED</span><span class="o">=</span><span class="n">ON</span>
-</pre></div>
-</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="init">
 <h1>init<a class="headerlink" href="#init" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">main.lua</span></code></p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nc">lovr</span><span class="p">.</span><span class="nf">draw</span><span class="p">(</span><span class="n">pass</span><span class="p">)</span>
-  <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">hand</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">lovr</span><span class="p">.</span><span class="n">headset</span><span class="p">.</span><span class="n">getHands</span><span class="p">())</span> <span class="kr">do</span>
-    <span class="kd">local</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">lovr</span><span class="p">.</span><span class="n">headset</span><span class="p">.</span><span class="n">getPosition</span><span class="p">(</span><span class="n">hand</span><span class="p">)</span>
-    <span class="n">pass</span><span class="p">:</span><span class="n">sphere</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-  <span class="kr">end</span>
-<span class="kr">end</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">.luarc.json</span></code></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">"runtime.version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LuaJIT"</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">"runtime.special"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"love.filesystem.load"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loadfile"</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nt">"runtime.path"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"libs/?.lua"</span><span class="p">,</span><span class="w"> </span><span class="s2">"libs/?/init.lua"</span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nt">"workspace.library"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"${3rd}/lovr/library"</span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nt">"format.enable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">"format.defaultConfig"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"indent_style"</span><span class="p">:</span><span class="w"> </span><span class="s2">"space"</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"indent_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nt">"diagnostics.disable"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"empty-block"</span><span class="p">,</span><span class="w"> </span><span class="s2">"unused-local"</span><span class="p">,</span><span class="w"> </span><span class="s2">"unused-vararg"</span><span class="p">]</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span>local model
+
+local customVertex = [[
+    vec4 lovrmain()
+    {
+        return Projection * View * Transform * VertexPosition;
+    }
+]]
+
+local defaultFragment = [[
+    Constants {
+        vec4 ambience;
+        vec4 lightColor;
+        vec3 lightPos;
+    };
+
+    vec4 lovrmain()
+    {
+        //diffuse
+        vec3 norm = normalize(Normal);
+        vec3 lightDir = normalize(lightPos - PositionWorld);
+        float diff = max(dot(norm, lightDir), 0.0);
+        vec4 diffuse = diff * lightColor;
+
+        vec4 baseColor = Color * getPixel(ColorTexture, UV);
+        return baseColor * (ambience + diffuse);
+    }
+]]
+
+local shader = lovr.graphics.newShader(customVertex, defaultFragment, {})
+
+function lovr.load()
+  -- Load a 3D model
+  model = lovr.graphics.newModel "monkey.obj"
+
+  -- Use a dark grey background
+  lovr.graphics.setBackgroundColor(0.2, 0.2, 0.2)
+end
+
+function lovr.draw(pass)
+  -- Draw the model
+  pass:setColor(1, 1, 1)
+  pass:setShader(shader)
+  pass:send("ambience", { 0.2, 0.2, 0.2, 1.0 })
+  pass:send("lightColor", { 1.0, 1.0, 1.0, 1.0 })
+  pass:send("lightPos", { 2.0, 5.0, 0.0 })
+  pass:draw(model, -0.5, 1, -3)
+
+  -- Draw a red cube using the "cube" primitive
+  pass:setColor(1, 0, 0)
+  pass:cube(0.5, 1, -3, 0.5, lovr.timer.getTime())
+
+  return false
+end```
+
+`.luarc.json`
+```json
+{
+  "runtime.version": "LuaJIT",
+  "runtime.special": {
+    "love.filesystem.load": "loadfile"
+  },
+  "runtime.path": ["libs/?.lua", "libs/?/init.lua"],
+  "workspace.library": ["${3rd}/lovr/library"],
+  "format.enable": false,
+  "format.defaultConfig": {
+    "indent_style": "space",
+    "indent_size": "2"
+  },
+  "diagnostics.disable": ["empty-block", "unused-local", "unused-vararg"]
+}
 </pre></div>
 </div>
 </section>
@@ -416,6 +462,8 @@ cmake -S . -B build
 <h1>plugins<a class="headerlink" href="#plugins" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://lovr.org/docs/Plugins">LÖVR</a></p></li>
+<li><p><a class="reference external" href="https://mcclure.github.io/mermaid-lovr/">mermaid-lovr | Mermaid Heavy Industries resources for the Lovr engine</a></p></li>
+<li><p>https://github.com/immortalx74/lovr-ui</p></li>
 </ul>
 <section id="network">
 <h2>Network<a class="headerlink" href="#network" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -465,8 +513,10 @@ cmake -S . -B build
 <li><a class="reference internal" href="#id3">0.15</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#non-vr">non VR</a></li>
-<li><a class="reference internal" href="#dll-build">dll build</a></li>
+<li><a class="reference internal" href="#non-vr">non VR</a><ul>
+<li><a class="reference internal" href="#default">default</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#init">init</a></li>
 <li><a class="reference internal" href="#samples">samples</a></li>
 <li><a class="reference internal" href="#webxr">webxr</a></li>

@@ -21,6 +21,8 @@
 
 - [GitHub - ossrs/srs: SRS is a simple, high-efficiency, real-time video server supporting RTMP, WebRTC, HLS, HTTP-FLV, SRT, MPEG-DASH, and GB28181.](https://github.com/ossrs/srs)
 
+- [GitHub - nwtgck/piping-vnc-web: VNC client over pure HTTPS via Piping Server on Web browser](https://github.com/nwtgck/piping-vnc-web)
+
 # RTCPeerConnection
 - @2019 [addTransceiver() と addTrack() の使い分け - console.lealog();](https://lealog.hateblo.jp/entry/2019/03/12/114529)
 
@@ -118,3 +120,6 @@ DTLS（Datagram Transport Layer Security）
 SRTP（Secure Real-time Transport Protocol）
 
 https://dslab.work/2019/04/25/post-119/
+
+# Qt
+- [j0r1's page | Misc/QtWebRTC](https://research.edm.uhasselt.be/jori/page/Misc/QtWebRTC.html)

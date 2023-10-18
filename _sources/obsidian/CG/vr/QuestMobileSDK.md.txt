@@ -2,7 +2,7 @@
 aliases: [ovr_openxr_mobile_sdk]
 ---
 
-[[OS/Linux/Android/Android]] [[android_ndk]]
+[[Android]] [[android_ndk]]
 [[OpenXR]] [[MovementSDK]] [[QuestKeyboard]] [[XrSpace]]
 [[QuestMobileSDK_XrApp]]
 

@@ -9,7 +9,7 @@ https://github.com/ARM-software/astc-encoder
 ## 4.5
 
 # Android
-[[OS/Linux/Android/Android]]
+[[Android]]
 - [AndroidでASTCを使える条件 - LIGHT11](https://light11.hatenadiary.com/entry/2018/10/29/232630)
 
 # D3D11.3

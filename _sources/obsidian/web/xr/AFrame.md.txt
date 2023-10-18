@@ -22,6 +22,9 @@
 - [A-Frame 1.4.0 - Custom elements V1, Oculus Quest Pro support, tons of fixes and improvements – A-Frame](https://aframe.io/blog/aframe-v1.4.0/)
 - [Entity – A-Frame](https://aframe.io/docs/1.4.0/core/entity.html)
 
+# types
+- [@types/aframe - npm search](https://www.npmjs.com/search?q=%40types%2Faframe)
+
 # inspector
 `ctrl-alt-i`
 
