@@ -10,6 +10,10 @@
 <a-entity id="rightHand" hand-tracking-controls="hand: right;"></a-entity>
 ```
 
+## pinch
+- @2020 [A-Frameのハンドトラッキングを試してみた - じゅころぐAR](https://www.jyuko49.com/entry/2020/12/14/214715)
+- [javascript - How to move an object in the aframe scene by pinching? - Stack Overflow](https://stackoverflow.com/questions/77000162/how-to-move-an-object-in-the-aframe-scene-by-pinching)
+
 # repos
 - [GitHub - gftruj/aframe-hand-tracking-controls-extras: a-frame hand tracking extras](https://github.com/gftruj/aframe-hand-tracking-controls-extras)
 - [GitHub - marlon360/webxr-handtracking: 👐 WebXR hand tracking examples](https://github.com/marlon360/webxr-handtracking)

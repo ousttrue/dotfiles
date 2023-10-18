@@ -149,6 +149,7 @@ function M.setup()
   local languages = {
     -- typescript = { eslint, prettier },
     lua = { stylua },
+    -- html = { markuplint },
   }
 
   -- Or use the defaults provided by this plugin

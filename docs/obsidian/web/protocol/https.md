@@ -15,7 +15,8 @@
 - [http-serverによるローカル HTTPS server 構築 (5分でできる) - Qiita](https://qiita.com/hbjpn/items/925c8012cd93d9165be6)
 
 ```sh
-> http-server -c-1 . --ssl --key cert/localhost+2-key.pem --cert cert/localhost+2.pem --port 8000
+> mkcert localhost 127.0.0.1 192.168.11.2 # 👈 複数指定できる
+> http-server -c-1 . --ssl --key localhost-key.pem --cert localhost.pem
 ```
 
 # HTTPSリバースproxy
