@@ -2,10 +2,26 @@
   <head>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="aframe_hand.js"></script>
+    <script>
+      AFRAME.registerComponent("log", {
+        schema: { type: "string" },
+
+        init() {
+          console.log(this.el.sceneEl);
+          var stringToLog = this.data;
+          console.log(stringToLog);
+
+          const box = document.createElement("a-box");
+          <!-- box.setAttribute("color", "#4CC3D9"); -->
+          box.setAttribute("position", "0 0 -1");
+          this.el.sceneEl.appendChild(box);
+        },
+      });
+    </script>
   </head>
   <body>
     <a-scene>
-      <a-box position="-1 0.5 -3" color="#4CC3D9"></a-box>
+      <a-box log="text data" position="-1 0.5 -3" color="#4CC3D9"></a-box>
       <a-plane
         position="0 0 -4"
         rotation="-90 0 0"

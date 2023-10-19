@@ -19,3 +19,5 @@ zig-cache
 !/subprojects/libvterm.wrap
 /prefix/
 *.pem
+
+node_modules
