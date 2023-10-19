@@ -26,8 +26,45 @@ const JOINTS = [
     'pinky-finger-tip'
 ];
 
-// var trackedControlsUtils = require('../utils/tracked-controls');
-// var checkControllerPresentAndSetup = trackedControlsUtils.checkControllerPresentAndSetup;
+/**
+ * @param {string} name
+ * @return {{prim: string; color: string}}
+ */
+function jointShape(name) {
+    switch (name) {
+        case "thumb-tip":
+            return {
+                prim: 'a-sphere',
+                color: '#FF0000',
+            }
+        case "index-finger-tip":
+            return {
+                prim: 'a-sphere',
+                color: '#FFFF00',
+            }
+        case "middle-finger-tip":
+            return {
+                prim: 'a-sphere',
+                color: '#00FF00',
+            }
+        case "ring-finger-tip":
+            return {
+                prim: 'a-sphere',
+                color: '#00FFFF',
+            }
+        case "pinky-finger-tip":
+            return {
+                prim: 'a-sphere',
+                color: '#0000FF',
+            }
+
+        default:
+            return {
+                prim: 'a-box',
+                color: '#FFFFFF',
+            }
+    }
+}
 
 AFRAME.registerComponent('custom-hand-controls', {
     schema: {
@@ -35,41 +72,55 @@ AFRAME.registerComponent('custom-hand-controls', {
     },
 
     init() {
-        console.log('init: begin');
+        console.log(`${this.data.hand}: init: begin`);
         const sceneEl = this.el.sceneEl;
         const webXROptionalAttributes = sceneEl.getAttribute('webxr').optionalFeatures;
         webXROptionalAttributes.push('hand-tracking');
         sceneEl.setAttribute('webxr', { optionalFeatures: webXROptionalAttributes });
 
+        // @ts-ignore
         this.controllerPresent = false;
+        // @ts-ignore
         this.hasPoses = false;
+        // @ts-ignore
         this.jointPoses = new Float32Array(16 * JOINTS.length);
+        // @ts-ignore
         this.jointRadii = new Float32Array(JOINTS.length);
 
         this.el.sceneEl.addEventListener('enter-vr', async () => {
-            console.log('enter-vr');
+            console.log(`${this.data.hand}: enter-vr`);
             await this.updateReferenceSpace();
         });
         this.el.sceneEl.addEventListener('exit-vr', async () => {
-            console.log('exit-vr');
+            console.log(`${this.data.hand}: exit-vr`);
             await this.updateReferenceSpace();
         });
 
         this.el.addEventListener('controllerconnected', () => console.log('controllerconnected'));
 
+        // @ts-ignore
         this.joints = [];
         for (const name of JOINTS) {
-            const joint = document.createElement('a-box');
+            const { prim, color } = jointShape(name);
+
+            const joint = /** @type AFRAME.Entity */ document.createElement(prim);
             joint.setAttribute('id', this.data.hand + ':' + name);
-            // joint.setAttribute('color', '#4CC3D9');
-            joint.setAttribute('width', '0.01');
-            joint.setAttribute('height', '0.01');
-            joint.setAttribute('depth', '0.01');
+            joint.setAttribute('color', color);
+
+            if (prim == 'a-box') {
+                joint.setAttribute('width', '0.01');
+                joint.setAttribute('height', '0.01');
+                joint.setAttribute('depth', '0.01');
+            }
+            else {
+                joint.setAttribute('radius', '0.01');
+            }
             joint.object3D.matrixAutoUpdate = false;
             this.el.sceneEl.appendChild(joint);
+            // @ts-ignore
             this.joints.push(joint);
         }
-        console.log('init: end');
+        console.log(`${this.data.hand}: init: end`);
     },
 
     checkIfControllerPresent() {
