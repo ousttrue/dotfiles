@@ -10,4 +10,10 @@ button.addEventListener("click", () => { console.log("clicked"); });
 
 ## DOMContentLoaded
 
+```js
+document.addEventListener("DOMContentLoaded", (event) => {
+  console.log("DOM fully loaded and parsed");
+});
+```
+
 ## loaded
