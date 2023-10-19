@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>AFRAME.registerPrimitive - shell note ドキュメント</title>
+        <title>set matrix - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,53 +212,17 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[aframe_component]]</p>
-<p><a class="reference external" href="https://aframe.io/docs/1.4.0/introduction/html-and-primitives.html">HTML &amp; Primitives – A-Frame</a></p>
-<blockquote>
-<div><p>primitive は a-entity のラッパー。prefab みたいなもの</p>
-</div></blockquote>
+          <section class="tex2jax_ignore mathjax_ignore" id="set-matrix">
+<h1>set matrix<a class="headerlink" href="#set-matrix" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/matsukatsu/items/b1540dbf36da3d58dc80">A-FRAME: プリミティブ一覧 #HTML - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/67812070/aframe-updating-an-elements-matrix">three.js - AFrame - updating an element's matrix - Stack Overflow</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="aframe-registerprimitive">
-<h1>AFRAME.registerPrimitive<a class="headerlink" href="#aframe-registerprimitive" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">extendDeep</span> <span class="o">=</span> <span class="nx">AFRAME</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">extendDeep</span><span class="p">;</span>
-
-<span class="c1">// The mesh mixin provides common material properties for creating mesh-based primitives.</span>
-<span class="c1">// This makes the material component a default component and maps all the base material properties.</span>
-<span class="kd">var</span> <span class="nx">meshMixin</span> <span class="o">=</span> <span class="nx">AFRAME</span><span class="p">.</span><span class="nx">primitives</span><span class="p">.</span><span class="nx">getMeshMixin</span><span class="p">();</span>
-
-<span class="nx">AFRAME</span><span class="p">.</span><span class="nx">registerPrimitive</span><span class="p">(</span><span class="s1">'a-box'</span><span class="p">,</span> <span class="nx">extendDeep</span><span class="p">({},</span> <span class="nx">meshMixin</span><span class="p">,</span> <span class="p">{</span>
-  <span class="c1">// Preset default components. These components and component properties will be attached to the entity out-of-the-box.</span>
-  <span class="nx">defaultComponents</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">geometry</span><span class="o">:</span> <span class="p">{</span><span class="nx">primitive</span><span class="o">:</span> <span class="s1">'box'</span><span class="p">}</span>
-  <span class="p">},</span>
-
-  <span class="c1">// Defined mappings from HTML attributes to component properties (using dots as delimiters).</span>
-  <span class="c1">// If we set `depth="5"` in HTML, then the primitive will automatically set `geometry="depth: 5"`.</span>
-  <span class="nx">mappings</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">depth</span><span class="o">:</span> <span class="s1">'geometry.depth'</span><span class="p">,</span>
-    <span class="nx">height</span><span class="o">:</span> <span class="s1">'geometry.height'</span><span class="p">,</span>
-    <span class="nx">width</span><span class="o">:</span> <span class="s1">'geometry.width'</span>
-  <span class="p">}</span>
-<span class="p">}));</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/45983491/how-do-i-register-a-component-made-of-a-few-elements-in-a-frame">aframe - How do I register a component made of a few elements in A-Frame? - Stack Overflow</a></p></li>
-</ul>
-<section id="samples">
-<h2>samples<a class="headerlink" href="#samples" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://codepen.io/leemark/embed/bWVwMv?height=300&amp;theme-id=1232&amp;slug-hash=bWVwMv&amp;default-tab=html%2Cresult&amp;user=leemark&amp;embed-version=2&amp;pen-title=a-frame%20clock%20as%20primitive&amp;name=cp_embed_6">CodePen Embed - a-frame clock as primitive</a></p></li>
-</ul>
-</section>
 </section>
 
         </article>
@@ -274,7 +238,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/aframe_primitive.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/threejs.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -282,27 +246,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">AFRAME.registerPrimitive</a><ul>
-<li><a class="reference internal" href="#samples">samples</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

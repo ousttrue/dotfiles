@@ -1,7 +1,7 @@
 
 ECS の E(Entity?)
 
-[[AFrameComponent]]
+[[aframe_component]]
 
 `tag` で記述する。
 
@@ -27,7 +27,7 @@ Entity ?
 
 - [HTML & Primitives – A-Frame](https://aframe.io/docs/0.5.0/introduction/html-and-primitives.html)
 
-primitive に [[AFrameComponent]] をアタッチする
+primitive に [[aframe_component]] をアタッチする
 
 # objectpool
 [[A-Frame]A-Frameでオブジェクトプールを使用する](https://zenn.dev/kurosan/articles/b758e023553993)

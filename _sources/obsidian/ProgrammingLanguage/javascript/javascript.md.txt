@@ -22,7 +22,7 @@ aliases: [js, ECMAScrip]
 `async/await`
 
 ## es6(es2015)
-
+- `TypedArray`
 
 # implementation
 - [List of ECMAScript engines - Wikipedia](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)

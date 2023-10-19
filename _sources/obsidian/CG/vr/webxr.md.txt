@@ -58,3 +58,11 @@ true が返らずに詰む
 [[QuestMobileSDK]]
 - [OculusQuest WebVR hand-tracking demo](https://wakufactory.jp/wxr/w/oculushand.html)
 - [【WebXR】WebXR Device APIを使ってMeta Questのブラウザで動く空間を作ってみよう！【PlayCanvas】](https://tech.gmogshd.com/webxr-meta-quest2/)
+
+# input
+- [Inputs and input sources - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API/Inputs)
+
+# debug
+```
+chrome://inspect/#devices
+```
