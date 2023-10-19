@@ -169,6 +169,8 @@ function M.setup()
     },
   }
 
+  require("lspconfig").custom_elements_ls.setup {}
+
   require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {
     -- Pass your custom lsp config below like on_attach and capabilities
     --

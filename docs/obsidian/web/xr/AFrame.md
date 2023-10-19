@@ -13,6 +13,7 @@
 
 - [A-Frame を使った基本的なデモの作成 - ゲーム開発 | MDN](https://developer.mozilla.org/ja/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_A-Frame)
 - @2022 [WebXR を使って 15 行のコードで VR / AR を作ってみよう｜WebXR を使ってメタバースを構築してみよう ～中編 | SEプラス 研修 Topics](https://www.seplus.jp/dokushuzemi/blog/2022/03/make_vr_ar_with_webxr.html)
+- @2021 [A-Frameをかじる本](https://zenn.dev/sdkfz181tiger/books/671f43a6883d34)
 - @2020 [Web技術(A-Frame)でVRを実現する夢を見た - Qiita](https://qiita.com/ysd_marrrr/items/249533f4b37d34db147d)
 - @2015 [新しいWebVRフレームワークA-Frame入門 - Qiita](https://qiita.com/rootx/items/cba61f1f725bd0090307)
 
@@ -53,3 +54,6 @@
 
 # leapmotion
 [GitHub - openleap/aframe-leap-hands: A-Frame VR component for Leap Motion.](https://github.com/openleap/aframe-leap-hands)
+
+# component
+- [GitHub - supermedium/aframe-environment-component: :sunrise\_over\_mountains: Infinite background environments for A-Frame in a line of HTML.](https://github.com/supermedium/aframe-environment-component)
