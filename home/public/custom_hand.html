@@ -2,13 +2,13 @@
   <head>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="custom_hand.js"></script>
+    <script src="boxes.js"></script>
+    <script src="hittest.js"></script>
   </head>
   <body>
     <a-scene boxes>
       <a-entity id="leftHand" custom-hand-controls="hand: left;"></a-entity>
       <a-entity id="rightHand" custom-hand-controls="hand: right;"></a-entity>
-
-      <a-box interaction position="0 0.7 -1.0" color="#4CC3D9"></a-box>
       <a-plane
         position="0 0 -4"
         rotation="-90 0 0"

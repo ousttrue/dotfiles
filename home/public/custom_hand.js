@@ -33,7 +33,6 @@ var PINCH_START_DISTANCE = 0.015;
 var PINCH_END_DISTANCE = 0.03;
 var PINCH_POSITION_INTERPOLATION = 0.5;
 
-
 AFRAME.registerComponent('custom-hand-controls', {
     schema: {
         hand: { default: 'right', oneOf: ['left', 'right'] },
@@ -98,8 +97,15 @@ AFRAME.registerComponent('custom-hand-controls', {
         this.hasPoses = false;
         this.jointPoses = new Float32Array(16 * JOINTS.length);
         this.jointRadii = new Float32Array(JOINTS.length);
+        this.hoverMap = {}
+
         this.indexTipPosition = new THREE.Vector3();
         this.thumbTipPosition = new THREE.Vector3();
+        this.pinchEventDetail = {
+            hand: this.data.hand,
+            matrix: new THREE.Matrix4(),
+        };
+        this.isPinched = false;
 
         this.el.sceneEl.addEventListener('enter-vr',
             async () => {
@@ -134,6 +140,13 @@ AFRAME.registerComponent('custom-hand-controls', {
             this.joints.push(joint);
         }
         this.logger('init: end');
+
+        this.el.addEventListener('pinchstarted', () => {
+            this.joints[INDEX_TIP_INDEX].setAttribute('color', '#FF00FF')
+        });
+        this.el.addEventListener('pinchended', () => {
+            this.joints[INDEX_TIP_INDEX].setAttribute('color', '#FFFF00')
+        });
     },
 
     // AFRAME.Component lifecycle
@@ -175,84 +188,55 @@ AFRAME.registerComponent('custom-hand-controls', {
                 this.thumbTipPosition.setFromMatrixPosition(
                     this.joints[THUMB_TIP_INDEX].object3D.matrix);
 
-                if (this.itms === undefined) {
-                    this.items = [];
-                    for (const item of document.querySelectorAll('[interaction]')) {
-                        this.items.push(item.components.interaction);
+
+                if (this.hitItems === undefined) {
+                    this.hitItems = [];
+                    for (const el of document.querySelectorAll('[hittest]')) {
+                        const hittest = el.components.hittest;
+                        hittest.el.addEventListener('enter', (key) => {
+                            // if (key == this) 
+                            {
+                                el.setAttribute('color', 'red')
+                                this.hoverMap[el] = el
+                            }
+                        });
+                        hittest.el.addEventListener('exit', (key) => {
+                            // if (key == this) 
+                            {
+                                el.setAttribute('color', 'white')
+                                delete this.hoverMap[el]
+                            }
+                        });
+                        this.hitItems.push(hittest);
                     }
-                    console.log(`query: ${this.items.length}`)
+                    console.log(`query: ${this.hitItems.length}`)
                 }
 
                 var distance = this.indexTipPosition.distanceTo(this.thumbTipPosition);
                 const isPinched = distance < PINCH_START_DISTANCE;
-                // this.pinchEventDetail.position.copy(indexTipPosition).lerp(thumbTipPosition, PINCH_POSITION_INTERPOLATION);
-                // this.el.emit('pinchstarted', this.pinchEventDetail);
+                if (this.isPinched != isPinched) {
+                    if (isPinched) {
+                        this.el.emit('pinchstarted', this.pinchEventDetail);
+                    }
+                    else {
+                        this.el.emit('pinchended', this.pinchEventDetail);
+                    }
+                    this.isPinched = isPinched;
+                }
 
-                // hover
-                for (const item of this.items) {
-                    if (item.sethover(this.indexTipPosition) && isPinched) {
-                        item.el.object3D.position = this.indexTipPosition;
+                // hitTest
+                for (const hittest of this.hitItems) {
+                    hittest.test(this, this.indexTipPosition);
+                }
+
+                if (this.isPinched) {
+                    for (const key in this.hoverMap) {
+                        // const obj = /** @type THREE.Object3D */ (this.hoverMap[key].object3D);
+                        // obj.position = this.indexTipPosition;
+                        this.hoverMap[key].setAttribute('position', this.indexTipPosition);
                     }
                 }
             }
         }
     },
 });
-
-AFRAME.registerComponent("boxes", {
-    init() {
-        const scene = this.el.sceneEl;
-        let i = 0;
-        for (let x = -1; x <= 1; x += 0.5) {
-            for (let y = 0; y <= 2; y += 0.5) {
-                for (let z = -2; z <= 0; z += 0.5) {
-                    const box = document.createElement("a-box");
-                    // console.log(i++);
-                    // box.setAttribute("color", "red");
-                    box.setAttribute("width", 0.01);
-                    box.setAttribute("height", 0.01);
-                    box.setAttribute("depth", 0.01);
-                    box.setAttribute("position", `${x} ${y} ${z}`);
-
-                    box.setAttribute('interaction', '')
-                    scene.appendChild(box);
-                }
-            }
-        }
-    },
-});
-
-AFRAME.registerComponent("interaction", {
-    init() {
-        const obj = this.el.object3D;
-        const geom = /* @type {THREE.BufferGeometry} */ (obj.children[0].geometry);
-        geom.computeBoundingBox();
-        this.bb = geom.boundingBox.clone();
-        this.bb.min.x -= 0.005;
-        this.bb.min.y -= 0.005;
-        this.bb.min.z -= 0.005;
-        this.bb.max.x += 0.005;
-        this.bb.max.y += 0.005;
-        this.bb.max.z += 0.005;
-    },
-    /**
-     * @type THREE.Vector3
-     * @return boolean
-     */
-    sethover(_p) {
-        const obj = this.el.object3D;
-        // const geom = /* @type {THREE.BufferGeometry} */ (obj.children[0].geometry);
-        const p = /** @type {THREE.Vector3} */ (_p.clone());
-        p.applyMatrix4(obj.matrixWorld.invert());
-
-        if (this.bb.containsPoint(p)) {
-            this.el.setAttribute('color', 'red');
-            return true;
-        }
-        else {
-            this.el.setAttribute('color', 'white');
-            return false;
-        }
-    },
-});
-
