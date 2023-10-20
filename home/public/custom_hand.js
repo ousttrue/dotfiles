@@ -1,108 +1,113 @@
+// @ts-nocheck
 const JOINTS = [
-    'wrist',
-    'thumb-metacarpal',
-    'thumb-phalanx-proximal',
-    'thumb-phalanx-distal',
-    'thumb-tip',
-    'index-finger-metacarpal',
-    'index-finger-phalanx-proximal',
-    'index-finger-phalanx-intermediate',
-    'index-finger-phalanx-distal',
-    'index-finger-tip',
-    'middle-finger-metacarpal',
-    'middle-finger-phalanx-proximal',
-    'middle-finger-phalanx-intermediate',
-    'middle-finger-phalanx-distal',
-    'middle-finger-tip',
-    'ring-finger-metacarpal',
-    'ring-finger-phalanx-proximal',
-    'ring-finger-phalanx-intermediate',
-    'ring-finger-phalanx-distal',
-    'ring-finger-tip',
-    'pinky-finger-metacarpal',
-    'pinky-finger-phalanx-proximal',
-    'pinky-finger-phalanx-intermediate',
-    'pinky-finger-phalanx-distal',
-    'pinky-finger-tip'
+    { name: 'wrist', prim: 'a-box', color: '#ffffff' },
+    { name: 'thumb-metacarpal', prim: 'a-box', color: '#ffffff' },
+    { name: 'thumb-phalanx-proximal', prim: 'a-box', color: '#ffffff' },
+    { name: 'thumb-phalanx-distal', prim: 'a-box', color: '#ffffff' },
+    { name: 'thumb-tip', prim: 'a-sphere', color: '#ff0000' },
+    { name: 'index-finger-metacarpal', prim: 'a-box', color: '#ffffff' },
+    { name: 'index-finger-phalanx-proximal', prim: 'a-box', color: '#ffffff' },
+    { name: 'index-finger-phalanx-intermediate', prim: 'a-box', color: '#ffffff' },
+    { name: 'index-finger-phalanx-distal', prim: 'a-box', color: '#ffffff' },
+    { name: 'index-finger-tip', prim: 'a-sphere', color: '#ffff00' },
+    { name: 'middle-finger-metacarpal', prim: 'a-box', color: '#ffffff' },
+    { name: 'middle-finger-phalanx-proximal', prim: 'a-box', color: '#ffffff' },
+    { name: 'middle-finger-phalanx-intermediate', prim: 'a-box', color: '#ffffff' },
+    { name: 'middle-finger-phalanx-distal', prim: 'a-box', color: '#ffffff' },
+    { name: 'middle-finger-tip', prim: 'a-sphere', color: '#00ff00' },
+    { name: 'ring-finger-metacarpal', prim: 'a-box', color: '#ffffff' },
+    { name: 'ring-finger-phalanx-proximal', prim: 'a-box', color: '#ffffff' },
+    { name: 'ring-finger-phalanx-intermediate', prim: 'a-box', color: '#ffffff' },
+    { name: 'ring-finger-phalanx-distal', prim: 'a-box', color: '#ffffff' },
+    { name: 'ring-finger-tip', prim: 'a-sphere', color: '#00ffff' },
+    { name: 'pinky-finger-metacarpal', prim: 'a-box', color: '#ffffff' },
+    { name: 'pinky-finger-phalanx-proximal', prim: 'a-box', color: '#ffffff' },
+    { name: 'pinky-finger-phalanx-intermediate', prim: 'a-box', color: '#ffffff' },
+    { name: 'pinky-finger-phalanx-distal', prim: 'a-box', color: '#ffffff' },
+    { name: 'pinky-fingea-sphere', prim: 'a-sphere', color: '#0000ff' },
 ];
-
-/**
- * @param {string} name
- * @return {{prim: string; color: string}}
- */
-function jointShape(name) {
-    switch (name) {
-        case "thumb-tip":
-            return {
-                prim: 'a-sphere',
-                color: '#FF0000',
-            }
-        case "index-finger-tip":
-            return {
-                prim: 'a-sphere',
-                color: '#FFFF00',
-            }
-        case "middle-finger-tip":
-            return {
-                prim: 'a-sphere',
-                color: '#00FF00',
-            }
-        case "ring-finger-tip":
-            return {
-                prim: 'a-sphere',
-                color: '#00FFFF',
-            }
-        case "pinky-finger-tip":
-            return {
-                prim: 'a-sphere',
-                color: '#0000FF',
-            }
-
-        default:
-            return {
-                prim: 'a-box',
-                color: '#FFFFFF',
-            }
-    }
-}
 
 AFRAME.registerComponent('custom-hand-controls', {
     schema: {
         hand: { default: 'right', oneOf: ['left', 'right'] },
     },
 
+    logger(msg) {
+        console.log(`[${this.data.hand}] ${msg}`)
+    },
+
+    // call from AFRAME.utils.trackedControls.checkControllerPresentAndSetup
+    injectTrackedControls() {
+        this.logger('injectTrackedControls');
+        var el = this.el;
+        var data = this.data;
+        el.setAttribute('tracked-controls', {
+            hand: data.hand,
+            iterateControllerProfiles: true,
+            handTrackingEnabled: true
+        });
+    },
+
+    // call from AFRAME.utils.trackedControls.checkControllerPresentAndSetup
+    addEventListeners() {
+        this.logger('addEventListeners');
+    },
+
+    // call from AFRAME.utils.trackedControls.checkControllerPresentAndSetup
+    removeEventListeners() {
+        this.logger('removeEventListener');
+    },
+
+    _checkIfControllerPresent() {
+        AFRAME.utils.trackedControls.checkControllerPresentAndSetup(
+            this, '',
+            { hand: this.data.hand, iterateControllerProfiles: true, handTracking: true });
+    },
+
+    async _updateReferenceSpace() {
+        /** @type XRSession */
+        const xrSession = this.el.sceneEl.xrSession;
+        this.referenceSpace = undefined;
+        if (!xrSession) { return; }
+        const referenceSpaceType = this.el.sceneEl.systems.webxr.sessionReferenceSpaceType;
+        try {
+            this.logger(`_updateReferenceSpace: ${referenceSpaceType}`);
+            this.referenceSpace = await xrSession.requestReferenceSpace(referenceSpaceType)
+        } catch (error) {
+            this.el.sceneEl.systems.webxr.warnIfFeatureNotRequested(referenceSpaceType, 'tracked-controls-webxr uses reference space ' + referenceSpaceType);
+            throw error;
+        }
+    },
+
+    // AFRAME.Component lifecycle
     init() {
-        console.log(`${this.data.hand}: init: begin`);
+        this.logger('init: begin');
         const sceneEl = this.el.sceneEl;
         const webXROptionalAttributes = sceneEl.getAttribute('webxr').optionalFeatures;
         webXROptionalAttributes.push('hand-tracking');
         sceneEl.setAttribute('webxr', { optionalFeatures: webXROptionalAttributes });
 
-        // @ts-ignore
         this.controllerPresent = false;
-        // @ts-ignore
         this.hasPoses = false;
-        // @ts-ignore
         this.jointPoses = new Float32Array(16 * JOINTS.length);
-        // @ts-ignore
         this.jointRadii = new Float32Array(JOINTS.length);
 
-        this.el.sceneEl.addEventListener('enter-vr', async () => {
-            console.log(`${this.data.hand}: enter-vr`);
-            await this.updateReferenceSpace();
-        });
-        this.el.sceneEl.addEventListener('exit-vr', async () => {
-            console.log(`${this.data.hand}: exit-vr`);
-            await this.updateReferenceSpace();
-        });
+        this.el.sceneEl.addEventListener('enter-vr',
+            async () => {
+                this.logger('enter-vr');
+                await this._updateReferenceSpace();
+            });
+        this.el.sceneEl.addEventListener('exit-vr',
+            async () => {
+                this.logger('exit-vr');
+                await this._updateReferenceSpace();
+            });
 
-        this.el.addEventListener('controllerconnected', () => console.log('controllerconnected'));
+        this.el.addEventListener('controllerconnected',
+            () => this.logger('controllerconnected'));
 
-        // @ts-ignore
         this.joints = [];
-        for (const name of JOINTS) {
-            const { prim, color } = jointShape(name);
-
+        for (const { name, prim, color } of JOINTS) {
             const joint = /** @type AFRAME.Entity */ document.createElement(prim);
             joint.setAttribute('id', this.data.hand + ':' + name);
             joint.setAttribute('color', color);
@@ -117,112 +122,42 @@ AFRAME.registerComponent('custom-hand-controls', {
             }
             joint.object3D.matrixAutoUpdate = false;
             this.el.sceneEl.appendChild(joint);
-            // @ts-ignore
             this.joints.push(joint);
         }
-        console.log(`${this.data.hand}: init: end`);
+        this.logger('init: end');
     },
 
-    checkIfControllerPresent() {
-        var data = this.data;
-        var hand = data.hand ? data.hand : undefined;
-        AFRAME.utils.trackedControls.checkControllerPresentAndSetup(
-            this, '',
-            { hand: hand, iterateControllerProfiles: true, handTracking: true });
-    },
-
-    onControllersUpdate() {
-        var controller;
-        this.checkIfControllerPresent();
-        controller = this.el.components['tracked-controls'] && this.el.components['tracked-controls'].controller;
-        // if (!this.el.getObject3D('mesh')) { return; }
-        // if (!controller || !controller.hand || !controller.hand[0]) {
-        //     this.el.getObject3D('mesh').visible = false;
-        // }
-    },
-
-    injectTrackedControls() {
-        console.log('injectTrackedControls');
-        var el = this.el;
-        var data = this.data;
-        el.setAttribute('tracked-controls', {
-            hand: data.hand,
-            iterateControllerProfiles: true,
-            handTrackingEnabled: true
-        });
-    },
-
-    addEventListeners() {
-        console.log('addEventListeners');
-        // this.el.addEventListener('model-loaded', this.onModelLoaded);
-        // for (var i = 0; i < this.jointEls.length; ++i) {
-        //     this.jointEls[i].object3D.visible = true;
-        // }
-    },
-
-    removeEventListeners() {
-        console.log('removeEventListener');
-        // this.el.removeEventListener('model-loaded', this.onModelLoaded);
-        // for (var i = 0; i < this.jointEls.length; ++i) {
-        //     this.jointEls[i].object3D.visible = false;
-        // }
-    },
-
+    // AFRAME.Component lifecycle
     play() {
-        console.log('play');
-
-        // console.log(AFRAME);
-        this.checkIfControllerPresent();
-
+        this.logger('play');
+        this._checkIfControllerPresent();
         this.el.sceneEl.addEventListener('controllersupdated',
-            e => this.onControllersUpdate(e), false);
+            _ => this._checkIfControllerPresent(), false);
     },
 
+    // AFRAME.Component lifecycle
     pause() {
-        console.log('pause');
-        // this.removeEventListeners();
+        this.logger('pause');
         this.el.sceneEl.removeEventListener('controllersupdated',
-            e => this.onControllersUpdate(e), false);
+            _ => this._checkIfControllerPresent(), false);
     },
 
-    async updateReferenceSpace() {
-        /** @type XRSession */
-        const xrSession = this.el.sceneEl.xrSession;
-        this.referenceSpace = undefined;
-        if (!xrSession) { return; }
-        const referenceSpaceType = this.el.sceneEl.systems.webxr.sessionReferenceSpaceType;
-        try {
-            console.log(`updateReferenceSpace: ${referenceSpaceType}`);
-            this.referenceSpace = await xrSession.requestReferenceSpace(referenceSpaceType)
-        } catch (error) {
-            this.el.sceneEl.systems.webxr.warnIfFeatureNotRequested(referenceSpaceType, 'tracked-controls-webxr uses reference space ' + referenceSpaceType);
-            throw error;
-        }
-    },
-
+    // AFRAME.Component lifecycle
     tick() {
         const sceneEl = this.el.sceneEl;
-        /** @type XRFrame */
         this.hasPoses = false;
         this.el.object3D.position.set(0, 0, 0);
         this.el.object3D.rotation.set(0, 0, 0);
 
-        var frame = sceneEl.frame;
-        var controller = this.el.components['tracked-controls'] && this.el.components['tracked-controls'].controller;
-        // console.log(controller);
+        var frame = /** @type XRFrame */ (sceneEl.frame);
+        var controller = /** @type XRInputSource */ (this.el.components['tracked-controls'] && this.el.components['tracked-controls'].controller);
 
         if (controller) {
             this.hasPoses = frame.fillPoses(controller.hand.values(), this.referenceSpace, this.jointPoses);
-
             if (this.hasPoses) {
                 let offset = 0;
                 for (let i = 0; i < this.joints.length; ++i, offset += 16) {
-                    /** @type THREE.Object3D */
-                    const o3d = this.joints[i].object3D;
-                    // const m = this.jointPoses.slice(pos, pos + 16);
-                    // console.log(m);
-                    // o3d.matrix.set(...m);
-                    // o3d.matrixWorldNeedsUpdate = true;
+                    const o3d = /** @type THREE.Object3D */(this.joints[i].object3D);
                     o3d.matrix.fromArray(this.jointPoses, offset);
                 }
             }
