@@ -120,7 +120,7 @@ AFRAME.registerComponent('custom-hand-controls', {
                 joint.setAttribute('depth', '0.01');
             }
             else {
-                joint.setAttribute('radius', '0.01');
+                joint.setAttribute('radius', '0.005');
             }
             joint.object3D.matrixAutoUpdate = false;
             this.el.sceneEl.appendChild(joint);
@@ -169,11 +169,10 @@ AFRAME.registerComponent('custom-hand-controls', {
                     for (const item of document.querySelectorAll('[interaction]')) {
                         this.items.push(item.components.interaction);
                     }
+                    console.log(`query: ${this.items.length}`)
                 }
                 for (const item of this.items) {
-                    const distance = this.indexTipPosition.distanceTo(item.el.object3D.position);
-                    this.logger(`${this.indexTipPosition} - ${item.el.object3D.position} = ${distance}`)
-                    item.sethover(distance < 1);
+                    item.sethover(this.indexTipPosition);
                 }
             }
         }
@@ -188,14 +187,14 @@ AFRAME.registerComponent("boxes", {
             for (let y = 0; y <= 2; y += 0.5) {
                 for (let z = -2; z <= 0; z += 0.5) {
                     const box = document.createElement("a-box");
-                    console.log(i++);
+                    // console.log(i++);
                     // box.setAttribute("color", "red");
                     box.setAttribute("width", 0.01);
                     box.setAttribute("height", 0.01);
                     box.setAttribute("depth", 0.01);
                     box.setAttribute("position", `${x} ${y} ${z}`);
 
-                    // box.setAttribute('interaction')
+                    box.setAttribute('interaction', '')
                     scene.appendChild(box);
                 }
             }
@@ -204,12 +203,28 @@ AFRAME.registerComponent("boxes", {
 });
 
 AFRAME.registerComponent("interaction", {
-    sethover(isHover) {
-        if (this.isHover === isHover) {
-            return;
-        }
-        this.isHover = isHover;
-        if (this.isHover) {
+    init() {
+        const obj = this.el.object3D;
+        const geom = /* @type {THREE.BufferGeometry} */ (obj.children[0].geometry);
+        geom.computeBoundingBox();
+        this.bb = geom.boundingBox.clone();
+        this.bb.min.x -= 0.005;
+        this.bb.min.y -= 0.005;
+        this.bb.min.z -= 0.005;
+        this.bb.max.x += 0.005;
+        this.bb.max.y += 0.005;
+        this.bb.max.z += 0.005;
+    },
+    /**
+     * @type THREE.Vector3
+     */
+    sethover(_p) {
+        const obj = this.el.object3D;
+        // const geom = /* @type {THREE.BufferGeometry} */ (obj.children[0].geometry);
+        const p = /** @type {THREE.Vector3} */ (_p.clone());
+        p.applyMatrix4(obj.matrixWorld.invert());
+
+        if (this.bb.containsPoint(p)) {
             this.el.setAttribute('color', 'red');
         }
         else {
