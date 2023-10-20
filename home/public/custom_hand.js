@@ -26,6 +26,7 @@ const JOINTS = [
     { name: 'pinky-finger-phalanx-distal', prim: 'a-box', color: '#ffffff' },
     { name: 'pinky-fingea-sphere', prim: 'a-sphere', color: '#0000ff' },
 ];
+var INDEX_TIP_INDEX = 9;
 
 AFRAME.registerComponent('custom-hand-controls', {
     schema: {
@@ -91,6 +92,7 @@ AFRAME.registerComponent('custom-hand-controls', {
         this.hasPoses = false;
         this.jointPoses = new Float32Array(16 * JOINTS.length);
         this.jointRadii = new Float32Array(JOINTS.length);
+        this.indexTipPosition = new THREE.Vector3();
 
         this.el.sceneEl.addEventListener('enter-vr',
             async () => {
@@ -160,7 +162,59 @@ AFRAME.registerComponent('custom-hand-controls', {
                     const o3d = /** @type THREE.Object3D */(this.joints[i].object3D);
                     o3d.matrix.fromArray(this.jointPoses, offset);
                 }
+                this.indexTipPosition.setFromMatrixPosition(this.joints[INDEX_TIP_INDEX].object3D.matrix);
+
+                if (this.itms === undefined) {
+                    this.items = [];
+                    for (const item of document.querySelectorAll('[interaction]')) {
+                        this.items.push(item.components.interaction);
+                    }
+                }
+                for (const item of this.items) {
+                    const distance = this.indexTipPosition.distanceTo(item.el.object3D.position);
+                    this.logger(`${this.indexTipPosition} - ${item.el.object3D.position} = ${distance}`)
+                    item.sethover(distance < 1);
+                }
             }
         }
     },
 });
+
+AFRAME.registerComponent("boxes", {
+    init() {
+        const scene = this.el.sceneEl;
+        let i = 0;
+        for (let x = -1; x <= 1; x += 0.5) {
+            for (let y = 0; y <= 2; y += 0.5) {
+                for (let z = -2; z <= 0; z += 0.5) {
+                    const box = document.createElement("a-box");
+                    console.log(i++);
+                    // box.setAttribute("color", "red");
+                    box.setAttribute("width", 0.01);
+                    box.setAttribute("height", 0.01);
+                    box.setAttribute("depth", 0.01);
+                    box.setAttribute("position", `${x} ${y} ${z}`);
+
+                    // box.setAttribute('interaction')
+                    scene.appendChild(box);
+                }
+            }
+        }
+    },
+});
+
+AFRAME.registerComponent("interaction", {
+    sethover(isHover) {
+        if (this.isHover === isHover) {
+            return;
+        }
+        this.isHover = isHover;
+        if (this.isHover) {
+            this.el.setAttribute('color', 'red');
+        }
+        else {
+            this.el.setAttribute('color', 'white');
+        }
+    },
+});
+

@@ -2,35 +2,13 @@
   <head>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="custom_hand.js"></script>
-    <script>
-      AFRAME.registerComponent("boxes", {
-        init() {
-          const scene = this.el.sceneEl;
-          let i = 0;
-          for (let x = -1; x <= 1; x += 0.5) {
-            for (let y = 0; y <= 2; y += 0.5) {
-              for (let z = -2; z <= 0; z += 0.5) {
-                const box = document.createElement("a-box");
-                console.log(i++);
-                // box.setAttribute("color", "red");
-                box.setAttribute("width", 0.01);
-                box.setAttribute("height", 0.01);
-                box.setAttribute("depth", 0.01);
-                box.setAttribute("position", `${x} ${y} ${z}`);
-                scene.appendChild(box);
-              }
-            }
-          }
-        },
-      });
-    </script>
   </head>
   <body>
     <a-scene boxes>
       <a-entity id="leftHand" custom-hand-controls="hand: left;"></a-entity>
       <a-entity id="rightHand" custom-hand-controls="hand: right;"></a-entity>
 
-      <a-box position="-1 0.5 -3" color="#4CC3D9"></a-box>
+      <a-box interaction position="0 0.7 -1.0" color="#4CC3D9"></a-box>
       <a-plane
         position="0 0 -4"
         rotation="-90 0 0"
