@@ -26,7 +26,13 @@ const JOINTS = [
     { name: 'pinky-finger-phalanx-distal', prim: 'a-box', color: '#ffffff' },
     { name: 'pinky-fingea-sphere', prim: 'a-sphere', color: '#0000ff' },
 ];
+var THUMB_TIP_INDEX = 4;
 var INDEX_TIP_INDEX = 9;
+
+var PINCH_START_DISTANCE = 0.015;
+var PINCH_END_DISTANCE = 0.03;
+var PINCH_POSITION_INTERPOLATION = 0.5;
+
 
 AFRAME.registerComponent('custom-hand-controls', {
     schema: {
@@ -93,6 +99,7 @@ AFRAME.registerComponent('custom-hand-controls', {
         this.jointPoses = new Float32Array(16 * JOINTS.length);
         this.jointRadii = new Float32Array(JOINTS.length);
         this.indexTipPosition = new THREE.Vector3();
+        this.thumbTipPosition = new THREE.Vector3();
 
         this.el.sceneEl.addEventListener('enter-vr',
             async () => {
@@ -162,7 +169,11 @@ AFRAME.registerComponent('custom-hand-controls', {
                     const o3d = /** @type THREE.Object3D */(this.joints[i].object3D);
                     o3d.matrix.fromArray(this.jointPoses, offset);
                 }
-                this.indexTipPosition.setFromMatrixPosition(this.joints[INDEX_TIP_INDEX].object3D.matrix);
+
+                this.indexTipPosition.setFromMatrixPosition(
+                    this.joints[INDEX_TIP_INDEX].object3D.matrix);
+                this.thumbTipPosition.setFromMatrixPosition(
+                    this.joints[THUMB_TIP_INDEX].object3D.matrix);
 
                 if (this.itms === undefined) {
                     this.items = [];
@@ -171,8 +182,17 @@ AFRAME.registerComponent('custom-hand-controls', {
                     }
                     console.log(`query: ${this.items.length}`)
                 }
+
+                var distance = this.indexTipPosition.distanceTo(this.thumbTipPosition);
+                const isPinched = distance < PINCH_START_DISTANCE;
+                // this.pinchEventDetail.position.copy(indexTipPosition).lerp(thumbTipPosition, PINCH_POSITION_INTERPOLATION);
+                // this.el.emit('pinchstarted', this.pinchEventDetail);
+
+                // hover
                 for (const item of this.items) {
-                    item.sethover(this.indexTipPosition);
+                    if (item.sethover(this.indexTipPosition) && isPinched) {
+                        item.el.object3D.position = this.indexTipPosition;
+                    }
                 }
             }
         }
@@ -217,6 +237,7 @@ AFRAME.registerComponent("interaction", {
     },
     /**
      * @type THREE.Vector3
+     * @return boolean
      */
     sethover(_p) {
         const obj = this.el.object3D;
@@ -226,9 +247,11 @@ AFRAME.registerComponent("interaction", {
 
         if (this.bb.containsPoint(p)) {
             this.el.setAttribute('color', 'red');
+            return true;
         }
         else {
             this.el.setAttribute('color', 'white');
+            return false;
         }
     },
 });
