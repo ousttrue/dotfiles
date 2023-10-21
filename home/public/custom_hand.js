@@ -47,6 +47,7 @@ const PINCH_POSITION_INTERPOLATION = 0.5;
  * @property {Float32Array} jointPoses
  * @property {Float32Array} jointRadii
  * @property {Set<AFRAME.AEntity>} hoverSet
+ * @property {Set<AFRAME.AEntity>} pinchSet
  * @property {THREE.Vector3} indexTipPosition
  * @property {THREE.Vector3} thumbTipPosition
  * @property {PinchDetail} pinchEventDetail
@@ -57,6 +58,8 @@ const PINCH_POSITION_INTERPOLATION = 0.5;
  * @property {function} logger
  * @property {function} _updateReferenceSpace
  * @property {function} _checkIfControllerPresent
+ * @property {function} _updateHandTracking
+ * @property {function} _updateInteraction
  */
 
 AFRAME.registerComponent('custom-hand-controls', {
@@ -139,6 +142,7 @@ AFRAME.registerComponent('custom-hand-controls', {
         this.jointRadii = new Float32Array(JOINTS.length);
 
         this.hoverSet = new Set();
+        this.pinchSet = new Set();
 
         this.indexTipPosition = new THREE.Vector3();
         this.thumbTipPosition = new THREE.Vector3();
@@ -184,9 +188,14 @@ AFRAME.registerComponent('custom-hand-controls', {
 
         this.el.addEventListener('pinchstarted', () => {
             this.joints[INDEX_TIP_INDEX].setAttribute('color', '#FF00FF')
+            this.pinchSet.clear();
+            this.hoverSet.forEach(el => {
+                this.pinchSet.add(el);
+            });
         });
         this.el.addEventListener('pinchended', () => {
             this.joints[INDEX_TIP_INDEX].setAttribute('color', '#FFFF00')
+            this.pinchSet.clear();
         });
     },
 
@@ -212,84 +221,98 @@ AFRAME.registerComponent('custom-hand-controls', {
     },
 
     /**
+     * @this {AFRAME.AComponent & CustomHandControls}
+     * @return boolean
+     */
+    _updateHandTracking() {
+        this.hasPoses = false;
+
+        // @ts-ignore
+        const input = /** @type XRInputSource */ (this.el.components['tracked-controls'] && this.el.components['tracked-controls'].controller);
+        if (!input) {
+            return false;
+        }
+
+        // @ts-ignore
+        const frame = /** @type {XRFrame} */ (this.el.sceneEl.frame);
+        // https://www.w3.org/TR/webxr-hand-input-1/
+        // @ts-ignore
+        this.hasPoses = frame.fillPoses(input.hand.values(), this.referenceSpace, this.jointPoses);
+        return this.hasPoses;
+    },
+
+    /**
+     * @this {AFRAME.AComponent & CustomHandControls}
+     */
+    _updateInteraction() {
+        // apply hand tracking to hand joint boxes
+        let offset = 0;
+        for (let i = 0; i < this.joints.length; ++i, offset += 16) {
+            const o3d = /** @type THREE.Object3D */(this.joints[i].object3D);
+            o3d.matrix.fromArray(this.jointPoses, offset);
+        }
+
+        if (this.hitItems === undefined) {
+            // find elements that has hittest
+            this.hitItems = [];
+            for (const _el of document.querySelectorAll('[hittest]')) {
+                const el = /** @type AFRAME.AEntity */ (_el);
+                const hittest = /** @type {AFRAME.AComponent & HitTest} */ (el.components.hittest);
+                hittest.el.addEventListener('enter', evt => {
+                    if (evt.detail.source == this) {
+                        el.setAttribute('color', 'red')
+                        this.hoverSet.add(el);
+                    }
+                });
+                hittest.el.addEventListener('exit', evt => {
+                    if (evt.detail.source == this) {
+                        el.setAttribute('color', 'white')
+                        this.hoverSet.delete(el)
+                    }
+                });
+                this.hitItems.push(hittest);
+            }
+            console.log(`query: ${this.hitItems.length}`)
+        }
+
+        // hitTest
+        for (const hittest of this.hitItems) {
+            if (this.pinchSet.has(hittest.el)) {
+                continue;
+            }
+            hittest.test(this, this.indexTipPosition);
+        }
+
+        // update pinch status
+        this.indexTipPosition.setFromMatrixPosition(
+            this.joints[INDEX_TIP_INDEX].object3D.matrix);
+        this.thumbTipPosition.setFromMatrixPosition(
+            this.joints[THUMB_TIP_INDEX].object3D.matrix);
+        var distance = this.indexTipPosition.distanceTo(this.thumbTipPosition);
+        const isPinched = distance < PINCH_START_DISTANCE;
+        if (this.isPinched != isPinched) {
+            if (isPinched) {
+                this.el.emit('pinchstarted', this.pinchEventDetail);
+            }
+            else {
+                this.el.emit('pinchended', this.pinchEventDetail);
+            }
+            this.isPinched = isPinched;
+        }
+
+        // move pinch elements
+        this.pinchSet.forEach(el => {
+            el.setAttribute('position', this.indexTipPosition);
+        });
+    },
+
+    /**
      * AFRAME.Component lifecycle
      * @this {AFRAME.AComponent & CustomHandControls}
      */
     tick() {
-        this.hasPoses = false;
-        this.el.object3D.position.set(0, 0, 0);
-        this.el.object3D.rotation.set(0, 0, 0);
-
-        const sceneEl = this.el.sceneEl;
-        // @ts-ignore
-        const frame = /** @type {XRFrame} */ (sceneEl.frame);
-        // @ts-ignore
-        const controller = /** @type XRInputSource */ (this.el.components['tracked-controls'] && this.el.components['tracked-controls'].controller);
-
-        if (controller) {
-            // https://www.w3.org/TR/webxr-hand-input-1/
-            // @ts-ignore
-            this.hasPoses = frame.fillPoses(controller.hand.values(),
-                this.referenceSpace, this.jointPoses);
-            if (this.hasPoses) {
-                let offset = 0;
-                for (let i = 0; i < this.joints.length; ++i, offset += 16) {
-                    const o3d = /** @type THREE.Object3D */(this.joints[i].object3D);
-                    o3d.matrix.fromArray(this.jointPoses, offset);
-                }
-
-                this.indexTipPosition.setFromMatrixPosition(
-                    this.joints[INDEX_TIP_INDEX].object3D.matrix);
-                this.thumbTipPosition.setFromMatrixPosition(
-                    this.joints[THUMB_TIP_INDEX].object3D.matrix);
-
-
-                if (this.hitItems === undefined) {
-                    this.hitItems = [];
-                    for (const _el of document.querySelectorAll('[hittest]')) {
-                        const el = /** @type AFRAME.AEntity */ (_el);
-                        const hittest = /** @type {AFRAME.AComponent & HitTest} */ (el.components.hittest);
-                        hittest.el.addEventListener('enter', evt => {
-                            if (evt.detail.source == this) {
-                                el.setAttribute('color', 'red')
-                                this.hoverSet.add(el);
-                            }
-                        });
-                        hittest.el.addEventListener('exit', evt => {
-                            if (evt.detail.source == this) {
-                                el.setAttribute('color', 'white')
-                                this.hoverSet.delete(el)
-                            }
-                        });
-                        this.hitItems.push(hittest);
-                    }
-                    console.log(`query: ${this.hitItems.length}`)
-                }
-
-                var distance = this.indexTipPosition.distanceTo(this.thumbTipPosition);
-                const isPinched = distance < PINCH_START_DISTANCE;
-                if (this.isPinched != isPinched) {
-                    if (isPinched) {
-                        this.el.emit('pinchstarted', this.pinchEventDetail);
-                    }
-                    else {
-                        this.el.emit('pinchended', this.pinchEventDetail);
-                    }
-                    this.isPinched = isPinched;
-                }
-
-                // hitTest
-                for (const hittest of this.hitItems) {
-                    hittest.test(this, this.indexTipPosition);
-                }
-
-                if (this.isPinched) {
-                    this.hoverSet.forEach(el => {
-                        el.setAttribute('position', this.indexTipPosition);
-                    })
-                }
-            }
+        if (this._updateHandTracking()) {
+            this._updateInteraction();
         }
     }
-}
-);
+});

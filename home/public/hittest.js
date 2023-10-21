@@ -39,7 +39,7 @@ AFRAME.registerComponent("hittest", {
         // world
         const p = position.clone();
         // to local
-        p.applyMatrix4(this.el.object3D.matrixWorld.invert());
+        p.applyMatrix4(this.el.object3D.matrixWorld.clone().invert());
 
         const isEnter = this.bb.containsPoint(p);
         if (status.isEnter != isEnter) {
