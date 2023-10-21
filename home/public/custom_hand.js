@@ -39,6 +39,30 @@ const PINCH_POSITION_INTERPOLATION = 0.5;
  * @property {THREE.Matrix4} matrix
  */
 
+class Pinch {
+    /**
+     * @param {THREE.Object3D} mover
+     * @param {THREE.Object3D} target
+     */
+    constructor(mover, target) {
+        this.mover = mover;
+        this.target = target;
+        this.target.matrixAutoUpdate = false;
+
+        this.delta = this.mover.matrixWorld.clone();
+        this.delta.invert();
+        this.delta.multiply(this.target.matrixWorld);
+    }
+
+    update() {
+        this.target.matrix.multiplyMatrices(this.mover.matrixWorld, this.delta);
+    }
+
+    end() {
+        // this.target.matrixAutoUpdate = true;
+    }
+}
+
 /**
  * @typedef {Object} CustomHandControls
  * @property {XRReferenceSpace} referenceSpace
@@ -46,8 +70,8 @@ const PINCH_POSITION_INTERPOLATION = 0.5;
  * @property {boolean} hasPoses
  * @property {Float32Array} jointPoses
  * @property {Float32Array} jointRadii
- * @property {Set<AFRAME.AEntity>} hoverSet
- * @property {Set<AFRAME.AEntity>} pinchSet
+ * @property {Set<HitTest>} hoverSet
+ * @property {Map<HitTest, Pinch>} pinchMap
  * @property {THREE.Vector3} indexTipPosition
  * @property {THREE.Vector3} thumbTipPosition
  * @property {PinchDetail} pinchEventDetail
@@ -142,7 +166,7 @@ AFRAME.registerComponent('custom-hand-controls', {
         this.jointRadii = new Float32Array(JOINTS.length);
 
         this.hoverSet = new Set();
-        this.pinchSet = new Set();
+        this.pinchMap = new Map();
 
         this.indexTipPosition = new THREE.Vector3();
         this.thumbTipPosition = new THREE.Vector3();
@@ -188,14 +212,16 @@ AFRAME.registerComponent('custom-hand-controls', {
 
         this.el.addEventListener('pinchstarted', () => {
             this.joints[INDEX_TIP_INDEX].setAttribute('color', '#FF00FF')
-            this.pinchSet.clear();
-            this.hoverSet.forEach(el => {
-                this.pinchSet.add(el);
+            this.pinchMap.clear();
+            this.hoverSet.forEach(hittest => {
+                const pinch = new Pinch(this.joints[INDEX_TIP_INDEX].object3D, hittest.el.object3D);
+                this.pinchMap.set(hittest, pinch);
             });
         });
         this.el.addEventListener('pinchended', () => {
             this.joints[INDEX_TIP_INDEX].setAttribute('color', '#FFFF00')
-            this.pinchSet.clear();
+            this.pinchMap.forEach(pinch => pinch.end());
+            this.pinchMap.clear();
         });
     },
 
@@ -261,13 +287,13 @@ AFRAME.registerComponent('custom-hand-controls', {
                 hittest.el.addEventListener('enter', evt => {
                     if (evt.detail.source == this) {
                         el.setAttribute('color', 'red')
-                        this.hoverSet.add(el);
+                        this.hoverSet.add(hittest);
                     }
                 });
                 hittest.el.addEventListener('exit', evt => {
                     if (evt.detail.source == this) {
                         el.setAttribute('color', 'white')
-                        this.hoverSet.delete(el)
+                        this.hoverSet.delete(hittest)
                     }
                 });
                 this.hitItems.push(hittest);
@@ -277,7 +303,7 @@ AFRAME.registerComponent('custom-hand-controls', {
 
         // hitTest
         for (const hittest of this.hitItems) {
-            if (this.pinchSet.has(hittest.el)) {
+            if (this.pinchMap.get(hittest)) {
                 continue;
             }
             hittest.test(this, this.indexTipPosition);
@@ -289,20 +315,23 @@ AFRAME.registerComponent('custom-hand-controls', {
         this.thumbTipPosition.setFromMatrixPosition(
             this.joints[THUMB_TIP_INDEX].object3D.matrix);
         var distance = this.indexTipPosition.distanceTo(this.thumbTipPosition);
-        const isPinched = distance < PINCH_START_DISTANCE;
-        if (this.isPinched != isPinched) {
-            if (isPinched) {
+
+        if (!this.isPinched) {
+            if (distance < PINCH_START_DISTANCE) {
                 this.el.emit('pinchstarted', this.pinchEventDetail);
+                this.isPinched = true;
             }
-            else {
+        }
+        else {
+            if (distance > PINCH_END_DISTANCE) {
                 this.el.emit('pinchended', this.pinchEventDetail);
+                this.isPinched = false;
             }
-            this.isPinched = isPinched;
         }
 
         // move pinch elements
-        this.pinchSet.forEach(el => {
-            el.setAttribute('position', this.indexTipPosition);
+        this.pinchMap.forEach((pinch) => {
+            pinch.update();
         });
     },
 
