@@ -110,6 +110,8 @@ path_unshift "$HOME/.cargo/bin"
 path_unshift "$HOME/build/gcc/bin"
 # deno
 path_push "$HOME/.deno/bin"
+# user local npm
+path_push "$HOME/.npm-global/bin"
 
 if which zoxide >/dev/null 2>&1; then
 	eval "$(zoxide init bash)"

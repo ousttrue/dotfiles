@@ -1,5 +1,7 @@
 [[meson]]   [[gobject-introspection]]
 
+- `meson` @2021 [GObjectについて - チラシの表の反対側](https://www.kofuk.org/blog/20210622-gobject/)
+
 # vala
 [[vala]]
 
