@@ -10,6 +10,17 @@
 
 [[object Object]: Site Unreachable](https://developer.oculus.com/documentation/web/webxr-mixed-reality/#plane-detection)
 
+# debug
+
+## chrome
+`chrome://inspect/#devices`
+- [Remote debug Android devices - Chrome for Developers](https://developer.chrome.com/docs/devtools/remote-debugging/)
+
+## chrome
+- @2023 [[object Object]: Site Unreachable](https://developer.oculus.com/blog/webxr-development-immersive-web-emulator/)
+
+- [Meta Quest1/2/ProのWebXRコンテンツ操作をエミュレートできる"Immersive Web Emulator"の使い方について - CrossRoad](https://www.crossroad-tech.com/entry/immersive-web-emulator)
+
 # tutorial
 - [Welcome to my WebXR tutorial series! | webxr-tutorial](https://beprosto.me/webxr-tutorial/)
 	- 1 [Setup - the html document | webxr-tutorial](https://beprosto.me/webxr-tutorial/tutorial1)

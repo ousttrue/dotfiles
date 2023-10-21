@@ -4,7 +4,7 @@
 
 # Version
 - [Changelog — Sphinx documentation](https://www.sphinx-doc.org/en/master/changes.html)
-## 7.2.5
+## 7.3
 ## 6.0
 
 # toctree
@@ -26,7 +26,7 @@
 - http://docutils.sourceforge.net/rst.html
 
 # theme
-- https://www.sphinx-doc.org/en/master/usage/theming.html
+[[sphinx_theme]]
 
 # gettext
 - @2011 [(4日目) Sphinx の文書を翻訳してみよう (sphinx-gettext-helper) - Hack like a rolling stone](https://tk0miya.hatenablog.com/entry/20111204/p1)
@@ -40,7 +40,8 @@
 @2021 [SphinxでPythonライブラリのドキュメント周りを整備する - Qiita](https://qiita.com/simonritchie/items/eef7d50959ad9bdb8440)
 
 # debug
-```launch.json
+`launch.json`
+```json
  {
      // Use IntelliSense to learn about possible attributes.
      // Hover to view descriptions of existing attributes.
