@@ -13,8 +13,6 @@ https://www.staticgen.com/
 # python
 [[python]]
 
-- [今日はいい天気なのでSSGを自作してみた。](https://mamoruitoi.github.io/i-tried-to-make-a-ssg.html)
-- [ミニマルな静的サイトジェネレーター「tanuky」を作ってみた - Qiita](https://qiita.com/laddge/items/bd3fd8d7be8ca7d7873d) 
 
 ## sphinx
 [[sphinx]]

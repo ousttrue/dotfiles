@@ -24,6 +24,7 @@ aliases: [js, ECMAScrip]
 `async/await`
 
 ## es6(es2015)
+- `class`
 - `TypedArray`
 
 # implementation

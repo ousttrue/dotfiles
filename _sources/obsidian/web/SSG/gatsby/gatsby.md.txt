@@ -1,22 +1,7 @@
 [[SSG]] [[MDX]]
 
-# starter
-- [DIRECTORY: ソフトウェア/Gatsby | Ataru Kodaka Site](https://atarukodaka.github.io/software/gatsby)
-- [gatsby-starter-blog | Gatsby](https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-blog)
-- [[MDX]]
-- gfm
-- [Gatsby.js製のブログでMarkdownからMDXに移行する方法【gatsby-plugin-mdx】 | ベル15の開発ブログ](https://bel-itigo.com/gatsby-migrate-from-markdown-to-mdx/)
-
-# articles
-## impl
-- [DIRECTORY: ソフトウェア/Gatsby | Ataru Kodaka Site](https://atarukodaka.github.io/software/gatsby)
-- [Neovimのstatuslineとtablineを自作した](https://ryota2357.com/blog/2023/nvim-custom-statusline-tabline/)
-- [freks blog](https://blog.freks.jp/)
-- [Neovim の設定を lspconfig + treesitter ベースにした | blog.ojisan.io](https://blog.ojisan.io/neovim-config/)
-
 # Version
 - [Release Notes | Gatsby](https://www.gatsbyjs.com/docs/reference/release-notes/)
-
 ## 5
 ### 5.12
 @2023
@@ -24,7 +9,7 @@
 ### older
 @2022
 `Node v18`
-- @2022 [v5 Release Notes | Gatsby](https://www.gatsbyjs.com/docs/reference/release-notes/v5.0/)
+- @2022 [v5 Rlelease Notes | Gatsby](https://www.gatsbyjs.com/docs/reference/release-notes/v5.0/)
 	- [Migrating from v4 to v5 | Gatsby](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v4-to-v5/)
 
 - @2023 [Gatsby v5 は Cloudflare Pages ではまだ動かない | 高木のブログ](https://takagi.blog/gatsby-v5-does-not-yet-workking-with-cloudflare-pages/)
@@ -45,6 +30,20 @@
 
 ## 3
 - [Gatsby v2からGatsby v3への移行 - makoのノート](https://mako-note.com/ja/migrating-gatsby-from-v2-to-v3/)
+
+# starter
+- [DIRECTORY: ソフトウェア/Gatsby | Ataru Kodaka Site](https://atarukodaka.github.io/software/gatsby)
+- [gatsby-starter-blog | Gatsby](https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-blog)
+- [[MDX]]
+- gfm
+- [Gatsby.js製のブログでMarkdownからMDXに移行する方法【gatsby-plugin-mdx】 | ベル15の開発ブログ](https://bel-itigo.com/gatsby-migrate-from-markdown-to-mdx/)
+
+# articles
+## impl
+- [DIRECTORY: ソフトウェア/Gatsby | Ataru Kodaka Site](https://atarukodaka.github.io/software/gatsby)
+- [Neovimのstatuslineとtablineを自作した](https://ryota2357.com/blog/2023/nvim-custom-statusline-tabline/)
+- [freks blog](https://blog.freks.jp/)
+- [Neovim の設定を lspconfig + treesitter ベースにした | blog.ojisan.io](https://blog.ojisan.io/neovim-config/)
 
 # plugins
 ## gatsby-source-filesystem

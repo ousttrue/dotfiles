@@ -220,12 +220,31 @@
         <article role="main">
           <p>[[SSG]]</p>
 <ul class="simple">
-<li><p>python-3.10</p></li>
+<li><p>@2022 <a class="reference external" href="https://qiita.com/laddge/items/bd3fd8d7be8ca7d7873d">ミニマルな静的サイトジェネレーター「tanuky」を作ってみた - Qiita</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://mamoruitoi.github.io/i-tried-to-make-a-ssg.html">今日はいい天気なのでSSGを自作してみた。</a></p></li>
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="template">
 <h1>template<a class="headerlink" href="#template" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://jinja.palletsprojects.com/en/3.1.x/">Jinja — Jinja Documentation (3.1.x)</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="layout">
+<h1>layout<a class="headerlink" href="#layout" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>サイト全体の体裁と、記事の列挙、個別記事(markdown) の html 化。</p>
+<ul class="simple">
+<li><p>単なる template よりは高機能なものがよい。</p>
+<ul>
+<li><p>header/main/footer を組み合わせてから変数を代入するような？</p></li>
+<li><p>template を組み合わせで生成する</p></li>
+</ul>
+</li>
+<li><p>markdown の html 化</p>
+<ul>
+<li><p>site内リンクの解決</p></li>
+<li><p>syntax highlight</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="pygments">
@@ -292,6 +311,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">template</a></li>
+<li><a class="reference internal" href="#layout">layout</a></li>
 <li><a class="reference internal" href="#pygments">pygments</a></li>
 <li><a class="reference internal" href="#id1">カードリンク</a></li>
 <li><a class="reference internal" href="#scss">scss</a></li>
