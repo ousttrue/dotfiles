@@ -1,3 +1,4 @@
+// @ts-check
 AFRAME.registerComponent("boxes", {
     schema: {
         size: { default: 0.08 },

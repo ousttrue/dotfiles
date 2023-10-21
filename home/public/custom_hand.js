@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-check
 const JOINTS = [
     { name: 'wrist', prim: 'a-box', color: '#ffffff' },
     { name: 'thumb-metacarpal', prim: 'a-box', color: '#ffffff' },
@@ -26,18 +26,47 @@ const JOINTS = [
     { name: 'pinky-finger-phalanx-distal', prim: 'a-box', color: '#ffffff' },
     { name: 'pinky-fingea-sphere', prim: 'a-sphere', color: '#0000ff' },
 ];
-var THUMB_TIP_INDEX = 4;
-var INDEX_TIP_INDEX = 9;
+const THUMB_TIP_INDEX = 4;
+const INDEX_TIP_INDEX = 9;
 
-var PINCH_START_DISTANCE = 0.015;
-var PINCH_END_DISTANCE = 0.03;
-var PINCH_POSITION_INTERPOLATION = 0.5;
+const PINCH_START_DISTANCE = 0.015;
+const PINCH_END_DISTANCE = 0.03;
+const PINCH_POSITION_INTERPOLATION = 0.5;
+
+/**
+ * @typedef {Object} PinchDetail
+ * @property {string} hand
+ * @property {THREE.Matrix4} matrix
+ */
+
+/**
+ * @typedef {Object} CustomHandControls
+ * @property {XRReferenceSpace} referenceSpace
+ * @property {boolean} controllerPresent
+ * @property {boolean} hasPoses
+ * @property {Float32Array} jointPoses
+ * @property {Float32Array} jointRadii
+ * @property {Set<AFRAME.AEntity>} hoverSet
+ * @property {THREE.Vector3} indexTipPosition
+ * @property {THREE.Vector3} thumbTipPosition
+ * @property {PinchDetail} pinchEventDetail
+ * @property {boolean} isPinched
+ * @property {AFRAME.AEntity[]} joints 
+ * @property {(AFRAME.AComponent & HitTest)[]} hitItems
+ *
+ * @property {function} logger
+ * @property {function} _updateReferenceSpace
+ * @property {function} _checkIfControllerPresent
+ */
 
 AFRAME.registerComponent('custom-hand-controls', {
     schema: {
         hand: { default: 'right', oneOf: ['left', 'right'] },
     },
 
+    /**
+     * @param {string} msg
+     */
     logger(msg) {
         console.log(`[${this.data.hand}] ${msg}`)
     },
@@ -65,27 +94,38 @@ AFRAME.registerComponent('custom-hand-controls', {
     },
 
     _checkIfControllerPresent() {
+        // @ts-ignore
         AFRAME.utils.trackedControls.checkControllerPresentAndSetup(
             this, '',
             { hand: this.data.hand, iterateControllerProfiles: true, handTracking: true });
     },
 
+    /**
+     * @this {AFRAME.AComponent & CustomHandControls}
+     */
     async _updateReferenceSpace() {
-        /** @type XRSession */
-        const xrSession = this.el.sceneEl.xrSession;
+        // @ts-ignore
+        const xrSession = /** @type {XRSession} */ (this.el.sceneEl.xrSession);
         this.referenceSpace = undefined;
-        if (!xrSession) { return; }
+        if (!xrSession) {
+            return;
+        }
+        // @ts-ignore
         const referenceSpaceType = this.el.sceneEl.systems.webxr.sessionReferenceSpaceType;
         try {
             this.logger(`_updateReferenceSpace: ${referenceSpaceType}`);
             this.referenceSpace = await xrSession.requestReferenceSpace(referenceSpaceType)
         } catch (error) {
+            // @ts-ignore
             this.el.sceneEl.systems.webxr.warnIfFeatureNotRequested(referenceSpaceType, 'tracked-controls-webxr uses reference space ' + referenceSpaceType);
             throw error;
         }
     },
 
-    // AFRAME.Component lifecycle
+    /**
+     * AFRAME.Component lifecycle
+     * @this {AFRAME.AComponent & CustomHandControls}
+     */
     init() {
         this.logger('init: begin');
         const sceneEl = this.el.sceneEl;
@@ -97,7 +137,8 @@ AFRAME.registerComponent('custom-hand-controls', {
         this.hasPoses = false;
         this.jointPoses = new Float32Array(16 * JOINTS.length);
         this.jointRadii = new Float32Array(JOINTS.length);
-        this.hoverMap = {}
+
+        this.hoverSet = new Set();
 
         this.indexTipPosition = new THREE.Vector3();
         this.thumbTipPosition = new THREE.Vector3();
@@ -123,7 +164,7 @@ AFRAME.registerComponent('custom-hand-controls', {
 
         this.joints = [];
         for (const { name, prim, color } of JOINTS) {
-            const joint = /** @type AFRAME.Entity */ document.createElement(prim);
+            const joint = document.createElement(prim);
             joint.setAttribute('id', this.data.hand + ':' + name);
             joint.setAttribute('color', color);
 
@@ -149,7 +190,10 @@ AFRAME.registerComponent('custom-hand-controls', {
         });
     },
 
-    // AFRAME.Component lifecycle
+    /**
+     * AFRAME.Component lifecycle
+     * @this {AFRAME.AComponent & CustomHandControls}
+     */
     play() {
         this.logger('play');
         this._checkIfControllerPresent();
@@ -157,25 +201,36 @@ AFRAME.registerComponent('custom-hand-controls', {
             _ => this._checkIfControllerPresent(), false);
     },
 
-    // AFRAME.Component lifecycle
+    /**
+     * AFRAME.Component lifecycle
+     * @this {AFRAME.AComponent & CustomHandControls}
+     */
     pause() {
         this.logger('pause');
         this.el.sceneEl.removeEventListener('controllersupdated',
             _ => this._checkIfControllerPresent(), false);
     },
 
-    // AFRAME.Component lifecycle
+    /**
+     * AFRAME.Component lifecycle
+     * @this {AFRAME.AComponent & CustomHandControls}
+     */
     tick() {
-        const sceneEl = this.el.sceneEl;
         this.hasPoses = false;
         this.el.object3D.position.set(0, 0, 0);
         this.el.object3D.rotation.set(0, 0, 0);
 
-        var frame = /** @type XRFrame */ (sceneEl.frame);
-        var controller = /** @type XRInputSource */ (this.el.components['tracked-controls'] && this.el.components['tracked-controls'].controller);
+        const sceneEl = this.el.sceneEl;
+        // @ts-ignore
+        const frame = /** @type {XRFrame} */ (sceneEl.frame);
+        // @ts-ignore
+        const controller = /** @type XRInputSource */ (this.el.components['tracked-controls'] && this.el.components['tracked-controls'].controller);
 
         if (controller) {
-            this.hasPoses = frame.fillPoses(controller.hand.values(), this.referenceSpace, this.jointPoses);
+            // https://www.w3.org/TR/webxr-hand-input-1/
+            // @ts-ignore
+            this.hasPoses = frame.fillPoses(controller.hand.values(),
+                this.referenceSpace, this.jointPoses);
             if (this.hasPoses) {
                 let offset = 0;
                 for (let i = 0; i < this.joints.length; ++i, offset += 16) {
@@ -191,20 +246,19 @@ AFRAME.registerComponent('custom-hand-controls', {
 
                 if (this.hitItems === undefined) {
                     this.hitItems = [];
-                    for (const el of document.querySelectorAll('[hittest]')) {
-                        const hittest = el.components.hittest;
-                        hittest.el.addEventListener('enter', (key) => {
-                            // if (key == this) 
-                            {
+                    for (const _el of document.querySelectorAll('[hittest]')) {
+                        const el = /** @type AFRAME.AEntity */ (_el);
+                        const hittest = /** @type {AFRAME.AComponent & HitTest} */ (el.components.hittest);
+                        hittest.el.addEventListener('enter', evt => {
+                            if (evt.detail.source == this) {
                                 el.setAttribute('color', 'red')
-                                this.hoverMap[el] = el
+                                this.hoverSet.add(el);
                             }
                         });
-                        hittest.el.addEventListener('exit', (key) => {
-                            // if (key == this) 
-                            {
+                        hittest.el.addEventListener('exit', evt => {
+                            if (evt.detail.source == this) {
                                 el.setAttribute('color', 'white')
-                                delete this.hoverMap[el]
+                                this.hoverSet.delete(el)
                             }
                         });
                         this.hitItems.push(hittest);
@@ -230,13 +284,12 @@ AFRAME.registerComponent('custom-hand-controls', {
                 }
 
                 if (this.isPinched) {
-                    for (const key in this.hoverMap) {
-                        // const obj = /** @type THREE.Object3D */ (this.hoverMap[key].object3D);
-                        // obj.position = this.indexTipPosition;
-                        this.hoverMap[key].setAttribute('position', this.indexTipPosition);
-                    }
+                    this.hoverSet.forEach(el => {
+                        el.setAttribute('position', this.indexTipPosition);
+                    })
                 }
             }
         }
-    },
-});
+    }
+}
+);
