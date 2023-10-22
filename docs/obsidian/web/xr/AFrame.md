@@ -16,6 +16,7 @@
 - @2021 [A-Frameをかじる本](https://zenn.dev/sdkfz181tiger/books/671f43a6883d34)
 - @2020 [Web技術(A-Frame)でVRを実現する夢を見た - Qiita](https://qiita.com/ysd_marrrr/items/249533f4b37d34db147d)
 - @2015 [新しいWebVRフレームワークA-Frame入門 - Qiita](https://qiita.com/rootx/items/cba61f1f725bd0090307)
+- [A-Frameで壁に沿って移動する視線カーソルを実装する - VOYAGE GROUP VR室ブログ](https://vr-lab.voyagegroup.com/entry/2016/11/02/101503)
 
 # Version
 ## 1.4
@@ -57,3 +58,6 @@
 
 # component
 - [GitHub - supermedium/aframe-environment-component: :sunrise\_over\_mountains: Infinite background environments for A-Frame in a line of HTML.](https://github.com/supermedium/aframe-environment-component)
+
+# module
+- [Scrapbox](https://scrapbox.io/dojineko/A-Frame:ES_Modules%E3%81%A7%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%82%92%E8%A8%98%E8%BC%89%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95)
