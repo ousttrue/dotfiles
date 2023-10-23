@@ -10,6 +10,9 @@
 
 [[object Object]: Site Unreachable](https://developer.oculus.com/documentation/web/webxr-mixed-reality/#plane-detection)
 
+# version
+- [[object Object]: Site Unreachable](https://developer.oculus.com/documentation/web/browser-release-notes/)
+
 # debug
 
 ## chrome
