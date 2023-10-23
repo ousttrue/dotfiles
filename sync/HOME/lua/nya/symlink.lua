@@ -1,6 +1,7 @@
 local M = {}
 local COM = require "common"
 local STR = require "common.string"
+local PATH = require "common.path"
 local NYA = require "nya.util"
 
 local function iter_dir(dir)
@@ -15,9 +16,9 @@ local function iter_dir(dir)
   end
 end
 
-local RED = '\27[31m.'
-local GREEN = '\27[32m-'
-local DEFAULT = '\27[0m'
+local RED = "\27[31m."
+local GREEN = "\27[32m-"
+local DEFAULT = "\27[0m"
 
 ---@param base_dir string
 ---@param dst_dir string
@@ -28,6 +29,10 @@ function M.create_links(base_dir, dst_dir)
     if NYA.is_exists(dst) then
       -- print(GREEN, src, DEFAULT)
     else
+      local dir = PATH.parent(dst)
+      if not PATH.exists(dir) then
+        NYA.evalf("mkdir -p %s", dir)
+      end
       print(RED, rel, base_dir, "=>", dst_dir, DEFAULT)
       NYA.evalf("ln -sf %s %s", src, dst)
     end

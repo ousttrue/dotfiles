@@ -34,3 +34,6 @@ canvas 2d への描画からのコピーを使っているポイ。重い。`que
 # XRTerm
 @2020 Three.js の glContext で描画する AframeAddon がソースが無かった。weback よくわからん。
 https://github.com/szk/xrterm
+
+# repl
+- [GitHub - homma/js-repl: JavaScript REPL on Web Browser](https://github.com/homma/js-repl)

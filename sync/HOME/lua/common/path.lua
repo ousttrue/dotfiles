@@ -19,6 +19,13 @@ function M.basename(s)
   return m
 end
 
+---@param s string
+---@return string
+function M.parent(s)
+  local m = string.gsub(s, "(.*)([/\\].*)", "%1")
+  return m
+end
+
 ---@return string
 function M.get_home()
   local userprofile = os.getenv "USERPROFILE"
