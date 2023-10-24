@@ -8,3 +8,6 @@
 
 # remote desktop
 - [GitHub - binzume/webrtc-rdp: WebRTC + WebXR Remote Desktop](https://github.com/binzume/webrtc-rdp)
+
+# werift
+[GitHub - shinyoshiaki/werift-webrtc: WebRTC Implementation for TypeScript (Node.js), includes ICE/DTLS/SCTP/RTP/SRTP/WEBM](https://github.com/shinyoshiaki/werift-webrtc)

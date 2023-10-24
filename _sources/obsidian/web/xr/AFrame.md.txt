@@ -1,4 +1,4 @@
-[[webxr]] [[webxr_webrtc]] [[threejs]] [[Hubs]]
+[[webxr]] [[webxr_webrtc]] [[Three.js]] [[Hubs]]
 
 > three.js framework
 

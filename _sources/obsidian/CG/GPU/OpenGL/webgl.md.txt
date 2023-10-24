@@ -26,6 +26,9 @@ zig で WEBGL互換のラッパーライブラリを作る
 
 - [Quick HTML Previewer - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=daiyy.quick-html-previewer)
 
+# Version
+## 2
+
 
 ```html
  <body>
