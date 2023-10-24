@@ -72,9 +72,13 @@ function M.setup()
 
   function nyagos.alias.toolchain(args)
     local cmd = unpack(args.rawargs)
-    if cmd == "vc" then
-      PROMPT.title = " "
+    if cmd == "vc2022" then
+      PROMPT.title = " 17"
       nyagos.exec 'source "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
+      nyagos.exec "which cl"
+    elseif cmd == "vc2017" then
+      PROMPT.title = " 15"
+      nyagos.exec 'source "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Auxiliary/Build/vcvars64.bat"'
       nyagos.exec "which cl"
     elseif cmd == "mingw" then
       PROMPT.title = "🐐"
@@ -130,9 +134,9 @@ windres  = 'D:/llvm-mingw-20230614-ucrt-x86_64/bin/x86_64-w64-mingw32uwp-windres
         if k == "PATH" then
           --
         elseif k == "LUA_PATH" then
-          nyagos.env[k]= v
+          nyagos.env[k] = v
         elseif k == "LUA_CPATH" then
-          nyagos.env[k]= v
+          nyagos.env[k] = v
         end
       end
     else

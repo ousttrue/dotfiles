@@ -4,6 +4,7 @@
 
 # rollup
 - [ESM + Typescript + Jest の monorepo を Lerna と Rollup で npm に上がるまで](https://zenn.dev/mkpoli/articles/1d11ee2edd5bee#rollup-%E3%82%92%E4%BD%BF%E3%81%86)
+- @2019 [Rollup 1.0、ライブラリバンドリングにコード分割をもたらす](https://www.infoq.com/jp/news/2019/05/rollup-code-splitting/)
 
 ```
 > npx rollup -c
