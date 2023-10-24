@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>rollup - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -218,41 +218,23 @@
           </label>
         </div>
         <article role="main">
-          <p>[[javascript]]</p>
-<ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://tyotto-good.com/module-bundler/history">tyotto-good.com/module-bundler/history</a></p></li>
+          <ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/57541402/node-gyp-configure-got-gyp-err-find-vs">node.js - node-gyp configure got "gyp ERR! find VS" - Stack Overflow</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="rollup">
-<h1>rollup<a class="headerlink" href="#rollup" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/mkpoli/articles/1d11ee2edd5bee#rollup-%E3%82%92%E4%BD%BF%E3%81%86">ESM + Typescript + Jest の monorepo を Lerna と Rollup で npm に上がるまで</a></p></li>
-<li><p>@2019 <a class="reference external" href="https://www.infoq.com/jp/news/2019/05/rollup-code-splitting/">Rollup 1.0、ライブラリバンドリングにコード分割をもたらす</a></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">npx</span> <span class="n">rollup</span> <span class="o">-</span><span class="n">c</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>npm ERR! gyp ERR! node -v v18.15.0
+npm ERR! gyp ERR! node-gyp -v v7.1.2
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">rollup.config.js</span></code></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">path</span> <span class="kr">from</span> <span class="s1">'path'</span>
-<span class="kd">const</span> <span class="nx">PACKAGE_ROOT_PATH</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span>
-<span class="k">import</span> <span class="nx">includePaths</span> <span class="kr">from</span> <span class="s1">'rollup-plugin-includepaths'</span><span class="p">;</span>
-<span class="k">export</span> <span class="k">default</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="nx">input</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">PACKAGE_ROOT_PATH</span><span class="p">,</span> <span class="s1">'out'</span><span class="p">,</span> <span class="s1">'browser'</span><span class="p">,</span> <span class="s1">'public'</span><span class="p">,</span> <span class="s1">'Terminal.mjs'</span><span class="p">),</span>
-    <span class="nx">output</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="nx">file</span><span class="o">:</span> <span class="sb">`dist/xterm.mjs`</span><span class="p">,</span>
-        <span class="nx">format</span><span class="o">:</span> <span class="s1">'esm'</span><span class="p">,</span>
-        <span class="nx">sourcemap</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="p">},</span>
-    <span class="p">],</span>
-    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
-      <span class="nx">includePaths</span><span class="p">({</span> <span class="nx">paths</span><span class="o">:</span> <span class="p">[</span><span class="s2">"./out"</span><span class="p">]</span> <span class="p">})</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
-<span class="p">]</span>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/57879150/how-can-i-solve-error-gypgyp-errerr-find-vsfind-vs-msvs-version-not-set-from-c">node.js - How can I solve error gypgyp ERR!ERR! find VSfind VS msvs_version not set from command line or npm config? - Stack Overflow</a>
+👇</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">npm</span> <span class="n">config</span> <span class="n">delete</span> <span class="n">msvs_version</span>
+<span class="o">&gt;</span> <span class="n">npm</span> <span class="n">config</span> <span class="n">delete</span> <span class="n">msvs_version</span> <span class="o">--</span><span class="k">global</span>
+<span class="o">&gt;</span> <span class="n">npm</span> <span class="n">config</span> <span class="n">delete</span> <span class="n">msbuild_path</span>
+<span class="o">&gt;</span> <span class="n">npm</span> <span class="n">config</span> <span class="n">delete</span> <span class="n">msbuild_path</span> <span class="o">--</span><span class="k">global</span>
 </pre></div>
 </div>
-</section>
 
         </article>
       </div>
@@ -267,7 +249,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/ModuleBundler.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/node-gyp.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
