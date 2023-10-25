@@ -218,7 +218,11 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="version">
+          <ul class="simple">
+<li><p><a class="reference external" href="https://typescript-jp.gitbook.io/deep-dive/">TypeScript Deep Dive 日本語版 - TypeScript Deep Dive 日本語版</a></p></li>
+<li><p><a class="reference external" href="https://typescriptbook.jp/">TypeScript入門『サバイバルTypeScript』〜実務で使うなら最低限ここだけはおさえておきたいこと〜</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id1">
 <h2>5.2<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -235,6 +239,12 @@
 <li><p>Node.js ESM サポート</p></li>
 </ul>
 </section>
+<section id="id4">
+<h2>1.6<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2015 [[JSX]]</p></li>
+</ul>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="tsconfig-json">
 <h1>tsconfig.json<a class="headerlink" href="#tsconfig-json" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -246,16 +256,18 @@
 <section class="tex2jax_ignore mathjax_ignore" id="build">
 <h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>src =&gt; out へ</p>
-<div class="highlight-tsconfig.json notranslate"><div class="highlight"><pre><span></span>  "references": [
-    {
-      "path": "./src/browser"
-    }
-  ]
+<p><code class="docutils literal notranslate"><span class="pre">tsconfig.json</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./src/browser"</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; tsc -b ./tsconfig.all.json
 </pre></div>
 </div>
+<p>=&gt; `out/``</p>
 </section>
 
         </article>
@@ -295,6 +307,7 @@
 <li><a class="reference internal" href="#id1">5.2</a></li>
 <li><a class="reference internal" href="#id2">4.9</a></li>
 <li><a class="reference internal" href="#id3">4.7</a></li>
+<li><a class="reference internal" href="#id4">1.6</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#tsconfig-json">tsconfig.json</a></li>

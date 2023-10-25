@@ -5,8 +5,11 @@
 
 # Version
 - @2023 [Gatsby.js製のブログでMarkdownからMDXに移行する方法【gatsby-plugin-mdx】 | ベル15の開発ブログ](https://bel-itigo.com/gatsby-migrate-from-markdown-to-mdx/)
+## 3
+- @2023 [MDX 3 | MDX](https://mdxjs.com/blog/v3/)
 ## 2
 ## 1
+- @2019 [MDX v1 リリース 🎉 ということでマークダウンにJSXを書く勉強をしてみた！ #JavaScript - Qiita](https://qiita.com/okumurakengo/items/64ec70d97284c63d6a2c)
 
 # MDXRenderer
 - [GatsbyでMDXを使う | Knowledge Swimmer メモ](https://knowledge-swimmer.com/gatsby-mdx)

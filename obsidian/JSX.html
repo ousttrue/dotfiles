@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>vite - shell note ドキュメント</title>
+        <title>Component - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -218,44 +218,52 @@
           </label>
         </div>
         <article role="main">
-          <p>[[javascript]]</p>
-<ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://tyotto-good.com/module-bundler/history">tyotto-good.com/module-bundler/history</a></p></li>
+          <ul class="simple">
+<li><p><a class="reference external" href="https://typescript-jp.gitbook.io/deep-dive/tsx">JSX - TypeScript Deep Dive 日本語版</a></p></li>
+<li><p><a class="reference external" href="https://typescriptbook.jp/reference/jsx">JSX | TypeScript入門『サバイバルTypeScript』</a></p></li>
+<li><p><a class="reference external" href="https://www.typescriptlang.org/docs/handbook/jsx.html">TypeScript: Documentation - JSX</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://www.estie.jp/blog/entry/2023/04/10/123339">デザイナーが抱くReact+TypeScriptの疑問を紐解き、フロントエンドに一歩近づこう - estie inside blog</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="vite">
-<h1>vite<a class="headerlink" href="#vite" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[Vite]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="component">
+<h1>Component<a class="headerlink" href="#component" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+  <span class="nx">MyButton</span><span class="p">,</span>
+  <span class="p">{</span><span class="nx">color</span><span class="o">:</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="nx">shadowSize</span><span class="o">:</span> <span class="mf">2</span><span class="p">},</span>
+  <span class="s1">'Click Me'</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Profile</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">img</span>
+      <span class="nx">src</span><span class="o">=</span><span class="s2">"https://i.imgur.com/MK3eW3Am.jpg"</span>
+      <span class="nx">alt</span><span class="o">=</span><span class="s2">"Katherine Johnson"</span>
+    <span class="o">/&gt;</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="rollup">
-<h1>rollup<a class="headerlink" href="#rollup" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="type">
+<h1>type<a class="headerlink" href="#type" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/mkpoli/articles/1d11ee2edd5bee#rollup-%E3%82%92%E4%BD%BF%E3%81%86">ESM + Typescript + Jest の monorepo を Lerna と Rollup で npm に上がるまで</a></p></li>
-<li><p>@2019 <a class="reference external" href="https://www.infoq.com/jp/news/2019/05/rollup-code-splitting/">Rollup 1.0、ライブラリバンドリングにコード分割をもたらす</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://qiita.com/uhyo/items/adf6cb83333a25097f25">TypeScriptの型におけるJSXサポートが100%分かる記事 #TypeScript - Qiita</a></p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">npx</span> <span class="n">rollup</span> <span class="o">-</span><span class="n">c</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">rollup.config.js</span></code></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">path</span> <span class="kr">from</span> <span class="s1">'path'</span>
-<span class="kd">const</span> <span class="nx">PACKAGE_ROOT_PATH</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span>
-<span class="k">import</span> <span class="nx">includePaths</span> <span class="kr">from</span> <span class="s1">'rollup-plugin-includepaths'</span><span class="p">;</span>
-<span class="k">export</span> <span class="k">default</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="nx">input</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">PACKAGE_ROOT_PATH</span><span class="p">,</span> <span class="s1">'out'</span><span class="p">,</span> <span class="s1">'browser'</span><span class="p">,</span> <span class="s1">'public'</span><span class="p">,</span> <span class="s1">'Terminal.mjs'</span><span class="p">),</span>
-    <span class="nx">output</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="nx">file</span><span class="o">:</span> <span class="sb">`dist/xterm.mjs`</span><span class="p">,</span>
-        <span class="nx">format</span><span class="o">:</span> <span class="s1">'esm'</span><span class="p">,</span>
-        <span class="nx">sourcemap</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="p">},</span>
-    <span class="p">],</span>
-    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
-      <span class="nx">includePaths</span><span class="p">({</span> <span class="nx">paths</span><span class="o">:</span> <span class="p">[</span><span class="s2">"./out"</span><span class="p">]</span> <span class="p">})</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
-<span class="p">]</span>
-</pre></div>
-</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="framework">
+<h1>framework<a class="headerlink" href="#framework" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="react">
+<h2>React<a class="headerlink" href="#react" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[React]]</p>
+</section>
+<section id="gatsby">
+<h2>gatsby<a class="headerlink" href="#gatsby" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[gatsby]]</p>
+</section>
+<section id="mdx">
+<h2>mdx<a class="headerlink" href="#mdx" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[MDX]]</p>
+</section>
 </section>
 
         </article>
@@ -271,7 +279,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/ModuleBundler.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/JSX.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -291,8 +299,14 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">vite</a></li>
-<li><a class="reference internal" href="#rollup">rollup</a></li>
+<li><a class="reference internal" href="#">Component</a></li>
+<li><a class="reference internal" href="#type">type</a></li>
+<li><a class="reference internal" href="#framework">framework</a><ul>
+<li><a class="reference internal" href="#react">React</a></li>
+<li><a class="reference internal" href="#gatsby">gatsby</a></li>
+<li><a class="reference internal" href="#mdx">mdx</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
