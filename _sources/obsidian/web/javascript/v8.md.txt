@@ -1,0 +1,18 @@
+[[javascript]] [[node.js]]
+
+- @2022 [V8 エンジンによる async/await の内部変換｜イベントループとプロミスチェーンで学ぶJavaScriptの非同期処理](https://zenn.dev/estra/books/js-async-promise-chain-event-loop/viewer/15-epasync-v8-converting)
+- @2017 [V8 javascript engineについての細かい話 (Node.js Advent Calendar 2017) - abcdefGets](https://abcdef.gets.b6n.ch/entry/2017/12/25/120000)
+- [GitHub - v8/v8: The official mirror of the V8 Git repository](https://github.com/v8/v8)
+
+# build
+- [Building V8 from source · V8](https://v8.dev/docs/build)
+- @2022 [V8 エンジンを Unity Android アプリ上で動かす（V8 ビルド編） - e.blog](https://edom18.hateblo.jp/entry/2022/05/29/124951)
+- @2020 [V8: ビルドと C++ への組み込み (作業メモ) - Qiita](https://qiita.com/nozmiz/items/b85e33abd4a4dcb16030)
+- @2018 [GNを使ってV8を組み込む #JavaScript - Qiita](https://qiita.com/erukiti/items/8bfefa4320344f9df067)
+
+## depot_tools
+- [depot_tools_tutorial(7)](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)
+```
+v8$ git pull && gclient sync
+v8$ tools/dev/gm.py x64.release
+```

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>react - shell note ドキュメント</title>
+        <title>AFRAME.registerPrimitive - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,84 +218,47 @@
           </label>
         </div>
         <article role="main">
-          <p>#red</p>
-<p>static site generator</p>
-<p>https://www.staticgen.com/
-https://www.staticgen.com/nuxt
-https://metalsmith.io/</p>
-<section class="tex2jax_ignore mathjax_ignore" id="react">
-<h1>react<a class="headerlink" href="#react" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="dodai">
-<h2>dodai<a class="headerlink" href="#dodai" title="このヘッドラインへのパーマリンク">¶</a></h2>
+          <p>[[aframe_component]]</p>
+<p><a class="reference external" href="https://aframe.io/docs/1.4.0/introduction/html-and-primitives.html">HTML &amp; Primitives – A-Frame</a></p>
+<blockquote>
+<div><p>primitive は a-entity のラッパー。prefab みたいなもの</p>
+</div></blockquote>
 <ul class="simple">
-<li><p><a class="reference external" href="https://d.potato4d.me/entry/20230127-dodai-tsx-based-ssg/">ゼロランタイムのミニマルな静的サイトジェネレーター『dodai』の開発と JSX First な世界観について | potato4d D(iary)</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/matsukatsu/items/b1540dbf36da3d58dc80">A-FRAME: プリミティブ一覧 #HTML - Qiita</a></p></li>
 </ul>
-</section>
-<section id="minista">
-<h2>minista<a class="headerlink" href="#minista" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://minista.qranoko.jp/">minista</a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="aframe-registerprimitive">
+<h1>AFRAME.registerPrimitive<a class="headerlink" href="#aframe-registerprimitive" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">extendDeep</span> <span class="o">=</span> <span class="nx">AFRAME</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">extendDeep</span><span class="p">;</span>
+
+<span class="c1">// The mesh mixin provides common material properties for creating mesh-based primitives.</span>
+<span class="c1">// This makes the material component a default component and maps all the base material properties.</span>
+<span class="kd">var</span> <span class="nx">meshMixin</span> <span class="o">=</span> <span class="nx">AFRAME</span><span class="p">.</span><span class="nx">primitives</span><span class="p">.</span><span class="nx">getMeshMixin</span><span class="p">();</span>
+
+<span class="nx">AFRAME</span><span class="p">.</span><span class="nx">registerPrimitive</span><span class="p">(</span><span class="s1">'a-box'</span><span class="p">,</span> <span class="nx">extendDeep</span><span class="p">({},</span> <span class="nx">meshMixin</span><span class="p">,</span> <span class="p">{</span>
+  <span class="c1">// Preset default components. These components and component properties will be attached to the entity out-of-the-box.</span>
+  <span class="nx">defaultComponents</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">geometry</span><span class="o">:</span> <span class="p">{</span><span class="nx">primitive</span><span class="o">:</span> <span class="s1">'box'</span><span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="c1">// Defined mappings from HTML attributes to component properties (using dots as delimiters).</span>
+  <span class="c1">// If we set `depth="5"` in HTML, then the primitive will automatically set `geometry="depth: 5"`.</span>
+  <span class="nx">mappings</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">depth</span><span class="o">:</span> <span class="s1">'geometry.depth'</span><span class="p">,</span>
+    <span class="nx">height</span><span class="o">:</span> <span class="s1">'geometry.height'</span><span class="p">,</span>
+    <span class="nx">width</span><span class="o">:</span> <span class="s1">'geometry.width'</span>
+  <span class="p">}</span>
+<span class="p">}));</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://zenn.dev/qrac/articles/980efced76634f">ReactのJSXで書けるSSG を1から作り直した - minista v3</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/45983491/how-do-i-register-a-component-made-of-a-few-elements-in-a-frame">aframe - How do I register a component made of a few elements in A-Frame? - Stack Overflow</a></p></li>
 </ul>
-</section>
-<section id="cuttlebelle">
-<h2>Cuttlebelle<a class="headerlink" href="#cuttlebelle" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>https://cuttlebelle.com/</p>
-</section>
-<section id="next-js">
-<h2>next.js<a class="headerlink" href="#next-js" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="gatsby">
-<h2>gatsby<a class="headerlink" href="#gatsby" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[gatsby]]</p>
-</section>
-<section id="docusaurus">
-<h2>Docusaurus<a class="headerlink" href="#docusaurus" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://docusaurus.io/">Build optimized websites quickly, focus on your content | Docusaurus</a></p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="python">
-<h1>python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[python]]</p>
-<section id="sphinx">
-<h2>sphinx<a class="headerlink" href="#sphinx" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[sphinx]]</p>
-</section>
-<section id="pelican">
-<h2>pelican<a class="headerlink" href="#pelican" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://blog.getpelican.com/">Pelican – A Python Static Site Generator</a></p>
+<section id="samples">
+<h2>samples<a class="headerlink" href="#samples" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.getpelican.com/en/latest/">Pelican 4.8.0</a></p>
-<ul>
-<li><p><a class="reference external" href="http://www.pelicanthemes.com/">Pelican themes</a></p></li>
-</ul>
-</li>
-<li><p>@2021 <a class="reference external" href="https://zenn.dev/luna_chevalier/articles/08195fbba8c10ffa6491">pelicanとGitHub Pagesを使って自前のブログを作ってみた</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://www.mallows.io/20210310215020">Pelicanでのブログ構築 with Docker · うずらの備忘録</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://qiita.com/saira/items/71faa202efb4320cb41d">Python製 Pelican を使ってサクッとブログを公開する - Qiita</a></p></li>
-<li><p>@2019 <a class="reference external" href="https://www.sairablog.com/article/python-pelican-blog-howto.html">Python製静的サイトジェネレータ Pelican を使ってブログ作成 – SAIRA Blog</a></p></li>
+<li><p><a class="reference external" href="https://codepen.io/leemark/embed/bWVwMv?height=300&amp;theme-id=1232&amp;slug-hash=bWVwMv&amp;default-tab=html%2Cresult&amp;user=leemark&amp;embed-version=2&amp;pen-title=a-frame%20clock%20as%20primitive&amp;name=cp_embed_6">CodePen Embed - a-frame clock as primitive</a></p></li>
 </ul>
 </section>
-<section id="nikola">
-<h2>nikola<a class="headerlink" href="#nikola" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://getnikola.com/">Static Site Generator | Nikola</a></p>
-<ul class="simple">
-<li><p>https://themes.getnikola.com/</p></li>
-</ul>
-<p>@2020 <a class="reference external" href="https://log.yostos.org/2020/04/26/migrate-to-nikola/">ブログをPelicanからNikolaに移行 | Notes Inegales</a></p>
-</section>
-<section id="frozen-flask">
-<h2>frozen-flask<a class="headerlink" href="#frozen-flask" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://pythonhosted.org/Frozen-Flask/">Frozen-Flask — Frozen-Flask 0.15 documentation</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/NomuraS/items/1bab07bdfdf33c38eaae">Frozen-Flaskによる静的サイト生成 - Qiita</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="go">
-<h1>Go<a class="headerlink" href="#go" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[golang]]
-[[hugo]]</p>
 </section>
 
         </article>
@@ -311,7 +274,7 @@ https://metalsmith.io/</p>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/web/SSG/SSG.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/web/webxr/aframe_primitive.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -331,23 +294,10 @@ https://metalsmith.io/</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">react</a><ul>
-<li><a class="reference internal" href="#dodai">dodai</a></li>
-<li><a class="reference internal" href="#minista">minista</a></li>
-<li><a class="reference internal" href="#cuttlebelle">Cuttlebelle</a></li>
-<li><a class="reference internal" href="#next-js">next.js</a></li>
-<li><a class="reference internal" href="#gatsby">gatsby</a></li>
-<li><a class="reference internal" href="#docusaurus">Docusaurus</a></li>
+<li><a class="reference internal" href="#">AFRAME.registerPrimitive</a><ul>
+<li><a class="reference internal" href="#samples">samples</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#python">python</a><ul>
-<li><a class="reference internal" href="#sphinx">sphinx</a></li>
-<li><a class="reference internal" href="#pelican">pelican</a></li>
-<li><a class="reference internal" href="#nikola">nikola</a></li>
-<li><a class="reference internal" href="#frozen-flask">frozen-flask</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#go">Go</a></li>
 </ul>
 
           </div>

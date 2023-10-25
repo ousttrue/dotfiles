@@ -10,6 +10,26 @@ https://www.staticgen.com/
 	https://www.staticgen.com/nuxt
 	https://metalsmith.io/
 
+# react
+## dodai
+- [ゼロランタイムのミニマルな静的サイトジェネレーター『dodai』の開発と JSX First な世界観について | potato4d D(iary)](https://d.potato4d.me/entry/20230127-dodai-tsx-based-ssg/)
+
+## minista
+[minista](https://minista.qranoko.jp/)
+- @2023 [ReactのJSXで書けるSSG を1から作り直した - minista v3](https://zenn.dev/qrac/articles/980efced76634f)
+
+## Cuttlebelle
+https://cuttlebelle.com/
+
+## next.js
+
+
+## gatsby
+[[gatsby]]
+
+## Docusaurus
+[Build optimized websites quickly, focus on your content | Docusaurus](https://docusaurus.io/)
+
 # python
 [[python]]
 
