@@ -19,3 +19,6 @@
 	"type": "module"
 }
 ```
+
+# error
+- [TypeScriptでESMで動くJavaScript製ライブラリ（remark-shortcodes）を使う | JavaScript/TypeScriptメモ](https://js.excelspeedup.com/tsnode-esm-remark-shortcodes-types)
