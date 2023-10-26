@@ -13,23 +13,30 @@
 ## 16.8
 - Hooks 
 
-# TypeScript
+# 関連
+
+## JSX
+[[JSX]]
+- [JSX In Depth – React](https://legacy.reactjs.org/docs/jsx-in-depth.html)
+- [JSX でマークアップを記述する – React](https://ja.react.dev/learn/writing-markup-with-jsx)
+
+## TypeScript
 [[TypeScript]]
+
+React すなわち JSX であり、
+JSX は transpile 必要。じゃぁ、ついでに TypeScript にしよう。となる
 
 - `commonjs` `webpack` [React & TypeScriptのプロジェクト作成 - TypeScript Deep Dive 日本語版](https://typescript-jp.gitbook.io/deep-dive/browser)
 👇
 `esm` `vite`
 
-# JSX
-[[JSX]]
-- [JSX In Depth – React](https://legacy.reactjs.org/docs/jsx-in-depth.html)
-- [JSX でマークアップを記述する – React](https://ja.react.dev/learn/writing-markup-with-jsx)
+# 構成
 
-
+## Vite + TypeScript + React
+- @2023 [ViteでTypeScript×Reactの開発環境を構築してみた【前編】｜SHIFT Group 技術ブログ](https://note.com/shift_tech/n/n9c5fcd207680)
 
 # framework
 ## Next.js
-
 
 ## ReactNative
 - [React Native · Learn once, write anywhere](https://reactnative.dev/)

@@ -218,16 +218,77 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="version">
+          <ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/mai/articles/cec0746ab1052e">HTMLのdraggable属性でユーザが要素を自由に配置できるようにする</a></p></li>
+</ul>
+<p>[[Threejs_react]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>0.157<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="r157">
+<h2>r157<a class="headerlink" href="#r157" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="r125">
+<h2>r125<a class="headerlink" href="#r125" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Geometry</span></code>削除</p></li>
+</ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="set-matrix">
-<h1>set matrix<a class="headerlink" href="#set-matrix" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="object3d">
+<h1>Object3D<a class="headerlink" href="#object3d" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="set-matrix">
+<h2>set matrix<a class="headerlink" href="#set-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/67812070/aframe-updating-an-elements-matrix">three.js - AFrame - updating an element's matrix - Stack Overflow</a></p></li>
+<li><p><a class="reference external" href="https://github.com/zz85/threejs-term">GitHub - zz85/threejs-term: Terminal Renderer for Three.js</a></p></li>
+<li><p><a class="reference external" href="https://www.mlit.go.jp/plateau/learning/tpc12-2/">TOPIC 12｜Three.jsで活用する[2/2]｜ReactでThree.jsを扱う | How To Use | PLATEAU [プラトー]</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="geometrybuffer">
+<h1>GeometryBuffer<a class="headerlink" href="#geometrybuffer" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://threejs.org/docs/#api/en/core/BufferGeometry</p>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://qiita.com/baikichiz/items/11e0079bf4cf48003a8b">【three.js】GeometryクラスからBufferGeometryを使うよう書き換える #JavaScript - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="webglprogram">
+<h1>WebGLProgram<a class="headerlink" href="#webglprogram" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://threejs.org/docs/#api/en/renderers/webgl/WebGLProgram</p>
+<section id="shadermaterial">
+<h2>ShaderMaterial<a class="headerlink" href="#shadermaterial" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://threejs.org/docs/#api/en/materials/ShaderMaterial">ShaderMaterial – three.js docs</a></p></li>
+<li><p><a class="reference external" href="https://note.com/soohei/n/n2a49a1621750">WebGL研究 (3) Three.jsでGLSLを学習する時に初めに知りたいシステム変数・慣習的な変数｜北田 荘平 / THE GUILD</a></p></li>
+</ul>
+</section>
+<section id="gles3">
+<h2>gles3<a class="headerlink" href="#gles3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>THREE.ShaderMaterial <code class="docutils literal notranslate"><span class="pre">#version</span> <span class="pre">300</span> <span class="pre">es</span></code> は暗黙。自前で付けない。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// シェーダーを使用する</span>
+<span class="kd">const</span> <span class="nx">material</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">RawShaderMaterial</span><span class="p">({</span>
+  <span class="nx">vertexShader</span><span class="o">:</span> <span class="nx">vertexShaderSource</span><span class="p">,</span>
+  <span class="nx">fragmentShader</span><span class="o">:</span> <span class="nx">fragmentShaderSource</span><span class="p">,</span>
+  <span class="nx">glslVersion</span><span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">GLSL3</span><span class="p">,</span> <span class="c1">// ← この行を追加</span>
+  <span class="nx">uniforms</span><span class="o">:</span> <span class="nx">uniforms</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">in</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">vColor</span><span class="p">;</span><span class="w"></span>
+<span class="n">out</span><span class="w"> </span><span class="n">highp</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">FragColor</span><span class="p">;</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">FragColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vColor</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fbo">
+<h1>FBO<a class="headerlink" href="#fbo" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blog.shoya-kajita.com/webglrendertarget/">WebGLRenderTargetでオフスクリーンレンダリングする | TECH BLOG | SHOYA KAJITA.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/spite/THREE.FBOHelper">GitHub - spite/THREE.FBOHelper: FrameBuffer Object inspector for three.js</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tuqire/three.js-fbo">GitHub - tuqire/three.js-fbo: GPGPU Module for use with THREE.js</a></p></li>
 </ul>
 </section>
 
@@ -265,10 +326,21 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">0.157</a></li>
+<li><a class="reference internal" href="#r157">r157</a></li>
+<li><a class="reference internal" href="#r125">r125</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#object3d">Object3D</a><ul>
 <li><a class="reference internal" href="#set-matrix">set matrix</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#geometrybuffer">GeometryBuffer</a></li>
+<li><a class="reference internal" href="#webglprogram">WebGLProgram</a><ul>
+<li><a class="reference internal" href="#shadermaterial">ShaderMaterial</a></li>
+<li><a class="reference internal" href="#gles3">gles3</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fbo">FBO</a></li>
 </ul>
 
           </div>
