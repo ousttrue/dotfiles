@@ -229,14 +229,23 @@
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id1">
-<h2>16.8<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>18<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://react.dev/blog/2022/03/08/react-18-upgrade-guide#updates-to-client-rendering-apis">How to Upgrade to React 18 – React</a></p></li>
+</ul>
+<blockquote>
+<div><p>ReactDOM.render is no longer supported in React 18</p>
+</div></blockquote>
+</section>
+<section id="id2">
+<h2>16<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>Hooks</p></li>
 </ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>関連<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>関連<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="jsx">
 <h2>JSX<a class="headerlink" href="#jsx" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>[[JSX]]</p>
@@ -255,10 +264,33 @@ JSX は transpile 必要。じゃぁ、ついでに TypeScript にしよう。�
 👇
 <code class="docutils literal notranslate"><span class="pre">esm</span></code> <code class="docutils literal notranslate"><span class="pre">vite</span></code></p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">package.json</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"module"</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">tsconfig.json</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"compilerOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">"esModuleInterop"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">"noEmit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">"allowImportingTsExtensions"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">"jsx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"react"</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="react-fc-function-component">
+<h2>React.FC(Function Component)<a class="headerlink" href="#react-fc-function-component" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://musclecoding.com/react-typescript/">ReactでのTypeScript入門！環境構築から関数コンポーネントの活用まで│Muscle Coding</a></p></li>
+</ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id3">
-<h1>構成<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id4">
+<h1>構成<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="vite-typescript-react">
 <h2>Vite + TypeScript + React<a class="headerlink" href="#vite-typescript-react" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
@@ -276,6 +308,15 @@ JSX は transpile 必要。じゃぁ、ついでに TypeScript にしよう。�
 <ul class="simple">
 <li><p><a class="reference external" href="https://reactnative.dev/">React Native · Learn once, write anywhere</a></p></li>
 </ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="error">
+<h1>error<a class="headerlink" href="#error" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="error-expected-but-found">
+<h2>ERROR: Expected "&gt;" but found "/"<a class="headerlink" href="#error-expected-but-found" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="refers-to-a-value-but-is-being-used-as-a-type-here-did-you-mean">
+<h2>refers to a value, but is being used as a type here. Did you mean<a class="headerlink" href="#refers-to-a-value-but-is-being-used-as-a-type-here-did-you-mean" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
 
@@ -313,21 +354,28 @@ JSX は transpile 必要。じゃぁ、ついでに TypeScript にしよう。�
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">16.8</a></li>
+<li><a class="reference internal" href="#id1">18</a></li>
+<li><a class="reference internal" href="#id2">16</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id2">関連</a><ul>
+<li><a class="reference internal" href="#id3">関連</a><ul>
 <li><a class="reference internal" href="#jsx">JSX</a></li>
 <li><a class="reference internal" href="#typescript">TypeScript</a></li>
+<li><a class="reference internal" href="#react-fc-function-component">React.FC(Function Component)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id3">構成</a><ul>
+<li><a class="reference internal" href="#id4">構成</a><ul>
 <li><a class="reference internal" href="#vite-typescript-react">Vite + TypeScript + React</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#framework">framework</a><ul>
 <li><a class="reference internal" href="#next-js">Next.js</a></li>
 <li><a class="reference internal" href="#reactnative">ReactNative</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#error">error</a><ul>
+<li><a class="reference internal" href="#error-expected-but-found">ERROR: Expected &quot;&gt;&quot; but found &quot;/&quot;</a></li>
+<li><a class="reference internal" href="#refers-to-a-value-but-is-being-used-as-a-type-here-did-you-mean">refers to a value, but is being used as a type here. Did you mean</a></li>
 </ul>
 </li>
 </ul>
