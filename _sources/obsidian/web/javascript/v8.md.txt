@@ -1,5 +1,7 @@
 [[javascript]] [[node.js]]
 
+[V8 エンジンについて｜イベントループとプロミスチェーンで学ぶJavaScriptの非同期処理](https://zenn.dev/estra/books/js-async-promise-chain-event-loop/viewer/e-epasync-v8-engine)
+
 - @2022 [V8 エンジンによる async/await の内部変換｜イベントループとプロミスチェーンで学ぶJavaScriptの非同期処理](https://zenn.dev/estra/books/js-async-promise-chain-event-loop/viewer/15-epasync-v8-converting)
 - @2017 [V8 javascript engineについての細かい話 (Node.js Advent Calendar 2017) - abcdefGets](https://abcdef.gets.b6n.ch/entry/2017/12/25/120000)
 - [GitHub - v8/v8: The official mirror of the V8 Git repository](https://github.com/v8/v8)
@@ -16,3 +18,7 @@
 v8$ git pull && gclient sync
 v8$ tools/dev/gm.py x64.release
 ```
+
+# rusty_v8
+- [JavaScript エンジンを組み込む | ちいさな Web ブラウザを作ってみよう](https://browserbook.shift-js.info/chapters/integrating-v8)
+- @2020 https://fits.hatenablog.com/entry/2020/07/05/195535
