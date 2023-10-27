@@ -31,6 +31,10 @@ export default function Profile() {
 ## React
 [[React]]
 
+## Next.js
+
+## Vue.js
+
 ## gatsby
 [[gatsby]]
 
