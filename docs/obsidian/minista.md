@@ -1,0 +1,12 @@
+[minista](https://minista.qranoko.jp/)
+- [ministaの記事一覧 | Zenn](https://zenn.dev/topics/minista)
+- [GitHub - qrac/minista: Static site generator with 100% static export from React and Vite.](https://github.com/qrac/minista)
+
+# Version
+## 3
+- @2023 [ReactのJSXで書けるSSG を1から作り直した - minista v3](https://zenn.dev/qrac/articles/980efced76634f)
+
+## 2
+- @2022 [Viteとesbuildを組み込みReact製SSGを再構築 - minista v2](https://zenn.dev/qrac/articles/fbbbe7ccc3bdb1)
+
+## 1

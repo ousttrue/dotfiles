@@ -21,8 +21,8 @@ https://www.staticgen.com/
 ## Cuttlebelle
 https://cuttlebelle.com/
 
-## next.js
-
+## Next.js
+[[Next.js]]
 
 ## gatsby
 [[gatsby]]

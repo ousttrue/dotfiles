@@ -177,6 +177,8 @@ function M.setup()
     -- on_attach = on_attach,
     -- capabilities = capabilities,
   }))
+
+  require("lspconfig").astro.setup {}
 end
 
 return M

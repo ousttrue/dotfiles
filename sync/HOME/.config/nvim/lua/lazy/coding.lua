@@ -66,4 +66,5 @@ return {
     end,
   },
   { "tpope/vim-surround" },
+  { "elel-dev/vim-astro-syntax" },
 }
