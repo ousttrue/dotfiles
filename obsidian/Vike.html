@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>server &amp; client - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -218,18 +218,111 @@
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://ja.vuejs.org/guide/extras/render-function.html">レンダー関数と JSX | Vue.js</a>
-<a class="reference external" href="https://qiita.com/simezi9/items/ec9dfbb3c7af09088898">Vue.js+JSX基本文法最速入門 #JavaScript - Qiita</a></p>
+          <p><a class="reference external" href="https://vike.dev/">Vike</a></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://v2.ja.vuejs.org/v2/guide/render-function">描画関数とJSX — Vue.js</a></p></li>
-<li><p><a class="reference external" href="https://vuejs.org/guide/extras/render-function.html">Render Functions &amp; JSX | Vue.js</a></p></li>
-<li><p><a class="reference external" href="https://www.hypertextcandy.com/using-jsx-in-vue-component">JSXを使ってVueコンポーネントを記述する | Hypertext Candy</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://kasyalog.site/blog/vite-react-ssg-with-vite-plugin-ssr/">[object Object]: Site Unreachable</a></p></li>
+<li><p><a class="reference external" href="https://scrapbox.io/miyamonz/vite-plugin-ssr%E3%81%AE%E7%B4%A0%E6%8C%AF%E3%82%8A">vite-plugin-ssrの素振り - 🍊miyamonz🍊</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>3<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="server-client">
+<h1>server &amp; client<a class="headerlink" href="#server-client" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="vite-dev">
+<h2>vite dev<a class="headerlink" href="#vite-dev" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>vite(server)  に アクセスして client(browser) で Rendering する？</p></li>
+</ul>
 </section>
+<section id="vite-preview">
+<h2>vite preview<a class="headerlink" href="#vite-preview" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>?</p>
+</section>
+<section id="vite-build">
+<h2>vite build<a class="headerlink" href="#vite-build" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>vite(server) が rendering してファイルに出力する</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="react-ts">
+<h1>react-ts<a class="headerlink" href="#react-ts" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; npm init vike@latest
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">package.json</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"dev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run server:dev"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"prod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run lint &amp;&amp; npm run build &amp;&amp; npm run server:prod"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite build"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"node --loader ts-node/esm ./server/index.ts"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"server:dev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run server"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"server:prod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cross-env NODE_ENV=production npm run server"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"lint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint . --max-warnings 0"</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@types/compression"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.7.2"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@types/express"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.17.17"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@types/node"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^20.4.10"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@types/react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^18.2.20"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@types/react-dom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^18.2.7"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@typescript-eslint/eslint-plugin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.3.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@typescript-eslint/parser"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.3.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@vitejs/plugin-react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.0.4"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"compression"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.7.4"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"cross-env"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.0.3"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"eslint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^8.47.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"eslint-plugin-react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.33.1"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"eslint-plugin-react-hooks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.6.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"eslint-plugin-react-refresh"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^0.4.3"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"express"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.18.2"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^18.2.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"react-dom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^18.2.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"sirv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^2.0.3"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"ts-node"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^10.9.1"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"typescript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.1.6"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"vite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.4.9"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"vike"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^0.4.144"</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"module"</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">tsconfig.json</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  "compilerOptions": {
+    "strict": true,
+    "module": "ES2020",
+    "target": "ES2020",
+    // Doesn't apply to server/, see ts-node config down below and server/tsconfig.json
+    "moduleResolution": "Bundler",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["vite/client"],
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "esModuleInterop": true
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "esm": true,
+    "compilerOptions": {
+      "module": "Node16",
+      "moduleResolution": "Node16"
+    }
+  }
+}
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">vite.config.js</span></code></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">react</span> <span class="kr">from</span> <span class="s1">'@vitejs/plugin-react'</span>
+<span class="k">import</span> <span class="nx">vike</span> <span class="kr">from</span> <span class="s1">'vike/plugin'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">UserConfig</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'vite'</span>
+
+<span class="kd">const</span> <span class="nx">config</span><span class="o">:</span> <span class="nx">UserConfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="nx">react</span><span class="p">(),</span> <span class="nx">vike</span><span class="p">()]</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">config</span>
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -245,7 +338,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/Vue.js.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/Vike.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -265,10 +358,13 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">3</a></li>
+<li><a class="reference internal" href="#">server &amp; client</a><ul>
+<li><a class="reference internal" href="#vite-dev">vite dev</a></li>
+<li><a class="reference internal" href="#vite-preview">vite preview</a></li>
+<li><a class="reference internal" href="#vite-build">vite build</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#react-ts">react-ts</a></li>
 </ul>
 
           </div>

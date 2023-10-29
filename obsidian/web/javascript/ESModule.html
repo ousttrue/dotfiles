@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>typescript 対策 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,81 +218,37 @@
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://ja.vitejs.dev/guide/features.html">特徴 | Vite</a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>4<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="typescript-react">
-<h1>Typescript + React<a class="headerlink" href="#typescript-react" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <p><code class="docutils literal notranslate"><span class="pre">ECMA</span> <span class="pre">Script</span> <span class="pre">Modules</span></code>
+<code class="docutils literal notranslate"><span class="pre">.mjs</span></code></p>
 <ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://qiita.com/teradonburi/items/fcdd900adb069811bfda">viteでReact×TypeScript環境を爆速で作る最小版 #React - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://designsupply-web.com/media/programming/7578/">フロントエンドの開発環境にVite ＋ TypeScriptを導入する</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://www.robinwieruch.de/vite-typescript/">Vite with TypeScript</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/sikkim/articles/93bf99d8588e68">ViteでReact + TypeScript + TailwindCSSの環境構築をする</a>
-<code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">npm</span> <span class="pre">create</span> <span class="pre">vite@latest</span></code></p></li>
+<li><p>@2023 <a class="reference external" href="https://www.wantedly.com/companies/wantedly/post_articles/410531">実践 Node.js Native ESM — Wantedlyでのアプリケーション移行事例 | Wantedly Engineer Blog</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/yodaka/articles/596f441acf1cf3">CommonJSとES Modulesについてまとめる</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://numb86-tech.hatenablog.com/entry/2020/08/07/091142">Node.js における ES Modules を理解する - 30歳からのプログラミング</a></p></li>
 </ul>
-<p>[[TypeScript]]
-[[JSX]]</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="yarn">
-<h1>yarn<a class="headerlink" href="#yarn" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="typescript">
+<h1>typescript 対策<a class="headerlink" href="#typescript" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://miyauchi.dev/ja/posts/vite-vue3-typescript/">ViteでVue3のTypescript環境を構築する | miyauci.me</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://for.kobayashiii.dev/articles/9jv5qclmgm7k">Vite + React + TypeScript でプロジェクトを立ち上げる | For</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://www.memory-lovers.blog/entry/2022/05/31/110000">TypeScriptのESMでハマる - くらげになりたい。</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://quramy.medium.com/typescript-4-7-%E3%81%A8-native-node-js-esm-189753a19ba8">TypeScript 4.7 と Native Node.js ESM | by Yosuke Kurami | Medium</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="d-mts">
-<h1>d.mts あかん<a class="headerlink" href="#d-mts" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://zenn.dev/qnighy/articles/9a6a0041f2a1aa#(1)-%E5%AE%9F%E3%81%AF-*.ts-%E3%81%A7%E3%81%84%E3%81%84%E3%81%8B%E3%82%82%E3%81%97%E3%82%8C%E3%81%AA%E3%81%84">`*.d.ts` ファイルをコミットする前に知ってほしい4つのこと</a>
-=&gt; <code class="docutils literal notranslate"><span class="pre">mts</span></code> に rename で <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">some.mjs</span></code> で動く</p>
+<section class="tex2jax_ignore mathjax_ignore" id="import">
+<h1>import を使う<a class="headerlink" href="#import" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="tsx-type-module">
-<h1>tsx には type: module<a class="headerlink" href="#tsx-type-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="package-json">
+<h1>package.json<a class="headerlink" href="#package-json" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>プロジェクト自体をES Modulesにする</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"module"</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="ssg">
-<h1>ssg<a class="headerlink" href="#ssg" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="error">
+<h1>error<a class="headerlink" href="#error" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://tropical.js.org/">Tropical — static site generator</a></p></li>
+<li><p><a class="reference external" href="https://js.excelspeedup.com/tsnode-esm-remark-shortcodes-types">TypeScriptでESMで動くJavaScript製ライブラリ（remark-shortcodes）を使う | JavaScript/TypeScriptメモ</a></p></li>
 </ul>
-<section id="astro">
-<h2>astro<a class="headerlink" href="#astro" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://astro.build/">Astro</a></p></li>
-</ul>
-</section>
-<section id="vike-vite-plugin-ssr">
-<h2>vike(vite-plugin-ssr)<a class="headerlink" href="#vike-vite-plugin-ssr" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[Vike]]</p>
-</section>
-<section id="vue">
-<h2>Vue系<a class="headerlink" href="#vue" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="vitepress">
-<h3>vitepress<a class="headerlink" href="#vitepress" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://miyauchi.dev/ja/posts/start-vitepress/">[object Object]: Site Unreachable</a></p></li>
-</ul>
-</section>
-<section id="vite-ssg">
-<h3>vite-ssg<a class="headerlink" href="#vite-ssg" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/antfu/vite-ssg">GitHub - antfu/vite-ssg: Static site generation for Vue 3 on Vite</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://qiita.com/Kodak_tmo/items/23c0c334c6f08a4a036a">Viteを使ってSSGを試した話 #AWS - Qiita</a></p></li>
-</ul>
-</section>
-</section>
-<section id="spa">
-<h2>spa<a class="headerlink" href="#spa" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2021 <a class="reference external" href="https://y-ohgi.blog/entry/2021/08/11/vite_x_React_x_TypeScript_%E3%81%A7github_pages_%E3%81%AB%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B">[object Object]: Site Unreachable</a></p></li>
-</ul>
-</section>
-<section id="minista">
-<h2>minista<a class="headerlink" href="#minista" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[minista]]</p>
-</section>
 </section>
 
         </article>
@@ -308,7 +264,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/web/javascript/Vite.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/web/javascript/ESModule.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -328,26 +284,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">4</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#typescript-react">Typescript + React</a></li>
-<li><a class="reference internal" href="#yarn">yarn</a></li>
-<li><a class="reference internal" href="#d-mts">d.mts あかん</a></li>
-<li><a class="reference internal" href="#tsx-type-module">tsx には type: module</a></li>
-<li><a class="reference internal" href="#ssg">ssg</a><ul>
-<li><a class="reference internal" href="#astro">astro</a></li>
-<li><a class="reference internal" href="#vike-vite-plugin-ssr">vike(vite-plugin-ssr)</a></li>
-<li><a class="reference internal" href="#vue">Vue系</a><ul>
-<li><a class="reference internal" href="#vitepress">vitepress</a></li>
-<li><a class="reference internal" href="#vite-ssg">vite-ssg</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#spa">spa</a></li>
-<li><a class="reference internal" href="#minista">minista</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">typescript 対策</a></li>
+<li><a class="reference internal" href="#import">import を使う</a></li>
+<li><a class="reference internal" href="#package-json">package.json</a></li>
+<li><a class="reference internal" href="#error">error</a></li>
 </ul>
 
           </div>

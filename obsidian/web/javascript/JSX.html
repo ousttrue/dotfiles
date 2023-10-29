@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Component - shell note ドキュメント</title>
+        <title>root - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,12 +218,36 @@
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
-<li><p><a class="reference external" href="https://typescript-jp.gitbook.io/deep-dive/tsx">JSX - TypeScript Deep Dive 日本語版</a></p></li>
+          <p>[[React]]
+<code class="docutils literal notranslate"><span class="pre">JavaScript</span> <span class="pre">Syntax</span> <span class="pre">Extension</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">v8</span></code> は解釈できないので、 <code class="docutils literal notranslate"><span class="pre">babel</span></code>, <code class="docutils literal notranslate"><span class="pre">tsc</span></code> などを使って <code class="docutils literal notranslate"><span class="pre">js</span></code> に変換する。
+だったら、ついでに 型付の <code class="docutils literal notranslate"><span class="pre">tsx</span></code> でしょ。</p>
+<p><a class="reference external" href="https://ja.legacy.reactjs.org/docs/jsx-in-depth.html">JSX を深く理解する – React</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://typescript-jp.gitbook.io/deep-dive/tsx">JSX - TypeScript Deep Dive 日本語版</a></p>
+<ul>
 <li><p><a class="reference external" href="https://typescriptbook.jp/reference/jsx">JSX | TypeScript入門『サバイバルTypeScript』</a></p></li>
 <li><p><a class="reference external" href="https://www.typescriptlang.org/docs/handbook/jsx.html">TypeScript: Documentation - JSX</a></p></li>
-<li><p>@2023 <a class="reference external" href="https://www.estie.jp/blog/entry/2023/04/10/123339">デザイナーが抱くReact+TypeScriptの疑問を紐解き、フロントエンドに一歩近づこう - estie inside blog</a></p></li>
 </ul>
+</li>
+<li><p>@2023 <a class="reference external" href="https://www.estie.jp/blog/entry/2023/04/10/123339">デザイナーが抱くReact+TypeScriptの疑問を紐解き、フロントエンドに一歩近づこう - estie inside blog</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://www.ey-office.com/blog_archive/2022/05/27/history-of-jsx-and-consideration-of-jsx-2/">JSXにいたる歴史と考察(2/2)</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://zenn.dev/kazuma1989/articles/a5a824a7400921">React をテンプレートエンジンの代わりに使う</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://note.com/erukiti/n/n6f673021469e">JSXが実はベターな解だったのではないか？｜erukiti</a></p></li>
+</ul>
+<blockquote>
+<div><p>HTMLとJSのどちらが制御構造を持てばいいのか？でいえばJS側が持つ方がリファクタリングしやすいため、JSXの方が良い</p>
+</div></blockquote>
+<section class="tex2jax_ignore mathjax_ignore" id="root">
+<h1>root<a class="headerlink" href="#root" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-tsx notranslate"><div class="highlight"><pre><span></span>createRoot(globalThis.document.getElementById("root")!).render(
+  &lt;StrictMode&gt;
+    &lt;App /&gt;
+  &lt;/StrictMode&gt;
+)
+</pre></div>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="component">
 <h1>Component<a class="headerlink" href="#component" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
@@ -249,27 +273,6 @@
 <ul class="simple">
 <li><p>@2019 <a class="reference external" href="https://qiita.com/uhyo/items/adf6cb83333a25097f25">TypeScriptの型におけるJSXサポートが100%分かる記事 #TypeScript - Qiita</a></p></li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="framework">
-<h1>framework<a class="headerlink" href="#framework" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="react">
-<h2>React<a class="headerlink" href="#react" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[React]]</p>
-</section>
-<section id="next-js">
-<h2>Next.js<a class="headerlink" href="#next-js" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="vue-js">
-<h2>Vue.js<a class="headerlink" href="#vue-js" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="gatsby">
-<h2>gatsby<a class="headerlink" href="#gatsby" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[gatsby]]</p>
-</section>
-<section id="mdx">
-<h2>mdx<a class="headerlink" href="#mdx" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[MDX]]</p>
-</section>
 </section>
 
         </article>
@@ -305,16 +308,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Component</a></li>
+<li><a class="reference internal" href="#">root</a></li>
+<li><a class="reference internal" href="#component">Component</a></li>
 <li><a class="reference internal" href="#type">type</a></li>
-<li><a class="reference internal" href="#framework">framework</a><ul>
-<li><a class="reference internal" href="#react">React</a></li>
-<li><a class="reference internal" href="#next-js">Next.js</a></li>
-<li><a class="reference internal" href="#vue-js">Vue.js</a></li>
-<li><a class="reference internal" href="#gatsby">gatsby</a></li>
-<li><a class="reference internal" href="#mdx">mdx</a></li>
-</ul>
-</li>
 </ul>
 
           </div>

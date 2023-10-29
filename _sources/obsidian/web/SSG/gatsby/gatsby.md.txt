@@ -31,6 +31,10 @@
 ## 3
 - [Gatsby v2からGatsby v3への移行 - makoのノート](https://mako-note.com/ja/migrating-gatsby-from-v2-to-v3/)
 
+# typescript
+- @2022 [Gatsby-starter-blogをTypeScript化する [2022-12版] #JavaScript - Qiita](https://qiita.com/shunexe/items/7ad1788a80fb8858469e)
+- @2020 [Gatsby.js を完全TypeScript化する #React - Qiita](https://qiita.com/Takepepe/items/144209f860fbe4d5e9bb#gatsby-nodejs-%E3%82%92-ts%E5%8C%96%E3%81%99%E3%82%8B)
+
 # starter
 - [DIRECTORY: ソフトウェア/Gatsby | Ataru Kodaka Site](https://atarukodaka.github.io/software/gatsby)
 - [gatsby-starter-blog | Gatsby](https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-blog)
