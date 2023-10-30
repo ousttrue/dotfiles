@@ -1,13 +1,14 @@
 [WebGPU](https://www.w3.org/TR/webgpu/)
 [[WGSL]]
 
+- [初めての WebGPU アプリ](https://codelabs.developers.google.com/your-first-webgpu-app?hl=ja#0)
+- https://webgpu.github.io/webgpu-samples/
 - @2022 [WebGPUを使ってみる](https://zenn.dev/bellbind/scraps/eb114b4f51322a)
 - @2022 [WebGPUの現状 – ギャップロ](https://gaprot.jp/2022/02/14/webgpu2022/)
-- [初めての WebGPU アプリ](https://codelabs.developers.google.com/your-first-webgpu-app?hl=ja#0)
-
-- [WebGPU Samples](https://austin-eng.com/webgpu-samples/)
 
 # chrome
+[WebGPU API - Web API | MDN](https://developer.mozilla.org/ja/docs/Web/API/WebGPU_API#%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%83%BC%E3%81%AE%E4%BA%92%E6%8F%9B%E6%80%A7)
+
 ## 113
 - @2023 [WebGPUとC++でブラウザ上に三角ポリゴン描画してみる](https://zenn.dev/kd_gamegikenblg/articles/a5a8effe43bf3c)
 
@@ -22,7 +23,6 @@ Origin Trialによって使用可能
 
 ## 2017
 - [Apple、WebGPUという新しい3Dグラフィックス標準を提案](https://www.infoq.com/jp/news/2017/02/webgpu/)
-
 
 # firefox
 `Firefox: firefox-nightly`
