@@ -7,7 +7,7 @@
 - [How to Upgrade to React 18 – React](https://react.dev/blog/2022/03/08/react-18-upgrade-guide#updates-to-client-rendering-apis)
 > ReactDOM.render is no longer supported in React 18
 
-## 16
+## 16.8
 - Hooks 
 
 # 関連
@@ -53,6 +53,9 @@ JSX は transpile 必要。じゃぁ、ついでに TypeScript にしよう。�
 
 ## Vite + TypeScript + React
 - @2023 [ViteでTypeScript×Reactの開発環境を構築してみた【前編】｜SHIFT Group 技術ブログ](https://note.com/shift_tech/n/n9c5fcd207680)
+
+# hooks
+- [ReactでrequestAnimationFrameを扱う](https://zenn.dev/yend724/articles/20211119-x1fph5dvdldsx4po)
 
 # framework
 ## Next.js
