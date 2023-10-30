@@ -1,8 +1,12 @@
 [[AFrame]] [[xterm.js]]
 
+
 https://xrterm.com/
 
-@2021 [GitHub - szk/xrterm: Terminal Emulator for xR (VR/AR/MR) environment](https://github.com/szk/xrterm)
+@202111
+[GitHub - szk/xrterm: Terminal Emulator for xR (VR/AR/MR) environment](https://github.com/szk/xrterm)
+
+このときの xterm.js => 4.19
 
 ```js
 > npm run start
