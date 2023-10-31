@@ -226,6 +226,17 @@
 <li><p>@2020 <a class="reference external" href="https://n-guitar.hatenablog.com/entry/2020/11/14/203521">xterm.jsでキーボード入力を受け付ける方法 - haku-maiのブログ</a></p></li>
 <li><p><a class="reference external" href="https://github.com/s-yoshiki/node-websh">GitHub - s-yoshiki/node-websh: node-pty xterm.js websocket を利用したブラウザで動くShell</a></p></li>
 </ul>
+<p>_onRequestRefreshRows</p>
+<p>Open
+private _renderService: IRenderService | undefined;</p>
+<p><code class="docutils literal notranslate"><span class="pre">src/browser/services/Services.mts</span></code></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="kr">interface</span> <span class="nx">IRenderService</span> <span class="k">extends</span> <span class="nx">IDisposable</span> <span class="p">{</span>
+  <span class="cm">/**</span>
+<span class="cm">   * Fires on render</span>
+<span class="cm">   */</span>
+  <span class="nx">onRender</span><span class="o">:</span> <span class="nx">IEvent</span><span class="o">&lt;</span><span class="p">{</span> <span class="nx">start</span><span class="o">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">end</span><span class="o">:</span> <span class="nx">number</span> <span class="p">}</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
 <section class="tex2jax_ignore mathjax_ignore" id="node-pty">
 <h1>node-pty<a class="headerlink" href="#node-pty" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="o">--</span><span class="k">global</span> <span class="o">--</span><span class="n">production</span> <span class="n">windows</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">tools</span>

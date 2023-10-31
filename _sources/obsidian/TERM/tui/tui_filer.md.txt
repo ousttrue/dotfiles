@@ -45,3 +45,7 @@
 # Other
 `bash`
 - [GitHub - dylanaraps/fff: 📁 A simple file manager written in bash.](https://github.com/dylanaraps/fff)
+
+# func
+## cp, mv, ln, rm, mkdir
+## recursive rename
