@@ -61,3 +61,6 @@
 
 # module
 - [Scrapbox](https://scrapbox.io/dojineko/A-Frame:ES_Modules%E3%81%A7%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%82%92%E8%A8%98%E8%BC%89%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95)
+
+# load
+- [aframe - How do I delay/defer/control when an A-Frame scene initializes/loads? - Stack Overflow](https://stackoverflow.com/questions/47363071/how-do-i-delay-defer-control-when-an-a-frame-scene-initializes-loads)

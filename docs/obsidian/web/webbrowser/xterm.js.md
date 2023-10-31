@@ -7,6 +7,22 @@
 - @2020 [xterm.jsでキーボード入力を受け付ける方法 - haku-maiのブログ](https://n-guitar.hatenablog.com/entry/2020/11/14/203521)
 - [GitHub - s-yoshiki/node-websh: node-pty xterm.js websocket を利用したブラウザで動くShell](https://github.com/s-yoshiki/node-websh)
 
+_onRequestRefreshRows
+
+Open
+  private _renderService: IRenderService | undefined;
+
+`src/browser/services/Services.mts`
+```js
+export interface IRenderService extends IDisposable {
+  /**
+   * Fires on render
+   */
+  onRender: IEvent<{ start: number, end: number }>;
+```
+
+
+
 # node-pty
 ```
 npm install --global --production windows-build-tools
