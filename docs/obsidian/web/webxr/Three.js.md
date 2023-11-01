@@ -8,6 +8,10 @@
 ## r125
 - `Geometry`削除
 
+# Mesh
+- Mesh
+	- Geometry
+	- Material
 
 # Object3D
 ## set matrix
