@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>src/server/run.js - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -220,9 +220,16 @@
         <article role="main">
           <p>[[AFrame]] [[xterm.js]]</p>
 <p>https://xrterm.com/</p>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>@202111
 <a class="reference external" href="https://github.com/szk/xrterm">GitHub - szk/xrterm: Terminal Emulator for xR (VR/AR/MR) environment</a></p>
-<p>このときの xterm.js =&gt; 4.19</p>
+<p><code class="docutils literal notranslate"><span class="pre">xterm.js-4.13</span></code>
+CursorRenderLayer.constructor
+https://github.com/xtermjs/xterm.js/commit/c1b4f4edb15f9b9a55dabf373156417dfcea8cd8</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>構成<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">npm</span> <span class="nx">run</span> <span class="nx">start</span>
 <span class="s2">"start"</span><span class="o">:</span> <span class="s2">"concurrently --kill-others \"npm run server\" \"npm run client\""</span><span class="p">,</span>
 
@@ -230,6 +237,16 @@
 <span class="s2">"client"</span><span class="o">:</span> <span class="s2">"webpack-dev-server --host 0.0.0.0 --hot --progress --port 8000 "</span><span class="p">,</span>
 </pre></div>
 </div>
+<section id="camera-hit-focus">
+<h2>camera hit focus<a class="headerlink" href="#camera-hit-focus" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="keyinput">
+<h2>keyinput<a class="headerlink" href="#keyinput" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="renderer">
+<h2>renderer<a class="headerlink" href="#renderer" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="src-server-run-js">
 <h1>src/server/run.js<a class="headerlink" href="#src-server-run-js" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -277,7 +294,14 @@ vite + typescript 化して読みやすくする</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">src/server/run.js</a></li>
+<li><a class="reference internal" href="#">Version</a></li>
+<li><a class="reference internal" href="#id1">構成</a><ul>
+<li><a class="reference internal" href="#camera-hit-focus">camera hit focus</a></li>
+<li><a class="reference internal" href="#keyinput">keyinput</a></li>
+<li><a class="reference internal" href="#renderer">renderer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src-server-run-js">src/server/run.js</a></li>
 <li><a class="reference internal" href="#client-scene-index-js">client scene/index.js</a></li>
 </ul>
 
