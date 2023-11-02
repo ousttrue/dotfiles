@@ -6,7 +6,6 @@ M.list = {
   "carbonfox",
   "Ciapre",
   "DimmedMonokai",
-  "Fahrenheit",
   "Hacktober",
   "MonaLisa",
   "N0tch2k",

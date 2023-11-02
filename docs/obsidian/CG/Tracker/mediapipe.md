@@ -4,6 +4,8 @@
 
 - @2022 [Simple Hand Gesture Recognition Code - Hand tracking - Mediapipe · GitHub](https://gist.github.com/TheJLifeX/74958cc59db477a91837244ff598ef4a)
 
+[Webカメラでトラッキングした手をThree.js上で動かす｜HIKKY開発者ブログ](https://note.com/tech_hikky/n/n1345d2ca0539)
+
 # Windows
 - @2021 [Windows 10にMediaPipe をインストール (WSL不使用)](http://kunsen.net/2021/01/30/post-3543/) 
 
