@@ -218,9 +218,15 @@
           </label>
         </div>
         <article role="main">
-          <p>[[v8]]</p>
-<p><a class="reference external" href="https://zenn.dev/uki00a/books/effective-deno">Effective Deno</a>
-<a class="reference external" href="https://uki00a.github.io/deno-weekly/">週刊Deno</a></p>
+          <p>[[v8]] [[deno_nvim]]</p>
+<p><a class="reference external" href="https://docs.deno.com/runtime/manual">Deno Runtime Quick Start | Deno Docs</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://examples.deno.land/">Deno by Example</a>
+<a class="reference external" href="https://zenn.dev/uki00a/books/effective-deno">Effective Deno</a>
+<a class="reference external" href="https://uki00a.github.io/deno-weekly/">週刊Deno</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/uki00a/articles/frontend-development-in-deno-2023-summer">Denoのフロントエンド開発の動向【2023年夏】</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://developer.mamezou-tech.com/deno/getting-started/01-introduction/">Deno を始める 第1回：開発環境とランタイム | 豆蔵デベロッパーサイト</a></p></li>
+</ul>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id1">
@@ -258,9 +264,34 @@ https://deno.com/blog/v1.31#breaking-change-in-ffi-api</p>
 <h1>lsp<a class="headerlink" href="#lsp" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="https://zenn.dev/mochi/articles/e6b2735108157c">neovim lsp でdenolsとtsserverを自動で切り替える</a></p>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="debugger">
+<h1>debugger<a class="headerlink" href="#debugger" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://deno-ja.vercel.app/manual@v1.6.1/getting_started/debugging_your_code#vscode">マニュアル | Deno</a></p>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="ffi">
 <h1>FFI<a class="headerlink" href="#ffi" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[deno_ffi]]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="websocket">
+<h1>websocket<a class="headerlink" href="#websocket" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://qiita.com/access3151fq/items/7e2bdbd8f24858cf1f49">DenoのWebSocketサーバーの書き方 2022冬編 #JavaScript - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/ja/docs/Web/API/WebSockets_API/Writing_a_WebSocket_server_in_JavaScript_Deno">WebSocket サーバーを JavaScript (Deno) で書く - Web API | MDN</a></p></li>
+</ul>
+<section id="https">
+<h2>https<a class="headerlink" href="#https" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">listener</span> <span class="o">=</span> <span class="nx">Deno</span><span class="p">.</span><span class="nx">listenTls</span><span class="p">({</span>
+  <span class="nx">port</span><span class="o">:</span> <span class="mf">80</span><span class="p">,</span>
+  <span class="nx">certFile</span><span class="o">:</span> <span class="s1">'証明書ファイルパス'</span><span class="p">,</span>
+  <span class="nx">keyFile</span><span class="o">:</span> <span class="s1">'秘密鍵ファイルパス'</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="pty">
+<h2>pty<a class="headerlink" href="#pty" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://deno.land/x/deno_pty_ffi@0.16.0">deno_pty_ffi@0.16.0 | Deno</a></p>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="webrtc">
 <h1>WebRTC<a class="headerlink" href="#webrtc" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -271,6 +302,9 @@ https://deno.com/blog/v1.31#breaking-change-in-ffi-api</p>
 <section class="tex2jax_ignore mathjax_ignore" id="opengl">
 <h1>OpenGL<a class="headerlink" href="#opengl" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[deno_opengl]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/deno-windowing/gluten">GitHub - deno-windowing/gluten: OpenGL bindings &amp; WebGL API implementation for Deno.</a></p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="web">
 <h1>Web<a class="headerlink" href="#web" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -342,7 +376,13 @@ https://deno.com/blog/v1.31#breaking-change-in-ffi-api</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#lsp">lsp</a></li>
+<li><a class="reference internal" href="#debugger">debugger</a></li>
 <li><a class="reference internal" href="#ffi">FFI</a></li>
+<li><a class="reference internal" href="#websocket">websocket</a><ul>
+<li><a class="reference internal" href="#https">https</a></li>
+<li><a class="reference internal" href="#pty">pty</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#webrtc">WebRTC</a></li>
 <li><a class="reference internal" href="#opengl">OpenGL</a></li>
 <li><a class="reference internal" href="#web">Web</a><ul>
