@@ -1,8 +1,44 @@
 - @2023 [ブログをAstroに変更してみた - SUSH-i LOG](https://blog.sus-happy.net/astrojs/)
+- @2022 [Astro + Three.js + React で3Dモデルを表示する](https://zenn.dev/submax/articles/astro-react-three)
+
+# blog tutorial
+- [初めてのAstroブログ 🚀 Astroドキュメント](https://docs.astro.build/ja/tutorial/0-introduction/)
+- [Astroでの最初の一行 🚀 Astroドキュメント](https://docs.astro.build/ja/tutorial/1-setup/3/)
+`empty`
+- root
+	- env.d.ts
+	- pages
+		 - index.astro
+- [ユニット2の導入 - ページ 🚀 Astroドキュメント](https://docs.astro.build/ja/tutorial/2-pages/)
+	- [サイト全体にスタイルを追加する 🚀 Astroドキュメント](https://docs.astro.build/ja/tutorial/2-pages/5/)
+- [ユニット3の導入 - コンポーネント 🚀 Astroドキュメント](https://docs.astro.build/ja/tutorial/3-components/)
+- [ユニット4の導入 - レイアウト 🚀 Astroドキュメント](https://docs.astro.build/ja/tutorial/4-layouts/)
+- [ユニット5の導入 - Astro API 🚀 Astroドキュメント](https://docs.astro.build/ja/tutorial/5-astro-api/)
+	- [タグページを生成する 🚀 Astroドキュメント](https://docs.astro.build/ja/tutorial/5-astro-api/2/)
+	- [タグインデックスページを作成する 🚀 Astroドキュメント](https://docs.astro.build/ja/tutorial/5-astro-api/3/)
+- [ユニット6の導入 - Astroアイランド 🚀 Astroドキュメント](https://docs.astro.build/ja/tutorial/6-islands/)
+
+## contentCollection
+- [コンテンツコレクション 🚀 Astroドキュメント](https://docs.astro.build/ja/guides/content-collections/)
+`blog`
+- root
+	- content
+	- components
+	- layouts 
+	- pages
+	- styles
+	- consts.ts
+	- env.d.ts
+
+# data
+## Astro.props
+https://docs.astro.build/ja/reference/api-reference/#astroprops
 
 # astro component
-`.astro`
-https://docs.astro.build/ja/core-concepts/astro-syntax/
+k`.astro`
+- syntax highlight
+- formatter
+jhttps://docs.astro.build/ja/core-concepts/astro-syntax/
 
 # Static routes
 `src/pages`

@@ -1,4 +1,7 @@
 - [HTMLのdraggable属性でユーザが要素を自由に配置できるようにする](https://zenn.dev/mai/articles/cec0746ab1052e)
+- [Three.js(WebGL)で一年以上学習した成果と便利なクラス/ライブラリを紹介](https://zenn.dev/uemuragame5683/articles/e2777b5b956f81)
+- @2021 [Three.js であそんでみたよ　#techtekt Advent Calendar 2022 - techtekt](https://techtekt.persol-career.co.jp/entry/tech/221213_01)
+
 
 [[Threejs_react]]
 
@@ -12,6 +15,9 @@
 - Mesh
 	- Geometry
 	- Material
+
+# Math
+-- [three.js MathUtils全関数まとめ](https://zenn.dev/ajitama_tkd/articles/fbc7bc6066bfbe)
 
 # Object3D
 ## set matrix
