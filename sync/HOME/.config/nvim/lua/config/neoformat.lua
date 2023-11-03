@@ -48,6 +48,14 @@ function M.setup()
   }
   vim.g.neoformat_enabled_meson = { "muon" }
 
+  -- astro
+  vim.g.neoformat_astro_prettier = {
+    exe = 'npx',
+    args = { "prettier", "--stdin-filepath", '"%:p"' },
+    stdin = 1,
+    try_node_exe = 1,
+  }
+
   local function formatter()
     vim.cmd [[:Neoformat]]
   end
@@ -58,6 +66,7 @@ function M.setup()
   DOT.formatters.python = formatter
   DOT.formatters.vala = formatter
   DOT.formatters.meson = formatter
+  DOT.formatters.astro = formatter
 end
 
 return M

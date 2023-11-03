@@ -53,3 +53,14 @@ https://github.com/szk/xrterm
 
 # repl
 - [GitHub - homma/js-repl: JavaScript REPL on Web Browser](https://github.com/homma/js-repl)
+
+# cell
+`/src/common/buffer/CellData.mts`
+```ts
+export class CellData extends AttributeData implements ICellData
+{
+  public content = 0;
+  public fg = 0;
+  public bg = 0;
+}
+```
