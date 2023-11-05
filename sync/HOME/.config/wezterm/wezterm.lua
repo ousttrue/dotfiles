@@ -21,7 +21,7 @@ local config = {
   color_scheme = require("wez.themes").get_today(),
   warn_about_missing_glyphs = false,
   initial_cols = 126,
-  initial_rows = 52,
+  initial_rows = 50,
 }
 
 ---@param config table

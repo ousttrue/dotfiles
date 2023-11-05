@@ -2,7 +2,7 @@
 <openbox_menu>
   <menu id="root-menu" label="">
     <item label="Web browser"><action name="Execute" command="firefox" /></item>
-    <item label="Foot"><action name="Execute" command="foot" /></item>
+    <item label="Wezterm"><action name="Execute" command="wezterm" /></item>
     <item label="XTerm"><action name="Execute" command="xterm" /></item>
     <item label="Reconfigure"><action name="Reconfigure" /></item>
     <item label="Exit"><action name="Exit" /></item>
