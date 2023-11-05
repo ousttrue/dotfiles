@@ -77,3 +77,7 @@
 
 # load
 - [aframe - How do I delay/defer/control when an A-Frame scene initializes/loads? - Stack Overflow](https://stackoverflow.com/questions/47363071/how-do-i-delay-defer-control-when-an-a-frame-scene-initializes-loads)
+
+# culling
+- [aframe - How can I turn off A-frame Camera Occlusion Culling? - Stack Overflow](https://stackoverflow.com/questions/66593431/how-can-i-turn-off-a-frame-camera-occlusion-culling)
+- https://stackoverflow.com/questions/51025071/instance-geometry-frustum-culling

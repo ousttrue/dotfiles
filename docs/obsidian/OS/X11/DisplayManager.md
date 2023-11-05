@@ -1,3 +1,4 @@
+[[LoginManager]]
 [[XWindow]]
 [[PulseAudio]]
 [[elogind]]
@@ -9,6 +10,14 @@
 `session`
 
 環境変数を設定してから, `/etc/X11/XSession` を呼びだす？
+
+- @2021 [ディスプレイマネージャの変更[ubuntu] #ubuntu20.04 - Qiita](https://qiita.com/shou_san/items/1bb140c4bfa47cb0fbe8)
+`/etc/X11/default-display-manager`
+`/etc/systemd/system/dislpay-manager.service`
+ 
+# gdm
+## 3
+
 
 # lightdm
 - /usr/share/lightdm/lightdm.conf.d/*.conf

@@ -1,10 +1,13 @@
 [[dbus]]
 
-- [systemctl コマンド - Qiita](https://qiita.com/sinsengumi/items/24d726ec6c761fc75cc9)
+- @2023 [systemctlとsysctlの違い #初心者 - Qiita](https://qiita.com/For_Whom_The_Alarm_Tolls/items/e1b7bc6b630f74f78f63)
+- @2019 [systemctl コマンド - Qiita](https://qiita.com/sinsengumi/items/24d726ec6c761fc75cc9)
 - @2019 [これからSystemd入門する - Qiita](https://qiita.com/bluesDD/items/eaf14408d635ffd55a18)
 
 `initプロセス`
 > systemdはカーネルによって最初に起動されるプログラムです。一番最初に起動するのでプロセスIDは１です。
+
+`systemctl` が systemd。`sysctrl` はカーネル機能。
 
 # list
 ```
