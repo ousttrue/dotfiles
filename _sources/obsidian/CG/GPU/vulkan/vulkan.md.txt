@@ -8,6 +8,9 @@
 ## 1.3
 - @2022 [Vulkan 1.3がリリース。新追加機能はオプションではなく実装を義務付け - PC Watch](https://pc.watch.impress.co.jp/docs/news/1383547.html)
 
+## 1.2
+- @2020 [GPUの進化に合わせて改良が続けられる3DグラフィックスAPI　「Vulkan1.2」における機能の追加と拡張 - ログミーTech](https://logmi.jp/tech/articles/326296)
+
 ## 1.1
 - @2018 [グラフィックスAPI「Vulkan」バージョン1.1公開 - PC Watch](https://pc.watch.impress.co.jp/docs/news/1110461.html)
 - @2018 [グラフィックスAPI「Vulkan」がmacOS/iOSで利用可能に - PC Watch](https://pc.watch.impress.co.jp/docs/news/1108626.html)

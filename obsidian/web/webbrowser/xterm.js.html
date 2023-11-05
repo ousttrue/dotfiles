@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>node-pty - shell note ドキュメント</title>
+        <title>repl - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,10 +218,14 @@
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://xtermjs.org/">Xterm.js</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">escape</span> <span class="pre">sequence</span> <span class="pre">renderer</span></code></p>
+          <p><a class="reference external" href="https://xtermjs.org/">Xterm.js</a>
+[[node-pty]]
+[[hyper.js]]</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://github.com/EdisonDevadoss/xterm-terminal-demo">GitHub - EdisonDevadoss/xterm-terminal-demo</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://tech-blog.s-yoshiki.com/entry/294">node-pty xterm.js websocket を利用したブラウザで動くShellの作成 | 404 motivation not found</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://www.rasukarusan.com/entry/2021/05/01/124642">ブラウザからTemrinalに接続するxterm.jsをNext.jsとNestJSで構築する - ハイパーマッスルエンジニア</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://medium.com/yavar/xterm-js-terminal-2b19ccd2a52">Xterm js Terminal. In this article, I will explain about… | by Edison Devadoss | YavarTechWorks | Medium</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://n-guitar.hatenablog.com/entry/2020/11/14/212751">xterm.jsの見た目を変更する - haku-maiのブログ</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://n-guitar.hatenablog.com/entry/2020/11/14/203521">xterm.jsでキーボード入力を受け付ける方法 - haku-maiのブログ</a></p></li>
 <li><p><a class="reference external" href="https://github.com/s-yoshiki/node-websh">GitHub - s-yoshiki/node-websh: node-pty xterm.js websocket を利用したブラウザで動くShell</a></p></li>
@@ -237,33 +241,6 @@ private _renderService: IRenderService | undefined;</p>
   <span class="nx">onRender</span><span class="o">:</span> <span class="nx">IEvent</span><span class="o">&lt;</span><span class="p">{</span> <span class="nx">start</span><span class="o">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">end</span><span class="o">:</span> <span class="nx">number</span> <span class="p">}</span><span class="o">&gt;</span><span class="p">;</span>
 </pre></div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="node-pty">
-<h1>node-pty<a class="headerlink" href="#node-pty" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="o">--</span><span class="k">global</span> <span class="o">--</span><span class="n">production</span> <span class="n">windows</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">tools</span>
-</pre></div>
-</div>
-<p>Downloading installers failed. Error: TypeError: 'process.env' only accepts a configurable, writable, and enumerable data descriptor</p>
-<p><a class="reference external" href="https://github.com/microsoft/node-pty">GitHub - microsoft/node-pty: Fork pseudoterminals in Node.JS</a></p>
-<p>ビルドが必要。gyp ではまる。<code class="docutils literal notranslate"><span class="pre">prebuilt</span></code> 探すべし</p>
-<p>👇</p>
-<p><a class="reference external" href="https://github.com/homebridge/node-pty-prebuilt-multiarch">GitHub - homebridge/node-pty-prebuilt-multiarch: A parallel fork of node-pty providing ia32, amd64, arm, and aarch64 prebuilt packages for macOS, Windows and Linux (glibc and musl libc).</a></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="xterm-addon-webgl">
-<h1>xterm-addon-webgl<a class="headerlink" href="#xterm-addon-webgl" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">TODO</span></code>
-https://twitter.com/azu_re/status/1125305880042360832</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="aframe-xterm-component">
-<h1>aframe-xterm-component<a class="headerlink" href="#aframe-xterm-component" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>@2019
-canvas 2d への描画からのコピーを使っているポイ。重い。<code class="docutils literal notranslate"><span class="pre">quest</span> <span class="pre">pro</span></code> が負荷で落ちた。
-<a class="reference external" href="https://github.com/RangerMauve/aframe-xterm-component">GitHub - RangerMauve/aframe-xterm-component: Playing around with getting xterm.js working in Aframe VR</a></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="xrterm">
-<h1>XRTerm<a class="headerlink" href="#xrterm" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>@2020 Three.js の glContext で描画する AframeAddon がソースが無かった。weback よくわからん。
-https://github.com/szk/xrterm</p>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="repl">
 <h1>repl<a class="headerlink" href="#repl" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -316,11 +293,7 @@ https://github.com/szk/xrterm</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">node-pty</a></li>
-<li><a class="reference internal" href="#xterm-addon-webgl">xterm-addon-webgl</a></li>
-<li><a class="reference internal" href="#aframe-xterm-component">aframe-xterm-component</a></li>
-<li><a class="reference internal" href="#xrterm">XRTerm</a></li>
-<li><a class="reference internal" href="#repl">repl</a></li>
+<li><a class="reference internal" href="#">repl</a></li>
 <li><a class="reference internal" href="#cell">cell</a></li>
 </ul>
 

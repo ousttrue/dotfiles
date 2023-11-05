@@ -1,3 +1,5 @@
+[[vr]]
+
 - [StereoKit | StereoKit Documentation](https://stereokit.net/)
 	- [StereoKit - .NET を使用してMixed Realityする - Events | Microsoft Learn](https://learn.microsoft.com/ja-jp/events/mixed-reality-dev-days/stereokit-mixed-reality-using-dotnet)
 - [GitHub - StereoKit/StereoKit: An easy-to-use mixed reality library for building HoloLens and VR applications with C# and OpenXR!](https://github.com/StereoKit/StereoKit)

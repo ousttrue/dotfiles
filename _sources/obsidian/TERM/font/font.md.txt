@@ -3,6 +3,8 @@
 [[NerdFont]]
 [[glyph]]
 
+[おすすめフォント](http://yozvox.web.fc2.com/82A882B782B782DF8374834883938367.html)
+
 `Monospace` かつ 全角半角比が 2:1 であるフォントが良い
 - @2023 [プログラミング用フォント 2023年版 | Tech控え帳](https://www.chihayafuru.jp/tech/index.php/archives/5952)
 

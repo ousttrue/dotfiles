@@ -34,4 +34,12 @@ webpack で bundle. front
 
 TODO:
 	vite + typescript 化して読みやすくする
- 
+
+# aframe-xterm-component
+@2019
+canvas 2d への描画からのコピーを使っているポイ。重い。`quest pro` が負荷で落ちた。
+[GitHub - RangerMauve/aframe-xterm-component: Playing around with getting xterm.js working in Aframe VR](https://github.com/RangerMauve/aframe-xterm-component)
+
+# XRTerm
+@2020 Three.js の glContext で描画する AframeAddon がソースが無かった。weback よくわからん。
+https://github.com/szk/xrterm

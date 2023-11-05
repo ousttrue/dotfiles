@@ -64,3 +64,6 @@ void main() {
 - [WebGLRenderTargetでオフスクリーンレンダリングする | TECH BLOG | SHOYA KAJITA.](https://blog.shoya-kajita.com/webglrendertarget/)
 - [GitHub - spite/THREE.FBOHelper: FrameBuffer Object inspector for three.js](https://github.com/spite/THREE.FBOHelper)
 - [GitHub - tuqire/three.js-fbo: GPGPU Module for use with THREE.js](https://github.com/tuqire/three.js-fbo)
+
+# instancing
+[three.js interactive cubes / openscience | Observable](https://observablehq.com/@openscience/three-js-interactive-cubes)

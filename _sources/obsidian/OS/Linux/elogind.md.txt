@@ -1,3 +1,4 @@
+[[LoginManager]]
 [[LoginSession]]
 [[systemd]]
 [[greetd]]

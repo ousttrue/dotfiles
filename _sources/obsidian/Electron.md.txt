@@ -1,4 +1,7 @@
 
+# get started
+- [クイック スタート | Electron](https://www.electronjs.org/ja/docs/latest/tutorial/quick-start)
+
 # Vite
 - @2023 [electron-vite で Electron アプリ開発の生産性を上げる | 豆蔵デベロッパーサイト](https://developer.mamezou-tech.com/blogs/2023/05/22/electron-vite/)
 
