@@ -47,6 +47,7 @@ local function setup_path()
 
   nyagos.envadd("PATH", COM.to_path(HOME .. "/build/zig/bin"))
   nyagos.envadd("PATH", COM.to_path(HOME .. "/go/bin"))
+  nyagos.envadd("PATH", COM.to_path("C:/Program Files/Go/bin"))
   nyagos.envadd("PATH", COM.to_path(HOME .. "/.cargo/bin"))
   nyagos.envadd("PATH", COM.to_path(HOME .. "/local/bin"))
   nyagos.envadd("PATH", COM.to_path(HOME .. "/.local/bin"))

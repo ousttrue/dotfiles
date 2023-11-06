@@ -98,23 +98,24 @@ function M.setup()
 
   lspconfig.tsserver.setup {
     root_dir = lspconfig.util.root_pattern "package.json",
+    single_file_support = false,
   }
-  -- lspconfig.denols.setup {
-  --   root_dir = lspconfig.util.root_pattern "deno.json",
-  --   init_options = {
-  --     lint = true,
-  --     unstable = true,
-  --     suggest = {
-  --       imports = {
-  --         hosts = {
-  --           ["https://deno.land"] = true,
-  --           ["https://cdn.nest.land"] = true,
-  --           ["https://crux.land"] = true,
-  --         },
-  --       },
-  --     },
-  --   },
-  -- }
+  lspconfig.denols.setup {
+    root_dir = lspconfig.util.root_pattern "deno.json",
+    init_options = {
+      lint = true,
+      unstable = true,
+      suggest = {
+        imports = {
+          hosts = {
+            ["https://deno.land"] = true,
+            ["https://cdn.nest.land"] = true,
+            ["https://crux.land"] = true,
+          },
+        },
+      },
+    },
+  }
 
   -- npm i -g bash-language-server
   lspconfig.bashls.setup {

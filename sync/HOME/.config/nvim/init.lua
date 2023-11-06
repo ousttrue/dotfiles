@@ -6,6 +6,15 @@ local dot = require "dot"
 local uv = vim.loop
 local STR = require "common.string"
 
+-- https://github.com/nvim-telescope/telescope.nvim/issues/2027
+vim.api.nvim_create_autocmd("WinLeave", {
+  callback = function()
+    if vim.bo.ft == "TelescopePrompt" and vim.fn.mode() == "i" then
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "i", false)
+    end
+  end,
+})
+
 vim.opt.clipboard = "unnamedplus"
 if vim.fn.has "wsl" == 1 then
   if vim.fn.executable "win32yank.exe" == 1 then
