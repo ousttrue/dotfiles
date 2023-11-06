@@ -100,6 +100,7 @@ function M.setup()
     root_dir = lspconfig.util.root_pattern "package.json",
     single_file_support = false,
   }
+
   lspconfig.denols.setup {
     root_dir = lspconfig.util.root_pattern "deno.json",
     init_options = {

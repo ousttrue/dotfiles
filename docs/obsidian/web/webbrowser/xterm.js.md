@@ -38,3 +38,29 @@ export class CellData extends AttributeData implements ICellData
   public bg = 0;
 }
 ```
+
+# onData
+```ts
+export class InputHandler extends Disposable implements IInputHandler {
+
+  public triggerDataEvent(data: string, wasUserInput: boolean = false): void {
+
+export class CoreService extends Disposable implements ICoreService {
+
+    this.register(forwardEvent(this.coreService.onData, this._onData));
+```
+
+# keydown
+```ts
+export class Terminal extends CoreTerminal implements ITerminal {
+
+  public open(parent: HTMLElement): void {
+
+  private _initGlobal(): void {
+    this._bindKeys();
+
+  private _bindKeys(): void {
+    this.register(addDisposableDomListener(this.textarea!, 'keyup', (ev: KeyboardEvent) => this._keyUp(ev), true));
+    this.register(addDisposableDomListener(this.textarea!, 'keydown', (ev: KeyboardEvent) => this._keyDown(ev), true));
+    this.register(addDisposableDomListener(this.textarea!, 'keypress', (ev: KeyboardEvent) => this._keyPress(ev), true));
+```
