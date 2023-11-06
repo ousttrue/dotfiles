@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>repl - shell note ドキュメント</title>
+        <title>primitive - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,74 +218,39 @@
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://xtermjs.org/">Xterm.js</a>
-[[node-pty]]
-[[hyper.js]]</p>
+          <p>ECS の E(Entity?)</p>
+<p>[[aframe_component]]</p>
+<p><code class="docutils literal notranslate"><span class="pre">tag</span></code> で記述する。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://aframe.io/releases/1.4.0/aframe.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a-scene</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a-box</span> <span class="na">position</span><span class="o">=</span><span class="s">"-1 0.5 -3"</span> <span class="na">rotation</span><span class="o">=</span><span class="s">"0 45 0"</span> <span class="na">color</span><span class="o">=</span><span class="s">"#4CC3D9"</span><span class="p">&gt;&lt;/</span><span class="nt">a-box</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a-sphere</span> <span class="na">position</span><span class="o">=</span><span class="s">"0 1.25 -5"</span> <span class="na">radius</span><span class="o">=</span><span class="s">"1.25"</span> <span class="na">color</span><span class="o">=</span><span class="s">"#EF2D5E"</span><span class="p">&gt;&lt;/</span><span class="nt">a-sphere</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a-cylinder</span> <span class="na">position</span><span class="o">=</span><span class="s">"1 0.75 -3"</span> <span class="na">radius</span><span class="o">=</span><span class="s">"0.5"</span> <span class="na">height</span><span class="o">=</span><span class="s">"1.5"</span> <span class="na">color</span><span class="o">=</span><span class="s">"#FFC65D"</span><span class="p">&gt;&lt;/</span><span class="nt">a-cylinder</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a-plane</span> <span class="na">position</span><span class="o">=</span><span class="s">"0 0 -4"</span> <span class="na">rotation</span><span class="o">=</span><span class="s">"-90 0 0"</span> <span class="na">width</span><span class="o">=</span><span class="s">"4"</span> <span class="na">height</span><span class="o">=</span><span class="s">"4"</span> <span class="na">color</span><span class="o">=</span><span class="s">"#7BC8A4"</span><span class="p">&gt;&lt;/</span><span class="nt">a-plane</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a-sky</span> <span class="na">color</span><span class="o">=</span><span class="s">"#ECECEC"</span><span class="p">&gt;&lt;/</span><span class="nt">a-sky</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">a-scene</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="primitive">
+<h1>primitive<a class="headerlink" href="#primitive" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Entity ?</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/EdisonDevadoss/xterm-terminal-demo">GitHub - EdisonDevadoss/xterm-terminal-demo</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://tech-blog.s-yoshiki.com/entry/294">node-pty xterm.js websocket を利用したブラウザで動くShellの作成 | 404 motivation not found</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://www.rasukarusan.com/entry/2021/05/01/124642">ブラウザからTemrinalに接続するxterm.jsをNext.jsとNestJSで構築する - ハイパーマッスルエンジニア</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://medium.com/yavar/xterm-js-terminal-2b19ccd2a52">Xterm js Terminal. In this article, I will explain about… | by Edison Devadoss | YavarTechWorks | Medium</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://n-guitar.hatenablog.com/entry/2020/11/14/212751">xterm.jsの見た目を変更する - haku-maiのブログ</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://n-guitar.hatenablog.com/entry/2020/11/14/203521">xterm.jsでキーボード入力を受け付ける方法 - haku-maiのブログ</a></p></li>
-<li><p><a class="reference external" href="https://github.com/s-yoshiki/node-websh">GitHub - s-yoshiki/node-websh: node-pty xterm.js websocket を利用したブラウザで動くShell</a></p></li>
+<li><p><a class="reference external" href="https://aframe.io/docs/0.5.0/introduction/html-and-primitives.html">HTML &amp; Primitives – A-Frame</a></p></li>
 </ul>
-<p>_onRequestRefreshRows</p>
-<p>Open
-private _renderService: IRenderService | undefined;</p>
-<p><code class="docutils literal notranslate"><span class="pre">src/browser/services/Services.mts</span></code></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="kr">interface</span> <span class="nx">IRenderService</span> <span class="k">extends</span> <span class="nx">IDisposable</span> <span class="p">{</span>
-  <span class="cm">/**</span>
-<span class="cm">   * Fires on render</span>
-<span class="cm">   */</span>
-  <span class="nx">onRender</span><span class="o">:</span> <span class="nx">IEvent</span><span class="o">&lt;</span><span class="p">{</span> <span class="nx">start</span><span class="o">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">end</span><span class="o">:</span> <span class="nx">number</span> <span class="p">}</span><span class="o">&gt;</span><span class="p">;</span>
-</pre></div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="repl">
-<h1>repl<a class="headerlink" href="#repl" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/homma/js-repl">GitHub - homma/js-repl: JavaScript REPL on Web Browser</a></p></li>
-</ul>
+<p>primitive に [[aframe_component]] をアタッチする</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="cell">
-<h1>cell<a class="headerlink" href="#cell" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">/src/common/buffer/CellData.mts</span></code></p>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="kd">class</span> <span class="nx">CellData</span> <span class="k">extends</span> <span class="nx">AttributeData</span> <span class="k">implements</span> <span class="nx">ICellData</span>
-<span class="p">{</span>
-  <span class="k">public</span> <span class="nx">content</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-  <span class="k">public</span> <span class="nx">fg</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-  <span class="k">public</span> <span class="nx">bg</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="objectpool">
+<h1>objectpool<a class="headerlink" href="#objectpool" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://zenn.dev/kurosan/articles/b758e023553993">[A-Frame]A-Frameでオブジェクトプールを使用する</a></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="ondata">
-<h1>onData<a class="headerlink" href="#ondata" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="kd">class</span> <span class="nx">InputHandler</span> <span class="k">extends</span> <span class="nx">Disposable</span> <span class="k">implements</span> <span class="nx">IInputHandler</span> <span class="p">{</span>
-
-  <span class="k">public</span> <span class="nx">triggerDataEvent</span><span class="p">(</span><span class="nx">data</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">wasUserInput</span>: <span class="kt">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
-
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">CoreService</span> <span class="k">extends</span> <span class="nx">Disposable</span> <span class="k">implements</span> <span class="nx">ICoreService</span> <span class="p">{</span>
-
-    <span class="k">this</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">forwardEvent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">coreService</span><span class="p">.</span><span class="nx">onData</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onData</span><span class="p">));</span>
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="keydown">
-<h1>keydown<a class="headerlink" href="#keydown" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="kd">class</span> <span class="nx">Terminal</span> <span class="k">extends</span> <span class="nx">CoreTerminal</span> <span class="k">implements</span> <span class="nx">ITerminal</span> <span class="p">{</span>
-
-  <span class="k">public</span> <span class="nx">open</span><span class="p">(</span><span class="nx">parent</span>: <span class="kt">HTMLElement</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
-
-  <span class="k">private</span> <span class="nx">_initGlobal</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">_bindKeys</span><span class="p">();</span>
-
-  <span class="k">private</span> <span class="nx">_bindKeys</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">addDisposableDomListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">textarea</span><span class="o">!</span><span class="p">,</span> <span class="s1">'keyup'</span><span class="p">,</span> <span class="p">(</span><span class="nx">ev</span>: <span class="kt">KeyboardEvent</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">_keyUp</span><span class="p">(</span><span class="nx">ev</span><span class="p">),</span> <span class="kc">true</span><span class="p">));</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">addDisposableDomListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">textarea</span><span class="o">!</span><span class="p">,</span> <span class="s1">'keydown'</span><span class="p">,</span> <span class="p">(</span><span class="nx">ev</span>: <span class="kt">KeyboardEvent</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">_keyDown</span><span class="p">(</span><span class="nx">ev</span><span class="p">),</span> <span class="kc">true</span><span class="p">));</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">addDisposableDomListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">textarea</span><span class="o">!</span><span class="p">,</span> <span class="s1">'keypress'</span><span class="p">,</span> <span class="p">(</span><span class="nx">ev</span>: <span class="kt">KeyboardEvent</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">_keyPress</span><span class="p">(</span><span class="nx">ev</span><span class="p">),</span> <span class="kc">true</span><span class="p">));</span>
-</pre></div>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="sky">
+<h1>sky<a class="headerlink" href="#sky" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 
         </article>
@@ -301,7 +266,7 @@ private _renderService: IRenderService | undefined;</p>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/web/webbrowser/xterm.js.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/web/aframe/AFrameScene.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -321,10 +286,9 @@ private _renderService: IRenderService | undefined;</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">repl</a></li>
-<li><a class="reference internal" href="#cell">cell</a></li>
-<li><a class="reference internal" href="#ondata">onData</a></li>
-<li><a class="reference internal" href="#keydown">keydown</a></li>
+<li><a class="reference internal" href="#">primitive</a></li>
+<li><a class="reference internal" href="#objectpool">objectpool</a></li>
+<li><a class="reference internal" href="#sky">sky</a></li>
 </ul>
 
           </div>

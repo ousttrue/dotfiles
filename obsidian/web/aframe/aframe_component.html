@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>repl - shell note ドキュメント</title>
+        <title>script - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,74 +218,47 @@
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://xtermjs.org/">Xterm.js</a>
-[[node-pty]]
-[[hyper.js]]</p>
+          <p>[[AFrame]] [[AFrameScene]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/EdisonDevadoss/xterm-terminal-demo">GitHub - EdisonDevadoss/xterm-terminal-demo</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://tech-blog.s-yoshiki.com/entry/294">node-pty xterm.js websocket を利用したブラウザで動くShellの作成 | 404 motivation not found</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://www.rasukarusan.com/entry/2021/05/01/124642">ブラウザからTemrinalに接続するxterm.jsをNext.jsとNestJSで構築する - ハイパーマッスルエンジニア</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://medium.com/yavar/xterm-js-terminal-2b19ccd2a52">Xterm js Terminal. In this article, I will explain about… | by Edison Devadoss | YavarTechWorks | Medium</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://n-guitar.hatenablog.com/entry/2020/11/14/212751">xterm.jsの見た目を変更する - haku-maiのブログ</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://n-guitar.hatenablog.com/entry/2020/11/14/203521">xterm.jsでキーボード入力を受け付ける方法 - haku-maiのブログ</a></p></li>
-<li><p><a class="reference external" href="https://github.com/s-yoshiki/node-websh">GitHub - s-yoshiki/node-websh: node-pty xterm.js websocket を利用したブラウザで動くShell</a></p></li>
+<li><p><a class="reference external" href="https://aframe.io/docs/1.4.0/core/component.html">Component – A-Frame</a></p></li>
+<li><p><a class="reference external" href="https://aframe.io/docs/1.4.0/introduction/writing-a-component.html">Writing a Component – A-Frame</a></p></li>
 </ul>
-<p>_onRequestRefreshRows</p>
-<p>Open
-private _renderService: IRenderService | undefined;</p>
-<p><code class="docutils literal notranslate"><span class="pre">src/browser/services/Services.mts</span></code></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="kr">interface</span> <span class="nx">IRenderService</span> <span class="k">extends</span> <span class="nx">IDisposable</span> <span class="p">{</span>
-  <span class="cm">/**</span>
-<span class="cm">   * Fires on render</span>
-<span class="cm">   */</span>
-  <span class="nx">onRender</span><span class="o">:</span> <span class="nx">IEvent</span><span class="o">&lt;</span><span class="p">{</span> <span class="nx">start</span><span class="o">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">end</span><span class="o">:</span> <span class="nx">number</span> <span class="p">}</span><span class="o">&gt;</span><span class="p">;</span>
-</pre></div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="repl">
-<h1>repl<a class="headerlink" href="#repl" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/homma/js-repl">GitHub - homma/js-repl: JavaScript REPL on Web Browser</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="cell">
-<h1>cell<a class="headerlink" href="#cell" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">/src/common/buffer/CellData.mts</span></code></p>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="kd">class</span> <span class="nx">CellData</span> <span class="k">extends</span> <span class="nx">AttributeData</span> <span class="k">implements</span> <span class="nx">ICellData</span>
-<span class="p">{</span>
-  <span class="k">public</span> <span class="nx">content</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-  <span class="k">public</span> <span class="nx">fg</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-  <span class="k">public</span> <span class="nx">bg</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-<span class="p">}</span>
+<p><a class="reference external" href="https://vr-lab.voyagegroup.com/entry/2016/12/15/120544">自作A-Frameコンポーネントをnpmモジュールとして公開するための神ってるツール A-Frame component boilerplate - VOYAGE GROUP VR室ブログ</a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="script">
+<h1>script<a class="headerlink" href="#script" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Then</span> <span class="n">head</span> <span class="n">to</span> <span class="n">our</span> <span class="n">HTML</span><span class="o">.</span> <span class="n">Under</span> <span class="n">the</span> <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">after</span> <span class="n">the</span> <span class="n">A</span><span class="o">-</span><span class="n">Frame</span> <span class="n">JS</span> <span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span> <span class="n">tag</span><span class="p">,</span> <span class="ow">and</span> <span class="n">before</span> <span class="o">&lt;</span><span class="n">a</span><span class="o">-</span><span class="n">scene</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">we</span> <span class="n">will</span> <span class="n">include</span> <span class="n">our</span> <span class="n">JS</span> <span class="n">file</span> <span class="k">with</span> <span class="n">a</span> <span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span> <span class="n">tag</span><span class="o">.</span>
 </pre></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="ondata">
-<h1>onData<a class="headerlink" href="#ondata" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="kd">class</span> <span class="nx">InputHandler</span> <span class="k">extends</span> <span class="nx">Disposable</span> <span class="k">implements</span> <span class="nx">IInputHandler</span> <span class="p">{</span>
+<section class="tex2jax_ignore mathjax_ignore" id="aframe-registercomponent">
+<h1>AFRAME.registerComponent<a class="headerlink" href="#aframe-registercomponent" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">AFRAME</span><span class="p">.</span><span class="nx">registerComponent</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">schema</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">bar</span><span class="o">:</span> <span class="p">{</span><span class="nx">type</span><span class="o">:</span> <span class="s1">'number'</span><span class="p">},</span>
+    <span class="nx">baz</span><span class="o">:</span> <span class="p">{</span><span class="nx">type</span><span class="o">:</span> <span class="s1">'string'</span><span class="p">}</span>
+  <span class="p">},</span>
 
-  <span class="k">public</span> <span class="nx">triggerDataEvent</span><span class="p">(</span><span class="nx">data</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">wasUserInput</span>: <span class="kt">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
+  <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Do something when component first attached.</span>
+  <span class="p">},</span>
 
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">CoreService</span> <span class="k">extends</span> <span class="nx">Disposable</span> <span class="k">implements</span> <span class="nx">ICoreService</span> <span class="p">{</span>
+  <span class="nx">update</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Do something when component's data is updated.</span>
+  <span class="p">},</span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">forwardEvent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">coreService</span><span class="p">.</span><span class="nx">onData</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onData</span><span class="p">));</span>
+  <span class="nx">remove</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Do something when the component or its entity is detached.</span>
+  <span class="p">},</span>
+
+  <span class="nx">tick</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">time</span><span class="p">,</span> <span class="nx">timeDelta</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do something on every scene tick or frame.</span>
+  <span class="p">}</span>
+<span class="p">});</span>
 </pre></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="keydown">
-<h1>keydown<a class="headerlink" href="#keydown" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="kd">class</span> <span class="nx">Terminal</span> <span class="k">extends</span> <span class="nx">CoreTerminal</span> <span class="k">implements</span> <span class="nx">ITerminal</span> <span class="p">{</span>
-
-  <span class="k">public</span> <span class="nx">open</span><span class="p">(</span><span class="nx">parent</span>: <span class="kt">HTMLElement</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
-
-  <span class="k">private</span> <span class="nx">_initGlobal</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">_bindKeys</span><span class="p">();</span>
-
-  <span class="k">private</span> <span class="nx">_bindKeys</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">addDisposableDomListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">textarea</span><span class="o">!</span><span class="p">,</span> <span class="s1">'keyup'</span><span class="p">,</span> <span class="p">(</span><span class="nx">ev</span>: <span class="kt">KeyboardEvent</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">_keyUp</span><span class="p">(</span><span class="nx">ev</span><span class="p">),</span> <span class="kc">true</span><span class="p">));</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">addDisposableDomListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">textarea</span><span class="o">!</span><span class="p">,</span> <span class="s1">'keydown'</span><span class="p">,</span> <span class="p">(</span><span class="nx">ev</span>: <span class="kt">KeyboardEvent</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">_keyDown</span><span class="p">(</span><span class="nx">ev</span><span class="p">),</span> <span class="kc">true</span><span class="p">));</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">addDisposableDomListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">textarea</span><span class="o">!</span><span class="p">,</span> <span class="s1">'keypress'</span><span class="p">,</span> <span class="p">(</span><span class="nx">ev</span>: <span class="kt">KeyboardEvent</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">_keyPress</span><span class="p">(</span><span class="nx">ev</span><span class="p">),</span> <span class="kc">true</span><span class="p">));</span>
-</pre></div>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="aframe-registersystem">
+<h1>AFRAME.registerSystem<a class="headerlink" href="#aframe-registersystem" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 
         </article>
@@ -301,7 +274,7 @@ private _renderService: IRenderService | undefined;</p>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/web/webbrowser/xterm.js.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/web/aframe/aframe_component.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -321,10 +294,9 @@ private _renderService: IRenderService | undefined;</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">repl</a></li>
-<li><a class="reference internal" href="#cell">cell</a></li>
-<li><a class="reference internal" href="#ondata">onData</a></li>
-<li><a class="reference internal" href="#keydown">keydown</a></li>
+<li><a class="reference internal" href="#">script</a></li>
+<li><a class="reference internal" href="#aframe-registercomponent">AFRAME.registerComponent</a></li>
+<li><a class="reference internal" href="#aframe-registersystem">AFRAME.registerSystem</a></li>
 </ul>
 
           </div>
