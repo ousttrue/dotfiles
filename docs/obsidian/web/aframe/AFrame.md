@@ -24,6 +24,8 @@
 - [A-Frame 1.4.0 - Custom elements V1, Oculus Quest Pro support, tons of fixes and improvements – A-Frame](https://aframe.io/blog/aframe-v1.4.0/)
 - [Entity – A-Frame](https://aframe.io/docs/1.4.0/core/entity.html)
 
+
+
 # error
 - [javascript - aframe error: Entity.setObject3D was called with an object that was not an instance of THREE.Object3D - Stack Overflow](https://stackoverflow.com/questions/46917427/aframe-error-entity-setobject3d-was-called-with-an-object-that-was-not-an-insta)
 
