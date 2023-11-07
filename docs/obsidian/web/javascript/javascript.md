@@ -26,6 +26,7 @@ aliases: [js, ECMAScrip]
 ## es6(es2015)
 - `class`
 - `TypedArray`
+- [[ESModule]]
 
 # implementation
 - [List of ECMAScript engines - Wikipedia](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
