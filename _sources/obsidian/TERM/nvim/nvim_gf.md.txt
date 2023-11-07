@@ -1,6 +1,6 @@
 [[nvim]]
 
-- @2022 [Vim の gf について~パス移動の救世主~](https://zenn.dev/hasu_83/articles/explain-vim-gf)
+- @2022 [Vim の gf について(パス移動の救世主)](https://zenn.dev/hasu_83/articles/explain-vim-gf)
 
 # nvim-gtd
 
@@ -16,7 +16,7 @@
 
 # ssearch path
 
-https://yanor.net/wiki/?Vim/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3/gf%E3%81%A7%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB%E4%B8%8B%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%96%8B%E3%81%8F
+- [gfでカーソル下のファイルを開く](https://yanor.net/wiki/?Vim/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3/gf%E3%81%A7%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB%E4%B8%8B%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%96%8B%E3%81%8F)
 
 ```vim
 set path
