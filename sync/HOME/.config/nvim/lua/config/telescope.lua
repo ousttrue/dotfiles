@@ -9,7 +9,6 @@ function M.setup()
   local utils = require "telescope.utils"
   telescope.load_extension "emoji"
   telescope.load_extension "notify"
-  telescope.load_extension "ui-select"
 
   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-u-to-clear-prompt
   ---@diagnostic disable-next-line
