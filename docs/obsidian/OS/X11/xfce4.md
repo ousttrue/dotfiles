@@ -1,4 +1,4 @@
-[[XWindow|xorg]] [[GTK3]]
+[[OS/X11/X11|xorg]] [[GTK3]]
 
 ```sh
 $ sudo apt-get xubuntu-desktop

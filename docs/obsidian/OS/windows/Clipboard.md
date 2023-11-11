@@ -8,3 +8,6 @@
 
 # docker
 - [Dockerコンテナ内でVimのYank(コピー)をホストマシーンのクリップボードにコピーした方法 - Qiita](https://qiita.com/hellomyzn/items/8f1fbfe1316decf36a9e)
+
+# wayland
+- [GitHub - bugaevc/wl-clipboard: Command-line copy/paste utilities for Wayland](https://github.com/bugaevc/wl-clipboard)

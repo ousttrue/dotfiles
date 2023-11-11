@@ -73,7 +73,7 @@
 
 # forntend
 ## X11
-[[XWindow|X11]]
+[[OS/X11/X11|X11]]
 
 ```sh
 # UIM~GTK

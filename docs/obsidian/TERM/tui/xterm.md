@@ -1,5 +1,6 @@
-
 [ctlseqs(ms)](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
+
+
 ## xterm
 ### .Xresource
 `xrdb -merge .Xresources`
@@ -8,7 +9,6 @@
 
 [[xft]] XFreeType
 - [X11でのFontの設定(4) -Xftの設定-, X11でのFontの設定(5) -XTermの設定- - ここに日記はありません(2016-10-14)](http://onozaki.org/d/?date=20161014)
-[[xterm]]
 
 ## urxvt
 [[urxvt]]

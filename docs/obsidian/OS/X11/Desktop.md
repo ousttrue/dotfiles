@@ -1,4 +1,4 @@
-[[XWindow]] [[wayland]]
+[[OS/X11/X11]] [[wayland]]
 
 # Budgie
 - @2022 [Ubuntuのデスクトップ環境をBudgieに切り替える - Qiita](https://qiita.com/YasutomoNakajima/items/f3ae08ff7f20c94bb8d0)

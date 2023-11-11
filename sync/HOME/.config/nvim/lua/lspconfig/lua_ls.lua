@@ -31,7 +31,7 @@ end
 local function get_dir()
   local dir = get_extensions()
   if not dot.exists(dir) then
-    print("not found:", dir)
+    --print("not found:", dir)
     return ""
   end
   for i, e in

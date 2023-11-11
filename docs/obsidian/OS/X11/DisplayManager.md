@@ -1,5 +1,5 @@
 [[LoginManager]]
-[[XWindow]]
+[[OS/X11/X11]]
 [[PulseAudio]]
 [[elogind]]
 

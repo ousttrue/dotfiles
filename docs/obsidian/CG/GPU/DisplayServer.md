@@ -1,4 +1,4 @@
-[[XWindow|X11]] [[wayland]]
+[[OS/X11/X11|X11]] [[wayland]]
 [[DWM]]
 
 # XR

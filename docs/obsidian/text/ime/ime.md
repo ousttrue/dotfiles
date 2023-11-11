@@ -16,7 +16,7 @@ auto start ibus, fcitx, uim ...
 |fcitx5|
 
 # XIM
-## [[XWindow]] inputmethod
+## [[OS/X11/X11]] inputmethod
 
 # UIM 
 [[uim]]
