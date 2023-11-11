@@ -1,5 +1,5 @@
 #red
-[[XWindow]]
+[[OS/X11/X11]]
 [[wayland]]
 
 |name|dm|config|

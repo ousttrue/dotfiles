@@ -1,4 +1,4 @@
-[[XWindow]]
+[[OS/X11/X11]]
 
 # LinuxConsole
 - [まさおのブログ (表): CUI ログインで、CapsLock キーを Ctrl キーにする dumpkeys, loadkeys](http://masaoo.blogspot.com/2017/12/cui-capslock-ctrl-dumpkeys-loadkeys.html)

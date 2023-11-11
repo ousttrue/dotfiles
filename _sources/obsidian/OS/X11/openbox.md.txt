@@ -1,6 +1,6 @@
 [[WindowManager]]
 
-[[XWindow]]
+[[OS/X11/X11]]
 [[statusbar]]
 [[launcher]]
 

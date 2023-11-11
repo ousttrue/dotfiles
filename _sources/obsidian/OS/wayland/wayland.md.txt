@@ -64,3 +64,6 @@ session
 [dnkl/foot: A fast, lightweight and minimalistic Wayland terminal emulator - foot - Codeberg.org](https://codeberg.org/dnkl/foot)
 
 - @2022 [速いターミナルfoot(について書こうとしたらtmuxが遅くて大差ないという記事)](https://zenn.dev/fuzmare/articles/foot-terminal)
+
+# session
+`/usr/share/wayland-sessions/sway.desktop`

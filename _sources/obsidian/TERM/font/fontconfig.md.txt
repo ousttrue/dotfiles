@@ -1,4 +1,4 @@
-[[XWindow]]
+[[OS/X11/X11]]
 
 - @2022  [Arch Linux インストール (7) - 各設定](https://aznote.jakou.com/archlinux/install7.html)
 - @2017 [Fontconfigでデフォルトのフォントを設定する方法 | 普段使いのArch Linux](https://www.archlinux.site/2017/04/fontconfig.html)
