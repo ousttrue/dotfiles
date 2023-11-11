@@ -1,10 +1,10 @@
 [[TERM]]
 
-|term|platform|[[clipboard]]|
-|-|-|-|
-|[[xterm]]|[[X11]]|?|
-|foot|[[wayland]]|?|
-|[[wezterm]]|[[X11]]/[[Windows]]/[[wayland]]
+|term|platform|copymode|[[clipboard]]|ctrl-/|
+|-|-|-|-|-|
+|[[xterm]]|[[X11]]|-|?|
+|foot|[[wayland]]|?|?|
+|[[wezterm]]|[[X11]]/[[Windows]]/[[wayland]]|OK||keybind|
 
 # OpenGL
 [[opengl_term]]

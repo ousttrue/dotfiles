@@ -155,6 +155,8 @@ local function setup_alias()
     end
   end
 
+  nyagos.alias.x = "sway-launcher-desktop $*"
+
   if NYA.which "nvim" then
     nyagos.alias.v = "nvim $*"
   else
@@ -218,7 +220,7 @@ local function setup_alias()
     elseif SYSTEM_NAME == "wsl" then
       -- local wsl_home = nyagos.eval "wslpath ~"
       nyagos.alias.code =
-        string.format('"/mnt/c/Users/%s/AppData/Local/Programs/Microsoft Vs Code/bin/code" $*', os.getenv "USER")
+          string.format('"/mnt/c/Users/%s/AppData/Local/Programs/Microsoft Vs Code/bin/code" $*', os.getenv "USER")
     end
   end
 
