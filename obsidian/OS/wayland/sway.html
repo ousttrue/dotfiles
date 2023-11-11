@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,26 +212,70 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[wayland_compositor]] [[wayland]] [[wlroots]] [[waybar]]</p>
-<p><a class="reference external" href="https://wiki.archlinux.jp/index.php/Sway">Sway - ArchWiki</a></p>
+          <p>[[wayland_compositor]] [[wayland]] [[wlroots]]</p>
+<p><a class="reference external" href="https://swaywm.org/">Sway</a>
+<a class="reference external" href="https://wiki.archlinux.jp/index.php/Sway">Sway - ArchWiki</a></p>
 <ul class="simple">
-<li><p>@2022 <a class="reference external" href="http://note.kurodigi.com/archlinux-sway/">Arch Linuxにタイル型WaylandコンポジタSwayを導入する | クロの思考ノート</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wofi</span></code> <a class="reference external" href="https://zenn.dev/kato_k/scraps/0b3af536bb0a70">Sway WMを導入</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keymap</span></code> @2022 <a class="reference external" href="http://note.kurodigi.com/archlinux-sway/">Arch Linuxにタイル型WaylandコンポジタSwayを導入する | クロの思考ノート</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">waybar</span></code> @2022 <a class="reference external" href="https://zenn.dev/syui/articles/archlinux-sway-wm-i3-change">archのwmをi3からswayに移行してみた</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://zenn.dev/haxibami/articles/wayland-sway-install">Waylandで動くタイル型ウィンドウマネージャ・swayを使う</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://aodag.dev/posts/2021-12-16-sway/">swayでwayland:daglog</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wofi</span></code> @2021 <a class="reference external" href="https://aodag.dev/posts/2021-12-16-sway/">swayでwayland:daglog</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://aobako.net/linux/sway/intro/">Sway を導入した | aobako.net</a></p></li>
-<li><p>@2019 <a class="reference external" href="https://inthisfucking.world/sway/">swayのすゝめ | inthisfucking.world</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">waybar</span></code> <code class="docutils literal notranslate"><span class="pre">rofi</span></code> @2019 <a class="reference external" href="https://inthisfucking.world/sway/">swayのすゝめ | inthisfucking.world</a>
+way</p></li>
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="config-sway-config">
 <h1>~/.config/sway/config<a class="headerlink" href="#config-sway-config" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ copy /etc/sway/config ~/.config/sway/config
 </pre></div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bar">
+<h1>bar<a class="headerlink" href="#bar" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="sway-bar">
+<h2>sway-bar<a class="headerlink" href="#sway-bar" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://man.archlinux.org/man/sway-bar.5">sway-bar(5) — Arch manual pages</a></p>
+</section>
+<section id="waybar">
+<h2>waybar<a class="headerlink" href="#waybar" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[waybar]]</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="menu-launcher">
+<h1>menu / launcher<a class="headerlink" href="#menu-launcher" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="wofi">
+<h2>wofi<a class="headerlink" href="#wofi" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="rofi">
+<h2>rofi<a class="headerlink" href="#rofi" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="dmenu">
+<h2>dmenu<a class="headerlink" href="#dmenu" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="notfication">
+<h1>notfication<a class="headerlink" href="#notfication" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="layout">
+<h1>layout<a class="headerlink" href="#layout" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="tile">
+<h2>tile<a class="headerlink" href="#tile" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="stack">
+<h2>stack<a class="headerlink" href="#stack" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>vertical tab ?</p>
+</section>
+<section id="tab">
+<h2>tab<a class="headerlink" href="#tab" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>horizontal tab ?</p>
+</section>
 </section>
 
         </article>
@@ -255,8 +299,42 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">~/.config/sway/config</a></li>
+<li><a class="reference internal" href="#bar">bar</a><ul>
+<li><a class="reference internal" href="#sway-bar">sway-bar</a></li>
+<li><a class="reference internal" href="#waybar">waybar</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#menu-launcher">menu / launcher</a><ul>
+<li><a class="reference internal" href="#wofi">wofi</a></li>
+<li><a class="reference internal" href="#rofi">rofi</a></li>
+<li><a class="reference internal" href="#dmenu">dmenu</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#notfication">notfication</a></li>
+<li><a class="reference internal" href="#layout">layout</a><ul>
+<li><a class="reference internal" href="#tile">tile</a></li>
+<li><a class="reference internal" href="#stack">stack</a></li>
+<li><a class="reference internal" href="#tab">tab</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
