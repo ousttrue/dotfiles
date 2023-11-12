@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Document - shell note ドキュメント</title>
+        <title>nvidia-dkms - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,71 +218,39 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="document">
-<h1>Document<a class="headerlink" href="#document" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="handbook">
-<h2>handbook<a class="headerlink" href="#handbook" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>もっと信頼性が高い。これを見るべし
-<a class="reference external" href="https://www.typescriptlang.org/docs/handbook/intro.html">TypeScript: Handbook - The TypeScript Handbook</a></p>
-</section>
-<section id="typescript-deep-dive">
-<h2>TypeScript Deep Dive<a class="headerlink" href="#typescript-deep-dive" title="このヘッドラインへのパーマリンク">¶</a></h2>
+          <p>[[nvidia]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://typescript-jp.gitbook.io/deep-dive/">TypeScript Deep Dive 日本語版 - TypeScript Deep Dive 日本語版</a></p></li>
+<li><p>linux-headers
+無いと次でエラー。
+<code class="docutils literal notranslate"><span class="pre">==&gt;</span> <span class="pre">ERROR:</span> <span class="pre">Missing</span> <span class="pre">run</span> <span class="pre">kernel</span> <span class="pre">headers</span> <span class="pre">for</span> <span class="pre">module</span> <span class="pre">nvidia/545.29.02.</span></code></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="nvidia-dkms">
+<h1>nvidia-dkms<a class="headerlink" href="#nvidia-dkms" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>(ビルド。時間かかる)
+<a class="reference external" href="https://wiki.archlinux.jp/index.php/Dynamic_Kernel_Module_Support#.E3.82.A4.E3.83.B3.E3.82.B9.E3.83.88.E3.83.BC.E3.83.AB">Dynamic Kernel Module Support - ArchWiki</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="nvidia-vulkan-dkms">
+<h1>nvidia-vulkan-dkms<a class="headerlink" href="#nvidia-vulkan-dkms" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AUR</span></code> nvidia-vulkan-dkms</p></li>
 </ul>
 </section>
-<section id="typescript">
-<h2>サバイバルTypeScript<a class="headerlink" href="#typescript" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>文章量と内容のバランスが悪いような
-<a class="reference external" href="https://typescriptbook.jp/">TypeScript入門『サバイバルTypeScript』〜実務で使うなら最低限ここだけはおさえておきたいこと〜</a></p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>5.2<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="id2">
-<h2>4.9<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html</p></li>
-</ul>
-</section>
-<section id="id3">
-<h2>4.7<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>Node.js ESM サポート</p></li>
-</ul>
-</section>
-<section id="id4">
-<h2>1.6<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2015 [[JSX]]</p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="tsconfig-json">
-<h1>tsconfig.json<a class="headerlink" href="#tsconfig-json" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://typescriptbook.jp/reference/tsconfig/tsconfig.json-settings">tsconfig.jsonを設定する | TypeScript入門『サバイバルTypeScript』</a></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>
+<section class="tex2jax_ignore mathjax_ignore" id="boot-option">
+<h1>boot option<a class="headerlink" href="#boot-option" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nvidia_drm</span><span class="o">.</span><span class="n">modeset</span><span class="o">=</span><span class="mi">1</span><span class="s2">"</span>
+</pre></div>
+</div>
+<section id="mkinitcpio">
+<h2>mkinitcpio<a class="headerlink" href="#mkinitcpio" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">/etc/mkinitcpio.conf</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MODULES</span><span class="o">=</span><span class="p">(</span><span class="n">nvidia</span> <span class="n">nvidia_modeset</span> <span class="n">nvidia_uvm</span> <span class="n">nvidia_drm</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>https://wiki.archlinux.org/title/mkinitcpio</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># mkinitcpio -p linux</span>
 </pre></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="build">
-<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>src =&gt; out へ</p>
-<p><code class="docutils literal notranslate"><span class="pre">tsconfig.json</span></code></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./src/browser"</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">]</span><span class="w"></span>
-</pre></div>
-</div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; tsc -b ./tsconfig.all.json
-</pre></div>
-</div>
-<p>=&gt; `out/``</p>
 </section>
 
         </article>
@@ -298,7 +266,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/web/javascript/TypeScript.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/OS/Linux/nvidia_dkms.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -318,21 +286,12 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Document</a><ul>
-<li><a class="reference internal" href="#handbook">handbook</a></li>
-<li><a class="reference internal" href="#typescript-deep-dive">TypeScript Deep Dive</a></li>
-<li><a class="reference internal" href="#typescript">サバイバルTypeScript</a></li>
+<li><a class="reference internal" href="#">nvidia-dkms</a></li>
+<li><a class="reference internal" href="#nvidia-vulkan-dkms">nvidia-vulkan-dkms</a></li>
+<li><a class="reference internal" href="#boot-option">boot option</a><ul>
+<li><a class="reference internal" href="#mkinitcpio">mkinitcpio</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#version">Version</a><ul>
-<li><a class="reference internal" href="#id1">5.2</a></li>
-<li><a class="reference internal" href="#id2">4.9</a></li>
-<li><a class="reference internal" href="#id3">4.7</a></li>
-<li><a class="reference internal" href="#id4">1.6</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#tsconfig-json">tsconfig.json</a></li>
-<li><a class="reference internal" href="#build">build</a></li>
 </ul>
 
           </div>
