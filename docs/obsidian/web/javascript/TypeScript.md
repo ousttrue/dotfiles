@@ -1,5 +1,14 @@
+# Document
+## handbook
+もっと信頼性が高い。これを見るべし
+[TypeScript: Handbook - The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+
+## TypeScript Deep Dive
 - [TypeScript Deep Dive 日本語版 - TypeScript Deep Dive 日本語版](https://typescript-jp.gitbook.io/deep-dive/)
-- [TypeScript入門『サバイバルTypeScript』〜実務で使うなら最低限ここだけはおさえておきたいこと〜](https://typescriptbook.jp/)
+
+##  サバイバルTypeScript
+文章量と内容のバランスが悪いような
+[TypeScript入門『サバイバルTypeScript』〜実務で使うなら最低限ここだけはおさえておきたいこと〜](https://typescriptbook.jp/)
 
 # Version
 ## 5.2
