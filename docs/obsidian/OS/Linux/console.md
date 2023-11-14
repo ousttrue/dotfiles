@@ -24,4 +24,9 @@ Linux の X を起動する前の黒い画面
 # gunzip us.map.gz
 # mv us.map my_custom_us.map
 # vim my_custom_us.map
+
+keycode  58 = Control
+
+/etc/vconsole.conf
+KEYMAP=/usr/local/share/kbd/keymaps/us_custom.map
 ```
