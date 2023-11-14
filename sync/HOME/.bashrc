@@ -420,3 +420,4 @@ Prompt() {
 }
 
 PROMPT_COMMAND='Prompt $?'
+. "$HOME/.cargo/env"

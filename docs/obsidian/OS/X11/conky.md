@@ -18,7 +18,8 @@ $ conky -C > ~/.config/conky/conky.conf
 `from 1.10`
 - @2021 [Conkyで円グラフとか簡単に作るconky-drawを紹介してみる。 - Qiita](https://qiita.com/yasunori-kirin0418/items/0c681d9861609cfb7acd)
 - @2021 [conky で lua を | ニルギリな日々](https://gogopuppy.blog.fc2.com/blog-entry-9.html)
-- @2019 [conky の設定を晒す<-コンピュータ<-徒然なるままに<-Iranoan](http://iranoan.my.coocan.jp/essay/pc/201903160.htm)
+- `clock` `calendar` `network` @2019 [conky の設定を晒す<-コンピュータ<-徒然なるままに<-Iranoan](http://iranoan.my.coocan.jp/essay/pc/201903160.htm)
+- [GitHub - algon-320/tenki: tenki.jpから天気を取得してターミナルに表示します。](https://github.com/algon-320/tenki)
 
 ## not lua
 `/etc/conky/conky.conf`

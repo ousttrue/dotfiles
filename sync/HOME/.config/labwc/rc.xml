@@ -3,7 +3,12 @@
 
   <keyboard>
     <default />
-    <keybind key="W-d"><action name="Execute" command="foot" /></keybind>
+    <keybind key="W-Return">
+      <action name="Execute" command="foot" />
+    </keybind>
+    <keybind key="W-d">
+      <action name="ToggleShowDesktop"/>
+    </keybind>
   </keyboard>
 
 </labwc_config>

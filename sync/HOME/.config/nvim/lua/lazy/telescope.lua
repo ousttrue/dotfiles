@@ -58,4 +58,5 @@ return {
       }
     end,
   },
+  { 'nvim-telescope/telescope-ui-select.nvim' }
 }
