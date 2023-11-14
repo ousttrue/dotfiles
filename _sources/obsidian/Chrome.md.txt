@@ -1,3 +1,4 @@
+[[firefox]]
 # UserScript
 `.user.js`
 - [User Scripts](https://www.chromium.org/developers/design-documents/user-scripts/)
