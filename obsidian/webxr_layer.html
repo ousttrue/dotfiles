@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>XRSession.updateRenderState(layers:) - shell note ドキュメント</title>
+        <title>layer type - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,13 +212,33 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
           <p>[[XRWebGLBinding]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="layer-type">
+<h1>layer type<a class="headerlink" href="#layer-type" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="gllayer">
+<h2>GLLayer<a class="headerlink" href="#gllayer" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>new XRWebGLLayer</p>
+</section>
+<section id="projection">
+<h2>projection<a class="headerlink" href="#projection" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="quad">
+<h2>quad<a class="headerlink" href="#quad" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span>  <span class="kd">const</span> <span class="nx">xrGlBinding</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">XRWebGLBinding</span><span class="p">(</span><span class="nx">xrSession</span><span class="p">,</span> <span class="nx">gl</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">quadLayer</span> <span class="o">=</span> <span class="nx">xrGlBinding</span><span class="p">.</span><span class="nx">createQuadLayer</span><span class="p">({</span>
+    <span class="nx">pixelWidth</span><span class="o">:</span> <span class="mf">1024</span><span class="p">,</span>
+    <span class="nx">pixelHeight</span><span class="o">:</span> <span class="mf">1024</span><span class="p">,</span>
+  <span class="p">});</span>
+</pre></div>
+</div>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="xrsession-updaterenderstate-layers">
 <h1>XRSession.updateRenderState(layers:)<a class="headerlink" href="#xrsession-updaterenderstate-layers" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/XRSession/updateRenderState">XRSession: updateRenderState() method - Web APIs | MDN</a></p>
@@ -235,6 +255,8 @@
   <span class="p">});</span>
 
   <span class="nx">xrSession</span><span class="p">.</span><span class="nx">updateRenderState</span><span class="p">({</span>
+    <span class="nx">baseLayer</span><span class="o">:</span> <span class="nx">projectionLayer</span><span class="p">,</span>
+    <span class="c1">// 排他</span>
     <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span><span class="nx">projectionLayer</span><span class="p">,</span> <span class="nx">quadLayer</span><span class="p">],</span>
   <span class="p">});</span>
 
@@ -265,8 +287,30 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">layer type</a><ul>
+<li><a class="reference internal" href="#gllayer">GLLayer</a></li>
+<li><a class="reference internal" href="#projection">projection</a></li>
+<li><a class="reference internal" href="#quad">quad</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xrsession-updaterenderstate-layers">XRSession.updateRenderState(layers:)</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
