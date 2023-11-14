@@ -14,7 +14,7 @@
 # for google search
 ```js
 // ==UserScript==
-// @name         New Userscript
+// @name         Google Search
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
@@ -27,19 +27,44 @@
 (function() {
     'use strict';
 
-    console.log("HELLO");
-
+    // Your code here...
     const spamList = [
         "https://ubunlog.com/",
     ];
-    function isSpam(href)
+
+    const used = new Set();
+
+    function isSpam(a)
     {
+        if(!a){
+            return;
+        }
+
+        const href=a.href;
+        if(!href){
+            return;
+        }
+
+        if(used.has(href)){
+            return;
+        }
+
+        used.add(href);
+
+        if(href.startsWith("/url?")){
+            console.info('[drop]', href);
+            return "#ffcccc";
+        }
+
         for(const x of spamList)
         {
             if(href.includes(x)){
-                return true;
+                console.info('[drop]', href);
+                return "#cccccc";
             }
         }
+
+        console.log(href);
     }
 
     function traverse(e, callback)
@@ -51,20 +76,34 @@
         }
     }
 
-    document.querySelector("#rhs").style.display = "none";
+    //document.querySelector("#rhs").style.display = "none";
 
-    // Your code here...
-    for(const e of document.querySelectorAll("#rso > div"))
-    {
-        const a = e.querySelector("div > div > div > div > div > span > a");
-        if(a && isSpam(a.href)){
-            // e.style.border = "#FFFFFF solid 1px";
-            traverse(e, (x)=>{
-                x.style.color = "#444444";
-            });
+
+    function process(){
+        console.log('process');
+        for(const e of document.querySelectorAll("div.hlcw0c,div.MjjYud"))
+        {
+            const a = e.querySelector("div > div > div > div > div > span > a");
+            const color = isSpam(a);
+            if(color){
+                // e.style.border = "#FFFFFF solid 1px";
+                traverse(e, (x)=>{
+                    x.style.color = color;
+                });
+            }
         }
     }
 
+    const callback = (mutationsList, observer) => {
+        process();
+    };
+    const observer = new MutationObserver(callback);
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+    process();
 })();
 ```
 

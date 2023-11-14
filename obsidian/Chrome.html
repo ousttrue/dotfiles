@@ -238,7 +238,7 @@
 <section class="tex2jax_ignore mathjax_ignore" id="for-google-search">
 <h1>for google search<a class="headerlink" href="#for-google-search" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// ==UserScript==</span>
-<span class="c1">// @name         New Userscript</span>
+<span class="c1">// @name         Google Search</span>
 <span class="c1">// @namespace    http://tampermonkey.net/</span>
 <span class="c1">// @version      0.1</span>
 <span class="c1">// @description  try to take over the world!</span>
@@ -251,19 +251,44 @@
 <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="s1">'use strict'</span><span class="p">;</span>
 
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"HELLO"</span><span class="p">);</span>
-
+    <span class="c1">// Your code here...</span>
     <span class="kd">const</span> <span class="nx">spamList</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s2">"https://ubunlog.com/"</span><span class="p">,</span>
     <span class="p">];</span>
-    <span class="kd">function</span> <span class="nx">isSpam</span><span class="p">(</span><span class="nx">href</span><span class="p">)</span>
+
+    <span class="kd">const</span> <span class="nx">used</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Set</span><span class="p">();</span>
+
+    <span class="kd">function</span> <span class="nx">isSpam</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
     <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">a</span><span class="p">){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">const</span> <span class="nx">href</span><span class="o">=</span><span class="nx">a</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">href</span><span class="p">){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nx">used</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">href</span><span class="p">)){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">used</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">href</span><span class="p">);</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nx">href</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s2">"/url?"</span><span class="p">)){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'[drop]'</span><span class="p">,</span> <span class="nx">href</span><span class="p">);</span>
+            <span class="k">return</span> <span class="s2">"#ffcccc"</span><span class="p">;</span>
+        <span class="p">}</span>
+
         <span class="k">for</span><span class="p">(</span><span class="kd">const</span> <span class="nx">x</span> <span class="k">of</span> <span class="nx">spamList</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">if</span><span class="p">(</span><span class="nx">href</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">x</span><span class="p">)){</span>
-                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'[drop]'</span><span class="p">,</span> <span class="nx">href</span><span class="p">);</span>
+                <span class="k">return</span> <span class="s2">"#cccccc"</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">}</span>
+
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">href</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="kd">function</span> <span class="nx">traverse</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span>
@@ -275,20 +300,34 @@
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#rhs"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">;</span>
+    <span class="c1">//document.querySelector("#rhs").style.display = "none";</span>
 
-    <span class="c1">// Your code here...</span>
-    <span class="k">for</span><span class="p">(</span><span class="kd">const</span> <span class="nx">e</span> <span class="k">of</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">"#rso &gt; div"</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"div &gt; div &gt; div &gt; div &gt; div &gt; span &gt; a"</span><span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">&amp;&amp;</span> <span class="nx">isSpam</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">href</span><span class="p">)){</span>
-            <span class="c1">// e.style.border = "#FFFFFF solid 1px";</span>
-            <span class="nx">traverse</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="p">(</span><span class="nx">x</span><span class="p">)=&gt;{</span>
-                <span class="nx">x</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">"#444444"</span><span class="p">;</span>
-            <span class="p">});</span>
+
+    <span class="kd">function</span> <span class="nx">process</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'process'</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">const</span> <span class="nx">e</span> <span class="k">of</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">"div.hlcw0c,div.MjjYud"</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"div &gt; div &gt; div &gt; div &gt; div &gt; span &gt; a"</span><span class="p">);</span>
+            <span class="kd">const</span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">isSpam</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">color</span><span class="p">){</span>
+                <span class="c1">// e.style.border = "#FFFFFF solid 1px";</span>
+                <span class="nx">traverse</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="p">(</span><span class="nx">x</span><span class="p">)=&gt;{</span>
+                    <span class="nx">x</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+                <span class="p">});</span>
+            <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
 
+    <span class="kd">const</span> <span class="nx">callback</span> <span class="o">=</span> <span class="p">(</span><span class="nx">mutationsList</span><span class="p">,</span> <span class="nx">observer</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">process</span><span class="p">();</span>
+    <span class="p">};</span>
+    <span class="kd">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">MutationObserver</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
+    <span class="nx">observer</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">childList</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">subtree</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">});</span>
+
+    <span class="nx">process</span><span class="p">();</span>
 <span class="p">})();</span>
 </pre></div>
 </div>
