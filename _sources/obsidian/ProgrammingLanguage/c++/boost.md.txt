@@ -11,7 +11,13 @@ BOOST_INCLUDE を使おう!
 
 # build
 ```sh
-$ b2.exe install --prefix=lib64 address-model=64 --with-thread --with-date_time --with-timer --with-log
+$ cd %BOOST_ROOT%
+$ bootstrap.bat
+$ b2.exe install --prefix=lib64 address-model=64 --with-thread --with-date_time --with-timer --with-log define=BOOST_USE_WINAPI_VERSION=0x0602
+
+--clean
+
+dumpbin で確認せよ `boost::log::v2s_mt_nt62`
 ```
 
 ```
@@ -49,7 +55,13 @@ $ b2.exe install --prefix=lib64 address-model=64 --with-thread --with-date_time 
     - url                      : not building
     - wave                     : not building
 ```
-## WINVER
+
+👇
+
+`BOOST_ROOT=PATH_TO_lib64`
+
+## LinkError !
+### WINVER
 [WINVER および \_WIN32\_WINNT の更新 | Microsoft Learn](https://learn.microsoft.com/ja-jp/cpp/porting/modifying-winver-and-win32-winnt?view=msvc-170)
 
 |nt|BOOST_USE_WINAPI_VERSION|
@@ -58,14 +70,16 @@ $ b2.exe install --prefix=lib64 address-model=64 --with-thread --with-date_time 
 |nt6|0x0600|
 |nt62|0x0602|
 
+### default
+のようにした場合 `-D_WIN32_WINNT=0x0501` となるようで `nt5` というシンボルになるようだ。
+`b2` と `project` で `_WIN32_WINNT` が一致していないと `undefined reference` になる。
+[WINVER, \_WIN32\_WINNT の設定値 - Qiita](https://qiita.com/hkuno/items/7b8daa37d9b68e390d7e)
+
+### explicit
 b2 の後ろにこれ
 `define=BOOST_USE_WINAPI_VERSION=0x0602`
 
-のようにした場合 `-D_WIN32_WINNT=0x0501` となるようで `nt5` というシンボルになるようだ。
-`b2` と `project` で `_WIN32_WINNT` が一致していないと `undefined reference` になる。
-
-[WINVER, \_WIN32\_WINNT の設定値 - Qiita](https://qiita.com/hkuno/items/7b8daa37d9b68e390d7e)
-
+### boost.log
 [Boost 1.78.0リリースノート - boostjp](https://boostjp.github.io/document/version/1_78_0.html#log)
 
 ```cpp
@@ -75,6 +89,13 @@ b2 の後ろにこれ
 #
 ```
 `boost::log::v2s_mt_nt62`
+
+### dumpbin で確認せよ
+
+```
+> dumpbin /symbols libboost_log-vc143-mt-x64-1_82.lib
+```
+
 
 ## meson: BOOST_INCLUDEDIR
 `prefix/include/BOOST_VERSION`

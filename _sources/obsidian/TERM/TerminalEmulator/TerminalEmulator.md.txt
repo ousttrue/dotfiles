@@ -7,7 +7,7 @@
 |[[wezterm]]|[[X11]]/[[Windows]]/[[wayland]]|OK||keybind|
 
 # OpenGL
-[[opengl_term]]
+[[TERM/TerminalEmulator/opengl_term]]
 
 # Windows
 [[windows_terminal]]

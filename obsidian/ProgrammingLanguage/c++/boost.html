@@ -237,7 +237,13 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="build">
 <h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ b2.exe install --prefix<span class="o">=</span>lib64 address-model<span class="o">=</span><span class="m">64</span> --with-thread --with-date_time --with-timer --with-log
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> %BOOST_ROOT%
+$ bootstrap.bat
+$ b2.exe install --prefix<span class="o">=</span>lib64 address-model<span class="o">=</span><span class="m">64</span> --with-thread --with-date_time --with-timer --with-log <span class="nv">define</span><span class="o">=</span><span class="nv">BOOST_USE_WINAPI_VERSION</span><span class="o">=</span>0x0602
+
+--clean
+
+dumpbin で確認せよ <span class="sb">`</span>boost::log::v2s_mt_nt62<span class="sb">`</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="o">-</span> <span class="n">atomic</span>                   <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
@@ -275,8 +281,12 @@
     <span class="o">-</span> <span class="n">wave</span>                     <span class="p">:</span> <span class="ow">not</span> <span class="n">building</span>
 </pre></div>
 </div>
+<p>👇</p>
+<p><code class="docutils literal notranslate"><span class="pre">BOOST_ROOT=PATH_TO_lib64</span></code></p>
+<section id="linkerror">
+<h2>LinkError !<a class="headerlink" href="#linkerror" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <section id="winver">
-<h2>WINVER<a class="headerlink" href="#winver" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>WINVER<a class="headerlink" href="#winver" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://learn.microsoft.com/ja-jp/cpp/porting/modifying-winver-and-win32-winnt?view=msvc-170">WINVER および _WIN32_WINNT の更新 | Microsoft Learn</a></p>
 <div class="table-wrapper"><table class="colwidths-auto docutils align-default">
 <thead>
@@ -296,11 +306,20 @@
 </tr>
 </tbody>
 </table></div>
+</section>
+<section id="default">
+<h3>default<a class="headerlink" href="#default" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>のようにした場合 <code class="docutils literal notranslate"><span class="pre">-D_WIN32_WINNT=0x0501</span></code> となるようで <code class="docutils literal notranslate"><span class="pre">nt5</span></code> というシンボルになるようだ。
+<code class="docutils literal notranslate"><span class="pre">b2</span></code> と <code class="docutils literal notranslate"><span class="pre">project</span></code> で <code class="docutils literal notranslate"><span class="pre">_WIN32_WINNT</span></code> が一致していないと <code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">reference</span></code> になる。
+<a class="reference external" href="https://qiita.com/hkuno/items/7b8daa37d9b68e390d7e">WINVER, _WIN32_WINNT の設定値 - Qiita</a></p>
+</section>
+<section id="explicit">
+<h3>explicit<a class="headerlink" href="#explicit" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>b2 の後ろにこれ
 <code class="docutils literal notranslate"><span class="pre">define=BOOST_USE_WINAPI_VERSION=0x0602</span></code></p>
-<p>のようにした場合 <code class="docutils literal notranslate"><span class="pre">-D_WIN32_WINNT=0x0501</span></code> となるようで <code class="docutils literal notranslate"><span class="pre">nt5</span></code> というシンボルになるようだ。
-<code class="docutils literal notranslate"><span class="pre">b2</span></code> と <code class="docutils literal notranslate"><span class="pre">project</span></code> で <code class="docutils literal notranslate"><span class="pre">_WIN32_WINNT</span></code> が一致していないと <code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">reference</span></code> になる。</p>
-<p><a class="reference external" href="https://qiita.com/hkuno/items/7b8daa37d9b68e390d7e">WINVER, _WIN32_WINNT の設定値 - Qiita</a></p>
+</section>
+<section id="boost-log">
+<h3>boost.log<a class="headerlink" href="#boost-log" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://boostjp.github.io/document/version/1_78_0.html#log">Boost 1.78.0リリースノート - boostjp</a></p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp"># 0x0602</span>
 <span class="cp">#               if BOOST_USE_WINAPI_VERSION &gt;= BOOST_WINAPI_VERSION_WIN8</span>
@@ -309,6 +328,13 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">boost::log::v2s_mt_nt62</span></code></p>
+</section>
+<section id="dumpbin">
+<h3>dumpbin で確認せよ<a class="headerlink" href="#dumpbin" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">dumpbin</span> <span class="o">/</span><span class="n">symbols</span> <span class="n">libboost_log</span><span class="o">-</span><span class="n">vc143</span><span class="o">-</span><span class="n">mt</span><span class="o">-</span><span class="n">x64</span><span class="o">-</span><span class="mf">1_82.</span><span class="n">lib</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="meson-boost-includedir">
 <h2>meson: BOOST_INCLUDEDIR<a class="headerlink" href="#meson-boost-includedir" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -361,7 +387,14 @@
 <li><a class="reference internal" href="#env">Env</a></li>
 <li><a class="reference internal" href="#meson-boost-root">meson: BOOST_ROOT</a></li>
 <li><a class="reference internal" href="#build">build</a><ul>
+<li><a class="reference internal" href="#linkerror">LinkError !</a><ul>
 <li><a class="reference internal" href="#winver">WINVER</a></li>
+<li><a class="reference internal" href="#default">default</a></li>
+<li><a class="reference internal" href="#explicit">explicit</a></li>
+<li><a class="reference internal" href="#boost-log">boost.log</a></li>
+<li><a class="reference internal" href="#dumpbin">dumpbin で確認せよ</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#meson-boost-includedir">meson: BOOST_INCLUDEDIR</a></li>
 <li><a class="reference internal" href="#meson-boost-librarydir">meson: BOOST_LIBRARYDIR</a></li>
 </ul>

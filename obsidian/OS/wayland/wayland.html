@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>driver - shell note ドキュメント</title>
+        <title>display - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -230,6 +230,13 @@
 <li><p>@2016 <a class="reference external" href="https://qiita.com/maueki/items/9a3a8791a05c00b34c29">Waylandとは？ - Qiita</a></p></li>
 <li><p>@2012 <a class="reference external" href="https://qt-labs.jp/2012/12/wayland-overview.html">Wayland Overview – Qt のあれこれ (仮)</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="display">
+<h1>display<a class="headerlink" href="#display" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">/sys/class/display</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">card1-HDMI-A-1</span></code></p></li>
+</ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="driver">
 <h1>driver<a class="headerlink" href="#driver" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>DRM で OpenGL か Vulkan を作って描画したいが、<code class="docutils literal notranslate"><span class="pre">nvidia</span></code> ドライバが無かった。
@@ -242,6 +249,12 @@
 <ul class="simple">
 <li><p>@2022 <a class="reference external" href="https://qiita.com/k0kubun/items/c1162098cbd7eba1bed0">NVIDIAドライバーが入っているUbuntuでWaylandを使う - Qiita</a></p></li>
 </ul>
+</section>
+<section id="intel">
+<h2>intel<a class="headerlink" href="#intel" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">i915</span></code>
+<a class="reference external" href="https://gitlab.freedesktop.org/drm/igt-gpu-tools">drm / igt-gpu-tools · GitLab</a></p>
+<p>linux-firmware linux-headers dkms intel-ucode</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="env">
@@ -289,10 +302,13 @@
 <li><p><a class="reference external" href="https://sr.ht/~kennylevinsen/seatd/">seatd: Seat management daemon and library</a>
 session
 <code class="docutils literal notranslate"><span class="pre">seatd</span></code></p></li>
+<li><p>group: seat</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctrl</span> <span class="pre">enable</span> <span class="pre">seatd.service</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctrl</span> <span class="pre">start</span> <span class="pre">seatd.service</span></code></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="display">
-<h1>Display<a class="headerlink" href="#display" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Display<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">WAYLAND_DISPLAY=wayland-0</span></code>
 <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">XDG_RUNTIME_DIR=/tmp</span></code></p>
 </section>
@@ -309,8 +325,8 @@ session
 <li><p><a class="reference external" href="https://wiki.tizen.org/Wayland_xdg-shell_protocol">Wayland xdg-shell protocol - Tizen Wiki</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>カーソル消える<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>カーソル消える<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">WLR_NO_HARDWARE_CURSORS=1</span></code></p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="term">
@@ -361,8 +377,10 @@ session
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">driver</a><ul>
+<li><a class="reference internal" href="#">display</a></li>
+<li><a class="reference internal" href="#driver">driver</a><ul>
 <li><a class="reference internal" href="#ubuntu">ubuntu</a></li>
+<li><a class="reference internal" href="#intel">intel</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#env">env</a></li>
@@ -377,10 +395,10 @@ session
 </li>
 <li><a class="reference internal" href="#compositor-server">Compositor(Server)</a></li>
 <li><a class="reference internal" href="#libseat">libseat</a></li>
-<li><a class="reference internal" href="#display">Display</a></li>
+<li><a class="reference internal" href="#id1">Display</a></li>
 <li><a class="reference internal" href="#input">Input</a></li>
 <li><a class="reference internal" href="#xdg-shell">xdg-shell</a></li>
-<li><a class="reference internal" href="#id1">カーソル消える</a></li>
+<li><a class="reference internal" href="#id2">カーソル消える</a></li>
 <li><a class="reference internal" href="#term">term</a><ul>
 <li><a class="reference internal" href="#foot">foot</a></li>
 </ul>
