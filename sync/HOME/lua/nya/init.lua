@@ -253,6 +253,13 @@ local function setup_alias()
     SYMLINK.create_links(COM.to_path(dot_dir .. "/sync/HOME"), HOME)
   end
 
+  function dot_link(dot_dir)
+    SYMLINK.create_links(COM.to_path(dot_dir .. "/sync/HOME"), HOME)
+    if SYSTEM_NAME == "windows" then
+      SYMLINK.create_links(COM.to_path(dot_dir .. "/sync/APPDATA"), COM.to_path(HOME .. "/AppData"))
+    end
+  end
+
   function nyagos.alias.dot(args)
     local cmd = unpack(args.rawargs)
     local dot_dir = HOME .. "/dotfiles"
@@ -261,10 +268,9 @@ local function setup_alias()
         "git pull",
       })
       -- TODO: clear dead link
-      SYMLINK.create_links(COM.to_path(dot_dir .. "/sync/HOME"), HOME)
-      if SYSTEM_NAME == "windows" then
-        SYMLINK.create_links(COM.to_path(dot_dir .. "/sync/APPDATA"), COM.to_path(HOME .. "/AppData"))
-      end
+      dot_link(dot_dir)
+    elseif cmd == "link" then
+      dot_link(dot_dir)
     elseif cmd == "push" then
       return NYA.batch(dot_dir, {
         "git add .",

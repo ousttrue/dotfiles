@@ -6,3 +6,6 @@
 ```sh
 cp /etc/xdg/waybar/* ~/.config/waybar/
 ```
+
+# other bar
+[GitHub - vars1ty/HybridBar: A status bar focused on wlroots Wayland compositors](https://github.com/vars1ty/HybridBar)
