@@ -4,9 +4,12 @@ aliases: [msvc]
 [[cpp]] [[ifdef]]
 
 # version
+[Visual C++のバージョン](https://so-zou.jp/software/tech/tool/ide/visual-cpp/introduction/version.htm)
+
 ## 2022 17
 `c++23` `std::expected`
 - [Download Visual Studio Tools - Install Free for Windows, Mac, Linux](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022)
+- `msvc-14.3`
 
 ## 2019 16
 `c++20`
