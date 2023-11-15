@@ -44,6 +44,8 @@
 	- [GitHub - Cubified/vt100utils: A single-header C library for encoding, decoding, and doing useful things with ANSI graphics escape sequences.](https://github.com/Cubified/vt100utils)
 
 ## c++
+[GitHub - magiblot/tvision: A modern port of Turbo Vision 2.0, the classical framework for text-based user interfaces. Now cross-platform and with Unicode support.](https://github.com/magiblot/tvision)
+
 [[FTXUI]]
 - [GitHub - a-n-t-h-o-n-y/TermOx: C++17 Terminal User Interface(TUI) Library.](https://github.com/a-n-t-h-o-n-y/TermOx)
 - [tvision/examples/tvedit at master · magiblot/tvision · GitHub](https://github.com/magiblot/tvision/tree/master/examples/tvedit)
