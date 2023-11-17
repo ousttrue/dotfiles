@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>impl - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,13 +212,61 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
           <p><a class="reference external" href="https://en.wikipedia.org/wiki/Entity_component_system">Entity component system - Wikipedia</a></p>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/suuta/articles/0aa567690ec52a">ECS (Entity Component System)について</a></p></li>
+<li><p>@2007 <a class="reference external" href="https://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/">Cowboy Programming » Evolve Your Hierarchy</a></p></li>
+<li><p>@2007 <a class="reference external" href="https://t-machine.org/index.php/2007/11/11/entity-systems-are-the-future-of-mmog-development-part-2/">Entity Systems are the future of MMOG development – Part 2 – T-machine.org</a></p></li>
+<li><p>Node Inheritance</p>
+<ul>
+<li><p>TRADITIONAL DEEP HIERARCHIES</p></li>
+</ul>
+</li>
+<li><p>Node + Components</p>
+<ul>
+<li><p>OBJECT AS COMPONENT CONTAINER</p></li>
+</ul>
+</li>
+<li><p>Entity + Component</p>
+<ul>
+<li><p>Entity は Components を保持しないというか Id(int)</p></li>
+<li><p>Sysmtem が Entity と Component の関連を管理する</p></li>
+</ul>
+</li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="impl">
+<h1>impl<a class="headerlink" href="#impl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="bitset">
+<h2>Bitset<a class="headerlink" href="#bitset" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="archetype">
+<h2>Archetype<a class="headerlink" href="#archetype" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/toyboot4e/scraps/4d7410bc34f01c">Archetype ベースの ECS を読む (→ 読まない、図解のみ)</a></p></li>
+</ul>
+</section>
+<section id="sparseset">
+<h2>Sparseset<a class="headerlink" href="#sparseset" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="unity">
+<h1>Unity<a class="headerlink" href="#unity" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://qiita.com/FukaUnabara/items/6d9c5adc6822ab0e8513">Entity Component System を作って学ぶ #C# - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-frame">
+<h1>A-Frame<a class="headerlink" href="#a-frame" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://aframe.io/docs/1.4.0/introduction/entity-component-system.html">Entity-Component-System – A-Frame</a></p></li>
+</ul>
+</section>
 
         </article>
       </div>
@@ -241,8 +289,31 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">impl</a><ul>
+<li><a class="reference internal" href="#bitset">Bitset</a></li>
+<li><a class="reference internal" href="#archetype">Archetype</a></li>
+<li><a class="reference internal" href="#sparseset">Sparseset</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#unity">Unity</a></li>
+<li><a class="reference internal" href="#a-frame">A-Frame</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
