@@ -8,6 +8,8 @@ aliases:
 [Meta Quest release notes | Meta Store](https://www.meta.com/help/quest/articles/whats-new/release-notes/?utm_source=developer.oculus.com&utm_medium=oculusredirect)
 
 ## 59
+- @202311
+
 ## 57
 - @202309 [Meta Quest v57 Update: Unsend Image Messages, Horizon Feed, Avatars Update, and More | Meta Questブログ | Meta Store](https://www.meta.com/ja-jp/blog/quest/v57-software-unsend-image-messages-horizon-home-avatars/)
 - [Meta Quest 3 アプリ開発ガイド｜npaka](https://note.com/npaka/n/n924f19bf99b1)
