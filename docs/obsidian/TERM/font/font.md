@@ -17,6 +17,23 @@
 - emoji
 - nerdfont
 
+# 文字表現
+## Xsegment
+### 7 Segment
+- [7セグメントディスプレイ - Wikipedia](https://ja.wikipedia.org/wiki/7%E3%82%BB%E3%82%B0%E3%83%A1%E3%83%B3%E3%83%88%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%A4)
+
+### 9 Segment
+
+### 14 Segment
+
+### 16 Segment
+- [16セグメントディスプレイ - Wikipedia](https://ja.wikipedia.org/wiki/16%E3%82%BB%E3%82%B0%E3%83%A1%E3%83%B3%E3%83%88%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%A4)
+
+## bitmap
+## vector
+
+
+
 
 # 欧文
 `等幅` `mono space`

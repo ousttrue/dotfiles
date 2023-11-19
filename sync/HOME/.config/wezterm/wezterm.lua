@@ -22,6 +22,7 @@ local config = {
   warn_about_missing_glyphs = false,
   initial_cols = 126,
   initial_rows = 50,
+  window_background_opacity = 0.88,
 }
 
 ---@param config table

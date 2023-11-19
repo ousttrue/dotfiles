@@ -12,7 +12,7 @@
 
 # Version
 ## 5.2
-
+- `using` [TypeScript: Documentation - TypeScript 5.2](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html)
 
 ## 4.9
 - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html
