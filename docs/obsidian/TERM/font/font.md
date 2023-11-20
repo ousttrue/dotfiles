@@ -46,6 +46,10 @@
 - [Anonymous Pro - Mark Simonson](https://www.marksimonson.com/fonts/view/anonymous-pro)
 - [[Inconsolata]]
 
+### Inter
+- [Inter font family](https://rsms.me/inter/)
+- [15分の空き時間を重ねて作ったフォント「Inter」がMozillaやGitHubで使用されるようになるまで - GIGAZINE](https://gigazine.net/news/20190813-the-birth-of-inter/)
+
 ### Fira Code
 - fira mono
 - [GitHub - tonsky/FiraCode: Free monospaced font with programming ligatures](https://github.com/tonsky/FiraCode/)
