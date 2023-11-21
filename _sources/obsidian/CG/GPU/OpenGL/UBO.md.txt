@@ -17,9 +17,11 @@ aliases: [[UniformBufferObject]]
 - @2017 [ユニフォームブロックのメモリレイアウト @ゲームプログラマの小話[開発:グラフィックス] - Qiita](https://qiita.com/hoboaki/items/b188c4495f4708c19002)
 ```c
 #version 300 es
+//                       👇 shader 外からアクセス
 layout (std140) uniform TypeName { 
 	mat4 mvp; 
 } mat;
+// 👆 Shader 内からアクセス
 
 // mat.mvp
 // or

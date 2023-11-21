@@ -238,9 +238,11 @@
 <li><p>@2017 <a class="reference external" href="https://qiita.com/hoboaki/items/b188c4495f4708c19002">ユニフォームブロックのメモリレイアウト @ゲームプログラマの小話[開発:グラフィックス] - Qiita</a></p></li>
 </ul>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#version 300 es</span>
+<span class="c1">//                       👇 shader 外からアクセス</span>
 <span class="n">layout</span><span class="w"> </span><span class="p">(</span><span class="n">std140</span><span class="p">)</span><span class="w"> </span><span class="n">uniform</span><span class="w"> </span><span class="n">TypeName</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
 <span class="w">	</span><span class="n">mat4</span><span class="w"> </span><span class="n">mvp</span><span class="p">;</span><span class="w"> </span>
 <span class="p">}</span><span class="w"> </span><span class="n">mat</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// 👆 Shader 内からアクセス</span>
 
 <span class="c1">// mat.mvp</span>
 <span class="c1">// or</span>
