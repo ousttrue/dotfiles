@@ -47,6 +47,9 @@ dc.onmessage = (evt) => {
 };
 ```
 
+# WHIP/WHEP
+[[whip-whep]]
+
 # WebSocket
 	- @2020 [【WebRTC学習】③ シグナリングサーバを使ってP2Pを接続する - It’s now or never](https://inon29.hateblo.jp/entry/2020/02/09/124406)
 - [3-signaling-server](https://github.com/morooka-akira/webrtc-study/tree/master/examples/3-signaling-server)

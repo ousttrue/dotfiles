@@ -1,4 +1,9 @@
+[[vite_plugin_node]]
+
 [特徴 | Vite](https://ja.vitejs.dev/guide/features.html)
+
+- @2023 [Webpack から Vite に段階的に移行しました | PR TIMES 開発者ブログ](https://developers.prtimes.jp/2023/02/08/migrate-from-webpack-to-vite/)
+- @2022 [vite で最高の開発体験を手に入れる - pixiv inside](https://inside.pixiv.blog/2022/07/21/103000)
 
 # Version
 ## 4
