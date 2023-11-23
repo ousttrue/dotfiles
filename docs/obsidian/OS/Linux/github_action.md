@@ -1,5 +1,7 @@
 [[Linux]]
 
+`.github/workflows/WORKFLOW.yml`
+
 - @2022 [GitHub Actions のベストプラクティス](https://zenn.dev/snowcait/scraps/9d9c47dc4d0414)
 
 # sample

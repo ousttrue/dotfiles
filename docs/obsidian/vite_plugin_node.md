@@ -8,3 +8,28 @@
 
 # Vue3
 - [Vite+Vue3+Vuetify3+Expressのプロジェクトを1から作成する（ESLint、Prettier、Node.jsをPJに含めたモノレポ？構成） #JavaScript - Qiita](https://qiita.com/yuta-katayama-23/items/a40775326914ee9ed89a)
+
+# express の static と組み合わせる
+- @2022 [Viteをexpressにぶちこむ](https://zenn.dev/ddpn08/articles/ac30dae3e7c7ea)
+
+うまくいかなかった(static の中にある ts を解決できない)。
+代替案として、`app.use(express.static(DIR)))` の代わりに
+`vite` を組み込む。
+
+```js
+import { createServer } from 'vite'
+
+createServer({
+  root: __dirname,
+  logLevel: 'info',
+  server: {
+    middlewareMode: true,
+    watch: {
+      usePolling: true,
+      interval: 100,
+    },
+  },
+}).then(vite => {
+  app.use(vite.middlewares)
+});
+```
