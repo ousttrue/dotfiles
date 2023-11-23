@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Vue3 - shell note ドキュメント</title>
+        <title>ws - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -218,44 +218,29 @@
           </label>
         </div>
         <article role="main">
-          <p>[[vite]]</p>
-<p><a class="reference external" href="https://github.com/axe-me/vite-plugin-node">axe-me/vite-plugin-node</a></p>
+          <section class="tex2jax_ignore mathjax_ignore" id="ws">
+<h1>ws<a class="headerlink" href="#ws" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://www.npmjs.com/package/ws">ws - npm</a></p>
 <ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://zenn.dev/akinor1ty/articles/a17352d81b67b1">viteでTypeScriptのバックエンド開発環境を動かす</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://dev.to/lucacicada/how-to-set-up-vite-and-electron-from-scratch-with-any-frontend-framework-40mb">How to set up Vite and Electron from scratch, with any frontend framework - DEV Community</a></p></li>
-<li><p><a class="reference external" href="https://scrapbox.io/dojineko/Vite%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6Express.js%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B">Viteを使ってExpress.jsアプリを作る</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://qiita.com/okumurakengo/items/c497fba7f16b41146d77">WebSocket(ブラウザAPI)とws(Node.js) の基本、自分用のまとめ #JavaScript - Qiita</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="vue3">
-<h1>Vue3<a class="headerlink" href="#vue3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="express-ws">
+<h2>express-ws<a class="headerlink" href="#express-ws" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://www.npmjs.com/package/express-ws">express-ws - npm</a></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/yuta-katayama-23/items/a40775326914ee9ed89a">Vite+Vue3+Vuetify3+Expressのプロジェクトを1から作成する（ESLint、Prettier、Node.jsをPJに含めたモノレポ？構成） #JavaScript - Qiita</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://qiita.com/koji0705/items/cf16044c7d825d09d707">ExpressでWebSocket通信を実施する。 #npm - Qiita</a></p></li>
+</ul>
+<section id="wss">
+<h3>wss<a class="headerlink" href="#wss" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://tomozakki.com/update-to-wss-use-express-ws-lib/">express-wsで作ったWebsocet ServerをWSS化する話 | ともきの雑記ブログ</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="express-static">
-<h1>express の static と組み合わせる<a class="headerlink" href="#express-static" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/ddpn08/articles/ac30dae3e7c7ea">Viteをexpressにぶちこむ</a></p></li>
-</ul>
-<p>うまくいかなかった(static の中にある ts を解決できない)。
-代替案として、<code class="docutils literal notranslate"><span class="pre">app.use(express.static(DIR)))</span></code> の代わりに
-<code class="docutils literal notranslate"><span class="pre">vite</span></code> を組み込む。</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'vite'</span>
-
-<span class="nx">createServer</span><span class="p">({</span>
-  <span class="nx">root</span><span class="o">:</span> <span class="nx">__dirname</span><span class="p">,</span>
-  <span class="nx">logLevel</span><span class="o">:</span> <span class="s1">'info'</span><span class="p">,</span>
-  <span class="nx">server</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">middlewareMode</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">usePolling</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="nx">interval</span><span class="o">:</span> <span class="mf">100</span><span class="p">,</span>
-    <span class="p">},</span>
-  <span class="p">},</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">vite</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">vite</span><span class="p">.</span><span class="nx">middlewares</span><span class="p">)</span>
-<span class="p">});</span>
-</pre></div>
-</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="socket-io">
+<h1>socket.io<a class="headerlink" href="#socket-io" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">vite</span></code> と共存できぬ。<code class="docutils literal notranslate"><span class="pre">ws</span></code> に移行するべし。</p>
 </section>
 
         </article>
@@ -271,7 +256,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/vite_plugin_node.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/websocket.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -291,8 +276,14 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Vue3</a></li>
-<li><a class="reference internal" href="#express-static">express の static と組み合わせる</a></li>
+<li><a class="reference internal" href="#">ws</a><ul>
+<li><a class="reference internal" href="#express-ws">express-ws</a><ul>
+<li><a class="reference internal" href="#wss">wss</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#socket-io">socket.io</a></li>
 </ul>
 
           </div>
