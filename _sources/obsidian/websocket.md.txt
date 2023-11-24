@@ -1,4 +1,11 @@
 
+# client
+
+```js
+const protocol = (location.protocol === 'https:') ? 'wss://' : 'ws://';
+const socketURL = protocol + location.hostname + ((location.port) ? (':' + location.port) : '') + '/terminals/';
+```
+
 # ws
 [ws - npm](https://www.npmjs.com/package/ws)
 
