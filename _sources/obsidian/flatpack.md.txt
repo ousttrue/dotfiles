@@ -1,0 +1,1 @@
+- @2023 [Flatpak vs. Snap. 違いと特性](https://zenn.dev/ykesamaru/articles/a9586cc52a376e)
