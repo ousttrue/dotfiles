@@ -1,10 +1,15 @@
 [[flatpack]]
 [[PipeWire]]
 
-[GitHub - flatpak/xdg-desktop-portal: Desktop integration portal](https://github.com/flatpak/xdg-desktop-portal)
+[XDG Desktop Portal](https://flatpak.github.io/xdg-desktop-portal/)
+- [GitHub - flatpak/xdg-desktop-portal: Desktop integration portal](https://github.com/flatpak/xdg-desktop-portal)
+- [XDG Desktop Portal documentation](https://flatpak.github.io/xdg-desktop-portal/docs/)
 
 - @2022 [xdg-desktop-portal – Jan Grulich](https://jgrulich.cz/tag/xdg-desktop-portal/)
 - [FirefoxやLibreOfficeの起動が遅い #Linux - Qiita](https://qiita.com/YuH25/items/162ed34bc4257372c48f)
+
+# dbus
+- [Portal API Reference — Flatpak documentation](https://docs.flatpak.org/en/latest/portal-api-reference.html)
 
 # arch
 - [XDG デスクトップ ポータル - ArchWiki](https://wiki.archlinux.jp/index.php/XDG_%E3%83%87%E3%82%B9%E3%82%AF%E3%83%88%E3%83%83%E3%83%97_%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB)
