@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>impl - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,20 +212,80 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[vnc]]
-[[RDP]]
-[[spout]]</p>
+          <p>=&gt; mouse, keyboard
+&lt;= screen image</p>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>local</p></th>
+<th class="head"><p>remote</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>mouse</p></td>
+<td><p>browser event</p></td>
+<td><p>?</p></td>
+</tr>
+<tr class="row-odd"><td><p>keyboard</p></td>
+<td><p>browser event</p></td>
+<td><p>?</p></td>
+</tr>
+<tr class="row-even"><td><p>screen</p></td>
+<td><p>mediastream</p></td>
+<td><p>mediastream</p></td>
+</tr>
+</tbody>
+</table></div>
+<section class="tex2jax_ignore mathjax_ignore" id="impl">
+<h1>impl<a class="headerlink" href="#impl" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://gihyo.jp/lifestyle/serial/01/ganshiki-soushi/0061">第61回　いまさらながらVNC［その3］ | gihyo.jp</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyboard</span></code> <code class="docutils literal notranslate"><span class="pre">mouse</span></code> <a class="reference external" href="https://roy-n-roy.nyan-co.page/Raspberry%20Pi/WebConsole/">Web Console - roy-n-roy メモ</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyboard?</span> <span class="pre">=&gt;</span> <span class="pre">pty</span></code> [[xterm.js]]</p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard">Desktop mouse and keyboard controls - Game development | MDN</a></p></li>
 </ul>
-<p>[[RDP]]
-[[vnc]]</p>
+<p>入力にゲームエンジンを使う</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/photonstorm/phaser">GitHub - photonstorm/phaser: Phaser is a fun, free and fast 2D game framework for making HTML5 games for desktop and mobile web browsers, supporting Canvas and WebGL rendering.</a></p></li>
+</ul>
+<p>electron で中継</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.binzume.net/diary/2022-01">2022-01 日記</a></p></li>
+</ul>
+<section id="syncinput">
+<h2>syncinput<a class="headerlink" href="#syncinput" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://tentone.github.io/syncinput/">syncinput | Synchronous keyboard and mouse input for web applications. Useful for games and canvas / webgl synchronous content in web applications.</a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rdp">
+<h1>RDP<a class="headerlink" href="#rdp" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[RDP]]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vnc">
+<h1>VNC<a class="headerlink" href="#vnc" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[vnc]]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="selkies">
+<h1>Selkies<a class="headerlink" href="#selkies" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[Selkies]]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="apache-guacamole">
+<h1>Apache Guacamole<a class="headerlink" href="#apache-guacamole" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://guacamole.apache.org/</p>
+<p>[[vnc]] [[RDP]] [[pty]]</p>
+<blockquote>
+<div><p>supports standard protocols like VNC, RDP, and SSH</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://creators.oisixradaichi.co.jp/entry/2022/04/28/133505">オンプレもマルチクラウドもWindowsのリモートログインを一括集約、Apache Guacamoleが便利な話 - Oisix ra daichi Creator's Blog（オイシックス・ラ・大地クリエイターズブログ）</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0613">第613回　Apache Guacamoleを使ってWebブラウザからWindows 10にリモート接続する | gihyo.jp</a></p></li>
+</ul>
+</section>
 
         </article>
       </div>
@@ -248,8 +308,31 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">impl</a><ul>
+<li><a class="reference internal" href="#syncinput">syncinput</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rdp">RDP</a></li>
+<li><a class="reference internal" href="#vnc">VNC</a></li>
+<li><a class="reference internal" href="#selkies">Selkies</a></li>
+<li><a class="reference internal" href="#apache-guacamole">Apache Guacamole</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

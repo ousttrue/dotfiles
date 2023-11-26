@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>RTCPeerConnection - shell note ドキュメント</title>
+        <title>topology - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -219,39 +219,62 @@
         </div>
         <article role="main">
           <p><code class="docutils literal notranslate"><span class="pre">Web</span> <span class="pre">Real-Time</span> <span class="pre">Communication</span></code></p>
-<p>[[WebRTC_signaling]]</p>
+<p>[[WebRTC_signaling]]
+[[SDP]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://developer.mozilla.org/ja/docs/Web/API/WebRTC_API">WebRTC API - Web API | MDN</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/voluntas/scraps/82b9e111f43ab3">WebRTC を今から学ぶ人に向けて</a></p>
+<li><p><a class="reference external" href="https://developer.mozilla.org/ja/docs/Web/API/WebRTC_API">WebRTC API - Web API | MDN</a></p>
 <ul>
 <li><p><a class="reference external" href="https://webrtcforthecurious.com/ja/">はじめに | 好奇心旺盛な人のためのWebRTC</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/voluntas/scraps/82b9e111f43ab3">WebRTC を今から学ぶ人に向けて</a></p></li>
 </ul>
 </li>
 </ul>
-<p><a class="reference external" href="https://qiita.com/nakka_/items/2d1fd3a941f7c0c1108f">WebRTCを利用した複数人でのビデオ通話サンプル(Mesh) - Qiita</a></p>
-<p>[[SDP]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="topology">
+<h1>topology<a class="headerlink" href="#topology" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://html5experts.jp/mganeko/19814/">手動でWebRTCの通信をつなげよう ーWebRTC入門2016 | HTML5Experts.jp</a></p></li>
-<li><p>ローカルサーバーの host</p></li>
-<li><p>WebBrowser とそれ以外の相互接続</p></li>
-<li><p><a class="reference external" href="https://zenn.dev/seita1996/articles/product-homelens">自宅内でビデオ通信ができる「homelens」の開発録</a></p></li>
-<li><p><a class="reference external" href="https://github.com/ossrs/srs">GitHub - ossrs/srs: SRS is a simple, high-efficiency, real-time video server supporting RTMP, WebRTC, HLS, HTTP-FLV, SRT, MPEG-DASH, and GB28181.</a></p></li>
-<li><p><a class="reference external" href="https://github.com/nwtgck/piping-vnc-web">GitHub - nwtgck/piping-vnc-web: VNC client over pure HTTPS via Piping Server on Web browser</a></p></li>
+<li><p><a class="reference external" href="https://zenn.dev/shinyoshiaki/articles/webrtc-mcu-example">WebRTCのリアルタイム音声合成サーバ(MCU)を作ってみた</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="rtcpeerconnection">
-<h1>RTCPeerConnection<a class="headerlink" href="#rtcpeerconnection" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="video-server">
+<h2>video server<a class="headerlink" href="#video-server" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://lealog.hateblo.jp/entry/2019/03/12/114529">addTransceiver() と addTrack() の使い分け - console.lealog();</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span></code> <a class="reference external" href="https://github.com/ossrs/srs">GitHub - ossrs/srs: SRS is a simple, high-efficiency, real-time video server supporting RTMP, WebRTC, HLS, HTTP-FLV, SRT, MPEG-DASH, and GB28181.</a></p></li>
+<li><p>[[mediamtx]]</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>実装<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="gstreamer">
-<h2>gstreamer<a class="headerlink" href="#gstreamer" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">gst</span> <span class="pre">=&gt;</span> <span class="pre">signaling</span> <span class="pre">=&gt;</span> <span class="pre">browser</span></code></p>
+<section id="p2p">
+<h2>P2P<a class="headerlink" href="#p2p" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="ow">new</span> <span class="nx">RTCPeerConnection</span><span class="p">();</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://www.gclue.jp/2022/07/gstreamer-webrtc.html">GStreamer で WebRTC を使用する</a></p></li>
-<li><p><a class="reference external" href="https://github.com/nobuo-kobayashi/docker-webrtc-sample/tree/main">GitHub - nobuo-kobayashi/docker-webrtc-sample: GStreamer 上で WebRTC を動作させるためのサンプルプログラム</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://leaysgur.github.io/posts/2019/03/12/114529/">addTransceiver() と addTrack() の使い分け | Memory ice cubes</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">manual</span></code> @2016 <a class="reference external" href="https://html5experts.jp/mganeko/19814/">手動でWebRTCの通信をつなげよう ーWebRTC入門2016 | HTML5Experts.jp</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">websocket</span></code> @2023 <a class="reference external" href="https://qiita.com/nakka_/items/2d1fd3a941f7c0c1108f">WebRTCを利用した複数人でのビデオ通話サンプル(Mesh) - Qiita</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">websocket</span></code> @2022  <a class="reference external" href="https://zenn.dev/seita1996/articles/product-homelens">自宅内でビデオ通信ができる「homelens」の開発録</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://blog.ojisan.io/webrtc-video-minimal-impl/">WebRTC を理解するためにカメラ映像を送るだけの最小実装を探る | blog.ojisan.io</a></p></li>
+</ul>
+</section>
+<section id="sfu">
+<h2>SFU<a class="headerlink" href="#sfu" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>[[pion]]</p></li>
+<li><p>[[Janus]]</p></li>
+<li><p>[[mediasoup]]</p></li>
+</ul>
+<section id="webxr">
+<h3>WebXR<a class="headerlink" href="#webxr" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://qiita.com/binzume/items/52a4f4be5c316753e1b1">WebRTC+WebXR でVRリモートデスクトップ - Qiita</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://www.binzume.net/diary/2022-01">2022-01 日記</a></p></li>
+<li><p><a class="reference external" href="https://github.com/binzume/webrtc-rdp">GitHub - binzume/webrtc-rdp: WebRTC + WebXR Remote Desktop</a></p></li>
+</ul>
+</section>
+</section>
+<section id="js">
+<h2>js<a class="headerlink" href="#js" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>[[werift]]</p></li>
+<li><p>[[PeerJS]]</p></li>
 </ul>
 </section>
 <section id="py">
@@ -260,30 +283,8 @@
 <li><p><a class="reference external" href="https://aiortc.readthedocs.io/en/latest/index.html">aiortc — aiortc documentation</a></p></li>
 </ul>
 </section>
-<section id="go">
-<h2>go<a class="headerlink" href="#go" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[pion]]</p>
-</section>
-<section id="c">
-<h2>c<a class="headerlink" href="#c" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[Janus]]</p>
-</section>
-<section id="browser">
-<h2>Browser<a class="headerlink" href="#browser" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="ow">new</span> <span class="nx">RTCPeerConnection</span><span class="p">();</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://blog.ojisan.io/webrtc-video-minimal-impl/">WebRTC を理解するためにカメラ映像を送るだけの最小実装を探る | blog.ojisan.io</a></p></li>
-</ul>
-<section id="webxr">
-<h3>WebXR<a class="headerlink" href="#webxr" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://qiita.com/binzume/items/52a4f4be5c316753e1b1">WebRTC+WebXR でVRリモートデスクトップ - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://www.binzume.net/diary/2022-01">2022-01 日記</a></p></li>
-<li><p><a class="reference external" href="https://github.com/binzume/webrtc-rdp">GitHub - binzume/webrtc-rdp: WebRTC + WebXR Remote Desktop</a></p></li>
-</ul>
-</section>
+<section id="csharp">
+<h2>csharp<a class="headerlink" href="#csharp" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 <section id="native">
 <h2>Native<a class="headerlink" href="#native" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -298,12 +299,16 @@
 <li><p>@2023 <a class="reference external" href="https://zenn.dev/okuoku/scraps/f5aa6b983d6e12">ローカルのネイティブアプリにWebRTCできるかNW.jsで実験</a></p></li>
 </ul>
 </section>
-<section id="id2">
-<h3>gstreamer<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>[[gst_webrtc]]</p>
+<section id="gstreamer">
+<h3>gstreamer<a class="headerlink" href="#gstreamer" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">gst</span> <span class="pre">=&gt;</span> <span class="pre">signaling</span> <span class="pre">=&gt;</span> <span class="pre">browser</span></code>
+[[gst_webrtc]]</p>
 </section>
 <section id="libwebrtc">
 <h3>libwebrtc<a class="headerlink" href="#libwebrtc" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div><p>ビルド大変？</p>
+</div></blockquote>
 <ul class="simple">
 <li><p><a class="reference external" href="https://webrtc.googlesource.com/src">src - Git at Google</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://qiita.com/sdozono/items/57a9ec60072fdbea1f4c">WebRTC技術者（C++）必携リンク集 - Qiita</a></p></li>
@@ -313,19 +318,10 @@
 <li><p>@2019 <a class="reference external" href="https://medium.com/shiguredo/webrtc-native-client-momo-%E3%81%AE%E5%BC%B7%E3%81%95-ccc631f34403">WebRTC Native Client Momo の強さ. 色々な方が使ってくださっており、ありがとうございます。せっかくなのでどのへんが強… | by V | shiguredo | Medium</a></p></li>
 <li><p>@2018 <a class="reference external" href="https://voluntas.medium.com/%E3%83%94%E3%83%A5%E3%82%A2-webrtc-%E5%AE%9F%E8%A3%85-51bbbec3be8e">ピュア WebRTC 実装. ピュアというのは libwebrtc… | by V | Medium</a>
 https://github.com/shiguredo/momo</p></li>
-<li><p><a class="reference external" href="https://qiita.com/alivelime/items/e4bd386eb18160c7aeca">Native WebRTCでも手動シグナリングがしたい! - Qiita</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://qiita.com/alivelime/items/e4bd386eb18160c7aeca">Native WebRTCでも手動シグナリングがしたい! - Qiita</a></p></li>
 </ul>
 </section>
 </section>
-<section id="id3">
-<h2>GStreamer<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.gclue.jp/2022/07/gstreamer-webrtc.html">GStreamer で WebRTC を使用する</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="webrtc-p2p">
-<h1>WebRTC P2P<a class="headerlink" href="#webrtc-p2p" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="nat">
 <h1>NAT トラバーサル<a class="headerlink" href="#nat" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -423,26 +419,24 @@ https://github.com/shiguredo/momo</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">RTCPeerConnection</a></li>
-<li><a class="reference internal" href="#id1">実装</a><ul>
-<li><a class="reference internal" href="#gstreamer">gstreamer</a></li>
-<li><a class="reference internal" href="#py">py</a></li>
-<li><a class="reference internal" href="#go">go</a></li>
-<li><a class="reference internal" href="#c">c</a></li>
-<li><a class="reference internal" href="#browser">Browser</a><ul>
+<li><a class="reference internal" href="#">topology</a><ul>
+<li><a class="reference internal" href="#video-server">video server</a></li>
+<li><a class="reference internal" href="#p2p">P2P</a></li>
+<li><a class="reference internal" href="#sfu">SFU</a><ul>
 <li><a class="reference internal" href="#webxr">WebXR</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#js">js</a></li>
+<li><a class="reference internal" href="#py">py</a></li>
+<li><a class="reference internal" href="#csharp">csharp</a></li>
 <li><a class="reference internal" href="#native">Native</a><ul>
 <li><a class="reference internal" href="#libdatachannel">libdatachannel</a></li>
-<li><a class="reference internal" href="#id2">gstreamer</a></li>
+<li><a class="reference internal" href="#gstreamer">gstreamer</a></li>
 <li><a class="reference internal" href="#libwebrtc">libwebrtc</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id3">GStreamer</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#webrtc-p2p">WebRTC P2P</a></li>
 <li><a class="reference internal" href="#nat">NAT トラバーサル</a><ul>
 <li><a class="reference internal" href="#stun-session-traversal-utilities-for-nat"><code class="docutils literal notranslate"><span class="pre">STUN</span> <span class="pre">(Session</span> <span class="pre">Traversal</span> <span class="pre">Utilities</span> <span class="pre">for</span> <span class="pre">NAT)</span></code></a><ul>
 <li><a class="reference internal" href="#google">google</a></li>

@@ -15,6 +15,8 @@
 
 - [GitHub - kooparse/mogwai: Graphic utility used to manipulate objects in 3D for scene editing (commonly called Gizmo).](https://github.com/kooparse/mogwai)
 
+- [GitHub - BrutPitt/virtualGizmo3D: Virtual GIZMO - 3D object manipulator / orientator, via mouse, with pan and dolly/zoom features](https://github.com/BrutPitt/virtualGizmo3D)
+
 # tinyGizmo
 - [GitHub - ddiakopoulos/tinygizmo: An simple immediate-mode 3D gimzo/manipulator (translation, rotation, scale widget) in ~1200 LoC](https://github.com/ddiakopoulos/tinygizmo)
 

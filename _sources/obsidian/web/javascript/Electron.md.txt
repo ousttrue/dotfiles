@@ -1,16 +1,92 @@
-
-# get started
 - [クイック スタート | Electron](https://www.electronjs.org/ja/docs/latest/tutorial/quick-start)
 
-# Vite
+- @2023 [Electron + Reactでデスクトップアプリを作ろう！ #React - Qiita](https://qiita.com/udayaan/items/2a7c8fd0771d4d995b69)
+- @2022 [Electron Tips \~便利なモジュールや小技\~ #JavaScript - Qiita](https://qiita.com/shiro1212/items/1d30b583770fc16c22df)
+- @2022 [【Electron】導入～ビルドまとめ - テク×てく ブログ](https://koubou-rei.com/entry/electron-create)
+- @2021 [Electron入門 \~ Webの技術でつくるデスクトップアプリ](https://zenn.dev/sprout2000/books/6f6a0bf2fd301c)
+
+# article
+## electron-vite
+名前被り
+[Electron⚡️Vite | Electron⚡️Vite](https://electron-vite.github.io/)
+
+```sh
+> npm install -D vite vite-plugin-electron vite-plugin-electron-renderer
+```
+
+`package.json`
+```json
+{
+  "main": "dist-electron/main.js",
+}
+```
+
+```js
+import { defineConfig } from 'vite'
+import path from 'node:path'
+import electron from 'vite-plugin-electron/simple'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    electron({
+      main: {
+        // Shortcut of `build.lib.entry`.
+        entry: 'main.ts',  // => dist-electron/main.js
+      },
+      preload: {
+        // Shortcut of `build.rollupOptions.input`.
+        // Preload scripts may contain Web assets, so use the `build.rollupOptions.input` instead `build.lib.entry`.
+        input: path.join(__dirname, 'preload.ts' 
+        // => dist-electron/preload.js
+        ),
+      },
+      // Ployfill the Electron and Node.js built-in modules for Renderer process.
+      // See 👉 https://github.com/electron-vite/vite-plugin-electron-renderer
+      renderer: {},
+    }),
+  ],
+})
+```
+
+## electron-vite
+名前被り
+使い方がわからんかった。
+[electron-vite | Next Generation Electron Build Tooling](https://evite.netlify.app/)
 - @2023 [electron-vite で Electron アプリ開発の生産性を上げる | 豆蔵デベロッパーサイト](https://developer.mamezou-tech.com/blogs/2023/05/22/electron-vite/)
 
-## Vue
-[[Vue.js]]
-- @2023 [Vite+Vue3+Electron+Typescript｜えっぐらす](https://note.com/ego_station/n/n6d71c3c4a0ca)
-- @2021 [Vue 3 + TSX (JSX) の環境作成（Vite 使用）](https://zenn.dev/jay_es/scraps/20674fa0f7c2f8)
-- @2021 [Vue.js + TSXの方法とそのメリット・デメリット - Wiz テックブログ](https://tech.012grp.co.jp/entry/vue_intro_tsx)
-- [GitHub - electron-vite/electron-vite-vue: 🥳 Really simple Electron + Vite + Vue boilerplate.](https://github.com/electron-vite/electron-vite-vue)
+## typescript
+- `parcel` @2022 [【入門】ElectronをTypeScriptで手軽に試したい](https://zenn.dev/lowpaper/articles/89caa5cdddfd89)
 
-# typescript
-- @2022 [【入門】ElectronをTypeScriptで手軽に試したい](https://zenn.dev/lowpaper/articles/89caa5cdddfd89)
+
+# 構成
+
+```sh
+> npm install --save-dev electron
+
+> npx electron main.js
+```
+
+## src/main/index.ts
+`entry point`
+
+```js
+import { BrowserWindow, app, ipcMain, IpcMainInvokeEvent } from 'electron'
+import path from "path";
+
+// render の指定
+const mainURL = `file://${__dirname}/render/index.html`
+
+// or
+
+// HMR for renderer base on electron-vite cli.
+// Load the remote URL for development or the local html file for production.
+if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
+	mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
+} else {
+	mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
+}
+```
+
+## src/renderer/index.html
+`entry point` 内で指定する。
