@@ -4,40 +4,44 @@
 [[SDP]]
 
 - [WebRTC API - Web API | MDN](https://developer.mozilla.org/ja/docs/Web/API/WebRTC_API)
-# 実装
-- @2022 [WebRTC を今から学ぶ人に向けて](https://zenn.dev/voluntas/scraps/82b9e111f43ab3)
 	- [はじめに | 好奇心旺盛な人のためのWebRTC](https://webrtcforthecurious.com/ja/)
- 
-- `docker` [GitHub - ossrs/srs: SRS is a simple, high-efficiency, real-time video server supporting RTMP, WebRTC, HLS, HTTP-FLV, SRT, MPEG-DASH, and GB28181.](https://github.com/ossrs/srs)
+	- @2022 [WebRTC を今から学ぶ人に向けて](https://zenn.dev/voluntas/scraps/82b9e111f43ab3)
 
-## browser peer2peer
+# topology
+- [WebRTCのリアルタイム音声合成サーバ(MCU)を作ってみた](https://zenn.dev/shinyoshiaki/articles/webrtc-mcu-example)
+
+## video server
+- `docker` [GitHub - ossrs/srs: SRS is a simple, high-efficiency, real-time video server supporting RTMP, WebRTC, HLS, HTTP-FLV, SRT, MPEG-DASH, and GB28181.](https://github.com/ossrs/srs)
+- [[mediamtx]]
+
+## P2P
 ```js
 new RTCPeerConnection();
 ```
-- @2019 [addTransceiver() と addTrack() の使い分け - console.lealog();](https://lealog.hateblo.jp/entry/2019/03/12/114529)
+- @2019 [addTransceiver() と addTrack() の使い分け | Memory ice cubes](https://leaysgur.github.io/posts/2019/03/12/114529/)
 
 - `manual` @2016 [手動でWebRTCの通信をつなげよう ーWebRTC入門2016 | HTML5Experts.jp](https://html5experts.jp/mganeko/19814/)
 - `websocket` @2023 [WebRTCを利用した複数人でのビデオ通話サンプル(Mesh) - Qiita](https://qiita.com/nakka_/items/2d1fd3a941f7c0c1108f)
 - `websocket` @2022  [自宅内でビデオ通信ができる「homelens」の開発録](https://zenn.dev/seita1996/articles/product-homelens)
 - @2023 [WebRTC を理解するためにカメラ映像を送るだけの最小実装を探る | blog.ojisan.io](https://blog.ojisan.io/webrtc-video-minimal-impl/)
 
+## SFU
+- [[pion]]
+- [[Janus]]
+- [[mediasoup]]
+
 ### WebXR
 - @2022 [WebRTC+WebXR でVRリモートデスクトップ - Qiita](https://qiita.com/binzume/items/52a4f4be5c316753e1b1)
-- [2022-01 日記](https://www.binzume.net/diary/2022-01)
+- @2022 [2022-01 日記](https://www.binzume.net/diary/2022-01)
 - [GitHub - binzume/webrtc-rdp: WebRTC + WebXR Remote Desktop](https://github.com/binzume/webrtc-rdp)
 
 ## js
 - [[werift]]
+- [[PeerJS]]
 
 ## py
 - [aiortc — aiortc documentation](https://aiortc.readthedocs.io/en/latest/index.html)
 
-## go
-- [[pion]]
-
-## c
-- [[Janus]]
-- [[mediasoup]]
 
 ## csharp
 

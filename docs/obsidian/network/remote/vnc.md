@@ -4,12 +4,18 @@ aliases: [RFB]
 
 #red
 
+- [第61回　いまさらながらVNC［その3］ | gihyo.jp](https://gihyo.jp/lifestyle/serial/01/ganshiki-soushi/0061)
 
 - [GitHub - nwtgck/piping-vnc-web: VNC client over pure HTTPS via Piping Server on Web browser](https://github.com/nwtgck/piping-vnc-web)
 
 `Virtual Network Computing`
 - @2014 [第60回　いまさらながらVNC［その2］：玩式草子─ソフトウェアとたわむれる日々｜gihyo.jp … 技術評論社](https://gihyo.jp/lifestyle/serial/01/ganshiki-soushi/0060)
 - [vnc-client · GitHub Topics · GitHub](https://github.com/topics/vnc-client)
+
+# noVNC
+[GitHub - novnc/noVNC: VNC client web application](https://github.com/novnc/noVNC)
+
+- @2015 [自宅サーバのデスクトップへブラウザからアクセスできるように「noVNC」を設える #HTML5 - Qiita](https://qiita.com/knaka/items/b61e0cb0b5d07d2527b2)
 
 # VNC Remote Framebuffer (RFB) Protocol
 - [RFB Prococol 3.8](http://srgia.com/docs/rfbprotocol3.8.html)
