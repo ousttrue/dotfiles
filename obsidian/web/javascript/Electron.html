@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>article - shell note ドキュメント</title>
+        <title>memo - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -220,11 +220,24 @@
         <article role="main">
           <ul class="simple">
 <li><p><a class="reference external" href="https://www.electronjs.org/ja/docs/latest/tutorial/quick-start">クイック スタート | Electron</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://scrapbox.io/rashitamemo/Electron%E3%81%A7%E3%83%AA%E3%82%B9%E3%83%88%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B">Electronでリストランチャーアプリを作る - 倉下忠憲の発想工房</a></p></li>
 <li><p>@2023 <a class="reference external" href="https://qiita.com/udayaan/items/2a7c8fd0771d4d995b69">Electron + Reactでデスクトップアプリを作ろう！ #React - Qiita</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://qiita.com/shiro1212/items/1d30b583770fc16c22df">Electron Tips ~便利なモジュールや小技~ #JavaScript - Qiita</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://koubou-rei.com/entry/electron-create">【Electron】導入～ビルドまとめ - テク×てく ブログ</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://zenn.dev/sprout2000/books/6f6a0bf2fd301c">Electron入門 ~ Webの技術でつくるデスクトップアプリ</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://blog.amagi.dev/entry/json-editor-app">OSSのJSONエディタをElectronアプリに移植した - マルシテイア</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="memo">
+<h1>memo<a class="headerlink" href="#memo" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.fusejs.io/">Fuse.js | Fuse.js</a></p>
+<ul>
+<li><p>@2020 <a class="reference external" href="https://medium.com/analytics-vidhya/how-to-create-a-fuzzy-search-in-react-js-using-fuse-js-859f80345657">How to Create a Fuzzy Search in React JS Using Fuse.JS | by Naveen DA | Analytics Vidhya | Medium</a></p></li>
+<li><p><a class="reference external" href="https://goelhardik.github.io/react-fuzzy-searcher/">React Fuzzy Searcher</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="article">
 <h1>article<a class="headerlink" href="#article" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="electron-vite">
@@ -240,6 +253,7 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">vite.config.js</span></code></p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">defineConfig</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'vite'</span>
 <span class="k">import</span> <span class="nx">path</span> <span class="kr">from</span> <span class="s1">'node:path'</span>
 <span class="k">import</span> <span class="nx">electron</span> <span class="kr">from</span> <span class="s1">'vite-plugin-electron/simple'</span>
@@ -265,6 +279,17 @@
     <span class="p">}),</span>
   <span class="p">],</span>
 <span class="p">})</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">load</span></code></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">VITE_DEV_SERVER_URL</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">[</span><span class="s1">'VITE_DEV_SERVER_URL'</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">VITE_DEV_SERVER_URL</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nb">window</span><span class="p">.</span><span class="nx">loadURL</span><span class="p">(</span><span class="nx">VITE_DEV_SERVER_URL</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	<span class="c1">// window.loadFile('dist/index.html')</span>
+	<span class="nb">window</span><span class="p">.</span><span class="nx">loadFile</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DIST</span><span class="p">,</span> <span class="s1">'index.html'</span><span class="p">))</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -351,7 +376,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">article</a><ul>
+<li><a class="reference internal" href="#">memo</a></li>
+<li><a class="reference internal" href="#article">article</a><ul>
 <li><a class="reference internal" href="#electron-vite">electron-vite</a></li>
 <li><a class="reference internal" href="#id1">electron-vite</a></li>
 <li><a class="reference internal" href="#typescript">typescript</a></li>
