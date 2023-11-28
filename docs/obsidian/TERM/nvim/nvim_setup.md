@@ -2,6 +2,8 @@
 
 `scriptnames`
 
+- @2022 [vim沼: NeovimのReact、TypeScript、Tailwind CSS用セットアップ](https://zenn.dev/takuya/articles/4472285edbc132)
+
 # first
 lua を快適に編集する
 - comment
