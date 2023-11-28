@@ -79,27 +79,79 @@ export class JmaArea {
   }
 }
 
+function Class20(props: {
+  area: JmaArea,
+  class20: Id<class20>,
+}) {
+  return (<li>
+    {props.class20.name}
+  </li>);
+}
+
+function Class15(props: {
+  area: JmaArea,
+  class15: Id<class15>,
+}) {
+  return (<li>
+    {props.class15.name}
+    <ul>
+      {props.area.class20s
+        .filter((class20) => class20.parent == props.class15.id)
+        .map((class20) => <Class20 area={props.area} class20={class20} key={class20.id} />)}
+    </ul>
+  </li>);
+}
+
+function Class10(props: {
+  area: JmaArea,
+  class10: Id<class10>,
+}) {
+  return (<li>
+    {props.class10.name}
+    <ul>
+      {props.area.class15s
+        .filter((class15) => class15.parent == props.class10.id)
+        .map((class15) => <Class15 area={props.area} class15={class15} key={class15.id} />)}
+    </ul>
+  </li>);
+}
+
+function Office(props: {
+  area: JmaArea,
+  office: Id<office>,
+}) {
+  return (<li>
+    {props.office.name}
+    <ul>
+      {props.area.class10s
+        .filter((class10) => class10.parent == props.office.id)
+        .map((class10) => <Class10 area={props.area} class10={class10} key={class10.id} />)}
+    </ul>
+  </li>);
+}
+
 function Center(props: {
+  area: JmaArea,
   center: Id<center>,
 }) {
   return (<li>
     {props.center.name}
+    <ul>
+      {props.area.offices
+        .filter((office) => office.parent == props.center.id)
+        .map((office) => <Office area={props.area} office={office} key={office.id} />)}
+    </ul>
   </li>);
-}
-
-function Centers(props: {
-  centers: Id<center>[]
-}) {
-  return (<ul>
-    {props.centers.map((center) => <Center center={center} key={center.id} />)}
-  </ul>);
 }
 
 export function AreaSelector(props: {
   area?: JmaArea
 }) {
-  if (props.area) {
-    return <Centers centers={props.area.centers} />
+  const area = props.area;
+  if (area) {
+    return (<ul>
+      {area.centers.map((center) => <Center area={area} center={center} key={center.id} />)}
+    </ul>);
   }
   else {
     return <div />;
