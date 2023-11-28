@@ -11,6 +11,15 @@
 - Hooks 
 
 # entry
+```sh
+> npm install react react-dom
+> npm i -D @types/react @types/react-dom
+> npm i -D @vitejs/plugin-react
+```
+`js => jsx, ts => tsx`
+
+`tsconfig.json`
+- @2023 [【2023年版】tsconfig.jsonを設定する](https://zenn.dev/t_keshi/scraps/9ddb388bc6975d)
 ```html
   <body>
     <div id="root"></div>
@@ -56,6 +65,9 @@ function App() {
 
 export default App
 ```
+
+# components
+- [GitHub - react-grid-layout/react-grid-layout: A draggable and resizable grid layout with responsive breakpoints, for React.](https://github.com/react-grid-layout/react-grid-layout)
 
 # 関連
 
