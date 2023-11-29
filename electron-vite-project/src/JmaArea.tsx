@@ -52,7 +52,7 @@ type class20 = {
   parent: areaId,
 }
 
-type AreaItem = center | office | class10 | class15 | class20;
+export type AreaItem = center | office | class10 | class15 | class20;
 
 export type AreaJson = {
   centers: { [key: areaId]: center },

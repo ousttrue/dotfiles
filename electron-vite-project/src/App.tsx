@@ -3,6 +3,9 @@ import {
   JMA_AREA_URL, JmaArea, AreaSelector, AreaJson
 } from './JmaArea.jsx';
 import './App.css'
+import SplitterLayout from 'react-splitter-layout';
+import 'react-splitter-layout/lib/index.css';
+import Focus from './focus.jsx';
 
 function App() {
 
@@ -24,13 +27,17 @@ function App() {
 
 
   return (
-    <>
+    <SplitterLayout>
       <AreaSelector
         json={json}
         focusedItem={focusedItem}
         setFocusedItem={setFocusedItem}
       />
-    </>
+      <Focus
+        json={json}
+        focusedItem={focusedItem}
+      />
+    </SplitterLayout>
   )
 }
 
