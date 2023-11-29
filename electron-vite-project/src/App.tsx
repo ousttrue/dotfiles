@@ -8,6 +8,9 @@ function App() {
 
   // const [area, setArea] = useState<JmaArea>(null);
   const [json, setJson] = useState<AreaJson | null>(null);
+  const [focusedItem, setFocusedItem] = useState();
+
+  console.log('focusedItem', focusedItem);
 
   // init
   useEffect(() => {
@@ -22,7 +25,11 @@ function App() {
 
   return (
     <>
-      <AreaSelector json={json} />
+      <AreaSelector
+        json={json}
+        focusedItem={focusedItem}
+        setFocusedItem={setFocusedItem}
+      />
     </>
   )
 }

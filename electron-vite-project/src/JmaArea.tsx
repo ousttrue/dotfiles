@@ -1,9 +1,12 @@
 import {
-  UncontrolledTreeEnvironment,
+  // UncontrolledTreeEnvironment,
+  ControlledTreeEnvironment,
   Tree, StaticTreeDataProvider,
   TreeItem
 } from 'react-complex-tree';
 import 'react-complex-tree/lib/style-modern.css';
+import { useState } from 'react';
+
 
 export const JMA_AREA_URL = 'https://www.jma.go.jp/bosai/common/const/area.json'
 
@@ -190,7 +193,12 @@ function toTreeItems(json: AreaJson): Record<string, TreeItem<AreaItem>> {
 export function AreaSelector(props: {
   // area?: JmaArea
   json: AreaJson | null
+  focusedItem: string,
+  setFocusedItem: Function,
 }) {
+  const [expandedItems, setExpandedItems] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+
   const json = props.json;
   if (json) {
     // return (<ul>
@@ -198,19 +206,41 @@ export function AreaSelector(props: {
     // </ul>
 
     const items = toTreeItems(json);
-    console.log(items);
+    // console.log(items);
     const dataProvider = new StaticTreeDataProvider(items);
 
+    // return (
+    //   <UncontrolledTreeEnvironment
+    //     dataProvider={dataProvider}
+    //     getItemTitle={(item: TreeItem<AreaItem>) => item.data.name}
+    //     viewState={{}
+    //     }
+    //   >
+    //     <Tree treeId="tree-1" rootItem="root" treeLabel="Tree Example" />
+    //   </UncontrolledTreeEnvironment >
+    // );
+
     return (
-      <UncontrolledTreeEnvironment
-        dataProvider={dataProvider}
-        getItemTitle={(item: TreeItem<AreaItem>) => item.data.name}
-        viewState={{}
+      <ControlledTreeEnvironment
+        items={items}
+        getItemTitle={item => item.data.name}
+        viewState={{
+          ['tree-2']: {
+            focusedItem: props.focusedItem,
+            expandedItems,
+            selectedItems,
+          },
+        }}
+        onFocusItem={item => props.setFocusedItem(item.index)}
+        onExpandItem={item => setExpandedItems([...expandedItems, item.index])}
+        onCollapseItem={item =>
+          setExpandedItems(expandedItems.filter(expandedItemIndex => expandedItemIndex !== item.index))
         }
+        onSelectItems={items => setSelectedItems(items)}
       >
-        <Tree treeId="tree-1" rootItem="root" treeLabel="Tree Example" />
-      </UncontrolledTreeEnvironment >
-    );
+        <Tree treeId="tree-2" rootItem="root" treeLabel="Tree Example" />
+      </ControlledTreeEnvironment>
+    )
   }
   else {
     return <div />;
