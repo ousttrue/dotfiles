@@ -26,6 +26,10 @@
 
 [geojson.io | powered by Mapbox](http://geojson.io/#map=2/31.2/83.71)
 
+## 地名
+
+- @2022 [緯度経度から気象庁の天気予報用地域コードを取得するWebAPI #WebAPI - Qiita](https://qiita.com/yamato1413/items/2e02d1532f8779395a18)
+
 ## 国土地理院
 [https://nlftp.mlit.go.jp/ksj/](http://nlftp.mlit.go.jp/ksj/)
 [床井研究室 - 地理院地図 3D を Oculus Rift で見てみる](https://marina.sys.wakayama-u.ac.jp/~tokoi/?date=20140907)
