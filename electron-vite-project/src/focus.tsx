@@ -1,6 +1,8 @@
-import { AreaJson, AreaItem } from './JmaArea.jsx';
-
-type itemclass = 'center' | 'office' | 'class10' | 'class15' | 'class20'
+import { AreaJson, AreaItem, itemclass } from './JmaArea.jsx';
+import React from 'react';
+import Map from 'react-map-gl';
+import maplibregl from 'maplibre-gl';
+import 'maplibre-gl/dist/maplibre-gl.css';
 
 function getFocusedItem(
   json: AreaJson | null,
@@ -32,20 +34,54 @@ function getFocusedItem(
   return null;
 }
 
+function Info(props: {
+  focusedItem?: string,
+  item: { kind: itemclass, value: AreaItem } | null
+}) {
+  const item = props.item;
+  if (item) {
+    return (<div style={{
+      display: 'flex',
+      flexDirection: 'row',
+      flexGrow: 0,
+    }}>
+      <div>{props.focusedItem}</div>
+      <div>{item.kind}</div>
+      <div>{item.value.name}</div>
+    </div >);
+  }
+  else {
+    return <div>'no'</div>;
+  }
+}
+
 
 export default function Focus(props: {
   json: AreaJson | null,
   focusedItem?: string,
 }) {
 
-  const item = getFocusedItem(props.json, props.focusedItem);
-  if (!item) {
-    return <div>no</div>
-  }
-
-  return (<div>
-    <div>{props.focusedItem}</div>
-    <div>{item.kind}</div>
-    <div>{item.value.name}</div>
-  </div>);
+  return (<div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+  }}>
+    <Info
+      focusedItem={props.focusedItem}
+      item={getFocusedItem(props.json, props.focusedItem)}
+    />
+    <div
+      style={{ flexGrow: 1 }}
+    >
+      <Map
+        initialViewState={{
+          longitude: 139.68786,
+          latitude: 35.68355,
+          zoom: 16,
+        }}
+        mapLib={maplibregl}
+        mapStyle="https://tile.openstreetmap.jp/styles/osm-bright-ja/style.json"
+      />
+    </div>
+  </div >);
 }

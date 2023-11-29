@@ -16,6 +16,8 @@ type Id<T> = {
   [K in keyof T]: T[K];
 } & { id: string }
 
+export type itemclass = 'center' | 'office' | 'class10' | 'class15' | 'class20'
+
 type center = {
   name: string,
   enName: string,

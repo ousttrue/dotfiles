@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "maplibre-gl": "^3.6.2",
     "react": "^18.2.0",
     "react-complex-tree": "^2.2.4",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-map-gl": "^7.1.6"
   },
   "devDependencies": {
     "@types/react": "^18.2.21",
