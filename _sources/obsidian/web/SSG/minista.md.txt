@@ -10,3 +10,9 @@
 - @2022 [Viteとesbuildを組み込みReact製SSGを再構築 - minista v2](https://zenn.dev/qrac/articles/fbbbe7ccc3bdb1)
 
 ## 1
+
+# error
+## mdx で unknown language
+`glsl`,  `cmake`, `vim` 
+
+- [How to add language to rehype-highlight](https://regbrain.com/article/how-to-add-language-to-rehype-highlight)
