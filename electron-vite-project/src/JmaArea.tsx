@@ -1,3 +1,10 @@
+import {
+  UncontrolledTreeEnvironment,
+  Tree, StaticTreeDataProvider,
+  TreeItem
+} from 'react-complex-tree';
+import 'react-complex-tree/lib/style-modern.css';
+
 export const JMA_AREA_URL = 'https://www.jma.go.jp/bosai/common/const/area.json'
 
 type areaId = string;
@@ -42,7 +49,9 @@ type class20 = {
   parent: areaId,
 }
 
-type areaJson = {
+type AreaItem = center | office | class10 | class15 | class20;
+
+export type AreaJson = {
   centers: { [key: areaId]: center },
   offices: { [key: areaId]: office },
   class10s: { [key: areaId]: class10 },
@@ -57,7 +66,7 @@ export class JmaArea {
   class15s: Id<class15>[];
   class20s: Id<class20>[];
 
-  constructor(json: areaJson) {
+  constructor(public readonly json: AreaJson) {
     function compareId(a: { id: string }, b: { id: string }): number {
       return parseFloat(a.id) - parseFloat(b.id)
     }
@@ -144,14 +153,64 @@ function Center(props: {
   </li>);
 }
 
+
+function toTreeItems(json: AreaJson): Record<string, TreeItem<AreaItem>> {
+  const items: Record<string, TreeItem<any>> = {
+    'root': {
+      'index': 'root',
+      'data': {
+        'name': 'root',
+      },
+      'children': Object.keys(json.centers),
+    },
+  }
+  function addItems(values: { [key: string]: AreaItem }) {
+    for (const index in values) {
+      const data = values[index];
+      const item: TreeItem = {
+        index,
+        data: { name: data.name },
+      }
+      if ('children' in data) {
+        item.children = data.children
+        item.isFolder = true
+      }
+      items[index] = item
+    }
+  }
+  addItems(json.centers);
+  addItems(json.offices);
+  addItems(json.class10s);
+  addItems(json.class15s);
+  addItems(json.class20s);
+  return items;
+}
+
+
 export function AreaSelector(props: {
-  area?: JmaArea
+  // area?: JmaArea
+  json: AreaJson | null
 }) {
-  const area = props.area;
-  if (area) {
-    return (<ul>
-      {area.centers.map((center) => <Center area={area} center={center} key={center.id} />)}
-    </ul>);
+  const json = props.json;
+  if (json) {
+    // return (<ul>
+    //   {area.centers.map((center) => <Center area={area} center={center} key={center.id} />)}
+    // </ul>
+
+    const items = toTreeItems(json);
+    console.log(items);
+    const dataProvider = new StaticTreeDataProvider(items);
+
+    return (
+      <UncontrolledTreeEnvironment
+        dataProvider={dataProvider}
+        getItemTitle={(item: TreeItem<AreaItem>) => item.data.name}
+        viewState={{}
+        }
+      >
+        <Tree treeId="tree-1" rootItem="root" treeLabel="Tree Example" />
+      </UncontrolledTreeEnvironment >
+    );
   }
   else {
     return <div />;
