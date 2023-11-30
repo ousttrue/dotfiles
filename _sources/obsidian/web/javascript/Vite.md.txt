@@ -1,4 +1,5 @@
 [[vite_plugin_node]]
+[[ModuleBundler]]
 
 [特徴 | Vite](https://ja.vitejs.dev/guide/features.html)
 

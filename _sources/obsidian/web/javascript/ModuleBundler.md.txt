@@ -1,6 +1,7 @@
 [[javascript]]
 
-- @2023 [tyotto-good.com/module-bundler/history](https://tyotto-good.com/module-bundler/history)
+- @2023 [Module Bundlerの歴史を振り返って今採用すべきBundlerを考える](https://tyotto-good.com/module-bundler/history)
+- @2016 [Rollupがちょうどいい感じ #JavaScript - Qiita](https://qiita.com/cognitom/items/e3ac0da00241f427dad6)
 
 # vite
 [[Vite]]
