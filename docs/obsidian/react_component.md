@@ -9,9 +9,13 @@
 - @2019 [react-selectザックリ紹介 #React - Qiita](https://qiita.com/Hitomi_Nagano/items/c00df24dc24e0329167d)
 
 # Tree
-[React Complex Tree](https://rct.lukasbach.com/)
-
+`selector` [React Complex Tree](https://rct.lukasbach.com/)
 - @2023 [react-complex-treeの調査](https://zenn.dev/smallstall/scraps/3ec951efdd2e97)
+
+`selector` `value` [GitHub - josdejong/svelte-jsoneditor: A web-based tool to view, edit, format, repair, query, transform, and validate JSON](https://github.com/josdejong/svelte-jsoneditor)
+```sh
+> npm install vanilla-jsoneditor
+```
 
 # splitter
 [GitHub - zesik/react-splitter-layout: A simple split layout for React and modern browsers. https://zesik.com/react-splitter-layout](https://github.com/zesik/react-splitter-layout)
