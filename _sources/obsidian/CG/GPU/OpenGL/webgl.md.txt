@@ -79,3 +79,33 @@ code:renderer.js
 - [WebGL model view projection - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection)
 - [GitHub - infusion/Quaternion.js: A JavaScript Quaternion library](https://github.com/infusion/Quaternion.js/)
 
+# editor
+- [GitHub - realJustinLee/LiAg: LiAg (LiXin Avatar Generator) is an open source 3D avatar modeling software implemented in React.js and WebGL, which provides web side 3D avatar modeling and rendering service, and users can export the avatars into STL files which can be used for 3D printing.](https://github.com/realJustinLee/LiAg)
+
+- [GitHub - coka/webgl-editor: 3D modeling made easy with Polymer and three.js](https://github.com/coka/webgl-editor)
+
+- [Wonder](https://yyc-git.github.io/wonder/index.html)
+
+- [GitHub - Megabyteceer/thing-editor: pixi.js based visual game editor](https://github.com/Megabyteceer/thing-editor)
+
+- [GitHub - chrmoritz/Troxel: WebGL-based voxel viewer and editor](https://github.com/chrmoritz/Troxel)
+
+- [GitHub - tengge1/ShadowEditor-examples: ShadowEditor Demo. https://tengge1.github.io/ShadowEditor-examples/](https://github.com/tengge1/ShadowEditor-examples)
+
+- [GitHub - felixmariotto/Edelweiss-Editor: WebGL platformer game with special game engine](https://github.com/felixmariotto/Edelweiss-Editor)
+
+- [GitHub - adamsol/ThreeStudio: 3D game editor based on Three.js and Electron.](https://github.com/adamsol/ThreeStudio)
+
+- [GitHub - baues/building-editor: 3D model editor for building/architecture](https://github.com/baues/building-editor)
+
+- [GitHub - hakudoshi23/cobweb: A mesh editor for the browser.](https://github.com/hakudoshi23/cobweb)
+
+## fiber
+- [GitHub - polygonjs/polygonjs-react-three-fiber: React Three Fiber component to load scene created with Polygonjs visual editor](https://github.com/polygonjs/polygonjs-react-three-fiber)
+
+## GIS
+- [GitHub - heremaps/xyz-maps: XYZ Maps is an open-source map editor written in TypeScript.](https://github.com/heremaps/xyz-maps)
+
+- [GitHub - siposdani87/expo-maps-polygon-editor: This multi polygon editor is written in TypeScript for the React Native Maps component. This component allows you to select, create, or modify areas on Apple Maps and Google Maps. You can edit multiple polygons at the same time.](https://github.com/siposdani87/expo-maps-polygon-editor)
+
+
