@@ -26,6 +26,11 @@
 - @2023 [WebGL canvas in React - DEV Community](https://dev.to/jacklehamster/webgl-canvas-in-react-45m5)
 - [GitHub - gre/gl-react: gl-react – React library to write and compose WebGL shaders](https://github.com/gre/gl-react)
 
+# dnd
+- @2021 [Drag and Drop in Pure TypeScript and React](https://kennethlange.com/drag-and-drop-in-pure-typescript-and-react/)
+## react-dropzone
+[react-dropzone](https://react-dropzone.js.org/)
+
 # map
 
 ## maplibre-gl
@@ -44,3 +49,11 @@
 - [Home | deck.gl](https://deck.gl/)
 - @2023 [【deck.gl×React】ポイントデータを表示 #React - Qiita](https://qiita.com/asahina820/items/c6988a341aecc5775109)
 - @2019 [React Hooks とdeck.gl v.7を使ってweb地図を作ってみた。 – GUNMA GIS GEEK](https://gunmagisgeek.com/blog/react/6399)
+
+# docking
+[A zero dependency layout manager supporting ReactJS and Vanilla TypeScript | Dockview](https://dockview.dev/)
+[GitHub - ticlo/rc-dock: Dock Layout for React Component](https://github.com/ticlo/rc-dock)
+
+
+
+[GitHub - caplin/FlexLayout: Docking Layout Manager for React](https://github.com/caplin/FlexLayout)
