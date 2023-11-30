@@ -15,7 +15,18 @@
 - @2021 [React をテンプレートエンジンの代わりに使う](https://zenn.dev/kazuma1989/articles/a5a824a7400921)
 - @2020 [JSXが実はベターな解だったのではないか？｜erukiti](https://note.com/erukiti/n/n6f673021469e)
 > HTMLとJSのどちらが制御構造を持てばいいのか？でいえばJS側が持つ方がリファクタリングしやすいため、JSXの方が良い
+# JSX
+## React(front)
+[[React]]
+## Next.js
+[[Next.js]]
+x
+## Vue.js(front)
+[[Vue.js]]
 
+## Nuxt.js
+## Gatsby
+x
 # root
 ```tsx
 createRoot(globalThis.document.getElementById("root")!).render(

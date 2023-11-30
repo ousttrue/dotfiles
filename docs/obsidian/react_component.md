@@ -18,7 +18,9 @@
 ```
 
 # splitter
-[GitHub - zesik/react-splitter-layout: A simple split layout for React and modern browsers. https://zesik.com/react-splitter-layout](https://github.com/zesik/react-splitter-layout)
+[GitHub - nathancahill/split: Unopinionated utilities for resizeable split views](https://github.com/nathancahill/split)
+
+- `react-15`[GitHub - zesik/react-splitter-layout: A simple split layout for React and modern browsers. https://zesik.com/react-splitter-layout](https://github.com/zesik/react-splitter-layout)
 
 # canvas
 - @2021 [React で canvas から画像生成する最小コード](https://zenn.dev/anozon/articles/react-canvas-to-img)
