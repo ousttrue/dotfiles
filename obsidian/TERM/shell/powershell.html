@@ -221,20 +221,21 @@
           <p>[[dotNET]]</p>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>7.4<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="lts">
+<h2>7.4(LTS)<a class="headerlink" href="#lts" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.NET8</span></code> @2023 <a class="reference external" href="https://dev.classmethod.jp/articles/powershell-7-4-generally-available/">PowerShell 7.4がリリースされました | DevelopersIO</a></p></li>
 <li><p><a class="reference external" href="https://learn.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-74?view=powershell-7.2">What's New in PowerShell 7.4 (preview) - PowerShell | Microsoft Learn</a></p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>7.3<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id1">
+<h2>7.3<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://learn.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-73?view=powershell-7.2">What's New in PowerShell 7.3 - PowerShell | Microsoft Learn</a></p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>7.2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id2">
+<h2>7.2(LTS)<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-72?view=powershell-7.2">What's New in PowerShell 7.2 - PowerShell | Microsoft Docs</a></p>
 <ul>
@@ -246,15 +247,16 @@
 <div><p>built on .NET 6.0.</p>
 </div></blockquote>
 </section>
-<section id="id4">
-<h2>5.1<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id3">
+<h2>5.1<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>windows preinstall</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="settings">
-<h1>settings<a class="headerlink" href="#settings" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="profile">
-<h2>$PROFILE<a class="headerlink" href="#profile" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="profile">
+<h1>profile<a class="headerlink" href="#profile" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4">プロファイルについて - PowerShell | Microsoft Learn</a></p>
+<section id="id4">
+<h2>$PROFILE<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1</span></code></p></li>
 <li><p>`%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1</p></li>
@@ -268,49 +270,50 @@ vim $profile
 </pre></div>
 </div>
 </section>
+<section id="alias">
+<h2>alias<a class="headerlink" href="#alias" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
 <section id="readline">
 <h2>readline<a class="headerlink" href="#readline" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81">【PowerShell】PsReadLine 設定のススメ - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/psreadline/set-psreadlinekeyhandler?view=powershell-7.2">Set-PSReadLineKeyHandler (PSReadLine) - PowerShell | Microsoft Learn</a></p></li>
-<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2">about PSReadLine Functions - PowerShell | Microsoft Learn</a></p></li>
-</ul>
-<div class="highlight-profile.ps1 notranslate"><div class="highlight"><pre><span></span>Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine
-Set-PSReadlineKeyHandler -Key 'Ctrl+b' -Function BackwardChar
-Set-PSReadlineKeyHandler -Key 'Ctrl+f' -Function ForwardChar
-Set-PSReadlineKeyHandler -Key 'Ctrl+d' -Function DeleteChar
-Set-PSReadlineKeyHandler -Key 'Ctrl+h' -Function BackwardDeleteChar
-Set-PSReadlineKeyHandler -Key 'Ctrl+p' -Function HistorySearchBackward
-Set-PSReadlineKeyHandler -Key 'Ctrl+n' -Function HistorySearchForward
-Set-PSReadlineKeyHandler -Key 'Ctrl+a' -Function BeginningOfLine
-Set-PSReadlineKeyHandler -Key 'Ctrl+e' -Function EndOfLine
-Set-PSReadlineKeyHandler -Key 'Ctrl+m' -Function AcceptLine
-Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
-</pre></div>
-</div>
-</section>
-<section id="prompt">
-<h2>prompt<a class="headerlink" href="#prompt" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_prompts?view=powershell-7.3&amp;viewFallbackFrom=powershell-7.1">about Prompts - PowerShell | Microsoft Learn</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://qiita.com/SAITO_Keita/items/47eb86a6d5dc5f928608">PowerShellのprompt関数について - Qiita</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://zenn.dev/kumarstack55/articles/2021-01-24-powershell-prompt">PowerShellでプロンプト表示を変える</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://bayashi.net/diary/2020/0615">Windows PowerShellのプロンプトを変更する</a></p></li>
-<li><p>@2016 <a class="reference external" href="https://sh-yoshida.hatenablog.com/entry/2016/12/20/130000">【PowerShell】 プロンプトの表示を変更する - 1.21 jigowatts</a></p></li>
-</ul>
+<p>[[PSReadline]]</p>
 </section>
 <section id="vscode">
 <h2>vscode<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://incipe.dev/blog/post/setting-up-a-powershell-development-environment/">PoweShellの開発環境を整える</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://incipe.dev/blog/post/setting-up-a-powershell-development-environment/">https://incipe.dev/blog/post/setting-up-a-powershell-development-environment/</a></p></li>
 </ul>
+</section>
+<section id="formatter">
+<h2>formatter<a class="headerlink" href="#formatter" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="lsp">
+<h2>lsp<a class="headerlink" href="#lsp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="command">
+<h1>command<a class="headerlink" href="#command" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="cmdlet">
+<h2>Cmdlet<a class="headerlink" href="#cmdlet" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[cmdlet]]</p>
+</section>
+<section id="function">
+<h2>function<a class="headerlink" href="#function" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="ps1-script">
+<h2>ps1 script<a class="headerlink" href="#ps1-script" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="exe-bat-cmd">
+<h2>.exe, .bat, .cmd ...<a class="headerlink" href="#exe-bat-cmd" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id5">
 <h1>型<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="s2">"a"</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
-
-<span class="no">[math]</span><span class="p">::</span><span class="n">pi</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```powershell
+</pre></div>
+</div>
+<p>"a".GetType()</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </section>
@@ -349,17 +352,26 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">7.4</a></li>
-<li><a class="reference internal" href="#id2">7.3</a></li>
-<li><a class="reference internal" href="#id3">7.2</a></li>
-<li><a class="reference internal" href="#id4">5.1</a></li>
+<li><a class="reference internal" href="#lts">7.4(LTS)</a></li>
+<li><a class="reference internal" href="#id1">7.3</a></li>
+<li><a class="reference internal" href="#id2">7.2(LTS)</a></li>
+<li><a class="reference internal" href="#id3">5.1</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#settings">settings</a><ul>
-<li><a class="reference internal" href="#profile">$PROFILE</a></li>
+<li><a class="reference internal" href="#profile">profile</a><ul>
+<li><a class="reference internal" href="#id4">$PROFILE</a></li>
+<li><a class="reference internal" href="#alias">alias</a></li>
 <li><a class="reference internal" href="#readline">readline</a></li>
-<li><a class="reference internal" href="#prompt">prompt</a></li>
 <li><a class="reference internal" href="#vscode">vscode</a></li>
+<li><a class="reference internal" href="#formatter">formatter</a></li>
+<li><a class="reference internal" href="#lsp">lsp</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#command">command</a><ul>
+<li><a class="reference internal" href="#cmdlet">Cmdlet</a></li>
+<li><a class="reference internal" href="#function">function</a></li>
+<li><a class="reference internal" href="#ps1-script">ps1 script</a></li>
+<li><a class="reference internal" href="#exe-bat-cmd">.exe, .bat, .cmd ...</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#id5">型</a></li>

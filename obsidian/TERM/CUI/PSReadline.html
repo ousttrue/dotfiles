@@ -219,27 +219,80 @@
         </div>
         <article role="main">
           <p>[[powershell]]</p>
-<p><a class="reference external" href="https://github.com/PowerShell/PSReadLine">GitHub - PowerShell/PSReadLine: A bash inspired readline implementation for PowerShell</a></p>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/psreadline/about/about_psreadline?view=powershell-7.4">PSReadLine について - PowerShell | Microsoft Learn</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/PowerShell/PSReadLine">GitHub - PowerShell/PSReadLine: A bash inspired readline implementation for PowerShell</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code> @2021 <a class="reference external" href="https://sheepla.github.io/sheepla-note/posts/powershell-customization/">PowerShellのプロファイルをカスタマイズしてCLIの操作を快適にする - sheepla-note</a></p></li>
+</ul>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id1">
-<h2>2.2.6<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>2.3.4<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 <section id="id2">
-<h2>2.1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>2.2.6<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Predictive</span> <span class="pre">IntelliSense</span></code> @2022 <a class="reference external" href="https://dev.classmethod.jp/articles/powershell-psreadline-22-released/">[PowerShell] PSReadLine 2.2がリリースされました | DevelopersIO</a></p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>2.1<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>@2020 <a class="reference external" href="https://devblogs.microsoft.com/powershell/announcing-psreadline-2-1-with-predictive-intellisense/">Announcing PSReadLine 2.1+ with Predictive IntelliSense - PowerShell Team</a></p></li>
 </ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="tab-completion">
-<h1>tab completion<a class="headerlink" href="#tab-completion" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="predictive-intellisense">
-<h2>Predictive IntelliSense<a class="headerlink" href="#predictive-intellisense" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="keyhandler">
+<h1>KeyHandler<a class="headerlink" href="#keyhandler" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/PowerShell/CompletionPredictor">GitHub - PowerShell/CompletionPredictor</a></p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/psreadline/set-psreadlinekeyhandler?view=powershell-7.2">Set-PSReadLineKeyHandler (PSReadLine) - PowerShell | Microsoft Learn</a></p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2">about PSReadLine Functions - PowerShell | Microsoft Learn</a></p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/scripting/learn/shell/using-keyhandlers?view=powershell-7.4">PSReadLine キー ハンドラーの使用 - PowerShell | Microsoft Learn</a></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">profile.ps1</span></code></p>
+<div class="highlight-ps1 notranslate"><div class="highlight"><pre><span></span><span class="nb">Set-PSReadlineKeyHandler</span> <span class="n">-Key</span> <span class="s1">'Ctrl+u'</span> <span class="n">-Function</span> <span class="n">BackwardDeleteLine</span>
+<span class="nb">Set-PSReadlineKeyHandler</span> <span class="n">-Key</span> <span class="s1">'Ctrl+b'</span> <span class="n">-Function</span> <span class="n">BackwardChar</span>
+<span class="nb">Set-PSReadlineKeyHandler</span> <span class="n">-Key</span> <span class="s1">'Ctrl+f'</span> <span class="n">-Function</span> <span class="n">ForwardChar</span>
+<span class="nb">Set-PSReadlineKeyHandler</span> <span class="n">-Key</span> <span class="s1">'Ctrl+d'</span> <span class="n">-Function</span> <span class="n">DeleteChar</span>
+<span class="nb">Set-PSReadlineKeyHandler</span> <span class="n">-Key</span> <span class="s1">'Ctrl+h'</span> <span class="n">-Function</span> <span class="n">BackwardDeleteChar</span>
+<span class="nb">Set-PSReadlineKeyHandler</span> <span class="n">-Key</span> <span class="s1">'Ctrl+p'</span> <span class="n">-Function</span> <span class="n">HistorySearchBackward</span>
+<span class="nb">Set-PSReadlineKeyHandler</span> <span class="n">-Key</span> <span class="s1">'Ctrl+n'</span> <span class="n">-Function</span> <span class="n">HistorySearchForward</span>
+<span class="nb">Set-PSReadlineKeyHandler</span> <span class="n">-Key</span> <span class="s1">'Ctrl+a'</span> <span class="n">-Function</span> <span class="n">BeginningOfLine</span>
+<span class="nb">Set-PSReadlineKeyHandler</span> <span class="n">-Key</span> <span class="s1">'Ctrl+e'</span> <span class="n">-Function</span> <span class="n">EndOfLine</span>
+<span class="nb">Set-PSReadlineKeyHandler</span> <span class="n">-Key</span> <span class="s1">'Ctrl+m'</span> <span class="n">-Function</span> <span class="n">AcceptLine</span>
+<span class="nb">Set-PSReadlineKeyHandler</span> <span class="n">-Key</span> <span class="s1">'Ctrl+k'</span> <span class="n">-Function</span> <span class="n">ForwardDeleteLine</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="prompt">
+<h1>prompt<a class="headerlink" href="#prompt" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_prompts?view=powershell-7.4">about Prompts - PowerShell | Microsoft Learn</a></p>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://qiita.com/SAITO_Keita/items/47eb86a6d5dc5f928608">PowerShellのprompt関数について - Qiita</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://zenn.dev/kumarstack55/articles/2021-01-24-powershell-prompt">PowerShellでプロンプト表示を変える</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://bayashi.net/diary/2020/0615">Windows PowerShellのプロンプトを変更する</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://sh-yoshida.hatenablog.com/entry/2016/12/20/130000">【PowerShell】 プロンプトの表示を変更する - 1.21 jigowatts</a></p></li>
+</ul>
+<section id="color">
+<h2>color<a class="headerlink" href="#color" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://duffney.io/usingansiescapesequencespowershell/">Using ANSI Escape Sequences in PowerShell :: — duffney.io</a></p>
+</section>
+<section id="title">
+<h2>title<a class="headerlink" href="#title" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://ascii.jp/elem/000/004/099/4099109/2/">ASCII.jp：Windowsでコンソールのウィンドウタイトルを書き換える (2/2)</a></p></li>
 </ul>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="predictive-intellisense">
+<h1>Predictive IntelliSense<a class="headerlink" href="#predictive-intellisense" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://zenn.dev/atsushifx/articles/pwsh-console-intelisense-completion">PowerShell: Powershellのintelisenseで補完機能を使う</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/PowerShell/CompletionPredictor">GitHub - PowerShell/CompletionPredictor</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/atsushifx/articles/pwsh-console-intelisense-completion">PowerShell: Powershellのintelisenseで補完機能を使う</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/tnagata012/articles/how-to-psreadline--80750ecebe1f74">PowerShell - PSReadLineによる入力補完</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81">【PowerShell】PsReadLine 設定のススメ - Qiita</a></p></li>
+</ul>
 </section>
 
         </article>
@@ -276,14 +329,18 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">2.2.6</a></li>
-<li><a class="reference internal" href="#id2">2.1</a></li>
+<li><a class="reference internal" href="#id1">2.3.4</a></li>
+<li><a class="reference internal" href="#id2">2.2.6</a></li>
+<li><a class="reference internal" href="#id3">2.1</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#tab-completion">tab completion</a><ul>
+<li><a class="reference internal" href="#keyhandler">KeyHandler</a></li>
+<li><a class="reference internal" href="#prompt">prompt</a><ul>
+<li><a class="reference internal" href="#color">color</a></li>
+<li><a class="reference internal" href="#title">title</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#predictive-intellisense">Predictive IntelliSense</a></li>
-</ul>
-</li>
 </ul>
 
           </div>
