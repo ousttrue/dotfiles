@@ -22,3 +22,10 @@ dotnet new console -lang F# -o MyFSharpApp -f net6.0
 ```
 @202308 7.0だと動かない
 @2022 で更新止まっている
+
+# Powershell
+[[powershell]]
+- @2023 [PowerShell の Cmdlet を F# で書く - タイダログ](https://taidalog.hatenablog.com/entry/2023/01/31/080000)
+- @2022 [飼い主, F# の環境構築したってよ](https://zenn.dev/terasakisatoshi/scraps/df990c656da85c)
+- @2021 [PowerShell 片手に F# を始める - タイダログ](https://taidalog.hatenablog.com/entry/2021/11/26/183000)
+- @2014 [F#でPowerShellのカスタムコマンドレットを作ってみた #PowerShell - Qiita](https://qiita.com/minfuk/items/e3562d84b4c2fb460b2d)

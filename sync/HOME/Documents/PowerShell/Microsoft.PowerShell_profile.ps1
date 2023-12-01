@@ -9,24 +9,27 @@ $env:HOME = $env:USERPROFILE
 
 ## readline
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2
+# まとめて設定
+# Set-PSReadLineOption -EditMode emacs
+# 個別に設定
 Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+b' -Function BackwardChar
 Set-PSReadlineKeyHandler -Key 'Ctrl+f' -Function ForwardChar
-Set-PSReadlineKeyHandler -Key 'Ctrl+d' -Function DeleteChar
+Set-PSReadlineKeyHandler -Key 'Ctrl+d' -Function DeleteCharOrExit
 Set-PSReadlineKeyHandler -Key 'Ctrl+h' -Function BackwardDeleteChar
 Set-PSReadlineKeyHandler -Key 'Ctrl+p' -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key 'Ctrl+n' -Function HistorySearchForward
 Set-PSReadlineKeyHandler -Key 'Ctrl+a' -Function BeginningOfLine
-# Set-PSReadlineKeyHandler -Key 'Ctrl+e' -Function EndOfLine
+Set-PSReadlineKeyHandler -Key 'Ctrl+e' -Function EndOfLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+m' -Function AcceptLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
+# ctrl + [
+# [System.Console]::ReadKey()
+Set-PSReadlineKeyHandler -Key 'Ctrl+Oem4' -Function RevertLine
 
-# Import-Module -Name CompletionPredictor
-# Set-PSReadLineOption -PredictionSource History
-# Set-PSReadLineOption -PredictionViewStyle ListView
-
-# ??
-Set-PSReadlineKeyHandler -Chord Ctrl+[ -ScriptBlock { "hello" }
+Import-Module -Name CompletionPredictor
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
 
 Remove-Item alias:mv
 Remove-Item alias:cp
@@ -36,7 +39,7 @@ Remove-Item alias:diff -force
 Remove-Item -Path Function:\mkdir
 
 # Remove-Item alias:ls
-# Import-Module -Name Terminal-Icons
+Import-Module -Name Terminal-Icons
 # function ls()
 # {
 #     lsd $args
@@ -53,10 +56,22 @@ Remove-Item -Path Function:\mkdir
 # function prompt () {
 #   (Split-Path (Get-Location) -Leaf) + "\n > "
 # }
+# function prompt()
+# {
+#     $path = $pwd.path.Replace($HOME, "~")
+#     return "${path}`n$ "
+# }
 function prompt()
 {
-    $path = $pwd.path.Replace($HOME, "~")
-    return "${path}`n$ "
+  # TODO: git status
+  # TODO: project kind
+  # - dotfiles
+  # - ghq
+  # - lang
+  $location = (Get-Location);
+  $color = $? ? "32" : "31";
+  $title = "🐫"
+  "`e]2;${title}$([char]0x07)${location}`n`e[${color}m>`e[0m "
 }
 
 function ExecuteCommand ($commandPath, $commandArguments) 
@@ -114,6 +129,7 @@ function addPath($path)
     }
 }
 
+addPath($env:USERPROFILE + "\build\mingw\bin")
 # addPath($env:USERPROFILE + "/prefix/bin")
 # addPath($env:USERPROFILE + "\.deno\bin")
 addPath($env:USERPROFILE + "\.cargo\bin")
@@ -254,6 +270,11 @@ function dotpull
     Push-Location ${env:HOME}/dotfiles
     git pull
     Pop-Location
+}
+
+function v()
+{
+  nvim $args
 }
 # function apkget
 # {
