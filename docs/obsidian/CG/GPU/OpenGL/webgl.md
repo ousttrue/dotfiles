@@ -100,6 +100,15 @@ code:renderer.js
 
 - [GitHub - hakudoshi23/cobweb: A mesh editor for the browser.](https://github.com/hakudoshi23/cobweb)
 
+- [Blockbench](https://www.blockbench.net/)
+
+## model
+[3dhaupt's Profile - Free3D](https://free3d.com/user/3dhaupt)
+
+## c++
+- [GitHub - riidefi/RiiStudio: Editor for various 3D model formats](https://github.com/riidefi/RiiStudio)
+- [GitHub - zturtleman/mm3d: Maverick Model 3D is a 3D model editor based on Misfit Model 3D.](https://github.com/zturtleman/mm3d)
+
 ## fiber
 - [GitHub - polygonjs/polygonjs-react-three-fiber: React Three Fiber component to load scene created with Polygonjs visual editor](https://github.com/polygonjs/polygonjs-react-three-fiber)
 
@@ -108,4 +117,5 @@ code:renderer.js
 
 - [GitHub - siposdani87/expo-maps-polygon-editor: This multi polygon editor is written in TypeScript for the React Native Maps component. This component allows you to select, create, or modify areas on Apple Maps and Google Maps. You can edit multiple polygons at the same time.](https://github.com/siposdani87/expo-maps-polygon-editor)
 
-
+## vrm
+- [GitHub - gatosyocora/vrm-avatar-editor: Web Application Editting VRM Avatar](https://github.com/gatosyocora/vrm-avatar-editor)
