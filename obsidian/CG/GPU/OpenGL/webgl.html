@@ -218,87 +218,259 @@
           </label>
         </div>
         <article role="main">
-          <p>[[OpenGL]]
-[[wasm]]</p>
+          <p>[[OpenGL]] [[wasm]]</p>
 <p><a class="reference external" href="https://www.khronos.org/webgl/">WebGL Overview - The Khronos Group Inc</a></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/KhronosGroup/WebGL/blob/main/specs/2.0.0/webgl2.idl">WebGL/webgl2.idl at main · KhronosGroup/WebGL · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://webglfundamentals.org/webgl/lessons/webgl-less-code-more-fun.html">WebGL - Less Code, More Fun</a></p></li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API">WebGL: 2D and 3D graphics for the web - Web APIs | MDN</a></p>
-<ul>
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial">WebGL tutorial - Web APIs | MDN</a></p></li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context">Adding 2D content to a WebGL context - Web APIs | MDN</a></p></li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL">Using shaders to apply color in WebGL - Web APIs | MDN</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_objects_with_WebGL">Animating objects with WebGL - Web APIs | MDN</a></p></li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL">Creating 3D objects using WebGL - Web APIs | MDN</a></p></li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL">Using textures in WebGL - Web APIs | MDN</a></p></li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL">Lighting in WebGL - Web APIs | MDN</a></p></li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL">Animating textures in WebGL - Web APIs | MDN</a></p></li>
-</ul>
-<p>zig で WEBGL互換のラッパーライブラリを作る</p>
-<ul class="simple">
-<li><p>wasm WebGL2</p></li>
-<li><p>Windows/Linux glfw OpenGL4</p></li>
-<li><p>android OpenGL ES3</p></li>
-<li><p><a class="reference external" href="https://www.hypertextcandy.com/live-reload-web-servers">ファイルの変更を監視して自動リロードするローカルWebサーバーの起動方法3選 | Hypertext Candy</a></p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">"editor.formatOnSave":</span> <span class="pre">true</span></code></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=daiyy.quick-html-previewer">Quick HTML Previewer - Visual Studio Marketplace</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API">WebGL: 2D and 3D graphics for the web - Web APIs | MDN</a></p></li>
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id1">
 <h2>2<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span> <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-     <span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">"glCanvas"</span> <span class="na">width</span><span class="o">=</span><span class="s">"640"</span> <span class="na">height</span><span class="o">=</span><span class="s">"480"</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
- <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
- <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"renderer.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
- <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-     <span class="kd">const</span> <span class="nx">renderer</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Renderer</span><span class="p">(</span><span class="s2">"#glCanvas"</span><span class="p">);</span>
-     <span class="nx">renderer</span><span class="p">.</span><span class="nx">frame</span><span class="p">();</span>
- <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="min-triangle">
+<h1>min triangle<a class="headerlink" href="#min-triangle" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">GL</span> <span class="o">=</span> <span class="nx">WebGL2RenderingContext</span><span class="p">;</span>
 
-code:renderer.js
- class Renderer {
- 
-     constructor(canvas_id) {
-         const canvas = document.querySelector(canvas_id);
-         this.gl = canvas.getContext("webgl2");
-         if (this.gl === null) {
-             alert("Unable to initialize WebGL. Your browser or machine may not support it.");
-         }
-     }
- 
-     // animation
-     update(time_ms) {
-         const angle = time_ms * 0.001 * Math.PI;
-         this.bg = Math.sin(angle) + 1;
-         this.clear_color = [this.bg, this.bg, this.bg, 1];
-     }
- 
-     // draw
-     render(gl) {
-         // Set clear color to black, fully opaque
-         gl.clearColor(...this.clear_color);
-         // Clear the color buffer with specified clear color
-         gl.clear(gl.COLOR_BUFFER_BIT);
-     }
- 
-     frame() {
-         this.update(Date.now());
-         this.render(this.gl);
-         requestAnimationFrame(() =&gt; { this.frame(); });
-     }
- }
+
+<span class="kd">const</span> <span class="nx">VS</span> <span class="o">=</span> <span class="sb">`#version 300 es</span>
+<span class="sb">in vec2 aPosition;</span>
+
+<span class="sb">void main()</span>
+<span class="sb">{</span>
+<span class="sb">  gl_Position = vec4(aPosition, 0, 1);</span>
+<span class="sb">}</span>
+<span class="sb">`</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">FS</span> <span class="o">=</span> <span class="sb">`#version 300 es</span>
+<span class="sb">precision mediump float;</span>
+<span class="sb">out vec4 _Color;</span>
+
+<span class="sb">void main(){</span>
+<span class="sb">  _Color = vec4(1,1,1,1);</span>
+<span class="sb">}</span>
+<span class="sb">`</span><span class="p">;</span>
+
+<span class="c1">// shaderSource</span>
+<span class="c1">// compile</span>
+<span class="kd">function</span> <span class="nx">compileShader</span><span class="p">(</span><span class="nx">errorPrefix</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">gl</span>: <span class="kt">WebGL2RenderingContext</span><span class="p">,</span>
+  <span class="nx">src</span>: <span class="kt">string</span><span class="p">,</span> <span class="kr">type</span><span class="o">:</span> <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">WebGLShader</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">shader</span> <span class="o">=</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">createShader</span><span class="p">(</span><span class="kr">type</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">shader</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="ow">new</span> <span class="ne">Error</span><span class="p">(</span><span class="s1">'createShader'</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">gl</span><span class="p">.</span><span class="nx">shaderSource</span><span class="p">(</span><span class="nx">shader</span><span class="p">,</span> <span class="nx">src</span><span class="p">);</span>
+  <span class="nx">gl</span><span class="p">.</span><span class="nx">compileShader</span><span class="p">(</span><span class="nx">shader</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">gl</span><span class="p">.</span><span class="nx">getShaderParameter</span><span class="p">(</span><span class="nx">shader</span><span class="p">,</span> <span class="nx">GL</span><span class="p">.</span><span class="nx">COMPILE_STATUS</span><span class="p">))</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">info</span> <span class="o">=</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">getShaderInfoLog</span><span class="p">(</span><span class="nx">shader</span><span class="p">);</span>
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">deleteShader</span><span class="p">(</span><span class="nx">shader</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="ow">new</span> <span class="ne">Error</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">errorPrefix</span><span class="si">}${</span><span class="nx">info</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">src</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">shader</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kd">class</span> <span class="nx">ShaderProgram</span> <span class="k">implements</span> <span class="nx">Disposable</span> <span class="p">{</span>
+  <span class="nx">program</span>: <span class="kt">WebGLProgram</span><span class="p">;</span>
+
+  <span class="kr">constructor</span><span class="p">(</span><span class="k">public</span> <span class="k">readonly</span> <span class="nx">gl</span>: <span class="kt">WebGL2RenderingContext</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">program</span> <span class="o">=</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">createProgram</span><span class="p">()</span><span class="o">!</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">program</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="ow">new</span> <span class="ne">Error</span><span class="p">(</span><span class="s1">'createProgram'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nx">dispose</span><span class="p">]()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">gl</span><span class="p">.</span><span class="nx">deleteProgram</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">program</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">link</span><span class="p">(</span><span class="nx">vs</span>: <span class="kt">WebGLShader</span><span class="p">,</span> <span class="nx">fs</span>: <span class="kt">WebGLShader</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">gl</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">gl</span><span class="p">;</span>
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">attachShader</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">program</span><span class="p">,</span> <span class="nx">vs</span><span class="p">);</span>
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">attachShader</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">program</span><span class="p">,</span> <span class="nx">fs</span><span class="p">);</span>
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">linkProgram</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">program</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">gl</span><span class="p">.</span><span class="nx">getProgramParameter</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">program</span><span class="p">,</span> <span class="nx">GL</span><span class="p">.</span><span class="nx">LINK_STATUS</span><span class="p">))</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">info</span> <span class="o">=</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">getProgramInfoLog</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">program</span><span class="p">);</span>
+      <span class="k">throw</span> <span class="ow">new</span> <span class="ne">Error</span><span class="p">(</span><span class="sb">`[LinkProgram]: </span><span class="si">${</span><span class="nx">info</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// compile, attach, link</span>
+  <span class="k">static</span> <span class="nx">create</span><span class="p">(</span><span class="nx">gl</span>: <span class="kt">WebGL2RenderingContext</span><span class="p">,</span> <span class="nx">vsSrc</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">fsSrc</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">ShaderProgram</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">vs</span> <span class="o">=</span> <span class="nx">compileShader</span><span class="p">(</span><span class="s1">'[VERTEX_SHADER]: '</span><span class="p">,</span> <span class="nx">gl</span><span class="p">,</span> <span class="nx">vsSrc</span><span class="p">,</span> <span class="nx">GL</span><span class="p">.</span><span class="nx">VERTEX_SHADER</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">compileShader</span><span class="p">(</span><span class="s1">'[FRAGMENT_SHADER]: '</span><span class="p">,</span> <span class="nx">gl</span><span class="p">,</span> <span class="nx">fsSrc</span><span class="p">,</span> <span class="nx">GL</span><span class="p">.</span><span class="nx">FRAGMENT_SHADER</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">program</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">ShaderProgram</span><span class="p">(</span><span class="nx">gl</span><span class="p">);</span>
+    <span class="nx">program</span><span class="p">.</span><span class="nx">link</span><span class="p">(</span><span class="nx">vs</span><span class="p">,</span> <span class="nx">fs</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">program</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">use</span><span class="p">(</span><span class="nx">gl</span>: <span class="kt">WebGL2RenderingContext</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">useProgram</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">program</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kd">class</span> <span class="nx">Buffer</span> <span class="k">implements</span> <span class="nx">Disposable</span> <span class="p">{</span>
+  <span class="nx">buffer</span>: <span class="kt">WebGLBuffer</span><span class="p">;</span>
+  <span class="kr">constructor</span><span class="p">(</span>
+    <span class="k">public</span> <span class="k">readonly</span> <span class="nx">gl</span>: <span class="kt">WebGL2RenderingContext</span><span class="p">,</span>
+    <span class="k">public</span> <span class="k">readonly</span> <span class="kr">type</span> <span class="o">=</span> <span class="nx">GL</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span>
+  <span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">buffer</span> <span class="o">=</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">createBuffer</span><span class="p">()</span><span class="o">!</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">buffer</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="ow">new</span> <span class="ne">Error</span><span class="p">(</span><span class="s1">'createBuffer'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nx">dispose</span><span class="p">]()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">gl</span><span class="p">.</span><span class="nx">deleteBuffer</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">buffer</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="nx">create</span><span class="p">(</span><span class="nx">gl</span>: <span class="kt">WebGL2RenderingContext</span><span class="p">,</span> <span class="nx">bytes</span>: <span class="kt">ArrayBuffer</span><span class="p">)</span><span class="o">:</span> <span class="nx">Buffer</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="nx">gl</span><span class="p">,</span> <span class="nx">GL</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">);</span>
+    <span class="nx">buffer</span><span class="p">.</span><span class="nx">upload</span><span class="p">(</span><span class="nx">bytes</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">buffer</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">upload</span><span class="p">(</span><span class="nx">bytes</span>: <span class="kt">ArrayBuffer</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">gl</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">gl</span><span class="p">;</span>
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">bindBuffer</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="kr">type</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">buffer</span><span class="p">);</span>
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">bufferData</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="kr">type</span><span class="p">,</span> <span class="nx">bytes</span><span class="p">,</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">STATIC_DRAW</span><span class="p">);</span>
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">bindBuffer</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="kr">type</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kr">type</span> <span class="nx">VertexAttribute</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">buffer</span>: <span class="kt">Buffer</span><span class="p">,</span>
+  <span class="nx">componentType</span>: <span class="kt">number</span><span class="p">,</span>
+  <span class="nx">componentCount</span>: <span class="kt">number</span><span class="p">,</span>
+  <span class="nx">bufferStride</span>: <span class="kt">number</span><span class="p">,</span>
+  <span class="nx">bufferOffset</span>: <span class="kt">number</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="kd">class</span> <span class="nx">Vao</span> <span class="k">implements</span> <span class="nx">Disposable</span> <span class="p">{</span>
+  <span class="nx">vao</span>: <span class="kt">WebGLVertexArrayObject</span><span class="p">;</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="k">public</span> <span class="k">readonly</span> <span class="nx">gl</span>: <span class="kt">WebGL2RenderingContext</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">vao</span> <span class="o">=</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">createVertexArray</span><span class="p">()</span><span class="o">!</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">vao</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="ow">new</span> <span class="ne">Error</span><span class="p">(</span><span class="s1">'createVertexArray'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nx">dispose</span><span class="p">]()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">gl</span><span class="p">.</span><span class="nx">deleteVertexArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">vao</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="nx">create</span><span class="p">(</span><span class="nx">gl</span>: <span class="kt">WebGL2RenderingContext</span><span class="p">,</span> <span class="nx">attributes</span>: <span class="kt">VertexAttribute</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">vao</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Vao</span><span class="p">(</span><span class="nx">gl</span><span class="p">);</span>
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">bindVertexArray</span><span class="p">(</span><span class="nx">vao</span><span class="p">.</span><span class="nx">vao</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">location</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">a</span> <span class="k">of</span> <span class="nx">attributes</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">gl</span><span class="p">.</span><span class="nx">bindBuffer</span><span class="p">(</span><span class="nx">GL</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span> <span class="nx">a</span><span class="p">.</span><span class="nx">buffer</span><span class="p">.</span><span class="nx">buffer</span><span class="p">);</span>
+      <span class="nx">gl</span><span class="p">.</span><span class="nx">enableVertexAttribArray</span><span class="p">(</span><span class="nx">location</span><span class="p">);</span>
+      <span class="nx">gl</span><span class="p">.</span><span class="nx">vertexAttribPointer</span><span class="p">(</span><span class="nx">location</span><span class="p">,</span> <span class="nx">a</span><span class="p">.</span><span class="nx">componentCount</span><span class="p">,</span> <span class="nx">a</span><span class="p">.</span><span class="nx">componentType</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">a</span><span class="p">.</span><span class="nx">bufferStride</span><span class="p">,</span> <span class="nx">a</span><span class="p">.</span><span class="nx">bufferOffset</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">bindBuffer</span><span class="p">(</span><span class="nx">GL</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">bindVertexArray</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">vao</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">draw</span><span class="p">(</span><span class="nx">count</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">gl</span><span class="p">.</span><span class="nx">bindVertexArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">vao</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">gl</span><span class="p">.</span><span class="nx">drawArrays</span><span class="p">(</span><span class="nx">GL</span><span class="p">.</span><span class="nx">TRIANGLES</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="nx">count</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">gl</span><span class="p">.</span><span class="nx">bindVertexArray</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kd">class</span> <span class="nx">Renderer</span> <span class="p">{</span>
+  <span class="nx">shader</span>: <span class="kt">ShaderProgram</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="nx">vbo</span>: <span class="kt">Buffer</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="nx">vao</span>: <span class="kt">Vao</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="nx">render</span><span class="p">(</span><span class="nx">gl</span>: <span class="kt">WebGL2RenderingContext</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">{</span> <span class="nx">shader</span><span class="p">,</span> <span class="nx">vao</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getOrCreate</span><span class="p">(</span><span class="nx">gl</span><span class="p">);</span>
+
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">clearColor</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">);</span>
+    <span class="nx">gl</span><span class="p">.</span><span class="nx">clear</span><span class="p">(</span><span class="nx">GL</span><span class="p">.</span><span class="nx">COLOR_BUFFER_BIT</span><span class="p">);</span>
+
+    <span class="nx">shader</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">gl</span><span class="p">);</span>
+    <span class="nx">vao</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="mf">6</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">private</span> <span class="nx">getOrCreate</span><span class="p">(</span><span class="nx">gl</span>: <span class="kt">WebGL2RenderingContext</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span> <span class="nx">shader</span>: <span class="kt">ShaderProgram</span><span class="p">,</span> <span class="nx">vao</span>: <span class="kt">Vao</span> <span class="p">}</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">shader</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">shader</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">shader</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">shader</span> <span class="o">=</span> <span class="nx">ShaderProgram</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">gl</span><span class="p">,</span> <span class="nx">VS</span><span class="p">,</span> <span class="nx">FS</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">shader</span> <span class="o">=</span> <span class="nx">shader</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">let</span> <span class="nx">vao</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">vao</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">vao</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//  2</span>
+      <span class="c1">// 0&gt;1</span>
+      <span class="kd">const</span> <span class="nx">pos</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="o">-</span><span class="mf">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1</span><span class="p">,</span>
+        <span class="mf">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1</span><span class="p">,</span>
+        <span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">,</span>
+      <span class="p">];</span>
+      <span class="kd">const</span> <span class="nx">vbo</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">gl</span><span class="p">,</span> <span class="ow">new</span> <span class="nb">Float32Array</span><span class="p">(</span><span class="nx">pos</span><span class="p">).</span><span class="nx">buffer</span><span class="p">);</span>
+      <span class="nx">vao</span> <span class="o">=</span> <span class="nx">Vao</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">gl</span><span class="p">,</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nx">buffer</span>: <span class="kt">vbo</span><span class="p">,</span>
+          <span class="nx">bufferStride</span>: <span class="kt">2</span> <span class="o">*</span> <span class="mf">4</span><span class="p">,</span>
+          <span class="nx">bufferOffset</span>: <span class="kt">0</span><span class="p">,</span>
+          <span class="nx">componentCount</span>: <span class="kt">2</span><span class="p">,</span>
+          <span class="nx">componentType</span>: <span class="kt">GL.FLOAT</span><span class="p">,</span>
+        <span class="p">}</span>
+      <span class="p">]);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">vao</span> <span class="o">=</span> <span class="nx">vao</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">{</span> <span class="nx">shader</span><span class="p">,</span> <span class="nx">vao</span> <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kd">function</span> <span class="nx">onLoaded</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kd">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">HTMLDivElement</span><span class="p">;</span>
+	  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="ow">new</span> <span class="ne">Error</span><span class="p">(</span><span class="s1">'no root'</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'canvas'</span><span class="p">);</span>
+  <span class="nx">root</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">canvas</span><span class="p">);</span>
+  <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">clientWidth</span><span class="p">;</span>
+  <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">clientHeight</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">canvas</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">gl</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">'webgl2'</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">gl</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="ow">new</span> <span class="ne">Error</span><span class="p">(</span><span class="s1">'no webgl2'</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">r</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Renderer</span><span class="p">();</span>
+  <span class="nx">r</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">gl</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'end'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="nx">onLoaded</span><span class="p">);</span>
 </pre></div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="lib">
+<h1>lib<a class="headerlink" href="#lib" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="math">
+<h2>math<a class="headerlink" href="#math" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://sbfl.net/blog/2018/02/05/webgl-matrixgl/#i-2">WebGL用のJavaScript行列計算ライブラリMatrixGLを公開しました</a></p></li>
 <li><p><a class="reference external" href="http://glmatrix.net/">glMatrix</a></p></li>
-<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection">WebGL model view projection - Web APIs | MDN</a></p></li>
 <li><p><a class="reference external" href="https://github.com/infusion/Quaternion.js/">GitHub - infusion/Quaternion.js: A JavaScript Quaternion library</a></p></li>
 </ul>
 </section>
@@ -347,6 +519,17 @@ code:renderer.js
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/gatosyocora/vrm-avatar-editor">GitHub - gatosyocora/vrm-avatar-editor: Web Application Editting VRM Avatar</a></p></li>
 </ul>
+<p>zig で WEBGL互換のラッパーライブラリを作る</p>
+<ul class="simple">
+<li><p>wasm WebGL2</p></li>
+<li><p>Windows/Linux glfw OpenGL4</p></li>
+<li><p>android OpenGL ES3</p></li>
+<li><p><a class="reference external" href="https://www.hypertextcandy.com/live-reload-web-servers">ファイルの変更を監視して自動リロードするローカルWebサーバーの起動方法3選 | Hypertext Candy</a></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">"editor.formatOnSave":</span> <span class="pre">true</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=daiyy.quick-html-previewer">Quick HTML Previewer - Visual Studio Marketplace</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -385,6 +568,11 @@ code:renderer.js
             <ul>
 <li><a class="reference internal" href="#">Version</a><ul>
 <li><a class="reference internal" href="#id1">2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#min-triangle">min triangle</a></li>
+<li><a class="reference internal" href="#lib">lib</a><ul>
+<li><a class="reference internal" href="#math">math</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#editor">editor</a><ul>

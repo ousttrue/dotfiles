@@ -1,82 +1,250 @@
-[[OpenGL]]
-[[wasm]]
+[[OpenGL]] [[wasm]]
 
 [WebGL Overview - The Khronos Group Inc](https://www.khronos.org/webgl/)
 - [WebGL/webgl2.idl at main · KhronosGroup/WebGL · GitHub](https://github.com/KhronosGroup/WebGL/blob/main/specs/2.0.0/webgl2.idl)
-
-- [WebGL - Less Code, More Fun](https://webglfundamentals.org/webgl/lessons/webgl-less-code-more-fun.html)
 - [WebGL: 2D and 3D graphics for the web - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
-	- [WebGL tutorial - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial)
-	- [Adding 2D content to a WebGL context - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context)
-	- [Using shaders to apply color in WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL)
-- [Animating objects with WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_objects_with_WebGL)
-- [Creating 3D objects using WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL)
-- [Using textures in WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL)
-- [Lighting in WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL)
-- [Animating textures in WebGL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL)
-
-zig で WEBGL互換のラッパーライブラリを作る
-- wasm WebGL2
-- Windows/Linux glfw OpenGL4
-- android OpenGL ES3
-
-- [ファイルの変更を監視して自動リロードするローカルWebサーバーの起動方法3選 | Hypertext Candy](https://www.hypertextcandy.com/live-reload-web-servers)
-
-`"editor.formatOnSave": true`
-
-- [Quick HTML Previewer - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=daiyy.quick-html-previewer)
 
 # Version
 ## 2
 
+# min triangle
 
-```html
- <body>
-     <canvas id="glCanvas" width="640" height="480"></canvas>
- </body>
- <script src="renderer.js"></script>
- <script>
-     const renderer = new Renderer("#glCanvas");
-     renderer.frame();
- </script>
+```ts
+const GL = WebGL2RenderingContext;
 
-code:renderer.js
- class Renderer {
- 
-     constructor(canvas_id) {
-         const canvas = document.querySelector(canvas_id);
-         this.gl = canvas.getContext("webgl2");
-         if (this.gl === null) {
-             alert("Unable to initialize WebGL. Your browser or machine may not support it.");
-         }
-     }
- 
-     // animation
-     update(time_ms) {
-         const angle = time_ms * 0.001 * Math.PI;
-         this.bg = Math.sin(angle) + 1;
-         this.clear_color = [this.bg, this.bg, this.bg, 1];
-     }
- 
-     // draw
-     render(gl) {
-         // Set clear color to black, fully opaque
-         gl.clearColor(...this.clear_color);
-         // Clear the color buffer with specified clear color
-         gl.clear(gl.COLOR_BUFFER_BIT);
-     }
- 
-     frame() {
-         this.update(Date.now());
-         this.render(this.gl);
-         requestAnimationFrame(() => { this.frame(); });
-     }
- }
+
+const VS = `#version 300 es
+in vec2 aPosition;
+
+void main()
+{
+  gl_Position = vec4(aPosition, 0, 1);
+}
+`;
+
+const FS = `#version 300 es
+precision mediump float;
+out vec4 _Color;
+
+void main(){
+  _Color = vec4(1,1,1,1);
+}
+`;
+
+// shaderSource
+// compile
+function compileShader(errorPrefix: string, gl: WebGL2RenderingContext,
+  src: string, type: number): WebGLShader {
+  const shader = gl.createShader(type);
+  if (!shader) {
+    throw new Error('createShader');
+  }
+  gl.shaderSource(shader, src);
+  gl.compileShader(shader);
+  if (!gl.getShaderParameter(shader, GL.COMPILE_STATUS)) {
+    const info = gl.getShaderInfoLog(shader);
+    gl.deleteShader(shader);
+    throw new Error(`${errorPrefix}${info}: ${src}`);
+  }
+  return shader;
+}
+
+
+class ShaderProgram implements Disposable {
+  program: WebGLProgram;
+
+  constructor(public readonly gl: WebGL2RenderingContext) {
+    this.program = gl.createProgram()!;
+    if (!this.program) {
+      throw new Error('createProgram');
+    }
+  }
+
+  [Symbol.dispose]() {
+    this.gl.deleteProgram(this.program);
+  }
+
+  link(vs: WebGLShader, fs: WebGLShader) {
+    const gl = this.gl;
+    gl.attachShader(this.program, vs);
+    gl.attachShader(this.program, fs);
+    gl.linkProgram(this.program);
+    if (!gl.getProgramParameter(this.program, GL.LINK_STATUS)) {
+      const info = gl.getProgramInfoLog(this.program);
+      throw new Error(`[LinkProgram]: ${info}`);
+    }
+  }
+
+  // compile, attach, link
+  static create(gl: WebGL2RenderingContext, vsSrc: string, fsSrc: string): ShaderProgram {
+    const vs = compileShader('[VERTEX_SHADER]: ', gl, vsSrc, GL.VERTEX_SHADER);
+    const fs = compileShader('[FRAGMENT_SHADER]: ', gl, fsSrc, GL.FRAGMENT_SHADER);
+    const program = new ShaderProgram(gl);
+    program.link(vs, fs);
+    return program;
+  }
+
+  use(gl: WebGL2RenderingContext) {
+    gl.useProgram(this.program);
+  }
+}
+
+
+class Buffer implements Disposable {
+  buffer: WebGLBuffer;
+  constructor(
+    public readonly gl: WebGL2RenderingContext,
+    public readonly type = GL.ARRAY_BUFFER,
+  ) {
+    this.buffer = gl.createBuffer()!;
+    if (!this.buffer) {
+      throw new Error('createBuffer');
+    }
+  }
+
+  [Symbol.dispose](): void {
+    this.gl.deleteBuffer(this.buffer);
+  }
+
+  static create(gl: WebGL2RenderingContext, bytes: ArrayBuffer): Buffer {
+    const buffer = new Buffer(gl, GL.ARRAY_BUFFER);
+    buffer.upload(bytes);
+    return buffer;
+  }
+
+  upload(bytes: ArrayBuffer) {
+    const gl = this.gl;
+    gl.bindBuffer(this.type, this.buffer);
+    gl.bufferData(this.type, bytes, gl.STATIC_DRAW);
+    gl.bindBuffer(this.type, null);
+  }
+}
+
+
+type VertexAttribute = {
+  buffer: Buffer,
+  componentType: number,
+  componentCount: number,
+  bufferStride: number,
+  bufferOffset: number,
+}
+
+
+class Vao implements Disposable {
+  vao: WebGLVertexArrayObject;
+  constructor(public readonly gl: WebGL2RenderingContext) {
+    this.vao = gl.createVertexArray()!;
+    if (!this.vao) {
+      throw new Error('createVertexArray');
+    }
+  }
+
+  [Symbol.dispose](): void {
+    this.gl.deleteVertexArray(this.vao);
+  }
+
+  static create(gl: WebGL2RenderingContext, attributes: VertexAttribute[]) {
+    const vao = new Vao(gl);
+    gl.bindVertexArray(vao.vao);
+    let location = 0;
+    for (const a of attributes) {
+      gl.bindBuffer(GL.ARRAY_BUFFER, a.buffer.buffer);
+      gl.enableVertexAttribArray(location);
+      gl.vertexAttribPointer(location, a.componentCount, a.componentType, false,
+        a.bufferStride, a.bufferOffset);
+    }
+    gl.bindBuffer(GL.ARRAY_BUFFER, null);
+    gl.bindVertexArray(null);
+    return vao;
+  }
+
+  draw(count: number) {
+    this.gl.bindVertexArray(this.vao);
+    this.gl.drawArrays(GL.TRIANGLES, 0, count);
+    this.gl.bindVertexArray(null);
+  }
+}
+
+
+class Renderer {
+  shader: ShaderProgram | null = null;
+  vbo: Buffer | null = null;
+  vao: Vao | null = null;
+  render(gl: WebGL2RenderingContext) {
+    const { shader, vao } = this.getOrCreate(gl);
+
+    gl.clearColor(0, 0, 0, 1);
+    gl.clear(GL.COLOR_BUFFER_BIT);
+
+    shader.use(gl);
+    vao.draw(6);
+  }
+
+  private getOrCreate(gl: WebGL2RenderingContext): { shader: ShaderProgram, vao: Vao } {
+    let shader = this.shader;
+    if (!shader) {
+      shader = ShaderProgram.create(gl, VS, FS);
+      this.shader = shader;
+    }
+
+    let vao = this.vao;
+    if (!vao) {
+      //  2
+      // 0>1
+      const pos = [
+        -1, -1,
+        1, -1,
+        0, 1,
+      ];
+      const vbo = Buffer.create(gl, new Float32Array(pos).buffer);
+      vao = Vao.create(gl, [
+        {
+          buffer: vbo,
+          bufferStride: 2 * 4,
+          bufferOffset: 0,
+          componentCount: 2,
+          componentType: GL.FLOAT,
+        }
+      ]);
+      this.vao = vao;
+    }
+
+    return { shader, vao };
+  }
+}
+
+
+function onLoaded() {
+
+  const root = document.getElementById('root') as HTMLDivElement;
+	  if (!root) {
+    throw new Error('no root');
+  }
+
+  const canvas = document.createElement('canvas');
+  root.appendChild(canvas);
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  console.log(canvas);
+
+  const gl = canvas.getContext('webgl2');
+  if (!gl) {
+    throw new Error('no webgl2');
+  }
+
+  const r = new Renderer();
+  r.render(gl);
+
+  console.log('end');
+}
+
+document.addEventListener("DOMContentLoaded", onLoaded);
 ```
 
+# lib
+## math
 - [WebGL用のJavaScript行列計算ライブラリMatrixGLを公開しました](https://sbfl.net/blog/2018/02/05/webgl-matrixgl/#i-2)
 - [glMatrix](http://glmatrix.net/)
-- [WebGL model view projection - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection)
 - [GitHub - infusion/Quaternion.js: A JavaScript Quaternion library](https://github.com/infusion/Quaternion.js/)
 
 # editor
@@ -119,3 +287,15 @@ code:renderer.js
 
 ## vrm
 - [GitHub - gatosyocora/vrm-avatar-editor: Web Application Editting VRM Avatar](https://github.com/gatosyocora/vrm-avatar-editor)
+
+
+zig で WEBGL互換のラッパーライブラリを作る
+- wasm WebGL2
+- Windows/Linux glfw OpenGL4
+- android OpenGL ES3
+
+- [ファイルの変更を監視して自動リロードするローカルWebサーバーの起動方法3選 | Hypertext Candy](https://www.hypertextcandy.com/live-reload-web-servers)
+
+`"editor.formatOnSave": true`
+
+- [Quick HTML Previewer - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=daiyy.quick-html-previewer)

@@ -3,6 +3,7 @@
 [[NerdFont]]
 [[glyph]]
 
+[JA:各OSで利用される主要なフォント - The Document Foundation Wiki](https://wiki.documentfoundation.org/JA/Fonts)
 [おすすめフォント](http://yozvox.web.fc2.com/82A882B782B782DF8374834883938367.html)
 
 `Monospace` かつ 全角半角比が 2:1 であるフォントが良い
