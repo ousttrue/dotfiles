@@ -129,9 +129,10 @@ function addPath($path)
     }
 }
 
+addPath($env:USERPROFILE + "\ghq\github.com\junegunn\fzf\bin")
 addPath($env:USERPROFILE + "\build\mingw\bin")
 # addPath($env:USERPROFILE + "/prefix/bin")
-# addPath($env:USERPROFILE + "\.deno\bin")
+addPath($env:USERPROFILE + "\.deno\bin")
 addPath($env:USERPROFILE + "\.cargo\bin")
 # addPath($env:USERPROFILE + "\go\bin")
 insertPath($env:USERPROFILE + "\local\bin")
@@ -172,7 +173,7 @@ if(Test-Path "C:\Python311")
 }
 
 # addPath($env:USERPROFILE + "\local\nim-1.6.8\bin")
-# addPath($env:USERPROFILE + "\local\src\nvim-win64\bin")
+addPath($env:USERPROFILE + "\neovim\bin")
 
 # $env:BAZEL_WINSDK_FULL_VERSION="10.0.22000.0"
 # $env:BAZEL_VS="C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools"
