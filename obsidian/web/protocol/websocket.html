@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>client - shell note ドキュメント</title>
+        <title>API - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,7 +218,14 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="client">
+          <section class="tex2jax_ignore mathjax_ignore" id="api">
+<h1>API<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://developer.mozilla.org/ja/docs/Web/API/WebSocket">WebSocket - Web API | MDN</a></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">ws</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">protocols</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="client">
 <h1>client<a class="headerlink" href="#client" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">protocol</span> <span class="o">=</span> <span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">===</span> <span class="s1">'https:'</span><span class="p">)</span> <span class="o">?</span> <span class="s1">'wss://'</span> <span class="o">:</span> <span class="s1">'ws://'</span><span class="p">;</span>
 <span class="kd">const</span> <span class="nx">socketURL</span> <span class="o">=</span> <span class="nx">protocol</span> <span class="o">+</span> <span class="nx">location</span><span class="p">.</span><span class="nx">hostname</span> <span class="o">+</span> <span class="p">((</span><span class="nx">location</span><span class="p">.</span><span class="nx">port</span><span class="p">)</span> <span class="o">?</span> <span class="p">(</span><span class="s1">':'</span> <span class="o">+</span> <span class="nx">location</span><span class="p">.</span><span class="nx">port</span><span class="p">)</span> <span class="o">:</span> <span class="s1">''</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'/terminals/'</span><span class="p">;</span>
@@ -283,7 +290,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">client</a></li>
+<li><a class="reference internal" href="#">API</a></li>
+<li><a class="reference internal" href="#client">client</a></li>
 <li><a class="reference internal" href="#ws">ws</a><ul>
 <li><a class="reference internal" href="#express-ws">express-ws</a><ul>
 <li><a class="reference internal" href="#wss">wss</a></li>

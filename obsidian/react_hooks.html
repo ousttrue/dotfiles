@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>タイル計算 - shell note ドキュメント</title>
+        <title>useState - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -218,78 +218,29 @@
           </label>
         </div>
         <article role="main">
-          <p>地図タイル
-<code class="docutils literal notranslate"><span class="pre">xyztile</span></code>
-<code class="docutils literal notranslate"><span class="pre">メルカトル図法</span></code>
-<code class="docutils literal notranslate"><span class="pre">256px</span> <span class="pre">-</span> <span class="pre">256px</span></code></p>
-<p>左上 経度180,北緯85
-右下 経度180,南緯85</p>
-<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>zoom level</p></th>
-<th class="head"><p>枚数</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>0</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>2x2</p></td>
-</tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>4x4</p></td>
-</tr>
-<tr class="row-odd"><td><p>3</p></td>
-<td><p>8x8</p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
-<td><p>16x16</p></td>
-</tr>
-</tbody>
-</table></div>
+          <section class="tex2jax_ignore mathjax_ignore" id="usestate">
+<h1>useState<a class="headerlink" href="#usestate" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>状態、render trigger</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="useref">
+<h1>useRef<a class="headerlink" href="#useref" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>メンバ変数</p>
 <ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://ujicya.jp/blog-mapping/xyz-tiles-url/">XYZ Tiles（地図タイル）のURL一覧 | Mapping Life</a></p></li>
-<li><p>@2017 <a class="reference external" href="https://www.cariot.jp/blog/2017/07/14/maptiler/">地図タイルがすべてをつなぐ | クルマと企業をつなぐドライバー働き方改革クラウドCariot（キャリオット）</a></p></li>
-<li><p>@2015 <a class="reference external" href="https://smellman.hatenablog.com/entry/2015/12/26/054520">地図タイルについて - smellman's Broken Diary</a></p></li>
-<li><p><a class="reference external" href="https://www.trail-note.net/tech/tile/">TrailNote : 正方形タイルによる地図の表現</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>タイル計算<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://qiita.com/Kanahiro/items/a085cbc70f8c7d4c590f">特定のジオメトリが含まれるすべてのXYZタイルを取得する #Python - Qiita</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/dove/articles/e2d962e9d69e20">React useRefのパターン ~どのようなときに使う？~</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="epsg-3857">
-<h1>EPSG:3857<a class="headerlink" href="#epsg-3857" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Web</span> <span class="pre">Mecator</span> <span class="pre">Projection</span></code></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>国土地理院<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="usememo-usecallback">
+<h1>useMemo / useCallback<a class="headerlink" href="#usememo-usecallback" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>初期値、依存変数</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://maps.gsi.go.jp/development/sample.html">地理院地図｜地理院タイルを用いたサイト構築サンプル集</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/chot/articles/react-when-to-use-memo">【React】useMemo の使い時をまとめる</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://qiita.com/seira/items/42576765aecc9fa6b2f8">React hooksを基礎から理解する (useMemo編) #JavaScript - Qiita</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://blog.uhy.ooo/entry/2021-02-23/usecallback-custom-hooks/">useCallbackはとにかく使え！　特にカスタムフックでは - uhyo/blog</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="vectortile">
-<h1>VectorTile<a class="headerlink" href="#vectortile" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://maps.gsi.go.jp/development/vt.html">地理院地図｜ベクトルタイルとその提供実験について</a>
-=&gt; [[geojson]] ?</p></li>
-</ul>
-<section id="pbf-mvt">
-<h2>pbf (mvt)<a class="headerlink" href="#pbf-mvt" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2018 <a class="reference external" href="https://qiita.com/cieloazul310/items/32d692a95b87b113bf35">バイナリベクトルタイルを地図ライブラリ以外で扱う #JavaScript - Qiita</a></p></li>
-<li><p>@2017 <a class="reference external" href="https://qiita.com/hfu/items/69fbe24be92654f634da">バイナリベクトルタイルの拡張子が mvt であったり pbf であったりするのはなんでだろう #geo - Qiita</a></p></li>
-</ul>
-</section>
-<section id="osm-open-street-map-vector-tile">
-<h2>osm(open street map) vector tile<a class="headerlink" href="#osm-open-street-map-vector-tile" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://qiita.com/Kanahiro/items/6a98ee285d3de7ac61fc">tilemakerを使って爆速でOSMベクタータイルを作る #OpenStreetMap - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/hfu/items/e7c0318bba67827d4327">gh-pagesで OSM 日本ベクトルタイル提供 #geo - Qiita</a></p></li>
-</ul>
-</section>
+<section class="tex2jax_ignore mathjax_ignore" id="useeffect">
+<h1>useEffect<a class="headerlink" href="#useeffect" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>後で</p>
 </section>
 
         </article>
@@ -305,7 +256,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/zxytile.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/react_hooks.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -325,14 +276,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">タイル計算</a></li>
-<li><a class="reference internal" href="#epsg-3857">EPSG:3857</a></li>
-<li><a class="reference internal" href="#id2">国土地理院</a></li>
-<li><a class="reference internal" href="#vectortile">VectorTile</a><ul>
-<li><a class="reference internal" href="#pbf-mvt">pbf (mvt)</a></li>
-<li><a class="reference internal" href="#osm-open-street-map-vector-tile">osm(open street map) vector tile</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">useState</a></li>
+<li><a class="reference internal" href="#useref">useRef</a></li>
+<li><a class="reference internal" href="#usememo-usecallback">useMemo / useCallback</a></li>
+<li><a class="reference internal" href="#useeffect">useEffect</a></li>
 </ul>
 
           </div>
