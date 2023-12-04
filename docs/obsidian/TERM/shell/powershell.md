@@ -62,8 +62,9 @@ vim $profile
 
 
 #  型
-	```powershell
-"a".GetType()
-
-[math]::pi
+- @2022 [PowerShellの配列と連想配列 | 晴耕雨読](https://tex2e.github.io/blog/powershell/array)
+```powershell
+"a".GetType() // => System.String
+@().GetType() // => System.Object[]
+[math]::pi.GetType() // => Double 
 ```

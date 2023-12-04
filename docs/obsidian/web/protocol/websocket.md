@@ -1,3 +1,12 @@
+# API
+[WebSocket - Web API | MDN](https://developer.mozilla.org/ja/docs/Web/API/WebSocket)
+
+```js
+const ws = new WebSocket(url, protocols);
+
+
+```
+
 
 # client
 

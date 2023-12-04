@@ -61,6 +61,12 @@ Import-Module -Name Terminal-Icons
 #     $path = $pwd.path.Replace($HOME, "~")
 #     return "${path}`n$ "
 # }
+
+$IconMap = @{
+  dotfiles = " "
+  rtc_memo = "⚡"
+}
+
 function prompt()
 {
   # TODO: git status
@@ -68,9 +74,13 @@ function prompt()
   # - dotfiles
   # - ghq
   # - lang
-  $location = (Get-Location);
+  $location = (Get-Item (Get-Location));
   $color = $? ? "32" : "31";
-  $title = "🐫"
+  $title = $location.Name
+  if($IconMap[$title]){
+    $title = $IconMap[$title]
+  }
+
   "`e]2;${title}$([char]0x07)${location}`n`e[${color}m>`e[0m "
 }
 
@@ -130,6 +140,7 @@ function addPath($path)
 }
 
 addPath($env:USERPROFILE + "\ghq\github.com\junegunn\fzf\bin")
+addPath($env:USERPROFILE + "\.fzf\bin")
 addPath($env:USERPROFILE + "\build\mingw\bin")
 # addPath($env:USERPROFILE + "/prefix/bin")
 addPath($env:USERPROFILE + "\.deno\bin")

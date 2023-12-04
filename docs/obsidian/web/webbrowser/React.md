@@ -114,6 +114,7 @@ JSX は transpile 必要。じゃぁ、ついでに TypeScript にしよう。�
 - @2023 [ViteでTypeScript×Reactの開発環境を構築してみた【前編】｜SHIFT Group 技術ブログ](https://note.com/shift_tech/n/n9c5fcd207680)
 
 # hooks
+[[react_hooks]]
 - [ReactでrequestAnimationFrameを扱う](https://zenn.dev/yend724/articles/20211119-x1fph5dvdldsx4po)
 
 # framework

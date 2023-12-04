@@ -9,6 +9,53 @@
 # Version
 ## 4
 
+# setup
+```
+> npm create vite@latest --template react
+
+# or
+> npm -D react react-dom @types/react @types/react-dom @vitejs/plugin-react
+```
+
+`vite.config.js`
+```js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
+```
+
+`index.html`
+```html
+    <div id="root"></div>
+    <script type="module" src="./main.tsx"></script>
+```
+
+`main.tsx`
+```tsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+```
+
+`App.tsx`
+```tsx
+import React from 'react';
+
+export default function App() {
+  return (<></>)
+}
+```
+
 # Typescript + React
 - @2023 [viteでReact×TypeScript環境を爆速で作る最小版 #React - Qiita](https://qiita.com/teradonburi/items/fcdd900adb069811bfda)
 - [フロントエンドの開発環境にVite ＋ TypeScriptを導入する](https://designsupply-web.com/media/programming/7578/)
