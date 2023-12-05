@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>仮想化 - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,43 +212,74 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://endy-tech.hatenablog.jp/entry/kvm_introduction">QEMU、KVM、libvirtの基礎知識まとめ - えんでぃの技術ブログ</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>仮想化<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[qemu]] [[virtualbox]] [[OS/Linux/wsl]] [[kvm]]</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>コンテナ<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[docker]]
-[[podman]]</p>
-<section id="lxd">
-<h2>lxd<a class="headerlink" href="#lxd" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://speakerdeck.com/devops_vtj/dockernipi-retaren-notamenolxddehazimerusisutemukontenaru-men?slide=9">Dockerに疲れた人のためのLXDではじめるシステムコンテナ入門 - Speaker Deck</a></p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="libvirt">
-<h1>libvirt<a class="headerlink" href="#libvirt" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="virt-manager">
-<h2>virt-manager<a class="headerlink" href="#virt-manager" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="cockpit">
-<h2>Cockpit<a class="headerlink" href="#cockpit" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="virsh">
-<h2>virsh<a class="headerlink" href="#virsh" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2015 <a class="reference external" href="https://qiita.com/TsutomuNakamura/items/22d9d2629a8eb9360865">VirshコマンドによるKVMゲストOSの管理 - Qiita</a></p></li>
-</ul>
-</section>
-</section>
+          <div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">React</span> <span class="kr">from</span> <span class="s1">'react'</span>
+<span class="k">import</span> <span class="s1">'./App.css'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Renderer</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'./webgl.js'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// canvas reference</span>
+  <span class="kd">const</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useRef</span><span class="o">&lt;</span><span class="nx">HTMLCanvasElement</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+  <span class="c1">// renderer</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">state</span><span class="p">,</span> <span class="nx">setState</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="o">&lt;</span><span class="nx">Renderer</span> <span class="o">|</span> <span class="kc">null</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+  <span class="kd">function</span> <span class="nx">getOrCreateState</span><span class="p">()</span><span class="o">:</span> <span class="nx">Renderer</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// current size</span>
+    <span class="kd">const</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nx">ref</span><span class="p">.</span><span class="nx">current</span><span class="o">!</span><span class="p">;</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">clientWidth</span><span class="p">;</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">clientHeight</span><span class="p">;</span>
+    <span class="c1">// observe size</span>
+    <span class="kd">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">ResizeObserver</span><span class="p">((</span><span class="nx">_</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nx">ref</span><span class="p">.</span><span class="nx">current</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">canvas</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">clientWidth</span><span class="p">;</span>
+        <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">clientHeight</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="nx">observer</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="nx">canvas</span><span class="p">);</span>
+
+    <span class="kd">const</span> <span class="nx">gl</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">'webgl2'</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">gl</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="ow">new</span> <span class="ne">Error</span><span class="p">(</span><span class="s1">'no webgl2'</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">const</span> <span class="nx">newState</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Renderer</span><span class="p">(</span><span class="nx">gl</span><span class="p">,</span> <span class="nx">observer</span><span class="p">);</span>
+    <span class="nx">setState</span><span class="p">(</span><span class="nx">newState</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">newState</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">React</span><span class="p">.</span><span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">ref</span><span class="p">.</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">getOrCreateState</span><span class="p">();</span>
+
+    <span class="c1">// render current time</span>
+    <span class="nx">state</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">ref</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">ref</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">height</span><span class="p">,</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">());</span>
+  <span class="p">});</span>
+
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+  <span class="nx">requestAnimationFrame</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// kick animation</span>
+    <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mf">1</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">canvas</span> <span class="nx">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">ref</span><span class="p">}</span> <span class="o">/&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span>
+</pre></div>
+</div>
 
         </article>
       </div>
@@ -263,7 +294,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/OS/virtualization/virtualization.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/web/react/react_webgl.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -271,34 +302,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">仮想化</a></li>
-<li><a class="reference internal" href="#id2">コンテナ</a><ul>
-<li><a class="reference internal" href="#lxd">lxd</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#libvirt">libvirt</a><ul>
-<li><a class="reference internal" href="#virt-manager">virt-manager</a></li>
-<li><a class="reference internal" href="#cockpit">Cockpit</a></li>
-<li><a class="reference internal" href="#virsh">virsh</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

@@ -31,6 +31,7 @@ export default function App() {
 	- [Adding Interactivity – React Flow](https://reactflow.dev/learn/getting-started/adding-interactivity) 
 - [Tutorials – React Flow](https://reactflow.dev/learn/tutorials)
 	- @2023 [Integrating React Flow and the Web Audio API – React Flow](https://reactflow.dev/learn/tutorials/react-flow-and-the-web-audio-api)
+	-  [GitHub - xyflow/react-flow-web-audio: A simple Web Audio playground built with React Flow. Follow the tutorial to learn how to build it yourself.](https://github.com/xyflow/react-flow-web-audio)
 
 # sample
 - [Schema Visualizer](https://sqlhabit.github.io/sql_schema_visualizer/)
@@ -39,6 +40,7 @@ export default function App() {
 - [GitHub - JULLIAIP/ProjetoCircles: ReactFlow](https://github.com/JULLIAIP/ProjetoCircles)
 - [S](https://kaleidoscopic-arithmetic-3b682b.netlify.app/)
 - [WorkFlow Automation-v-1.001](https://workflowautomation.netlify.app/)
+- [GitHub - beeglebug/behave-flow: a ui for behave-graph using react-flow](https://github.com/beeglebug/behave-flow)
 
 
 
