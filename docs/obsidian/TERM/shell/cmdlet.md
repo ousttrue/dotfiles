@@ -1,5 +1,9 @@
+[[powershell]]
 
-# move-item
+# get-command(gcm)
+
+
+# move-item(move)
 [Move-Item (Microsoft.PowerShell.Management) - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.management/move-item?view=powershell-7.3)
 
 # remove-item

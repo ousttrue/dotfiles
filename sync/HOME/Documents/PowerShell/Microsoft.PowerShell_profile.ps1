@@ -139,6 +139,8 @@ function addPath($path)
     }
 }
 
+$env:FZF_DEFAULT_OPTS="--layout=reverse"
+
 addPath($env:USERPROFILE + "\ghq\github.com\junegunn\fzf\bin")
 addPath($env:USERPROFILE + "\.fzf\bin")
 addPath($env:USERPROFILE + "\build\mingw\bin")
@@ -202,14 +204,14 @@ addPath($env:USERPROFILE + "\neovim\bin")
 # oh-my-posh init pwsh --config ~/.custom.omp.json | Invoke-Expression
 
 # For zoxide v0.8.0+
-Invoke-Expression (& {
-        $hook = if ($PSVersionTable.PSVersion.Major -lt 6)
-        { 'prompt' 
-        } else
-        { 'pwd' 
-        }
-    (zoxide init --hook $hook powershell | Out-String)
-    })
+# Invoke-Expression (& {
+#         $hook = if ($PSVersionTable.PSVersion.Major -lt 6)
+#         { 'prompt' 
+#         } else
+#         { 'pwd' 
+#         }
+#     (zoxide init --hook $hook powershell | Out-String)
+#     })
 
 # cd ghq
 function gg
@@ -307,3 +309,13 @@ function v()
 #     }
 # }
 
+# https://qiita.com/SAITO_Keita/items/f1832b34a9946fc8c716
+# Install-Module -Name PSFzf -scope currentUser
+# Install-Module -Name ZLocation -scope currentUser
+
+# PSFzfの読み込みとAlias有効化
+Import-Module PSFzf
+Enable-PsFzfAliases
+# ZLocationの読み込み
+Import-Module ZLocation
+Set-Alias fcd Invoke-FuzzySetLocation
