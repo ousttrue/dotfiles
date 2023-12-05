@@ -1,5 +1,6 @@
 - [HTMLのdraggable属性でユーザが要素を自由に配置できるようにする](https://zenn.dev/mai/articles/cec0746ab1052e)
 - [Three.js(WebGL)で一年以上学習した成果と便利なクラス/ライブラリを紹介](https://zenn.dev/uemuragame5683/articles/e2777b5b956f81)
+- `vite` @2021 [Three.js で 3D モデル(glTF)を表示する | Octo's blog](https://www.ccbaxy.xyz/blog/2021/04/01/js16/)
 - @2021 [Three.js であそんでみたよ　#techtekt Advent Calendar 2022 - techtekt](https://techtekt.persol-career.co.jp/entry/tech/221213_01)
 
 
@@ -67,3 +68,6 @@ void main() {
 
 # instancing
 [three.js interactive cubes / openscience | Observable](https://observablehq.com/@openscience/three-js-interactive-cubes)
+
+# char
+[Creating 3D Characters in Three.js | Codrops](https://tympanus.net/codrops/2021/10/04/creating-3d-characters-in-three-js/)
