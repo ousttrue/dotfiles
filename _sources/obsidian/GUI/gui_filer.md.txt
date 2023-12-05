@@ -1,4 +1,6 @@
 
+- [FreeCommander XEの紹介](https://zenn.dev/mebiusbox/articles/adad5b0941e59e)
+
 # Windows
 - [GitHub - derceg/explorerplusplus: Explorer++ is a lightweight and fast file manager for Windows](https://github.com/derceg/explorerplusplus)
 - [GitHub - FarGroup/FarManager: File and Archive Manager](https://github.com/FarGroup/FarManager)
