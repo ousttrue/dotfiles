@@ -5,6 +5,11 @@
 
 # コンテナ
 [[docker]]
+[[podman]]
+
+## lxd
+[Dockerに疲れた人のためのLXDではじめるシステムコンテナ入門 - Speaker Deck](https://speakerdeck.com/devops_vtj/dockernipi-retaren-notamenolxddehazimerusisutemukontenaru-men?slide=9)
+
 
 # libvirt
 ## virt-manager
