@@ -7,25 +7,44 @@
 - @2021 [Electron入門 \~ Webの技術でつくるデスクトップアプリ](https://zenn.dev/sprout2000/books/6f6a0bf2fd301c)
 - @2020 [OSSのJSONエディタをElectronアプリに移植した - マルシテイア](https://blog.amagi.dev/entry/json-editor-app)
 
-# memo
-- [Fuse.js | Fuse.js](https://www.fusejs.io/)
-	- @2020 [How to Create a Fuzzy Search in React JS Using Fuse.JS | by Naveen DA | Analytics Vidhya | Medium](https://medium.com/analytics-vidhya/how-to-create-a-fuzzy-search-in-react-js-using-fuse-js-859f80345657)
-	 - [React Fuzzy Searcher](https://goelhardik.github.io/react-fuzzy-searcher/)
-
-# article
+# 構成 
 ## electron-vite
-名前被り
+名前被り。これ使うべし
+`vite` `electron` `typescript` `react`
+
 [Electron⚡️Vite | Electron⚡️Vite](https://electron-vite.github.io/)
 
 ```sh
-> npm install -D vite vite-plugin-electron vite-plugin-electron-renderer
+# start(vite + react + typescript + electron)
+> npm create electron-vite@latest
+
+# append
+> npm i -D @types/node
 ```
 
 `package.json`
 ```json
-{
-  "main": "dist-electron/main.js",
-}
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
+    "@vitejs/plugin-react": "^4.0.4",
+    "eslint": "^8.48.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "electron": "^26.1.0",
+    "electron-builder": "^24.6.4",
+    "vite-plugin-electron": "^0.14.0",
+    "vite-plugin-electron-renderer": "^0.14.5"
+  },
+  "main": "dist-electron/main.js"
 ```
 
 `vite.config.js`
@@ -57,7 +76,7 @@ export default defineConfig({
 })
 ```
 
-`load`
+`load` 
 ```js
 const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL']
 
@@ -78,35 +97,12 @@ if (VITE_DEV_SERVER_URL) {
 ## typescript
 - `parcel` @2022 [【入門】ElectronをTypeScriptで手軽に試したい](https://zenn.dev/lowpaper/articles/89caa5cdddfd89)
 
+## vue
+- @2022 [vite(+vue)+electronでアプリをビルドする #Vue.js - Qiita](https://qiita.com/Quantum/items/00fe28792bb869aa4f65)
 
-# 構成
+# devtool
 
-```sh
-> npm install --save-dev electron
-
-> npx electron main.js
-```
-
-## src/main/index.ts
-`entry point`
-
-```js
-import { BrowserWindow, app, ipcMain, IpcMainInvokeEvent } from 'electron'
-import path from "path";
-
-// render の指定
-const mainURL = `file://${__dirname}/render/index.html`
-
-// or
-
-// HMR for renderer base on electron-vite cli.
-// Load the remote URL for development or the local html file for production.
-if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-	mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
-} else {
-	mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
-}
-```
-
-## src/renderer/index.html
-`entry point` 内で指定する。
+# memo
+- [Fuse.js | Fuse.js](https://www.fusejs.io/)
+	- @2020 [How to Create a Fuzzy Search in React JS Using Fuse.JS | by Naveen DA | Analytics Vidhya | Medium](https://medium.com/analytics-vidhya/how-to-create-a-fuzzy-search-in-react-js-using-fuse-js-859f80345657)
+	 - [React Fuzzy Searcher](https://goelhardik.github.io/react-fuzzy-searcher/)

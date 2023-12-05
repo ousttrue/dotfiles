@@ -20,6 +20,8 @@
 [GitHub - errno-mmd/smoothvmd: make VMD motion smooth and slim](https://github.com/errno-mmd/smoothvmd)
 
 # Model
+[MMDモデル - 無駄Pの無駄空間。](http://mmdwars.web.fc2.com/model.html)
+
 ## 原神
 - [【原神】公式MMDモデル配布一覧（3.0～3.8） 原神 | HoYoLAB](https://www.hoyolab.com/article/7165347)
 

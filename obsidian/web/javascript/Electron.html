@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>memo - shell note ドキュメント</title>
+        <title>構成 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -227,30 +227,42 @@
 <li><p>@2021 <a class="reference external" href="https://zenn.dev/sprout2000/books/6f6a0bf2fd301c">Electron入門 ~ Webの技術でつくるデスクトップアプリ</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://blog.amagi.dev/entry/json-editor-app">OSSのJSONエディタをElectronアプリに移植した - マルシテイア</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="memo">
-<h1>memo<a class="headerlink" href="#memo" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.fusejs.io/">Fuse.js | Fuse.js</a></p>
-<ul>
-<li><p>@2020 <a class="reference external" href="https://medium.com/analytics-vidhya/how-to-create-a-fuzzy-search-in-react-js-using-fuse-js-859f80345657">How to Create a Fuzzy Search in React JS Using Fuse.JS | by Naveen DA | Analytics Vidhya | Medium</a></p></li>
-<li><p><a class="reference external" href="https://goelhardik.github.io/react-fuzzy-searcher/">React Fuzzy Searcher</a></p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="article">
-<h1>article<a class="headerlink" href="#article" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>構成<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="electron-vite">
 <h2>electron-vite<a class="headerlink" href="#electron-vite" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>名前被り
-<a class="reference external" href="https://electron-vite.github.io/">Electron⚡️Vite | Electron⚡️Vite</a></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; npm install -D vite vite-plugin-electron vite-plugin-electron-renderer
+<p>名前被り。これ使うべし
+<code class="docutils literal notranslate"><span class="pre">vite</span></code> <code class="docutils literal notranslate"><span class="pre">electron</span></code> <code class="docutils literal notranslate"><span class="pre">typescript</span></code> <code class="docutils literal notranslate"><span class="pre">react</span></code></p>
+<p><a class="reference external" href="https://electron-vite.github.io/">Electron⚡️Vite | Electron⚡️Vite</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># start(vite + react + typescript + electron)</span>
+&gt; npm create electron-vite@latest
+
+<span class="c1"># append</span>
+&gt; npm i -D @types/node
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">package.json</span></code></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dist-electron/main.js"</span><span class="p">,</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^18.2.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"react-dom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^18.2.0"</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@types/react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^18.2.21"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@types/react-dom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^18.2.7"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@typescript-eslint/eslint-plugin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.6.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@typescript-eslint/parser"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.6.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"@vitejs/plugin-react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.0.4"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"eslint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^8.48.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"eslint-plugin-react-hooks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.6.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"eslint-plugin-react-refresh"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^0.4.3"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"typescript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.2.2"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"vite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.4.9"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"electron"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^26.1.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"electron-builder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^24.6.4"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"vite-plugin-electron"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^0.14.0"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"vite-plugin-electron-renderer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^0.14.5"</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dist-electron/main.js"</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">vite.config.js</span></code></p>
@@ -293,8 +305,8 @@
 </pre></div>
 </div>
 </section>
-<section id="id1">
-<h2>electron-vite<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id2">
+<h2>electron-vite<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>名前被り
 使い方がわからんかった。
 <a class="reference external" href="https://evite.netlify.app/">electron-vite | Next Generation Electron Build Tooling</a></p>
@@ -308,39 +320,26 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">parcel</span></code> @2022 <a class="reference external" href="https://zenn.dev/lowpaper/articles/89caa5cdddfd89">【入門】ElectronをTypeScriptで手軽に試したい</a></p></li>
 </ul>
 </section>
+<section id="vue">
+<h2>vue<a class="headerlink" href="#vue" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://qiita.com/Quantum/items/00fe28792bb869aa4f65">vite(+vue)+electronでアプリをビルドする #Vue.js - Qiita</a></p></li>
+</ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>構成<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; npm install --save-dev electron
-
-&gt; npx electron main.js
-</pre></div>
-</div>
-<section id="src-main-index-ts">
-<h2>src/main/index.ts<a class="headerlink" href="#src-main-index-ts" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">entry</span> <span class="pre">point</span></code></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserWindow</span><span class="p">,</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">ipcMain</span><span class="p">,</span> <span class="nx">IpcMainInvokeEvent</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'electron'</span>
-<span class="k">import</span> <span class="nx">path</span> <span class="kr">from</span> <span class="s2">"path"</span><span class="p">;</span>
-
-<span class="c1">// render の指定</span>
-<span class="kd">const</span> <span class="nx">mainURL</span> <span class="o">=</span> <span class="sb">`file://</span><span class="si">${</span><span class="nx">__dirname</span><span class="si">}</span><span class="sb">/render/index.html`</span>
-
-<span class="c1">// or</span>
-
-<span class="c1">// HMR for renderer base on electron-vite cli.</span>
-<span class="c1">// Load the remote URL for development or the local html file for production.</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">is</span><span class="p">.</span><span class="nx">dev</span> <span class="o">&amp;&amp;</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">[</span><span class="s1">'ELECTRON_RENDERER_URL'</span><span class="p">])</span> <span class="p">{</span>
-	<span class="nx">mainWindow</span><span class="p">.</span><span class="nx">loadURL</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">[</span><span class="s1">'ELECTRON_RENDERER_URL'</span><span class="p">])</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-	<span class="nx">mainWindow</span><span class="p">.</span><span class="nx">loadFile</span><span class="p">(</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'../renderer/index.html'</span><span class="p">))</span>
-<span class="p">}</span>
-</pre></div>
-</div>
 </section>
-<section id="src-renderer-index-html">
-<h2>src/renderer/index.html<a class="headerlink" href="#src-renderer-index-html" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">entry</span> <span class="pre">point</span></code> 内で指定する。</p>
+<section class="tex2jax_ignore mathjax_ignore" id="devtool">
+<h1>devtool<a class="headerlink" href="#devtool" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="memo">
+<h1>memo<a class="headerlink" href="#memo" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.fusejs.io/">Fuse.js | Fuse.js</a></p>
+<ul>
+<li><p>@2020 <a class="reference external" href="https://medium.com/analytics-vidhya/how-to-create-a-fuzzy-search-in-react-js-using-fuse-js-859f80345657">How to Create a Fuzzy Search in React JS Using Fuse.JS | by Naveen DA | Analytics Vidhya | Medium</a></p></li>
+<li><p><a class="reference external" href="https://goelhardik.github.io/react-fuzzy-searcher/">React Fuzzy Searcher</a></p></li>
+</ul>
+</li>
+</ul>
 </section>
 
         </article>
@@ -376,18 +375,15 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">memo</a></li>
-<li><a class="reference internal" href="#article">article</a><ul>
+<li><a class="reference internal" href="#">構成</a><ul>
 <li><a class="reference internal" href="#electron-vite">electron-vite</a></li>
-<li><a class="reference internal" href="#id1">electron-vite</a></li>
+<li><a class="reference internal" href="#id2">electron-vite</a></li>
 <li><a class="reference internal" href="#typescript">typescript</a></li>
+<li><a class="reference internal" href="#vue">vue</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id2">構成</a><ul>
-<li><a class="reference internal" href="#src-main-index-ts">src/main/index.ts</a></li>
-<li><a class="reference internal" href="#src-renderer-index-html">src/renderer/index.html</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#devtool">devtool</a></li>
+<li><a class="reference internal" href="#memo">memo</a></li>
 </ul>
 
           </div>
