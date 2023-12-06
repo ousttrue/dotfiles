@@ -330,3 +330,5 @@ function v()
 # ZLocationの読み込み
 # Import-Module ZLocation
 # Set-Alias fcd Invoke-FuzzySetLocation
+Set-Alias ls lsd
+
