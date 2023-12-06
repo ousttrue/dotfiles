@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>get-command(gcm) - shell note ドキュメント</title>
+        <title>builtin - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -219,28 +219,74 @@
         </div>
         <article role="main">
           <p>[[powershell]]</p>
-<section class="tex2jax_ignore mathjax_ignore" id="get-command-gcm">
-<h1>get-command(gcm)<a class="headerlink" href="#get-command-gcm" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://one-sthead.hatenablog.com/entry/2019/09/04/142925">Powershellのコマンドレット(Cmdlet)と関数(Function) - One Step Ahead</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="builtin">
+<h1>builtin<a class="headerlink" href="#builtin" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="get-command-gcm">
+<h2>get-command(gcm)<a class="headerlink" href="#get-command-gcm" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="move-item-move">
-<h1>move-item(move)<a class="headerlink" href="#move-item-move" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="move-item-move">
+<h2>move-item(move)<a class="headerlink" href="#move-item-move" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.management/move-item?view=powershell-7.3">Move-Item (Microsoft.PowerShell.Management) - PowerShell | Microsoft Learn</a></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="remove-item">
-<h1>remove-item<a class="headerlink" href="#remove-item" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="remove-item">
+<h2>remove-item<a class="headerlink" href="#remove-item" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">rm</span></code>
 https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.management/remove-item?view=powershell-7.3</p>
 <section id="folder">
-<h2>folder<a class="headerlink" href="#folder" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>folder<a class="headerlink" href="#folder" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Remove-Item</span> <span class="pre">-Recurse</span> <span class="pre">path</span></code></p>
 <p>複数
 <code class="docutils literal notranslate"><span class="pre">Remove-Item</span> <span class="pre">-Recurse</span> <span class="pre">a,b,c</span></code></p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="import-module">
-<h1>import-module<a class="headerlink" href="#import-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="new-item">
+<h2>new-item<a class="headerlink" href="#new-item" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-ps1 notranslate"><div class="highlight"><pre><span></span><span class="p">&gt;</span> <span class="nb">New-Item</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">HOGE</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://www.ipentec.com/document/powershell-create-directory">フォルダを作成する / ディレクトリを作成する : PowerShell Tips | iPentec</a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="third-party">
+<h1>third-party<a class="headerlink" href="#third-party" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="poco">
+<h2>poco<a class="headerlink" href="#poco" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/jasonmarcher/poco">GitHub - jasonmarcher/poco: Interactive pipeline filtering in PowerShell (a port of peco).</a></p></li>
+<li><p><a class="reference external" href="https://github.com/krymtkts/pocof">GitHub - krymtkts/pocof: An interactive pipeline filtering Cmdlet for PowerShell written in F#.</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="module">
+<h1>module<a class="headerlink" href="#module" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="import-module">
+<h2>import-module<a class="headerlink" href="#import-module" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/import-module?view=powershell-7.4">Import-Module (Microsoft.PowerShell.Core) - PowerShell | Microsoft Learn</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fsharp">
+<h1>Fsharp<a class="headerlink" href="#fsharp" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[fsharp]]
+<a class="reference external" href="https://webcoder.info/fspsmodule.html">Writing a PowerShell Core Module With F#, A Complete Guide | Brianary</a></p>
+<ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://medium.com/@natelehman/writing-powershell-modules-in-f-ed52704d97ed">Writing PowerShell Modules in F#. This article will give you step-by-step… | by Nate Lehman | Medium</a></p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; dotnet new classlib -lang <span class="s1">'F#'</span> -o src/MyPSModule
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://taidalog.hatenablog.com/entry/2023/01/31/080000">PowerShell の Cmdlet を F# で書く - タイダログ</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/taidalog/FSharp-Cmdlet-Study">GitHub - taidalog/FSharp-Cmdlet-Study: Studying note for creating PowerShell Cmdlets with F#. For both Windows PowerShell and PowerShell.</a></p></li>
+</ul>
+</li>
+<li><p>@2023 <a class="reference external" href="https://krymtkts.github.io/posts/2023-03-05-writing-cmdlet-in-fsharp-pt14">krymtkts - F#でコマンドレットを書いてる pt.14</a></p></li>
+<li><p>@2014 <a class="reference external" href="https://qiita.com/minfuk/items/e3562d84b4c2fb460b2d">F#でPowerShellのカスタムコマンドレットを作ってみた #PowerShell - Qiita</a></p></li>
 </ul>
 </section>
 
@@ -277,13 +323,25 @@ https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.managem
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">get-command(gcm)</a></li>
+<li><a class="reference internal" href="#">builtin</a><ul>
+<li><a class="reference internal" href="#get-command-gcm">get-command(gcm)</a></li>
 <li><a class="reference internal" href="#move-item-move">move-item(move)</a></li>
 <li><a class="reference internal" href="#remove-item">remove-item</a><ul>
 <li><a class="reference internal" href="#folder">folder</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#new-item">new-item</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#third-party">third-party</a><ul>
+<li><a class="reference internal" href="#poco">poco</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module">module</a><ul>
 <li><a class="reference internal" href="#import-module">import-module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fsharp">Fsharp</a></li>
 </ul>
 
           </div>

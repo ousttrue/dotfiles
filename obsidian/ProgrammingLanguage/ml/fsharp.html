@@ -221,6 +221,12 @@
           <p>[[dotNET]]</p>
 <p><a class="reference external" href="https://midoliy.com/content/fsharp/index.html">F#リファレンス</a>
 <a class="reference external" href="https://dotnet.microsoft.com/ja-jp/learn/languages/fsharp-hello-world-tutorial/create">F# チュートリアル |.NET | Hello World を 5 分で</a></p>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://qiita.com/kxkx5150/items/febceda472f6e3e356a5">F#を始める時に役立つ資料 #.NET - Qiita</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://karino2.github.io/2021/02/06/fsx_eval_based_dev.html">F# でのfsxベースの開発 - なーんだ、ただの水たまりじゃないか</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://tech.guitarrapc.com/entry/2016/09/04/054641">F# をLearning F# をかじりながら学んでみる - tech.guitarrapc.cóm</a></p></li>
+<li><p><a class="reference external" href="https://krymtkts.github.io/tags/fsharp.html">krymtkts - Tags - fsharp</a></p></li>
+</ul>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id1">
@@ -230,6 +236,31 @@
 <li><p>@2023 <a class="reference external" href="https://qiita.com/262144/items/01a3023612116180278e">F# 8 のリリースで F# が最強の言語になってしまった件 #.NET - Qiita</a></p></li>
 </ul>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="open">
+<h1>open<a class="headerlink" href="#open" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2021 <a class="reference external" href="https://karino2.github.io/2021/01/16/ionide_nuget.html">F#でNuGetのライブラリを使う - なーんだ、ただの水たまりじゃないか</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/happy_packet/items/41d6688f8ddf3b953508">F# Interactive(fsi)で新しいパッケージマネジメントの記法を使う。ついでにCanopyで遊ぶ。 #.NETCore - Qiita</a></p></li>
+</ul>
+<section id="nuget">
+<h2>nuget<a class="headerlink" href="#nuget" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="glfw">
+<h3>glfw<a class="headerlink" href="#glfw" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>current に <code class="docutils literal notranslate"><span class="pre">glfw.dll</span></code> を配置</p>
+<div class="highlight-fsx notranslate"><div class="highlight"><pre><span></span>#r "nuget: FsGlfw"
+printfn "init: %d" (Glfw3.init ())
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="load">
+<h1>load<a class="headerlink" href="#load" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-fs notranslate"><div class="highlight"><pre><span></span>#load "FileName.fs"
+open ModuleName // import symbols
+</pre></div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="formatter">
 <h1>formatter<a class="headerlink" href="#formatter" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -255,11 +286,54 @@
 <h1>Powershell<a class="headerlink" href="#powershell" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[powershell]]</p>
 <ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://taidalog.hatenablog.com/entry/2023/01/31/080000">PowerShell の Cmdlet を F# で書く - タイダログ</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://zenn.dev/terasakisatoshi/scraps/df990c656da85c">飼い主, F# の環境構築したってよ</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://taidalog.hatenablog.com/entry/2021/11/26/183000">PowerShell 片手に F# を始める - タイダログ</a></p></li>
-<li><p>@2014 <a class="reference external" href="https://qiita.com/minfuk/items/e3562d84b4c2fb460b2d">F#でPowerShellのカスタムコマンドレットを作ってみた #PowerShell - Qiita</a></p></li>
 </ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gpu">
+<h1>gpu<a class="headerlink" href="#gpu" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/w0lya/fsharp-3d-and-gamedev">GitHub - w0lya/fsharp-3d-and-gamedev: Resources on 3D Graphics Programming and Game Development in F#</a></p></li>
+</ul>
+<section id="wgpu-fsharp-native">
+<h2>WGPU.FSharp.Native<a class="headerlink" href="#wgpu-fsharp-native" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nuget.org/packages/WGPU.FSharp.Native/">NuGet Gallery | WGPU.FSharp.Native 0.12.0.2</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ginger-code/WGPU.Native/tree/main/examples/FSharp">FSharp</a></p></li>
+</ul>
+</section>
+<section id="sharpvk">
+<h2>sharpvk<a class="headerlink" href="#sharpvk" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nuget.org/packages/SharpVk/0.3.4">NuGet Gallery | SharpVk 0.3.4</a></p></li>
+</ul>
+</section>
+<section id="opengl">
+<h2>OpenGL<a class="headerlink" href="#opengl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matcha-choco010.net/2020/03/29/opengl-glfw-window/">Windows 10でOpenGLをGLFWとGLEW、GLMで開発する環境を作りWindowを表示する | 測度ゼロの抹茶チョコ</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/7shi/items/efdf0ae04a24bc1b7623">F#にOpenGLの歯車デモを移植 #C - Qiita</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tui">
+<h1>TUI<a class="headerlink" href="#tui" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/DieselMeister/Terminal.Gui.Elmish">GitHub - DieselMeister/Terminal.Gui.Elmish: An elmish wrapper around Miguel de Icaza's 'Gui.cs' https://github.com/migueldeicaza/gui.cs including a fable like view DSL.</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/gui-cs/Terminal.Gui">GitHub - gui-cs/Terminal.Gui: Cross Platform Terminal UI toolkit for .NET</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="error">
+<h1>error<a class="headerlink" href="#error" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="fsproj-error-msb4020">
+<h2>fsproj error MSB4020<a class="headerlink" href="#fsproj-error-msb4020" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>  <span class="nt">&lt;Import</span> <span class="na">Project=</span><span class="s">"$(FSharpTargetsPath)"</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -299,6 +373,14 @@
 <li><a class="reference internal" href="#id1">8</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#open">open</a><ul>
+<li><a class="reference internal" href="#nuget">nuget</a><ul>
+<li><a class="reference internal" href="#glfw">glfw</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#load">load</a></li>
 <li><a class="reference internal" href="#formatter">formatter</a></li>
 <li><a class="reference internal" href="#languager-server">languager server</a><ul>
 <li><a class="reference internal" href="#fsautocomplete">FsAutoComplete</a></li>
@@ -306,6 +388,17 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#powershell">Powershell</a></li>
+<li><a class="reference internal" href="#gpu">gpu</a><ul>
+<li><a class="reference internal" href="#wgpu-fsharp-native">WGPU.FSharp.Native</a></li>
+<li><a class="reference internal" href="#sharpvk">sharpvk</a></li>
+<li><a class="reference internal" href="#opengl">OpenGL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tui">TUI</a></li>
+<li><a class="reference internal" href="#error">error</a><ul>
+<li><a class="reference internal" href="#fsproj-error-msb4020">fsproj error MSB4020</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

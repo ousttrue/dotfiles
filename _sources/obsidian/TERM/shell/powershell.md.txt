@@ -1,5 +1,7 @@
 [[dotNET]]
 
+- @2023 [PowerShellの起動を速くする | PowerShell from Japan!! Blog](https://blog.powershell-from.jp/?p=276)
+- @2023 [PowerShell+fzfでコマンド入力支援](https://zenn.dev/mebiusbox/articles/b922c7e6ded49a)
 - @2021 [PowerShellモジュールのPSFzfとZLocationをつかってみる #PowerShell - Qiita](https://qiita.com/SAITO_Keita/items/f1832b34a9946fc8c716)
 - @2018 [今すぐalias登録すべきPowerShellワンライナー #VSCode - Qiita](https://qiita.com/mu_sette/items/3954759daee8ae9ad26f)
 - [PowerShell+fzfでコマンド入力支援](https://zenn.dev/mebiusbox/articles/b922c7e6ded49a)
