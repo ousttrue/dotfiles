@@ -74,8 +74,8 @@ function prompt()
   # - dotfiles
   # - ghq
   # - lang
-  $location = (Get-Item (Get-Location));
   $color = $? ? "32" : "31";
+  $location = (Get-Item (Get-Location));
   $title = $location.Name
   if($IconMap[$title]){
     $title = $IconMap[$title]
@@ -204,14 +204,14 @@ addPath($env:USERPROFILE + "\neovim\bin")
 # oh-my-posh init pwsh --config ~/.custom.omp.json | Invoke-Expression
 
 # For zoxide v0.8.0+
-# Invoke-Expression (& {
-#         $hook = if ($PSVersionTable.PSVersion.Major -lt 6)
-#         { 'prompt' 
-#         } else
-#         { 'pwd' 
-#         }
-#     (zoxide init --hook $hook powershell | Out-String)
-#     })
+Invoke-Expression (& {
+        $hook = if ($PSVersionTable.PSVersion.Major -lt 6)
+        { 'prompt' 
+        } else
+        { 'pwd' 
+        }
+    (zoxide init --hook $hook powershell | Out-String)
+    })
 
 # cd ghq
 function gg
@@ -317,5 +317,5 @@ function v()
 Import-Module PSFzf
 Enable-PsFzfAliases
 # ZLocationの読み込み
-Import-Module ZLocation
-Set-Alias fcd Invoke-FuzzySetLocation
+# Import-Module ZLocation
+# Set-Alias fcd Invoke-FuzzySetLocation
