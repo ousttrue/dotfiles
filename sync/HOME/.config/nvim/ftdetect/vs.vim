@@ -1,1 +1,1 @@
-autocmd! BufNewFile,BufRead *.fs set ft=glsl
+" autocmd! BufNewFile,BufRead *.fs set ft=glsl

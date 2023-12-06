@@ -47,7 +47,7 @@ return {
     },
   },
   -- { "RRethy/vim-illuminate" },
-  { "tikhomirov/vim-glsl" },
+  -- { "tikhomirov/vim-glsl" },
   { "vala-lang/vala.vim" },
   {
     "uga-rosa/ccc.nvim",
@@ -67,4 +67,13 @@ return {
   },
   { "tpope/vim-surround" },
   { "elel-dev/vim-astro-syntax" },
+  -- fs
+  -- { "autozimu/LanguageClient-neovim" },
+  -- { "johngalambos/neovim-fsharp" },
+  {
+    "ionide/Ionide-vim",
+    config = function()
+      require("ionide").setup {}
+    end,
+  },
 }

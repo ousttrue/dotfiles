@@ -181,6 +181,10 @@ function M.setup()
   }))
 
   require("lspconfig").astro.setup {}
+
+  -- dotnet tool install --global fsautocomplete
+  -- dotnet tool install --global fantomas
+  -- require("lspconfig").fsautocomplete.setup {}
 end
 
 return M
