@@ -66,6 +66,12 @@ vim $profile
 ## .exe, .bat, .cmd ...
 
 
+# module
+[[powershell_module]]
+
+# provider
+[[powershell_provider]]
+
 #  型
 - @2022 [PowerShellの配列と連想配列 | 晴耕雨読](https://tex2e.github.io/blog/powershell/array)
 ```powershell
