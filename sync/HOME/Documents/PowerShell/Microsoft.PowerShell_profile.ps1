@@ -30,6 +30,7 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+Oem4' -Function RevertLine
 Import-Module -Name CompletionPredictor
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
+Import-Module posh-git
 
 Remove-Item alias:mv
 Remove-Item alias:cp
@@ -67,22 +68,32 @@ $IconMap = @{
   rtc_memo = "⚡"
 }
 
-function prompt()
+function my_prompt()
 {
   # TODO: git status
   # TODO: project kind
   # - dotfiles
   # - ghq
   # - lang
-  $color = $? ? "32" : "31";
+  # $color = $? ? "32" : "31";
   $location = (Get-Item (Get-Location));
   $title = $location.Name
   if($IconMap[$title]){
     $title = $IconMap[$title]
   }
 
-  "`e]2;${title}$([char]0x07)${location}`n`e[${color}m>`e[0m "
+  # "`e]2;${title}$([char]0x07)${location}`n`e[${color}m>`e[0m "
+  "`e]2;${title}$([char]0x07)`n"
 }
+function my_color()
+{
+  $color = $global:GitPromptValues.DollarQuestion ? "32" : "31";
+  "`e[${color}m"
+}
+
+$GitPromptSettings.DefaultPromptBeforeSuffix.Text = '$(my_prompt)'
+$GitPromptSettings.DefaultPromptSuffix.Text = '$(my_color)>`e[0m '
+$GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
 
 function ExecuteCommand ($commandPath, $commandArguments) 
 { 
@@ -314,8 +325,8 @@ function v()
 # Install-Module -Name ZLocation -scope currentUser
 
 # PSFzfの読み込みとAlias有効化
-Import-Module PSFzf
-Enable-PsFzfAliases
+# Import-Module PSFzf
+# Enable-PsFzfAliases
 # ZLocationの読み込み
 # Import-Module ZLocation
 # Set-Alias fcd Invoke-FuzzySetLocation
