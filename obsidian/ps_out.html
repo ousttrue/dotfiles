@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>PSStyle - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,13 +212,70 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_providers?view=powershell-7.4">プロバイダーについて - PowerShell | Microsoft Learn</a></p>
+          <p>[[powershell]]</p>
+<section class="tex2jax_ignore mathjax_ignore" id="psstyle">
+<h1>PSStyle<a class="headerlink" href="#psstyle" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="out">
+<h1>out<a class="headerlink" href="#out" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="out-default">
+<h2>Out-Default<a class="headerlink" href="#out-default" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">=&gt;</span> <span class="pre">Out-Host</span></code>
+<a class="reference external" href="https://gist.github.com/stknohg/a0fabb9e10ddcc146672">Out-Defaultをフックしてパイプラインに渡されたオブジェクトの型と値をホストに表示するサンプル · GitHub</a></p>
+</section>
+<section id="out-host">
+<h2>Out-Host<a class="headerlink" href="#out-host" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Write</span><span class="o">-</span><span class="n">Host</span> <span class="s2">"`u</span><span class="si">{1F363}</span><span class="s2">  `u</span><span class="si">{1F37A}</span><span class="s2">"</span>
+</pre></div>
+</div>
+</section>
+<section id="out-null">
+<h2>Out-Null<a class="headerlink" href="#out-null" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">$null</span></code></p>
+</section>
+<section id="out-file">
+<h2>Out-File<a class="headerlink" href="#out-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="out-string">
+<h2>Out-String<a class="headerlink" href="#out-string" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-ps1 notranslate"><div class="highlight"><pre><span></span><span class="nb">Out-String</span> <span class="n">-stream</span>
+</pre></div>
+</div>
+</section>
+<section id="out-gridview">
+<h2>Out-GridView<a class="headerlink" href="#out-gridview" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2020 <a class="reference external" href="https://dev.classmethod.jp/articles/out-gridview-returns-twice-powershell-core/">[PowerShell] 再度帰ってきた？Out-GridView | DevelopersIO</a></p></li>
+<li><p><a class="reference external" href="https://github.com/PowerShell/GraphicalTools">GitHub - PowerShell/GraphicalTools: Modules that mix PowerShell and GUIs/CUIs! - built on Avalonia and gui.cs</a></p></li>
+</ul>
+<p>=&gt;  https://github.com/gui-cs/Terminal.Gui</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ps1xml">
+<h1>ps1xml<a class="headerlink" href="#ps1xml" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2018 <a class="reference external" href="https://aerie.hatenablog.jp/entry/powershell-advent-calendar-2018-04">ps1xml のスキーマを書いた話 - 鷲ノ巣</a></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">~5.0</span></code></p>
+<div class="highlight-ps1 notranslate"><div class="highlight"><pre><span></span><span class="c"># $PSHOME</span>
+<span class="p">.\</span><span class="n">Modules</span><span class="p">\</span><span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">\</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">format</span><span class="p">.</span><span class="n">ps1xml</span>
+<span class="p">.\</span><span class="n">Modules</span><span class="p">\</span><span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">\</span><span class="n">Event</span><span class="p">.</span><span class="n">format</span><span class="p">.</span><span class="n">ps1xml</span>
+<span class="p">.\</span><span class="n">Modules</span><span class="p">\</span><span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">\</span><span class="n">GetEvent</span><span class="p">.</span><span class="n">types</span><span class="p">.</span><span class="n">ps1xml</span>
+<span class="p">.\</span><span class="n">Modules</span><span class="p">\</span><span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">PSResourceGet</span><span class="p">\</span><span class="n">PSGet</span><span class="p">.</span><span class="n">Format</span><span class="p">.</span><span class="n">ps1xml</span>
+<span class="p">.\</span><span class="n">Modules</span><span class="p">\</span><span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">Security</span><span class="p">\</span><span class="n">Security</span><span class="p">.</span><span class="n">types</span><span class="p">.</span><span class="n">ps1xml</span>
+<span class="p">.\</span><span class="n">Modules</span><span class="p">\</span><span class="n">Microsoft</span><span class="p">.</span><span class="n">WSMan</span><span class="p">.</span><span class="n">Management</span><span class="p">\</span><span class="n">WSMan</span><span class="p">.</span><span class="n">format</span><span class="p">.</span><span class="n">ps1xml</span>
+<span class="p">.\</span><span class="n">Modules</span><span class="p">\</span><span class="n">PSReadLine</span><span class="p">\</span><span class="n">PSReadLine</span><span class="p">.</span><span class="n">format</span><span class="p">.</span><span class="n">ps1xml</span>
+<span class="p">.\</span><span class="n">Modules</span><span class="p">\</span><span class="n">PackageManagement</span><span class="p">\</span><span class="n">PackageManagement</span><span class="p">.</span><span class="n">format</span><span class="p">.</span><span class="n">ps1xml</span>
+<span class="p">.\</span><span class="n">Modules</span><span class="p">\</span><span class="n">PowerShellGet</span><span class="p">\</span><span class="n">PSGet</span><span class="p">.</span><span class="n">Format</span><span class="p">.</span><span class="n">ps1xml</span>
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
@@ -233,7 +290,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/powershell_provider.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/ps_out.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -241,8 +298,34 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">PSStyle</a></li>
+<li><a class="reference internal" href="#out">out</a><ul>
+<li><a class="reference internal" href="#out-default">Out-Default</a></li>
+<li><a class="reference internal" href="#out-host">Out-Host</a></li>
+<li><a class="reference internal" href="#out-null">Out-Null</a></li>
+<li><a class="reference internal" href="#out-file">Out-File</a></li>
+<li><a class="reference internal" href="#out-string">Out-String</a></li>
+<li><a class="reference internal" href="#out-gridview">Out-GridView</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ps1xml">ps1xml</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

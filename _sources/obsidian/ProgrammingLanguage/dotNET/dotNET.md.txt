@@ -18,3 +18,7 @@
 
 # update
 -  [.NET アップグレード アシスタントをインストールする方法 - .NET Core | Microsoft Learn](https://learn.microsoft.com/ja-jp/dotnet/core/porting/upgrade-assistant-install)
+
+# nvim
+[[nvim]]
+https://github.com/neovim/nvim.net

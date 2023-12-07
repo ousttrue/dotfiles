@@ -249,6 +249,30 @@ https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.managem
 </div>
 <p><a class="reference external" href="https://www.ipentec.com/document/powershell-create-directory">フォルダを作成する / ディレクトリを作成する : PowerShell Tips | iPentec</a></p>
 </section>
+<section id="pipeline">
+<h2>pipeline<a class="headerlink" href="#pipeline" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="foreach-object">
+<h3>Foreach-Object<a class="headerlink" href="#foreach-object" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-ps1 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir </span><span class="p">*.</span><span class="n">txt</span> <span class="p">|</span> <span class="k">foreach</span><span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">name</span> <span class="p">}</span>
+<span class="c"># 👇</span>
+<span class="nb">dir </span><span class="p">*.</span><span class="n">txt</span> <span class="p">|</span> <span class="p">%{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">name</span> <span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-ps1 notranslate"><div class="highlight"><pre><span></span><span class="n">1</span><span class="p">..</span><span class="n">5</span><span class="p">|%{</span><span class="nv">$t</span><span class="p">=</span><span class="n">0</span><span class="p">}{</span><span class="nv">$t</span><span class="p">+=</span><span class="nv">$_</span><span class="p">}{</span><span class="nv">$t</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">flattern</span></code></p>
+</section>
+<section id="where-object">
+<h3>Where-Object<a class="headerlink" href="#where-object" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-ps1 notranslate"><div class="highlight"><pre><span></span><span class="n">1</span><span class="p">..</span><span class="n">10</span><span class="p">|</span><span class="nb">where </span><span class="p">{</span><span class="nv">$_</span><span class="k">%</span><span class="n">2</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-ps1 notranslate"><div class="highlight"><pre><span></span><span class="n">1</span><span class="p">..</span><span class="n">10</span><span class="p">|?{</span><span class="nv">$_</span><span class="k">%</span><span class="n">2</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="third-party">
 <h1>third-party<a class="headerlink" href="#third-party" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -331,6 +355,11 @@ https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.managem
 </ul>
 </li>
 <li><a class="reference internal" href="#new-item">new-item</a></li>
+<li><a class="reference internal" href="#pipeline">pipeline</a><ul>
+<li><a class="reference internal" href="#foreach-object">Foreach-Object</a></li>
+<li><a class="reference internal" href="#where-object">Where-Object</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#third-party">third-party</a><ul>
