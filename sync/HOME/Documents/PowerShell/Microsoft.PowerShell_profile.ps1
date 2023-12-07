@@ -66,6 +66,8 @@ Import-Module -Name Terminal-Icons
 $IconMap = @{
   dotfiles = " "
   rtc_memo = "⚡"
+  UniVRM = " "
+  minixr = "🎮"
 }
 
 function my_prompt()

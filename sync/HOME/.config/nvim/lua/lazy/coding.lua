@@ -1,6 +1,7 @@
 local DOT = require "dot"
 
 return {
+  { "neovim/nvim.net" },
   {
     "numToStr/Comment.nvim",
     config = function()
