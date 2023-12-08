@@ -23,6 +23,7 @@ CurrentUserCurrentHost : %USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell
 起動が遅くなる
 ## alt
 https://github.com/libgit2/libgit2sharp
+- @2016 [LibGit2Sharpを使ってGitリポジトリのビュワーを作った時のTips #Git - Qiita](https://qiita.com/kurasho/items/39404e11ba3040a6ed5c)
 
 # title
 - [PowerShellで自分だけのオリジナルステータスバーを作る](https://zenn.dev/mdgrs/articles/c628be5212a1cb)

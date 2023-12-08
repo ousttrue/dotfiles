@@ -1,6 +1,7 @@
 [[powershell]]
 
 - @2019 [Powershellのコマンドレット(Cmdlet)と関数(Function) - One Step Ahead](https://one-sthead.hatenablog.com/entry/2019/09/04/142925)
+- @2015 [PowerShell Cmdlet を人道的に使いたいから頑張ってみるお話 - tech.guitarrapc.cóm](https://tech.guitarrapc.com/entry/2015/12/25/233000)
 
 # builtin
 ## get-command(gcm)
