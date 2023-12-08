@@ -1,15 +1,12 @@
 $env:HOME = $env:USERPROFILE
-# $env:JAVA_HOME = $env:ANDROID_STUDIO_HOME + "\jre";
-# $env:VCPKG_DISABLE_METRICS = 1
+$env:FZF_DEFAULT_OPTS="--layout=reverse"
 
-# $PSDefaultParameterValues['*:Encoding'] = 'utf8'
-# if($env:TERM_PROGRAM -ne "vscode"){
-#    chcp 65001
-# }
-
-## readline
+#
+# readline
+#
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2
 # まとめて設定
+#
 # Set-PSReadLineOption -EditMode emacs
 # 個別に設定
 Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine
@@ -27,41 +24,22 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
 # [System.Console]::ReadKey()
 Set-PSReadlineKeyHandler -Key 'Ctrl+Oem4' -Function RevertLine
 
-Import-Module -Name CompletionPredictor
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView
-Import-Module posh-git
-
+#
+# alias
+#
 Remove-Item alias:mv
 Remove-Item alias:cp
 Remove-Item alias:rm
 Remove-Item alias:rmdir
 Remove-Item alias:diff -force
 Remove-Item -Path Function:\mkdir
+Remove-Item alias:ls
 
-# Remove-Item alias:ls
-Import-Module -Name Terminal-Icons
-# function ls()
-# {
-#     lsd $args
-# }
-# function ll()
-# {
-#     lsd -l $args
-# }
-# function la()
-# {
-#     lsd -a $args
-# }
+Set-Alias ngen @(
+  Get-ChildItem (join-path ${env:\windir} "Microsoft.NET\Framework") ngen.exe -recurse |  Sort-Object -descending lastwritetime  )[0].fullName
 
-# function prompt () {
-#   (Split-Path (Get-Location) -Leaf) + "\n > "
-# }
-# function prompt()
-# {
-#     $path = $pwd.path.Replace($HOME, "~")
-#     return "${path}`n$ "
-# }
+Set-Alias ls lsd
+Set-Alias which Get-Command
 
 $IconMap = @{
   dotfiles = " "
@@ -70,89 +48,76 @@ $IconMap = @{
   minixr = "🎮"
 }
 
-function my_prompt()
+function prompt()
 {
   # TODO: git status
   # TODO: project kind
   # - dotfiles
   # - ghq
   # - lang
-  # $color = $? ? "32" : "31";
+  $color = $? ? "32" : "31";
   $location = (Get-Item (Get-Location));
   $title = $location.Name
-  if($IconMap[$title]){
+  if($IconMap[$title])
+  {
     $title = $IconMap[$title]
   }
 
-  # "`e]2;${title}$([char]0x07)${location}`n`e[${color}m>`e[0m "
-  "`e]2;${title}$([char]0x07)`n"
-}
-function my_color()
-{
-  $color = $global:GitPromptValues.DollarQuestion ? "32" : "31";
-  "`e[${color}m"
+  "`e]2;${title}$([char]0x07)${location}`n`e[${color}m>`e[0m "
 }
 
-$GitPromptSettings.DefaultPromptBeforeSuffix.Text = '$(my_prompt)'
-$GitPromptSettings.DefaultPromptSuffix.Text = '$(my_color)>`e[0m '
-$GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
+# function ExecuteCommand ($commandPath, $commandArguments) 
+# { 
+#     $pinfo = New-Object System.Diagnostics.ProcessStartInfo 
+#     $pinfo.FileName = $commandPath 
+#     $pinfo.RedirectStandardError = $true 
+#     $pinfo.RedirectStandardOutput = $true 
+#     $pinfo.UseShellExecute = $false 
+#     $pinfo.Arguments = $commandArguments 
+#     $pinfo.WorkingDirectory = "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\"
+#     $p = New-Object System.Diagnostics.Process 
+#     $p.StartInfo = $pinfo 
+#     $p.Start() | Out-Null 
+#     $p.WaitForExit() 
+#     [pscustomobject]@{ 
+#         stdout = $p.StandardOutput.ReadToEnd() 
+#         stderr = $p.StandardError.ReadToEnd() 
+#         ExitCode = $p.ExitCode 
+#     } 
+# } 
 
-function ExecuteCommand ($commandPath, $commandArguments) 
-{ 
-    $pinfo = New-Object System.Diagnostics.ProcessStartInfo 
-    $pinfo.FileName = $commandPath 
-    $pinfo.RedirectStandardError = $true 
-    $pinfo.RedirectStandardOutput = $true 
-    $pinfo.UseShellExecute = $false 
-    $pinfo.Arguments = $commandArguments 
-    $pinfo.WorkingDirectory = "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\"
-    $p = New-Object System.Diagnostics.Process 
-    $p.StartInfo = $pinfo 
-    $p.Start() | Out-Null 
-    $p.WaitForExit() 
-    [pscustomobject]@{ 
-        stdout = $p.StandardOutput.ReadToEnd() 
-        stderr = $p.StandardError.ReadToEnd() 
-        ExitCode = $p.ExitCode 
-    } 
-} 
-
-function vcenv()
-{ 
-    $VSWHERE = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
-
-    $vc_dir = &$VSWHERE -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
-    # C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools
-    $bat = "$vc_dir\VC\Auxiliary\Build\vcvars64.bat"
-    Write-Output $bat
-
-    $v = ExecuteCommand "${env:COMSPEC}" "/C $bat & set"
-    Write-Output $v.stdout
-}
+# function vcenv()
+# { 
+#     $VSWHERE = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+#
+#     $vc_dir = &$VSWHERE -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+#     # C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools
+#     $bat = "$vc_dir\VC\Auxiliary\Build\vcvars64.bat"
+#     Write-Output $bat
+#
+#     $v = ExecuteCommand "${env:COMSPEC}" "/C $bat & set"
+#     Write-Output $v.stdout
+# }
 # vcenv
 
-function global:which($cmd)
-{
-    Get-Command $cmd | Format-List
-}
-
+#
+# path
+#
 function insertPath($path)
 {
-    if($env:Path -notcontains $path)
-    {
-        $env:Path = $path + ";" + $env:Path
-    }
+  if($env:Path -notcontains $path)
+  {
+    $env:Path = $path + ";" + $env:Path
+  }
 }
-
+#
 function addPath($path)
 {
-    if($env:Path -notcontains $path)
-    {
-        $env:Path = $env:Path + ";" + $path
-    }
+  if($env:Path -notcontains $path)
+  {
+    $env:Path = $env:Path + ";" + $path
+  }
 }
-
-$env:FZF_DEFAULT_OPTS="--layout=reverse"
 
 addPath($env:USERPROFILE + "\ghq\github.com\junegunn\fzf\bin")
 addPath($env:USERPROFILE + "\.fzf\bin")
@@ -182,155 +147,121 @@ insertPath($env:USERPROFILE + "\local\bin")
 # }
 if(Test-Path "C:\Python311")
 {
-    addPath("C:\Python311\Scripts")
-    addPath("C:\Python311")
+  addPath("C:\Python311\Scripts")
+  addPath("C:\Python311")
 } elseif(Test-Path "C:\Python310")
 {
-    addPath("C:\Python310\Scripts")
-    addPath("C:\Python310")
+  addPath("C:\Python310\Scripts")
+  addPath("C:\Python310")
 } elseif(Test-Path "C:\Python37")
 {
-    addPath("C:\Python37\Scripts")
-    addPath("C:\Python37")
+  addPath("C:\Python37\Scripts")
+  addPath("C:\Python37")
 } elseif(Test-Path "C:\Python311-arm64")
 {
-    addPath("C:\Python311-arm64\Scripts")
-    addPath("C:\Python311-arm64")
+  addPath("C:\Python311-arm64\Scripts")
+  addPath("C:\Python311-arm64")
 }
 
 # addPath($env:USERPROFILE + "\local\nim-1.6.8\bin")
 addPath($env:USERPROFILE + "\neovim\bin")
 
-# $env:BAZEL_WINSDK_FULL_VERSION="10.0.22000.0"
-# $env:BAZEL_VS="C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools"
-# $env:BAZEL_VC="C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC"
-# $env:BAZEL_VC_FULL_VERSION="14.29.30133" 2019
-# $env:BAZEL_VC_FULL_VERSION="14.34.31933"
-
-# if (Test-Path "D:/gnome") {
-#     insertPath("D:\gnome\bin")
-#     $env:PKG_CONFIG_PATH="D:/gnome/lib/pkgconfig;D:/gnome/share/pkgconfig"
-# }
-
-# New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT
-# Import-Module posh-git
-# oh-my-posh init pwsh --config ~/.custom.omp.json | Invoke-Expression
-
 # For zoxide v0.8.0+
 Invoke-Expression (& {
-        $hook = if ($PSVersionTable.PSVersion.Major -lt 6)
-        { 'prompt' 
-        } else
-        { 'pwd' 
-        }
+    $hook = if ($PSVersionTable.PSVersion.Major -lt 6)
+    { 'prompt' 
+    } else
+    { 'pwd' 
+    }
     (zoxide init --hook $hook powershell | Out-String)
-    })
+  })
 
 # cd ghq
 function gg
 {
-    $dst = $(ghq list -p| fzf --reverse +m)
-    if($dst)
-    {
-        Set-Location "$dst"
-    }
+  $dst = $(ghq list -p| fzf --reverse +m)
+  if($dst)
+  {
+    Set-Location "$dst"
+  }
 }
 
 # git switch
 function gs
 {
-    $dst = $(git branch | fzf)
-    if($dst)
-    {
-        git switch $dst.Trim()
-    }
+  $dst = $(git branch | fzf)
+  if($dst)
+  {
+    git switch $dst.Trim()
+  }
 }
 # git switch force
 function gsf
 {
-    $dst = $(git branch | fzf)
-    if($dst)
-    {
-        git switch -f $dst.Trim()
-    }
+  $dst = $(git branch | fzf)
+  if($dst)
+  {
+    git switch -f $dst.Trim()
+  }
 }
 # git switch remote
 function gsr
 {
-    $dst = $(git branch -r | fzf)
-    if($dst)
-    {
-        git switch -c $dst.Trim() $dst.Trim()
-    }
+  $dst = $(git branch -r | fzf)
+  if($dst)
+  {
+    git switch -c $dst.Trim() $dst.Trim()
+  }
 }
+
 # meson wrap
 function mewrap
 {
-    $dst = $(meson wrap list| fzf --preview "meson wrap info {}")
-    if($dst)
-    {
-        meson wrap install $dst.Trim()
-    }
+  $dst = $(meson wrap list| fzf --preview "meson wrap info {}")
+  if($dst)
+  {
+    meson wrap install $dst.Trim()
+  }
 }
 # git cd root
 function rt()
 {
-    Set-Location $(git rev-parse --show-toplevel)
+  Set-Location $(git rev-parse --show-toplevel)
 }
 # git status
 function gt()
 {
-    git status -sb
+  git status -sb
 }
 function glg()
 {
-    git lga
+  git lga
 }
 # pip
 function pipup()
 {
-    py -m pip install pip --upgrade
+  py -m pip install pip --upgrade
 }
 
 function dotpull
 {
-    Push-Location ${env:HOME}/dotfiles
-    git pull
-    Pop-Location
+  Push-Location ${env:HOME}/dotfiles
+  git pull
+  Pop-Location
 }
 
 function v()
 {
   nvim $args
 }
-# function apkget
-# {
-#     $apk = $(adb shell pm list packages -3 | fzf)
-#     if($apk && $apk.startswith("package:"))
-#     {
-#         $apk = $apk.Trim()
-#         $name = $apk.SubString(8)
-#         Write-Output "name: ${name}"
-# 
-#         $tmp_name = $(adb shell pm path $name).Trim()
-#         if($tmp_name && $tmp_name.startswith("package:"))
-#         {
-#             $path = $tmp_name.SubString(8)
-#             Write-Output "path: ${path}"
-#             adb pull "${path}" "${name}.apk"
-#         }
-#     }
-# }
 
-# https://qiita.com/SAITO_Keita/items/f1832b34a9946fc8c716
-# Install-Module -Name PSFzf -scope currentUser
-# Install-Module -Name ZLocation -scope currentUser
-
-# PSFzfの読み込みとAlias有効化
-# Import-Module PSFzf
-# Enable-PsFzfAliases
-# ZLocationの読み込み
-# Import-Module ZLocation
-# Set-Alias fcd Invoke-FuzzySetLocation
-Set-Alias ls lsd
+#
+# module
+#
+Import-Module -Verbose -Name CompletionPredictor
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+# Import-Module -Verbose posh-git
+# $GitPromptSettings.EnableFileStatus = $false
+# Import-Module -Verbose -Name Terminal-Icons
 

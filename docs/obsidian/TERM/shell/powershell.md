@@ -45,41 +45,7 @@ windows preinstall
 ## Windows PowerShell 1.0 ~ 4.0
 - @2016 [PowerShellの起動時に読まれるps1xmlファイルについて - しばたテックブログ](https://blog.shibata.tech/entry/2016/08/02/212739)
 
-
-# variable
-`$PSHOME = C:\Program Files\PowerShell\7`
-`$PSVersionTable`
-`$PROFILE`
-`$IsWindows` : Windowsの場合$True。
-`$IsMacOS` : macOSの場合$True。
-`$IsLinux` : Linuxの場合$True。
-
-# profile
-[プロファイルについて - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4)
-
-## $PROFILE
-
-- `%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`
-- `%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
-
-```
-> New-Item -path $profile -type file -force
-```
-
-```
-mkdir %USERPROFILE%\Documents\WindowsPowerShell
-%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
-vim $profile
-```
-
-## alias
-
-## readline
-[[PSReadline]]
-
-
-
-## vscode
+# vscode
 - @2022 [PoweShellの開発環境を整える](https://incipe.dev/blog/post/setting-up-a-powershell-development-environment/)
 - @2022 [https://incipe.dev/blog/post/setting-up-a-powershell-development-environment/](https://incipe.dev/blog/post/setting-up-a-powershell-development-environment/)
 
