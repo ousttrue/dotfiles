@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>git - shell note ドキュメント</title>
+        <title>case - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -219,89 +219,19 @@
         </div>
         <article role="main">
           <p>[[powershell]]</p>
-<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4">プロファイルについて - PowerShell | Microsoft Learn</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">$PSHOME\Profile.ps1</span></code>
-<code class="docutils literal notranslate"><span class="pre">$HOME\Documents\PowerShell\Profile.ps1</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">~/.config/powershell/profile.ps1</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; $PROFILE | Select-Object *
-
-AllUsersAllHosts       : C:\Program Files\PowerShell\7\profile.ps1
-AllUsersCurrentHost    : C:\Program Files\PowerShell\7\Microsoft.PowerShell_profile.ps1
-CurrentUserAllHosts    : %USERPROFILE%\Documents\PowerShell\profile.ps1
-CurrentUserCurrentHost : %USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
-</pre></div>
-</div>
-<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/scripting/learn/shell/creating-profiles?view=powershell-7.4">シェル環境のカスタマイズ - PowerShell | Microsoft Learn</a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="git">
-<h1>git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="posh-git">
-<h2>posh-git<a class="headerlink" href="#posh-git" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>起動が遅くなる</p>
-</section>
-<section id="alt">
-<h2>alt<a class="headerlink" href="#alt" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>https://github.com/libgit2/libgit2sharp</p>
-<ul class="simple">
-<li><p>@2016 <a class="reference external" href="https://qiita.com/kurasho/items/39404e11ba3040a6ed5c">LibGit2Sharpを使ってGitリポジトリのビュワーを作った時のTips #Git - Qiita</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="title">
-<h1>title<a class="headerlink" href="#title" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/mdgrs/articles/c628be5212a1cb">PowerShellで自分だけのオリジナルステータスバーを作る</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>測定<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://qiita.com/SAITO_Keita/items/fc385bbc6e3025686d8b">PowerShellの起動時間をPSProfilerモジュールで確認してみる #PowerShell - Qiita</a></p></li>
-<li><p>@2017 <a class="reference external" href="https://blog.shibata.tech/entry/2017/03/13/202457">PowerShellの起動時に表示されるプロファイルに関するメッセージについて - しばたテックブログ</a></p></li>
-</ul>
-<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/scripting/dev-cross-plat/performance/script-authoring-considerations?view=powershell-7.4">PowerShell スクリプトのパフォーマンスに関する考慮事項 - PowerShell | Microsoft Learn</a></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="variables">
-<h1>variables<a class="headerlink" href="#variables" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-ps notranslate"><div class="highlight"><pre><span></span># $env:JAVA_HOME = $env:ANDROID_STUDIO_HOME + "\jre";
-# $env:VCPKG_DISABLE_METRICS = 1
-
-# $PSDefaultParameterValues['*:Encoding'] = 'utf8'
-# if($env:TERM_PROGRAM -ne "vscode"){
-#    chcp 65001
-# }
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">$PSHOME</span> <span class="pre">=</span> <span class="pre">C:\Program</span> <span class="pre">Files\PowerShell\7</span></code>
-<code class="docutils literal notranslate"><span class="pre">$PSVersionTable</span></code>
-<code class="docutils literal notranslate"><span class="pre">$PROFILE</span></code>
-<code class="docutils literal notranslate"><span class="pre">$IsWindows</span></code> : Windowsの場合<span class="math notranslate nohighlight">\(True。
-`\)</span>IsMacOS<code class="docutils literal notranslate"><span class="pre">:</span> <span class="pre">macOSの場合$True。</span></code><span class="math notranslate nohighlight">\(IsLinux` : Linuxの場合\)</span>True。</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="profile">
-<h1>profile<a class="headerlink" href="#profile" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4">プロファイルについて - PowerShell | Microsoft Learn</a></p>
-<section id="id2">
-<h2>$PROFILE<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1</span></code></p></li>
-<li><p>`%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; New-Item -path $profile -type file -force
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir %USERPROFILE%\Documents\WindowsPowerShell
-%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
-vim $profile
+<section class="tex2jax_ignore mathjax_ignore" id="case">
+<h1>case<a class="headerlink" href="#case" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-ps notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </section>
-<section id="alias">
-<h2>alias<a class="headerlink" href="#alias" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="regex">
+<h1>regex<a class="headerlink" href="#regex" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">$_</span></code>, <code class="docutils literal notranslate"><span class="pre">$matches</span></code></p>
 </section>
-<section id="readline">
-<h2>readline<a class="headerlink" href="#readline" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[PSReadline]]</p>
-</section>
+<section class="tex2jax_ignore mathjax_ignore" id="file">
+<h1>file<a class="headerlink" href="#file" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">each</span> <span class="pre">line</span></code></p>
 </section>
 
         </article>
@@ -317,7 +247,7 @@ vim $profile
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/ps_profile.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/ps_switch.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -337,20 +267,9 @@ vim $profile
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">git</a><ul>
-<li><a class="reference internal" href="#posh-git">posh-git</a></li>
-<li><a class="reference internal" href="#alt">alt</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#title">title</a></li>
-<li><a class="reference internal" href="#id1">測定</a></li>
-<li><a class="reference internal" href="#variables">variables</a></li>
-<li><a class="reference internal" href="#profile">profile</a><ul>
-<li><a class="reference internal" href="#id2">$PROFILE</a></li>
-<li><a class="reference internal" href="#alias">alias</a></li>
-<li><a class="reference internal" href="#readline">readline</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">case</a></li>
+<li><a class="reference internal" href="#regex">regex</a></li>
+<li><a class="reference internal" href="#file">file</a></li>
 </ul>
 
           </div>
@@ -366,7 +285,5 @@ vim $profile
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/translations.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

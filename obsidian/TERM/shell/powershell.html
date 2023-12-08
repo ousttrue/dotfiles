@@ -295,46 +295,12 @@ BOMなしUTF-8がデフォルト</p>
 </ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="variable">
-<h1>variable<a class="headerlink" href="#variable" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">$PSHOME</span> <span class="pre">=</span> <span class="pre">C:\Program</span> <span class="pre">Files\PowerShell\7</span></code>
-<code class="docutils literal notranslate"><span class="pre">$PSVersionTable</span></code>
-<code class="docutils literal notranslate"><span class="pre">$PROFILE</span></code>
-<code class="docutils literal notranslate"><span class="pre">$IsWindows</span></code> : Windowsの場合<span class="math notranslate nohighlight">\(True。
-`\)</span>IsMacOS<code class="docutils literal notranslate"><span class="pre">:</span> <span class="pre">macOSの場合$True。</span></code><span class="math notranslate nohighlight">\(IsLinux` : Linuxの場合\)</span>True。</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="profile">
-<h1>profile<a class="headerlink" href="#profile" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4">プロファイルについて - PowerShell | Microsoft Learn</a></p>
-<section id="id1">
-<h2>$PROFILE<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1</span></code></p></li>
-<li><p>`%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; New-Item -path $profile -type file -force
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir %USERPROFILE%\Documents\WindowsPowerShell
-%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
-vim $profile
-</pre></div>
-</div>
-</section>
-<section id="alias">
-<h2>alias<a class="headerlink" href="#alias" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="readline">
-<h2>readline<a class="headerlink" href="#readline" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[PSReadline]]</p>
-</section>
-<section id="vscode">
-<h2>vscode<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="vscode">
+<h1>vscode<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p>@2022 <a class="reference external" href="https://incipe.dev/blog/post/setting-up-a-powershell-development-environment/">PoweShellの開発環境を整える</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://incipe.dev/blog/post/setting-up-a-powershell-development-environment/">https://incipe.dev/blog/post/setting-up-a-powershell-development-environment/</a></p></li>
 </ul>
-</section>
 <section id="formatter">
 <h2>formatter<a class="headerlink" href="#formatter" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
@@ -366,8 +332,8 @@ vim $profile
 <h1>provider<a class="headerlink" href="#provider" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[ps_provider]]</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>型<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>型<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p>@2022 <a class="reference external" href="https://tex2e.github.io/blog/powershell/array">PowerShellの配列と連想配列 | 晴耕雨読</a></p></li>
 </ul>
@@ -422,12 +388,7 @@ vim $profile
 <li><a class="reference internal" href="#windows-powershell-1-0-4-0">Windows PowerShell 1.0 ~ 4.0</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#variable">variable</a></li>
-<li><a class="reference internal" href="#profile">profile</a><ul>
-<li><a class="reference internal" href="#id1">$PROFILE</a></li>
-<li><a class="reference internal" href="#alias">alias</a></li>
-<li><a class="reference internal" href="#readline">readline</a></li>
-<li><a class="reference internal" href="#vscode">vscode</a></li>
+<li><a class="reference internal" href="#vscode">vscode</a><ul>
 <li><a class="reference internal" href="#formatter">formatter</a></li>
 <li><a class="reference internal" href="#lsp">lsp</a></li>
 </ul>
@@ -441,7 +402,7 @@ vim $profile
 </li>
 <li><a class="reference internal" href="#module">module</a></li>
 <li><a class="reference internal" href="#provider">provider</a></li>
-<li><a class="reference internal" href="#id2">型</a></li>
+<li><a class="reference internal" href="#id1">型</a></li>
 </ul>
 
           </div>
@@ -457,7 +418,5 @@ vim $profile
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/scripts/furo.js"></script>
     <script src="../../../_static/translations.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
