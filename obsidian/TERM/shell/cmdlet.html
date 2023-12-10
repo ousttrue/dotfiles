@@ -294,14 +294,36 @@ https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.managem
 </ul>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="dev">
+<h1>dev<a class="headerlink" href="#dev" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">rebuild,</span> <span class="pre">reimport</span> <span class="pre">しづらい問題</span></code></p>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/karamem0/articles/2018_12_12_120000">PowerShell Core で Binary Module (C#) を開発するときの注意点について</a></p></li>
+<li><p>@2015 <a class="reference external" href="https://tech.guitarrapc.com/entry/2015/12/25/233000">PowerShell Cmdlet を人道的に使いたいから頑張ってみるお話 - tech.guitarrapc.cóm</a></p></li>
+<li><p>@2015 <a class="reference external" href="https://tech.tanaka733.net/entry/open-for-pscmdlet-vs-extension">PowerShell Cmdlet のデバッグを楽にする、 OpenForPSCmdlet VS拡張 - 銀の光と碧い空</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/tanaka-takayoshi/OpenForPSCmdlet">GitHub - tanaka-takayoshi/OpenForPSCmdlet: Visual Studio Extension for support debugging PowerShell Cmdlet binary module</a></p></li>
+</ul>
+</li>
+</ul>
+<section id="id1">
+<h2>命名<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>動詞(verb)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7.4">Approved Verbs for PowerShell Commands - PowerShell | Microsoft Learn</a></p></li>
+</ul>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="fsharp">
 <h1>Fsharp<a class="headerlink" href="#fsharp" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[fsharp]]
-<a class="reference external" href="https://webcoder.info/fspsmodule.html">Writing a PowerShell Core Module With F#, A Complete Guide | Brianary</a></p>
+<p>[[fsharp]]</p>
 <ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://medium.com/@natelehman/writing-powershell-modules-in-f-ed52704d97ed">Writing PowerShell Modules in F#. This article will give you step-by-step… | by Nate Lehman | Medium</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/scripting/developer/cmdlet/how-to-write-a-simple-cmdlet?view=powershell-7.4">How to Write a Simple Cmdlet - PowerShell | Microsoft Learn</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://medium.com/@natelehman/writing-powershell-modules-in-f-ed52704d97ed">Writing PowerShell Modules in F#. This article will give you step-by-step… | by Nate Lehman | Medium</a>
+<a class="reference external" href="https://webcoder.info/fspsmodule.html">Writing a PowerShell Core Module With F#, A Complete Guide | Brianary</a></p></li>
 </ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; dotnet new classlib -lang <span class="s1">'F#'</span> -o src/MyPSModule
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; dotnet new classlib -lang <span class="s1">'F#'</span>
+&gt; dotnet add package System.Management.Automation
 </pre></div>
 </div>
 <ul class="simple">
@@ -369,6 +391,10 @@ https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.managem
 </li>
 <li><a class="reference internal" href="#module">module</a><ul>
 <li><a class="reference internal" href="#import-module">import-module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dev">dev</a><ul>
+<li><a class="reference internal" href="#id1">命名</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#fsharp">Fsharp</a></li>

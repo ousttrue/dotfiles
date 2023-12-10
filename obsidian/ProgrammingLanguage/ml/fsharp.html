@@ -219,9 +219,13 @@
         </div>
         <article role="main">
           <p>[[dotNET]]</p>
-<p><a class="reference external" href="https://midoliy.com/content/fsharp/index.html">F#リファレンス</a>
-<a class="reference external" href="https://dotnet.microsoft.com/ja-jp/learn/languages/fsharp-hello-world-tutorial/create">F# チュートリアル |.NET | Hello World を 5 分で</a></p>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/dotnet/fsharp/">F# 関連のドキュメント - 概要、チュートリアル、リファレンス。 | Microsoft Learn</a></p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/dotnet/fsharp/style-guide/conventions">F# のコーディング規則 - .NET | Microsoft Learn</a></p>
+<ul>
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/dotnet/fsharp/style-guide/#five-principles-of-good-f-code">F# スタイル ガイド | Microsoft Learn</a></p></li>
+</ul>
+</li>
 <li><p>@2022 <a class="reference external" href="https://qiita.com/kxkx5150/items/febceda472f6e3e356a5">F#を始める時に役立つ資料 #.NET - Qiita</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://karino2.github.io/2021/02/06/fsx_eval_based_dev.html">F# でのfsxベースの開発 - なーんだ、ただの水たまりじゃないか</a></p></li>
 <li><p>@2016 <a class="reference external" href="https://tech.guitarrapc.com/entry/2016/09/04/054641">F# をLearning F# をかじりながら学んでみる - tech.guitarrapc.cóm</a></p></li>
@@ -236,6 +240,45 @@
 <li><p>@2023 <a class="reference external" href="https://qiita.com/262144/items/01a3023612116180278e">F# 8 のリリースで F# が最強の言語になってしまった件 #.NET - Qiita</a></p></li>
 </ul>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="syntax">
+<h1>syntax<a class="headerlink" href="#syntax" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/dotnet/fsharp/tour">F# のツアー - .NET | Microsoft Learn</a></p></li>
+</ul>
+<section id="id2">
+<h2>関数<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/dotnet/fsharp/language-reference/functions/">関数 - F# | Microsoft Learn</a></p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="k">let</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">;;</span><span class="w"></span>
+<span class="k">val</span><span class="w"> </span><span class="n">f</span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">int</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="mi">1</span><span class="o">;;</span><span class="w"></span>
+<span class="k">val</span><span class="w"> </span><span class="n">it</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+
+<span class="o">&gt;</span><span class="w"> </span><span class="k">let</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">):</span><span class="w"> </span><span class="n">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">;;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">let</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">):</span><span class="w"> </span><span class="n">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="o">;;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="class">
+<h2>class<a class="headerlink" href="#class" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">.NET</span> <span class="pre">オブジェクト型</span></code>
+<a class="reference external" href="https://learn.microsoft.com/ja-jp/dotnet/fsharp/language-reference/classes">F# のクラス | Microsoft Learn</a></p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// constructor 1</span><span class="w"></span>
+<span class="k">type</span><span class="w"> </span><span class="nc">MyClass1</span><span class="o">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">	</span><span class="k">do</span><span class="w"> </span><span class="n">printfn</span><span class="w"> </span><span class="s">"%d %d"</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// constructor 2</span><span class="w"></span>
+<span class="w">	</span><span class="k">new</span><span class="bp">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyClass1</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="o">)</span><span class="w"> </span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cli">
+<h1>cli<a class="headerlink" href="#cli" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://gist.github.com/sheepla/4fcb01d4ed7ae682817edd83f403b8c5">.NET Core F#でコマンドラインツールを作ろう · GitHub</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; dotnet new console -lang<span class="o">=</span>F#
+</pre></div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="open">
 <h1>open<a class="headerlink" href="#open" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -301,6 +344,10 @@ open ModuleName // import symbols
 <li><p><a class="reference external" href="https://www.nuget.org/packages/WGPU.FSharp.Native/">NuGet Gallery | WGPU.FSharp.Native 0.12.0.2</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ginger-code/WGPU.Native/tree/main/examples/FSharp">FSharp</a></p></li>
 </ul>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">"Silk.NET.GLFW"</span> <span class="na">Version=</span><span class="s">"2.19.0"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">"WGPU.FSharp.Native"</span> <span class="na">Version=</span><span class="s">"0.12.0.2"</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
 </section>
 <section id="sharpvk">
 <h2>sharpvk<a class="headerlink" href="#sharpvk" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -373,6 +420,12 @@ open ModuleName // import symbols
 <li><a class="reference internal" href="#id1">8</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#syntax">syntax</a><ul>
+<li><a class="reference internal" href="#id2">関数</a></li>
+<li><a class="reference internal" href="#class">class</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cli">cli</a></li>
 <li><a class="reference internal" href="#open">open</a><ul>
 <li><a class="reference internal" href="#nuget">nuget</a><ul>
 <li><a class="reference internal" href="#glfw">glfw</a></li>

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>readline - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,44 +212,82 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[powershell]]</p>
-<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7.4">モジュールについて - PowerShell | Microsoft Learn</a></p>
-<blockquote>
-<div><p>コマンドレット、プロバイダー、関数、ワークフロー、変数、エイリアスなど</p>
-</div></blockquote>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://qiita.com/TheParkSider/items/6db01ae4f97d97054cb7">PowerShellのモジュールの種類はどう決まる？ #PowerShell - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://www.powershellgallery.com/">PowerShell Gallery | Home</a></p></li>
-<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/import-module?view=powershell-7.4">Import-Module (Microsoft.PowerShell.Core) - PowerShell | Microsoft Learn</a></p></li>
-<li><p>@2023 <a class="reference external" href="https://jpwinsup.github.io/blog/2023/02/27/UserInterfaceAndApps/PowerShell/PowerShell-ImportModule-FunctionOverflow/">大規模な PowerShell モジュールは Install-Module での導入がオススメです | Microsoft Japan Windows Technology Support Blog</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://qiita.com/tomomoss/items/5f8c027f3bdc3b189791">PowerShellにおけるモジュールの取扱い方 #PowerShell - Qiita</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="readline">
-<h1>readline<a class="headerlink" href="#readline" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[[PSReadline]]]</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="completion">
-<h1>completion<a class="headerlink" href="#completion" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="git">
-<h1>git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/dahlbyk/posh-git">GitHub - dahlbyk/posh-git: A PowerShell environment for Git</a></p></li>
-<li><p><a class="reference external" href="https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-PowerShell">Git - Git in PowerShell</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="fzf">
-<h1>fzf<a class="headerlink" href="#fzf" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="zlocation">
-<h1>zlocation<a class="headerlink" href="#zlocation" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
+          <p>[[fsharp]]</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Silk.NET.GLFW</span><span class="w"></span>
+<span class="k">open</span><span class="w"> </span><span class="nn">Microsoft.FSharp.NativeInterop</span><span class="w"></span>
+
+
+<span class="k">type</span><span class="w"> </span><span class="nc">GlfwWindow</span><span class="o">(</span><span class="n">glfw</span><span class="o">:</span><span class="w"> </span><span class="n">Glfw</span><span class="o">,</span><span class="w"> </span><span class="n">handle</span><span class="o">:</span><span class="w"> </span><span class="n">nativeptr</span><span class="o">&lt;</span><span class="n">WindowHandle</span><span class="o">&gt;)</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="nv">glfw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glfw</span><span class="w"></span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="nv">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">handle</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">member</span><span class="w"> </span><span class="n">_</span><span class="p">.</span><span class="nf">IsClosing</span><span class="bp">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glfw</span><span class="o">.</span><span class="n">WindowShouldClose</span><span class="w"> </span><span class="n">handle</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">interface</span><span class="w"> </span><span class="nn">System</span><span class="p">.</span><span class="n">IDisposable</span><span class="w"> </span><span class="k">with</span><span class="w"></span>
+<span class="w">        </span><span class="k">member</span><span class="w"> </span><span class="n">_</span><span class="p">.</span><span class="nf">Dispose</span><span class="bp">()</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">            </span><span class="n">printfn</span><span class="w"> </span><span class="s">"glfw.DestroyWindow()"</span><span class="w"></span>
+<span class="w">            </span><span class="n">glfw</span><span class="o">.</span><span class="n">DestroyWindow</span><span class="o">(</span><span class="n">handle</span><span class="o">)</span><span class="w"></span>
+
+
+<span class="k">type</span><span class="w"> </span><span class="nc">GlfwApp</span><span class="bp">()</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="nv">glfw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">GlfwProvider</span><span class="p">.</span><span class="nn">GLFW</span><span class="p">.</span><span class="n">Value</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">do</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="o">&lt;|</span><span class="w"> </span><span class="n">glfw</span><span class="o">.</span><span class="n">Init</span><span class="bp">()</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
+<span class="w">            </span><span class="n">failwith</span><span class="w"> </span><span class="s">"Failed to initialize GLFW"</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">printfn</span><span class="w"> </span><span class="s">"glfw.Init()"</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="k">member</span><span class="w"> </span><span class="n">_</span><span class="p">.</span><span class="nf">CreateWindow</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">GlfwWindow</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">        </span><span class="k">do</span><span class="w"> </span><span class="n">glfw</span><span class="o">.</span><span class="n">WindowHint</span><span class="o">(</span><span class="nn">WindowHintClientApi</span><span class="p">.</span><span class="n">ClientApi</span><span class="o">,</span><span class="w"> </span><span class="nn">ClientApi</span><span class="p">.</span><span class="n">NoApi</span><span class="o">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">window</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">            </span><span class="n">glfw</span><span class="o">.</span><span class="n">CreateWindow</span><span class="o">(</span><span class="n">width</span><span class="o">,</span><span class="w"> </span><span class="n">height</span><span class="o">,</span><span class="w"> </span><span class="n">title</span><span class="o">,</span><span class="w"> </span><span class="nn">NativePtr</span><span class="p">.</span><span class="n">nullPtr</span><span class="o">,</span><span class="w"> </span><span class="nn">NativePtr</span><span class="p">.</span><span class="n">nullPtr</span><span class="o">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">NativePtr</span><span class="p">.</span><span class="n">nullPtr</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
+<span class="w">            </span><span class="n">printfn</span><span class="w"> </span><span class="s">"glfw.CreateWindow() fail"</span><span class="w"></span>
+<span class="w">            </span><span class="n">None</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">            </span><span class="n">printfn</span><span class="w"> </span><span class="s">"glfw.CreateWindow()"</span><span class="w"></span>
+<span class="w">            </span><span class="n">Some</span><span class="o">(</span><span class="k">new</span><span class="w"> </span><span class="n">GlfwWindow</span><span class="o">(</span><span class="n">glfw</span><span class="o">,</span><span class="w"> </span><span class="n">window</span><span class="o">))</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="k">member</span><span class="w"> </span><span class="n">_</span><span class="p">.</span><span class="nf">Poll</span><span class="bp">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glfw</span><span class="o">.</span><span class="n">PollEvents</span><span class="bp">()</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">interface</span><span class="w"> </span><span class="nn">System</span><span class="p">.</span><span class="n">IDisposable</span><span class="w"> </span><span class="k">with</span><span class="w"></span>
+<span class="w">        </span><span class="k">member</span><span class="w"> </span><span class="n">_</span><span class="p">.</span><span class="nf">Dispose</span><span class="bp">()</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">            </span><span class="n">printfn</span><span class="w"> </span><span class="s">"glfw.Terminate()"</span><span class="w"></span>
+<span class="w">            </span><span class="n">glfw</span><span class="o">.</span><span class="n">Terminate</span><span class="bp">()</span><span class="w"></span>
+
+
+<span class="k">let</span><span class="w"> </span><span class="nv">rec</span><span class="w"> </span><span class="n">Loop</span><span class="w"> </span><span class="o">(</span><span class="n">app</span><span class="o">:</span><span class="w"> </span><span class="n">GlfwApp</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">window</span><span class="o">:</span><span class="w"> </span><span class="n">GlfwWindow</span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="o">&lt;|</span><span class="w"> </span><span class="n">window</span><span class="o">.</span><span class="n">IsClosing</span><span class="bp">()</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
+<span class="w">        </span><span class="n">app</span><span class="o">.</span><span class="n">Poll</span><span class="bp">()</span><span class="w"></span>
+<span class="w">        </span><span class="n">Loop</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="n">window</span><span class="w"></span>
+
+
+<span class="o">[&lt;</span><span class="n">EntryPoint</span><span class="o">&gt;]</span><span class="w"></span>
+<span class="k">let</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="o">(</span><span class="n">argv</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="bp">[]</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="n">printfn</span><span class="w"> </span><span class="s">"Creating WGPU instance"</span><span class="w"></span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="nv">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">WGPU</span><span class="p">.</span><span class="nn">Native</span><span class="p">.</span><span class="n">Instance</span><span class="bp">()</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GlfwApp</span><span class="bp">()</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">app</span><span class="o">.</span><span class="n">CreateWindow</span><span class="w"> </span><span class="mi">600</span><span class="w"> </span><span class="mi">600</span><span class="w"> </span><span class="s">"wgpu-native-fs"</span><span class="w"> </span><span class="k">with</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">Some</span><span class="w"> </span><span class="o">(</span><span class="n">window</span><span class="o">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="k">use</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">window</span><span class="w"></span>
+<span class="w">        </span><span class="n">Loop</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="n">window</span><span class="w"></span>
+<span class="w">        </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">None</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
 
         </article>
       </div>
@@ -264,7 +302,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/ps_module.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/fsharp_glfw.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -272,28 +310,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">readline</a></li>
-<li><a class="reference internal" href="#completion">completion</a></li>
-<li><a class="reference internal" href="#git">git</a></li>
-<li><a class="reference internal" href="#fzf">fzf</a></li>
-<li><a class="reference internal" href="#zlocation">zlocation</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
