@@ -39,7 +39,8 @@ Set-Alias ngen @(
   Get-ChildItem (join-path ${env:\windir} "Microsoft.NET\Framework") ngen.exe -recurse |  Sort-Object -descending lastwritetime  )[0].fullName
 
 Set-Alias ls lsd
-Set-Alias which Get-Command
+
+function which { (Get-Command $args).Definition }
 
 $IconMap = @{
   dotfiles = " "
@@ -255,13 +256,33 @@ function v()
   nvim $args
 }
 
+function bd { Set-Location .. }
+
+Set-Alias code "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code"
 #
 # module
 #
 Import-Module -Verbose -Name CompletionPredictor
-Set-PSReadLineOption -PredictionSource History
+# Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadlineOption -HistoryNoDuplicates
+Set-PSReadlineOption -AddToHistoryHandler {
+    param ($command)
+    switch -regex ($command) {
+        "SKIPHISTORY" {return $false}
+        "^[a-z]$" {return $false}
+        "exit" {return $false}
+    }
+    return $true
+}
 # Import-Module -Verbose posh-git
 # $GitPromptSettings.EnableFileStatus = $false
 # Import-Module -Verbose -Name Terminal-Icons
+
+Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
+    param($wordToComplete, $commandAst, $cursorPosition)
+        dotnet complete --position $cursorPosition "$commandAst" | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+        }
+}
 

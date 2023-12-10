@@ -12,9 +12,16 @@
 
 - @2023 [デザイナーが抱くReact+TypeScriptの疑問を紐解き、フロントエンドに一歩近づこう - estie inside blog](https://www.estie.jp/blog/entry/2023/04/10/123339)
 - @2022 [JSXにいたる歴史と考察(2/2)](https://www.ey-office.com/blog_archive/2022/05/27/history-of-jsx-and-consideration-of-jsx-2/)
+
+# as HtmlTemplate
+- @2022 [ejs, pugやめてtsxでhtml書かね？ #React - Qiita](https://qiita.com/ment_RE/items/f9464b78e925e1db1d9b)
 - @2021 [React をテンプレートエンジンの代わりに使う](https://zenn.dev/kazuma1989/articles/a5a824a7400921)
 - @2020 [JSXが実はベターな解だったのではないか？｜erukiti](https://note.com/erukiti/n/n6f673021469e)
 > HTMLとJSのどちらが制御構造を持てばいいのか？でいえばJS側が持つ方がリファクタリングしやすいため、JSXの方が良い
+- @2020 [テンプレートエンジンに React を使いつつ、きれいな HTML を生成したいんじゃ！！](https://zenn.dev/otsukayuhi/articles/e52651b4e2c5ae7c4a17)
+
+- [Cuttlebelle - The react static site generator that separates editing and code concerns](https://cuttlebelle.com/)
+
 # JSX
 ## React(front)
 [[React]]

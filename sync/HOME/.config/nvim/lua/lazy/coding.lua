@@ -71,10 +71,10 @@ return {
   -- fs
   -- { "autozimu/LanguageClient-neovim" },
   -- { "johngalambos/neovim-fsharp" },
-  {
-    "ionide/Ionide-vim",
-    config = function()
-      require("ionide").setup {}
-    end,
-  },
+  -- {
+  --   "ionide/Ionide-vim",
+  --   config = function()
+  --     require("ionide").setup {}
+  --   end,
+  -- },
 }

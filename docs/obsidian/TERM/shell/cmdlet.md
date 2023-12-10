@@ -60,12 +60,26 @@ dir *.txt | %{ $_.name }
 ## import-module
 - [Import-Module (Microsoft.PowerShell.Core) - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/import-module?view=powershell-7.4)
 
+# dev
+`rebuild, reimport しづらい問題`
+- @2022 [PowerShell Core で Binary Module (C#) を開発するときの注意点について](https://zenn.dev/karamem0/articles/2018_12_12_120000)
+- @2015 [PowerShell Cmdlet を人道的に使いたいから頑張ってみるお話 - tech.guitarrapc.cóm](https://tech.guitarrapc.com/entry/2015/12/25/233000)
+- @2015 [PowerShell Cmdlet のデバッグを楽にする、 OpenForPSCmdlet VS拡張 - 銀の光と碧い空](https://tech.tanaka733.net/entry/open-for-pscmdlet-vs-extension)
+	- [GitHub - tanaka-takayoshi/OpenForPSCmdlet: Visual Studio Extension for support debugging PowerShell Cmdlet binary module](https://github.com/tanaka-takayoshi/OpenForPSCmdlet)
+
+## 命名
+動詞(verb)
+- [Approved Verbs for PowerShell Commands - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7.4)
+
 # Fsharp
 [[fsharp]]
-[Writing a PowerShell Core Module With F#, A Complete Guide | Brianary](https://webcoder.info/fspsmodule.html)
+- @2021 [How to Write a Simple Cmdlet - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/scripting/developer/cmdlet/how-to-write-a-simple-cmdlet?view=powershell-7.4)
+
 - @2019 [Writing PowerShell Modules in F#. This article will give you step-by-step… | by Nate Lehman | Medium](https://medium.com/@natelehman/writing-powershell-modules-in-f-ed52704d97ed)
+[Writing a PowerShell Core Module With F#, A Complete Guide | Brianary](https://webcoder.info/fspsmodule.html)
 ```sh
-> dotnet new classlib -lang 'F#' -o src/MyPSModule
+> dotnet new classlib -lang 'F#'
+> dotnet add package System.Management.Automation
 ```
 
 - @2023 [PowerShell の Cmdlet を F# で書く - タイダログ](https://taidalog.hatenablog.com/entry/2023/01/31/080000)

@@ -7,6 +7,9 @@
 zig-out
 zig-cache
 
+bin/
+obj/
+
 /docs/obsidian/.obsidian/workspace.json
 
 /dot/_version.py

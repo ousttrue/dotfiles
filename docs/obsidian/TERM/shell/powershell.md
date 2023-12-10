@@ -6,6 +6,12 @@
 - @2018 [今すぐalias登録すべきPowerShellワンライナー #VSCode - Qiita](https://qiita.com/mu_sette/items/3954759daee8ae9ad26f)
 - [PowerShell+fzfでコマンド入力支援](https://zenn.dev/mebiusbox/articles/b922c7e6ded49a)
 
+スクリプト (.ps1)
+スクリプト モジュール (.psm1)
+モジュール マニフェスト (.psd1)
+アセンブリ (.dll)
+コマンドレット定義 XML ファイル (.cdxml)
+Windows PowerShell 5.1 ワークフロー (.xaml)
 
 # Version
 ## Core 7.4(LTS)

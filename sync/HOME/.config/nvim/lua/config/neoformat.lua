@@ -67,6 +67,7 @@ function M.setup()
   DOT.formatters.vala = formatter
   DOT.formatters.meson = formatter
   DOT.formatters.astro = formatter
+  DOT.formatters.fsharp = formatter
 end
 
 return M

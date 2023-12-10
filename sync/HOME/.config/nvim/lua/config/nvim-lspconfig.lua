@@ -184,7 +184,7 @@ function M.setup()
 
   -- dotnet tool install --global fsautocomplete
   -- dotnet tool install --global fantomas
-  -- require("lspconfig").fsautocomplete.setup {}
+  require("lspconfig").fsautocomplete.setup {}
   --
   require("lspconfig").powershell_es.setup {
     -- bundle_path = dot.get_home() .. "/local/src/PowerShellEditorServices",

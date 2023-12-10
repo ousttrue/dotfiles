@@ -3,6 +3,24 @@
 - [GitHub - dotnet/samples: Sample code referenced by the .NET documentation](https://github.com/dotnet/samples)
 
 # Version
+```
+> dotnet --list-sdks
+6.0.417 [C:\Program Files\dotnet\sdk]
+7.0.404 [C:\Program Files\dotnet\sdk]
+8.0.100 [C:\Program Files\dotnet\sdk]
+
+> dotnet --list-runtimes
+Microsoft.AspNetCore.App 6.0.25 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+Microsoft.AspNetCore.App 7.0.14 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+Microsoft.AspNetCore.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+Microsoft.NETCore.App 6.0.25 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+Microsoft.NETCore.App 7.0.14 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+Microsoft.NETCore.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+Microsoft.WindowsDesktop.App 6.0.25 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+Microsoft.WindowsDesktop.App 7.0.14 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+Microsoft.WindowsDesktop.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+```
+
 ## .NET8
 
 
