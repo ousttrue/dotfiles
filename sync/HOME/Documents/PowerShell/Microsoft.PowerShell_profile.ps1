@@ -20,6 +20,13 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+a' -Function BeginningOfLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+e' -Function EndOfLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+m' -Function AcceptLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
+
+Set-PSReadLineKeyHandler -Key "alt+r" -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('<#SKIPHISTORY#> . $PROFILE')
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+
 # ctrl + [
 # [System.Console]::ReadKey()
 Set-PSReadlineKeyHandler -Key 'Ctrl+Oem4' -Function RevertLine
@@ -194,6 +201,17 @@ function gg
     Set-Location "$dst"
   }
 }
+function vv
+{
+  $dst = $(ghq list -p| fzf --reverse +m)
+  if($dst)
+  {
+    Set-Location "$dst"
+    git pull
+    nvim
+  }
+}
+
 
 # git switch
 function gs
