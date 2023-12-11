@@ -3,6 +3,7 @@
 [F# 関連のドキュメント - 概要、チュートリアル、リファレンス。 | Microsoft Learn](https://learn.microsoft.com/ja-jp/dotnet/fsharp/)
 - [F# のコーディング規則 - .NET | Microsoft Learn](https://learn.microsoft.com/ja-jp/dotnet/fsharp/style-guide/conventions)
 	- [F# スタイル ガイド | Microsoft Learn](https://learn.microsoft.com/ja-jp/dotnet/fsharp/style-guide/#five-principles-of-good-f-code)
+- [F# のモジュールと変換関数の命名について - タイダログ](https://taidalog.hatenablog.com/entry/2023/02/28/235500)
 
 - @2022 [F#を始める時に役立つ資料 #.NET - Qiita](https://qiita.com/kxkx5150/items/febceda472f6e3e356a5)
 - @2021 [F# でのfsxベースの開発 - なーんだ、ただの水たまりじゃないか](https://karino2.github.io/2021/02/06/fsx_eval_based_dev.html)
@@ -116,3 +117,6 @@ dotnet new console -lang F# -o MyFSharpApp -f net6.0
 ```xml
   <Import Project="$(FSharpTargetsPath)" />
 ```
+
+# tsting
+[F#入門](http://fsharpintro.net/fsunit.html)
