@@ -40,7 +40,9 @@ Set-Alias ngen @(
 
 Set-Alias ls lsd
 
-function which { (Get-Command $args).Definition }
+function which
+{ (Get-Command $args).Definition 
+}
 
 $IconMap = @{
   dotfiles = " "
@@ -64,7 +66,13 @@ function prompt()
     $title = $IconMap[$title]
   }
 
-  "`e]2;${title}$([char]0x07)${location}`n`e[${color}m>`e[0m "
+  $branch = $(git branch --show-current)
+  if ($branch)
+  {
+    $branch = " `e[32m ${branch} $(git log --pretty=format:%s -n 1)`e[0m"
+  }
+
+  "`e]2;${title}$([char]0x07)`e[7m${location} `e[0m${branch}`n`e[${color}m>`e[0m "
 }
 
 # function ExecuteCommand ($commandPath, $commandArguments) 
@@ -256,7 +264,39 @@ function v()
   nvim $args
 }
 
-function bd { Set-Location .. }
+function ud
+{ Set-Location .. 
+}
+
+function mkcd
+{
+  if(!(Test-Path $args))
+  {
+    New-Item -ItemType Directory $args
+  }
+  Set-Location $args[0]
+}
+
+function rmhere
+{
+  $tmp = (Get-Location)
+  Set-Location ..
+  Remove-Item $tmp
+}
+
+function Get-Assembiles
+{
+  [System.AppDomain]::CurrentDomain.GetAssemblies()
+}
+
+function Get-Types($Pattern = ".")
+{
+  Get-Assembiles | ForEach-Object { 
+    $_.GetExportedTypes() 
+  } | Where-Object {
+    $_ -match $Pattern
+  }
+}
 
 Set-Alias code "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code"
 #
@@ -267,22 +307,29 @@ Import-Module -Verbose -Name CompletionPredictor
 Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadlineOption -HistoryNoDuplicates
 Set-PSReadlineOption -AddToHistoryHandler {
-    param ($command)
-    switch -regex ($command) {
-        "SKIPHISTORY" {return $false}
-        "^[a-z]$" {return $false}
-        "exit" {return $false}
+  param ($command)
+  switch -regex ($command)
+  {
+    "SKIPHISTORY"
+    {return $false
     }
-    return $true
+    "^[a-z]$"
+    {return $false
+    }
+    "exit"
+    {return $false
+    }
+  }
+  return $true
 }
 # Import-Module -Verbose posh-git
 # $GitPromptSettings.EnableFileStatus = $false
 # Import-Module -Verbose -Name Terminal-Icons
 
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
-    param($wordToComplete, $commandAst, $cursorPosition)
-        dotnet complete --position $cursorPosition "$commandAst" | ForEach-Object {
-            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
-        }
+  param($wordToComplete, $commandAst, $cursorPosition)
+  dotnet complete --position $cursorPosition "$commandAst" | ForEach-Object {
+    [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+  }
 }
 

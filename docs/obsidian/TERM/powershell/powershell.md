@@ -38,6 +38,9 @@ Windows PowerShell 5.1 ワークフロー (.xaml)
 ## Core 7.0
 - [PowerShell Gallery | Microsoft.PowerShell.ConsoleGuiTools 0.7.2](https://www.powershellgallery.com/packages/Microsoft.PowerShell.ConsoleGuiTools/0.7.2)
 
+## Core 6.1
+- @2018 [PowerShell Core 6.1で導入されるMarkdown関連機能について - しばたテックブログ](https://blog.shibata.tech/entry/2018/09/10/233634)
+
 ## Core 6.0
 `.NET Core`
 - @2018 [PowerShell Core 6.0 新機能まとめ - しばたテックブログ](https://blog.shibata.tech/entry/2018/02/09/175835)
@@ -48,8 +51,11 @@ Windows PowerShell 5.1 ワークフロー (.xaml)
 windows preinstall
 > PowerShell 5.1からは$PSHOMEにあるps1xmlファイルは使われなくなります。
 
-## Windows PowerShell 1.0 ~ 4.0
+## 4.0
 - @2016 [PowerShellの起動時に読まれるps1xmlファイルについて - しばたテックブログ](https://blog.shibata.tech/entry/2016/08/02/212739)
+
+## 2.0
+- @2010 Add-Type
 
 # vscode
 - @2022 [PoweShellの開発環境を整える](https://incipe.dev/blog/post/setting-up-a-powershell-development-environment/)
