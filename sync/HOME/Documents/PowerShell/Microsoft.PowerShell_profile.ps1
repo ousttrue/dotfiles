@@ -35,13 +35,21 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+Oem4' -Function RevertLine
 #
 # alias
 #
-Remove-Item alias:mv
-Remove-Item alias:cp
-Remove-Item alias:rm
-Remove-Item alias:rmdir
-Remove-Item alias:diff -force
-Remove-Item -Path Function:\mkdir
-Remove-Item alias:ls
+function RemoveItemIf([string]$path)
+{
+  if(Test-Path $path)
+  {
+    Remove-Item $path -force
+  }
+}
+
+RemoveItemIf alias:mv
+RemoveItemIf alias:cp
+RemoveItemIf alias:rm
+RemoveItemIf alias:rmdir
+RemoveItemIf alias:diff
+RemoveItemIf function:\mkdir
+RemoveItemIf alias:ls
 
 Set-Alias ngen @(
   Get-ChildItem (join-path ${env:\windir} "Microsoft.NET\Framework") ngen.exe -recurse |  Sort-Object -descending lastwritetime  )[0].fullName
@@ -217,14 +225,17 @@ if(Test-Path "C:\Python311")
 addPath($env:USERPROFILE + "\neovim\bin")
 
 # For zoxide v0.8.0+
-Invoke-Expression (& {
-    $hook = if ($PSVersionTable.PSVersion.Major -lt 6)
-    { 'prompt' 
-    } else
-    { 'pwd' 
-    }
+if(Get-Command zoxide)
+{
+  Invoke-Expression (& {
+      $hook = if ($PSVersionTable.PSVersion.Major -lt 6)
+      { 'prompt' 
+      } else
+      { 'pwd' 
+      }
     (zoxide init --hook $hook powershell | Out-String)
-  })
+    })
+}
 
 # cd ghq
 function gg
