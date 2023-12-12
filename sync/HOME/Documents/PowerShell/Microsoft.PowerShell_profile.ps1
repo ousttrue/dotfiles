@@ -1,4 +1,3 @@
-chcp 65001
 if(!$env:HOME)
 {
   $env:HOME = $env:USERPROFILE
@@ -22,6 +21,10 @@ function RemoveItemIf([string]$path)
   {
     Remove-Item $path -force
   }
+}
+if(has chcp)
+{
+  chcp 65001
 }
 
 #
