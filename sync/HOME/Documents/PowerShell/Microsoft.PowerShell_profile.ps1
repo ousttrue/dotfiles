@@ -404,14 +404,15 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 function LinkDotFile([System.IO.FileInfo]$src)
 {
   $dst = ($src.FullName.Substring($DotDir.FullName.Length+1))
+  Write-Host -NoNewline "${dst} "
   if(Test-Path $dst)
   {
     # green
-    # Write-Host "${dst} exists"
+    Write-Host "exists"
   } else
   {
     # make symbolic link
-    Write-Host "ln -s ${src} => ${dst}"
+    Write-Host "<== {$src}"
     New-Item -ItemType SymbolicLink -Path $dst -Value $dst -Force
   }
 }
@@ -423,7 +424,7 @@ function Get-Dotfile
 
   Process
   {
-    Get-ChildItem -Recurse -File "${DotDir}/sync/HOME"
+    Get-ChildItem -Recurse -Force -File "${DotDir}/sync/HOME"
 
     # if windows AppData, LOCALAPPDATA...
   }
