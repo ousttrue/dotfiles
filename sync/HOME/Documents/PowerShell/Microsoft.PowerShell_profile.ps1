@@ -1,7 +1,29 @@
 chcp 65001
-$env:HOME = $env:USERPROFILE
+if(!$env:HOME)
+{
+  $env:HOME = $env:USERPROFILE
+}
 $env:FZF_DEFAULT_OPTS="--layout=reverse"
 $DotDir = (Get-Item (Join-Path $env:HOME "dotfiles"))
+function has($cmdname)
+{
+  try
+  {
+    Get-Command $cmdname -ErrorAction Stop | Select-Object -ExpandProperty Definition
+    return $true
+  } catch
+  {
+    return $false;
+  }
+}
+function RemoveItemIf([string]$path)
+{
+  if(Test-Path $path)
+  {
+    Remove-Item $path -force
+  }
+}
+
 #
 # readline
 #
@@ -31,34 +53,6 @@ Set-PSReadLineKeyHandler -Key "alt+r" -ScriptBlock {
 # ctrl + [
 # [System.Console]::ReadKey()
 Set-PSReadlineKeyHandler -Key 'Ctrl+Oem4' -Function RevertLine
-
-#
-# alias
-#
-function RemoveItemIf([string]$path)
-{
-  if(Test-Path $path)
-  {
-    Remove-Item $path -force
-  }
-}
-
-RemoveItemIf alias:mv
-RemoveItemIf alias:cp
-RemoveItemIf alias:rm
-RemoveItemIf alias:rmdir
-RemoveItemIf alias:diff
-RemoveItemIf function:\mkdir
-RemoveItemIf alias:ls
-
-Set-Alias ngen @(
-  Get-ChildItem (join-path ${env:\windir} "Microsoft.NET\Framework") ngen.exe -recurse |  Sort-Object -descending lastwritetime  )[0].fullName
-
-Set-Alias ls lsd
-
-function which
-{ (Get-Command $args).Definition 
-}
 
 $IconMap = @{
   dotfiles = " "
@@ -225,7 +219,7 @@ if(Test-Path "C:\Python311")
 addPath($env:USERPROFILE + "\neovim\bin")
 
 # For zoxide v0.8.0+
-if(Get-Command zoxide)
+if(has zoxide)
 {
   Invoke-Expression (& {
       $hook = if ($PSVersionTable.PSVersion.Major -lt 6)
@@ -236,6 +230,22 @@ if(Get-Command zoxide)
     (zoxide init --hook $hook powershell | Out-String)
     })
 }
+
+#
+# alias
+#
+RemoveItemIf alias:mv
+RemoveItemIf alias:cp
+RemoveItemIf alias:rm
+RemoveItemIf alias:rmdir
+RemoveItemIf alias:diff
+RemoveItemIf function:\mkdir
+RemoveItemIf alias:ls
+if(has lsd)
+{
+  Set-Alias ls lsd
+}
+
 
 # cd ghq
 function gg
@@ -256,7 +266,6 @@ function vv
     nvim
   }
 }
-
 
 # git switch
 function gs
