@@ -1,3 +1,4 @@
+chcp 65001
 $env:HOME = $env:USERPROFILE
 $env:FZF_DEFAULT_OPTS="--layout=reverse"
 
@@ -22,9 +23,9 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+m' -Function AcceptLine
 Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
 
 Set-PSReadLineKeyHandler -Key "alt+r" -ScriptBlock {
-    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('<#SKIPHISTORY#> . $PROFILE')
-    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+  [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+  [Microsoft.PowerShell.PSConsoleReadLine]::Insert('<#SKIPHISTORY#> . $PROFILE')
+  [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
 # ctrl + [
@@ -76,7 +77,8 @@ function prompt()
   $branch = $(git branch --show-current)
   if ($branch)
   {
-    $branch = " `e[32m ${branch} $(git log --pretty=format:%s -n 1)`e[0m"
+    # $branch = " `e[32m ${branch} $(git log --pretty=format:%s -n 1)`e[0m"
+    $branch = " `e[32m ${branch} $(git log "--pretty=format:%cr   %s" -n 1)`e[0m"
   }
 
   "`e]2;${title}$([char]0x07)`e[7m${location} `e[0m${branch}`n`e[${color}m>`e[0m "
