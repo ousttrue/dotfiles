@@ -1,7 +1,7 @@
 chcp 65001
 $env:HOME = $env:USERPROFILE
 $env:FZF_DEFAULT_OPTS="--layout=reverse"
-
+$DotDir = (Get-Item (Join-Path $env:HOME "dotfiles"))
 #
 # readline
 #
@@ -304,13 +304,6 @@ function pipup()
   py -m pip install pip --upgrade
 }
 
-function dotpull
-{
-  Push-Location ${env:HOME}/dotfiles
-  git pull
-  Pop-Location
-}
-
 function v()
 {
   nvim $args
@@ -385,3 +378,61 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
   }
 }
 
+function LinkDotFile([System.IO.FileInfo]$src)
+{
+  $dst = ($src.FullName.Substring($DotDir.FullName.Length+1))
+  if(Test-Path $dst)
+  {
+    # green
+    # Write-Host "${dst} exists"
+  } else
+  {
+    # make symbolic link
+    Write-Host "ln -s ${src} => ${dst}"
+    New-Item -ItemType SymbolicLink -Path $dst -Value $dst -Force
+  }
+}
+
+function Get-Dotfile
+{
+  [CmdletBinding()]
+  Param()
+
+  Process
+  {
+    Get-ChildItem -Recurse -File "${DotDir}/sync/HOME"
+
+    # if windows AppData, LOCALAPPDATA...
+  }
+}
+
+function Sync-DotFile
+{
+  [CmdletBinding()]
+  Param()
+
+  Process
+  {
+    Push-Location ${env:HOME}/dotfiles
+    git pull
+
+    # TODO: update symbolic links
+
+    Pop-Location
+  }
+}
+
+function Push-DotFile
+{
+  [CmdletBinding()]
+  Param()
+
+  Process
+  {
+    Push-Location ${env:HOME}/dotfiles
+    git add .
+    git commit -av
+    git push
+    Pop-Location
+  }
+}

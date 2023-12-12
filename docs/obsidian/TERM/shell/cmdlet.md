@@ -28,7 +28,7 @@ https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.managem
 [フォルダを作成する / ディレクトリを作成する : PowerShell Tips | iPentec](https://www.ipentec.com/document/powershell-create-directory)
 
 ## pipeline
-### Foreach-Object
+# Foreach-Object
 
 ```ps1
 dir *.txt | foreach{ $_.name }
@@ -42,14 +42,8 @@ dir *.txt | %{ $_.name }
 
 `flattern`
 
-### Where-Object
-```ps1
-1..10|where {$_%2}
-```
-
-```ps1
-1..10|?{$_%2}
-```
+# Where-Object
+[[ps_where]]
 
 # third-party
 ## poco
