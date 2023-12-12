@@ -2,6 +2,7 @@ local DOT = require "dot"
 
 return {
   { "neovim/nvim.net" },
+  { "simeji/winresizer" },
   {
     "numToStr/Comment.nvim",
     config = function()

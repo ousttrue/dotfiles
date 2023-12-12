@@ -59,6 +59,36 @@ $IconMap = @{
   minixr = "🎮"
 }
 
+function get_git_status()
+{
+  $lines = @(git status --porcelain --branch)
+  $sync = " "
+  if($lines[0] -match "\[(\w+)\s+(\d+)\]")
+  {
+    $sync_status = $matches[1]
+    $n = $matches[2]
+    if($sync_status -eq "behind")
+    {
+      $sync = " ${n}"
+    } elseif ($sync_status -eq "ahead")
+    {
+      $sync = " ${n}"
+    }
+
+    $lines = $lines[1..($lines.Length-1)]
+    for ($i = 0; $i -lt $lines.Length; $i++)
+    {
+      if($lines[$i] -match "%s*([^%s]+)%s+(.*)")
+      {
+        # increment(status, string.sub(k, 1, 1))
+        Write-Output $matches
+      }
+    }
+  }
+ 
+  return $sync
+}
+
 function prompt()
 {
   # TODO: git status
@@ -74,11 +104,13 @@ function prompt()
     $title = $IconMap[$title]
   }
 
+  $sync = $(get_git_status)
+
   $branch = $(git branch --show-current)
   if ($branch)
   {
     # $branch = " `e[32m ${branch} $(git log --pretty=format:%s -n 1)`e[0m"
-    $branch = " `e[32m ${branch} $(git log "--pretty=format:%cr   %s" -n 1)`e[0m"
+    $branch = " `e[32m[ ${branch}${sync}]  $(git log "--pretty=format:%cr   %s" -n 1)`e[0m"
   }
 
   "`e]2;${title}$([char]0x07)`e[7m${location} `e[0m${branch}`n`e[${color}m>`e[0m "
