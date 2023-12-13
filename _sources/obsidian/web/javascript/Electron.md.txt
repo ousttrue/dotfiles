@@ -106,3 +106,13 @@ if (VITE_DEV_SERVER_URL) {
 - [Fuse.js | Fuse.js](https://www.fusejs.io/)
 	- @2020 [How to Create a Fuzzy Search in React JS Using Fuse.JS | by Naveen DA | Analytics Vidhya | Medium](https://medium.com/analytics-vidhya/how-to-create-a-fuzzy-search-in-react-js-using-fuse-js-859f80345657)
 	 - [React Fuzzy Searcher](https://goelhardik.github.io/react-fuzzy-searcher/)
+
+# server 兼用
+Electron が WebServer を兼ねる
+- [[object Object]: Site Unreachable](https://kent-and-co.com/881/)
+- [Electronでアプリ内部にWebサーバーを立てる #JavaScript - Qiita](https://qiita.com/pman-taichi/items/406b6eb068e074dc6675)
+- [同一アプリをWeb版とElectron版の両方で作る方法 - Taste of Tech Topics](https://acro-engineer.hatenablog.com/entry/2018/12/24/215009)
+
+# 内部を独自プロトコル
+- [Electron 上で Next.js などの Web フレームワークを使いたい](https://zenn.dev/rithmety/articles/20220412-web-server-on-electron-b9dda210d3c3f4)
+- [electron-server - npm](https://www.npmjs.com/package/electron-server)
