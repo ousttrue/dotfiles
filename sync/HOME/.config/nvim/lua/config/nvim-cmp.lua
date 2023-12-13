@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   local cmp = require "cmp"
   local lspkind = require "lspkind"
-  local luasnip = require "luasnip"
+  -- local luasnip = require "luasnip"
   local dot = require "dot"
   local feedkeys = require "cmp.utils.feedkeys"
 
@@ -59,7 +59,7 @@ function M.setup()
   cmp.setup {
     snippet = {
       expand = function(args)
-        luasnip.lsp_expand(args.body)
+        -- luasnip.lsp_expand(args.body)
       end,
     },
 

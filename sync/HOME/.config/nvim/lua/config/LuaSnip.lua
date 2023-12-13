@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   local dot = require "dot"
   -- Somewhere in your Neovim startup, e.g. init.lua
-  -- require("luasnip").config.set_config { -- Setting LuaSnip config
+  require("luasnip").config.set_config { -- Setting LuaSnip config
 
   --   -- Enable autotriggered snippets
   --   enable_autosnippets = true,
@@ -13,15 +13,15 @@ function M.setup()
   -- }
 
   -- Load all snippets from the nvim/LuaSnip directory at startup
-  local path = dot.get_config_home() .. "/nvim/LuaSnip"
+  -- local path = dot.get_config_home() .. "/nvim/LuaSnip"
   -- require("luasnip.loaders.from_lua").lazy_load {
   --   paths = path,
   -- }
   -- require("luasnip.loaders.from_vscode").lazy_load()
 
-  require("luasnip.loaders.from_snipmate").lazy_load {
-    paths = path,
-  }
+  -- require("luasnip.loaders.from_snipmate").lazy_load {
+  --   paths = path,
+  -- }
 
   --   vim.cmd [[
   -- " press <Tab> to expand or jump in a snippet. These can also be mapped separately
