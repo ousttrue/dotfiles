@@ -101,6 +101,18 @@ function prompt()
   # - dotfiles
   # - ghq
   # - lang
+  $prefix = "🤔"
+  if($IsWindows)
+  {
+    $prefix = " "
+  } elseif($IsLinux)
+  {
+    $prefix = " "
+  } elseif($IsMacOS)
+  {
+    $prefix + " "
+  }
+
   $color = $? ? "32" : "31";
   $location = (Get-Item (Get-Location));
   $title = $location.Name
@@ -118,7 +130,7 @@ function prompt()
     $branch = " `e[32m[ ${branch}${sync}]  $(git log "--pretty=format:%cr   %s" -n 1)`e[0m"
   }
 
-  "`e]2;${title}$([char]0x07)`e[7m${location} `e[0m${branch}`n`e[${color}m>`e[0m "
+  "`e]2;${title}$([char]0x07)${prefix}`e[7m${location} `e[0m${branch}`n`e[${color}m>`e[0m "
 }
 
 # function ExecuteCommand ($commandPath, $commandArguments) 
@@ -237,13 +249,14 @@ if(has zoxide)
 #
 # alias
 #
-RemoveItemIf alias:mv
-RemoveItemIf alias:cp
-RemoveItemIf alias:rm
-RemoveItemIf alias:rmdir
-RemoveItemIf alias:diff
-RemoveItemIf function:\mkdir
-RemoveItemIf alias:ls
+Remove-Item  alias:* -force
+# RemoveItemIf alias:mv
+# RemoveItemIf alias:cp
+# RemoveItemIf alias:rm
+# RemoveItemIf alias:rmdir
+# RemoveItemIf alias:diff
+# RemoveItemIf function:\mkdir
+# RemoveItemIf alias:ls
 if(has lsd)
 {
   Set-Alias ls lsd
@@ -460,3 +473,4 @@ function Push-DotFile
     Pop-Location
   }
 }
+
