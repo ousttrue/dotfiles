@@ -60,14 +60,19 @@ app.listen(port);
 
 # server
 ## vite-plugin-node
+- `vite` が server を起こす
+- `vite` は base を host しない
 `express.static` に vite を効かせる方法がわかない
 - `use(express.static)` x
 - `vite middleware` x
+- @2021 [Viteを使ってExpress.jsアプリを作る - 🐾 Nekonote](https://scrapbox.io/dojineko/Vite%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6Express.js%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B)
+- @2021 [Vite Plugin Node で Vite を Node.js Webアプリケーションの開発でも利用する - Webdelog](https://www.webdelog.info/entry/vite-plugin-node)
 
 ## ts-node
-- @2023 [Express(Node.js)でTypeScript環境を構築するための完全ガイド | アールエフェクト](https://reffect.co.jp/node-js/express-typescript)
+- `middleware` @2022 [Viteをexpressにぶちこむ](https://zenn.dev/ddpn08/articles/ac30dae3e7c7ea)
+- `index.ts` @2023 [Express(Node.js)でTypeScript環境を構築するための完全ガイド | アールエフェクト](https://reffect.co.jp/node-js/express-typescript)
 - `vite middleware` o
-
+	
 ## vite-node
 - [Scrapbox](https://scrapbox.io/dojineko/vite-node)
 - `vite middleware` o

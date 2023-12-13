@@ -23,6 +23,11 @@
 ## 1.6
 - @2015 [[JSX]]
 
+# d.mts あかん
+[\`\*.d.ts\` ファイルをコミットする前に知ってほしい4つのこと](https://zenn.dev/qnighy/articles/9a6a0041f2a1aa#(1)-%E5%AE%9F%E3%81%AF-*.ts-%E3%81%A7%E3%81%84%E3%81%84%E3%81%8B%E3%82%82%E3%81%97%E3%82%8C%E3%81%AA%E3%81%84)
+=> `mts` に rename で `import some.mjs` で動く
+=> `import type` いけるかも
+
 # tsconfig.json
 [tsconfig.jsonを設定する | TypeScript入門『サバイバルTypeScript』](https://typescriptbook.jp/reference/tsconfig/tsconfig.json-settings)
 

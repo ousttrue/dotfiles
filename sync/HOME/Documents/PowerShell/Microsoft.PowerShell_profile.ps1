@@ -27,6 +27,10 @@ if(has chcp)
 {
   chcp 65001
 }
+if(has ghq)
+{
+  $GHQ_ROOT = (Get-Item (ghq root))
+}
 
 #
 # readline
@@ -117,6 +121,28 @@ function prompt()
   $color = $? ? "32" : "31";
   $location = (Get-Item (Get-Location));
   $title = $location.Name
+  if($GHQ_ROOT -and $location.FullName.StartsWith($GHQ_ROOT.FullName))
+  {
+    $location = $location.FullName.Substring($GHQ_ROOT.FullName.Length+1)
+    if($location.StartsWith( "github.com\"))
+    {
+      $location = $location.Substring("github.com\".Length)
+      if($location.StartsWith("ousttrue\"))
+      {
+        $location = " " + $location.Substring("ousttrue\".Length)
+      } else
+      {
+        $location = " " + $location
+      }
+    } else
+    {
+      $location = " " + $location
+    }
+  } elseif($location.FullName.StartsWith($env:HOME))
+  {
+    $location = " " + $location.FullName.Substring($env:HOME.Length+1)
+  }
+
   if($IconMap[$title])
   {
     $title = $IconMap[$title]
@@ -460,16 +486,38 @@ function Push-DotFile
 #
 # alias
 #
-# RemoveItemIf alias:mv
-# RemoveItemIf alias:cp
-# RemoveItemIf alias:rm
-# RemoveItemIf alias:rmdir
-# RemoveItemIf alias:diff
-# RemoveItemIf function:\mkdir
-# RemoveItemIf alias:ls
-if(has lsd)
+if(has exa)
+{
+  Set-Alias ls exa
+  function ll
+  { 
+    exa -l $args 
+  }
+  function la
+  {
+    exa -a $args
+  }
+} elseif(has lsd)
 {
   Set-Alias ls lsd
+  function ll
+  { 
+    lsd -l $args 
+  }
+  function la
+  {
+    lsd -a $args
+  }
+} elseif(has ls)
+{
+  function ll
+  { 
+    ls -l $args 
+  }
+  function la
+  {
+    ls -a $args
+  }
 }
 Set-Alias code "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd"
 Set-Alias cd Set-Location

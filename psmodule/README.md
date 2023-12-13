@@ -8,17 +8,13 @@ dotfiles の管理機能を作ってみる
 - vc2022
 - mingw
 
-## Package
+## get, extrace, make
 
-- Get-Package
+- Get-Order
+  nvim, 
 - VersionCheck(最新バージョンを取得したい)
 - DownloadArchive
 - ExtractArchive
 - Build
 - Alias(path 通さなくてよくなるのでは？)
-
-## DotFile
-
-- Get-Dotfile
-- Link
 

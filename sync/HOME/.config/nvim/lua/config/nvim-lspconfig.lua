@@ -1,13 +1,16 @@
 local DOT = require "dot"
 -- local CMP = DOT.safe_require("cmp_nvim_lsp")
 
+local VSCODE_SERVER = DOT.get_home() .. "/.vscode-server"
+local VSCODE_LOCAL = DOT.get_home() .. "/.vscode"
+local VSCODE = DOT.is_wsl and VSCODE_SERVER or VSCODE_LOCAL
+
 local M = {}
 function M.setup()
-  local dot = require "dot"
   local lspconfig = require "lspconfig"
   local util = require "lspconfig.util"
 
-  require("lspconfig.ui.windows").default_options.border = dot.border
+  require("lspconfig.ui.windows").default_options.border = DOT.border
 
   ---@param client table
   ---@param bufnr number
@@ -61,10 +64,10 @@ function M.setup()
   local zls_path = ""
   if vim.fn.has "win32" == 1 then
     zls_path = vim.env.APPDATA .. "\\Code\\User\\globalStorage\\ziglang.vscode-zig\\zls_install\\zls.exe"
-  elseif dot.is_wsl then
-    zls_path = dot.get_home() .. "/.vscode-server/data/User/globalStorage/ziglang.vscode-zig/zls_install/zls"
+  elseif DOT.is_wsl then
+    zls_path = VSCODE .. "/data/User/globalStorage/ziglang.vscode-zig/zls_install/zls"
   else
-    zls_path = dot.get_home() .. "/.config/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls"
+    zls_path = DOT.get_home() .. "/.config/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls"
   end
 
   lspconfig.zls.setup {
@@ -133,7 +136,7 @@ function M.setup()
   })
 
   lspconfig.powershell_es.setup {
-    bundle_path = dot.get_home() .. "/.vscode/extensions/ms-vscode.powershell-2023.3.3/modules",
+    bundle_path = VSCODE .. "/extensions/ms-vscode.powershell-2023.3.3/modules",
   }
 
   if vim.fn.executable "vala-language-server" == 1 then
@@ -188,7 +191,7 @@ function M.setup()
   --
   require("lspconfig").powershell_es.setup {
     -- bundle_path = dot.get_home() .. "/local/src/PowerShellEditorServices",
-    bundle_path = dot.get_home() .. "/.vscode-server/extensions/ms-vscode.powershell-2023.8.0/modules",
+    bundle_path = VSCODE .. "/extensions/ms-vscode.powershell-2023.8.0/modules",
   }
 end
 
