@@ -1,3 +1,4 @@
+Remove-Item  alias:* -force
 if(!$env:HOME)
 {
   $env:HOME = $env:USERPROFILE
@@ -246,23 +247,6 @@ if(has zoxide)
     })
 }
 
-#
-# alias
-#
-Remove-Item  alias:* -force
-# RemoveItemIf alias:mv
-# RemoveItemIf alias:cp
-# RemoveItemIf alias:rm
-# RemoveItemIf alias:rmdir
-# RemoveItemIf alias:diff
-# RemoveItemIf function:\mkdir
-# RemoveItemIf alias:ls
-if(has lsd)
-{
-  Set-Alias ls lsd
-}
-
-
 # cd ghq
 function gg
 {
@@ -379,7 +363,6 @@ function Get-Types($Pattern = ".")
   }
 }
 
-Set-Alias code "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code"
 #
 # module
 #
@@ -473,4 +456,21 @@ function Push-DotFile
     Pop-Location
   }
 }
+
+#
+# alias
+#
+# RemoveItemIf alias:mv
+# RemoveItemIf alias:cp
+# RemoveItemIf alias:rm
+# RemoveItemIf alias:rmdir
+# RemoveItemIf alias:diff
+# RemoveItemIf function:\mkdir
+# RemoveItemIf alias:ls
+if(has lsd)
+{
+  Set-Alias ls lsd
+}
+Set-Alias code "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd"
+Set-Alias cd Set-Location
 

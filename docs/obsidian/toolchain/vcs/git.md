@@ -55,3 +55,6 @@ git branch --contains
 
 # pull 時に fast-forward 強制
 > github 上での merge 運用の場合など
+```sh
+git config pull.ff only
+```
