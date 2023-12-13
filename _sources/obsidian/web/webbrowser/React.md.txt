@@ -113,10 +113,6 @@ JSX は transpile 必要。じゃぁ、ついでに TypeScript にしよう。�
 ## React.FC(Function Component)
 - [ReactでのTypeScript入門！環境構築から関数コンポーネントの活用まで│Muscle Coding](https://musclecoding.com/react-typescript/)
 
-# 構成
-
-## Vite + TypeScript + React
-- @2023 [ViteでTypeScript×Reactの開発環境を構築してみた【前編】｜SHIFT Group 技術ブログ](https://note.com/shift_tech/n/n9c5fcd207680)
 
 # hooks
 [[react_hooks]]
