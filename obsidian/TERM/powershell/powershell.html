@@ -293,23 +293,31 @@ Windows PowerShell 5.1 ワークフロー (.xaml)</p>
 BOMなしUTF-8がデフォルト</p>
 </div></blockquote>
 </section>
-<section id="windows-powershell-5-1">
-<h2>Windows PowerShell 5.1<a class="headerlink" href="#windows-powershell-5-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id1">
+<h2>5.1<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>windows preinstall</p>
 <blockquote>
 <div><p>PowerShell 5.1からは$PSHOMEにあるps1xmlファイルは使われなくなります。</p>
 </div></blockquote>
 </section>
-<section id="id1">
-<h2>4.0<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id2">
+<h2>5.0<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>class 構文 <code class="docutils literal notranslate"><span class="pre">New-Object</span></code></p></li>
+<li><p>[[ps_class]]</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>4.0<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>@2016 <a class="reference external" href="https://blog.shibata.tech/entry/2016/08/02/212739">PowerShellの起動時に読まれるps1xmlファイルについて - しばたテックブログ</a></p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>2.0<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id4">
+<h2>2.0<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>@2010 Add-Type</p></li>
+<li><p>[[ps_json]]</p></li>
 </ul>
 </section>
 </section>
@@ -350,14 +358,39 @@ BOMなしUTF-8がデフォルト</p>
 <h1>provider<a class="headerlink" href="#provider" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[ps_provider]]</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id3">
-<h1>型<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id5">
+<h1>型<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p>@2022 <a class="reference external" href="https://tex2e.github.io/blog/powershell/array">PowerShellの配列と連想配列 | 晴耕雨読</a></p></li>
 </ul>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="s2">"a"</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span> <span class="p">//</span> <span class="p">=&gt;</span> <span class="n">System</span><span class="p">.</span><span class="n">String</span>
 <span class="p">@().</span><span class="n">GetType</span><span class="p">()</span> <span class="p">//</span> <span class="p">=&gt;</span> <span class="n">System</span><span class="p">.</span><span class="n">Object</span><span class="p">[]</span>
 <span class="no">[math]</span><span class="p">::</span><span class="n">pi</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span> <span class="p">//</span> <span class="p">=&gt;</span> <span class="n">Double</span> 
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eval">
+<h1>eval<a class="headerlink" href="#eval" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-ps1 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">cmd</span> <span class="k">param</span><span class="p">)</span>
+<span class="c"># 行頭は()を省略できる</span>
+<span class="n">cmd</span> <span class="k">param</span>
+
+<span class="nv">$Variable</span><span class="p">:</span><span class="n">hoge</span>
+<span class="c"># 省略</span>
+<span class="nv">$hoge</span>
+
+<span class="c"># 文字列内</span>
+<span class="s2">"${var} </span><span class="p">$(</span><span class="n">cmd</span> <span class="k">param</span><span class="p">)</span><span class="s2">"</span>
+
+<span class="c"># 出力が if に吸われる</span>
+<span class="k">if</span><span class="p">(</span><span class="n">hoge</span> <span class="o">-match</span> <span class="n">fuga</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="nb">write-host</span> <span class="s2">"true"</span>
+<span class="p">}</span>
+
+<span class="c"># return </span>
+<span class="c"># return の省略</span>
+<span class="c"># Out-Host</span>
 </pre></div>
 </div>
 </section>
@@ -403,9 +436,10 @@ BOMなしUTF-8がデフォルト</p>
 <li><a class="reference internal" href="#core-7-0">Core 7.0</a></li>
 <li><a class="reference internal" href="#core-6-1">Core 6.1</a></li>
 <li><a class="reference internal" href="#core-6-0">Core 6.0</a></li>
-<li><a class="reference internal" href="#windows-powershell-5-1">Windows PowerShell 5.1</a></li>
-<li><a class="reference internal" href="#id1">4.0</a></li>
-<li><a class="reference internal" href="#id2">2.0</a></li>
+<li><a class="reference internal" href="#id1">5.1</a></li>
+<li><a class="reference internal" href="#id2">5.0</a></li>
+<li><a class="reference internal" href="#id3">4.0</a></li>
+<li><a class="reference internal" href="#id4">2.0</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#vscode">vscode</a><ul>
@@ -422,7 +456,8 @@ BOMなしUTF-8がデフォルト</p>
 </li>
 <li><a class="reference internal" href="#module">module</a></li>
 <li><a class="reference internal" href="#provider">provider</a></li>
-<li><a class="reference internal" href="#id3">型</a></li>
+<li><a class="reference internal" href="#id5">型</a></li>
+<li><a class="reference internal" href="#eval">eval</a></li>
 </ul>
 
           </div>

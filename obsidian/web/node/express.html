@@ -219,6 +219,7 @@
         </div>
         <article role="main">
           <p>[[vite]]</p>
+<p>要件: <code class="docutils literal notranslate"><span class="pre">https</span></code> + <code class="docutils literal notranslate"><span class="pre">front</span> <span class="pre">hosting(vite)</span></code> + <code class="docutils literal notranslate"><span class="pre">backend</span> <span class="pre">typescript(vite-node)</span></code></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">server</span></code> を [[TypeScript]] 化</p>
 <ul>
@@ -244,6 +245,9 @@
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://reffect.co.jp/node-js/express-typescript">Express(Node.js)でTypeScript環境を構築するための完全ガイド | アールエフェクト</a></p></li>
+</ul>
 <p><code class="docutils literal notranslate"><span class="pre">app.ts</span></code></p>
 <div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">vite</span> <span class="kr">from</span> <span class="s1">'vite'</span>
 <span class="k">import</span> <span class="nx">express</span> <span class="kr">from</span> <span class="s1">'express'</span><span class="p">;</span>
@@ -271,6 +275,11 @@
         <span class="nx">usePolling</span>: <span class="kt">true</span><span class="p">,</span>
         <span class="nx">interval</span>: <span class="kt">100</span><span class="p">,</span>
       <span class="p">},</span>
+      <span class="c1">// net::ERR_SSL_PROTOCOL_ERROR なおる？</span>
+	    <span class="nx">hmr</span><span class="o">:</span> <span class="p">{</span>
+	      <span class="nx">protocol</span><span class="o">:</span> <span class="s2">"ws"</span><span class="p">,</span>
+	    <span class="p">}</span>
+
     <span class="p">},</span>
   <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">viteServer</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">viteServer</span><span class="p">.</span><span class="nx">middlewares</span><span class="p">)</span>

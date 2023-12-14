@@ -1,5 +1,7 @@
 [[vite]]
 
+要件: `https` + `front hosting(vite)` + `backend typescript(vite-node)`
+
 - `server` を [[TypeScript]] 化
 	- entry point の ts 化 => vite-node / ts-node
 - `front` も [[TypeScript]] 化 
@@ -20,6 +22,8 @@
     "express": "^4.18.2"
   }
 ```
+
+- @2023 [Express(Node.js)でTypeScript環境を構築するための完全ガイド | アールエフェクト](https://reffect.co.jp/node-js/express-typescript)
 
 `app.ts`
 ```ts
@@ -49,6 +53,11 @@ else {
         usePolling: true,
         interval: 100,
       },
+      // net::ERR_SSL_PROTOCOL_ERROR なおる？
+	    hmr: {
+	      protocol: "ws",
+	    }
+
     },
   }).then(viteServer => {
     app.use(viteServer.middlewares)
