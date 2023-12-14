@@ -3,7 +3,7 @@ if(!$env:HOME)
 {
   $env:HOME = $env:USERPROFILE
 }
-$env:FZF_DEFAULT_OPTS="--layout=reverse"
+$env:FZF_DEFAULT_OPTS="--layout=reverse --preview-window down:70%"
 $DotDir = (Get-Item (Join-Path $env:HOME "dotfiles"))
 function has($cmdname)
 {
@@ -71,46 +71,63 @@ $IconMap = @{
 
 function get_git_status()
 {
-  if($lines = @(git status --porcelain --branch))
+  git rev-parse --is-inside-work-tree 2>$null
+  if(!$?)
   {
-    $sync = ""
-    if($lines[0] -match "\[([^]]+)\]")
+    return $false
+  }
+
+  $lines = @(git status --porcelain --branch)
+  $sync = ""
+  if($lines[0] -match "\[([^]]+)\]")
+  {
+    $splits = $Matches[1].split(', ')
+    for ($i = 0; $i -lt $splits.Length; $i++)
     {
-      $splits = $Matches[1].split(', ')
-      for ($i = 0; $i -lt $splits.Length; $i++)
+      if($splits[$i] -match "(\w+)\s+(\d+)")
       {
-        if($splits[$i] -match "(\w+)\s+(\d+)")
+        $sync_status = $matches[1]
+        $n = $matches[2]
+        if($sync_status -eq "behind")
         {
-          $sync_status = $matches[1]
-          $n = $matches[2]
-          if($sync_status -eq "behind")
-          {
-            $sync += " ${n}"
-          } elseif ($sync_status -eq "ahead")
-          {
-            $sync += " ${n}"
-          }
+          $sync += " ${n}"
+        } elseif ($sync_status -eq "ahead")
+        {
+          $sync += " ${n}"
         }
       }
-    } else
-    {
-      $sync = " "
     }
-
-    $status = @{}
-    for ($i = 1; $i -lt $lines.Length; $i++)
-    {
-      $line = $lines[$i]
-      $key = $line.Substring(0, 2).Trim()
-      $status[$key] += 1
-    }
-    foreach ($key in $status.Keys)
-    {
-      $sync += "${key}$($status[$key])"
-    } 
- 
-    return $sync
+  } else
+  {
+    $sync = " "
   }
+
+  # A, M, D, ?, U, !, C, R
+  $status = @{
+  }
+  $iconMap = @{
+    "?" = " "
+    "M" = " "
+    "D" = " "
+    "R" = "↷ "
+  }
+  for ($i = 1; $i -lt $lines.Length; $i++)
+  {
+    $line = $lines[$i]
+    $key = $line.Substring(1, 1)
+    $status[$key] += 1
+  }
+  foreach ($key in $status.Keys)
+  {
+    $icon = $iconMap[$key]
+    if([string]::IsNullOrWhiteSpace($icon))
+    {
+      $icon = $key
+    }
+    $sync += "${icon}$($status[$key])"
+  } 
+ 
+  return $sync
 }
 
 function prompt()
@@ -120,6 +137,8 @@ function prompt()
   # - dotfiles
   # - ghq
   # - lang
+  $color = $? ? "32" : "31";
+
   $prefix = "🤔"
   if($IsWindows)
   {
@@ -132,10 +151,9 @@ function prompt()
     $prefix + " "
   }
 
-  $color = $? ? "32" : "31";
   $location = (Get-Item (Get-Location));
   $title = $location.Name
-  if($GHQ_ROOT -and $location.FullName.StartsWith($GHQ_ROOT.FullName))
+  if($GHQ_ROOT -and $location.FullName.StartsWith($GHQ_ROOT.FullName + "\"))
   {
     $location = $location.FullName.Substring($GHQ_ROOT.FullName.Length+1)
     if($location.StartsWith( "github.com\"))
@@ -154,7 +172,13 @@ function prompt()
     }
   } elseif($location.FullName.StartsWith($env:HOME))
   {
-    $location = " " + $location.FullName.Substring($env:HOME.Length+1)
+    if($location -eq $env:HOME)
+    {
+      $location = " "
+    } else
+    {
+      $location = " " + $location.FullName.Substring($env:HOME.Length)
+    }
   }
 
   if($IconMap[$title])
@@ -163,16 +187,18 @@ function prompt()
   }
 
   $sync = (get_git_status)
-
-  $branch = $(git branch --show-current)
-  if ($branch)
+  if($sync)
   {
-    # $branch = " `e[32m ${branch} $(git log --pretty=format:%s -n 1)`e[0m"
-    $log = $(git log "--pretty=format: %cr   %s" -n 1)
-    $branch = " `e[32m[ ${branch}] ${sync} ${log}`e[0m"
-  }
+    $branch = $(git branch --show-current)
+    if ($branch)
+    {
+      # $branch = " `e[32m ${branch} $(git log --pretty=format:%s -n 1)`e[0m"
+      $log = $(git log "--pretty=format: %cr   %s" -n 1)
+      $branch = " `e[32m[ ${branch}] ${sync} ${log}`e[0m"
+    }
+  } 
 
-  "`e]2;${title}$([char]0x07)${prefix}`e[7m${location} `e[0m${branch}`n`e[${color}m>`e[0m "
+  "`e]2;${title}$([char]0x07)${prefix}`e[7m${location}`e[0m${branch}`n`e[${color}m>`e[0m "
 }
 
 # function ExecuteCommand ($commandPath, $commandArguments) 
@@ -291,10 +317,26 @@ if(has zoxide)
 # cd ghq
 function gg
 {
-  $dst = $(ghq list -p| fzf --reverse +m)
+  $dst = $(ghq list -p| fzf --reverse +m --preview "bat --color=always --style=header,grid --line-range :100 {}/README.md")
   if($dst)
   {
     Set-Location "$dst"
+  }
+}
+function grm
+{
+  $dst = $(ghq list -p| fzf --reverse +m --preview "bat --color=always --style=header,grid {}/README.md")
+  if($dst)
+  {
+    $parent = (Split-Path -Parent $dst)
+    "remove : ${dst}" | Out-Host 
+    Remove-Item -Recurse -Force $dst
+    if(!(Get-ChildItem $parent))
+    {
+      # empty
+      "remove parent: ${parent}" | Out-Host 
+      Remove-Item -Recurse -Force $parent
+    }
   }
 }
 function vv
@@ -542,7 +584,18 @@ function now()
   [System.DateTimeOffset]::Now
 }
 
-$area = (Get-Content (Join-Path $env:GIS_DIR "jma/area.json") | ConvertFrom-Json -AsHashtable)[0]
+function rmrf()
+{
+  Remove-Item -Recurse -Force $args
+}
+
+if($env:GIS_DIR -and (Test-Path (Join-Path $env:GIS_DIR "jma/area.json")))
+{
+  $area = (Get-Content (Join-Path $env:GIS_DIR "jma/area.json") | ConvertFrom-Json -AsHashtable)[0]
+} else
+{
+  $area = @{}
+}
 
 # function areaItems($key, $list)
 # {
