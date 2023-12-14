@@ -66,52 +66,51 @@ $IconMap = @{
   dotfiles = " "
   rtc_memo = "⚡"
   UniVRM = " "
-  minixr = "🎮"
+  minixr = " "
 }
 
 function get_git_status()
 {
-  $lines = @(git status --porcelain --branch)
-  $sync = ""
-  if($lines[0] -match "\[([^]]+)\]")
+  if($lines = @(git status --porcelain --branch))
   {
-    $splits = $Matches[1].split(', ')
-    for ($i = 0; $i -lt $splits.Length; $i++)
+    $sync = ""
+    if($lines[0] -match "\[([^]]+)\]")
     {
-      if($splits[$i] -match "(\w+)\s+(\d+)")
+      $splits = $Matches[1].split(', ')
+      for ($i = 0; $i -lt $splits.Length; $i++)
       {
-        $sync_status = $matches[1]
-        $n = $matches[2]
-        if($sync_status -eq "behind")
+        if($splits[$i] -match "(\w+)\s+(\d+)")
         {
-          $sync += " ${n}"
-        } elseif ($sync_status -eq "ahead")
-        {
-          $sync += " ${n}"
+          $sync_status = $matches[1]
+          $n = $matches[2]
+          if($sync_status -eq "behind")
+          {
+            $sync += " ${n}"
+          } elseif ($sync_status -eq "ahead")
+          {
+            $sync += " ${n}"
+          }
         }
       }
+    } else
+    {
+      $sync = " "
     }
-  } else
-  {
-    $sync = " "
-  }
 
-  $status = @{}
-  $lines = $lines[1..($lines.Length-1)]
-  foreach ($line in $lines)
-  {
-    # if($line -match "(\S+)\s+(.*)")
-    # {
-    #   # increment(status, string.sub(k, 1, 1))
-    #   $status[$Matches[1]] += [int]$Matches[2]
-    # }
-  }
-  foreach ($Key in $status.Keys)
-  {
-    $sync += "${Key}$(status[$Key])"
-  } 
+    $status = @{}
+    for ($i = 1; $i -lt $lines.Length; $i++)
+    {
+      $line = $lines[$i]
+      $key = $line.Substring(0, 2).Trim()
+      $status[$key] += 1
+    }
+    foreach ($key in $status.Keys)
+    {
+      $sync += "${key}$($status[$key])"
+    } 
  
-  return $sync
+    return $sync
+  }
 }
 
 function prompt()
@@ -169,7 +168,8 @@ function prompt()
   if ($branch)
   {
     # $branch = " `e[32m ${branch} $(git log --pretty=format:%s -n 1)`e[0m"
-    $branch = " `e[32m[ ${branch}${sync}]  $(git log "--pretty=format:%cr   %s" -n 1)`e[0m"
+    $log = $(git log "--pretty=format: %cr   %s" -n 1)
+    $branch = " `e[32m[ ${branch}] ${sync} ${log}`e[0m"
   }
 
   "`e]2;${title}$([char]0x07)${prefix}`e[7m${location} `e[0m${branch}`n`e[${color}m>`e[0m "
@@ -537,3 +537,33 @@ if(has exa)
 Set-Alias code "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd"
 Set-Alias cd Set-Location
 
+function now()
+{
+  [System.DateTimeOffset]::Now
+}
+
+$area = (Get-Content (Join-Path $env:GIS_DIR "jma/area.json") | ConvertFrom-Json -AsHashtable)[0]
+
+# function areaItems($key, $list)
+# {
+#   $items = $area[$key]
+#   foreach($key in $items.keys)
+#   {
+#     $value = $items[$key]
+#     $value["id"]= $key
+#     [void]$list.Add($value)
+#   }
+# }
+
+# function Get-Area()
+# {
+#   $list = [System.Collections.ArrayList]::new()
+#
+#   areaItems "centers" $list
+#   areaItems "offices" $list
+#   areaItems "class10s" $list
+#   areaItems "class15s" $list
+#   areaItems "class20s" $list
+#
+#   $list.ToArray()
+# }

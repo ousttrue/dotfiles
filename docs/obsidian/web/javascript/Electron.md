@@ -6,6 +6,7 @@
 - @2022 [【Electron】導入～ビルドまとめ - テク×てく ブログ](https://koubou-rei.com/entry/electron-create)
 - @2021 [Electron入門 \~ Webの技術でつくるデスクトップアプリ](https://zenn.dev/sprout2000/books/6f6a0bf2fd301c)
 - @2020 [OSSのJSONエディタをElectronアプリに移植した - マルシテイア](https://blog.amagi.dev/entry/json-editor-app)
+- `parcel` @2022 [【入門】ElectronをTypeScriptで手軽に試したい](https://zenn.dev/lowpaper/articles/89caa5cdddfd89)
 
 # 構成 
 ## electron-vite
@@ -93,9 +94,6 @@ if (VITE_DEV_SERVER_URL) {
 使い方がわからんかった。
 [electron-vite | Next Generation Electron Build Tooling](https://evite.netlify.app/)
 - @2023 [electron-vite で Electron アプリ開発の生産性を上げる | 豆蔵デベロッパーサイト](https://developer.mamezou-tech.com/blogs/2023/05/22/electron-vite/)
-
-## typescript
-- `parcel` @2022 [【入門】ElectronをTypeScriptで手軽に試したい](https://zenn.dev/lowpaper/articles/89caa5cdddfd89)
 
 ## vue
 - @2022 [vite(+vue)+electronでアプリをビルドする #Vue.js - Qiita](https://qiita.com/Quantum/items/00fe28792bb869aa4f65)

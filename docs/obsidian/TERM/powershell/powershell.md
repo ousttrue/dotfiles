@@ -47,15 +47,20 @@ Windows PowerShell 5.1 ワークフロー (.xaml)
 > powershell(.exe) => pwsh(.exe)
 > BOMなしUTF-8がデフォルト
 
-## Windows PowerShell 5.1
+## 5.1
 windows preinstall
 > PowerShell 5.1からは$PSHOMEにあるps1xmlファイルは使われなくなります。
+
+## 5.0
+- class 構文 `New-Object`
+- [[ps_class]]
 
 ## 4.0
 - @2016 [PowerShellの起動時に読まれるps1xmlファイルについて - しばたテックブログ](https://blog.shibata.tech/entry/2016/08/02/212739)
 
 ## 2.0
 - @2010 Add-Type
+- [[ps_json]]
 
 # vscode
 - @2022 [PoweShellの開発環境を整える](https://incipe.dev/blog/post/setting-up-a-powershell-development-environment/)
@@ -90,3 +95,30 @@ windows preinstall
 @().GetType() // => System.Object[]
 [math]::pi.GetType() // => Double 
 ```
+
+# eval
+
+```ps1
+(cmd param)
+# 行頭は()を省略できる
+cmd param
+
+$Variable:hoge
+# 省略
+$hoge
+
+# 文字列内
+"${var} $(cmd param)"
+
+# 出力が if に吸われる
+if(hoge -match fuga)
+{
+	write-host "true"
+}
+
+# return 
+# return の省略
+# Out-Host
+```
+
+
