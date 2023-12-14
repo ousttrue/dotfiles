@@ -4,6 +4,7 @@
 
 - @2020 [fzfの使い方を学んでいく – yurublog](https://ss191215.stars.ne.jp/2020/03/28/182/)ko
 - @2019 [[ターミナル]fzfを使った自作インタラクティブアプリを作ってみよう！〜git addを快適に〜 | DevelopersIO](https://dev.classmethod.jp/articles/fzf-original-app-for-git-add/)
+- @2018 [第504回　インタラクティブフィルター「fzf」の活用 | gihyo.jp](https://gihyo.jp/admin/serial/01/ubuntu-recipe/0504)
 - @2017 [fzf（fuzzy finder）の便利な使い方をREADME, Wikiを読んで学ぶ - もた日記](https://wonderwall.hatenablog.com/entry/2017/10/06/063000#%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6)
 
 # Layout
@@ -24,6 +25,7 @@
 下
 ```
 --preview-window=down
+--preview-window down:70%
 ```
 
 ## git switch
