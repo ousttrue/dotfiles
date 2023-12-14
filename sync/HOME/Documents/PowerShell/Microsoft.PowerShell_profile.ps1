@@ -72,29 +72,44 @@ $IconMap = @{
 function get_git_status()
 {
   $lines = @(git status --porcelain --branch)
-  $sync = " "
-  if($lines[0] -match "\[(\w+)\s+(\d+)\]")
+  $sync = ""
+  if($lines[0] -match "\[([^]]+)\]")
   {
-    $sync_status = $matches[1]
-    $n = $matches[2]
-    if($sync_status -eq "behind")
+    $splits = $Matches[1].split(', ')
+    for ($i = 0; $i -lt $splits.Length; $i++)
     {
-      $sync = " ${n}"
-    } elseif ($sync_status -eq "ahead")
-    {
-      $sync = " ${n}"
-    }
-
-    $lines = $lines[1..($lines.Length-1)]
-    for ($i = 0; $i -lt $lines.Length; $i++)
-    {
-      if($lines[$i] -match "%s*([^%s]+)%s+(.*)")
+      if($splits[$i] -match "(\w+)\s+(\d+)")
       {
-        # increment(status, string.sub(k, 1, 1))
-        Write-Output $matches
+        $sync_status = $matches[1]
+        $n = $matches[2]
+        if($sync_status -eq "behind")
+        {
+          $sync += " ${n}"
+        } elseif ($sync_status -eq "ahead")
+        {
+          $sync += " ${n}"
+        }
       }
     }
+  } else
+  {
+    $sync = " "
   }
+
+  $status = @{}
+  $lines = $lines[1..($lines.Length-1)]
+  foreach ($line in $lines)
+  {
+    # if($line -match "(\S+)\s+(.*)")
+    # {
+    #   # increment(status, string.sub(k, 1, 1))
+    #   $status[$Matches[1]] += [int]$Matches[2]
+    # }
+  }
+  foreach ($Key in $status.Keys)
+  {
+    $sync += "${Key}$(status[$Key])"
+  } 
  
   return $sync
 }
@@ -148,7 +163,7 @@ function prompt()
     $title = $IconMap[$title]
   }
 
-  $sync = $(get_git_status)
+  $sync = (get_git_status)
 
   $branch = $(git branch --show-current)
   if ($branch)
