@@ -36,7 +36,7 @@ C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
 [[[PSReadline]]]
 
 # completion
-
+[[ps_completion]]
 
 # git
 - [GitHub - dahlbyk/posh-git: A PowerShell environment for Git](https://github.com/dahlbyk/posh-git)

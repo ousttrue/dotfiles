@@ -449,8 +449,8 @@ function Get-Types($Pattern = ".")
 #
 # module
 #
-Import-Module -Verbose -Name CompletionPredictor
-# Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+# Import-Module -Verbose -Name CompletionPredictor
+Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadlineOption -HistoryNoDuplicates
 Set-PSReadlineOption -AddToHistoryHandler {

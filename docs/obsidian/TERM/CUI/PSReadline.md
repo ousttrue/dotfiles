@@ -1,4 +1,5 @@
 [[powershell]]
+[[ps_completion]]
 
 [PSReadLine について - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/psreadline/about/about_psreadline?view=powershell-7.4)
 
@@ -12,9 +13,13 @@
 
 ## 2.2.6
 - `Predictive IntelliSense` @2022 [[PowerShell] PSReadLine 2.2がリリースされました | DevelopersIO](https://dev.classmethod.jp/articles/powershell-psreadline-22-released/)
-
 ## 2.1
 - @2020 [Announcing PSReadLine 2.1+ with Predictive IntelliSense - PowerShell Team](https://devblogs.microsoft.com/powershell/announcing-psreadline-2-1-with-predictive-intellisense/)
+
+# option
+- @2022 [Linuxで快適にPowershellを使うためのコツ #Linux - Qiita](https://qiita.com/Anubis_369/items/6339ce48288edf93b2ed)
+## Get-PSReadlineOption
+## Get-PSReadLineKeyHandler
 
 # KeyHandler
 - [Set-PSReadLineKeyHandler (PSReadLine) - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/psreadline/set-psreadlinekeyhandler?view=powershell-7.2)
@@ -50,15 +55,3 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
 ## title
 - @2022 [ASCII.jp：Windowsでコンソールのウィンドウタイトルを書き換える (2/2)](https://ascii.jp/elem/000/004/099/4099109/2/)
 
-# Register-ArgumentCompleter
-[タブ補完を有効にする - .NET CLI | Microsoft Learn](https://learn.microsoft.com/ja-jp/dotnet/core/tools/enable-tab-autocomplete#powershell)
-
-- @2015 [Register-ArgumentCompleter で 入力補完機能を自作しよう！ - pierre3のブログ](https://pierre3.hatenablog.com/entry/2015/12/08/222338)
-
-# Predictive IntelliSense
-[PSReadLine の予測機能を使用する - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/scripting/learn/shell/using-predictors?view=powershell-7.4)
-
-- [GitHub - PowerShell/CompletionPredictor](https://github.com/PowerShell/CompletionPredictor)
-
-- @2023 [PowerShell: Powershellのintelisenseで補完機能を使う](https://zenn.dev/atsushifx/articles/pwsh-console-intelisense-completion)
-- @2022 [PowerShell - PSReadLineによる入力補完](https://zenn.dev/tnagata012/articles/how-to-psreadline--80750ecebe1f74)
