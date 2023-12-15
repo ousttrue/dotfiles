@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>TabExpansion / TabExpansion2 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,54 +218,47 @@
           </label>
         </div>
         <article role="main">
-          <p>[[wslg]]
-[[Linux]]
-[[wsl_windows_side]]</p>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="wsl2-2-0-9">
-<h2>WSL2-2.0.9<a class="headerlink" href="#wsl2-2-0-9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+          <p>[[PSReadline]]</p>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/scripting/learn/shell/tab-completion?view=powershell-7.4">シェルでのタブ補完の使用 - PowerShell | Microsoft Learn</a></p>
+<p>@2020 <a class="reference external" href="https://qiita.com/FKbelm/items/2edb23d4f57e8c0d4fb4">PowerShellでbash-like, zsh-likeなタブ補完 #PowerShell - Qiita</a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="tabexpansion-tabexpansion2">
+<h1>TabExpansion / TabExpansion2<a class="headerlink" href="#tabexpansion-tabexpansion2" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://zenn.dev/dozo/articles/82e24c52e0ccdc">WSL2 2.0.x正式版がこっそリリース</a></p></li>
+<li><p><a class="reference external" href="https://www.powershellgallery.com/packages?q=tabexpansion">PowerShell Gallery | Packages matching tabexpansion Displaying results 1 to 20 of 20</a></p></li>
 </ul>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="etc-wsl-conf">
-<h1>/etc/wsl.conf<a class="headerlink" href="#etc-wsl-conf" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">user</span><span class="p">]</span>
-<span class="n">default</span><span class="o">=</span><span class="n">ousttrue</span>
-
-<span class="p">[</span><span class="n">network</span><span class="p">]</span>
-<span class="n">hostname</span><span class="o">=</span><span class="n">wgentoo</span>
-
-<span class="p">[</span><span class="n">interop</span><span class="p">]</span>
-<span class="n">appendWindowsPath</span> <span class="o">=</span> <span class="n">false</span>
-
-<span class="p">[</span><span class="n">boot</span><span class="p">]</span>
-<span class="n">systemd</span><span class="o">=</span><span class="n">true</span>
-</pre></div>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="argumentcompletions">
+<h1>ArgumentCompletions<a class="headerlink" href="#argumentcompletions" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="register-argumentcompleter">
+<h2>Register-ArgumentCompleter<a class="headerlink" href="#register-argumentcompleter" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/dotnet/core/tools/enable-tab-autocomplete#powershell">タブ補完を有効にする - .NET CLI | Microsoft Learn</a></p>
 <ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://qiita.com/shigeokamoto/items/ca2211567771cf40a90d">WSL2+Ubuntu22.04に標準で入ったsystemdを試す - Qiita</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://forest.watch.impress.co.jp/docs/news/1441775.html">「Windows Subsystem for Linux」が「systemd」に対応へ - 窓の杜</a></p></li>
+<li><p>@2015 <a class="reference external" href="https://pierre3.hatenablog.com/entry/2015/12/08/222338">Register-ArgumentCompleter で 入力補完機能を自作しよう！ - pierre3のブログ</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="app">
-<h1>app<a class="headerlink" href="#app" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="vscode">
-<h2>vscode<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"> <span class="pre">/mnt/c/Users/USER_NAME/AppData/Local/Programs/Microsoft\</span> <span class="pre">VS\</span> <span class="pre">Code/bin/code</span></code>
-でインストールできる。</p>
-<section id="error">
-<h3>error<a class="headerlink" href="#error" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ code
-&lt;3&gt;WSL (6658) ERROR: UtilConnectUnix:510: connect failed 2
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>@2021 <a class="reference external" href="https://qiita.com/iwaiktos/items/33ab69a42c3a1cc35dfb#3init-4010-error-utilconnecttointeropserver300-connect-failed-2">VSCode/WSL2/Docker の組み合わせで遭遇するエラーとその対策 - Qiita</a></p></li>
-</ul>
+<section id="validateset">
+<h2>ValidateSet<a class="headerlink" href="#validateset" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="predictive-intellisense">
+<h1>Predictive IntelliSense<a class="headerlink" href="#predictive-intellisense" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>from [[PSReadline]] -2.1 <code class="docutils literal notranslate"><span class="pre">history</span></code> 補完
+<a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/scripting/learn/shell/using-predictors?view=powershell-7.4">PSReadLine の予測機能を使用する - PowerShell | Microsoft Learn</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/PowerShell/CompletionPredictor">GitHub - PowerShell/CompletionPredictor</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/atsushifx/articles/pwsh-console-intelisense-completion">PowerShell: Powershellのintelisenseで補完機能を使う</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/tnagata012/articles/how-to-psreadline--80750ecebe1f74">PowerShell - PSReadLineによる入力補完</a></p></li>
+</ul>
+<section id="f2">
+<h2>F2<a class="headerlink" href="#f2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">inlineView</span></code> &lt;=&gt; <code class="docutils literal notranslate"><span class="pre">listView</span></code></p>
+</section>
+<section id="inlineview">
+<h2>InlineView<a class="headerlink" href="#inlineview" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">fish</span></code>的な表示</p>
+</section>
+<section id="listview">
+<h2>ListView<a class="headerlink" href="#listview" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
 
@@ -282,7 +275,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/OS/Linux/wsl.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/TERM/powershell/ps_completion.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -302,16 +295,16 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#wsl2-2-0-9">WSL2-2.0.9</a></li>
+<li><a class="reference internal" href="#">TabExpansion / TabExpansion2</a></li>
+<li><a class="reference internal" href="#argumentcompletions">ArgumentCompletions</a><ul>
+<li><a class="reference internal" href="#register-argumentcompleter">Register-ArgumentCompleter</a></li>
+<li><a class="reference internal" href="#validateset">ValidateSet</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#etc-wsl-conf">/etc/wsl.conf</a></li>
-<li><a class="reference internal" href="#app">app</a><ul>
-<li><a class="reference internal" href="#vscode">vscode</a><ul>
-<li><a class="reference internal" href="#error">error</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#predictive-intellisense">Predictive IntelliSense</a><ul>
+<li><a class="reference internal" href="#f2">F2</a></li>
+<li><a class="reference internal" href="#inlineview">InlineView</a></li>
+<li><a class="reference internal" href="#listview">ListView</a></li>
 </ul>
 </li>
 </ul>

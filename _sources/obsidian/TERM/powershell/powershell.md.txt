@@ -86,7 +86,7 @@ windows preinstall
 [[ps_module]]
 
 # provider
-[[ps_provider]]
+[[ps_drive]]
 
 #  型
 - @2022 [PowerShellの配列と連想配列 | 晴耕雨読](https://tex2e.github.io/blog/powershell/array)
@@ -98,7 +98,7 @@ windows preinstall
 
 # eval
 
-```ps1
+```powershell
 (cmd param)
 # 行頭は()を省略できる
 cmd param
@@ -120,5 +120,3 @@ if(hoge -match fuga)
 # return の省略
 # Out-Host
 ```
-
-

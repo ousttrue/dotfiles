@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>lua 関連のファルダ配置 - shell note ドキュメント</title>
+        <title>Docker - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -218,153 +218,57 @@
           </label>
         </div>
         <article role="main">
-          <p>開発環境案</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Docker]language server
-👆
-[Docker]editor toolchain Shell
-👆
-[Dokcer/git maintenance]ProjectFolder MultiPlexer Shell
-👆
-[Local]term
-👆             👇
-[Local]keyboard visualize
-</pre></div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="lua">
-<h1>lua 関連のファルダ配置<a class="headerlink" href="#lua" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[luarocks]]</p>
-<p>root を決めて、そこに <code class="docutils literal notranslate"><span class="pre">luarocks</span></code> をインストールする。</p>
+          <p>[[golang]]</p>
 <ul class="simple">
-<li><p>LUA_PATH</p></li>
-<li><p>CLUA_PATH</p></li>
-<li><p>PATH
-を設定する。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lua</span></code> の <code class="docutils literal notranslate"><span class="pre">bin</span></code>, <code class="docutils literal notranslate"><span class="pre">include</span></code>, <code class="docutils literal notranslate"><span class="pre">lib</span></code> への参照</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lua</span></code> をビルドした toolchain への参照
-を揃えるべし。</p></li>
+<li><p>dev
+backend: go server
+frontend: vite</p></li>
+<li><p>production
+backend: go server
+backend: go server(static)</p></li>
+<li><p>@2023 <a class="reference external" href="https://qiita.com/packmanrei/items/e5f3e56e9496b73f00a2">Go(Gin)✖️React でAPIを呼び出し合う #React - Qiita</a></p></li>
 </ul>
-<p>つまり、</p>
-<ul class="simple">
-<li><p>NeoVim</p></li>
-<li><p>LuaRocks</p></li>
-<li><p>nyagos, wezterm
-を統合したフォルダ配置が必要だ。</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">~/build/${TOOLCHAIN}/lua</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">luajit</span></code>
-neovim の cmake の subproject 発見能力に問題があり、
-<code class="docutils literal notranslate"><span class="pre">USE_BUNDLED_LUAJIT=off</span></code> の場合は、システムにインストールした <code class="docutils literal notranslate"><span class="pre">luajit</span></code> でないと発見できない。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">luajit</span> <span class="n">libluajit</span><span class="o">-</span><span class="mf">5.1</span><span class="o">-</span><span class="n">dev</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">neovim</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; cmake -G Ninja -S cmake.deps/ -B .deps -DCMAKE_BUILD_TYPE=Release -DUSE_BUNDLED_LUAJIT=off
-
-&gt; ldd `which nvim`
-        linux-vdso.so.1 (0x00007ffde17f9000)
-        libluajit-5.1.so.2 =&gt; /lib/x86_64-linux-gnu/libluajit-5.1.so.2 (0x00007f871db72000)
-        libm.so.6 =&gt; /lib/x86_64-linux-gnu/libm.so.6 (0x00007f871da8b000)
-        libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f871d000000)
-        libdl.so.2 =&gt; /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f871da86000)
-        libgcc_s.so.1 =&gt; /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f871da66000)
-        /lib64/ld-linux-x86-64.so.2 (0x00007f871dc15000)
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">luarock</span></code></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">BUILD_ROOT</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/build/gcc
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">BUILD_ROOT</span><span class="si">}</span>/lib/x86_64-linux-gnu
-<span class="nb">export</span> <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">BUILD_ROOT</span><span class="si">}</span>/lib/x86_64-linux-gnu/pkgconfig
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; ./configure --prefix=$HOME/build/gcc
-
-Configuring LuaRocks version 3.9.2...
-
-Lua version detected: 5.1
-Lua interpreter found: ${HOME}/build/gcc/bin/luajit
-lua.h found: ${HOME}/build/gcc/include/lua.h
-unzip found in PATH: /usr/bin
-
-Done configuring.
-
-LuaRocks will be installed at......: ${HOME}/build/gcc
-LuaRocks will install rocks at.....: ${HOME}/build/gcc
-LuaRocks configuration directory...: ${HOME}/build/gcc/etc/luarocks
-Using Lua from.....................: ${HOME}/build/gcc
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="plan">
-<h1>plan<a class="headerlink" href="#plan" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>git</p></li>
-<li><p>wezterm</p></li>
-<li><p>golang</p>
-<ul>
-<li><p>build nyagos</p></li>
-<li><p>symbolic link</p></li>
-</ul>
-</li>
-<li><p>aqua</p>
-<ul>
-<li><p>fzf, ghq...</p></li>
-</ul>
-</li>
-<li><p>rustup / cargo</p>
-<ul>
-<li><p>globtest</p></li>
-</ul>
-</li>
-<li><p>python3</p>
-<ul>
-<li><p>pip install zig ninja cmake</p></li>
-<li><p>build luajit gettext iconv</p></li>
-<li><p>build neovim</p></li>
-<li><p>luarocks</p></li>
-<li><p><a class="reference external" href="https://zignar.net/2023/01/21/using-luarocks-as-lua-interpreter-with-luarocks/">Using Neovim as Lua interpreter with Luarocks</a></p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="windows">
-<h1>windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>llvm-mingw</p></li>
-<li><p>golang</p></li>
-<li><p>python</p>
-<ul>
-<li><p>cmake</p></li>
-<li><p>ninja</p></li>
-</ul>
-</li>
-<li><p>aqua</p>
-<ul>
-<li><p>stylua</p>
-<ul>
-<li><p>neovim</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">%USERPROFILE%/build/llvm-mingw</span></code>
-に構築</p>
-<ul class="simple">
-<li><p>luajit</p></li>
-<li><p>gettext</p></li>
-<li><p>iconv</p></li>
-<li><p>neovim</p></li>
-<li><p>lua language server</p></li>
-<li><p>gtk</p>
-<ul>
-<li><p>gst</p></li>
-</ul>
-</li>
-</ul>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="docker">
-<h1>docker<a class="headerlink" href="#docker" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>formatter と language server ?</p>
+<h1>Docker<a class="headerlink" href="#docker" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">db</span></code> <code class="docutils literal notranslate"><span class="pre">docker</span></code> @2021 <a class="reference external" href="https://dev.classmethod.jp/articles/go-sample-rest-api/">Go言語で基本的なCRUD操作を行うREST APIを作成 | DevelopersIO</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="static">
+<h1>static<a class="headerlink" href="#static" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/a10a/articles/963e5326523ff8">go-chiでAPI+Staticサーバーを作成する</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://maku77.github.io/p/goruwy4/">Golang で HTTP サーバーを作成する (net/http, rs/cors) - まくまく Golang ノート</a></p></li>
+<li><p><a class="reference external" href="https://docs.kilvn.com/build-web-application-with-golang/ja/03.2.html">Goで簡単なwebサーバを立てる · Go Web 编程</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="https">
+<h1>https<a class="headerlink" href="#https" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tech.mokelab.com/go/http/server/tls.html">net/httpでHTTPSサーバーを起動する | mokelab tech sheets</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vite">
+<h1>vite<a class="headerlink" href="#vite" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> <code class="docutils literal notranslate"><span class="pre">separate-front</span></code> @2023 <a class="reference external" href="https://rimane.net/docker-react-golang-api/">Docker + React + Go API 通信できる環境を構築する - りまねどっとねっと</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> <code class="docutils literal notranslate"><span class="pre">separate-front</span></code> @2022 <a class="reference external" href="https://zenn.dev/tady/articles/adcdc65617ae57">React + Golang + websocketでリアルタイムチャットアプリを作る -Part1/websocket編-</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://khasegawa.hatenablog.com/entry/2022/03/08/001045">ReactとGoで作るWebアプリの自分向けテンプレート - ゆるりと</a></p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="k">default</span> <span class="nx">defineConfig</span><span class="p">({</span>
+  <span class="nx">server</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">host</span><span class="o">:</span> <span class="s1">'0.0.0.0'</span><span class="p">,</span>
+    <span class="nx">port</span><span class="o">:</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="s1">'3000'</span><span class="p">),</span>
+    <span class="nx">proxy</span><span class="o">:</span><span class="p">{</span>
+      <span class="s1">'/api'</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">API_URL</span><span class="p">,</span> <span class="c1">// docker-compose.yamlで指定したURLに対してリクエストを投げさせる</span>
+        <span class="nx">changeOrigin</span><span class="o">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">})</span>
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -380,7 +284,7 @@ Using Lua from.....................: ${HOME}/build/gcc
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/obsidian/env.md.txt"
+            | <a class="muted-link" href="../_sources/obsidian/go_server.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -400,10 +304,10 @@ Using Lua from.....................: ${HOME}/build/gcc
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">lua 関連のファルダ配置</a></li>
-<li><a class="reference internal" href="#plan">plan</a></li>
-<li><a class="reference internal" href="#windows">windows</a></li>
-<li><a class="reference internal" href="#docker">docker</a></li>
+<li><a class="reference internal" href="#">Docker</a></li>
+<li><a class="reference internal" href="#static">static</a></li>
+<li><a class="reference internal" href="#https">https</a></li>
+<li><a class="reference internal" href="#vite">vite</a></li>
 </ul>
 
           </div>

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,62 +212,15 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[wslg]]
-[[Linux]]
-[[wsl_windows_side]]</p>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="wsl2-2-0-9">
-<h2>WSL2-2.0.9<a class="headerlink" href="#wsl2-2-0-9" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://zenn.dev/dozo/articles/82e24c52e0ccdc">WSL2 2.0.x正式版がこっそリリース</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="etc-wsl-conf">
-<h1>/etc/wsl.conf<a class="headerlink" href="#etc-wsl-conf" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">user</span><span class="p">]</span>
-<span class="n">default</span><span class="o">=</span><span class="n">ousttrue</span>
-
-<span class="p">[</span><span class="n">network</span><span class="p">]</span>
-<span class="n">hostname</span><span class="o">=</span><span class="n">wgentoo</span>
-
-<span class="p">[</span><span class="n">interop</span><span class="p">]</span>
-<span class="n">appendWindowsPath</span> <span class="o">=</span> <span class="n">false</span>
-
-<span class="p">[</span><span class="n">boot</span><span class="p">]</span>
-<span class="n">systemd</span><span class="o">=</span><span class="n">true</span>
+          <div class="highlight-ps1 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">date</span><span class="p">).</span><span class="n">gettype</span><span class="p">()</span> <span class="c"># DateTime</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://qiita.com/shigeokamoto/items/ca2211567771cf40a90d">WSL2+Ubuntu22.04に標準で入ったsystemdを試す - Qiita</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://forest.watch.impress.co.jp/docs/news/1441775.html">「Windows Subsystem for Linux」が「systemd」に対応へ - 窓の杜</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="app">
-<h1>app<a class="headerlink" href="#app" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="vscode">
-<h2>vscode<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"> <span class="pre">/mnt/c/Users/USER_NAME/AppData/Local/Programs/Microsoft\</span> <span class="pre">VS\</span> <span class="pre">Code/bin/code</span></code>
-でインストールできる。</p>
-<section id="error">
-<h3>error<a class="headerlink" href="#error" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ code
-&lt;3&gt;WSL (6658) ERROR: UtilConnectUnix:510: connect failed 2
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>@2021 <a class="reference external" href="https://qiita.com/iwaiktos/items/33ab69a42c3a1cc35dfb#3init-4010-error-utilconnecttointeropserver300-connect-failed-2">VSCode/WSL2/Docker の組み合わせで遭遇するエラーとその対策 - Qiita</a></p></li>
-</ul>
-</section>
-</section>
-</section>
 
         </article>
       </div>
@@ -282,7 +235,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/OS/Linux/wsl.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/TERM/powershell/ps_date.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -290,35 +243,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#wsl2-2-0-9">WSL2-2.0.9</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#etc-wsl-conf">/etc/wsl.conf</a></li>
-<li><a class="reference internal" href="#app">app</a><ul>
-<li><a class="reference internal" href="#vscode">vscode</a><ul>
-<li><a class="reference internal" href="#error">error</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

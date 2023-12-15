@@ -2,6 +2,9 @@
 [[Linux]]
 [[wsl_windows_side]]
 
+# Version
+## WSL2-2.0.9
+- @2023 [WSL2 2.0.x正式版がこっそリリース](https://zenn.dev/dozo/articles/82e24c52e0ccdc)
 
 # /etc/wsl.conf
 ```
