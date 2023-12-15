@@ -31,6 +31,13 @@ if(has ghq)
 {
   $GHQ_ROOT = (Get-Item (ghq root))
 }
+function SetAliasIfExists([string]$name, [string]$path)
+{
+  if(Test-Path $path)
+  {
+    Set-Alias -Name $name -Value $path
+  }
+}
 
 #
 # readline
@@ -448,7 +455,7 @@ function Get-Types($Pattern = ".")
 
 #
 # module
-#
+# default not required
 # Import-Module -Verbose -Name CompletionPredictor
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 Set-PSReadLineOption -PredictionViewStyle ListView
@@ -620,3 +627,10 @@ if($env:GIS_DIR -and (Test-Path (Join-Path $env:GIS_DIR "jma/area.json")))
 #
 #   $list.ToArray()
 # }
+
+Set-Alias docker podman
+Set-Alias docker-compose podman-compose
+if(!(has tig))
+{
+  Set-Alias tig D:\msys64\usr\bin\tig.exe
+}
