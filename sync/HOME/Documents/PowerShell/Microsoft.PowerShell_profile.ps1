@@ -497,8 +497,7 @@ function LinkDotFile([System.IO.FileInfo]$src)
 {
   $dst = Join-Path $HOME ($src.FullName.Substring($SyncHome.FullName.Length+1))
   Write-Host -NoNewline "${dst} "
-  #if(Test-Path $dst)
-  if($false)
+  if(Test-Path $dst)
   {
     # green
     Write-Host "exists"
@@ -524,7 +523,7 @@ function Get-Dotfile
   }
 }
 
-function Sync-DotFile
+function Pull-DotFile
 {
   [CmdletBinding()]
   Param()
@@ -533,9 +532,7 @@ function Sync-DotFile
   {
     Push-Location ${HOME}/dotfiles
     git pull
-
-    # TODO: update symbolic links
-
+    Get-Dotfile | ForEach-Object{ LinkDotFile $_ }
     Pop-Location
   }
 }
