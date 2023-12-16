@@ -6,7 +6,7 @@ if($IsWindows)
 } else
 {
 }
-$SEP = [System.IO.Path]::PathSeparator()
+$SEP = [System.IO.Path]::DirectorySeparatorChar
 $env:FZF_DEFAULT_OPTS="--layout=reverse --preview-window down:70%"
 $DotDir = (Get-Item (Join-Path $HOME "dotfiles"))
 function has($cmdname)
@@ -251,17 +251,17 @@ function prompt()
 #
 function insertPath($path)
 {
-  if($env:Path -notcontains $path)
+  if($env:PATH -notcontains $path)
   {
-    $env:Path = $path + ";" + $env:Path
+    $env:PATH = $path + [System.IO.Path]::PathSeparator + $env:PATH
   }
 }
 #
 function addPath($path)
 {
-  if($env:Path -notcontains $path)
+  if($env:PATH -notcontains $path)
   {
-    $env:Path = $env:Path + ";" + $path
+    $env:PATH = $env:PATH + [System.IO.Path]::PathSeparator + $path
   }
 }
 
