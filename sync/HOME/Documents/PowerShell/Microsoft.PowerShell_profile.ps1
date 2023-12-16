@@ -6,6 +6,7 @@ if($IsWindows)
 } else
 {
 }
+$SEP = [System.IO.Path]::PathSeparator()
 $env:FZF_DEFAULT_OPTS="--layout=reverse --preview-window down:70%"
 $DotDir = (Get-Item (Join-Path $HOME "dotfiles"))
 function has($cmdname)
@@ -163,15 +164,15 @@ function prompt()
 
   $location = (Get-Item (Get-Location));
   $title = $location.Name
-  if($GHQ_ROOT -and $location.FullName.StartsWith($GHQ_ROOT.FullName + "\"))
+  if($GHQ_ROOT -and $location.FullName.StartsWith($GHQ_ROOT.FullName + $SEP))
   {
     $location = $location.FullName.Substring($GHQ_ROOT.FullName.Length+1)
-    if($location.StartsWith( "github.com\"))
+    if($location.StartsWith( "github.com$()"))
     {
-      $location = $location.Substring("github.com\".Length)
-      if($location.StartsWith("ousttrue\"))
+      $location = $location.Substring("github.com${SEP}".Length)
+      if($location.StartsWith("ousttrue${SEP}"))
       {
-        $location = " " + $location.Substring("ousttrue\".Length)
+        $location = " " + $location.Substring("ousttrue${SEP}".Length)
       } else
       {
         $location = " " + $location
@@ -264,18 +265,18 @@ function addPath($path)
   }
 }
 
-addPath($HOME + "\ghq\github.com\junegunn\fzf\bin")
-addPath($HOME + "\.fzf\bin")
-addPath($HOME + "\build\mingw\bin")
-# addPath($HOME + "/prefix/bin")
-addPath($HOME + "\.deno\bin")
-addPath($HOME + "\.cargo\bin")
-# addPath($HOME + "\go\bin")
-insertPath($HOME + "\local\bin")
-# addPath($HOME + "\AppData\Local\Programs\Microsoft VS Code")
+addPath(Join-Path $HOME "\ghq\github.com\junegunn\fzf\bin")
+addPath(Join-Path $HOME "\.fzf\bin")
+addPath(Join-Path $HOME "\build\mingw\bin")
+# addPath(Join-Path $HOME "/prefix/bin")
+addPath(Join-Path $HOME "\.deno\bin")
+addPath(Join-Path $HOME "\.cargo\bin")
+# addPath(Join-Path $HOME "\go\bin")
+insertPath(Join-Path $HOME "\local\bin")
+# addPath(Join-Path $HOME "\AppData\Local\Programs\Microsoft VS Code")
 # addPath("C:\Program Files\Git\usr\bin")
 # addPath("C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64")
-# addPath($HOME + "\local\src\depot_tools")
+# addPath(Join-Path $HOME "\local\src\depot_tools")
 # if($env:JAVA_HOME -ne $null){
 #     addPath($env:JAVA_HOME + "\bin")
 # }
@@ -308,8 +309,8 @@ if(Test-Path "C:\Python311")
   addPath("C:\Python311-arm64")
 }
 
-# addPath($HOME + "\local\nim-1.6.8\bin")
-addPath($HOME + "\neovim\bin")
+# addPath(Join-Path $HOME "\local\nim-1.6.8\bin")
+addPath(Join-Path $HOME "\neovim\bin")
 
 # For zoxide v0.8.0+
 if(has zoxide)
