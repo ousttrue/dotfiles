@@ -28,20 +28,3 @@
 # 国土地理院
 - [地理院地図｜地理院タイルを用いたサイト構築サンプル集](https://maps.gsi.go.jp/development/sample.html)
 
-# VectorTile
-- [地理院地図｜ベクトルタイルとその提供実験について](https://maps.gsi.go.jp/development/vt.html)
-=> [[geojson]] ?
-
-## pbf (mvt)
-- @2018 [バイナリベクトルタイルを地図ライブラリ以外で扱う #JavaScript - Qiita](https://qiita.com/cieloazul310/items/32d692a95b87b113bf35)
-- @2017 [バイナリベクトルタイルの拡張子が mvt であったり pbf であったりするのはなんでだろう #geo - Qiita](https://qiita.com/hfu/items/69fbe24be92654f634da)
-
-## osm(open street map) vector tile
-- @2023 [tilemakerを使って爆速でOSMベクタータイルを作る #OpenStreetMap - Qiita](https://qiita.com/Kanahiro/items/6a98ee285d3de7ac61fc)
-- [gh-pagesで OSM 日本ベクトルタイル提供 #geo - Qiita](https://qiita.com/hfu/items/e7c0318bba67827d4327)
-
-
-
-
-
-
