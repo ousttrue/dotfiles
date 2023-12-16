@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>tilemaker - shell note ドキュメント</title>
+        <title>format - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,34 +218,55 @@
           </label>
         </div>
         <article role="main">
-          <p>[[GIS]] [[zxytile]] [[OpenStreetMap]]</p>
+          <p>[[GIS]] [[zxytile]] [[MapLibre]]</p>
 <p><code class="docutils literal notranslate"><span class="pre">Mapbox</span> <span class="pre">Vector</span> <span class="pre">Tiles</span> <span class="pre">format</span></code></p>
 <ul class="simple">
+<li><p>ベクトルタイルの生成 =&gt; [[tilemaker]]</p></li>
+<li><p>セルフホスティングとStyleの記述 [[map_style]]</p></li>
 <li><p>@2021 <a class="reference external" href="https://qiita.com/advent-calendar/2021/vt">ベクトルタイルのカレンダー | Advent Calendar 2021 - Qiita</a></p></li>
 <li><p><a class="reference external" href="https://github.com/mapbox/awesome-vector-tiles">GitHub - mapbox/awesome-vector-tiles: awesome implementations of the Mapbox Vector Tile specification</a></p></li>
 <li><p><a class="reference external" href="https://maps.gsi.go.jp/development/vt.html">地理院地図｜ベクトルタイルとその提供実験について</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="format">
+<h1>format<a class="headerlink" href="#format" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">//host/path/{zoom}/{x}/{y}.pbf</span></code></p>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/mapbox_japan/articles/02201124476d84">MapboxのVectorDataを利用する</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://blog.tmlmt.com/create-style-and-render-self-hosted-vector-maps/">Create, style and render self-hosted vector maps 🗺</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/yuskesuzki@github/items/9ba9c65160e525b08d0e">Mapbox Vector Tiles のデータ構造 #mapbox - Qiita</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://qiita.com/hfu/items/69fbe24be92654f634da">バイナリベクトルタイルの拡張子が mvt であったり pbf であったりするのはなんでだろう #geo - Qiita</a></p></li>
 <li><p>@2017 <a class="reference external" href="https://qiita.com/hfu/items/e7c0318bba67827d4327">gh-pagesで OSM 日本ベクトルタイル提供 #geo - Qiita</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="tilemaker">
-<h1>tilemaker<a class="headerlink" href="#tilemaker" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://tilemaker.org/">tilemaker | DIY vector tiles from OpenStreetMap data</a></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/systemed/tilemaker">GitHub - systemed/tilemaker: Make OpenStreetMap vector tiles without the stack</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://kasika.xyz/articles/generate-vector-tiles-from-openstreetmap-data-with-tilemaker/">tilemakerでOpenStreetMapのデータからベクトルタイルを作成する · 可視化技研株式会社</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://qiita.com/Kanahiro/items/6a98ee285d3de7ac61fc">tilemakerを使って爆速でOSMベクタータイルを作る #OpenStreetMap - Qiita</a></p></li>
-</ul>
+<section id="mvt">
+<h2>mvt<a class="headerlink" href="#mvt" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mapbox</span> <span class="pre">vector</span> <span class="pre">tile</span></code></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="pbf">
-<h1>pbf<a class="headerlink" href="#pbf" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="pbf">
+<h2>pbf<a class="headerlink" href="#pbf" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">protocol</span> <span class="pre">buffer</span></code></p>
 <ul class="simple">
 <li><p>@2021 <a class="reference external" href="https://fukuno.jig.jp/3207">クリーンなJavaScriptのESモジュールで地図ライブラリを再構築するプロジェクト「mapthree-es」</a></p></li>
 <li><p>@2018 <a class="reference external" href="https://qiita.com/cieloazul310/items/32d692a95b87b113bf35">バイナリベクトルタイルを地図ライブラリ以外で扱う #JavaScript - Qiita</a></p></li>
 <li><p><a class="reference external" href="https://github.com/mapbox/vector-tile-js">GitHub - mapbox/vector-tile-js: Parses vector tiles with JavaScript</a></p></li>
+<li><p>@2016 <a class="reference external" href="https://code-house.jp/2016/10/18/osmpbf1/">[OSM] .osm.pbfファイルを読み込んでみる１</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="data">
-<h1>data<a class="headerlink" href="#data" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>japan-latest.osm.pbf(1.6GB)</p>
+<section id="geojson">
+<h2>geojson<a class="headerlink" href="#geojson" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[geojson]] を <code class="docutils literal notranslate"><span class="pre">pbf</span></code> に変換する場合がある</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="csharp">
+<h1>Csharp<a class="headerlink" href="#csharp" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/yumori/articles/93289d07e8551c">ベクトルタイルを作成する方法</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renderer">
+<h1>Renderer<a class="headerlink" href="#renderer" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[MapLibre]]
+[[OpenLayers]]
+[[Leaflet]]</p>
 </section>
 
         </article>
@@ -281,9 +302,14 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">tilemaker</a></li>
+<li><a class="reference internal" href="#">format</a><ul>
+<li><a class="reference internal" href="#mvt">mvt</a></li>
 <li><a class="reference internal" href="#pbf">pbf</a></li>
-<li><a class="reference internal" href="#data">data</a></li>
+<li><a class="reference internal" href="#geojson">geojson</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#csharp">Csharp</a></li>
+<li><a class="reference internal" href="#renderer">Renderer</a></li>
 </ul>
 
           </div>

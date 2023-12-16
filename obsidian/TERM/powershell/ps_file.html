@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>まとめて rename - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -223,6 +223,13 @@
 <span class="p">=&gt;</span> <span class="n">FileInfo</span> <span class="p">/</span> <span class="n">DirectoryInfo</span>
 </pre></div>
 </div>
+<section class="tex2jax_ignore mathjax_ignore" id="rename">
+<h1>まとめて rename<a class="headerlink" href="#rename" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>search &amp; rename</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Get-ChildItem</span> <span class="n">-Recurse</span> <span class="s2">"*.pbf"</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span><span class="nb">Move-Item</span> <span class="nv">$_</span> <span class="s2">"$_.gz"</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
