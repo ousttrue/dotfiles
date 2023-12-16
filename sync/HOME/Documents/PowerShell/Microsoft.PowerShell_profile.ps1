@@ -8,7 +8,9 @@ if($IsWindows)
 }
 $SEP = [System.IO.Path]::DirectorySeparatorChar
 $env:FZF_DEFAULT_OPTS="--layout=reverse --preview-window down:70%"
+$env:LUA_PATH="${HOME}${SEP}lua${SEP}?.lua;${HOME}${SEP}lua${SEP}?${SEP}init.lua"
 $DotDir = (Get-Item (Join-Path $HOME "dotfiles"))
+$SyncHome = (Get-Item (Join-Path $DotDir "sync/HOME"))
 function has($cmdname)
 {
   try
@@ -493,17 +495,19 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 
 function LinkDotFile([System.IO.FileInfo]$src)
 {
-  $dst = ($src.FullName.Substring($DotDir.FullName.Length+1))
+  $dst = Join-Path $HOME ($src.FullName.Substring($SyncHome.FullName.Length+1))
   Write-Host -NoNewline "${dst} "
-  if(Test-Path $dst)
+  #if(Test-Path $dst)
+  if($false)
   {
     # green
     Write-Host "exists"
-  } else
+  } 
+  else
   {
     # make symbolic link
     Write-Host "<== {$src}"
-    New-Item -ItemType SymbolicLink -Path $dst -Value $dst -Force
+    New-Item -ItemType SymbolicLink -Path $dst -Value $src -Force
   }
 }
 
@@ -514,7 +518,7 @@ function Get-Dotfile
 
   Process
   {
-    Get-ChildItem -Recurse -Force -File "${DotDir}/sync/HOME"
+    Get-ChildItem -Recurse -Force -File $SyncHome
 
     # if windows AppData, LOCALAPPDATA...
   }
