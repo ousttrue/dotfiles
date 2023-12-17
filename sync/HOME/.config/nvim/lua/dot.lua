@@ -214,7 +214,9 @@ function M.extend_hl()
   -- vim.api.nvim_set_hl(0, "csNull", { link = "String" })
 
   vim.api.nvim_set_hl(0, "Normal", {
-    ctermbg = 'NONE', ctermfg = 252 })
+    ctermbg = "NONE",
+    ctermfg = 252,
+  })
 end
 
 function M.reload_hl()

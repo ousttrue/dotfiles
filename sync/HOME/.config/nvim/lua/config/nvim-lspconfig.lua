@@ -24,6 +24,8 @@ function M.setup()
   --   capabilities = CMP.default_capabilities()
   -- end
   -- print(vim.inspect(capabilities))
+  -- local capabilities =
+  --   vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), require("epo").register_cap())
 
   require("lspconfig.lua_ls").setup(lspconfig, capabilities, on_attach)
 

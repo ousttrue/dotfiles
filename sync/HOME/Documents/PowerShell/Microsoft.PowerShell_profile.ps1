@@ -269,7 +269,7 @@ function addPath($path)
 
 addPath(Join-Path $HOME "\ghq\github.com\junegunn\fzf\bin")
 addPath(Join-Path $HOME "\.fzf\bin")
-addPath(Join-Path $HOME "\build\mingw\bin")
+# addPath(Join-Path $HOME "\build\mingw\bin")
 # addPath(Join-Path $HOME "/prefix/bin")
 addPath(Join-Path $HOME "\.deno\bin")
 addPath(Join-Path $HOME "\.cargo\bin")
@@ -312,7 +312,7 @@ if(Test-Path "C:\Python311")
 }
 
 # addPath(Join-Path $HOME "\local\nim-1.6.8\bin")
-addPath(Join-Path $HOME "\neovim\bin")
+# addPath(Join-Path $HOME "\neovim\bin")
 
 # For zoxide v0.8.0+
 if(has zoxide)
@@ -496,16 +496,14 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 function LinkDotFile([System.IO.FileInfo]$src)
 {
   $dst = Join-Path $HOME ($src.FullName.Substring($SyncHome.FullName.Length+1))
-  Write-Host -NoNewline "${dst} "
   if(Test-Path $dst)
   {
     # green
-    Write-Host "exists"
-  } 
-  else
+    # Write-Host -NoNewline "${dst} exists"
+  } else
   {
     # make symbolic link
-    Write-Host "<== {$src}"
+    Write-Host -NoNewline "${dst} <== {$src}"
     New-Item -ItemType SymbolicLink -Path $dst -Value $src -Force
   }
 }
@@ -632,6 +630,7 @@ if($env:GIS_DIR -and (Test-Path (Join-Path $env:GIS_DIR "jma/area.json")))
 #
 #   $list.ToArray()
 # }
+# 
 
 Set-Alias docker podman
 Set-Alias docker-compose podman-compose
@@ -639,3 +638,5 @@ if(!(has tig))
 {
   Set-Alias tig D:\msys64\usr\bin\tig.exe
 }
+
+Set-Alias nvim (Join-Path $HOME "nvim-win64/bin/nvim.exe")

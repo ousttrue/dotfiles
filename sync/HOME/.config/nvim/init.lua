@@ -395,8 +395,9 @@ augroup END
 
 require("keymap").setup()
 
+--
 -- package manager
--- require "lazy-plugins"
+--
 if vim.env.MSYSTEM then
   require "packer_setup"
 else
@@ -413,9 +414,6 @@ else
   end
   vim.opt.rtp:prepend(lazypath)
 
-  -- Example using a list of specs with the default options
-  vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
-
   -- require("lazy").setup "lazy.plugins"
   local opts = {
     change_detection = {
@@ -426,11 +424,23 @@ else
   }
   local plugins = {}
   for name in dot.scandir(dot.get_home() .. "/.config/nvim/lua/lazy") do
-    if STR.ends_with(name, ".lua") then
-      local mod = name:sub(1, -5)
-      table.insert(plugins, { import = "lazy." .. mod })
-    end
+    -- if STR.ends_with(name, ".lua") then
+    --   local mod = name:sub(1, -5)
+    --   table.insert(plugins, { import = "lazy." .. mod })
+    -- end
   end
+  table.insert(plugins, { import = "lazy.minimum" })
+  -- table.insert(plugins, { import = "lazy.coding" })
+  -- table.insert(plugins, { import = "lazy.colorschemes" })
+  table.insert(plugins, { import = "lazy.completion" })
+  table.insert(plugins, { import = "lazy.filer" })
+  -- table.insert(plugins, { import = "lazy.formatter" })
+  -- table.insert(plugins, { import = "lazy.git" })
+  -- table.insert(plugins, { import = "lazy.line" })
+  -- table.insert(plugins, { import = "lazy.plugins" })
+  table.insert(plugins, { import = "lazy.telescope" })
+  table.insert(plugins, { import = "lazy.treesitter" })
+  table.insert(plugins, { import = "lazy.extend" })
   require("lazy").setup(plugins, opts)
 end
 

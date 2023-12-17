@@ -1,9 +1,9 @@
 local M = {}
 
 -- workaround
-local org = vim.lsp.handlers['window/showMessageRequest']
-vim.lsp.handlers['window/showMessageRequest'] = function(...)
-  if vim.bo.filetype == 'lua' then
+local org = vim.lsp.handlers["window/showMessageRequest"]
+vim.lsp.handlers["window/showMessageRequest"] = function(...)
+  if vim.bo.filetype == "lua" then
     return vim.NIL
   else
     return org(...)
@@ -35,12 +35,12 @@ local function get_dir()
     return ""
   end
   for i, e in
-  ipairs(scandir.scan_dir(dir, {
-    depth = 1,
-    add_dirs = true,
-    only_dirs = true,
-    search_pattern = "sumneko",
-  }))
+    ipairs(scandir.scan_dir(dir, {
+      depth = 1,
+      add_dirs = true,
+      only_dirs = true,
+      search_pattern = "sumneko",
+    }))
   do
     return e .. ""
   end
@@ -127,7 +127,7 @@ function M.setup(lspconfig, capabilities, on_attach)
     end,
     on_attach = function(client, bufnr)
       -- client.server_capabilities.executeCommandProvider = false
-      client.capabilities.window.showMessage = nil
+      -- client.capabilities.window.showMessage = nil
       on_attach(client, bufnr)
     end,
   }
