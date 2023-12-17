@@ -1,0 +1,4 @@
+- @2023 [Using Golang + Gomobile To Build Android Application (with code) - DEV Community](https://dev.to/nikl/using-golang-gomobile-to-build-android-application-with-code-18jo)
+- @2019 [アプリ開発にgomobileを利用する（Android/iOS/Flutter） #iOS - Qiita](https://qiita.com/kabochapo/items/b37c03ea9d30572fbd59)
+- @2018 [Try Golang! GoでAndroidアプリを作ろう！. Let's create Android application with… | by Takuo | VELTRA Engineering | Medium](https://medium.com/veltra-engineering/lets-create-android-application-with-golang-97780e155a45)
+- @2015 [GoだけでAndroidアプリを作る その1 〜インストール編〜 | Technology | KLablog | KLab株式会社](https://www.klab.com/jp/blog/tech/2015/1034818110.html)

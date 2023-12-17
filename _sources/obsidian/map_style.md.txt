@@ -60,3 +60,7 @@ https://openmaptiles.org/schema/
 # Mapbox GL style
 [Open-source map styles – OpenMapTiles](https://openmaptiles.org/styles/)
 
+
+# glyphs
+[[font_pbf]]
+

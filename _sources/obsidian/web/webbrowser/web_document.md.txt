@@ -23,3 +23,8 @@ window.addEventListener("load", (event) => {
   console.log("ページが完全に読み込まれました");
 });
 ```
+
+# origin
+https://developer.mozilla.org/ja/docs/Web/API/Location/origin
+
+- @2016 [第5回　問題を発生させにくくするURLの扱い方 | gihyo.jp](https://gihyo.jp/dev/serial/01/javascript-security/0005)
