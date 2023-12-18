@@ -1,49 +1,71 @@
 `chcp65001` しないとずれる。
 
 - [GitHub - charmbracelet/bubbletea: A powerful little TUI framework 🏗](https://github.com/charmbracelet/bubbletea)
-- [bubbletea/tutorials at master · charmbracelet/bubbletea · GitHub](https://github.com/charmbracelet/bubbletea/tree/master/tutorials)
-	- [tea package - github.com/charmbracelet/bubbletea - Go Packages](https://pkg.go.dev/github.com/charmbracelet/bubbletea)
-
-- [tea package importedby - github.com/charmbracelet/bubbletea - Go Packages](https://pkg.go.dev/github.com/charmbracelet/bubbletea?tab=importedby)
-
+- @2023 [Bubble Tea | Alex Ho](https://alexho.dev/post/bubbletea/)
+- @2022 [Rapidly building interactive CLIs in Go with Bubbletea - Inngest Blog](https://www.inngest.com/blog/interactive-clis-with-bubbletea)
+- @2022  [Bubble Teaでマインスイーパー作った - forza alex](https://ybalexdp.hatenablog.com/entry/2022/07/24/181932)
+- @2021 [Go bubbletea of a library every day - 深入理解Go - SegmentFault 思否](https://segmentfault.com/a/1190000040179971/en)
+- @2022 [Bubble Tea でリッチなターミナルアプリケーションを作る #Go - 詩と創作・思索のひろば](https://motemen.hatenablog.com/entry/2022/06/introduction-to-go-bubbletea)
+`spinner`, `list`, `tea.batch`
+	- [GitHub - motemen/example-go-bubbletea](https://github.com/motemen/example-go-bubbletea/tree/main)
+ 
 # Version
+## 0.25
+- @2023
 ## 0.24
 - [v0.24.2](https://github.com/charmbracelet/bubbletea/releases/tag/v0.24.2)
 ## 0.22
 - @2022 [Goメモ-242 (charmbracelet/bubbletea にマルチバイトサポートが入った)(v0.22.1) - いろいろ備忘録日記](https://devlights.hatenablog.com/entry/2022/08/24/073000)
 
-# Basic
-## mainloop
+# tutorial
+- [x] https://github.com/charmbracelet/bubbletea/blob/master/README.md#tutorial
+- [x] https://github.com/charmbracelet/bubbletea/blob/master/tutorials/commands/README.md
+- [ ] [Charming Cobras with Bubbletea - Part 1](https://elewis.dev/charming-cobras-with-bubbletea-part-1)
+
+# tea.Model
 ```go
-// start main loop
-    p := tea.NewProgram(m)
-    if err := p.Start(); err != nil {
-        fmt.Printf("app-name: %s", err.Error())
-        os.Exit(1)
-    }
+// Model contains the program's state as well as it's core functions.
+type Model interface {
+	// Init is the first function that will be called. It returns an optional
+	// initial command. To not perform an initial command return nil.
+	Init() Cmd
+
+	// Update is called when a message is received. Use it to inspect messages
+	// and, in response, update the model and/or send a command.
+	Update(Msg) (Model, Cmd)
+
+	// View renders the program's UI, which is just a string. The view is
+	// rendered after every Update.
+	View() string
+}
 ```
 
-# View
+## Init
 
-```go
-func (m model) View() string 
-{
-}
+## Update
 
-func (m model) View() string {
-	return fmt.Sprintf("%s\n%s\n%s", m.headerView(), m.bodyView(), m.footerView())
-}
-```
-## fmt.Sprintf
-- @2022  [Bubble Teaでマインスイーパー作った - forza alex](https://ybalexdp.hatenablog.com/entry/2022/07/24/181932)
-- @2020 [【Go言語】ElmArchitectureでTUIアプリが作れるbubbleteaでちょっとリッチなToDoアプリを作る](https://zenn.dev/yuzuy/articles/95e522a39a5423f5bff4)
+- tea.batch
 
 ## View
-- @2022 [Bubble Tea でリッチなターミナルアプリケーションを作る #Go - 詩と創作・思索のひろば](https://motemen.hatenablog.com/entry/2022/06/introduction-to-go-bubbletea)
-`spinner`, `list`
-	- [GitHub - motemen/example-go-bubbletea](https://github.com/motemen/example-go-bubbletea/tree/main)
 
-# fullscreen
+model を描画する(stringを返す)
+
+```go
+func (m model) View() string {
+	return fmt.Sprintf("%s\n%s\n%s", 
+		m.headerView(), 
+		m.bodyView(), 
+		m.footerView())
+}
+```
+
+
+# Cmd
+cmd と msg は pair。
+Init か Update で cmd を発動し、Update で msg を反映する。
+
+## fullscreen
+
 ```go
 func main() {
 	p := tea.NewProgram(model(5), tea.WithAltScreen())
@@ -52,8 +74,6 @@ func main() {
 	}
 }
 ```
-
-# Cmd
 
 ```go
 func (m model) Init() tea.Cmd {
@@ -107,14 +127,6 @@ GITHUB_OAUTH_TOKEN
 
 ## fzf
 - [Go の Fuzzy Finder ライブラリ「go-fzf」の紹介](https://zenn.dev/kou_pg_0131/articles/go-fzf-introduction)
-
-# examples
-- [bubbletea/examples at master · charmbracelet/bubbletea · GitHub](https://github.com/charmbracelet/bubbletea/tree/master/examples)
-
-# Cobra
-- [Charming Cobras with Bubbletea - Part 1](https://elewis.dev/charming-cobras-with-bubbletea-part-1)
-
-# Lipgross
 
 # Log
 - @2023 [Charm 製の Go ロギングライブラリ「Log」を試してみる](https://zenn.dev/kou_pg_0131/articles/charm-log-introduction)
