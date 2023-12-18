@@ -9,6 +9,26 @@
 
 - @2023 [Go(Gin)✖️React でAPIを呼び出し合う #React - Qiita](https://qiita.com/packmanrei/items/e5f3e56e9496b73f00a2)
 
+# air
+
+```sh
+> go install github.com/cosmtrek/air@latest
+> air init
+> air
+```
+
+# static
+## http.FileServer
+
+- @2020 [goでWebサービス No.3(静的ファイルの扱い)](https://zenn.dev/tomi/articles/2020-10-02-go-web3)
+- `http.FileServer` @2016 [net/httpで安全に静的ファイルを返す](https://shogo82148.github.io/blog/2016/04/13/serving-static-files-in-golang/)
+
+### ContentType
+- @2019 [Go言語のHTTPは勝手にContent-Typeを付与することがありそう](https://scrapbox.io/nwtgck/Go%E8%A8%80%E8%AA%9E%E3%81%AEHTTP%E3%81%AF%E5%8B%9D%E6%89%8B%E3%81%ABContent-Type%E3%82%92%E4%BB%98%E4%B8%8E%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8C%E3%81%82%E3%82%8A%E3%81%9D%E3%81%86)
+
+# websocket
+- `golang.org/x/net/websocket` @2021 [Go WebSocketを使ってみる #Go - Qiita](https://qiita.com/hiro_nico/items/db6cb98916fdf3e8c4cc)
+
 # Docker
 - `db` `docker` @2021 [Go言語で基本的なCRUD操作を行うREST APIを作成 | DevelopersIO](https://dev.classmethod.jp/articles/go-sample-rest-api/)
 

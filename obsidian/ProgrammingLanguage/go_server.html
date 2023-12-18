@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Docker - shell note ドキュメント</title>
+        <title>air - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -228,6 +228,36 @@ backend: go server
 backend: go server(static)</p></li>
 <li><p>@2023 <a class="reference external" href="https://qiita.com/packmanrei/items/e5f3e56e9496b73f00a2">Go(Gin)✖️React でAPIを呼び出し合う #React - Qiita</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="air">
+<h1>air<a class="headerlink" href="#air" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; go install github.com/cosmtrek/air@latest
+&gt; air init
+&gt; air
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="static">
+<h1>static<a class="headerlink" href="#static" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="http-fileserver">
+<h2>http.FileServer<a class="headerlink" href="#http-fileserver" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2020 <a class="reference external" href="https://zenn.dev/tomi/articles/2020-10-02-go-web3">goでWebサービス No.3(静的ファイルの扱い)</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">http.FileServer</span></code> @2016 <a class="reference external" href="https://shogo82148.github.io/blog/2016/04/13/serving-static-files-in-golang/">net/httpで安全に静的ファイルを返す</a></p></li>
+</ul>
+<section id="contenttype">
+<h3>ContentType<a class="headerlink" href="#contenttype" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://scrapbox.io/nwtgck/Go%E8%A8%80%E8%AA%9E%E3%81%AEHTTP%E3%81%AF%E5%8B%9D%E6%89%8B%E3%81%ABContent-Type%E3%82%92%E4%BB%98%E4%B8%8E%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8C%E3%81%82%E3%82%8A%E3%81%9D%E3%81%86">Go言語のHTTPは勝手にContent-Typeを付与することがありそう</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="websocket">
+<h1>websocket<a class="headerlink" href="#websocket" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">golang.org/x/net/websocket</span></code> @2021 <a class="reference external" href="https://qiita.com/hiro_nico/items/db6cb98916fdf3e8c4cc">Go WebSocketを使ってみる #Go - Qiita</a></p></li>
+</ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="docker">
 <h1>Docker<a class="headerlink" href="#docker" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -236,8 +266,8 @@ backend: go server(static)</p></li>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="back-server">
 <h1>back/server<a class="headerlink" href="#back-server" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="static">
-<h2>static<a class="headerlink" href="#static" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id1">
+<h2>static<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>@2023 <a class="reference external" href="https://zenn.dev/a10a/articles/963e5326523ff8">go-chiでAPI+Staticサーバーを作成する</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://maku77.github.io/p/goruwy4/">Golang で HTTP サーバーを作成する (net/http, rs/cors) - まくまく Golang ノート</a></p></li>
@@ -250,8 +280,8 @@ backend: go server(static)</p></li>
 <li><p><a class="reference external" href="https://tech.mokelab.com/go/http/server/tls.html">net/httpでHTTPSサーバーを起動する | mokelab tech sheets</a></p></li>
 </ul>
 </section>
-<section id="air">
-<h2>air<a class="headerlink" href="#air" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id2">
+<h2>air<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>@2023 <a class="reference external" href="https://www.ariseanalytics.com/activities/report/20230531/">【Go言語でホットリロード】AirとDockerによるAPI開発環境 | 株式会社ARISE analytics（アライズ アナリティクス）</a></p></li>
 </ul>
@@ -326,11 +356,20 @@ backend: go server(static)</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Docker</a></li>
+<li><a class="reference internal" href="#">air</a></li>
+<li><a class="reference internal" href="#static">static</a><ul>
+<li><a class="reference internal" href="#http-fileserver">http.FileServer</a><ul>
+<li><a class="reference internal" href="#contenttype">ContentType</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#websocket">websocket</a></li>
+<li><a class="reference internal" href="#docker">Docker</a></li>
 <li><a class="reference internal" href="#back-server">back/server</a><ul>
-<li><a class="reference internal" href="#static">static</a></li>
+<li><a class="reference internal" href="#id1">static</a></li>
 <li><a class="reference internal" href="#https">https</a></li>
-<li><a class="reference internal" href="#air">air</a></li>
+<li><a class="reference internal" href="#id2">air</a></li>
 <li><a class="reference internal" href="#gin">gin</a></li>
 </ul>
 </li>

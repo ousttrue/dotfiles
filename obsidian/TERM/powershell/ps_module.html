@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>PSScriptTools - shell note ドキュメント</title>
+        <title>psmodule - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -219,6 +219,13 @@
         </div>
         <article role="main">
           <p>[[powershell]]</p>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7.4">モジュールについて - PowerShell | Microsoft Learn</a></p>
+<blockquote>
+<div><p>コマンドレット、プロバイダー、関数、ワークフロー、変数、エイリアスなど</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/scripting/dev-cross-plat/create-standard-library-binary-module?view=powershell-7.4">標準ライブラリのバイナリ モジュールの作成方法 - PowerShell | Microsoft Learn</a></p></li>
+</ul>
 <p><code class="docutils literal notranslate"><span class="pre">$env:PSModulePath</span></code></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="si">${</span><span class="nv">env</span><span class="p">:</span><span class="nv">USERPROFILE</span><span class="si">}</span><span class="se">\D</span>ocuments<span class="se">\P</span>owerShell<span class="se">\M</span>odules
 C:<span class="se">\P</span>rogram Files<span class="se">\P</span>owerShell<span class="se">\M</span>odules
@@ -227,10 +234,6 @@ C:<span class="se">\P</span>rogram Files<span class="se">\W</span>indowsPowerShe
 C:<span class="se">\W</span>INDOWS<span class="se">\s</span>ystem32<span class="se">\W</span>indowsPowerShell<span class="se">\v</span><span class="m">1</span>.0<span class="se">\M</span>odules
 </pre></div>
 </div>
-<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7.4">モジュールについて - PowerShell | Microsoft Learn</a></p>
-<blockquote>
-<div><p>コマンドレット、プロバイダー、関数、ワークフロー、変数、エイリアスなど</p>
-</div></blockquote>
 <ul class="simple">
 <li><p>@2022 <a class="reference external" href="https://qiita.com/TheParkSider/items/6db01ae4f97d97054cb7">PowerShellのモジュールの種類はどう決まる？ #PowerShell - Qiita</a></p></li>
 <li><p><a class="reference external" href="https://www.powershellgallery.com/">PowerShell Gallery | Home</a></p></li>
@@ -240,6 +243,14 @@ C:<span class="se">\W</span>INDOWS<span class="se">\s</span>ystem32<span class="
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\WindowsPowerShell\Modules</span></code>
 <code class="docutils literal notranslate"><span class="pre">${env:USERPROFILE}\Documents\PowerShell\Modules</span></code></p>
+<section class="tex2jax_ignore mathjax_ignore" id="psmodule">
+<h1>psmodule<a class="headerlink" href="#psmodule" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">&gt;</span> <span class="n">dotnet</span> <span class="n">new</span> <span class="n">psmodule</span>
+<span class="n">TestSampleCmdletCommand</span><span class="p">.</span><span class="n">cs</span>
+<span class="n">hello_module</span><span class="p">.</span><span class="n">csproj</span>
+</pre></div>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="psscripttools">
 <h1>PSScriptTools<a class="headerlink" href="#psscripttools" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">Install-Module</span> <span class="pre">PSScriptTools</span> <span class="pre">-scope</span> <span class="pre">CurrentUser</span></code></p>
@@ -316,7 +327,8 @@ C:<span class="se">\W</span>INDOWS<span class="se">\s</span>ystem32<span class="
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">PSScriptTools</a></li>
+<li><a class="reference internal" href="#">psmodule</a></li>
+<li><a class="reference internal" href="#psscripttools">PSScriptTools</a></li>
 <li><a class="reference internal" href="#api">api</a><ul>
 <li><a class="reference internal" href="#save-module">Save-Module</a></li>
 </ul>

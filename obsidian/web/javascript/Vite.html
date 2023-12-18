@@ -245,9 +245,14 @@
 <p><code class="docutils literal notranslate"><span class="pre">vite.config.js</span></code></p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">defineConfig</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'vite'</span>
 <span class="k">import</span> <span class="nx">react</span> <span class="kr">from</span> <span class="s1">'@vitejs/plugin-react'</span>
+<span class="k">import</span> <span class="nx">path</span> <span class="kr">from</span> <span class="s2">"node:path"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">fileURLToPath</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">"node:url"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">__filename</span> <span class="o">=</span> <span class="nx">fileURLToPath</span><span class="p">(</span><span class="k">import</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">__dirname</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">dirname</span><span class="p">(</span><span class="nx">__filename</span><span class="p">);</span>
 
 <span class="c1">// https://vitejs.dev/config/</span>
 <span class="k">export</span> <span class="k">default</span> <span class="nx">defineConfig</span><span class="p">({</span>
+  <span class="nx">root</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'client'</span><span class="p">),</span>
   <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="nx">react</span><span class="p">()],</span>
 <span class="p">})</span>
 </pre></div>
@@ -260,21 +265,12 @@
 <p><code class="docutils literal notranslate"><span class="pre">main.tsx</span></code></p>
 <div class="highlight-tsx notranslate"><div class="highlight"><pre><span></span>import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  &lt;React.StrictMode&gt;
-    &lt;App /&gt;
-  &lt;/React.StrictMode&gt;
-);
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">App.tsx</span></code></p>
-<div class="highlight-tsx notranslate"><div class="highlight"><pre><span></span>import React from 'react';
-
-export default function App() {
-  return (&lt;&gt;&lt;/&gt;)
+function App() {
+  return (&lt;&gt;
+    &lt;div&gt;Hello&lt;/div&gt;
+  &lt;/&gt;)
 }
+ReactDOM.createRoot(document.getElementById('root')!).render(&lt;App /&gt;);
 </pre></div>
 </div>
 </section>

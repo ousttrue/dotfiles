@@ -1,5 +1,9 @@
 [[powershell]]
 
+[モジュールについて - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7.4)
+> コマンドレット、プロバイダー、関数、ワークフロー、変数、エイリアスなど
+- [標準ライブラリのバイナリ モジュールの作成方法 - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/scripting/dev-cross-plat/create-standard-library-binary-module?view=powershell-7.4)
+
 `$env:PSModulePath`
 ```sh
 ${env:USERPROFILE}\Documents\PowerShell\Modules
@@ -8,9 +12,6 @@ c:\program files\powershell\7\Modules
 C:\Program Files\WindowsPowerShell\Modules
 C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
 ```
-
-[モジュールについて - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7.4)
-> コマンドレット、プロバイダー、関数、ワークフロー、変数、エイリアスなど
 
 - @2022 [PowerShellのモジュールの種類はどう決まる？ #PowerShell - Qiita](https://qiita.com/TheParkSider/items/6db01ae4f97d97054cb7)
 
@@ -22,6 +23,13 @@ C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
 
 `C:\Program Files\WindowsPowerShell\Modules`
 `${env:USERPROFILE}\Documents\PowerShell\Modules`
+
+# psmodule
+```powershell
+> dotnet new psmodule
+TestSampleCmdletCommand.cs
+hello_module.csproj
+```
 
 # PSScriptTools
 `> Install-Module PSScriptTools -scope CurrentUser`
