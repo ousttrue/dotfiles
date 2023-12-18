@@ -1,4 +1,4 @@
-[[nvim_golang]] [[golang_tui]]
+[[nvim_golang]] [[golang_tui]] [[go_server]]
 
 - [Go by Example](https://oohira.github.io/gobyexample-jp/)
 - [つきなみGo 記事一覧 | gihyo.jp](https://gihyo.jp/list/group/%E3%81%A4%E3%81%8D%E3%81%AA%E3%81%BFGo#rt:/article/2022/08/tukinami-go-01)

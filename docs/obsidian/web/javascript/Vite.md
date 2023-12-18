@@ -23,9 +23,14 @@
 ```js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  root: path.join(__dirname, 'client'),
   plugins: [react()],
 })
 ```
@@ -40,22 +45,12 @@ export default defineConfig({
 ```tsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-```
-
-`App.tsx`
-```tsx
-import React from 'react';
-
-export default function App() {
-  return (<></>)
+function App() {
+  return (<>
+    <div>Hello</div>
+  </>)
 }
+ReactDOM.createRoot(document.getElementById('root')!).render(<App />);
 ```
 
 # Typescript + React

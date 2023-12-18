@@ -1,6 +1,8 @@
 [[golang]]
 
 - @2020 [goのTUIについて2020年最終版 | Noboru Saito's page](https://noborus.github.io/blog/go_tui2020/)
+- @2019 [HackerNewsをGo製のCUIで見たい!! (ライブラリ探しと実装) #Go - Qiita](https://qiita.com/ta1m1kam/items/a04105432cca30468222)
+
 
 # library
 
