@@ -5,13 +5,17 @@ if($IsWindows)
 {
   $env:HOME = $env:USERPROFILE
   $shada = "${env:LOCALAPPDATA}\nvim-data\shada"
+  $EXE=".exe"
 } else
 {
+  $EXE=""
 }
 $SEP = [System.IO.Path]::DirectorySeparatorChar
 $env:FZF_DEFAULT_OPTS="--layout=reverse --preview-window down:70%"
 $env:LUA_PATH="${HOME}${SEP}lua${SEP}?.lua;${HOME}${SEP}lua${SEP}?${SEP}init.lua"
 $DotDir = (Get-Item (Join-Path $HOME "dotfiles"))
+$BasePath = (Join-Path $HOME "local")
+$SrcBase = (Join-Path $BasePath "src")
 $SyncHome = (Get-Item (Join-Path $DotDir "sync/HOME"))
 function has($cmdname)
 {
@@ -641,8 +645,6 @@ if(!(has tig))
   Set-Alias tig D:\msys64\usr\bin\tig.exe
 }
 
-Set-Alias nvim (Join-Path $HOME "nvim-win64/bin/nvim.exe")
-
 function Invoke-Ofzf()
 {
   $map = [System.Collections.Generic.Dictionary[int, Object]]::new()
@@ -657,3 +659,78 @@ function Invoke-Ofzf()
     $map[[int]$res.Split()[0]]
   }
 }
+
+$cs=@"
+public class Dependency
+{
+  public string Name;
+  public string Url;
+  public string Exe;
+
+  public Dependency(string name, string url, string exe)
+  {
+    Name= name;
+    Url = url;
+    Exe = exe;
+  }
+
+  public override string ToString()
+  {
+    return $"[{Name}]";
+  }
+
+  public string GetArchive()
+  {
+    return System.IO.Path.GetFileName(Url);
+  }
+}
+"@;
+Add-Type -TypeDefinition $cs
+
+$defs = @(
+  [Dependency]::new(
+    "nvim", 
+    "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip",
+    "nvim-win64/bin/nvim.exe")
+)
+
+function Download-Dependency([Dependency]$definition)
+{
+  $archive = Join-Path $SrcBase $definition.GetArchive();
+  if(Test-Path $archive)
+  {
+    Write-Host "$archive exists"
+  } else
+  {
+    Write-Host "download $archive <== $($definition.Url) ..."
+    Invoke-WebRequest -Uri $definition.Url -OutFile $archive
+  }
+}
+
+function Extract-Dependency([Dependency]$definition)
+{
+  $archive = Join-Path $SrcBase $definition.GetArchive();
+  Expand-Archive -Path $archive -DestinationPath (Split-Path -parent $archive)
+}
+
+function Install-Dependency
+{
+  $input
+  | ForEach-Object{ 
+    $exe = Join-Path $SrcBase $_.Exe
+    if(Test-Path $exe)
+    {
+      [void](Write-Host "$($_.Exe) exists")
+    } else
+    {
+      [void](Download-Dependency $_)
+      $_
+    }
+  }
+  | ForEach-Object {
+    [void](Extract-Dependency $_)
+  }
+}
+
+Set-Alias nvim (Join-Path $SrcBase "nvim-win64/bin/nvim$EXE")
+
