@@ -221,74 +221,92 @@
           <p><code class="docutils literal notranslate"><span class="pre">chcp65001</span></code> しないとずれる。</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/charmbracelet/bubbletea">GitHub - charmbracelet/bubbletea: A powerful little TUI framework 🏗</a></p></li>
-<li><p><a class="reference external" href="https://github.com/charmbracelet/bubbletea/tree/master/tutorials">bubbletea/tutorials at master · charmbracelet/bubbletea · GitHub</a></p>
-<ul>
-<li><p><a class="reference external" href="https://pkg.go.dev/github.com/charmbracelet/bubbletea">tea package - github.com/charmbracelet/bubbletea - Go Packages</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://pkg.go.dev/github.com/charmbracelet/bubbletea?tab=importedby">tea package importedby - github.com/charmbracelet/bubbletea - Go Packages</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="id1">
-<h2>0.24<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/charmbracelet/bubbletea/releases/tag/v0.24.2">v0.24.2</a></p></li>
-</ul>
-</section>
-<section id="id2">
-<h2>0.22<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://devlights.hatenablog.com/entry/2022/08/24/073000">Goメモ-242 (charmbracelet/bubbletea にマルチバイトサポートが入った)(v0.22.1) - いろいろ備忘録日記</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="basic">
-<h1>Basic<a class="headerlink" href="#basic" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="mainloop">
-<h2>mainloop<a class="headerlink" href="#mainloop" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// start main loop</span><span class="w"></span>
-<span class="w">    </span><span class="nx">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">tea</span><span class="p">.</span><span class="nx">NewProgram</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Start</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">"app-name: %s"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">.</span><span class="nx">Error</span><span class="p">())</span><span class="w"></span>
-<span class="w">        </span><span class="nx">os</span><span class="p">.</span><span class="nx">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="view">
-<h1>View<a class="headerlink" href="#view" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="nx">model</span><span class="p">)</span><span class="w"> </span><span class="nx">View</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span>
-<span class="p">{</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="nx">model</span><span class="p">)</span><span class="w"> </span><span class="nx">View</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">"%s\n%s\n%s"</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">headerView</span><span class="p">(),</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">bodyView</span><span class="p">(),</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">footerView</span><span class="p">())</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<section id="fmt-sprintf">
-<h2>fmt.Sprintf<a class="headerlink" href="#fmt-sprintf" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://alexho.dev/post/bubbletea/">Bubble Tea | Alex Ho</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://www.inngest.com/blog/interactive-clis-with-bubbletea">Rapidly building interactive CLIs in Go with Bubbletea - Inngest Blog</a></p></li>
 <li><p>@2022  <a class="reference external" href="https://ybalexdp.hatenablog.com/entry/2022/07/24/181932">Bubble Teaでマインスイーパー作った - forza alex</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://zenn.dev/yuzuy/articles/95e522a39a5423f5bff4">【Go言語】ElmArchitectureでTUIアプリが作れるbubbleteaでちょっとリッチなToDoアプリを作る</a></p></li>
-</ul>
-</section>
-<section id="id3">
-<h2>View<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
+<li><p>@2021 <a class="reference external" href="https://segmentfault.com/a/1190000040179971/en">Go bubbletea of a library every day - 深入理解Go - SegmentFault 思否</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://motemen.hatenablog.com/entry/2022/06/introduction-to-go-bubbletea">Bubble Tea でリッチなターミナルアプリケーションを作る #Go - 詩と創作・思索のひろば</a>
-<code class="docutils literal notranslate"><span class="pre">spinner</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">spinner</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tea.batch</span></code></p>
 <ul>
 <li><p><a class="reference external" href="https://github.com/motemen/example-go-bubbletea/tree/main">GitHub - motemen/example-go-bubbletea</a></p></li>
 </ul>
 </li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>0.25<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2023</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>0.24<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/charmbracelet/bubbletea/releases/tag/v0.24.2">v0.24.2</a></p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>0.22<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://devlights.hatenablog.com/entry/2022/08/24/073000">Goメモ-242 (charmbracelet/bubbletea にマルチバイトサポートが入った)(v0.22.1) - いろいろ備忘録日記</a></p></li>
+</ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="fullscreen">
-<h1>fullscreen<a class="headerlink" href="#fullscreen" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="tutorial">
+<h1>tutorial<a class="headerlink" href="#tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>[x] https://github.com/charmbracelet/bubbletea/blob/master/README.md#tutorial</p></li>
+<li><p>[x] https://github.com/charmbracelet/bubbletea/blob/master/tutorials/commands/README.md</p></li>
+<li><p>[ ] <a class="reference external" href="https://elewis.dev/charming-cobras-with-bubbletea-part-1">Charming Cobras with Bubbletea - Part 1</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tea-model">
+<h1>tea.Model<a class="headerlink" href="#tea-model" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// Model contains the program's state as well as it's core functions.</span><span class="w"></span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">Model</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="c1">// Init is the first function that will be called. It returns an optional</span><span class="w"></span>
+<span class="w">	</span><span class="c1">// initial command. To not perform an initial command return nil.</span><span class="w"></span>
+<span class="w">	</span><span class="nx">Init</span><span class="p">()</span><span class="w"> </span><span class="nx">Cmd</span><span class="w"></span>
+
+<span class="w">	</span><span class="c1">// Update is called when a message is received. Use it to inspect messages</span><span class="w"></span>
+<span class="w">	</span><span class="c1">// and, in response, update the model and/or send a command.</span><span class="w"></span>
+<span class="w">	</span><span class="nx">Update</span><span class="p">(</span><span class="nx">Msg</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nx">Model</span><span class="p">,</span><span class="w"> </span><span class="nx">Cmd</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">	</span><span class="c1">// View renders the program's UI, which is just a string. The view is</span><span class="w"></span>
+<span class="w">	</span><span class="c1">// rendered after every Update.</span><span class="w"></span>
+<span class="w">	</span><span class="nx">View</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<section id="init">
+<h2>Init<a class="headerlink" href="#init" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="update">
+<h2>Update<a class="headerlink" href="#update" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>tea.batch</p></li>
+</ul>
+</section>
+<section id="view">
+<h2>View<a class="headerlink" href="#view" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>model を描画する(stringを返す)</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="nx">model</span><span class="p">)</span><span class="w"> </span><span class="nx">View</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">"%s\n%s\n%s"</span><span class="p">,</span><span class="w"> </span>
+<span class="w">		</span><span class="nx">m</span><span class="p">.</span><span class="nx">headerView</span><span class="p">(),</span><span class="w"> </span>
+<span class="w">		</span><span class="nx">m</span><span class="p">.</span><span class="nx">bodyView</span><span class="p">(),</span><span class="w"> </span>
+<span class="w">		</span><span class="nx">m</span><span class="p">.</span><span class="nx">footerView</span><span class="p">())</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cmd">
+<h1>Cmd<a class="headerlink" href="#cmd" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>cmd と msg は pair。
+Init か Update で cmd を発動し、Update で msg を反映する。</p>
+<section id="fullscreen">
+<h2>fullscreen<a class="headerlink" href="#fullscreen" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">	</span><span class="nx">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">tea</span><span class="p">.</span><span class="nx">NewProgram</span><span class="p">(</span><span class="nx">model</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="nx">tea</span><span class="p">.</span><span class="nx">WithAltScreen</span><span class="p">())</span><span class="w"></span>
 <span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Run</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -297,14 +315,12 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="cmd">
-<h1>Cmd<a class="headerlink" href="#cmd" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="nx">model</span><span class="p">)</span><span class="w"> </span><span class="nx">Init</span><span class="p">()</span><span class="w"> </span><span class="nx">tea</span><span class="p">.</span><span class="nx">Cmd</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">tea</span><span class="p">.</span><span class="nx">Batch</span><span class="p">(</span><span class="nx">tick</span><span class="p">(),</span><span class="w"> </span><span class="nx">tea</span><span class="p">.</span><span class="nx">EnterAltScreen</span><span class="p">)</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="bubbles">
 <h1>Bubbles<a class="headerlink" href="#bubbles" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -383,21 +399,6 @@
 </ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="examples">
-<h1>examples<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/charmbracelet/bubbletea/tree/master/examples">bubbletea/examples at master · charmbracelet/bubbletea · GitHub</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="cobra">
-<h1>Cobra<a class="headerlink" href="#cobra" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://elewis.dev/charming-cobras-with-bubbletea-part-1">Charming Cobras with Bubbletea - Part 1</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lipgross">
-<h1>Lipgross<a class="headerlink" href="#lipgross" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="log">
 <h1>Log<a class="headerlink" href="#log" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -452,21 +453,22 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">0.24</a></li>
-<li><a class="reference internal" href="#id2">0.22</a></li>
+<li><a class="reference internal" href="#id1">0.25</a></li>
+<li><a class="reference internal" href="#id2">0.24</a></li>
+<li><a class="reference internal" href="#id3">0.22</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#basic">Basic</a><ul>
-<li><a class="reference internal" href="#mainloop">mainloop</a></li>
+<li><a class="reference internal" href="#tutorial">tutorial</a></li>
+<li><a class="reference internal" href="#tea-model">tea.Model</a><ul>
+<li><a class="reference internal" href="#init">Init</a></li>
+<li><a class="reference internal" href="#update">Update</a></li>
+<li><a class="reference internal" href="#view">View</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#view">View</a><ul>
-<li><a class="reference internal" href="#fmt-sprintf">fmt.Sprintf</a></li>
-<li><a class="reference internal" href="#id3">View</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#cmd">Cmd</a><ul>
 <li><a class="reference internal" href="#fullscreen">fullscreen</a></li>
-<li><a class="reference internal" href="#cmd">Cmd</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#bubbles">Bubbles</a><ul>
 <li><a class="reference internal" href="#viewport">Viewport</a></li>
 <li><a class="reference internal" href="#list">list</a></li>
@@ -482,9 +484,6 @@
 <li><a class="reference internal" href="#fzf">fzf</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#examples">examples</a></li>
-<li><a class="reference internal" href="#cobra">Cobra</a></li>
-<li><a class="reference internal" href="#lipgross">Lipgross</a></li>
 <li><a class="reference internal" href="#log">Log</a></li>
 <li><a class="reference internal" href="#vhs">VHS</a></li>
 <li><a class="reference internal" href="#gum">gum</a></li>
