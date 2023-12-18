@@ -1,4 +1,6 @@
 Remove-Item  alias:* -force
+Set-Alias % ForEach-Object
+Set-Alias ? Where-Object
 if($IsWindows)
 {
   $env:HOME = $env:USERPROFILE
@@ -640,3 +642,18 @@ if(!(has tig))
 }
 
 Set-Alias nvim (Join-Path $HOME "nvim-win64/bin/nvim.exe")
+
+function Invoke-Ofzf()
+{
+  $map = [System.Collections.Generic.Dictionary[int, Object]]::new()
+  $res = $input
+  | ForEach-Object{ 
+    $i = $map.Count
+    $map.Add($i, $_)
+    "$i $_" }
+  | fzf
+  if($res)
+  {
+    $map[[int]$res.Split()[0]]
+  }
+}
