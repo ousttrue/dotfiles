@@ -8,6 +8,8 @@
 # module の中にパッケージが含まれる
 ## package はフォルダー
 
+- @2022 [goでディレクトリ名とpackage名が一致しないとき，importする側はどうなる？](https://zenn.dev/miyataka/scraps/849be35072822a)
+
 # init
 ```
 go mod init MODULE_NAME
