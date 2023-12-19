@@ -264,23 +264,21 @@ var styleSelected = lipgloss.NewStyle().Foreground(lipgloss.Color("170"))
 // 	center   *centerModel
 // }
 
+type PathItem struct {
+	selected int
+	child    gjson.Result
+}
+
 type TreeModel struct {
 	data     string
-	path     []string
+	path     []PathItem
 	children []string
 
 	width    int
 	height   int
 	selected int
-}
 
-func (m *TreeModel) Load(json string) {
-	m.data = json
-	m.children = []string{}
-	for k := range gjson.Get(m.data, AreaLevel[len(m.path)]).Map() {
-		m.children = append(m.children, style.Render(k))
-	}
-	sort.Strings(m.children)
+	debug string
 }
 
 type AreaMsg struct {
@@ -301,26 +299,36 @@ func (m TreeModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 	// Is it a key press?
 	case tea.KeyMsg:
-
 		// Cool, what was the actual key pressed?
 		switch msg.String() {
-
 		// These keys should exit the program.
 		case "ctrl+c", "q":
 			return m, tea.Quit
 
 		case "j":
-			m.selected += 1
-			m.selected = min(m.selected, len(m.children)-1)
+			if m.selected+1 < len(m.children) {
+				m.selected += 1
+			}
 
 		case "k":
 			if m.selected > 0 {
 				m.selected -= 1
 			}
+
+		case "enter", "l":
+			if len(m.path) < len(AreaLevel)-1 {
+				m.push(m.selected)
+			}
+
+		case "h":
+			if len(m.path) > 0 {
+				m.pop()
+			}
 		}
 
 	case AreaMsg:
-		m.Load(msg.areaJson)
+		m.data = msg.areaJson
+		m.root()
 		return m, nil
 	}
 
@@ -328,19 +336,71 @@ func (m TreeModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 }
 
 func (m TreeModel) View() string {
-	return fmt.Sprintf("%s\n%s", m.header(), m.body())
+	return fmt.Sprintf("%s\n%s\n%s", m.header(), m.body(), m.debug)
+}
+
+func (m *TreeModel) root() {
+	m.children = []string{}
+	for k := range gjson.Get(m.data, AreaLevel[len(m.path)]).Map() {
+		m.children = append(m.children, style.Render(k))
+	}
+	sort.Strings(m.children)
+}
+
+func (m *TreeModel) getItem(key string) gjson.Result {
+	return gjson.Get(m.data, AreaLevel[len(m.path)]).Get(key)
+}
+
+func (m *TreeModel) push(selected int) {
+	m.selected = 0
+	key := m.children[selected]
+	child := m.getItem(key)
+
+	m.debug = fmt.Sprintf("%s[%s] => %s", AreaLevel[len(m.path)], key, child.Get("name").String())
+	m.enterPath(child)
+	m.path = append(m.path, PathItem{
+		selected: selected,
+		child:    child,
+	})
+}
+
+func (m *TreeModel) pop() {
+	// pop
+	last := m.path[len(m.path)-1]
+	m.selected = last.selected
+	m.path = m.path[:len(m.path)-1]
+
+	if len(m.path) == 0 {
+		m.root()
+	} else {
+		parent := m.path[len(m.path)-1]
+		// key := m.children[parent.selected]
+		// item := m.getItem(key)
+		m.enterPath(parent.child)
+	}
+
+}
+
+func (m *TreeModel) enterPath(item gjson.Result) {
+	m.children = []string{}
+	for _, v := range item.Get("children").Array() {
+		m.children = append(m.children, v.String())
+	}
 }
 
 func (m *TreeModel) header() string {
 	if m.data == "" {
 		return "empty"
 	}
+	if len(m.path) == 0 {
+		return ""
+	}
 
-	return "ok"
-}
-
-func (m *TreeModel) getItem(key string) gjson.Result {
-	return gjson.Get(m.data, AreaLevel[len(m.path)]).Get(key)
+	items := []string{}
+	for _, item := range m.path {
+		items = append(items, item.child.Get("name").String())
+	}
+	return strings.Join(items, ">")
 }
 
 func (m *TreeModel) body() string {
@@ -349,14 +409,20 @@ func (m *TreeModel) body() string {
 	}
 
 	items := []string{}
-	for i, v := range m.children {
-		item := m.getItem(v)
-		// log.Printf("%v", item)
-		name := item.Get("name").String()
-		if i == m.selected {
-			items = append(items, styleSelected.Render("> ", v, " ", name))
+	var i = 0
+	for y := 1; y < m.height-1; y, i = y+1, i+1 {
+		if i < len(m.children) {
+			key := m.children[i]
+			item := m.getItem(key)
+			// log.Printf("%v", item)
+			name := item.Get("name").String()
+			if i == m.selected {
+				items = append(items, styleSelected.Render("> ", key, " ", name))
+			} else {
+				items = append(items, style.Render("  ", key, " ", name))
+			}
 		} else {
-			items = append(items, style.Render("  ", v, " ", name))
+			items = append(items, "--")
 		}
 	}
 	return strings.Join(items, "\n")
