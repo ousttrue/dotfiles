@@ -42,6 +42,7 @@ $ cobra-cli init --license MIT --viper=false
 # Viper
 設定ファイル、環境変数。cobra と連動。
 
+- @2023 [Go開発者への道 第4回 cobraとviperの使い方 | 成長したいエンジニアブログ](https://engineer-want-to-grow.com/go-column-no-4/)
 - @2018 [逆引き cobra & viper - Qiita](https://qiita.com/nirasan/items/cc2ab5bc2889401fe596)
 - `cobra init` @2018 [Go初心者がcobraを使ってコマンドラインツールを作ってみた話 - Adwaysエンジニアブログ](https://blog.engineer.adways.net/entry/advent_calendar_2018/18)
 - @2018 [cobraとviperで設定ファイルの値をフラグの値で上書きする - 技術的なメモというか、忘却録](https://clavier.hatenablog.com/entry/2018/03/29/192240)

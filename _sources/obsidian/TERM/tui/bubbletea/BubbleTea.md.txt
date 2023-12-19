@@ -17,11 +17,26 @@
 ## 0.22
 - @2022 [Goメモ-242 (charmbracelet/bubbletea にマルチバイトサポートが入った)(v0.22.1) - いろいろ備忘録日記](https://devlights.hatenablog.com/entry/2022/08/24/073000)
 
+# examples
+## screen
+- examples/altscreen-toggle
+- examples/fullscreen
+- examples/glamour
+	- [[bubbletea_viewport]]
+- [GitHub - charmbracelet/bubbles: TUI components for Bubble Tea 🫧](https://github.com/charmbracelet/bubbles)
+## daemon
+- examples/tui-daemon-combo
+
+## list
+## bubble-table
+- [GitHub - Evertras/bubble-table: A customizable, interactive table component for the Bubble Tea framework](https://github.com/Evertras/bubble-table)
+
 # tutorial
 - [x] https://github.com/charmbracelet/bubbletea/blob/master/README.md#tutorial
 - [x] https://github.com/charmbracelet/bubbletea/blob/master/tutorials/commands/README.md
-- [ ] @2022 [Charming Cobras with Bubbletea - Part 1](https://elewis.dev/charming-cobras-with-bubbletea-part-1)
+- [x] @2022 [Charming Cobras with Bubbletea - Part 1](https://elewis.dev/charming-cobras-with-bubbletea-part-1)
 [[cobra]]
+
 
 # tea.Model
 ```go
@@ -67,6 +82,60 @@ Init か Update で cmd を発動し、Update で msg を反映する。
 
 ## fullscreen
 
+* tea.WindowSizeMsg
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+
+	tea "github.com/charmbracelet/bubbletea"
+)
+
+type model struct {
+	width  int
+	height int
+}
+
+func (m model) Init() tea.Cmd {
+	// Just return `nil`, which means "no I/O right now, please."
+	return nil
+}
+
+func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+	switch msg := msg.(type) {
+	case tea.WindowSizeMsg:
+		m.width = msg.Width
+		m.height = msg.Height
+
+	// Is it a key press?
+	case tea.KeyMsg:
+
+		// Cool, what was the actual key pressed?
+		switch msg.String() {
+
+		// These keys should exit the program.
+		case "ctrl+c", "q":
+			return m, tea.Quit
+		}
+	}
+	return m, nil
+}
+
+func (m model) View() string {
+	return fmt.Sprintf("%d X %d", m.width, m.height)
+}
+
+func main() {
+	p := tea.NewProgram(model{})
+	if _, err := p.Run(); err != nil {
+		fmt.Printf("Alas, there's been an error: %v", err)
+		os.Exit(1)
+	}
+}
+```
+
 ```go
 func main() {
 	p := tea.NewProgram(model(5), tea.WithAltScreen())
@@ -82,16 +151,6 @@ func (m model) Init() tea.Cmd {
 }
 ```
 
-# Bubbles
-- [GitHub - charmbracelet/bubbles: TUI components for Bubble Tea 🫧](https://github.com/charmbracelet/bubbles)
-
-## Viewport
-[[bubbletea_viewport]]
-
-## list
-## bubble-table
-- [GitHub - Evertras/bubble-table: A customizable, interactive table component for the Bubble Tea framework](https://github.com/Evertras/bubble-table)
-
 # LipGloss
 [GitHub - charmbracelet/lipgloss: Style definitions for nice terminal layouts 👄](https://github.com/charmbracelet/lipgloss)
 - @2021 [Go bubbletea of a library every day - 深入理解Go - SegmentFault 思否](https://segmentfault.com/a/1190000040179971/en)
@@ -102,6 +161,8 @@ func (m model) Init() tea.Cmd {
 		m.statusbar.View(),
 	)
 ```
+
+`style.Render`
 
 # markdown
 - [GitHub - charmbracelet/glow: Render markdown on the CLI, with pizzazz! 💅🏻](https://github.com/charmbracelet/glow)
@@ -115,12 +176,12 @@ GITHUB_OAUTH_TOKEN
 - [GitHub - dlvhdr/gh-dash: A beautiful CLI dashboard for GitHub 🚀](https://github.com/dlvhdr/gh-dash)
 
 # Apps
-- [GitHub - antonmedv/walk: Terminal file manager](https://github.com/antonmedv/walk)
 - [bubbletea · GitHub Topics · GitHub](https://github.com/topics/bubbletea)
 - [GitHub - dlvhdr/gh-dash: A beautiful CLI dashboard for GitHub 🚀](https://github.com/dlvhdr/gh-dash)
 - [GitHub - BOTbkcd/mayhem: A minimal TUI based task tracker 📝](https://github.com/BOTbkcd/mayhem)
 
 ## filer
+- [GitHub - antonmedv/walk: Terminal file manager](https://github.com/antonmedv/walk)
 - [GitHub - mistakenelf/fm: A terminal based file manager](https://github.com/mistakenelf/fm)
 - [GitHub - nore-dev/fman: TUI File Manager](https://github.com/nore-dev/fman)
 ## pager?
