@@ -5,6 +5,14 @@
 
 - @2022 [【Golang】1日でGoのcobraでサクッとCLIが作れちゃった話](https://zenn.dev/tama8021/articles/22_0627_go_cobra_cli)
 
+# cli
+`main.go`, `cmd/root.go` が上書きされる
+```
+$ go install github.com/spf13/cobra-cli@latest
+
+$ cobra-cli init --license MIT --viper=false
+```
+
 # Cobra
 `subcommand` parser. `subcommand` が想定されるので root command がある。
 
@@ -31,13 +39,7 @@ func main() {
 }
 ```
 
-## cobra-cli init
-`main.go`, `cmd/root.go` が上書きされる
-```
-$ go install github.com/spf13/cobra-cli@latest
 
-$ cobra-cli init --license MIT --viper=false
-```
 
 # Viper
 設定ファイル、環境変数。cobra と連動。
