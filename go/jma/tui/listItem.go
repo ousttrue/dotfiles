@@ -7,8 +7,12 @@ import (
 
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/charmbracelet/lipgloss"
 	"github.com/tidwall/gjson"
 )
+
+var itemStyle = lipgloss.NewStyle().PaddingLeft(4)
+var selectedItemStyle = lipgloss.NewStyle().PaddingLeft(2).Foreground(lipgloss.Color("170"))
 
 // type item string
 type ListItem struct {

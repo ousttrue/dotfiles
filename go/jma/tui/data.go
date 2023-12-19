@@ -3,13 +3,13 @@ package tui
 import (
 	"io"
 	"net/http"
-
-	tea "github.com/charmbracelet/bubbletea"
 )
 
 const (
-	AREA = "https://www.jma.go.jp/bosai/common/const/area.json"
+	AreaUrl = "https://www.jma.go.jp/bosai/common/const/area.json"
 )
+
+var AreaLevel = [...]string{"centers", "offices", "class10s", "class15s", "class20s"}
 
 //	{
 //	  "column0": "010100",
@@ -106,24 +106,17 @@ type class20 struct {
 	parent string
 }
 
-type AreaMsg struct {
-	areaJson string
-}
-
-func GetArea(m model) tea.Cmd {
-
-	return func() tea.Msg {
-		res, err := http.Get(AREA)
-		if err != nil {
-			panic(err)
-		}
-		defer res.Body.Close()
-
-		body, err := io.ReadAll(res.Body)
-		if err != nil {
-			panic(err)
-		}
-
-		return AreaMsg{areaJson: string(body)}
+func GetArea() string {
+	res, err := http.Get(AreaUrl)
+	if err != nil {
+		panic(err)
 	}
+	defer res.Body.Close()
+
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		panic(err)
+	}
+
+	return string(body)
 }
