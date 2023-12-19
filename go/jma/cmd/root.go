@@ -7,12 +7,10 @@ import (
 	"fmt"
 	"os"
 
-	tea "github.com/charmbracelet/bubbletea"
-	"github.com/charmbracelet/log"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-  "jma/tui"
+	"jma/tui"
 )
 
 var cfgFile string
@@ -24,11 +22,7 @@ var rootCmd = &cobra.Command{
 	Long: `気象庁のJSON 情報を読み取る:
 `,
 	Run: func(cmd *cobra.Command, args []string) {
-		prog := tea.NewProgram(tui.InitModel())
-		_, err := prog.Run()
-		if err != nil {
-			log.Fatal(err)
-		}
+    tui.Run()
 	},
 }
 

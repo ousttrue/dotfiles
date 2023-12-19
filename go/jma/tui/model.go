@@ -1,8 +1,9 @@
 package tui
 
 import (
+	"log"
+
 	"github.com/charmbracelet/bubbles/list"
-	"github.com/charmbracelet/bubbles/spinner"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 )
@@ -254,34 +255,22 @@ func (m *centerModel) View() string {
 // class15s
 // class20s
 type model struct {
-	spinner  spinner.Model
 	areaJson string
 	center   *centerModel
 }
 
-func InitModel() tea.Model {
-	return &model{
-		spinner: spinner.New(),
-	}
-}
-
 func (m model) Init() tea.Cmd {
-	return tea.Batch(
-		GetArea(m),
-		m.spinner.Tick,
-	)
+	return GetArea(m)
 }
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
-	var cmd tea.Cmd
-	m.spinner, cmd = m.spinner.Update(msg)
 
 	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
 		if m.center != nil {
 			m.center.SetWidth(msg.Width)
 		}
-		return m, cmd
+		return m, nil
 
 	case tea.KeyMsg:
 		switch msg.String() {
@@ -298,7 +287,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case AreaMsg:
 		m.areaJson = msg.areaJson
 		m.center = LoadCenter(m.areaJson)
-		return m, cmd
+		return m, nil
 	}
 
 	if m.center != nil {
@@ -310,8 +299,16 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 func (m model) View() string {
 	if m.areaJson == "" {
-		return m.spinner.View()
+		return ""
 	} else {
 		return m.center.View()
+	}
+}
+
+func Run() {
+	prog := tea.NewProgram(&model{})
+	_, err := prog.Run()
+	if err != nil {
+		log.Fatal(err)
 	}
 }
