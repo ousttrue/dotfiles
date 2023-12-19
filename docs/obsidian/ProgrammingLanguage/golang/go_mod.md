@@ -5,10 +5,18 @@
 `from 1.13 complete`
 `from 1.16 default`
 
+@2022 [[Go言語] ファイル分割とローカルパッケージ](https://zenn.dev/fm_radio/articles/ca2ff1dfcf89b5)
+
 # module の中にパッケージが含まれる
 ## package はフォルダー
 
 - @2022 [goでディレクトリ名とpackage名が一致しないとき，importする側はどうなる？](https://zenn.dev/miyataka/scraps/849be35072822a)
+
+## file分割
+同一フォルダ内で同じ `package hoge`
+
+## package分割
+
 
 # init
 ```

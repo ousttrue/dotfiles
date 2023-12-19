@@ -20,7 +20,7 @@
 # tutorial
 - [x] https://github.com/charmbracelet/bubbletea/blob/master/README.md#tutorial
 - [x] https://github.com/charmbracelet/bubbletea/blob/master/tutorials/commands/README.md
-- [ ] @2022 [Charming Cobras with Bubbletea - Part 1](https://elewis.dev/charming-cobras-with-bubbletea-part-1)
+- [x] @2022 [Charming Cobras with Bubbletea - Part 1](https://elewis.dev/charming-cobras-with-bubbletea-part-1)
 [[cobra]]
 
 # tea.Model

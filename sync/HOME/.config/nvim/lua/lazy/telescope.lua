@@ -58,5 +58,5 @@ return {
       }
     end,
   },
-  { 'nvim-telescope/telescope-ui-select.nvim' }
+  -- { 'nvim-telescope/telescope-ui-select.nvim' }
 }
