@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>module の中にパッケージが含まれる - shell note ドキュメント</title>
+        <title>mod - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -223,6 +223,27 @@
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">1.13</span> <span class="pre">complete</span></code>
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">1.16</span> <span class="pre">default</span></code></p>
 <p>@2022 <a class="reference external" href="https://zenn.dev/fm_radio/articles/ca2ff1dfcf89b5">[Go言語] ファイル分割とローカルパッケージ</a></p>
+<p>module =&gt; <code class="docutils literal notranslate"><span class="pre">go.mod</span></code> ファイル
+package =&gt; <code class="docutils literal notranslate"><span class="pre">*.go</span></code> の <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">HOGE</span></code> 宣言(directory名と同じにする)</p>
+<section class="tex2jax_ignore mathjax_ignore" id="mod">
+<h1>mod<a class="headerlink" href="#mod" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="init">
+<h2>init<a class="headerlink" href="#init" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">go</span> <span class="n">mod</span> <span class="n">init</span> <span class="n">MODULE_NAME</span>
+</pre></div>
+</div>
+</section>
+<section id="go-mod">
+<h2>go.mod<a class="headerlink" href="#go-mod" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/ryo_yamaoka/articles/595cf9e69229f9">go.modとgo.sumの読み方</a></p></li>
+</ul>
+</section>
+<section id="go-sum">
+<h2>go.sum<a class="headerlink" href="#go-sum" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">go.mod</span></code> + <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">mod</span> <span class="pre">tidy</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">go.sum</span></code></p>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="module">
 <h1>module の中にパッケージが含まれる<a class="headerlink" href="#module" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="package">
@@ -239,21 +260,11 @@
 <h2>package分割<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="init">
-<h1>init<a class="headerlink" href="#init" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">go</span> <span class="n">mod</span> <span class="n">init</span> <span class="n">MODULE_NAME</span>
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="go-mod">
-<h1>go.mod<a class="headerlink" href="#go-mod" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="multi">
+<h1>multi<a class="headerlink" href="#multi" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://zenn.dev/ryo_yamaoka/articles/595cf9e69229f9">go.modとgo.sumの読み方</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/takashabe/items/5ef6193a3f92411bf2c5">GoのMulti-module repositoryとバージョン管理 #Git - Qiita</a></p></li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="go-sum">
-<h1>go.sum<a class="headerlink" href="#go-sum" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">go.mod</span></code> + <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">mod</span> <span class="pre">tidy</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">go.sum</span></code></p>
 </section>
 
         </article>
@@ -289,15 +300,19 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">module の中にパッケージが含まれる</a><ul>
+<li><a class="reference internal" href="#">mod</a><ul>
+<li><a class="reference internal" href="#init">init</a></li>
+<li><a class="reference internal" href="#go-mod">go.mod</a></li>
+<li><a class="reference internal" href="#go-sum">go.sum</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module">module の中にパッケージが含まれる</a><ul>
 <li><a class="reference internal" href="#package">package はフォルダー</a></li>
 <li><a class="reference internal" href="#file">file分割</a></li>
 <li><a class="reference internal" href="#id1">package分割</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#init">init</a></li>
-<li><a class="reference internal" href="#go-mod">go.mod</a></li>
-<li><a class="reference internal" href="#go-sum">go.sum</a></li>
+<li><a class="reference internal" href="#multi">multi</a></li>
 </ul>
 
           </div>

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Cobra - shell note ドキュメント</title>
+        <title>cli - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -224,6 +224,15 @@
 <li><p><a class="reference external" href="https://github.com/spf13/cobra">GitHub - spf13/cobra: A Commander for modern Go CLI interactions</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://zenn.dev/tama8021/articles/22_0627_go_cobra_cli">【Golang】1日でGoのcobraでサクッとCLIが作れちゃった話</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="cli">
+<h1>cli<a class="headerlink" href="#cli" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">main.go</span></code>, <code class="docutils literal notranslate"><span class="pre">cmd/root.go</span></code> が上書きされる</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ go install github.com/spf13/cobra-cli@latest
+
+$ cobra-cli init --license MIT --viper=false
+</pre></div>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="cobra">
 <h1>Cobra<a class="headerlink" href="#cobra" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">subcommand</span></code> parser. <code class="docutils literal notranslate"><span class="pre">subcommand</span></code> が想定されるので root command がある。</p>
@@ -249,15 +258,6 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<section id="cobra-cli-init">
-<h2>cobra-cli init<a class="headerlink" href="#cobra-cli-init" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">main.go</span></code>, <code class="docutils literal notranslate"><span class="pre">cmd/root.go</span></code> が上書きされる</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ go install github.com/spf13/cobra-cli@latest
-
-$ cobra-cli init --license MIT --viper=false
-</pre></div>
-</div>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="viper">
 <h1>Viper<a class="headerlink" href="#viper" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -309,10 +309,8 @@ $ cobra-cli init --license MIT --viper=false
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Cobra</a><ul>
-<li><a class="reference internal" href="#cobra-cli-init">cobra-cli init</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">cli</a></li>
+<li><a class="reference internal" href="#cobra">Cobra</a></li>
 <li><a class="reference internal" href="#viper">Viper</a><ul>
 <li><a class="reference internal" href="#flags">flags</a></li>
 </ul>
