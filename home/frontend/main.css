@@ -1,0 +1,29 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.sites {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.site {
+  background-color: #bbb;
+  color: #66f;
+  border-radius: 5px;
+  padding: 0.4em;
+  margin: 0.2em;
+  text-decoration: none;
+}
+
+.site:hover {
+  background-color: #ddd;
+  color: #44f;
+}

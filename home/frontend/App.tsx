@@ -15,9 +15,9 @@ type SiteType = {
 };
 
 function Site(props: SiteType) {
-  return (<li>
-    <a href={props.url}>{props.title}</a>
-  </li>);
+  return (
+    <a className="site" href={props.url}>{props.title}</a>
+  );
 }
 
 export default function App() {
@@ -52,8 +52,8 @@ export default function App() {
   }, []);
 
   return (<>
-    <ul>
+    <div className="sites">
       {state.map((x, i) => <Site key={i} {...x} />)}
-    </ul>
+    </div>
   </>);
 }
