@@ -171,6 +171,7 @@ $IconMap = @{
   rtc_memo = "⚡"
   UniVRM = " "
   minixr = " "
+  "ousttrue.github.io" = " "
 }
 
 function get_git_status()
