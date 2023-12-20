@@ -1,4 +1,4 @@
-[[lipgloss]]
+[[TERM/tui/bubbletea/lipgloss]]
 
 # fullscreen
 - [bubbletea/examples/altscreen-toggle at master · charmbracelet/bubbletea · GitHub](https://github.com/charmbracelet/bubbletea/tree/master/examples/altscreen-toggle)
@@ -46,4 +46,4 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 ## split
 # Style
-[[lipgloss]]
+[[TERM/tui/bubbletea/lipgloss]]

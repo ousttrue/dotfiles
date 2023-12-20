@@ -152,17 +152,7 @@ func (m model) Init() tea.Cmd {
 ```
 
 # LipGloss
-[GitHub - charmbracelet/lipgloss: Style definitions for nice terminal layouts 👄](https://github.com/charmbracelet/lipgloss)
-- @2021 [Go bubbletea of a library every day - 深入理解Go - SegmentFault 思否](https://segmentfault.com/a/1190000040179971/en)
-
-```go
-	return lipgloss.JoinVertical(lipgloss.Top,
-		lipgloss.JoinHorizontal(lipgloss.Top, leftBox, rightBox),
-		m.statusbar.View(),
-	)
-```
-
-`style.Render`
+[[lipgloss]]
 
 # markdown
 - [GitHub - charmbracelet/glow: Render markdown on the CLI, with pizzazz! 💅🏻](https://github.com/charmbracelet/glow)
@@ -189,6 +179,11 @@ GITHUB_OAUTH_TOKEN
 
 ## fzf
 - [Go の Fuzzy Finder ライブラリ「go-fzf」の紹介](https://zenn.dev/kou_pg_0131/articles/go-fzf-introduction)
+
+## json
+- @2023 [Parse and edit JSON files via TUI with jqp](https://terminalroot.com/parse-and-edit-json-files-via-tui-with-jqp/)
+	- [GitHub - noahgorstein/jqp: A TUI playground to experiment with jq](https://github.com/noahgorstein/jqp)
+
 
 # Log
 - @2023 [Charm 製の Go ロギングライブラリ「Log」を試してみる](https://zenn.dev/kou_pg_0131/articles/charm-log-introduction)
