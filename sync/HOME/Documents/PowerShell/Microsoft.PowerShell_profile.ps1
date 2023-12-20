@@ -1,54 +1,136 @@
+#
+# clear alias
+#
 Remove-Item  alias:* -force
+Set-Alias cd Set-Location
 Set-Alias % ForEach-Object
 Set-Alias ? Where-Object
-if($IsWindows)
-{
-  $env:HOME = $env:USERPROFILE
-  $shada = "${env:LOCALAPPDATA}\nvim-data\shada"
-  $EXE=".exe"
-} else
-{
-  $EXE=""
-}
-$SEP = [System.IO.Path]::DirectorySeparatorChar
-$env:FZF_DEFAULT_OPTS="--layout=reverse --preview-window down:70%"
-$env:LUA_PATH="${HOME}${SEP}lua${SEP}?.lua;${HOME}${SEP}lua${SEP}?${SEP}init.lua"
-$DotDir = (Get-Item (Join-Path $HOME "dotfiles"))
-$BasePath = (Join-Path $HOME "local")
-$SrcBase = (Join-Path $BasePath "src")
-$SyncHome = (Get-Item (Join-Path $DotDir "sync/HOME"))
 function has($cmdname)
 {
   try
   {
-    Get-Command $cmdname -ErrorAction Stop | Select-Object -ExpandProperty Definition
-    return $true
+    # CmdletInfo | ApplicationInfo | AliasInfo | FunctionInfo
+    switch(Get-Command $cmdname -ErrorAction Stop)
+    {
+      { $_ -is [System.Management.Automation.AliasInfo]}
+      {$_
+      }
+      { $_ -is [System.Management.Automation.ApplicationInfo]}
+      {$_.Definition
+      }
+      { $_ -is [System.Management.Automation.CmdletInfo]}
+      {$_
+      }
+      { $_ -is [System.Management.Automation.FunctionInfo]}
+      {$_
+      }
+      default
+      {$_.GetType()
+      }
+    }
   } catch
   {
     return $false;
   }
 }
-function RemoveItemIf([string]$path)
+if(!(has which))
 {
-  if(Test-Path $path)
+  Set-Alias which has
+}
+
+$cs=@"
+public class Dependency
+{
+  public string Name;
+  public string Url;
+  public string Exe;
+
+  public Dependency(string name, string url, string exe)
   {
-    Remove-Item $path -force
+    Name= name;
+    Url = url;
+    Exe = exe;
+  }
+
+  public override string ToString()
+  {
+    return $"[{Name}]";
+  }
+
+  public string GetArchive()
+  {
+    return System.IO.Path.GetFileName(Url);
   }
 }
-if(has chcp)
+"@;
+Add-Type -TypeDefinition $cs
+
+#
+# platform
+#
+if($IsWindows)
 {
   chcp 65001
+  $env:HOME = $env:USERPROFILE
+  $EXE=".exe"
+  $defs = @(
+    [Dependency]::new(
+      "nvim", 
+      "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip",
+      "nvim-win64/bin/nvim.exe")
+  )
+} else
+{
+  $EXE=""
 }
+function Get-Path([string]$type)
+{
+  switch($type)
+  {
+    "shada"
+    { 
+      if($IsWindows)
+      {
+        Get-Item (Join-Path ${env:LOCALAPPDATA} "\nvim-data\shada") 
+      } else
+      {
+        $null
+      }
+    }
+    "msys"
+    {
+      Get-Item D:\msys64
+    }
+    "dot"
+    { Get-Item (Join-Path $HOME "dotfiles") 
+    }
+    "dot-sync"
+    {
+      Get-Item (Join-Path (Get-Path "dot") "sync/HOME")
+    }
+    "local"
+    {
+      Get-Item (Join-Path $HOME "local")
+    }
+    "local-src"
+    {
+      Get-Item (Join-Path (Get-Path "local") "src")
+    }
+    default
+    {$null 
+    }
+  }
+}
+
+$SEP = [System.IO.Path]::DirectorySeparatorChar
+$env:FZF_DEFAULT_OPTS="--layout=reverse --preview-window down:70%"
+$env:LUA_PATH="${HOME}${SEP}lua${SEP}?.lua;${HOME}${SEP}lua${SEP}?${SEP}init.lua"
+
+
+
 if(has ghq)
 {
   $GHQ_ROOT = (Get-Item (ghq root))
-}
-function SetAliasIfExists([string]$name, [string]$path)
-{
-  if(Test-Path $path)
-  {
-    Set-Alias -Name $name -Value $path
-  }
 }
 
 #
@@ -81,6 +163,9 @@ Set-PSReadLineKeyHandler -Key "alt+r" -ScriptBlock {
 # [System.Console]::ReadKey()
 Set-PSReadlineKeyHandler -Key 'Ctrl+Oem4' -Function RevertLine
 
+#
+# prompt
+#
 $IconMap = @{
   dotfiles = " "
   rtc_memo = "⚡"
@@ -273,32 +358,13 @@ function addPath($path)
   }
 }
 
+addPath(Join-Path (Get-Path "msys") "mingw64\bin")
 addPath(Join-Path $HOME "\ghq\github.com\junegunn\fzf\bin")
 addPath(Join-Path $HOME "\.fzf\bin")
-# addPath(Join-Path $HOME "\build\mingw\bin")
-# addPath(Join-Path $HOME "/prefix/bin")
 addPath(Join-Path $HOME "\.deno\bin")
 addPath(Join-Path $HOME "\.cargo\bin")
-# addPath(Join-Path $HOME "\go\bin")
+addPath(Join-Path $HOME "\go\bin")
 insertPath(Join-Path $HOME "\local\bin")
-# addPath(Join-Path $HOME "\AppData\Local\Programs\Microsoft VS Code")
-# addPath("C:\Program Files\Git\usr\bin")
-# addPath("C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64")
-# addPath(Join-Path $HOME "\local\src\depot_tools")
-# if($env:JAVA_HOME -ne $null){
-#     addPath($env:JAVA_HOME + "\bin")
-# }
-# if($env:ANDROID_HOME -ne $null){
-#     addPath($env:ANDROID_HOME + "\platform-tools")
-#     addPath($env:ANDROID_HOME + "\ndk\21.4.7075529")
-# }
-# if($env:GRADLE_HOME -ne $null){
-#     addPath($env:GRADLE_HOME + "\bin")
-# }
-# if($env:GTK_DIR -ne $null)
-# {
-#     insertPath($env:GTK_DIR + "\bin")
-# }
 if(Test-Path "C:\Python311")
 {
   addPath("C:\Python311\Scripts")
@@ -316,9 +382,6 @@ if(Test-Path "C:\Python311")
   addPath("C:\Python311-arm64\Scripts")
   addPath("C:\Python311-arm64")
 }
-
-# addPath(Join-Path $HOME "\local\nim-1.6.8\bin")
-# addPath(Join-Path $HOME "\neovim\bin")
 
 # For zoxide v0.8.0+
 if(has zoxide)
@@ -375,16 +438,7 @@ function gs
   $dst = $(git branch | fzf)
   if($dst)
   {
-    git switch $dst.Trim()
-  }
-}
-# git switch force
-function gsf
-{
-  $dst = $(git branch | fzf)
-  if($dst)
-  {
-    git switch -f $dst.Trim()
+    git switch $args $dst.Trim()
   }
 }
 # git switch remote
@@ -396,7 +450,6 @@ function gsr
     git switch -c $dst.Trim() $dst.Trim()
   }
 }
-
 # meson wrap
 function mewrap
 {
@@ -407,7 +460,7 @@ function mewrap
   }
 }
 # git cd root
-function rt()
+function root()
 {
   Set-Location $(git rev-parse --show-toplevel)
 }
@@ -424,15 +477,6 @@ function glg()
 function pipup()
 {
   py -m pip install pip --upgrade
-}
-
-function v()
-{
-  nvim $args
-}
-
-function ud
-{ Set-Location .. 
 }
 
 function mkcd
@@ -499,9 +543,13 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
   }
 }
 
+#
+# dotfiles
+#
 function LinkDotFile([System.IO.FileInfo]$src)
 {
-  $dst = Join-Path $HOME ($src.FullName.Substring($SyncHome.FullName.Length+1))
+  $syncHome = Get-Path "dot-sync"
+  $dst = Join-Path $HOME ($src.FullName.Substring($syncHome.FullName.Length+1))
   if(Test-Path $dst)
   {
     # green
@@ -521,7 +569,7 @@ function Get-Dotfile
 
   Process
   {
-    Get-ChildItem -Recurse -Force -File $SyncHome
+    Get-ChildItem -Recurse -Force -File (Get-Path "dot-sync")
 
     # if windows AppData, LOCALAPPDATA...
   }
@@ -534,7 +582,7 @@ function Pull-DotFile
 
   Process
   {
-    Push-Location ${HOME}/dotfiles
+    Push-Location (Get-Path "dot")
     git pull
     Get-Dotfile | ForEach-Object{ LinkDotFile $_ }
     Pop-Location
@@ -548,7 +596,7 @@ function Push-DotFile
 
   Process
   {
-    Push-Location ${HOME}/dotfiles
+    Push-Location (Get-Path "dot")
     git add .
     git commit -av
     git push
@@ -593,7 +641,6 @@ if(has exa)
   }
 }
 Set-Alias code "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd"
-Set-Alias cd Set-Location
 
 function now()
 {
@@ -645,7 +692,8 @@ if(!(has tig))
   Set-Alias tig D:\msys64\usr\bin\tig.exe
 }
 
-function Invoke-Ofzf()
+# object fzf
+function ofzf()
 {
   $map = [System.Collections.Generic.Dictionary[int, Object]]::new()
   $res = $input
@@ -660,43 +708,9 @@ function Invoke-Ofzf()
   }
 }
 
-$cs=@"
-public class Dependency
-{
-  public string Name;
-  public string Url;
-  public string Exe;
-
-  public Dependency(string name, string url, string exe)
-  {
-    Name= name;
-    Url = url;
-    Exe = exe;
-  }
-
-  public override string ToString()
-  {
-    return $"[{Name}]";
-  }
-
-  public string GetArchive()
-  {
-    return System.IO.Path.GetFileName(Url);
-  }
-}
-"@;
-Add-Type -TypeDefinition $cs
-
-$defs = @(
-  [Dependency]::new(
-    "nvim", 
-    "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip",
-    "nvim-win64/bin/nvim.exe")
-)
-
 function Download-Dependency([Dependency]$definition)
 {
-  $archive = Join-Path $SrcBase $definition.GetArchive();
+  $archive = Join-Path (Get-Path "local-src") $definition.GetArchive();
   if(Test-Path $archive)
   {
     Write-Host "$archive exists"
@@ -709,7 +723,7 @@ function Download-Dependency([Dependency]$definition)
 
 function Extract-Dependency([Dependency]$definition)
 {
-  $archive = Join-Path $SrcBase $definition.GetArchive();
+  $archive = Join-Path (Get-Path "local-src") $definition.GetArchive();
   Expand-Archive -Path $archive -DestinationPath (Split-Path -parent $archive)
 }
 
@@ -717,7 +731,7 @@ function Install-Dependency
 {
   $input
   | ForEach-Object{ 
-    $exe = Join-Path $SrcBase $_.Exe
+    $exe = Join-Path (Get-Path "local-src") $_.Exe
     if(Test-Path $exe)
     {
       [void](Write-Host "$($_.Exe) exists")
@@ -732,5 +746,18 @@ function Install-Dependency
   }
 }
 
-Set-Alias nvim (Join-Path $SrcBase "nvim-win64/bin/nvim$EXE")
+Set-Alias nvim (Join-Path (Get-Path "local-src") "nvim-win64/bin/nvim$EXE")
+function v()
+{
+  nvim $args
+}
+
+if(!(has ldd))
+{
+  Set-Alias ldd (Join-Path (Get-Path "msys") "usr/bin/ldd.exe")
+}
+if(!(has file))
+{
+  Set-Alias file (Join-Path (Get-Path "msys") "usr/bin/file.exe")
+}
 

@@ -24,3 +24,4 @@ obj/
 *.pem
 
 node_modules
+tmp/

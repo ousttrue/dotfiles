@@ -1,0 +1,301 @@
+{
+  "sites": [
+    {
+      "title": "fsharp",
+      "url": "https://learn.microsoft.com/ja-jp/dotnet/fsharp/"
+    },
+    { "title": "UECS", "url": "https://github.com/jprochazk/uecs" },
+    { "title": "A-FRAME", "url": "https://aframe.io/docs/1.4.0/introduction/" },
+    {
+      "title": "webxr-samples",
+      "url": "https://immersive-web.github.io/webxr-samples/"
+    },
+    {
+      "title": "webxr-handtracking",
+      "url": "https://webxr-handtracking.vercel.app/"
+    },
+    { "title": "hand", "url": "./aframe_hand.html" },
+    { "title": "custom", "url": "./custom_hand.html" },
+    { "title": "devices", "url": "chrome://inspect/#devices" },
+    {
+      "title": "physics-extras",
+      "url": "https://github.com/wmurphyrd/aframe-physics-extras"
+    },
+    { "title": "a-blast", "url": "https://github.com/aframevr/a-blast/" },
+    {
+      "title": "GitHub - gftruj/aframe-hand-tracking-controls-extras",
+      "url": "https://github.com/gftruj/aframe-hand-tracking-controls-extras"
+    },
+    {
+      "title": "GitHub - marlon360/webxr-handtracking",
+      "url": "https://github.com/marlon360/webxr-handtracking"
+    },
+    {
+      "title": "GitHub - c-frame/aframe-super-hands-component",
+      "url": "https://github.com/c-frame/aframe-super-hands-component"
+    },
+    {
+      "title": "GitHub - t100ta/tfjs-aframe-handtracking",
+      "url": "https://github.com/t100ta/tfjs-aframe-handtracking"
+    },
+    {
+      "title": "GitHub - AdaRoseCannon/handy-work",
+      "url": "https://github.com/AdaRoseCannon/handy-work"
+    },
+    {
+      "title": "WEB支那漢",
+      "url": "https://www.seiwatei.net/chinakan/chinakan.cgi"
+    },
+    { "title": "wezterm", "url": "https://wezfurlong.org/wezterm/index.html" },
+    { "title": "aqua", "url": "https://aquaproj.github.io/" },
+    {
+      "title": "emoji",
+      "url": "https://unicode.org/emoji/charts/full-emoji-list.html"
+    },
+    { "title": "go-1.21.0", "url": "https://go.dev/" },
+    { "title": "StandardLibrary", "url": "https://pkg.go.dev/std" },
+    { "title": "lua-5.4.6", "url": "http://www.lua.org/" },
+    { "title": "reference 5.4", "url": "https://www.lua.org/manual/5.4/" },
+    { "title": "reference 5.1", "url": "https://www.lua.org/manual/5.1/" },
+    { "title": "C Libraries", "url": "https://www.lua.org/pil/26.2.html" },
+    { "title": "ffi", "url": "https://luajit.org/ext_ffi_tutorial.html" },
+    { "title": "busted", "url": "https://lunarmodules.github.io/busted/" },
+    {
+      "title": "Penlight",
+      "url": "https://lunarmodules.github.io/Penlight/index.html"
+    },
+    { "title": "LuaLanguageServer", "url": "https://luals.github.io/wiki/" },
+    {
+      "title": "modules",
+      "url": "https://github.com/LuaLS/lua-language-server/tree/master/3rd"
+    },
+    {
+      "title": "luv",
+      "url": "https://github.com/luvit/luv/blob/master/docs.md"
+    },
+    { "title": "LÖVE", "url": "https://love2d.org/wiki/Main_Page" },
+    {
+      "title": "EmmyLuaAnnotation",
+      "url": "https://emmylua.github.io/annotation.html"
+    },
+    {
+      "title": "nyagos ",
+      "url": "https://github.com/nyaosorg/nyagos/blob/master/docs/01-Install_ja.md"
+    },
+    { "title": "LuaJit", "url": "https://github.com/LuaJIT/LuaJIT" },
+    { "title": "luarocks", "url": "https://luarocks.org/" },
+    { "title": "Neovim-0.8.0", "url": "https://neovim.io" },
+    { "title": "neovim help", "url": "https://neovim.io/doc/user/" },
+    { "title": "nvim lsp", "url": "https://neovim.io/doc/user/lsp.html" },
+    {
+      "title": "pluginlist",
+      "url": "https://yutkat.github.io/my-neovim-pluginlist/"
+    },
+    {
+      "title": "lua guide",
+      "url": "https://github.com/willelz/nvim-lua-guide-ja/blob/master/README.ja.md"
+    },
+    {
+      "title": "server_configurations",
+      "url": "https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md"
+    },
+    {
+      "title": "nullls",
+      "url": "https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md"
+    },
+    { "title": "vim-9.0", "url": "https://www.vim.org/" },
+    {
+      "title": "lsp",
+      "url": "https://microsoft.github.io/language-server-protocol/"
+    },
+    { "title": "NerdFonts", "url": "https://www.nerdfonts.com/" },
+    { "title": "msys2", "url": "https://www.msys2.org/" },
+    {
+      "title": "awesome-bash",
+      "url": "https://github.com/awesome-lists/awesome-bash"
+    },
+    { "title": "tmux", "url": "https://github.com/tmux/tmux" },
+    {
+      "title": "powerline-shell",
+      "url": "https://github.com/b-ryan/powerline-shell"
+    },
+    { "title": "zellij", "url": "https://github.com/zellij-org/zellij" },
+    { "title": "FTXUI-4.0", "url": "https://arthursonzogni.github.io/FTXUI/" },
+    {
+      "title": "gtkmm",
+      "url": "https://developer-old.gnome.org/gtkmm-tutorial/stable/"
+    },
+    { "title": "GNOME sources", "url": "https://download.gnome.org/sources/" },
+    { "title": "GNOME glab", "url": "https://gitlab.gnome.org/GNOME" },
+    { "title": "GTK-4.8", "url": "https://www.gtk.org/" },
+    { "title": "GTK Development Blog", "url": "https://blog.gtk.org/" },
+    { "title": "polybar", "url": "https://github.com/polybar/polybar/wiki/" },
+    { "title": "gst", "url": "https://gstreamer.freedesktop.org/src/" },
+    { "title": "CHICKEN-5.3", "url": "https://www.call-cc.org/" },
+    { "title": "build", "url": "http://wiki.call-cc.org/msys2" },
+    { "title": "lsp", "url": "https://codeberg.org/rgherdt/scheme-lsp-server" },
+    { "title": "react", "url": "https://ja.react.dev/" },
+    { "title": "ReactFlow", "url": "https://reactflow.dev/" },
+    { "title": "mermaid", "url": "https://mermaid.js.org/" },
+    { "title": "mozilla", "url": "https://developer.mozilla.org/ja/docs/Web" },
+    {
+      "title": "The_head_metadata_in_HTML",
+      "url": "https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML"
+    },
+    {
+      "title": "flexbox",
+      "url": "https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox"
+    },
+    { "title": "gatsby", "url": "https://www.gatsbyjs.com/docs/" },
+    {
+      "title": "TypedArray",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray"
+    },
+    { "title": "janus", "url": "https://github.com/meetecho/janus-gateway" },
+    { "title": " mediasoup", "url": "https://mediasoup.org/documentation/" },
+    {
+      "title": "WebRTC Test Landing Page",
+      "url": "https://mozilla.github.io/webrtc-landing/"
+    },
+    { "title": "elm", "url": "https://guide.elm-lang.jp/architecture/" },
+    {
+      "title": "bubbletea",
+      "url": "https://github.com/charmbracelet/bubbletea"
+    },
+    { "title": "meson", "url": "https://mesonbuild.com/" },
+    {
+      "title": "asio",
+      "url": "https://think-async.com/Asio/asio-1.24.0/doc/asio/reference.html"
+    },
+    { "title": "nlohmann json", "url": "https://json.nlohmann.me/" },
+    { "title": "llvm-16.0.6", "url": "https://llvm.org/" },
+    {
+      "title": "clang-format",
+      "url": "https://clang.llvm.org/docs/ClangFormatStyleOptions.html"
+    },
+    { "title": "vcpkg", "url": "https://github.com/microsoft/vcpkg" },
+    {
+      "title": ".NET6",
+      "url": "https://docs.microsoft.com/ja-jp/dotnet/core/whats-new/dotnet-6"
+    },
+    {
+      "title": "C#11",
+      "url": "https://learn.microsoft.com/ja-jp/dotnet/csharp/whats-new/csharp-version-history"
+    },
+    { "title": "zig-0.11", "url": "https://ziglang.org/" },
+    {
+      "title": "std",
+      "url": "https://ziglang.org/documentation/master/std/#root"
+    },
+    { "title": "awesome-zig", "url": "https://github.com/C-BJ/awesome-zig" },
+    {
+      "title": "Zig Compiler Internals",
+      "url": "https://www.youtube.com/watch?v=8MbREuiLQrM&ab_channel=ZigSHOWTIME"
+    },
+    { "title": "Python-3.11.3", "url": "https://www.python.org/" },
+    { "title": "pep", "url": "https://peps.python.org/" },
+    {
+      "title": "prompt-toolkit",
+      "url": "https://github.com/prompt-toolkit/python-prompt-toolkit"
+    },
+    { "title": "doit", "url": "https://pydoit.org/" },
+    { "title": "PEP-567", "url": "https://peps.python.org/pep-0567/" },
+    { "title": "docutils", "url": "https://docutils.sourceforge.io/" },
+    { "title": "xonsh-0.11.0", "url": "https://xon.sh/" },
+    { "title": "sphinx-4.5", "url": "https://www.sphinx-doc.org/en/master/" },
+    { "title": "nikola", "url": "https://getnikola.com/" },
+    { "title": "PyGLM", "url": "https://github.com/Zuzu-Typ/PyGLM/wiki" },
+    { "title": "Linux-6.3.3", "url": "https://www.kernel.org/" },
+    {
+      "title": "Ubuntu",
+      "url": "https://gihyo.jp/list/group/Ubuntu-Weekly-Recipe"
+    },
+    {
+      "title": "GentooHandbook",
+      "url": "https://wiki.gentoo.org/wiki/Handbook:AMD64"
+    },
+    {
+      "title": "portage",
+      "url": "https://wiki.gentoo.org/wiki/Useful_Portage_tools"
+    },
+    {
+      "title": "LFS-11.3",
+      "url": "https://www.linuxfromscratch.org/lfs/view/stable/"
+    },
+    { "title": "ArchLinux", "url": "https://www.archlinux.jp/" },
+    {
+      "title": "Docker",
+      "url": "https://matsuand.github.io/docs.docker.jp.onthefly/"
+    },
+    {
+      "title": "multi stage build",
+      "url": "https://matsuand.github.io/docs.docker.jp.onthefly/develop/develop-images/multistage-build/"
+    },
+    {
+      "title": "khrplatform>",
+      "url": "https://registry.khronos.org/EGL/api/KHR/khrplatform.h"
+    },
+    {
+      "title": "glcorearb.h",
+      "url": "https://registry.khronos.org/OpenGL/api/GL/glcorearb.h"
+    },
+    {
+      "title": "glext.h",
+      "url": "https://registry.khronos.org/OpenGL/api/GL/glext.h"
+    },
+    { "title": "docs.GL", "url": "https://docs.gl/" },
+    {
+      "title": "glslls",
+      "url": "https://github.com/svenstaro/glsl-language-server"
+    },
+    { "title": "LearnOpenGL", "url": "https://learnopengl.com/" },
+    { "title": "GLFW", "url": "https://www.glfw.org/docs/latest/" },
+    {
+      "title": "WebGL",
+      "url": "https://github.com/KhronosGroup/WebGL/tree/main/specs/latest"
+    },
+    {
+      "title": "DirectXMath",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/dxmath/ovw-xnamath-reference-functions-vector3"
+    },
+    { "title": "imgui-1.87", "url": "https://github.com/ocornut/imgui" },
+    { "title": "ktx", "url": "https://www.khronos.org/ktx/" },
+    {
+      "title": "KTXDeveloperGuide",
+      "url": "https://github.com/KhronosGroup/3D-Formats-Guidelines/blob/main/KTXDeveloperGuide.md"
+    },
+    {
+      "title": "glTF-2.0",
+      "url": "https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html"
+    },
+    {
+      "title": "schema",
+      "url": "https://github.com/KhronosGroup/glTF/tree/main/specification/2.0/schema"
+    },
+    { "title": "glTF(github)", "url": "https://github.com/KhronosGroup/glTF" },
+    {
+      "title": "vulkan-sdk-1.3.264.1",
+      "url": "https://www.lunarg.com/vulkan-sdk/"
+    },
+    { "title": "openusd", "url": "https://openusd.org/release/index.html" },
+    { "title": "API", "url": "https://openusd.org/release/api/index.html" },
+    {
+      "title": "Sdf",
+      "url": "https://openusd.org/release/api/sdf_page_front.html"
+    },
+    { "title": "ultraleap", "url": "https://docs.ultraleap.com/" },
+    {
+      "title": "openxr-explorer",
+      "url": "https://github.com/maluoi/openxr-explorer"
+    },
+    { "title": "Blender-3.5", "url": "https://www.blender.org/" },
+    {
+      "title": "20230228 #219",
+      "url": "https://www.youtube.com/watch?v=tVc8PtAH9Rg&ab_channel=Blender"
+    },
+    {
+      "title": "20220802 #201",
+      "url": "https://www.youtube.com/watch?v=tnTq49GUguQ&ab_channel=Blender"
+    }
+  ]
+}

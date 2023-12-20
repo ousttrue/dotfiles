@@ -1,0 +1,15 @@
+// <img height="64" src="docs/obsidian/ProgrammingLanguage/golang/gopher.png" />
+// <img height="64" src="https://www.lua.org/images/logo.gif" />
+// <img src="https://raw.githubusercontent.com/nyaosorg/nyagos/master/Etc/nyagos.png" />
+// <img height="64" src="https://raw.githubusercontent.com/neovim/neovim.github.io/master/logos/neovim-logo-300x87.png" />
+// <img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_64.png" />WEB
+// <img height="64" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/180px-ISO_C%2B%2B_Logo.svg.png" />
+// <img height="64" src="https://github.com/ziglang/logo/raw/master/zero.svg" />
+
+// <img height="64" src="https://www.python.org/static/img/python-logo-large.c36dccadd999.png" />
+// <img height="64" src="https://isc.tamu.edu/~lewing/linux/sit3-shine.7.gif" />
+// <img height="64" src="https://www.opengl.org/img/opengl_logo.jpg" /> OpenGL & D3D 
+// <img height="64" src="https://openusd.org/dev/api/USDLogoLrgWithAlpha.png" />
+// <img width="800" src="https://github.com/KhronosGroup/OpenXR-Docs/raw/main/specification/sources/images/ext_hand_tracking_joint_convention.png" />
+// <img height="64" src="https://download.blender.org/branding/community/blender_community_badge_white.png" />
+
