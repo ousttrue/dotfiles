@@ -2,6 +2,9 @@
 [[windows_terminal]]
 [[nvim_colorscheme]]
 [[wezterm]]
+# generator
+- [Colormind - the AI powered color palette generator](http://colormind.io/)
+
 # memo
 環境別にしてみる
 - @2023 [Vim / NeovimでOS別に設定を切り替える](https://zenn.dev/grtw2116/articles/83b0e7daa6e0b7)
