@@ -10,6 +10,8 @@
 	- color logger
  
 # Version
+## 5.0
+
 ## 4.0
 `c++17`
 - [FTXUI: Main Page](https://arthursonzogni.github.io/FTXUI/#build-cmake)

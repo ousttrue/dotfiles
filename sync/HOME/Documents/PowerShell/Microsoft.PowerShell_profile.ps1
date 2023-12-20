@@ -761,3 +761,7 @@ if(!(has file))
   Set-Alias file (Join-Path (Get-Path "msys") "usr/bin/file.exe")
 }
 
+function lk
+{
+  Set-Location (walk $args)
+}
