@@ -1,11 +1,25 @@
-[[powershell]]
+[[powershell]] [[ps_stream]]
+
+[Out-Default (Microsoft.PowerShell.Core) - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/out-default?view=powershell-7.4)
+
+> すべてのパイプラインの末尾に自動的に追加 Out-Default
+
+`Write-Out` => `Out-Default` => `Out-Host`
+- Write-XXX は関数的
+- OUt-XXX は Pipe 出力 
+
+- @2006 [How PowerShell Formatting and Outputting REALLY works - PowerShell Team](https://devblogs.microsoft.com/powershell/how-powershell-formatting-and-outputting-really-works/)
+
+# Update-FormatData
+- formatter
+[PowerShellの既定のフォーマット設定に介入する方法 · GitHub](https://gist.github.com/stknohg/2e2fc43b90e51ff5b5241152b7045e52)
 
 # PSStyle
 
 
 # out
 ## Out-Default
-`=> Out-Host`
+`Format-Table | Out-Host`
 [Out-Defaultをフックしてパイプラインに渡されたオブジェクトの型と値をホストに表示するサンプル · GitHub](https://gist.github.com/stknohg/a0fabb9e10ddcc146672)
 
 ## Out-Host

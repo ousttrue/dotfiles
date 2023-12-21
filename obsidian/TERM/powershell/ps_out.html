@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>PSStyle - shell note ドキュメント</title>
+        <title>Update-FormatData - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,7 +218,24 @@
           </label>
         </div>
         <article role="main">
-          <p>[[powershell]]</p>
+          <p>[[powershell]] [[ps_stream]]</p>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/out-default?view=powershell-7.4">Out-Default (Microsoft.PowerShell.Core) - PowerShell | Microsoft Learn</a></p>
+<blockquote>
+<div><p>すべてのパイプラインの末尾に自動的に追加 Out-Default</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">Write-Out</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">Out-Default</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">Out-Host</span></code></p>
+<ul class="simple">
+<li><p>Write-XXX は関数的</p></li>
+<li><p>OUt-XXX は Pipe 出力</p></li>
+<li><p>@2006 <a class="reference external" href="https://devblogs.microsoft.com/powershell/how-powershell-formatting-and-outputting-really-works/">How PowerShell Formatting and Outputting REALLY works - PowerShell Team</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="update-formatdata">
+<h1>Update-FormatData<a class="headerlink" href="#update-formatdata" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>formatter
+<a class="reference external" href="https://gist.github.com/stknohg/2e2fc43b90e51ff5b5241152b7045e52">PowerShellの既定のフォーマット設定に介入する方法 · GitHub</a></p></li>
+</ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="psstyle">
 <h1>PSStyle<a class="headerlink" href="#psstyle" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
@@ -226,7 +243,7 @@
 <h1>out<a class="headerlink" href="#out" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="out-default">
 <h2>Out-Default<a class="headerlink" href="#out-default" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">=&gt;</span> <span class="pre">Out-Host</span></code>
+<p><code class="docutils literal notranslate"><span class="pre">Format-Table</span> <span class="pre">|</span> <span class="pre">Out-Host</span></code>
 <a class="reference external" href="https://gist.github.com/stknohg/a0fabb9e10ddcc146672">Out-Defaultをフックしてパイプラインに渡されたオブジェクトの型と値をホストに表示するサンプル · GitHub</a></p>
 </section>
 <section id="out-host">
@@ -310,7 +327,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">PSStyle</a></li>
+<li><a class="reference internal" href="#">Update-FormatData</a></li>
+<li><a class="reference internal" href="#psstyle">PSStyle</a></li>
 <li><a class="reference internal" href="#out">out</a><ul>
 <li><a class="reference internal" href="#out-default">Out-Default</a></li>
 <li><a class="reference internal" href="#out-host">Out-Host</a></li>

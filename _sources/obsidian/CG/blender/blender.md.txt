@@ -9,6 +9,8 @@
 - [「雑貨であふれる賑やかなキッチン」をBlenderで作ってみた｜kirillovlov](https://note.com/kirillovlov/n/n4677b51753fc)
 
 # Version
+## 4.0
+
 ## 3.4
 - @2022 [Blender 3.4 Is Finally Here! - YouTube](https://www.youtube.com/watch?v=xqnVokt3tlI&ab_channel=askNK)
 - @2022 [「Blender 3.4 Alpha」の「実験的」新機能を紹介！ | CGbox](https://cgbox.jp/2022/09/02/blender-3-4-alpha/)
