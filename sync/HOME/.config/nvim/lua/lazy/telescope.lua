@@ -58,5 +58,24 @@ return {
       }
     end,
   },
-  { 'nvim-telescope/telescope-ui-select.nvim' }
+  { "nvim-telescope/telescope-ui-select.nvim" },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "Allianaab2m/telescope-kensaku.nvim",
+        config = function()
+          require("telescope").load_extension "kensaku" -- :Telescope kensaku
+        end,
+      },
+    },
+  },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    config = function()
+      vim.api.nvim_set_keymap("n", "<space>fb", ":Telescope file_browser<CR>", { noremap = true })
+    end,
+  },
 }

@@ -116,6 +116,10 @@ function Get-Path([string]$type)
     {
       Get-Item (Join-Path (Get-Path "local") "src")
     }
+    "blender" 
+    {
+      Get-Item (Join-Path $env:AppData "Blender Foundation\Blender")
+    }
     default
     {$null 
     }
@@ -275,6 +279,9 @@ function prompt()
     {
       $location = " " + $location
     }
+  } elseif($location.FullName.StartsWith("$(Get-Path "blender")${SEP}"))
+  {
+    $location = "🐵" + [System.IO.Path]::GetRelativePath((Get-Path "blender"), $location)
   } elseif($location.FullName.StartsWith($HOME))
   {
     if($location -eq $HOME)

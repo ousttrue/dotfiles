@@ -45,8 +45,7 @@ function M.setup()
       "--column",
       "--smart-case",
       "--hidden",
-      "--glob",
-      "!.git",
+      "--glob", "!.git",
     }
   end
 

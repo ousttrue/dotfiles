@@ -152,7 +152,7 @@ func (m model) Init() tea.Cmd {
 ```
 
 # LipGloss
-[[lipgloss]]
+[[TERM/lipgloss]]
 
 # markdown
 - [GitHub - charmbracelet/glow: Render markdown on the CLI, with pizzazz! 💅🏻](https://github.com/charmbracelet/glow)

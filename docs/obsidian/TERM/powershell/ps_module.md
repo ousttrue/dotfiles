@@ -1,8 +1,11 @@
 [[powershell]]
+[[ps_package]]
 
 [モジュールについて - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7.4)
 > コマンドレット、プロバイダー、関数、ワークフロー、変数、エイリアスなど
 - [標準ライブラリのバイナリ モジュールの作成方法 - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/scripting/dev-cross-plat/create-standard-library-binary-module?view=powershell-7.4)
+
+- @2021 [PowerShell Gallery からモジュールをインストールするために必要な設定 | Microsoft Japan Windows Technology Support Blog](https://jpwinsup.github.io/blog/2021/06/14/UserInterfaceAndApps/PowerShell/how-to-setup-install-module/)
 
 `$env:PSModulePath`
 ```sh
@@ -23,6 +26,22 @@ C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
 
 `C:\Program Files\WindowsPowerShell\Modules`
 `${env:USERPROFILE}\Documents\PowerShell\Modules`
+
+# Nuget
+[パッケージの手動ダウンロード - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/gallery/how-to/working-with-packages/manual-download?view=powershellget-3.x)
+
+
+# PSRepository
+```powershell
+> Get-PSRepository
+
+Name                      InstallationPolicy   SourceLocation
+----                      ------------------   --------------
+PSGallery                 Untrusted            https://www.powershellgallery.com/api/v2
+```
+
+# Find-Package
+[Find-Package (PackageManagement) - PowerShell | Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/packagemanagement/find-package?view=powershellget-2.x)
 
 # psmodule
 ```powershell
