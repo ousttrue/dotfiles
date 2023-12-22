@@ -53,5 +53,3 @@ bpy.ops.object.mode_set(mode = 'EDIT')
 - [Blender のフェイスマップとは何か](https://dskjal.com/blender/face-map-proposal.html)
 - [Zen Sets for Blender - Vertex Groups and Face Maps (v2.0) - YouTube](https://www.youtube.com/watch?v=xg14N_pLcIU&ab_channel=SergeyTyapkin)
 
-## uv_layers
-- [テクスチャUVを調べる｜Hajime Saito](https://note.com/replicorn/n/nc6f582006a99)

@@ -195,6 +195,12 @@ function M.setup()
     -- bundle_path = dot.get_home() .. "/local/src/PowerShellEditorServices",
     bundle_path = VSCODE .. "/extensions/ms-vscode.powershell-2023.8.0/modules",
   }
+
+  require("lspconfig").remark_ls.setup {
+    settings = {
+      requireConfig = true,
+    },
+  }
 end
 
 return M

@@ -5,14 +5,18 @@
 - [Vim のすゝめ - テキストオブジェクト | 株式会社創夢 — SOUM/misc](https://www.soum.co.jp/misc/vim-no-susume/8/)
 
 Operator
-- c
-- d
-- y
-- v
+- c hange
+- d elete
+- y ank
+- v 
 
 TextObject
-- a: an
+- a: an, around
 - i: inner
+
+- word, `iw`, `aw`
+- sentense, `is`, `as`
+- paragraph, `ip`, `ap`
 
 # sround.vim
 - [vim の text-object をより便利に使えるプラグイン - surround.vim - A Day in the Life](https://secon.dev/entry/20061225/1167032528/)

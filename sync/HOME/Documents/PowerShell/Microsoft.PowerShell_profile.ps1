@@ -178,6 +178,7 @@ $IconMap = @{
   "ousttrue.github.io" = " "
   cmake_book = "📙"
   blender_book = "📙"
+  lbsm = "🐵"
 }
 
 function get_git_status()

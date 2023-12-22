@@ -443,9 +443,10 @@ else
   table.insert(plugins, { import = "lazy.treesitter" })
   table.insert(plugins, { import = "lazy.denops" })
   table.insert(plugins, { import = "lazy.git" })
-  table.insert(plugins, { import = "lazy.ddc" })
 
-  -- table.insert(plugins, { import = "lazy.cmp" })
+  table.insert(plugins, { import = "lazy.cmp" })
+  -- table.insert(plugins, { import = "lazy.ddc" })
+
   -- table.insert(plugins, { import = "lazy.coding" })
   -- table.insert(plugins, { import = "lazy.colorschemes" })
   -- table.insert(plugins, { import = "lazy.formatter" })
