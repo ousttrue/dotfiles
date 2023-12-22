@@ -176,6 +176,8 @@ $IconMap = @{
   UniVRM = " "
   minixr = " "
   "ousttrue.github.io" = " "
+  cmake_book = "📙"
+  blender_book = "📙"
 }
 
 function get_git_status()
@@ -592,7 +594,16 @@ function Pull-DotFile
   {
     Push-Location (Get-Path "dot")
     git pull
+
+    # make symbolic link
     Get-Dotfile | ForEach-Object{ LinkDotFile $_ }
+
+    # remove dead link
+    Get-ChildItem ~\.config\ -Recurse
+    | Where-Object{ $_.LinkTarget -and !(Test-Path $_.LinkTarget)}
+    | ForEach-Object{write-host "Remove: $_"; $_}
+    | Remove-Item
+
     Pop-Location
   }
 }

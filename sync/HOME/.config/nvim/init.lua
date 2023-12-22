@@ -437,16 +437,18 @@ else
     -- end
   end
   table.insert(plugins, { import = "lazy.minimum" })
-  table.insert(plugins, { import = "lazy.completion" })
+  table.insert(plugins, { import = "lazy.extend" })
   table.insert(plugins, { import = "lazy.filer" })
   table.insert(plugins, { import = "lazy.telescope" })
   table.insert(plugins, { import = "lazy.treesitter" })
-  table.insert(plugins, { import = "lazy.extend" })
+  table.insert(plugins, { import = "lazy.denops" })
+  table.insert(plugins, { import = "lazy.git" })
+  table.insert(plugins, { import = "lazy.ddc" })
 
+  -- table.insert(plugins, { import = "lazy.cmp" })
   -- table.insert(plugins, { import = "lazy.coding" })
   -- table.insert(plugins, { import = "lazy.colorschemes" })
   -- table.insert(plugins, { import = "lazy.formatter" })
-  -- table.insert(plugins, { import = "lazy.git" })
   -- table.insert(plugins, { import = "lazy.line" })
   -- table.insert(plugins, { import = "lazy.plugins" })
 

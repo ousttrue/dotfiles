@@ -1,5 +1,8 @@
 return {
-  { "vim-denops/denops.vim" },
+  "folke/which-key.nvim",
+  {
+    "simeji/winresizer",
+  },
   {
     "tyru/open-browser.vim",
     config = function()

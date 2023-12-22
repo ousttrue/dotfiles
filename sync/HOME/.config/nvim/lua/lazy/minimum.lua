@@ -78,6 +78,5 @@ return {
     config = true,
     event = { "WinNew" },
   },
-  { "tpope/vim-fugitive" },
 }
 
