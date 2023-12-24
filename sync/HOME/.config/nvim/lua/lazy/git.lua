@@ -9,4 +9,18 @@ return {
       require("config.gitsigns").setup()
     end,
   },
+  {
+    "niuiic/git-log.nvim",
+    dependencies = {
+      "niuiic/core.nvim",
+    },
+  },
+  {
+    "rbong/vim-flog",
+    lazy = true,
+    cmd = { "Flog", "Flogsplit", "Floggit" },
+    dependencies = {
+      "tpope/vim-fugitive",
+    },
+  },
 }

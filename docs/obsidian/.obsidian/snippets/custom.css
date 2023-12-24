@@ -34,3 +34,8 @@
 .HyperMD-codeblock-bg {
   background-color: #211121 !important;
 }
+
+body {
+  --checklist-done-decoration: none;
+  --checklist-done-color: #888;
+}

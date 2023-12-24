@@ -4,10 +4,10 @@
 
 # Version
 ## 3
-- @2023 [ReactのJSXで書けるSSG を1から作り直した - minista v3](https://zenn.dev/qrac/articles/980efced76634f)
+- [x] @2023 [ReactのJSXで書けるSSG を1から作り直した - minista v3](https://zenn.dev/qrac/articles/980efced76634f)
 
 ## 2
-- @2022 [Viteとesbuildを組み込みReact製SSGを再構築 - minista v2](https://zenn.dev/qrac/articles/fbbbe7ccc3bdb1)
+- [x] `vite` `esbuild` @2022 [Viteとesbuildを組み込みReact製SSGを再構築 - minista v2](https://zenn.dev/qrac/articles/fbbbe7ccc3bdb1)
 
 ## 1
 

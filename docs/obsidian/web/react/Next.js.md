@@ -9,7 +9,7 @@
 ## 10
 
 ## 9.3
-- [[getStaticPaths]]
+- [[getStaticData]]
 
 # project
 - [Getting Started: Project Structure | Next.js](https://nextjs.org/docs/getting-started/project-structure)
