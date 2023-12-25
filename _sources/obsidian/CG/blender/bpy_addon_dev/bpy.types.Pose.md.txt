@@ -1,1 +1,0 @@
-https://docs.blender.org/api/current/bpy.types.Pose.html#bpy.types.Pose
