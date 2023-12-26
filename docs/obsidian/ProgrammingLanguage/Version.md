@@ -1,1 +1,0 @@
-[ソフトアンテナ](https://softantenna.com/)

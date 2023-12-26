@@ -23,7 +23,6 @@ namespace Pmx
         Utf8,
     }
 
-
     public enum IndexSize : byte
     {
         U8 = 1,
@@ -45,5 +44,13 @@ namespace Pmx
         public IndexSize BoneIndexSize;
         public IndexSize MorphIndexSize;
         public IndexSize RigidBodyIndexSize;
+    }
+
+    public enum VertexBlending : byte
+    {
+        BDEF1,
+        BDEF2,
+        BDEF4,
+        SDEF
     }
 }

@@ -11,7 +11,7 @@
             "preLaunchTask": "dotnet: build",
             "program": "${workspaceFolder}/bin/Debug/net8.0/mf.dll",
             "args": [
-                "D:\\assets\\MMD\\原神\\变身形态.pmx",
+                "D:\\assets\\mmd\\Tda式初音ミクV4X_Ver1.00\\Tda式初音ミクV4X_Ver1.00.pmx",
             ],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,

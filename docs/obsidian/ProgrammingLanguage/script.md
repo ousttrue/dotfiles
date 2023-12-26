@@ -1,4 +1,0 @@
-[[python]]
-[[javascript]]
-[[lua]]
-[[ruby]]
