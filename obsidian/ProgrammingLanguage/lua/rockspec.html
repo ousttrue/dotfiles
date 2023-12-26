@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Version - shell note ドキュメント</title>
+        <title>template - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,23 +218,66 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="version">
-<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <p>[[luarocks]]</p>
+<p><a class="reference external" href="https://github.com/luarocks/luarocks/wiki/Creating-a-rock#using-luarocks-as-a-build-system">Creating a rock · luarocks/luarocks Wiki · GitHub</a></p>
 <ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://yotiky.hatenablog.com/entry/2020/06/18/unitycsharp">Unity と C# のバージョン - yotiky Tech Blog</a></p></li>
+<li><p>@2018 <a class="reference external" href="https://www.clear-code.com/blog/2018/11/19.html">LuaRocksにモジュールを登録する方法 - 2018-11-19 - ククログ</a></p></li>
 </ul>
-<section id="id1">
-<h2>2022<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">C#8.0</span></code></p></li>
-<li><p>[[dotNET]] <code class="docutils literal notranslate"><span class="pre">standard</span></code> 2.1</p></li>
-</ul>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="o">=</span> <span class="s2">"LuaFruits"</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">"1.0-1"</span>
+<span class="n">source</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="n">url</span> <span class="o">=</span> <span class="s2">"..."</span> <span class="c1">-- We don't have one yet</span>
+<span class="p">}</span>
+<span class="n">description</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="n">summary</span> <span class="o">=</span> <span class="s2">"An example for the LuaRocks tutorial."</span><span class="p">,</span>
+   <span class="n">detailed</span> <span class="o">=</span> <span class="s">[[</span>
+<span class="s">      This is an example for the LuaRocks tutorial.</span>
+<span class="s">      Here we would put a detailed, typically</span>
+<span class="s">      paragraph-long description.</span>
+<span class="s">   ]]</span><span class="p">,</span>
+   <span class="n">homepage</span> <span class="o">=</span> <span class="s2">"http://..."</span><span class="p">,</span> <span class="c1">-- We don't have one yet</span>
+   <span class="n">license</span> <span class="o">=</span> <span class="s2">"MIT/X11"</span> <span class="c1">-- or whatever you like</span>
+<span class="p">}</span>
+<span class="n">dependencies</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s2">"lua &gt;= 5.1, &lt; 5.4"</span>
+   <span class="c1">-- If you depend on other rocks, add them here</span>
+<span class="p">}</span>
+<span class="n">build</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="c1">-- We'll start here.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="template">
+<h1>template<a class="headerlink" href="#template" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ luarocks write_rockspec
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">${package}-${version}.rockspec</span></code></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="o">=</span> <span class="s2">"lvrm"</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">"dev-1"</span>
+<span class="n">build</span> <span class="o">=</span> <span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
-<section id="id2">
-<h2>2018.3<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>[[prefabmode]]</p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="format">
+<h1>format<a class="headerlink" href="#format" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://github.com/luarocks/luarocks/wiki/Rockspec-format">Rockspec format · luarocks/luarocks Wiki · GitHub</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="build-type">
+<h1>build.type<a class="headerlink" href="#build-type" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://github.com/luarocks/luarocks/wiki/Rockspec-format#build-back-ends">Rockspec format · luarocks/luarocks Wiki · GitHub</a></p>
+<section id="builtin">
+<h2>builtin<a class="headerlink" href="#builtin" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="cmake">
+<h2>cmake<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="make">
+<h2>make<a class="headerlink" href="#make" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="command">
+<h2>command<a class="headerlink" href="#command" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
 
@@ -251,7 +294,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/CG/GameEngine/Unity.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/lua/rockspec.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -271,9 +314,13 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">2022</a></li>
-<li><a class="reference internal" href="#id2">2018.3</a></li>
+<li><a class="reference internal" href="#">template</a></li>
+<li><a class="reference internal" href="#format">format</a></li>
+<li><a class="reference internal" href="#build-type">build.type</a><ul>
+<li><a class="reference internal" href="#builtin">builtin</a></li>
+<li><a class="reference internal" href="#cmake">cmake</a></li>
+<li><a class="reference internal" href="#make">make</a></li>
+<li><a class="reference internal" href="#command">command</a></li>
 </ul>
 </li>
 </ul>

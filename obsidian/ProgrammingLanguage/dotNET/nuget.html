@@ -218,23 +218,46 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="version">
+          <p><a class="reference external" href="https://learn.microsoft.com/ja-jp/nuget/what-is-nuget">NuGet とは何か。またどのような働きをするのか | Microsoft Learn</a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://yotiky.hatenablog.com/entry/2020/06/18/unitycsharp">Unity と C# のバージョン - yotiky Tech Blog</a></p></li>
-</ul>
 <section id="id1">
-<h2>2022<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">C#8.0</span></code></p></li>
-<li><p>[[dotNET]] <code class="docutils literal notranslate"><span class="pre">standard</span></code> 2.1</p></li>
-</ul>
+<h2>3.0<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>@2015</p>
 </section>
 <section id="id2">
-<h2>2018.3<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>2.0<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="nuget-exe">
+<h1>nuget.exe<a class="headerlink" href="#nuget-exe" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/nuget/consume-packages/install-use-packages-nuget-cli">NuGet CLI を使用して NuGet パッケージを管理する | Microsoft Learn</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dotnet">
+<h1>dotnet<a class="headerlink" href="#dotnet" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">dotnet</span> <span class="n">nuget</span> <span class="nb">locals</span> <span class="nb">all</span> <span class="o">--</span><span class="nb">list</span>
+<span class="n">http</span><span class="o">-</span><span class="n">cache</span><span class="p">:</span> <span class="o">%</span><span class="n">USERPROFILE</span><span class="o">%</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">NuGet</span>\<span class="n">v3</span><span class="o">-</span><span class="n">cache</span>
+<span class="k">global</span><span class="o">-</span><span class="n">packages</span><span class="p">:</span> <span class="o">%</span><span class="n">USERPROFILE</span><span class="o">%</span>\<span class="o">.</span><span class="n">nuget</span>\<span class="n">packages</span>\
+<span class="n">temp</span><span class="p">:</span> <span class="o">%</span><span class="n">USERPROFILE</span><span class="o">%</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">NuGetScratch</span>
+<span class="n">plugins</span><span class="o">-</span><span class="n">cache</span><span class="p">:</span> <span class="o">%</span><span class="n">USERPROFILE</span><span class="o">%</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">NuGet</span>\<span class="n">plugins</span><span class="o">-</span><span class="n">cache</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="powershell">
+<h1>powershell<a class="headerlink" href="#powershell" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>[[prefabmode]]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v2</span></code> @2020 <a class="reference external" href="https://qiita.com/ktz_alias/items/7306f0a44f0c051fa19d">[Powershell] Nugetでインストールしたパッケージの読み込みサポート #PowerShell - Qiita</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v2</span></code> @2018 <a class="reference external" href="https://qiita.com/HAGITAKO/items/05328043d599964c485d">[PowerShell]NuGetからパッケージをダウンロードする #PowerShell - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://github.com/senkousya/PS_startClosedXMLOnPowershell">GitHub - senkousya/PS_startClosedXMLOnPowershell: 🔰ClosedXMLをPowershellから触ってみる</a></p></li>
 </ul>
+<section id="install-package-dependency-loop-detected">
+<h2>Install-Package : Dependency loop detected<a class="headerlink" href="#install-package-dependency-loop-detected" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-verbose</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-skipDependencies</span></code>
+<a class="reference external" href="https://stackoverflow.com/questions/58351619/install-package-dependency-loop-detected-for-package-microsoft-data-sqlite">powershell - install-package : Dependency loop detected for package 'Microsoft.Data.Sqlite' - Stack Overflow</a></p></li>
+</ul>
+<p><a class="reference external" href="https://learn.microsoft.com/en-us/answers/questions/1192303/install-package-dependency-loop-detected-for-packa">Install-Package : Dependency loop detected for package 'Microsoft.SqlServer.SqlManagementObjects' - Microsoft Q&amp;A</a></p>
 </section>
 </section>
 
@@ -251,7 +274,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/CG/GameEngine/Unity.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/dotNET/nuget.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -272,8 +295,14 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">2022</a></li>
-<li><a class="reference internal" href="#id2">2018.3</a></li>
+<li><a class="reference internal" href="#id1">3.0</a></li>
+<li><a class="reference internal" href="#id2">2.0</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nuget-exe">nuget.exe</a></li>
+<li><a class="reference internal" href="#dotnet">dotnet</a></li>
+<li><a class="reference internal" href="#powershell">powershell</a><ul>
+<li><a class="reference internal" href="#install-package-dependency-loop-detected">Install-Package : Dependency loop detected</a></li>
 </ul>
 </li>
 </ul>
