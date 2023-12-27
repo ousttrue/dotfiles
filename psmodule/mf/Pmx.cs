@@ -7,6 +7,14 @@ using System.Text;
 
 namespace Pmx
 {
+    static class Vector3Extension
+    {
+        public static Vector3 TurnY180(this Vector3 v)
+        {
+            return new Vector3(-v.X, v.Y, -v.Z);
+        }
+    }
+
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct Magic
     {
@@ -301,8 +309,8 @@ namespace Pmx
             {
                 var position = r.Get<Vector3>();
                 var normal = r.Get<Vector3>();
-                vertexGeometries[i].Position = position;
-                vertexGeometries[i].Normal = normal;
+                vertexGeometries[i].Position = position.TurnY180();
+                vertexGeometries[i].Normal = normal.TurnY180();
                 vertexTextures[i].Texture0 = r.Get<Vector2>();
 
                 for (int j = 0; j < header.AdditionalUv; ++j)
@@ -464,7 +472,7 @@ namespace Pmx
                 bones[i] = new Bone
                 {
                     Name = boneName,
-                    Position = position,
+                    Position = position.TurnY180(),
                     Parent = parent,
                 };
                 Debug.WriteLine($"[{i}]{boneName}: {boneFlags}: parent=>{parent}");

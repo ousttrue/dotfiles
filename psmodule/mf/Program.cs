@@ -48,7 +48,16 @@ namespace mf
 
       var lbsm = new Lbsm.LbsmRoot
       {
-        asset = new Lbsm.LbsmAsset { version = "alpha" },
+        asset = new Lbsm.LbsmAsset
+        {
+          version = "alpha",
+          axes = new Lbsm.LbsmAxes
+          {
+            x = "right",
+            y = "up",
+            z = "forward",
+          },
+        },
         bufferViews = bin.BufferViews.ToArray(),
         meshes = new Lbsm.LbsmMesh[] {
           new Lbsm.LbsmMesh{
