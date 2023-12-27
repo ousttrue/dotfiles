@@ -17,8 +17,9 @@ namespace mf
     List<Lbsm.LbsmBufferView> _views = new List<Lbsm.LbsmBufferView>();
     public IReadOnlyCollection<Lbsm.LbsmBufferView> BufferViews => _views;
 
-    public void Push<T>(string name, ReadOnlySpan<T> span) where T : struct
+    public int Push<T>(string name, ReadOnlySpan<T> span) where T : struct
     {
+      var index = _views.Count;
       var bytes = MemoryMarshal.Cast<T, byte>(span);
       _views.Add(new Lbsm.LbsmBufferView
       {
@@ -27,6 +28,7 @@ namespace mf
         byteLength = bytes.Length,
       });
       _bytes.AddRange(bytes);
+      return index;
     }
   }
 
@@ -45,10 +47,6 @@ namespace mf
       }
 
       var bin = new Bin();
-      bin.Push("geom", pmx.VertexGeometries);
-      bin.Push("txuv", pmx.VertexTextures);
-      bin.Push("skin", pmx.VertexSkins);
-      bin.Push("indx", pmx.Indices);
 
       for (int i = 0; i < pmx.Textures.Length; ++i)
       {
@@ -105,10 +103,9 @@ namespace mf
                     using (var ms = new MemoryStream())
                     {
                       bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                      bin.Push<byte>(textureName, ms.ToArray());
+                      bin.Push<byte>(textureName.Substring(0, textureName.Length - 4) + ".png", ms.ToArray());
                     }
                   }
-                  // pmx.Textures[i] = Path.GetFileNameWithoutExtension(textureName) + ".png";
                 }
                 finally
                 {
@@ -125,10 +122,9 @@ namespace mf
                 using (var ms = new MemoryStream())
                 {
                   bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                  bin.Push<byte>(textureName, ms.ToArray());
+                  bin.Push<byte>(textureName.Substring(0, textureName.Length - 4) + ".png", ms.ToArray());
                 }
               }
-              // pmx.Textures[i] = Path.GetFileNameWithoutExtension(textureName) + ".png";
             }
             break;
 
@@ -137,10 +133,14 @@ namespace mf
         }
       }
 
+      var geom = bin.Push("geom", pmx.VertexGeometries);
+      var txuv = bin.Push("txuv", pmx.VertexTextures);
+      var skin = bin.Push("skin", pmx.VertexSkins);
+      var indx = bin.Push("indx", pmx.Indices);
+
       var textures = pmx.Textures;
-      var lbsm = new Lbsm.LbsmRoot
-      {
-        asset = new Lbsm.LbsmAsset
+      var lbsm = new Lbsm.LbsmRoot(
+        new Lbsm.LbsmAsset
         {
           version = "alpha",
           axes = new Lbsm.LbsmAxes
@@ -150,24 +150,24 @@ namespace mf
             z = "forward",
           },
         },
-        bufferViews = bin.BufferViews.ToArray(),
-        textures = pmx.Textures.Select(x => new LbsmTexture
+        bin.BufferViews.ToArray(),
+        pmx.Textures.Select((x, i) => new LbsmTexture
         {
-          bufferView = x,
+          bufferView = i,
         }).ToArray(),
-        materials = pmx.Materials.Select(x => new LbsmMaterial
+        pmx.Materials.Select(x => new LbsmMaterial
         {
           name = x.Name,
           color = new float[4] { x.ColorRGBA.X, x.ColorRGBA.Y, x.ColorRGBA.Z, x.ColorRGBA.W },
           colorTexture = x.ColorTexture,
         }).ToArray(),
-        meshes = new Lbsm.LbsmMesh[] {
+        new Lbsm.LbsmMesh[] {
           new Lbsm.LbsmMesh{
               name=pmx.Name,
               vertexCount=pmx.VertexGeometries.Length,
               vertexStreams=new Lbsm.LbsmStream[]{
                 new Lbsm.LbsmStream{
-                  bufferView = "geom",
+                  bufferView = geom,
                   attributes = new Lbsm.LbsmAttribute[]{
                     new Lbsm.LbsmAttribute{
                       vertexAttribute="position",
@@ -182,7 +182,7 @@ namespace mf
                   },
                 },
                 new Lbsm.LbsmStream{
-                  bufferView = "txuv",
+                  bufferView = txuv,
                   attributes = new Lbsm.LbsmAttribute[]{
                     new Lbsm.LbsmAttribute{
                       vertexAttribute="tex0",
@@ -192,7 +192,7 @@ namespace mf
                   },
                 },
                 new Lbsm.LbsmStream{
-                  bufferView = "skin",
+                  bufferView = skin,
                   attributes = new Lbsm.LbsmAttribute[]{
                     new Lbsm.LbsmAttribute{
                       vertexAttribute="blendWeights",
@@ -208,7 +208,7 @@ namespace mf
                 },
               },
               indices =new Lbsm.LbsmIndices{
-                bufferView="indx",
+                bufferView=indx,
                 stride=(int)pmx.IndexStride,
               },
               subMeshes = pmx.Materials.Select((x, i) =>new LbsmSubMesh{
@@ -218,13 +218,13 @@ namespace mf
               joints = pmx.Bones.Select((_, i)=>i).ToArray(),
           },
         },
-        bones = pmx.Bones.Select(x => new Lbsm.LbsmBone
+        pmx.Bones.Select(x => new Lbsm.LbsmBone
         {
           name = x.Name,
           head = new float[] { x.Position.X, x.Position.Y, x.Position.Z },
           parent = x.Parent.GetValueOrDefault(ushort.MaxValue),
         }).ToArray()
-      };
+      );
 
       var option = new JsonSerializerOptions
       {

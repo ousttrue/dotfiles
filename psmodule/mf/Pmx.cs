@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Numerics;
 using System.Runtime.InteropServices;
@@ -262,6 +263,34 @@ namespace Pmx
         public int? Parent;
     }
 
+    public enum MorphType : byte
+    {
+        Group,
+        VertexPosition,
+        Bone,
+        Uv,
+        Uv1,
+        Uv2,
+        Uv3,
+        Uv4,
+        Material,
+    }
+
+    public class VertexPositionMorph
+    {
+        public readonly string Name;
+        public int IndexStride;
+        public readonly byte[] Indices;
+        public readonly Vector3[] Positins;
+        public VertexPositionMorph(string name, int indexStride, byte[] indices, Vector3[] positions)
+        {
+            Name = name;
+            IndexStride = indexStride;
+            Indices = indices;
+            Positins = positions;
+        }
+    }
+
     public ref struct Model
     {
         public string Name;
@@ -277,6 +306,7 @@ namespace Pmx
         public string[] Textures;
         public Material[] Materials;
         public Bone[] Bones;
+        public VertexPositionMorph[] VertexPositionMoprhs;
     }
 
     public class Loader
@@ -506,6 +536,63 @@ namespace Pmx
                 // Debug.WriteLine($"[{i}]{boneName}: {boneFlags}: parent=>{parent}");
             }
 
+            var morphs = new List<VertexPositionMorph>();
+            int morphCount = r.Get<int>();
+            for (int i = 0; i < morphCount; ++i)
+            {
+                var morphName = r.PmxText(header.TextEncoding);
+                var morphNameEnglish = r.PmxText(header.TextEncoding);
+                var panel = r.Get<byte>();
+                var morphType = (MorphType)r.Get<byte>();
+                var valueCount = r.Get<int>();
+                switch (morphType)
+                {
+                    case MorphType.VertexPosition:
+                        {
+                            switch (header.VertexIndexSize)
+                            {
+                                case IndexSize.U16:
+                                    {
+                                        var morphIndices = new byte[valueCount * 2];
+                                        var span = MemoryMarshal.Cast<byte, ushort>(morphIndices);
+                                        var morphPositions = new Vector3[valueCount];
+                                        for (int j = 0; j < valueCount; ++j)
+                                        {
+                                            span[j] = (ushort)r.PmxIndex(header.VertexIndexSize);
+                                            morphPositions[j] = r.Get<Vector3>();
+                                        }
+                                        morphs.Add(new VertexPositionMorph(morphName, 2, morphIndices, morphPositions));
+                                    }
+                                    break;
+
+                                default:
+                                    throw new NotImplementedException();
+                            }
+                        }
+                        break;
+
+                    case MorphType.Material:
+                        for (int j = 0; j < valueCount; ++j)
+                        {
+                            var materialIndex = r.PmxIndex(header.MaterialIndexSize);
+                            var offsetType = r.Get<byte>();
+                            r.Get<Vector4>();
+                            r.Get<Vector3>();
+                            r.Get<float>();
+                            r.Get<Vector3>();
+                            r.Get<Vector4>();
+                            r.Get<float>();
+                            r.Get<Vector4>();
+                            r.Get<Vector4>();
+                            r.Get<Vector4>();
+                        }
+                        break;
+
+                    default:
+                        throw new NotImplementedException($"morphTYpe: {morphType}");
+                }
+            }
+
             return new Model
             {
                 Name = name,
@@ -520,6 +607,7 @@ namespace Pmx
                 Textures = textures,
                 Materials = materials,
                 Bones = bones,
+                VertexPositionMoprhs = morphs.ToArray(),
             };
         }
     } // class
