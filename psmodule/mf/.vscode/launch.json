@@ -11,7 +11,7 @@
             "preLaunchTask": "dotnet: build",
             "program": "${workspaceFolder}/bin/Debug/net8.0/mf.dll",
             "args": [
-                "D:\\assets\\mmd\\Tda式初音ミクV4X_Ver1.00\\Tda式初音ミクV4X_Ver1.00.pmx",
+                "D:\\assets\\MMD\\Tda式初音ミクアペンドVer1.10\\Tda式初音ミクアペンド_Ver1.10.pmx",
             ],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,

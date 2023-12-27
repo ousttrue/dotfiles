@@ -1,70 +1,10 @@
-﻿using System.Diagnostics;
-using System.Numerics;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Json;
-using Pmx;
+
 
 namespace mf
 {
-  class Reader
-  {
-    byte[] _array;
-    int _pos;
-
-    public Reader(byte[] array)
-    {
-      _array = array;
-      _pos = 0;
-    }
-
-    public ArraySegment<byte> GetBytes(int size)
-    {
-      var span = new ArraySegment<byte>(this._array, this._pos, size);
-      this._pos += size;
-      return span;
-    }
-
-    public ref T Get<T>()
-            where T : struct
-    {
-      var span = GetBytes(Marshal.SizeOf<T>());
-      return ref MemoryMarshal.Cast<byte, T>(span)[0];
-    }
-
-    public string GetText(Pmx.TextEncoding encoding)
-    {
-      var value = Get<int>();
-      var span = GetBytes(value);
-      switch (encoding)
-      {
-        case Pmx.TextEncoding.Utf8: return Encoding.UTF8.GetString(span);
-        case Pmx.TextEncoding.Utf16: return Encoding.Unicode.GetString(span);
-      }
-      throw new ArgumentException();
-    }
-
-    public Int32 Index(Pmx.IndexSize size)
-    {
-      switch (size)
-      {
-        case IndexSize.U8:
-          return Get<byte>();
-        case IndexSize.U16:
-          return Get<ushort>();
-        case IndexSize.U32:
-          return Get<int>();
-      }
-      throw new ArgumentException();
-    }
-  }
-
-  struct VertexGeometry
-  {
-    public Vector3 Position;
-    public Vector3 Normal;
-  }
-
   class Bin
   {
     List<byte> _bytes = new List<byte>();
@@ -73,15 +13,16 @@ namespace mf
     List<Lbsm.LbsmBufferView> _views = new List<Lbsm.LbsmBufferView>();
     public IReadOnlyCollection<Lbsm.LbsmBufferView> BufferViews => _views;
 
-    public void Push(string name, ReadOnlySpan<byte> span)
+    public void Push<T>(string name, ReadOnlySpan<T> span) where T : struct
     {
+      var bytes = MemoryMarshal.Cast<T, byte>(span);
       _views.Add(new Lbsm.LbsmBufferView
       {
         name = name,
         byteOffset = _bytes.Count,
-        byteLength = span.Length,
+        byteLength = bytes.Length,
       });
-      _bytes.AddRange(span);
+      _bytes.AddRange(bytes);
     }
   }
 
@@ -89,85 +30,19 @@ namespace mf
   {
     static void Main(string[] args)
     {
-      var data = File.ReadAllBytes(args[0]);
-      if (data == null)
+      if (args.Length == 0)
       {
-        return;
+        throw new ArgumentNullException();
       }
 
-      var r = new Reader(data);
-
-      var header = r.Get<Pmx.Header>();
-      Debug.WriteLine(header);
-
-      var name = r.GetText(header.TextEncoding);
-      var nameEngliesh = r.GetText(header.TextEncoding);
-      var comment = r.GetText(header.TextEncoding);
-      var commentEnglish = r.GetText(header.TextEncoding);
-      Debug.WriteLine(name);
-      Debug.WriteLine(nameEngliesh);
-      Debug.WriteLine(comment);
-      Debug.WriteLine(commentEnglish);
-
-      var vertexCount = r.Get<int>();
-      var vertexGeometry = new List<VertexGeometry>(vertexCount);
-      for (int i = 0; i < vertexCount; ++i)
+      if (!Pmx.Loader.TryFromPath(args[0], out var pmx))
       {
-        var position = r.Get<Vector3>();
-        var normal = r.Get<Vector3>();
-        vertexGeometry.Add(new VertexGeometry
-        {
-          Position = position,
-          Normal = normal,
-        });
-        var uv = r.Get<Vector2>()[0];
-        for (int j = 0; j < header.AdditionalUv; ++j)
-        {
-          var add_uv = r.Get<Vector4>()[0];
-        }
-        var blending = (Pmx.VertexBlending)r.Get<byte>();
-        switch (blending)
-        {
-          case Pmx.VertexBlending.BDEF1:
-            {
-              var bone = r.Index(header.BoneIndexSize);
-            }
-            break;
-          case Pmx.VertexBlending.BDEF2:
-            {
-              var bone0 = r.Index(header.BoneIndexSize);
-              var bone1 = r.Index(header.BoneIndexSize);
-              var weight = r.Get<float>();
-            }
-            break;
-          case Pmx.VertexBlending.BDEF4:
-            {
-              var bone0 = r.Index(header.BoneIndexSize);
-              var bone1 = r.Index(header.BoneIndexSize);
-              var bone2 = r.Index(header.BoneIndexSize);
-              var bone3 = r.Index(header.BoneIndexSize);
-              var weight = r.Get<Vector4>();
-            }
-            break;
-          case Pmx.VertexBlending.SDEF:
-            {
-              var bone0 = r.Index(header.BoneIndexSize);
-              var bone1 = r.Index(header.BoneIndexSize);
-              var weight = r.Get<float>();
-              r.Get<Vector3>();
-              r.Get<Vector3>();
-              r.Get<Vector3>();
-            }
-            break;
-        }
-        var edgeFactr = r.Get<float>();
+        throw new Exception($"fail to load: {args[0]}");
       }
-      int indexCount = r.Get<int>();
-      var indices = r.GetBytes(indexCount * (int)header.VertexIndexSize);
 
       var bin = new Bin();
-      bin.Push("indx", indices);
-      bin.Push("geom", MemoryMarshal.Cast<VertexGeometry, byte>(CollectionsMarshal.AsSpan(vertexGeometry)));
+      bin.Push("indx", pmx.Indices);
+      bin.Push("geom", pmx.VertexGeometries);
 
       var lbsm = new Lbsm.LbsmRoot
       {
@@ -175,8 +50,8 @@ namespace mf
         bufferViews = bin.BufferViews.ToArray(),
         meshes = new Lbsm.LbsmMesh[] {
           new Lbsm.LbsmMesh{
-              name=name,
-              vertexCount=vertexCount,
+              name=pmx.Name,
+              vertexCount=pmx.VertexGeometries.Length,
               vertexStreams=new Lbsm.LbsmStream[]{
                 new Lbsm.LbsmStream{
                   bufferView = "geom",
@@ -196,7 +71,7 @@ namespace mf
               },
               indices =new Lbsm.LbsmIndices{
                 bufferView="indx",
-                stride=(int)header.VertexIndexSize,
+                stride=(int)pmx.IndexStride,
               },
           },
         },
