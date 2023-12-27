@@ -41,8 +41,10 @@ namespace mf
       }
 
       var bin = new Bin();
-      bin.Push("indx", pmx.Indices);
       bin.Push("geom", pmx.VertexGeometries);
+      bin.Push("txuv", pmx.VertexTextures);
+      bin.Push("skin", pmx.VertexSkins);
+      bin.Push("indx", pmx.Indices);
 
       var lbsm = new Lbsm.LbsmRoot
       {
@@ -67,14 +69,46 @@ namespace mf
                       dimension=3,
                     },
                   },
-                }
+                },
+                new Lbsm.LbsmStream{
+                  bufferView = "txuv",
+                  attributes = new Lbsm.LbsmAttribute[]{
+                    new Lbsm.LbsmAttribute{
+                      vertexAttribute="tex0",
+                      format="f32",
+                      dimension=2,
+                    },
+                  },
+                },
+                new Lbsm.LbsmStream{
+                  bufferView = "skin",
+                  attributes = new Lbsm.LbsmAttribute[]{
+                    new Lbsm.LbsmAttribute{
+                      vertexAttribute="blendWeights",
+                      format="f32",
+                      dimension=4,
+                    },
+                    new Lbsm.LbsmAttribute{
+                      vertexAttribute="blendIndices",
+                      format="u16",
+                      dimension=4,
+                    },
+                  },
+                },
               },
               indices =new Lbsm.LbsmIndices{
                 bufferView="indx",
                 stride=(int)pmx.IndexStride,
               },
+              joints = pmx.Bones.Select((_, i)=>i).ToArray(),
           },
         },
+        bones = pmx.Bones.Select(x => new Lbsm.LbsmBone
+        {
+          name = x.Name,
+          head = new float[] { x.Position.X, x.Position.Y, x.Position.Z },
+          parent = x.Parent.GetValueOrDefault(ushort.MaxValue),
+        }).ToArray()
       };
 
       var option = new JsonSerializerOptions
