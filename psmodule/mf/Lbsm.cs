@@ -60,12 +60,34 @@ namespace Lbsm
   }
 
   [System.Serializable]
+  public class LbsmTexture
+  {
+    public string bufferView;
+  }
+
+  [System.Serializable]
+  public class LbsmMaterial
+  {
+    public string name = "";
+    public float[] color = new float[] { 1, 1, 1, 1 };
+    public int colorTexture;
+  }
+
+  [System.Serializable]
+  public class LbsmSubMesh
+  {
+    public int material;
+    public int drawCount;
+  }
+
+  [System.Serializable]
   public class LbsmMesh
   {
     public string name = "";
     public int vertexCount;
     public LbsmStream[] vertexStreams = new LbsmStream[] { };
     public LbsmIndices indices = new LbsmIndices { };
+    public LbsmSubMesh[] subMeshes = new LbsmSubMesh[] { };
     public int[]? joints;
     public override string ToString()
     {
@@ -106,6 +128,8 @@ namespace Lbsm
 
     public LbsmAsset asset = new LbsmAsset { };
     public LbsmBufferView[] bufferViews = new LbsmBufferView[] { };
+    public LbsmTexture[] textures = new LbsmTexture[] { };
+    public LbsmMaterial[] materials = new LbsmMaterial[] { };
     public LbsmMesh[] meshes = new LbsmMesh[] { };
     public LbsmBone[]? bones;
 

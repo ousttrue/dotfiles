@@ -1,6 +1,10 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Drawing;
+using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Json;
+using Lbsm;
+using Pfim;
 
 
 namespace mf
@@ -46,6 +50,94 @@ namespace mf
       bin.Push("skin", pmx.VertexSkins);
       bin.Push("indx", pmx.Indices);
 
+      for (int i = 0; i < pmx.Textures.Length; ++i)
+      {
+        var textureName = pmx.Textures[i];
+        var texturePath = Path.Join(Path.GetDirectoryName(args[0]), textureName);
+        var ext = Path.GetExtension(textureName).ToLower();
+        switch (ext)
+        {
+          case ".png":
+          case ".jpg":
+            {
+              var textureBytes = File.ReadAllBytes(texturePath);
+              if (textureBytes != null)
+              {
+                bin.Push<byte>(textureName, textureBytes);
+              }
+              else
+              {
+                throw new FileNotFoundException(textureName);
+              }
+            }
+            break;
+
+          case ".tga":
+            {
+              using (var image = Pfimage.FromFile(texturePath))
+              {
+                PixelFormat format;
+
+                // Convert from Pfim's backend agnostic image format into GDI+'s image format
+                switch (image.Format)
+                {
+                  case Pfim.ImageFormat.Rgba32:
+                    format = PixelFormat.Format32bppArgb;
+                    break;
+
+                  case Pfim.ImageFormat.Rgb24:
+                    format = PixelFormat.Format24bppRgb;
+                    break;
+
+                  default:
+                    // see the sample for more details
+                    throw new NotImplementedException();
+                }
+                // Pin pfim's data array so that it doesn't get reaped by GC, unnecessary
+                // in this snippet but useful technique if the data was going to be used in
+                // control like a picture box
+                var handle = GCHandle.Alloc(image.Data, GCHandleType.Pinned);
+                try
+                {
+                  var data = Marshal.UnsafeAddrOfPinnedArrayElement(image.Data, 0);
+                  using (var bitmap = new Bitmap(image.Width, image.Height, image.Stride, format, data))
+                  {
+                    using (var ms = new MemoryStream())
+                    {
+                      bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                      bin.Push<byte>(textureName, ms.ToArray());
+                    }
+                  }
+                  // pmx.Textures[i] = Path.GetFileNameWithoutExtension(textureName) + ".png";
+                }
+                finally
+                {
+                  handle.Free();
+                }
+              }
+            }
+            break;
+
+          case ".bmp":
+            {
+              using (var bitmap = new Bitmap(texturePath))
+              {
+                using (var ms = new MemoryStream())
+                {
+                  bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                  bin.Push<byte>(textureName, ms.ToArray());
+                }
+              }
+              // pmx.Textures[i] = Path.GetFileNameWithoutExtension(textureName) + ".png";
+            }
+            break;
+
+          default:
+            throw new NotImplementedException(ext);
+        }
+      }
+
+      var textures = pmx.Textures;
       var lbsm = new Lbsm.LbsmRoot
       {
         asset = new Lbsm.LbsmAsset
@@ -59,6 +151,16 @@ namespace mf
           },
         },
         bufferViews = bin.BufferViews.ToArray(),
+        textures = pmx.Textures.Select(x => new LbsmTexture
+        {
+          bufferView = x,
+        }).ToArray(),
+        materials = pmx.Materials.Select(x => new LbsmMaterial
+        {
+          name = x.Name,
+          color = new float[4] { x.ColorRGBA.X, x.ColorRGBA.Y, x.ColorRGBA.Z, x.ColorRGBA.W },
+          colorTexture = x.ColorTexture,
+        }).ToArray(),
         meshes = new Lbsm.LbsmMesh[] {
           new Lbsm.LbsmMesh{
               name=pmx.Name,
@@ -109,6 +211,10 @@ namespace mf
                 bufferView="indx",
                 stride=(int)pmx.IndexStride,
               },
+              subMeshes = pmx.Materials.Select((x, i) =>new LbsmSubMesh{
+                material=i,
+                drawCount=x.DrawCount,
+              }).ToArray(),
               joints = pmx.Bones.Select((_, i)=>i).ToArray(),
           },
         },
@@ -125,7 +231,11 @@ namespace mf
         IncludeFields = true,
       };
       var jsonString = JsonSerializer.Serialize(lbsm, option);
-      Console.WriteLine(jsonString);
+      Console.WriteLine(JsonSerializer.Serialize(lbsm, new JsonSerializerOptions
+      {
+        IncludeFields = true,
+        WriteIndented = true,
+      }));
       var jsonChunk = new UTF8Encoding(false).GetBytes(jsonString);
       var binChunk = bin.Bytes;
       var totalSize = 12 + (8 + jsonChunk.Length) + (8 + binChunk.Length);

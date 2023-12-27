@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Text;
+using Lbsm;
 
 
 namespace Pmx
@@ -12,6 +13,14 @@ namespace Pmx
         public static Vector3 TurnY180(this Vector3 v)
         {
             return new Vector3(-v.X, v.Y, -v.Z);
+        }
+    }
+
+    static class Vector2Extension
+    {
+        public static Vector2 VerticalFlip(this Vector2 v)
+        {
+            return new Vector2(v.X, 1.0f - v.Y);
         }
     }
 
@@ -220,6 +229,14 @@ namespace Pmx
         }
     }
 
+    public class Material
+    {
+        public string Name = "";
+        public Vector4 ColorRGBA;
+        public int ColorTexture;
+        public int DrawCount;
+    }
+
     [Flags]
     public enum BoneFlags : ushort
     {
@@ -257,6 +274,8 @@ namespace Pmx
         public ReadOnlySpan<VertexSkin> VertexSkins;
         public int IndexStride;
         public ReadOnlySpan<byte> Indices;
+        public string[] Textures;
+        public Material[] Materials;
         public Bone[] Bones;
     }
 
@@ -292,6 +311,8 @@ namespace Pmx
 
         Model Load(byte[] data)
         {
+            const float scaling = 1.58f / 40.0f;
+
             var r = new Reader(data);
 
             var header = r.Get<Pmx.Header>();
@@ -309,9 +330,9 @@ namespace Pmx
             {
                 var position = r.Get<Vector3>();
                 var normal = r.Get<Vector3>();
-                vertexGeometries[i].Position = position.TurnY180();
+                vertexGeometries[i].Position = position.TurnY180() * scaling;
                 vertexGeometries[i].Normal = normal.TurnY180();
-                vertexTextures[i].Texture0 = r.Get<Vector2>();
+                vertexTextures[i].Texture0 = r.Get<Vector2>().VerticalFlip();
 
                 for (int j = 0; j < header.AdditionalUv; ++j)
                 {
@@ -384,10 +405,10 @@ namespace Pmx
             for (int i = 0; i < textureCount; ++i)
             {
                 textures[i] = r.PmxText(header.TextEncoding);
-                Debug.WriteLine(textures[i]);
             }
 
             int materialCount = r.Get<int>();
+            var materials = new Material[materialCount];
             for (int i = 0; i < materialCount; ++i)
             {
                 var materialName = r.PmxText(header.TextEncoding);
@@ -413,7 +434,14 @@ namespace Pmx
                 }
                 var materialComment = r.PmxText(header.TextEncoding);
                 var drawCount = r.Get<int>();
-                Debug.WriteLine($"{materialName}({drawCount}): {materialComment}");
+                // Debug.WriteLine($"{materialName}({drawCount}): {materialComment}");
+                materials[i] = new Material
+                {
+                    Name = materialName,
+                    ColorRGBA = diffuseRGBA,
+                    ColorTexture = colorTexture,
+                    DrawCount = drawCount,
+                };
             }
 
             int boneCount = r.Get<int>();
@@ -475,7 +503,7 @@ namespace Pmx
                     Position = position.TurnY180(),
                     Parent = parent,
                 };
-                Debug.WriteLine($"[{i}]{boneName}: {boneFlags}: parent=>{parent}");
+                // Debug.WriteLine($"[{i}]{boneName}: {boneFlags}: parent=>{parent}");
             }
 
             return new Model
@@ -489,6 +517,8 @@ namespace Pmx
                 VertexSkins = vertexSkins,
                 IndexStride = (int)header.VertexIndexSize,
                 Indices = indices,
+                Textures = textures,
+                Materials = materials,
                 Bones = bones,
             };
         }
