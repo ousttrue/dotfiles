@@ -2,6 +2,10 @@ import React from 'react'
 import './App.css'
 import list from '../list.json';
 import { Card, Button, Badge } from 'react-daisyui';
+import { Gltf, useGLTF } from '@react-three/drei'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+
 
 type ItemType = {
   dir: string;
@@ -25,7 +29,7 @@ function GltfButton(props: { dir: string, file: string, setCurrent: Function }) 
 }
 
 function Item(props: ItemType & { setCurrent: Function }) {
-  return (<Card className="w-64 p-0 m-2 shadow">
+  return (<Card className="p-0 m-2 shadow">
     {props.ss ? <Card.Image className="h-24" src={`${props.dir}/${props.ss}`} /> : ""}
     <Card.Body className="items-center text-center">
       <Card.Title className="text-lg">{props.name}</Card.Title>
@@ -39,16 +43,30 @@ function Item(props: ItemType & { setCurrent: Function }) {
   </Card>);
 }
 
+
+function GltfView(props: { src: string }) {
+  return (<Canvas shadows camera={{ position: [0, 0, 10] }}>
+    <ambientLight intensity={0.1} />
+    <directionalLight position={[0, 0, 5]} castShadow />
+    {/* <GeoBox /> */}
+    {/* <GeoText /> */}
+    {/* <GeoText3d /> */}
+    {/* <GeoTexture /> */}
+    {/* <GeoEnv /> */}
+    {props.src.length > 0 ? <Gltf src={props.src} /> : ''}
+    <OrbitControls />
+  </Canvas>)
+}
+
+
 function App() {
   const [current, setCurrent] = React.useState('')
 
   return (<>
-    <div style={{ flex: 1, height: '100%', overflowY: 'scroll' }}>
+    <div style={{ width: '300px', height: '100%', overflowY: 'scroll' }}>
       {list.map((x: ItemType, i) => <Item key={i} setCurrent={setCurrent} {...x} />)}
     </div>
-    <div style={{ flex: 1 }}>
-      {current}
-    </div>
+    <GltfView src={current} />
   </>
   )
 }
