@@ -1,6 +1,10 @@
 
 - @2019 [GitベースのCMSとAPIベースのCMSの比較 | microCMSブログ](https://blog.microcms.io/git-based-cms-vs-api-first-cms/)
 
+- [BuhoCMS - A local CMS for static site generators](https://buhocms.org/)
+- [GitHub - strapi/strapi: 🚀 Strapi is the leading open-source headless CMS. It’s 100% JavaScript/TypeScript, fully customizable and developer-first.](https://github.com/strapi/strapi)
+- [GitHub - TryGhost/Ghost: Independent technology for modern publishing, memberships, subscriptions and newsletters.](https://github.com/TryGhost/Ghost)
+
 # git
 
 - @2023 [GitHubだけでヘッドレスCMSを再現しよう！](https://zenn.dev/okazu_ojii3/articles/bd37304b798a3d)

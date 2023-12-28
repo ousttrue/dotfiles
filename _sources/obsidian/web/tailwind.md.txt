@@ -1,5 +1,6 @@
 [Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.](https://tailwindcss.com/)
 
+- [ ] @2023 [Tailwind CSSを使用しておしゃれなウェブサイトを素早く開発する方法](https://kinsta.com/jp/blog/tailwind-css/)
 - [x] @2023 [Tailwind CSSを使う時に出くわす問題(2023年9月更新)](https://zenn.dev/kote2/articles/e72764f8c075a9)
 - [ ] @2022 [TailwindCSS入門講座](https://zenn.dev/takaha4k/articles/8e573887003c05)
 - @2021 [tailwindcss入門編](https://zenn.dev/knaka0209/books/9e86ccb888758c)
@@ -9,6 +10,26 @@
 
 # Version
 ## 3.0
+
+# setup
+[Installation - Tailwind CSS](https://tailwindcss.com/docs/installation)
+- [daisyUI(Tailwind CSSコンポーネントライブラリ)にNext.jsで入門してみた #React - Qiita](https://qiita.com/tkdayo/items/953d847e2d88f09d92c8)
+
+`npm`, `config`, `css`
+
+## vite
+`postcss.config.mjs`
+[Install Tailwind CSS using PostCSS - Tailwind CSS](https://tailwindcss.com/docs/installation/using-postcss)
+- @2023 [Tailwind CSS実践入門 第2章 Tailwind CSSの基本 ──開発環境へのインストール、設定ファイルの記述、エディタの設定 | gihyo.jp](https://gihyo.jp/article/2023/07/tailwindcss-practice-02)
+
+# libs
+## daisyui
+[Components — Tailwind CSS Components ( version 4 update is here )](https://daisyui.com/components/)
+- [daisyUIの記事一覧 | Zenn](https://zenn.dev/topics/daisyui)
+- @2022 [【React】daisyUIを触ってみた！かなり楽しいw](https://zenn.dev/ikenohi/articles/596594edebb76f)
+
+### react
+- [GitHub - daisyui/react-daisyui: daisyUI components built with React 🌼](https://github.com/daisyui/react-daisyui)
 
 
 # bg / text

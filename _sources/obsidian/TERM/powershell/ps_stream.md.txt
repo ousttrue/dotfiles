@@ -1,6 +1,7 @@
 ---
 aliases:
   - ps_pipeline
+  - Select-Object
 ---
 
 [[powershell]]
