@@ -6,18 +6,72 @@ namespace Lbsm
   [System.Serializable]
   public struct LbsmAxes
   {
-    // string enum
-    // "left/right", "up/down", "forward/back";
     public string x;
     public string y;
     public string z;
+
+    public static readonly LbsmAxes Unity = new LbsmAxes
+    {
+      x = "left",
+      y = "up",
+      z = "forward",
+    };
+
+    public static readonly LbsmAxes Gltf = new LbsmAxes
+    {
+      x = "left",
+      y = "up",
+      z = "forward",
+    };
+
+    public static readonly LbsmAxes OpenGL = new LbsmAxes
+    {
+      x = "right",
+      y = "up",
+      z = "back",
+    };
+
+    public override string ToString()
+    {
+      return $"[{x}-{y}-{z}]";
+    }
+  }
+
+  [System.Serializable]
+  public struct LbsmCoordinates
+  {
+    public LbsmAxes axes;
+    public string uvOrigin;
+
+    public static readonly LbsmCoordinates Unity = new LbsmCoordinates
+    {
+      axes = LbsmAxes.Unity,
+      uvOrigin = "lowerLeft",
+    };
+
+    public static readonly LbsmCoordinates Gltf = new LbsmCoordinates
+    {
+      axes = LbsmAxes.Gltf,
+      uvOrigin = "upperLeft",
+    };
+
+    public static readonly LbsmCoordinates OpenGL = new LbsmCoordinates
+    {
+      axes = LbsmAxes.OpenGL,
+      uvOrigin = "lowerLeft",
+    };
+
+    public override string ToString()
+    {
+      return $"{{{axes}; {uvOrigin}}}";
+    }
   }
 
   [System.Serializable]
   public struct LbsmAsset
   {
     public string version;
-    public LbsmAxes axes;
+    public LbsmCoordinates coordinates;
 
     public override string ToString()
     {
@@ -83,13 +137,13 @@ namespace Lbsm
   [System.Serializable]
   public struct LbsmMorphTarget
   {
-    public string Name;
+    public string name;
     public int indexStride;
     public int indexBufferView;
     public int positionBufferView;
     public LbsmMorphTarget(string name)
     {
-      Name = name;
+      this.name = name;
     }
   }
 

@@ -1,57 +1,26 @@
 ﻿using System.Drawing;
-using System.Drawing.Imaging;
+using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Json;
 using Lbsm;
-using Pfim;
 
 
 namespace mf
 {
-  class Bin
+  static class LbsmExporter
   {
-    List<byte> _bytes = new List<byte>();
-    public ReadOnlySpan<byte> Bytes => CollectionsMarshal.AsSpan(_bytes);
-
-    List<Lbsm.LbsmBufferView> _views = new List<Lbsm.LbsmBufferView>();
-    public IReadOnlyCollection<Lbsm.LbsmBufferView> BufferViews => _views;
-
-    public int Push<T>(string name, ReadOnlySpan<T> span) where T : struct
+    public static (LbsmRoot, List<byte>) Export(Pmx.Model pmx, string baseDir)
     {
-      var index = _views.Count;
-      var bytes = MemoryMarshal.Cast<T, byte>(span);
-      _views.Add(new Lbsm.LbsmBufferView
-      {
-        name = name,
-        byteOffset = _bytes.Count,
-        byteLength = bytes.Length,
-      });
-      _bytes.AddRange(bytes);
-      return index;
-    }
-  }
-
-  class Cli
-  {
-    static void Main(string[] args)
-    {
-      if (args.Length == 0)
-      {
-        throw new ArgumentNullException();
-      }
-
-      if (!Pmx.Loader.TryFromPath(args[0], out var pmx))
-      {
-        throw new Exception($"fail to load: {args[0]}");
-      }
-
       var bin = new Bin();
 
+      //
+      // create texture bytes
+      //
       for (int i = 0; i < pmx.Textures.Length; ++i)
       {
         var textureName = pmx.Textures[i];
-        var texturePath = Path.Join(Path.GetDirectoryName(args[0]), textureName);
+        var texturePath = Path.Join(baseDir, textureName);
         var ext = Path.GetExtension(textureName).ToLower();
         switch (ext)
         {
@@ -71,61 +40,17 @@ namespace mf
             break;
 
           case ".tga":
+            ImageUtil.TgaToPng(texturePath, (png) =>
             {
-              using (var image = Pfimage.FromFile(texturePath))
-              {
-                PixelFormat format;
-
-                // Convert from Pfim's backend agnostic image format into GDI+'s image format
-                switch (image.Format)
-                {
-                  case Pfim.ImageFormat.Rgba32:
-                    format = PixelFormat.Format32bppArgb;
-                    break;
-
-                  case Pfim.ImageFormat.Rgb24:
-                    format = PixelFormat.Format24bppRgb;
-                    break;
-
-                  default:
-                    // see the sample for more details
-                    throw new NotImplementedException();
-                }
-                // Pin pfim's data array so that it doesn't get reaped by GC, unnecessary
-                // in this snippet but useful technique if the data was going to be used in
-                // control like a picture box
-                var handle = GCHandle.Alloc(image.Data, GCHandleType.Pinned);
-                try
-                {
-                  var data = Marshal.UnsafeAddrOfPinnedArrayElement(image.Data, 0);
-                  using (var bitmap = new Bitmap(image.Width, image.Height, image.Stride, format, data))
-                  {
-                    using (var ms = new MemoryStream())
-                    {
-                      bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                      bin.Push<byte>(textureName.Substring(0, textureName.Length - 4) + ".png", ms.ToArray());
-                    }
-                  }
-                }
-                finally
-                {
-                  handle.Free();
-                }
-              }
-            }
+              bin.Push<byte>(textureName.Substring(0, textureName.Length - 4) + ".png", png);
+            });
             break;
 
           case ".bmp":
+            ImageUtil.BmpToPng(texturePath, (png) =>
             {
-              using (var bitmap = new Bitmap(texturePath))
-              {
-                using (var ms = new MemoryStream())
-                {
-                  bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                  bin.Push<byte>(textureName.Substring(0, textureName.Length - 4) + ".png", ms.ToArray());
-                }
-              }
-            }
+              bin.Push<byte>(textureName.Substring(0, textureName.Length - 4) + ".png", png);
+            });
             break;
 
           default:
@@ -133,22 +58,34 @@ namespace mf
         }
       }
 
+      //
+      // vertex & index bytes
+      //
       var geom = bin.Push("geom", pmx.VertexGeometries);
       var txuv = bin.Push("txuv", pmx.VertexTextures);
       var skin = bin.Push("skin", pmx.VertexSkins);
       var indx = bin.Push("indx", pmx.Indices);
+      var morphTargets = pmx.VertexPositionMoprhs.Select((x) =>
+      {
+        var indx = bin.Push<byte>($"morph:{x.Name}.indx", x.Indices);
+        var pos = bin.Push<Vector3>($"morph:{x.Name}.pos", x.Positions);
+        return new LbsmMorphTarget
+        {
+          name = x.Name,
+          indexBufferView = indx,
+          positionBufferView = pos,
+        };
+      }).ToArray();
 
+      //
+      // lbsm struct
+      //
       var textures = pmx.Textures;
       var lbsm = new Lbsm.LbsmRoot(
         new Lbsm.LbsmAsset
         {
           version = "alpha",
-          axes = new Lbsm.LbsmAxes
-          {
-            x = "right",
-            y = "up",
-            z = "forward",
-          },
+          coordinates = Lbsm.LbsmCoordinates.Unity,
         },
         bin.BufferViews.ToArray(),
         pmx.Textures.Select((x, i) => new LbsmTexture
@@ -215,6 +152,7 @@ namespace mf
                 material=i,
                 drawCount=x.DrawCount,
               }).ToArray(),
+              morphTargets = morphTargets,
               joints = pmx.Bones.Select((_, i)=>i).ToArray(),
           },
         },
@@ -226,6 +164,11 @@ namespace mf
         }).ToArray()
       );
 
+      return (lbsm, bin.Bytes);
+    }
+
+    public static void Write(string path, LbsmRoot lbsm, Span<byte> binChunk)
+    {
       var option = new JsonSerializerOptions
       {
         IncludeFields = true,
@@ -236,11 +179,11 @@ namespace mf
         IncludeFields = true,
         WriteIndented = true,
       }));
+
       var jsonChunk = new UTF8Encoding(false).GetBytes(jsonString);
-      var binChunk = bin.Bytes;
       var totalSize = 12 + (8 + jsonChunk.Length) + (8 + binChunk.Length);
 
-      using (var w = new FileStream("tmp.bytes", FileMode.Create))
+      using (var w = new FileStream(path, FileMode.Create))
       using (var ww = new BinaryWriter(w))
       {
         var magic = new byte[] { (byte)'L', (byte)'B', (byte)'S', (byte)'M' };
@@ -259,6 +202,25 @@ namespace mf
         ww.Write(binType);
         ww.Write(binChunk);
       }
+    }
+  }
+
+  class Cli
+  {
+    static void Main(string[] args)
+    {
+      if (args.Length != 2)
+      {
+        throw new ArgumentNullException("usage: {from} {to}");
+      }
+
+      if (!Pmx.Loader.TryFromPath(args[0], out var pmx))
+      {
+        throw new Exception($"fail to load: {args[0]}");
+      }
+
+      var (lbsm, bin) = LbsmExporter.Export(pmx, Path.GetDirectoryName(args[0])!);
+      LbsmExporter.Write(args[1], lbsm, CollectionsMarshal.AsSpan(bin));
     }
   }
 }

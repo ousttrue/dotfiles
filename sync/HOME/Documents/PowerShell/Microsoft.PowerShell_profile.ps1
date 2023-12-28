@@ -37,52 +37,6 @@ if(!(has which))
 {
   Set-Alias which has
 }
-
-$cs=@"
-public class Dependency
-{
-  public string Name;
-  public string Url;
-  public string Exe;
-
-  public Dependency(string name, string url, string exe)
-  {
-    Name= name;
-    Url = url;
-    Exe = exe;
-  }
-
-  public override string ToString()
-  {
-    return $"[{Name}]";
-  }
-
-  public string GetArchive()
-  {
-    return System.IO.Path.GetFileName(Url);
-  }
-}
-"@;
-Add-Type -TypeDefinition $cs
-
-#
-# platform
-#
-if($IsWindows)
-{
-  chcp 65001
-  $env:HOME = $env:USERPROFILE
-  $EXE=".exe"
-  $defs = @(
-    [Dependency]::new(
-      "nvim", 
-      "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip",
-      "nvim-win64/bin/nvim.exe")
-  )
-} else
-{
-  $EXE=""
-}
 function Get-Path([string]$type)
 {
   switch($type)
@@ -124,6 +78,36 @@ function Get-Path([string]$type)
     {$null 
     }
   }
+}
+
+$module_dir=Join-Path (Get-Path "dot") "psmodule\mymodule" 
+$dll_path = Join-Path $module_dir "bin\Debug\net8.0\mymodule.dll"
+if(!(Test-Path $dll_path))
+{
+  Push-Location $module_dir
+  dotnet build
+  Pop-Location
+}
+Add-Type -Path $dll_path
+# Get-TYpes mymodule.Dependency
+
+#
+# platform
+#
+if($IsWindows)
+{
+  chcp 65001
+  $env:HOME = $env:USERPROFILE
+  $EXE=".exe"
+  $defs = @(
+    [mymodule.Dependency]::new(
+      "nvim", 
+      "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip",
+      "nvim-win64/bin/nvim.exe")
+  )
+} else
+{
+  $EXE=""
 }
 
 $SEP = [System.IO.Path]::DirectorySeparatorChar
@@ -179,6 +163,7 @@ $IconMap = @{
   cmake_book = "📙"
   blender_book = "📙"
   lbsm = "🐵"
+  "gltf-samples" = "🗿"
 }
 
 function get_git_status()
@@ -728,7 +713,7 @@ function ofzf()
   }
 }
 
-function Download-Dependency([Dependency]$definition)
+function Download-Dependency([mymodule.Dependency]$definition)
 {
   $archive = Join-Path (Get-Path "local-src") $definition.GetArchive();
   if(Test-Path $archive)
@@ -741,7 +726,7 @@ function Download-Dependency([Dependency]$definition)
   }
 }
 
-function Extract-Dependency([Dependency]$definition)
+function Extract-Dependency([mymodule.Dependency]$definition)
 {
   $archive = Join-Path (Get-Path "local-src") $definition.GetArchive();
   Expand-Archive -Path $archive -DestinationPath (Split-Path -parent $archive)

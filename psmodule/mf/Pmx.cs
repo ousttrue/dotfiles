@@ -281,13 +281,13 @@ namespace Pmx
         public readonly string Name;
         public int IndexStride;
         public readonly byte[] Indices;
-        public readonly Vector3[] Positins;
+        public readonly Vector3[] Positions;
         public VertexPositionMorph(string name, int indexStride, byte[] indices, Vector3[] positions)
         {
             Name = name;
             IndexStride = indexStride;
             Indices = indices;
-            Positins = positions;
+            Positions = positions;
         }
     }
 
@@ -360,9 +360,9 @@ namespace Pmx
             {
                 var position = r.Get<Vector3>();
                 var normal = r.Get<Vector3>();
-                vertexGeometries[i].Position = position.TurnY180() * scaling;
-                vertexGeometries[i].Normal = normal.TurnY180();
-                vertexTextures[i].Texture0 = r.Get<Vector2>().VerticalFlip();
+                vertexGeometries[i].Position = position.TurnY180() * scaling; // axes to right-up-forward & meter scale
+                vertexGeometries[i].Normal = normal.TurnY180(); // axes to right-up-forward
+                vertexTextures[i].Texture0 = r.Get<Vector2>().VerticalFlip(); // uvOrigin to lowerLeft
 
                 for (int j = 0; j < header.AdditionalUv; ++j)
                 {
@@ -559,7 +559,7 @@ namespace Pmx
                                         for (int j = 0; j < valueCount; ++j)
                                         {
                                             span[j] = (ushort)r.PmxIndex(header.VertexIndexSize);
-                                            morphPositions[j] = r.Get<Vector3>();
+                                            morphPositions[j] = r.Get<Vector3>().TurnY180() * scaling;
                                         }
                                         morphs.Add(new VertexPositionMorph(morphName, 2, morphIndices, morphPositions));
                                     }

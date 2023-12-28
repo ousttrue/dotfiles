@@ -12,6 +12,7 @@
             "program": "${workspaceFolder}/bin/Debug/net8.0/mf.dll",
             "args": [
                 "D:\\assets\\MMD\\Tda式初音ミクアペンドVer1.10\\Tda式初音ミクアペンド_Ver1.10.pmx",
+                "${env:APPDATA}\\Blender Foundation\\Blender\\4.0\\scripts\\addons\\lbsm\\UnityLbsm\\Assets\\_Local\\tmp.bytes",
             ],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
