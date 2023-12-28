@@ -18,7 +18,7 @@
 `npm`, `config`, `css`
 
 ## vite
-`postcss`
+`postcss.config.mjs`
 [Install Tailwind CSS using PostCSS - Tailwind CSS](https://tailwindcss.com/docs/installation/using-postcss)
 - @2023 [Tailwind CSS実践入門 第2章 Tailwind CSSの基本 ──開発環境へのインストール、設定ファイルの記述、エディタの設定 | gihyo.jp](https://gihyo.jp/article/2023/07/tailwindcss-practice-02)
 
