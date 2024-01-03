@@ -5,6 +5,8 @@
 ## 20
 ## 12
 
+# trouble
+- [npm installでのCould not resolve dependencyエラーと--legacy-peer-depsについて](https://zenn.dev/minamiso/articles/78b22716f3338d)
 
 # package.json
 - @2019 [package.jsonにおけるdependenciesとdevDependenciesの違い(超シンプルに) - Qiita](https://qiita.com/fj_yohei/items/0b7fc2bc826df23935db)

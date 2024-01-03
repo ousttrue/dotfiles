@@ -1,0 +1,376 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
+        <title>Version - shell note ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=fade93df149f7c5fedb3ff897f799dc7d283b420" />
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">shell note  ドキュメント</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">shell note  ドキュメント</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder=検索 name="q" aria-label="検索">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../doit.html">doit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../xonsh.html">xonsh</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../prompt-toolkit/index.html">prompt-toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../prompt-toolkit/examples/index.html">examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/examples/pager.html">pager.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../prompt-toolkit/src/index.html">Source読む</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/src/input.html">input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/src/output.html">output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/src/layout.html">Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/src/draw.html">draw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/src/buffer.html">Buffer &lt; BufferControl &lt; Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/src/keybinding.html">KeyBinding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/src/application.html">Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/src/search.html">search</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../prompt-toolkit/projects/index.html">using prompt_toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/projects/ptterm.html">ptterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/projects/pypager.html">pypager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/projects/pyvim.html">pyvim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prompt-toolkit/projects/ptfm.html">ptfm</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../pygments.html">pygments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../wt.html">WindowsTerminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../font/index.html">font</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dotfiles.html">dotfiles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">external</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ousttrue/dotfiles">github</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <p><a class="reference external" href="https://storybook.js.org/">Storybook: Frontend workshop for UI development</a></p>
+<p><a class="reference external" href="https://zenn.dev/fullyou/articles/853b77a3ce9144">Storybookとは？Storybookを用いたフロント開発</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://storybook.js.org/tutorials/intro-to-storybook/react/en/get-started/">Storybook Tutorials</a></p></li>
+<li><p>[ ] @2023 <a class="reference external" href="https://reffect.co.jp/html/storybook">ゼロから始めるStorybook入門(React編) | アールエフェクト</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://naoki.site/articles/storybook-to-next/">Next.jsにStorybookを導入する | Naoki's Blog</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://qiita.com/kotobuki5991/items/dcf411789b359d99f82a">Storybookを触ってみたらとても良かった #TypeScript - Qiita</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>8<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id2">
+<h2>7<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://storybook.js.org/blog/storybook-7-0/">Storybook 7.0</a></p>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/sa2knight/books/storybook-7-with-vue-3">Storybook 7 を Vue 3 + TypeScript ではじめよう！</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/sorinaji/articles/migration_storybook_from_65x_to_7x">Storybookをバージョン6から7への移行</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://qiita.com/KokiSakano/items/a6e291b6292f025bd037">遂に来た！Storybookのバージョンを7にするまでに行ったこと #React - Qiita</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://note.com/mtng420/n/nb1a001860a4d">storybook を v6 から v7 へアップグレードする際にやることをメモ｜MTNG</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/miyaken0805/articles/d95921b135d117">Dockerで構築したNext.JS環境にStorybook導入したら、思いの他苦労した件🤮</a></p></li>
+</ul>
+<section id="vite">
+<h3>vite<a class="headerlink" href="#vite" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>[x] @2023 <a class="reference external" href="https://dev.classmethod.jp/articles/react-vite-storybook/">React+ViteプロジェクトにStorybook（v7）を導入する | DevelopersIO</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://qiita.com/KokiSakano/items/8404a93e5d6897345556">【バージョン7.0先取り】Beta版になったStorybook 7.0のVite×React環境における変更 #React - Qiita</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id3">
+<h2>6<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2020 <a class="reference external" href="https://panda-program.com/posts/nextjs-storybook-typescript-errors">Next.js + TypeScriptにStorybookを導入して遭遇したエラーを全て共有します - パンダのプログラミングブログ</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="next-js">
+<h1>Next.js<a class="headerlink" href="#next-js" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://qiita.com/rikuto125/items/e596cdb53f2ead0eea18">効率的なUI開発の鍵：Next.js (TypeScript) にStorybookを導入 (storybook/main.jsではなくstorybook/main.tsを生成し構築) #JavaScript - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="build">
+<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">=&gt;</span> <span class="pre">storybook-static</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id4">
+<h1>vite<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="r3f">
+<h1>r3f<a class="headerlink" href="#r3f" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[r3f]]</p>
+<p><code class="docutils literal notranslate"><span class="pre">drei</span></code> <a class="reference external" href="https://drei.pmnd.rs/">Storybook</a></p>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://qiita.com/t_shi/items/87ac57051fbce712b2ae">React Three Fiberで作成したComponentをStorybookで管理する - Effect編 #JavaScript - Qiita</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://qiita.com/t_shi/items/fca0cd1e383dd056d076">React Three Fiberで作成したComponentをStorybookで管理する #React - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://github.com/winkerVSbecks/threejs-journey-level-1-with-r3f-storybook">GitHub - winkerVSbecks/threejs-journey-level-1-with-r3f-storybook</a></p></li>
+</ul>
+<section id="id5">
+<h2>面白い<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://62f6421c021f127287edd8fb-exirtzhlnf.chromatic.com/?path=/story/introduction--story">SYNTHAX</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gh-pages">
+<h1>gh-pages<a class="headerlink" href="#gh-pages" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://nomunomu0504.dev/entry/2023/01/11/033149">StorybookをGitHubActionsでGitHubPagesへ自動デプロイする - のむのむのconsole.log</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/tetracalibers/articles/b420f3fa146575">【解決談】React &amp; ViteのstorybookをGitHub PagesにデプロイしたらCanvasが真っ白だった話</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://qiita.com/takeshisakuma/items/f4d54472b31ab098e147">Storybook for ReactをGitHub Pagesに公開する #React - Qiita</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://qiita.com/yanskun/items/f50421fae619b375f0e1">storybook を GitHub Pages に公開する #GitHub - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="docs">
+<h1>docs<a class="headerlink" href="#docs" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/takeyuichi/items/d21cb0a884e5aaac3a17">Storybookの新しいアドオン addon-docs がいい感じ #React - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="svelte">
+<h1>svelte<a class="headerlink" href="#svelte" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://zenn.dev/hero/articles/svelte3-storybook">Svelte3のプロジェクトにStorybookを導入する</a></p>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2022, ousttrue |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="../../_sources/obsidian/web/Storybook.md.txt"
+               rel="nofollow">
+              ソースコードを表示
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#id1">8</a></li>
+<li><a class="reference internal" href="#id2">7</a><ul>
+<li><a class="reference internal" href="#vite">vite</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">6</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#next-js">Next.js</a></li>
+<li><a class="reference internal" href="#build">build</a></li>
+<li><a class="reference internal" href="#id4">vite</a></li>
+<li><a class="reference internal" href="#r3f">r3f</a><ul>
+<li><a class="reference internal" href="#id5">面白い</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gh-pages">gh-pages</a></li>
+<li><a class="reference internal" href="#docs">docs</a></li>
+<li><a class="reference internal" href="#svelte">svelte</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    <script src="../../_static/translations.js"></script>
+    </body>
+</html>

@@ -1,5 +1,5 @@
 [[ffmpeg]]
-[[WebP]]
+[[webp]]
 
 [The WebM Project | Welcome to the WebM Project](https://www.webmproject.org/)
 - [The WebM Project | VPx and WebM Tools](https://www.webmproject.org/tools/)

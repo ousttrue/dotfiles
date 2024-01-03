@@ -1,4 +1,6 @@
 # Document
+- [x] @2019 [思わずへ〜ってなったTypeScriptのトリビア10選 - dely Tech Blog](https://tech.dely.jp/entry/ten_trivia_of_typescript_)
+
 ## handbook
 もっと信頼性が高い。これを見るべし
 [TypeScript: Handbook - The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
