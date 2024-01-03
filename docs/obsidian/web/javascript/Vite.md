@@ -11,6 +11,16 @@
 
 ## 4
 
+# use
+vue ?
+
+## plugin
+[[Svelte]] `vite dev`
+[[vike]] `vite dev`
+
+## as lib
+[[minista]] `minista dev`
+
 # setup
 ```
 > npm create vite@latest
@@ -65,3 +75,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(<App />);
 - `vite` @2022 [Vite + React + TypeScript でプロジェクトを立ち上げる | For](https://for.kobayashiii.dev/articles/9jv5qclmgm7k)
 
 [GitHub - vitejs/vite-plugin-react-pages: A vite framework for building react app. Especially suitable for document site and demos/playgrounds of react components.](https://github.com/vitejs/vite-plugin-react-pages)
+
+# copy
+[Viteのvite-plugin-static-copyで特定のファイルをコピーする方法 | iwb.jp](https://iwb.jp/vite-plugin-static-copy-npm-run-build-config/)

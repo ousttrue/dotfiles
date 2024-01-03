@@ -3,6 +3,8 @@
 - `vite` @2021 [Three.js で 3D モデル(glTF)を表示する | Octo's blog](https://www.ccbaxy.xyz/blog/2021/04/01/js16/)
 - @2021 [Three.js であそんでみたよ　#techtekt Advent Calendar 2022 - techtekt](https://techtekt.persol-career.co.jp/entry/tech/221213_01)
 
+[Three.jsをかじる本](https://zenn.dev/sdkfz181tiger/books/735e854bee9fc9)
+
 
 [[Threejs_react]]
 

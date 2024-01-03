@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import daisyui from 'daisyui';
+
 export default {
   content: [
     'node_modules/daisyui/dist/**/*.js',
@@ -9,7 +11,7 @@ export default {
     extend: {},
   },
   plugins: [
-    require("daisyui"),
+    daisyui,
   ],
   daisyui: {
     themes: ["cupcake"],

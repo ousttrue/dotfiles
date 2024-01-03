@@ -1,5 +1,12 @@
+`SSG`
+
 - @2023 [ブログをAstroに変更してみた - SUSH-i LOG](https://blog.sus-happy.net/astrojs/)
 - @2022 [Astro + Three.js + React で3Dモデルを表示する](https://zenn.dev/submax/articles/astro-react-three)
+
+# Version
+## 2.0
+- @2023 [Astro 2.0が出たのでDocusaurus 2.0からの乗り換えを検証した #React - Qiita](https://qiita.com/moritalous/items/8648eee80720b7ef50ed)
+
 
 # blog tutorial
 - [初めてのAstroブログ 🚀 Astroドキュメント](https://docs.astro.build/ja/tutorial/0-introduction/)

@@ -4,7 +4,7 @@ import list from '../list.json';
 import { Card, Button, Badge } from 'react-daisyui';
 import { Gltf, useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, Grid } from '@react-three/drei'
 
 
 type ItemType = {
@@ -48,11 +48,7 @@ function GltfView(props: { src: string }) {
   return (<Canvas shadows camera={{ position: [0, 0, 10] }}>
     <ambientLight intensity={0.1} />
     <directionalLight position={[0, 0, 5]} castShadow />
-    {/* <GeoBox /> */}
-    {/* <GeoText /> */}
-    {/* <GeoText3d /> */}
-    {/* <GeoTexture /> */}
-    {/* <GeoEnv /> */}
+    <Grid />
     {props.src.length > 0 ? <Gltf src={props.src} /> : ''}
     <OrbitControls />
   </Canvas>)

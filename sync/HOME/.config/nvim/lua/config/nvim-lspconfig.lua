@@ -101,11 +101,6 @@ function M.setup()
     capabilities = capabilities,
   }
 
-  lspconfig.tsserver.setup {
-    root_dir = lspconfig.util.root_pattern "package.json",
-    single_file_support = false,
-  }
-
   lspconfig.denols.setup {
     root_dir = lspconfig.util.root_pattern "deno.json",
     init_options = {
@@ -163,7 +158,6 @@ function M.setup()
   -- check doc/SUPPORTED_LIST.md for the supported languages
   --
   -- local languages = require('efmls-configs.defaults').languages()
-
   local efmls_config = {
     filetypes = vim.tbl_keys(languages),
     settings = {
@@ -175,17 +169,13 @@ function M.setup()
       documentRangeFormatting = true,
     },
   }
-
   -- require("lspconfig").custom_elements_ls.setup {}
-
   require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {
     -- Pass your custom lsp config below like on_attach and capabilities
     --
     -- on_attach = on_attach,
     -- capabilities = capabilities,
   }))
-
-  require("lspconfig").astro.setup {}
 
   -- dotnet tool install --global fsautocomplete
   -- dotnet tool install --global fantomas
@@ -196,6 +186,15 @@ function M.setup()
     bundle_path = VSCODE .. "/extensions/ms-vscode.powershell-2023.8.0/modules",
   }
 
+  --
+  -- web
+  --
+  lspconfig.tsserver.setup {
+    root_dir = lspconfig.util.root_pattern "package.json",
+    single_file_support = false,
+  }
+  require("lspconfig").astro.setup {}
+  require("lspconfig").svelte.setup {}
   require("lspconfig").remark_ls.setup {
     settings = {
       requireConfig = true,

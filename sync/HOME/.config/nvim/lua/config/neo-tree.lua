@@ -2,6 +2,15 @@ local M = {
   setup = function()
     vim.keymap.set("n", "<Leader>e", ":Neotree toggle<CR>", { noremap = true })
 
+    local always_show = { -- remains visible even if other settings would normally hide it
+      --".gitignored",
+      ".config",
+      ".github",
+      ".gitignore",
+      ".storybook",
+      ".remarkrc",
+    }
+
     require("neo-tree").setup {
       close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
       popup_border_style = "rounded",
@@ -96,12 +105,7 @@ local M = {
             --"*.meta",
             --"*/src/*/tsconfig.json",
           },
-          always_show = { -- remains visible even if other settings would normally hide it
-            --".gitignored",
-            ".config",
-            ".github",
-            ".gitignore",
-          },
+          always_show = always_show,
           never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
             --".DS_Store",
             --"thumbs.db"
