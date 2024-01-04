@@ -120,3 +120,6 @@ dotnet new console -lang F# -o MyFSharpApp -f net6.0
 
 # tsting
 [F#入門](http://fsharpintro.net/fsunit.html)
+
+# code generation
+[GitHub - gircore/gir.core: A C# binding generator for GObject based libraries providing a C# friendly API surface](https://github.com/gircore/gir.core)
