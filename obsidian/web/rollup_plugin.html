@@ -243,8 +243,53 @@
 <li><p>rollup-plugin-node-resolve</p></li>
 <li><p>rollup-plugin-commonjs</p></li>
 <li><p>rollup-plugin-json</p></li>
-<li><p><a class="reference external" href="https://zenn.dev/marumarumeruru/articles/0262c9de7963b9">Rollup plugin</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/marumarumeruru/articles/0262c9de7963b9">Rollup plugin</a></p></li>
 </ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="build-hook">
+<h1>build hook<a class="headerlink" href="#build-hook" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="options">
+<h2>options<a class="headerlink" href="#options" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">begin</span></code></p>
+</section>
+<section id="buildstart">
+<h2>buildStart<a class="headerlink" href="#buildstart" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">begin</span></code></p>
+</section>
+<section id="buildend">
+<h2>buildEnd<a class="headerlink" href="#buildend" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">end</span></code></p>
+</section>
+<section id="closebundle">
+<h2>closeBundle<a class="headerlink" href="#closebundle" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">end</span></code></p>
+</section>
+<section id="resolveid-source-string-string-null">
+<h2>resolveId(source: string): string | null<a class="headerlink" href="#resolveid-source-string-string-null" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">import</span></code></p>
+<ul class="simple">
+<li><p>[x] @2023 <a class="reference external" href="https://zenn.dev/irico/scraps/7bd7210d6f2dc3">rollupのプラグインの仕組みを知る</a>
+string を返すと load に来る</p></li>
+</ul>
+</section>
+<section id="load-id-string-result">
+<h2>load(id: string): result<a class="headerlink" href="#load-id-string-result" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">import</span></code>
+imort の中身？を返す</p>
+</section>
+<section id="transform">
+<h2>transform<a class="headerlink" href="#transform" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">import</span></code>
+中身を書き換える</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> 
+	<span class="nx">transform</span> <span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span> 
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">filter</span><span class="p">(</span><span class="nx">id</span><span class="p">))</span> <span class="k">return</span> <span class="kc">null</span>  <span class="c1">// ファイルパスでフィルターする </span>
+		<span class="k">return</span> <span class="nx">code</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span>  <span class="c1">// 変換したコードを返す </span>
+	<span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -282,6 +327,16 @@
             <ul>
 <li><a class="reference internal" href="#">write</a></li>
 <li><a class="reference internal" href="#plugins">plugins</a></li>
+<li><a class="reference internal" href="#build-hook">build hook</a><ul>
+<li><a class="reference internal" href="#options">options</a></li>
+<li><a class="reference internal" href="#buildstart">buildStart</a></li>
+<li><a class="reference internal" href="#buildend">buildEnd</a></li>
+<li><a class="reference internal" href="#closebundle">closeBundle</a></li>
+<li><a class="reference internal" href="#resolveid-source-string-string-null">resolveId(source: string): string | null</a></li>
+<li><a class="reference internal" href="#load-id-string-result">load(id: string): result</a></li>
+<li><a class="reference internal" href="#transform">transform</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

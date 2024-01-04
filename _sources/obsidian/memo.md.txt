@@ -13,17 +13,21 @@
 
 # frontend
 
-|  | Router | Bundler | Catalog |
+|  | Router | Bundler |
 | ---- | ---- | ---- | ---- |
-| [[React]] | [[Next.js]] | [[Turbopack]] | [[Storybook]] |
-| [[React]] | [[react-router]] | [[Vite]] | [[Ladle]] |
-| [[React]] | [[Remix]] | [[Vite]] | [[Ladle]] |
-| [[React]] | [[minista]] | [[Vite]] | [[Ladle]] |
-| [[React]] | [[Docusaurus]] | [[webpack]] |  |
-| [[Vue.js]] | [[Nuxt]] | [[Vite]] | [[Historie]] |
-| [[Svelte]] | [[SvelteKit]] | [[Vite]] | [[Historie]] |
-| [[Astro]] | [[astro]] | [[Vite]] |  |
-|  | [[vite-plugin-pages]] |  |  |
+| [[React]] | [[Next.js]] | [[Turbopack]] |
+| [[React]] | [[react-router]] | [[Vite]] |
+| [[React]] | [[Remix]] | [[Vite]] |
+| [[React]] | [[minista]] | [[Vite]] |
+| [[React]] | [[Docusaurus]] | [[webpack]] |
+| [[Vue.js]] | [[Nuxt]] | [[Vite]] |
+| [[Vue.js]] |VitePress | [[Vite]] |
+| [[Svelte]] | [[SvelteKit]] | [[Vite]] |
+| [[Astro]] | [[astro]] | [[Vite]] |
+|  | [[vite-plugin-pages]] |  |
+
+[Stencil](https://stenciljs.com/)
+- @2020 [StencilのSSGを試してみた所感 - @kimulaco/blog](https://blog.kimulaco.dev/article/stencil-ssg/)
 
 - [[vite]] [[React]]
 - [[webxr]]

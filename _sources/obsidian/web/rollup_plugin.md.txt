@@ -1,5 +1,6 @@
 [Plugin Development | Rollup](https://rollupjs.org/plugin-development/)
 
+
 # write
 
 ```js
@@ -24,4 +25,40 @@ export default function uperCase(options = {}) {
 - rollup-plugin-commonjs
 - rollup-plugin-json
 
-- [Rollup plugin](https://zenn.dev/marumarumeruru/articles/0262c9de7963b9)
+- @2022 [Rollup plugin](https://zenn.dev/marumarumeruru/articles/0262c9de7963b9)
+
+# build hook
+
+## options
+`begin`
+
+## buildStart
+`begin`
+
+## buildEnd
+`end`
+
+## closeBundle
+`end`
+
+## resolveId(source: string): string | null
+`import`
+- [x] @2023 [rollupのプラグインの仕組みを知る](https://zenn.dev/irico/scraps/7bd7210d6f2dc3)
+string を返すと load に来る
+
+## load(id: string): result
+`import`
+imort の中身？を返す
+
+## transform
+`import`
+中身を書き換える
+
+```ts
+{ 
+	transform (code, id) { 
+		if (!filter(id)) return null  // ファイルパスでフィルターする 
+		return code.toUpperCase()  // 変換したコードを返す 
+	} 
+}
+```

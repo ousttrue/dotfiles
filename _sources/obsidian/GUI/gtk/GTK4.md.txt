@@ -9,8 +9,11 @@
 
 # Version
 偶数が `stable`
-## 4.12 @2023
-- [GTK 4.12 Released With Many Vulkan Backend Improvements](https://www.phoronix.com/news/GTK-4.12-Released)
+## 4.12 
+- @2023 [GTK 4.12 Released With Many Vulkan Backend Improvements](https://www.phoronix.com/news/GTK-4.12-Released)
+
+## 4.10
+- `わりとたくさんの変更` @2023 [おもこん](https://toshiocp.com/)
 
 ## 4.8 @2022
 - [NEWS · gtk-4-8 · GNOME / gtk · GitLab](https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-4-8/NEWS)
@@ -22,8 +25,8 @@
 - [GTK 4 NGL Renderer – Happenings in GNOME](https://blogs.gnome.org/chergert/2021/02/24/gtk-4-ngl-renderer/)
 
 # tutorial
-[Site Unreachable](https://toshiocp.com/entry/2022/07/07/095955)
-[GTK 4 tutorial](https://toshiocp.github.io/Gtk4-tutorial/)
+- [ ] [Site Unreachable](https://toshiocp.com/entry/2022/07/07/095955)
+- [ ] [GTK 4 tutorial](https://toshiocp.github.io/Gtk4-tutorial/)
 
 # Build
 [[meson]]
