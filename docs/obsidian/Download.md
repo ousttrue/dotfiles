@@ -1,0 +1,2 @@
+- @2021 [JavaScript Tips - 動的に入力した内容のファイルをダウンロードする方法](https://zenn.dev/rabee/articles/javascript-donwload-file)
+- @2014 [ウェブアプリから生成したファイルをダウンロードさせる #JavaScript - Qiita](https://qiita.com/shibukawa/items/2ccf3c9275f5a2baca35)

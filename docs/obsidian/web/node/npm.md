@@ -4,6 +4,7 @@
 # version
 ## 20
 ## 12
+## 10
 
 # trouble
 - [npm installでのCould not resolve dependencyエラーと--legacy-peer-depsについて](https://zenn.dev/minamiso/articles/78b22716f3338d)

@@ -354,7 +354,7 @@ function addPath($path)
   }
 }
 
-addPath(Join-Path (Get-Path "msys") "mingw64\bin")
+# addPath(Join-Path (Get-Path "msys") "mingw64\bin")
 addPath(Join-Path $HOME "\ghq\github.com\junegunn\fzf\bin")
 addPath(Join-Path $HOME "\.fzf\bin")
 addPath(Join-Path $HOME "\.deno\bin")

@@ -11,6 +11,7 @@ function M.setup()
   vim.g.neoformat_enabled_glsl = { "clang-format" }
   vim.g.neoformat_enabled_python = { "black" }
   -- vim.g.neoformat_enabled_python = { "yapf" }
+  vim.g.neoformat_enabled_markdown = { "prettier" }
 
   -- vala
   --   vim.cmd [[
@@ -50,7 +51,7 @@ function M.setup()
 
   -- astro
   vim.g.neoformat_astro_prettier = {
-    exe = 'npx',
+    exe = "npx",
     args = { "prettier", "--stdin-filepath", '"%:p"' },
     stdin = 1,
     try_node_exe = 1,
@@ -68,6 +69,7 @@ function M.setup()
   DOT.formatters.meson = formatter
   DOT.formatters.astro = formatter
   DOT.formatters.fsharp = formatter
+  DOT.formatters.markdown = formatter
 end
 
 return M
