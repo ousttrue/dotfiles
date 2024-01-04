@@ -2,6 +2,8 @@
 
 # Version
 ## 2.29
+## 2.23
+- @2020 [git switchとrestoreの役割と機能について #Git - Qiita](https://qiita.com/yukibear/items/4f88a5c0e4b1801ee952)
 
 # repo
 `repo.HEAD`
