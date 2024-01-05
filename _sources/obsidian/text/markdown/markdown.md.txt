@@ -1,7 +1,11 @@
-[自作 Markdown プロセッサベースの blog.jxck.io v2 リリース | blog.jxck.io](https://blog.jxck.io/entries/2021-11-30/blog-v2-release.html)
-[新しいマークダウンパーサーが必要な理由 | NHN Cloud Meetup](https://meetup-jp.toast.com/3341)
+[[unified]]
+
+- @2021 [自作 Markdown プロセッサベースの blog.jxck.io v2 リリース | blog.jxck.io](https://blog.jxck.io/entries/2021-11-30/blog-v2-release.html)
+- @2020 [新しいマークダウンパーサーが必要な理由 | NHN Cloud Meetup](https://meetup-jp.toast.com/3341)
 
 # lsp
+- [GitHub - artempyanykh/marksman: Write Markdown with code assist and intelligence in the comfort of your favourite editor.](https://github.com/artempyanykh/marksman)
+
 - [Fetching Title#7ocp](https://code.visualstudio.com/blogs/2022/08/16/markdown-language-server)
 
 # javascript
