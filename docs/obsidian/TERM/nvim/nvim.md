@@ -10,6 +10,12 @@ aliases: [neovim]
 nvim +Tutor
 ```
 
+# vscode
+
+- [📜2023-10-07 vscode-neovimを導入してみた - Minerva](https://minerva.mamansoft.net/Notes/%F0%9F%93%9C2023-10-07+vscode-neovim%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F)
+
+- [Vim基本 #Vim - Qiita](https://qiita.com/kishiro/items/1899519d243b59973406)
+
 # articles
 - [vim.ui.inputを自作floating windowにした (Vim駅伝)](https://ryota2357.com/blog/2023/neovim-custom-vim-ui-input/)
 - @2022 [Neovim の設定集（2022年12月30時点） - 閑古鳥ブログ](https://kankodori-blog.com/posts/2022-12-30/)

@@ -5,7 +5,7 @@ M.list = {
   "carbonfox",
   "Ciapre",
   "DimmedMonokai",
-  "Hacktober",
+  -- "Hacktober",
   "MonaLisa",
   "N0tch2k",
   "nightfox",

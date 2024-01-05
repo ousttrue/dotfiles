@@ -13,7 +13,7 @@ function has($cmdname)
     switch(Get-Command $cmdname -ErrorAction Stop)
     {
       { $_ -is [System.Management.Automation.AliasInfo]}
-      {$_
+      {$_.Definition
       }
       { $_ -is [System.Management.Automation.ApplicationInfo]}
       {$_.Definition
@@ -751,7 +751,8 @@ function Install-Dependency
   }
 }
 
-Set-Alias nvim (Join-Path (Get-Path "local-src") "nvim-win64/bin/nvim$EXE")
+# Set-Alias nvim (Join-Path (Get-Path "local-src") "nvim-win64/bin/nvim$EXE")
+Set-Alias nvim "C:\Program Files\Neovim\bin\nvim.exe"
 function v()
 {
   nvim $args

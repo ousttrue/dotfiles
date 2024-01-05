@@ -44,6 +44,7 @@ g.mapleader = " "
 g.maplocalleader = " "
 -- disable netrw's gx mapping.
 g.netrw_nogx = true
+vim.keymap.set("i", "<S-Insert>", "<C-R>+", { noremap = true })
 
 -- vim.cmd [[execute "set colorcolumn=" . join(range(81, 9999), ',')]]
 -- opt.cursorline = true
@@ -407,6 +408,9 @@ require("keymap").setup()
 --
 if vim.env.MSYSTEM then
   require "packer_setup"
+elseif vim.g.vscode then
+  -- VSCode extension
+  print "vscode"
 else
   local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
   if not vim.loop.fs_stat(lazypath) then
@@ -448,7 +452,7 @@ else
   -- table.insert(plugins, { import = "lazy.ddc" })
 
   -- table.insert(plugins, { import = "lazy.coding" })
-  -- table.insert(plugins, { import = "lazy.colorschemes" })
+  table.insert(plugins, { import = "lazy.colorschemes" })
   -- table.insert(plugins, { import = "lazy.formatter" })
   -- table.insert(plugins, { import = "lazy.line" })
   -- table.insert(plugins, { import = "lazy.plugins" })
@@ -470,6 +474,21 @@ local cs, bg = dot.get_colorscheme()
 print(cs, bg)
 vim.o.background = bg
 vim.cmd(string.format("colorscheme %s", cs))
+
+if vim.g.gonvim_running then
+  --
+  vim.cmd [[
+colorschem carbonfox
+  ]]
+elseif vim.g.nvy then
+  -- print "NVY!"
+  vim.cmd [[
+set guifont=HackGen\ Console\ NF:h15
+colorschem urara
+  ]]
+else
+  vim.cmd "colorscheme habamax"
+end
 
 -- vim.cmd [[
 -- augroup fuga_reload

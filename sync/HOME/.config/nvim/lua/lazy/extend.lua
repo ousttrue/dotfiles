@@ -68,5 +68,8 @@ vmap g<C-x> g<Plug>(dial-decrement)
       vim.keymap.set("n", "gc", ":CccPick<CR>")
     end,
   },
+  {
+    "mattn/emmet-vim",
+  },
 }
 

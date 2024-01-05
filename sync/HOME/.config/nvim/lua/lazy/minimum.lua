@@ -14,12 +14,17 @@ return {
 
       -- Toggle current line (linewise) using C-/
       vim.keymap.set("n", "<C-_>", api.toggle.linewise.current)
+      vim.keymap.set("n", "<C-/>", api.toggle.linewise.current)
 
       -- Toggle selection (linewise)
-      vim.keymap.set("x", "<C-_>", function()
+
+      function vcomment()
         vim.api.nvim_feedkeys(esc, "nx", false)
         api.toggle.linewise(vim.fn.visualmode())
-      end)
+      end
+
+      vim.keymap.set("x", "<C-_>", vcomment)
+      vim.keymap.set("x", "<C-/>", vcomment)
 
       local ft = require "Comment.ft"
       ft.vala = { "//%s", "/*%s*/" }
@@ -36,7 +41,21 @@ return {
       -- "rcarriga/nvim-notify",
       -- "b0o/schemastore.nvim",
       "creativenull/efmls-configs-nvim",
+      "SmiteshP/nvim-navbuddy",
     },
+  },
+  {
+    "SmiteshP/nvim-navbuddy",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim",
+      "numToStr/Comment.nvim",         -- Optional
+      "nvim-telescope/telescope.nvim", -- Optional
+    },
+    config = function()
+      require("config.navbuddy").setup()
+    end,
   },
   {
     "sbdchd/neoformat",
@@ -56,7 +75,7 @@ return {
   {
     "romgrk/barbar.nvim",
     dependencies = {
-      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+      "lewis6991/gitsigns.nvim",     -- OPTIONAL: for git status
       "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
     },
     init = function()
@@ -79,4 +98,3 @@ return {
     event = { "WinNew" },
   },
 }
-

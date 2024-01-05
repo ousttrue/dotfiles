@@ -58,7 +58,7 @@ local function get_server()
 end
 
 local function get_lua_ls()
-  local LUA_SERVER = "sumneko.lua-3.6.18"
+  local LUA_SERVER = "sumneko.lua-3.7.4"
 
   local path = get_server()
   -- print(path)
@@ -129,6 +129,8 @@ function M.setup(lspconfig, capabilities, on_attach)
       -- client.server_capabilities.executeCommandProvider = false
       -- client.capabilities.window.showMessage = nil
       on_attach(client, bufnr)
+
+      require("nvim-navbuddy").attach(client, bufnr)
     end,
   }
 

@@ -8,6 +8,17 @@
 - `importmap` [Three.jsのOrbitControlsで手軽にカメラを制御する - ICS MEDIA](https://ics.media/tutorial-three/camera_orbitcontrols/)
 
 # custom button
+```ts
+controls.mouseButtons = {
+  LEFT: THREE.MOUSE.DOLLY,
+  MIDDLE: THREE.MOUSE.PAN,
+  RIGHT: THREE.MOUSE.ROTATE,
+}
+```
+
+## rotate: left
+## pan: right
+## zoom: middle
 
 
 # fit bounding box
@@ -15,3 +26,4 @@
 
 # drei
 - [Controls / OrbitControls - Docs ⋅ Storybook](https://drei.pmnd.rs/?path=/docs/controls-orbitcontrols--docs)
+

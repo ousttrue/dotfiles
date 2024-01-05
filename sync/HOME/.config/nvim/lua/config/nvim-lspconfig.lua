@@ -79,11 +79,6 @@ function M.setup()
     capabilities = capabilities,
   }
 
-  lspconfig.zk.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-
   lspconfig.groovyls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -195,10 +190,21 @@ function M.setup()
   }
   require("lspconfig").astro.setup {}
   require("lspconfig").svelte.setup {}
-  require("lspconfig").remark_ls.setup {
-    settings = {
-      requireConfig = true,
-    },
+
+  --
+  -- markdown
+  --
+  -- require("lspconfig").remark_ls.setup {
+  --   settings = {
+  --     requireConfig = true,
+  --   },
+  -- }
+  -- lspconfig.zk.setup {
+  --   on_attach = on_attach,
+  --   capabilities = capabilities,
+  -- }
+  require("lspconfig").marksman.setup {
+    root_dir = lspconfig.util.root_pattern(".marksman.toml", ".git"),
   }
 end
 

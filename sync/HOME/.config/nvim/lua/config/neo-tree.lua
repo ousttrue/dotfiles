@@ -9,6 +9,8 @@ local M = {
       ".gitignore",
       ".storybook",
       ".remarkrc",
+      ".marksman.toml",
+      ".npmrc",
     }
 
     require("neo-tree").setup {
