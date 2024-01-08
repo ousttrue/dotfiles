@@ -74,6 +74,10 @@ function Get-Path([string]$type)
     {
       Get-Item (Join-Path $env:AppData "Blender Foundation\Blender")
     }
+    "vswhere"
+    {
+      Get-Item (Join-Path ${env:ProgramFiles(x86)} "Microsoft Visual Studio\Installer\vswhere.exe")
+    }
     default
     {$null 
     }
@@ -301,46 +305,88 @@ function prompt()
   "`e]2;${title}$([char]0x07)${prefix}`e[7m${location}`e[0m${branch}`n`e[${color}m>`e[0m "
 }
 
-# function ExecuteCommand ($commandPath, $commandArguments) 
-# { 
-#     $pinfo = New-Object System.Diagnostics.ProcessStartInfo 
-#     $pinfo.FileName = $commandPath 
-#     $pinfo.RedirectStandardError = $true 
-#     $pinfo.RedirectStandardOutput = $true 
-#     $pinfo.UseShellExecute = $false 
-#     $pinfo.Arguments = $commandArguments 
-#     $pinfo.WorkingDirectory = "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\"
-#     $p = New-Object System.Diagnostics.Process 
-#     $p.StartInfo = $pinfo 
-#     $p.Start() | Out-Null 
-#     $p.WaitForExit() 
-#     [pscustomobject]@{ 
-#         stdout = $p.StandardOutput.ReadToEnd() 
-#         stderr = $p.StandardError.ReadToEnd() 
-#         ExitCode = $p.ExitCode 
-#     } 
-# } 
+function ExecuteCommand ($vc_dir) 
+{ 
+  $bat = (Join-Path $vc_dir "VC\Auxiliary\Build\vcvars64.bat")
+  # (Get-Item $bat)
 
-# function vcenv()
-# { 
-#     $VSWHERE = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
-#
-#     $vc_dir = &$VSWHERE -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
-#     # C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools
-#     $bat = "$vc_dir\VC\Auxiliary\Build\vcvars64.bat"
-#     Write-Output $bat
-#
-#     $v = ExecuteCommand "${env:COMSPEC}" "/C $bat & set"
-#     Write-Output $v.stdout
-# }
-# vcenv
+  $pinfo = New-Object System.Diagnostics.ProcessStartInfo
+  $pinfo.FileName = $env:COMSPEC
+  $pinfo.RedirectStandardError = $true
+  $pinfo.RedirectStandardOutput = $true
+  $pinfo.RedirectStandardInput = $true
+  $pinfo.UseShellExecute = $false
+  # $commandArguments="/K `"$bat`""
+  # $pinfo.Arguments = $commandArguments
+  # $pinfo.ArgumentList.Add("/K")
+  # $pinfo.ArgumentList.Add("`"$bat`"")
+  # Write-Output $pinfo.ArgumentList
+  $pinfo.WorkingDirectory = $vc_dir
+  $p = New-Object System.Diagnostics.Process
+  $p.StartInfo = $pinfo
+  $p.Start() | Out-Null
+  $p.StandardInput.WriteLine("call `"$bat`"")
+  $p.StandardInput.WriteLine("set")
+  $p.StandardInput.WriteLine("exit")
+
+  $out = ""
+  # require flush. WaitForExit cause dead lock
+  while ($null -ne ($l = $p.StandardOutput.ReadLine()))
+  {
+    $out += "$l`r`n"
+  }
+  $p.WaitForExit()
+  $p
+  [pscustomobject]@{
+    stdout = $out
+    stderr = $p.StandardError.ReadToEnd()
+    ExitCode = $p.ExitCode
+  }
+}
+
+function vcenv()
+{ 
+  # $vc_dir = (Get-VSSetupInstance).InstallationPath
+  $vc_dir = &(Get-Path vswhere) -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+  #   # C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools
+  # Write-Output $bat
+  $v = (ExecuteCommand $vc_dir)
+
+  foreach($l in $v.stdout.Split("`r`n"))
+  {
+    $kv = $l.Split("=", 2);
+    switch($kv[0])
+    {
+      "PATH"
+      { 
+        foreach($e in $kv[1].Split(";"))
+        {
+          addPath($e)
+        }
+      }
+      "INCLUDE"
+      { "INCLUDE=> $($kv[1])"
+        $env:INCLUDE= $kv[1]
+      }
+      "LIB"
+      { "LIB=> $($kv[1])"
+        $env:LIB=$kv[1]
+      }
+      "LIBPATH"
+      { "LIBPATH=> $($kv[1])"
+        $env:LIBPATH = $kv[1]
+      }
+    }
+  }
+  # Write-Output $v.stdout
+}
 
 #
 # path
 #
 function insertPath($path)
 {
-  if($env:PATH -notcontains $path)
+  if(-not $env:PATH.Contains($path))
   {
     $env:PATH = $path + [System.IO.Path]::PathSeparator + $env:PATH
   }
@@ -348,9 +394,13 @@ function insertPath($path)
 #
 function addPath($path)
 {
-  if($env:PATH -notcontains $path)
+  if(-not $env:PATH.Contains($path))
   {
     $env:PATH = $env:PATH + [System.IO.Path]::PathSeparator + $path
+    $path
+  } else
+  {
+    $null
   }
 }
 
@@ -361,6 +411,7 @@ addPath(Join-Path $HOME "\.deno\bin")
 addPath(Join-Path $HOME "\.cargo\bin")
 addPath(Join-Path $HOME "\go\bin")
 insertPath(Join-Path $HOME "\local\bin")
+
 if(Test-Path "C:\Python311")
 {
   addPath("C:\Python311\Scripts")

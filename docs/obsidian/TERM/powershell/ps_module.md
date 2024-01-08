@@ -80,3 +80,7 @@ hello_module.csproj
 # fzf
 
 # zlocation
+
+# vswhere
+- https://github.com/microsoft/vssetup.powershell
+

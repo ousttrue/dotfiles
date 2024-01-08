@@ -67,7 +67,7 @@ function M.setup()
   end
   -- vim.keymap.set("n", "<C-P>", builtin.keymaps)
 
-  vim.keymap.set("n", "<Leader><Space>", project_files, { noremap = true })
+  vim.keymap.set("n", "<Leader><Space>", builtin.find_files, { noremap = true })
   vim.keymap.set("n", "<Leader>g", function()
     local word = vim.fn.expand "<cword>"
     builtin.live_grep {

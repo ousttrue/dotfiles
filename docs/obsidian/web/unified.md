@@ -1,5 +1,8 @@
 
 [unified](https://unifiedjs.com/)
+- [x] [Intro to unified - unified](https://unifiedjs.com/learn/guide/introduction-to-unified/)
+- [x] [Use unified - unified](https://unifiedjs.com/learn/guide/using-unified/)
+- [x] [Syntax trees in TypeScript - unified](https://unifiedjs.com/learn/guide/syntax-trees-typescript/)
 
 # article
 - @2021 [unified を使う前準備](https://zenn.dev/januswel/articles/e4f979b875298e372070)
@@ -9,19 +12,21 @@
 - [x] @2023 [remark のプラグインを作ってMarkdownの文法を勝手に拡張しよう](https://zenn.dev/yosipy/articles/a7b6ab950bed49)
 - @2021 [unified を使って Markdown を拡張する](https://zenn.dev/januswel/articles/745787422d425b01e0c1)
 
+# api
+[unified - unified](https://unifiedjs.com/explore/package/unified/)
+
+- process
+
+- parse 
+- run
+- stringify
+
 # plugin
 [Create a plugin - unified](https://unifiedjs.com/learn/guide/create-a-plugin/#plugin)
 
 # ts
-[Syntax trees in TypeScript - unified](https://unifiedjs.com/learn/guide/syntax-trees-typescript/)
 
-
-`remarkjs/remark`
 [remark - markdown processor powered by plugins](https://remark.js.org/)
-
-[[unified]]
-
-[[unified]]
 
 - [[vibliostyle]] [Remark で広げる Markdown の世界](https://vivliostyle.github.io/vivliostyle_doc/ja/vivliostyle-user-group-vol2/spring-raining/index.html)
 - @2022 [jsでmarkdownを扱うパッケージがややこしいのでまとめておく](https://zenn.dev/rizzzse/scraps/34004c97ca61a3)

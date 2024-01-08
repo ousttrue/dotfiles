@@ -44,7 +44,7 @@ g.mapleader = " "
 g.maplocalleader = " "
 -- disable netrw's gx mapping.
 g.netrw_nogx = true
-vim.keymap.set("i", "<S-Insert>", "<C-R>+", { noremap = true })
+vim.keymap.set({ "n", "i" }, "<S-Insert>", "<C-R>+", { noremap = true })
 
 -- vim.cmd [[execute "set colorcolumn=" . join(range(81, 9999), ',')]]
 -- opt.cursorline = true
@@ -498,3 +498,4 @@ end
 -- ]]
 
 -- vim.lsp.set_log_level('debug')
+vim.g.neovide_cursor_animation_length = 0

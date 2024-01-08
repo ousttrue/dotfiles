@@ -26,6 +26,14 @@
 # plugins
 [@tailwindcss/typography - Tailwind CSS](https://tailwindcss.com/docs/typography-plugin)
 
+# components
+
+- https://flowbite.com/docs/getting-started/quickstart/
+- https://www.tailwind-kit.com/components
+- https://tailblocks.cc/
+
+- $ https://tw-elements.com/
+
 # template
 - @2023 [Tailwind CSS のテンプレートサイト【まとめ】 #tailwindcss - Qiita](https://qiita.com/Masahiro111/items/f7d6ad8280ae92717f0f)
 - @2021 [Tailwind CSSの入門に！コピペで簡単に利用できるUIコンポーネントのまとめ | コリス](https://coliss.com/articles/build-websites/operation/css/tailwind-css-ui-blocks-flowrift.html)
