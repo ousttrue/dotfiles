@@ -31,7 +31,7 @@ aliases: [msvc]
 https://devblogs.microsoft.com/cppblog/introducing-the-universal-crt/
 
 $runtime="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include";
-$kits="C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0";
+$kits="C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0";vc
 $env:INCLUDE ="${runtime};${kits}\ucrt;${kits}\shared;${kits}\um";
 
 # vc

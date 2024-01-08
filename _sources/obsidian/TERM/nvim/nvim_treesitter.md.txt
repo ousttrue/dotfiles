@@ -14,6 +14,22 @@ inspect
 - @2021 [Neovim v0.5リリース記念 v0.5の新機能を紹介します【後編】 | MoT Lab (GO Inc. Engineering Blog)](https://lab.mo-t.com/blog/neovim-v05-introduction-new-features-part-2)
 - @2020 [nvim-treesitterを勧めたい](https://zenn.dev/duglaser/articles/c02d6a937a48df)
 
+# error!
+
+https://github.com/LunarVim/LunarVim/issues/3680
+
+```
+Error executing lua: ...s/Neovim/share/nvim/runtime/lua/vim/treesitter/query.lua:248: Query error at 26:3. Invalid node type "
+note":
+((note) @text.note
+```
+
+- [nvim-treesitterで「query: invalid node type at...」エラーが出た #neovim - Qiita](https://qiita.com/ZOI_dayo/items/3c39252c729dd27393f3)
+
+```
+> rmrf C:\Users\oustt\AppData\Local\nvim-data
+```
+
 # path
 `AppData/Local/nvim-data/lazy/nvim-treesitter\\parser\\json.so`
 # query capture
