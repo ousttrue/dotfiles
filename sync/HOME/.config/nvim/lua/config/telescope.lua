@@ -9,7 +9,7 @@ function M.setup()
   local utils = require "telescope.utils"
   telescope.load_extension "emoji"
   telescope.load_extension "notify"
-  telescope.load_extension("ui-select")
+  telescope.load_extension "ui-select"
 
   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-u-to-clear-prompt
   ---@diagnostic disable-next-line
@@ -45,7 +45,8 @@ function M.setup()
       "--column",
       "--smart-case",
       "--hidden",
-      "--glob", "!.git",
+      "--glob",
+      "!.git",
     }
   end
 
@@ -67,7 +68,13 @@ function M.setup()
   end
   -- vim.keymap.set("n", "<C-P>", builtin.keymaps)
 
-  vim.keymap.set("n", "<Leader><Space>", builtin.find_files, { noremap = true })
+  local OBS_DIR = string.gsub(DOT.get_dotdir() .. "\\docs\\obsidian", "/", "\\")
+  if vim.startswith(vim.loop.cwd(), OBS_DIR) then
+    vim.keymap.set("n", "<Leader><Space>", builtin.find_files, { noremap = true })
+  else
+    vim.keymap.set("n", "<Leader><Space>", project_files, { noremap = true })
+  end
+
   vim.keymap.set("n", "<Leader>g", function()
     local word = vim.fn.expand "<cword>"
     builtin.live_grep {

@@ -8,7 +8,8 @@ function M.setup()
     },
     ensure_installed = {
       "query",
-      -- "help",
+      -- "help" => vimdoc,
+      "vimdoc",
       "c",
       "cpp",
       "python",
@@ -24,6 +25,7 @@ function M.setup()
       "bash",
       "json",
       "vala",
+      "svelte",
 
       "typescript",
       "javascript",

@@ -5,9 +5,13 @@
 ```
 
 # Version
+## 3.1
+- https://docusaurus.io/blog/releases/3.1
+
 ## 3.0
 
 # DocumentOnly
 - @2020 [Docusaurusをドキュメントのみのサイトとして構築する | DevelopersIO](https://dev.classmethod.jp/articles/docusaurus-document-only-website/)
 
 # BlogOnly
+

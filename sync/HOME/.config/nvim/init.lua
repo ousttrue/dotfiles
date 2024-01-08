@@ -471,7 +471,7 @@ end
 vim.keymap.set("n", "ff", ff, { noremap = true })
 
 local cs, bg = dot.get_colorscheme()
-print(cs, bg)
+-- print(cs, bg)
 vim.o.background = bg
 vim.cmd(string.format("colorscheme %s", cs))
 

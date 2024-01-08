@@ -37,6 +37,10 @@ function M.get_home()
   end
 end
 
+function M.get_dotdir()
+  return M.get_home() .. "/dotfiles"
+end
+
 function M.get_config_home()
   if vim.env.XDG_CONFIG_HOME then
     return vim.env.XDG_CONFIG_HOME

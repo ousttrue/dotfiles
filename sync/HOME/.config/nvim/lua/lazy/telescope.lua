@@ -34,7 +34,7 @@ return {
   --     }
   --   end,
   -- },
-  {
+--[[   {
     "epwalsh/obsidian.nvim",
     config = function()
       local obsidian = require "obsidian"
@@ -57,7 +57,7 @@ return {
         },
       }
     end,
-  },
+  }, ]]
   { "nvim-telescope/telescope-ui-select.nvim" },
   {
     "nvim-telescope/telescope.nvim",
