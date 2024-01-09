@@ -25,8 +25,8 @@ function M.setup()
       "bash",
       "json",
       "vala",
-      "svelte",
-
+      "scss",
+      -- "svelte",
       "typescript",
       "javascript",
       "tsx",
