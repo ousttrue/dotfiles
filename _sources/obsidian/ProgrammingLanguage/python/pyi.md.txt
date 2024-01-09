@@ -45,3 +45,7 @@ lsp に任せればよい
 
 - docutils: ソースが長大すぎて pyright が動作しない。
 - windows-curses: native extension
+
+# blender
+- https://github.com/mysticfall/bpystubgen
+
