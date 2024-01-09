@@ -1,0 +1,33 @@
+{
+    "terminal.integrated.fontFamily": "HackGen Console NF",
+    "git.openRepositoryInParentFolders": "never",
+    //
+    // vim
+    //
+    "workbench.list.automaticKeyboardNavigation": false,
+    //
+    // webdev
+    //
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    //
+    // cs
+    //
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp"
+    },
+    //
+    // python
+    //
+    "python.analysis.typeCheckingMode": "basic",
+    "[cpp]": {
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+    },
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "debug.onTaskErrors": "showErrors",
+    "explorer.confirmDelete": false,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+}

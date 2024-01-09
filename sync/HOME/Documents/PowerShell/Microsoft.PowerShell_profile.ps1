@@ -62,6 +62,10 @@ function Get-Path([string]$type)
     {
       Get-Item (Join-Path (Get-Path "dot") "sync/HOME")
     }
+    "dot-sync-app"
+    {
+      Get-Item (Join-Path (Get-Path "dot") "sync/APPDATA")
+    }
     "local"
     {
       Get-Item (Join-Path $HOME "local")
@@ -596,7 +600,14 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 function LinkDotFile([System.IO.FileInfo]$src)
 {
   $syncHome = Get-Path "dot-sync"
-  $dst = Join-Path $HOME ($src.FullName.Substring($syncHome.FullName.Length+1))
+  $syncApp = Get-Path "dot-sync-app"
+  if($src.FullName.StartsWith($syncHome))
+  {
+    $dst = Join-Path $HOME ($src.FullName.Substring($syncHome.FullName.Length+1))
+  } elseif($src.FullName.StartsWith($syncApp))
+  {
+    $dst = Join-Path (Join-Path $HOME "AppData") ($src.FullName.Substring($syncApp.FullName.Length+1))
+  }
   if(Test-Path $dst)
   {
     # green
@@ -619,6 +630,11 @@ function Get-Dotfile
     Get-ChildItem -Recurse -Force -File (Get-Path "dot-sync")
 
     # if windows AppData, LOCALAPPDATA...
+    if($IsWindows)
+    {
+      $app = Get-Path "dot-sync-app"
+      Get-ChildItem -Recurse -Force -File $app
+    }
   }
 }
 

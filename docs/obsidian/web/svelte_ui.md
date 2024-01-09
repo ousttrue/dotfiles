@@ -25,3 +25,9 @@
 # treeview
 
 - @2023 [Tree View with Svelte ](https://maximmaeder.com/tree-view-with-svelte/)
+
+# docking
+
+- https://github.com/SillyFreak/svelte-golden-layout?tab=readme-ov-file
+- https://github.com/milahu/svelte-layout-resizable
+

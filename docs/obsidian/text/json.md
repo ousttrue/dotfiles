@@ -23,3 +23,8 @@ https://stedolan.github.io/jq/
 - [GitHub - ArthurSonzogni/json-tui: A JSON terminal UI made in C++](https://github.com/ArthurSonzogni/json-tui)
 # c++
 - @2022 [Big Sky :: RapidJSON や simdjson よりも速いC言語から使えるJSONライブラリ「yyjson」](https://mattn.kaoriya.net/software/lang/c/20220320234556.htm)
+
+# db
+- https://github.com/typicode/lowdb
+- https://github.com/typicode/json-server
+

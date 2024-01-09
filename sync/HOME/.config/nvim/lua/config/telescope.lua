@@ -11,6 +11,15 @@ function M.setup()
   telescope.load_extension "notify"
   telescope.load_extension "ui-select"
 
+  -- https://github.com/nvim-telescope/telescope.nvim/issues/2027
+  vim.api.nvim_create_autocmd("WinLeave", {
+    callback = function()
+      if vim.bo.ft == "TelescopePrompt" and vim.fn.mode() == "i" then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "i", false)
+      end
+    end,
+  })
+
   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-u-to-clear-prompt
   ---@diagnostic disable-next-line
   local setup = {
