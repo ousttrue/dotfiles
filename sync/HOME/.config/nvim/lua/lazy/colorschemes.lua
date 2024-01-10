@@ -57,4 +57,5 @@ return {
   "vim-scripts/tango-morning.vim",
   "yasukotelin/shirotelin",
   "NLKNguyen/papercolor-theme",
+  "aonemd/quietlight.vim",
 }

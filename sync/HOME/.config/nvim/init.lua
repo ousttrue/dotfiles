@@ -489,8 +489,8 @@ else
 
   if platform == "nvy" then
     vim.o.guifont = "HackGen Console NF:h13"
-    vim.o.bg="light"
-    vim.cmd"colorschem PaperColor"
+    vim.o.bg = "light"
+    vim.cmd "colorschem PaperColor"
   end
 
   --   vim.cmd [[

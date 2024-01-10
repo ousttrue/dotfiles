@@ -13,6 +13,12 @@ local M = {
       ".npmrc",
     }
 
+    local function open_all_subnodes(state)
+      local node = state.tree:get_node()
+      local filesystem_commands = require "neo-tree.sources.filesystem.commands"
+      filesystem_commands.expand_all_nodes(state, node)
+    end
+
     require("neo-tree").setup {
       close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
       popup_border_style = "rounded",
@@ -49,7 +55,7 @@ local M = {
           ["<esc>"] = "cancel", -- close preview or floating neo-tree window
           ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
           -- Read `# Preview Mode` for more information
-          ["l"] = "focus_preview",
+          ["l"] = "open",
           ["S"] = "open_split",
           ["s"] = "open_vsplit",
           -- ["S"] = "split_with_window_picker",
@@ -62,7 +68,7 @@ local M = {
           ["h"] = "close_node",
           -- ['C'] = 'close_all_subnodes',
           ["z"] = "close_all_nodes",
-          --["Z"] = "expand_all_nodes",
+          ["Z"] = open_all_subnodes,
           ["a"] = {
             "add",
             -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details

@@ -1,11 +1,30 @@
 local M = {}
 
 function M.setup()
+  -- パーサーのインストール先（任意）
+  local treesitterpath = vim.fn.stdpath "cache" .. "/treesitter"
+  vim.opt.runtimepath:append(treesitterpath)
+
+  -- URIパーサーの設定追加
+  local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+  parser_config.uri = {
+    install_info = {
+      url = "https://github.com/atusy/tree-sitter-uri",
+      branch = "main",
+      files = { "src/parser.c" },
+      generate_requires_npm = false, -- if stand-alone parser without npm dependencies
+      requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
+    },
+    filetype = "uri", -- if filetype does not match the parser name
+  }
+
   require("nvim-treesitter.configs").setup {
+    parser_install_dir = treesitterpath,
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
     matchup = {
       enable = true,
     },
+    -- ensure_installed = "all",
     ensure_installed = {
       "query",
       -- "help" => vimdoc,
@@ -32,6 +51,7 @@ function M.setup()
       "tsx",
 
       -- "nu",
+      "uri",
     },
 
     indent = {

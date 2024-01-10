@@ -3,3 +3,9 @@
 - @2023 [SvelteKit はどのようにコンパイルしているのか？](https://blog.osstech.co.jp/posts/2023/11/how-sveltekit-compiles/)
 [[vite_plugin]]
 
+# related
+
+- https://github.com/svelteness/kit-docs
+
+@202401 サイドバーのツリーがネストできないぽい。
+
