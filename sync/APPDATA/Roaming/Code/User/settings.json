@@ -1,9 +1,14 @@
 {
     "terminal.integrated.fontFamily": "HackGen Console NF",
     "git.openRepositoryInParentFolders": "never",
+    "debug.onTaskErrors": "showErrors",
+    "explorer.confirmDelete": false,
     //
     // vim
     //
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
     "workbench.list.automaticKeyboardNavigation": false,
     //
     // webdev
@@ -21,13 +26,11 @@
     // python
     //
     "python.analysis.typeCheckingMode": "basic",
+    //
+    // cpp
+    //
     "[cpp]": {
-        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+        "editor.defaultFormatter": "xaver.clang-format"
     },
     "C_Cpp.intelliSenseEngine": "disabled",
-    "debug.onTaskErrors": "showErrors",
-    "explorer.confirmDelete": false,
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
-    },
 }

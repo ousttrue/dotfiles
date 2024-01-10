@@ -1,7 +1,8 @@
+local DOT = require "dot"
+
 local function init_nvim()
   local g = vim.g
   local opt = vim.opt
-  local dot = require "dot"
   ---@class uv
   local uv = vim.loop
 
@@ -209,15 +210,15 @@ local function init_nvim()
 
   -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = dot.border,
+    border = DOT.border,
   })
 
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = dot.border,
+    border = DOT.border,
   })
 
   vim.diagnostic.config {
-    float = { border = dot.border },
+    float = { border = DOT.border },
   }
   local diag_signs = vim.diagnostic.handlers.signs
 
@@ -345,7 +346,7 @@ local function init_nvim()
       col = 0,
       row = 1,
       anchor = "NW",
-      border = dot.border,
+      border = DOT.border,
     })
   end
   vim.keymap.set("n", "gx", floating_window, { noremap = true })
@@ -354,20 +355,15 @@ local function init_nvim()
   vim.cmd [[command! ReloadHl :lua require('dot').reload_hl()]]
   vim.cmd [[command! CrLfToLf :%s/\r$//]]
 
-  function COPY_PATH()
-    vim.cmd [[
-  let @* = expand('%:.')
-  let @" = expand('%:.')
-  ]]
+  local function ff()
+    local formatter = DOT.formatters[vim.bo.filetype]
+    if formatter then
+      formatter()
+    else
+      vim.lsp.buf.format()
+    end
   end
-
-  vim.cmd [[
-augroup HLExtend
-  autocmd!
-  autocmd ColorScheme * lua require('dot').extend_hl()
-  autocmd ColorScheme * lua require('dot').extend_hl_ts()
-augroup END
-]]
+  vim.keymap.set("n", "ff", ff, { noremap = true })
 
   require("keymap").setup()
 
@@ -402,12 +398,6 @@ augroup END
       },
     }
     local plugins = {}
-    for name in dot.scandir(dot.get_home() .. "/.config/nvim/lua/lazy") do
-      -- if STR.ends_with(name, ".lua") then
-      --   local mod = name:sub(1, -5)
-      --   table.insert(plugins, { import = "lazy." .. mod })
-      -- end
-    end
     table.insert(plugins, { import = "lazy.minimum" })
     table.insert(plugins, { import = "lazy.extend" })
     table.insert(plugins, { import = "lazy.filer" })
@@ -415,58 +405,10 @@ augroup END
     table.insert(plugins, { import = "lazy.treesitter" })
     table.insert(plugins, { import = "lazy.denops" })
     table.insert(plugins, { import = "lazy.git" })
-
     table.insert(plugins, { import = "lazy.cmp" })
-    -- table.insert(plugins, { import = "lazy.ddc" })
-
-    -- table.insert(plugins, { import = "lazy.coding" })
     table.insert(plugins, { import = "lazy.colorschemes" })
-    -- table.insert(plugins, { import = "lazy.formatter" })
-    -- table.insert(plugins, { import = "lazy.line" })
-    -- table.insert(plugins, { import = "lazy.plugins" })
-
     require("lazy").setup(plugins, opts)
   end
-
-  local function ff()
-    local formatter = dot.formatters[vim.bo.filetype]
-    if formatter then
-      formatter()
-    else
-      vim.lsp.buf.format()
-    end
-  end
-  vim.keymap.set("n", "ff", ff, { noremap = true })
-
-  local cs, bg = dot.get_colorscheme()
-  -- print(cs, bg)
-  vim.o.background = bg
-  vim.cmd(string.format("colorscheme %s", cs))
-
-  if vim.g.gonvim_running then
-    --
-    vim.cmd [[
-colorschem carbonfox
-  ]]
-  elseif vim.g.nvy then
-    -- print "NVY!"
-    vim.cmd [[
-set guifont=HackGen\ Console\ NF:h15
-colorschem urara
-  ]]
-  else
-    vim.cmd "colorscheme habamax"
-  end
-
-  -- vim.cmd [[
-  -- augroup fuga_reload
-  --   autocmd!
-  --   autocmd bufWritePost dot.lua :lua require('dot').reload_hl()
-  -- augroup END
-  -- ]]
-
-  -- vim.lsp.set_log_level('debug')
-  vim.g.neovide_cursor_animation_length = 0
 end
 
 --
@@ -544,4 +486,31 @@ else
   end
 
   init_nvim()
+
+  if platform == "nvy" then
+    vim.o.guifont = "HackGen Console NF:h13"
+    vim.o.bg="light"
+    vim.cmd"colorschem PaperColor"
+  end
+
+  --   vim.cmd [[
+  -- augroup HLExtend
+  --   autocmd!
+  --   autocmd ColorScheme * lua require('dot').extend_hl()
+  --   autocmd ColorScheme * lua require('dot').extend_hl_ts()
+  -- augroup END
+  -- ]]
+  --
+  --   local cs, bg = DOT.get_colorscheme()
+  --   -- print(cs, bg)
+  --   vim.o.background = bg
+  --   vim.cmd(string.format("colorscheme %s", cs))
+  --
+  --   if vim.g.gonvim_running then
+  --     --
+  --     vim.cmd [[
+  -- colorschem carbonfox
+  --   ]]
+  --
+  --   vim.g.neovide_cursor_animation_length = 0
 end

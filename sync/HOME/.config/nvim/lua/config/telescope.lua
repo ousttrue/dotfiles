@@ -44,6 +44,14 @@ function M.setup()
     },
   }
 
+  require("telescope").setup {
+    pickers = {
+      colorscheme = {
+        enable_preview = true,
+      },
+    },
+  }
+
   if DOT.get_system() ~= "msys" then
     setup.vimgrep_arguments = {
       "rg",

@@ -47,4 +47,14 @@ return {
   make_colorscheme("NLKNguyen/papercolor-theme", { name = "PaperColor", bg = "light" }),
   -- make_colorscheme("yasukotelin/shirotelin", "shirotelin", "light", "mac"),
   --
+
+  "ellisonleao/gruvbox.nvim",
+  "nyoom-engineering/oxocarbon.nvim",
+  "rafamadriz/neon",
+  "ishan9299/nvim-solarized-lua",
+  "nelstrom/vim-mac-classic-theme",
+  "thenewvu/vim-colors-sketching",
+  "vim-scripts/tango-morning.vim",
+  "yasukotelin/shirotelin",
+  "NLKNguyen/papercolor-theme",
 }

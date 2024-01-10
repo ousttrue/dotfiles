@@ -1,158 +1,179 @@
+// vim: ft=jsonc
 // Place your key bindings in this file to override the defaultsauto[]
 [
-    {
-        "key": "f7",
-        "command": "-cmake.buildCurrentTarget"
-    },
-    {
-        "key": "shift+f7",
-        "command": "-cmake.buildWithTarget",
-        "when": "cmake:enableFullFeatureSet"
-    },
-    {
-        "key": "shift+delete",
-        "command": "deleteRight",
-        "when": "textInputFocus && !editorReadonly"
-    },
-    // escape
-    {
-        "key": "ctrl+[",
-        "command": "search.action.cancel",
-        "when": "searchViewletVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "closeFindWidget",
-        "when": "findWidgetVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "closeReplaceInFilesWidget",
-        "when": "replaceInputBoxFocus && searchViewletVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "workbench.action.hideInterfaceOverview",
-        "when": "interfaceOverviewVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "workbench.action.terminal.hideFindWidget",
-        "when": "terminalFindWidgetVisible && terminalFocus"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "cancelRenameInput",
-        "when": "editorFocus && renameInputVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "cancelSelection",
-        "when": "editorHasSelection && textInputFocus"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "closeAccessibilityHelp",
-        "when": "accessibilityHelpWidgetVisible && editorFocus"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "closeBreakpointWidget",
-        "when": "breakpointWidgetVisible && textInputFocus"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "closeDirtyDiff",
-        "when": "dirtyDiffVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "closeFindWidget",
-        "when": "editorFocus && findWidgetVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "closeMarkersNavigation",
-        "when": "editorFocus && markersNavigationVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "closeParameterHints",
-        "when": "editorTextFocus && parameterHintsVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "closeReferenceSearch",
-        "when": "referenceSearchVisible && !config.editor.stablePeek"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "closeReferenceSearchEditor",
-        "when": "inReferenceSearchEditor && !config.editor.stablePeek"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "editor.action.webvieweditor.hideFind",
-        "when": "webviewEditorFocus && webviewFindWidgetVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "hideSuggestWidget",
-        "when": "suggestWidgetVisible && textInputFocus"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "keybindings.editor.clearSearchResults",
-        "when": "inKeybindings && inKeybindingsSearch"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "leaveEditorMessage",
-        "when": "messageVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "leaveSnippet",
-        "when": "editorTextFocus && inSnippetMode"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "list.clear",
-        "when": "listFocus && !inputFocus"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "notifications.hideList",
-        "when": "notificationCenterVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "notifications.hideToasts",
-        "when": "notificationToastsVisible"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "removeSecondaryCursors",
-        "when": "editorHasMultipleSelections && textInputFocus"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "search.action.cancel",
-        "when": "listFocus && searchViewletVisible && !inputFocus"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "settings.action.clearSearchResults",
-        "when": "inSettingsSearch"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "workbench.action.closeQuickOpen",
-        "when": "inQuickOpen"
-      },
-      {
-        "key": "ctrl+[",
-        "command": "workbench.action.exitZenMode",
-        "when": "inZenMode"
-      }
+  {
+    "key": "f7",
+    "command": "-cmake.buildCurrentTarget"
+  },
+  {
+    "key": "shift+f7",
+    "command": "-cmake.buildWithTarget",
+    "when": "cmake:enableFullFeatureSet"
+  },
+  {
+    "key": "shift+delete",
+    "command": "deleteRight",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  // escape
+  {
+    "key": "ctrl+[",
+    "command": "search.action.cancel",
+    "when": "searchViewletVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "closeFindWidget",
+    "when": "findWidgetVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "closeReplaceInFilesWidget",
+    "when": "replaceInputBoxFocus && searchViewletVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "workbench.action.hideInterfaceOverview",
+    "when": "interfaceOverviewVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "workbench.action.terminal.hideFindWidget",
+    "when": "terminalFindWidgetVisible && terminalFocus"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "cancelRenameInput",
+    "when": "editorFocus && renameInputVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "cancelSelection",
+    "when": "editorHasSelection && textInputFocus"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "closeAccessibilityHelp",
+    "when": "accessibilityHelpWidgetVisible && editorFocus"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "closeBreakpointWidget",
+    "when": "breakpointWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "closeDirtyDiff",
+    "when": "dirtyDiffVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "closeFindWidget",
+    "when": "editorFocus && findWidgetVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "closeMarkersNavigation",
+    "when": "editorFocus && markersNavigationVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "closeParameterHints",
+    "when": "editorTextFocus && parameterHintsVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "closeReferenceSearch",
+    "when": "referenceSearchVisible && !config.editor.stablePeek"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "closeReferenceSearchEditor",
+    "when": "inReferenceSearchEditor && !config.editor.stablePeek"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "editor.action.webvieweditor.hideFind",
+    "when": "webviewEditorFocus && webviewFindWidgetVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "hideSuggestWidget",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "keybindings.editor.clearSearchResults",
+    "when": "inKeybindings && inKeybindingsSearch"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "leaveEditorMessage",
+    "when": "messageVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "leaveSnippet",
+    "when": "editorTextFocus && inSnippetMode"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "list.clear",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "notifications.hideList",
+    "when": "notificationCenterVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "notifications.hideToasts",
+    "when": "notificationToastsVisible"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "removeSecondaryCursors",
+    "when": "editorHasMultipleSelections && textInputFocus"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "search.action.cancel",
+    "when": "listFocus && searchViewletVisible && !inputFocus"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "settings.action.clearSearchResults",
+    "when": "inSettingsSearch"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "workbench.action.closeQuickOpen",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "workbench.action.exitZenMode",
+    "when": "inZenMode"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-vscode-neovim.ctrl-d",
+    "when": "editorTextFocus && neovim.ctrlKeysNormal.d && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-vscode-neovim.send",
+    "when": "editorTextFocus && neovim.ctrlKeysInsert.d && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-list.focusPageDown",
+    "when": "listFocus && !inputFocus"
+  }
 ]
