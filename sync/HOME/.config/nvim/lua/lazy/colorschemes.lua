@@ -58,4 +58,6 @@ return {
   "yasukotelin/shirotelin",
   "NLKNguyen/papercolor-theme",
   "aonemd/quietlight.vim",
+  "rmehri01/onenord.nvim",
+  "sainnhe/edge",
 }

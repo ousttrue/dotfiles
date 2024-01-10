@@ -638,6 +638,14 @@ function Get-Dotfile
   }
 }
 
+function Remove-DeadLink
+{
+    Get-ChildItem ~\.config\ -Recurse
+    | Where-Object{ $_.LinkTarget -and !(Test-Path $_.LinkTarget)}
+    | ForEach-Object{write-host "Remove: $_"; $_}
+    | Remove-Item
+}
+
 function Pull-DotFile
 {
   [CmdletBinding()]
@@ -652,10 +660,7 @@ function Pull-DotFile
     Get-Dotfile | ForEach-Object{ LinkDotFile $_ }
 
     # remove dead link
-    Get-ChildItem ~\.config\ -Recurse
-    | Where-Object{ $_.LinkTarget -and !(Test-Path $_.LinkTarget)}
-    | ForEach-Object{write-host "Remove: $_"; $_}
-    | Remove-Item
+    Remove-DeadLink
 
     Pop-Location
   }

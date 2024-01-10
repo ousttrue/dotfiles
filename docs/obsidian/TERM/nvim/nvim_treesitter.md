@@ -20,6 +20,18 @@ inspect
 https://github.com/LunarVim/LunarVim/issues/3680
 
 ```
+Could not load parser for svelte: "...eovim/share/nvim/runtime/lua/vim/treesitter/language.lua:103: no parser for 'svelte' lan
+guage, see :help treesitter-parsers"guage, see :help treesitter-parsers"
+
+[nvim-treesitter] [0/1] Downloading tree-sitter-svelte...
+[nvim-treesitter] [0/1] Checking out locked revision
+[nvim-treesitter] [0/1] Compiling...
+parser.c^M
+scanner.c^M
+AppData\Local\nvim-data\tree-sitter-svelte\src\allocator.h(1): warning C4819: The file contains a character tha
+t cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss^M
+AppData\Local\nvim-data\tree-sitter-svelte\src\allocator.h(78): error C2059: syntax error: ')'^M
+
 Error executing lua: ...s/Neovim/share/nvim/runtime/lua/vim/treesitter/query.lua:248: Query error at 26:3. Invalid node type "
 note":
 ((note) @text.note

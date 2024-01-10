@@ -45,10 +45,11 @@ function M.setup()
       "json",
       "vala",
       "scss",
-      -- "svelte",
+      "svelte",
       "typescript",
       "javascript",
       "tsx",
+      "yaml",
 
       -- "nu",
       "uri",

@@ -35,4 +35,21 @@ return {
       -- vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
+  {
+    "lukas-reineke/headlines.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("headlines").setup {
+        markdown = {
+          query = vim.treesitter.query.parse(
+            "markdown",
+            [[
+                (code_fence_content) @codeblock
+            ]]
+          ),
+          -- headline_highlights = false,
+        },
+      }
+    end, -- or `opts = {}`
+  },
 }

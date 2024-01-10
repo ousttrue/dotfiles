@@ -48,6 +48,7 @@ local function init_nvim()
     trail = "~",
     extends = ">",
     precedes = "<",
+    conceal = "`",
   }
   opt.belloff = "all"
   opt.swapfile = false
@@ -209,17 +210,7 @@ local function init_nvim()
   vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵 ", texthl = "DiagnosticSignHint" })
 
   -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = DOT.border,
-  })
 
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = DOT.border,
-  })
-
-  vim.diagnostic.config {
-    float = { border = DOT.border },
-  }
   local diag_signs = vim.diagnostic.handlers.signs
 
   local filter_types = {
@@ -331,25 +322,6 @@ local function init_nvim()
   --   { virtual_text = true }
   -- )
 
-  local function floating_window()
-    local buf = vim.api.nvim_create_buf(false, true)
-
-    for i, client in ipairs(vim.lsp.get_active_clients()) do
-      vim.api.nvim_buf_set_lines(buf, -1, -1, false, vim.split(vim.inspect(client.server_capabilities), "\n"))
-      -- print(vim.split(vim.inspect(client.server_capabilities), '\n'))
-    end
-
-    local win = vim.api.nvim_open_win(buf, 0, {
-      relative = "win",
-      width = 50,
-      height = 20,
-      col = 0,
-      row = 1,
-      anchor = "NW",
-      border = DOT.border,
-    })
-  end
-  vim.keymap.set("n", "gx", floating_window, { noremap = true })
   vim.api.nvim_set_keymap("n", "gh", ":Inspect<CR>", {})
   vim.cmd [[command! VimSyntaxTest :source $VIMRUNTIME/syntax/hitest.vim]]
   vim.cmd [[command! ReloadHl :lua require('dot').reload_hl()]]
@@ -490,7 +462,37 @@ else
   if platform == "nvy" then
     vim.o.guifont = "HackGen Console NF:h13"
     vim.o.bg = "light"
-    vim.cmd "colorschem PaperColor"
+    vim.cmd "colorschem solarized"
+  elseif platform == "nvim" then
+    vim.cmd "colorschem onenord"
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+      border = DOT.border,
+    })
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+      border = DOT.border,
+    })
+    vim.diagnostic.config {
+      float = { border = DOT.border },
+    }
+    local function floating_window()
+      local buf = vim.api.nvim_create_buf(false, true)
+
+      for i, client in ipairs(vim.lsp.get_active_clients()) do
+        vim.api.nvim_buf_set_lines(buf, -1, -1, false, vim.split(vim.inspect(client.server_capabilities), "\n"))
+        -- print(vim.split(vim.inspect(client.server_capabilities), '\n'))
+      end
+
+      -- local win = vim.api.nvim_open_win(buf, 0, {
+      --   relative = "win",
+      --   width = 50,
+      --   height = 20,
+      --   col = 0,
+      --   row = 1,
+      --   anchor = "NW",
+      --   border = DOT.border,
+      -- })
+      -- vim.keymap.set("n", "gx", floating_window, { noremap = true })
+    end
   end
 
   --   vim.cmd [[
