@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>related - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,23 +212,85 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
-<li><p>[x] @2020 <a class="reference external" href="https://svelte.jp/blog/whats-the-deal-with-sveltekit">SvelteKitとは (What's the deal with SvelteKit?)</a></p></li>
-<li><p>@2023 <a class="reference external" href="https://blog.osstech.co.jp/posts/2023/11/how-sveltekit-compiles/">SvelteKit はどのようにコンパイルしているのか？</a>
-[[vite_plugin]]</p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="related">
-<h1>related<a class="headerlink" href="#related" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>2<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>https://github.com/svelteness/kit-docs</p></li>
+<li><p><a class="reference external" href="https://golden-layout.github.io/golden-layout/version-2/">Version 2 | golden-layout</a></p></li>
 </ul>
-<p>@202401 サイドバーのツリーがネストできないぽい。</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tyeps">
+<h1>tyeps<a class="headerlink" href="#tyeps" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="layoutconfig">
+<h2>LayoutConfig<a class="headerlink" href="#layoutconfig" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="cm">/** @public */</span>
+<span class="k">export</span> <span class="kr">declare</span> <span class="kd">interface</span> <span class="nx">LayoutConfig</span> <span class="p">{</span>
+    <span class="nx">root</span>: <span class="kt">RootItemConfig</span> <span class="o">|</span> <span class="kc">undefined</span><span class="p">;</span>
+    <span class="cm">/** @deprecated Use {@link (LayoutConfig:interface).root} */</span>
+    <span class="nx">content</span><span class="o">?:</span> <span class="p">(</span><span class="nx">RowOrColumnItemConfig</span> <span class="o">|</span> <span class="nx">StackItemConfig</span> <span class="o">|</span> <span class="nx">ComponentItemConfig</span><span class="p">)[];</span>
+    <span class="nx">openPopouts?</span>: <span class="kt">PopoutLayoutConfig</span><span class="p">[];</span>
+    <span class="nx">dimensions?</span>: <span class="kt">LayoutConfig.Dimensions</span><span class="p">;</span>
+    <span class="nx">settings?</span>: <span class="kt">LayoutConfig.Settings</span><span class="p">;</span>
+    <span class="cm">/** @deprecated use {@link (LayoutConfig:interface).header} instead */</span>
+    <span class="nx">labels?</span>: <span class="kt">LayoutConfig.Labels</span><span class="p">;</span>
+    <span class="nx">header?</span>: <span class="kt">LayoutConfig.Header</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="rootitemconfig">
+<h2>RootItemConfig<a class="headerlink" href="#rootitemconfig" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="cm">/** @public */</span>
+<span class="k">export</span> <span class="kr">declare</span> <span class="kr">type</span> <span class="nx">RootItemConfig</span> <span class="o">=</span> <span class="nx">RowOrColumnItemConfig</span> <span class="o">|</span> <span class="nx">StackItemConfig</span> <span class="o">|</span> <span class="nx">ComponentItemConfig</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="componentitemconfig">
+<h2>ComponentItemConfig<a class="headerlink" href="#componentitemconfig" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="cm">/** @public */</span>
+<span class="k">export</span> <span class="kr">declare</span> <span class="kd">interface</span> <span class="nx">ComponentItemConfig</span> <span class="k">extends</span> <span class="nx">HeaderedItemConfig</span> <span class="p">{</span>
+    <span class="kr">type</span><span class="o">:</span> <span class="s1">'component'</span><span class="p">;</span>
+    <span class="k">readonly</span> <span class="nx">content</span><span class="o">?:</span> <span class="p">[];</span>
+    <span class="cm">/**</span>
+<span class="cm">     * The title of the item as displayed on its tab and on popout windows</span>
+<span class="cm">     * Default: componentType.toString() or ''</span>
+<span class="cm">     */</span>
+    <span class="nx">title?</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="cm">/**</span>
+<span class="cm">     * The type of the component.</span>
+<span class="cm">     * @deprecated use {@link (ComponentItemConfig:interface).componentType} instead</span>
+<span class="cm">     */</span>
+    <span class="nx">componentName?</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="cm">/**</span>
+<span class="cm">     * The type of the component.</span>
+<span class="cm">     * `componentType` must be of type `string` if it is registered with any of the following functions:</span>
+<span class="cm">     * * {@link (GoldenLayout:class).registerComponent} (deprecated)</span>
+<span class="cm">     * * {@link (GoldenLayout:class).registerComponentConstructor}</span>
+<span class="cm">     * * {@link (GoldenLayout:class).registerComponentFactoryFunction}</span>
+<span class="cm">     */</span>
+    <span class="nx">componentType</span>: <span class="kt">JsonValue</span><span class="p">;</span>
+    <span class="cm">/**</span>
+<span class="cm">     * The state information with which a component will be initialised with.</span>
+<span class="cm">     * Will be passed to the component constructor function and will be the value returned by</span>
+<span class="cm">     * container.initialState.</span>
+<span class="cm">     */</span>
+    <span class="nx">componentState?</span>: <span class="kt">JsonValue</span><span class="p">;</span>
+    <span class="cm">/**</span>
+<span class="cm">     * Default: true</span>
+<span class="cm">     */</span>
+    <span class="nx">reorderEnabled?</span>: <span class="kt">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -244,7 +306,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/web/SvelteKit.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/web/golden-layout.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -252,8 +314,33 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#id1">2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tyeps">tyeps</a><ul>
+<li><a class="reference internal" href="#layoutconfig">LayoutConfig</a></li>
+<li><a class="reference internal" href="#rootitemconfig">RootItemConfig</a></li>
+<li><a class="reference internal" href="#componentitemconfig">ComponentItemConfig</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
