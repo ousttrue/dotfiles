@@ -48,8 +48,10 @@ local function init_nvim()
     trail = "~",
     extends = ">",
     precedes = "<",
-    conceal = "`",
+    conceal = "_",
   }
+  opt.concealcursor = "nvic"
+  -- opt.conceallevel = 2
   opt.belloff = "all"
   opt.swapfile = false
   opt.undofile = false

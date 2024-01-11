@@ -1,3 +1,3 @@
 ;; extends
 (inline
-  (code_span) @text.underline)
+  (code_span) @text.strong)

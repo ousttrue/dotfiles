@@ -6,6 +6,7 @@ local M = {
       --".gitignored",
       ".config",
       ".github",
+      ".gitattributes",
       ".gitignore",
       ".storybook",
       ".remarkrc",
