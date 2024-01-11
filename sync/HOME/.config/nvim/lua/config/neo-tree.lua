@@ -8,10 +8,12 @@ local M = {
       ".github",
       ".gitattributes",
       ".gitignore",
+      ".gitmodules",
       ".storybook",
       ".remarkrc",
       ".marksman.toml",
       ".npmrc",
+      ".vitepress",
     }
 
     local function open_all_subnodes(state)

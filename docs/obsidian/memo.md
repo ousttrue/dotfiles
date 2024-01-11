@@ -23,7 +23,7 @@
 | [[React]]  | [[Docusaurus]]          | [[webpack]]   |
 | [[Vue.js]] | [[unplugin-vue-router]] | [[Vite]]      |
 | [[Vue.js]] | [[Nuxt]]                | [[Vite]]      |
-| [[Vue.js]] | VitePress               | [[Vite]]      |
+| [[Vue.js]] | [[VitePress]]           | [[Vite]]      |
 | [[Svelte]] | [[SvelteKit]]           | [[Vite]]      |
 | [[Astro]]  | [[astro]]               | [[Vite]]      |
 |            | [[vite-plugin-pages]]   |               |
