@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>使いたいところ - shell note ドキュメント</title>
+        <title>inline - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,56 +218,68 @@
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/miyataka/scraps/87ddc4c9de7394">vimでmarkdownで<code class="docutils literal notranslate"><span class="pre">*</span></code>とかが隠れちゃう(conceal)やつへの対処（のひとつ）</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://qiita.com/Cj-bc/items/e4d1ecfed8197d1f04b7">vim-pandoc-syntaxでurlを非表示にしたい #Vim - Qiita</a></p></li>
-<li><p>@2016 <a class="reference external" href="https://qiita.com/karur4n/items/a26007236c59c5fb8735">Vim で JSON のダブルクォーテーションが表示されない場合の解決法 #Vim - Qiita</a></p></li>
-<li><p>@2014 <a class="reference external" href="https://mfumi.hatenadiary.org/entry/20140328/1395946070">vimのconcealを使ってJavadocを奇麗に表示 - mfumiの日記</a></p></li>
-<li><p>@2011 <a class="reference external" href="https://blog.delphinus.dev/2011/02/use-vim-conceal.html">【Vim】新機能“conceal”構文属性を使う | blog.delphinus.dev</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>使いたいところ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <p>[[vite]] [[rollup_plugin]]</p>
+<p><a class="reference external" href="https://ja.vitejs.dev/guide/api-plugin.html">プラグイン API | Vite</a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="inline">
+<h1>inline<a class="headerlink" href="#inline" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">vite.config.js</span></code> に直接記述</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="order">
+<h1>order<a class="headerlink" href="#order" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>消えるところ選びたい</p></li>
-<li><p>markdown の link の url</p></li>
-<li><p>conceallevel=2 にして cchar を明示的に設定するのがよさそう</p></li>
+<li><p>エイリアス</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enforce:</span> <span class="pre">'pre'</span></code> を指定したユーザープラグイン</p></li>
+<li><p>Vite のコアプラグイン</p></li>
+<li><p>enforce の値がないユーザープラグイン</p></li>
+<li><p>Vite のビルドプラグイン</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enforce:</span> <span class="pre">'post'</span></code> を指定したユーザープラグイン</p></li>
+<li><p>Vite ポストビルドプラグイン (minify, manifest, reporting)</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="syntax-cchar-cstr">
-<h1>syntax: cchar, cstr<a class="headerlink" href="#syntax-cchar-cstr" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>syntax match conceal</p></li>
-<li><p>hi link Conceal</p></li>
-</ul>
-<section id="js">
-<h2>js<a class="headerlink" href="#js" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="nb">syntax</span> clear javaScriptFunction
-<span class="nb">syntax</span> <span class="k">match</span> javaScriptFunction <span class="sr">/\&lt;function\&gt;/</span> nextgroup<span class="p">=</span>javaScriptFuncName skipwhite conceal cchar<span class="p">=</span>𝔽
-<span class="nb">syntax</span> <span class="k">match</span> javaScriptFunctionNoParams <span class="sr">/function()/</span> conceal cchar<span class="p">=</span>𝔽
-
-<span class="k">hi</span> link javaScriptFunctionNoParams javaScriptFunction
-<span class="k">hi</span><span class="p">!</span> link Conceal javaScriptFunction
-</pre></div>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="plugin">
+<h1>plugin<a class="headerlink" href="#plugin" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="name-string">
+<h2>name: string<a class="headerlink" href="#name-string" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
-<section id="markdown">
-<h2>markdown<a class="headerlink" href="#markdown" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://chitoku.jp/tag/vim/">Vim – ちとくのホームページ</a></p></li>
-</ul>
+<section id="enforce-pre-post">
+<h2>enforce: 'pre' | 'post'<a class="headerlink" href="#enforce-pre-post" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="apply-serve-build">
+<h2>apply: 'serve' | 'build'<a class="headerlink" href="#apply-serve-build" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="highlight">
-<h1>highlight<a class="headerlink" href="#highlight" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2013 <a class="reference external" href="https://stackoverflow.com/questions/15071808/vim-conceal-highlight">vim syntax highlighting - Vim Conceal highlight - Stack Overflow</a></p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="rollup-hook">
+<h1>rollup hook<a class="headerlink" href="#rollup-hook" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[rollup_plugin]]</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>カスタマイズするには？<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>https://github.com/Jxstxs/conceal.nvim</p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="vite-hook">
+<h1>vite hook<a class="headerlink" href="#vite-hook" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="config">
+<h2>config<a class="headerlink" href="#config" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">before</span> <span class="pre">config</span></code></p>
+</section>
+<section id="async-configresolved-config">
+<h2>async configResolved(config)<a class="headerlink" href="#async-configresolved-config" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">after</span> <span class="pre">config</span></code></p>
+</section>
+<section id="configureserver-server">
+<h2>configureServer(server)<a class="headerlink" href="#configureserver-server" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">dev</span> <span class="pre">server</span></code></p>
+</section>
+<section id="configurepreviewserver">
+<h2>configurePreviewServer<a class="headerlink" href="#configurepreviewserver" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">preview</span> <span class="pre">server</span></code></p>
+</section>
+<section id="transformindexhtml">
+<h2>transformIndexHtml<a class="headerlink" href="#transformindexhtml" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="handlehotupdate">
+<h2>handleHotUpdate<a class="headerlink" href="#handlehotupdate" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="impl">
+<h1>impl<a class="headerlink" href="#impl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[vite_plugin_node]]</p>
 </section>
 
         </article>
@@ -283,7 +295,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/TERM/nvim/nvim_conceal.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/web/bundler/vite_plugin.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -303,14 +315,25 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">使いたいところ</a></li>
-<li><a class="reference internal" href="#syntax-cchar-cstr">syntax: cchar, cstr</a><ul>
-<li><a class="reference internal" href="#js">js</a></li>
-<li><a class="reference internal" href="#markdown">markdown</a></li>
+<li><a class="reference internal" href="#">inline</a></li>
+<li><a class="reference internal" href="#order">order</a></li>
+<li><a class="reference internal" href="#plugin">plugin</a><ul>
+<li><a class="reference internal" href="#name-string">name: string</a></li>
+<li><a class="reference internal" href="#enforce-pre-post">enforce: 'pre' | 'post'</a></li>
+<li><a class="reference internal" href="#apply-serve-build">apply: 'serve' | 'build'</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#highlight">highlight</a></li>
-<li><a class="reference internal" href="#id2">カスタマイズするには？</a></li>
+<li><a class="reference internal" href="#rollup-hook">rollup hook</a></li>
+<li><a class="reference internal" href="#vite-hook">vite hook</a><ul>
+<li><a class="reference internal" href="#config">config</a></li>
+<li><a class="reference internal" href="#async-configresolved-config">async configResolved(config)</a></li>
+<li><a class="reference internal" href="#configureserver-server">configureServer(server)</a></li>
+<li><a class="reference internal" href="#configurepreviewserver">configurePreviewServer</a></li>
+<li><a class="reference internal" href="#transformindexhtml">transformIndexHtml</a></li>
+<li><a class="reference internal" href="#handlehotupdate">handleHotUpdate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#impl">impl</a></li>
 </ul>
 
           </div>

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>使いたいところ - shell note ドキュメント</title>
+        <title>git - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -219,55 +219,24 @@
         </div>
         <article role="main">
           <ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/miyataka/scraps/87ddc4c9de7394">vimでmarkdownで<code class="docutils literal notranslate"><span class="pre">*</span></code>とかが隠れちゃう(conceal)やつへの対処（のひとつ）</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://qiita.com/Cj-bc/items/e4d1ecfed8197d1f04b7">vim-pandoc-syntaxでurlを非表示にしたい #Vim - Qiita</a></p></li>
-<li><p>@2016 <a class="reference external" href="https://qiita.com/karur4n/items/a26007236c59c5fb8735">Vim で JSON のダブルクォーテーションが表示されない場合の解決法 #Vim - Qiita</a></p></li>
-<li><p>@2014 <a class="reference external" href="https://mfumi.hatenadiary.org/entry/20140328/1395946070">vimのconcealを使ってJavadocを奇麗に表示 - mfumiの日記</a></p></li>
-<li><p>@2011 <a class="reference external" href="https://blog.delphinus.dev/2011/02/use-vim-conceal.html">【Vim】新機能“conceal”構文属性を使う | blog.delphinus.dev</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://blog.microcms.io/git-based-cms-vs-api-first-cms/">GitベースのCMSとAPIベースのCMSの比較 | microCMSブログ</a></p></li>
+<li><p><a class="reference external" href="https://buhocms.org/">BuhoCMS - A local CMS for static site generators</a></p></li>
+<li><p><a class="reference external" href="https://github.com/strapi/strapi">GitHub - strapi/strapi: 🚀 Strapi is the leading open-source headless CMS. It’s 100% JavaScript/TypeScript, fully customizable and developer-first.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/TryGhost/Ghost">GitHub - TryGhost/Ghost: Independent technology for modern publishing, memberships, subscriptions and newsletters.</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>使いたいところ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="git">
+<h1>git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>消えるところ選びたい</p></li>
-<li><p>markdown の link の url</p></li>
-<li><p>conceallevel=2 にして cchar を明示的に設定するのがよさそう</p></li>
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/okazu_ojii3/articles/bd37304b798a3d">GitHubだけでヘッドレスCMSを再現しよう！</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://ayaco.gitlab.io/zerogravity/docs/overview/jamstack/">技術者がブログを始めるならアーキテクチャは「Git-based Jamstack」 | Zero Gravity</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/JDM/items/5d84936f5c7e455a26de">NuxtでGitベースのヘッドレスCMS機能を実現するNuxt/Contentの紹介 #Vue.js - Qiita</a></p></li>
+</ul>
+<section id="tinacms">
+<h2>TinaCMS<a class="headerlink" href="#tinacms" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://ebisu.com/note/about-astro-v2-blog/">『Astro v2とTinaCMSでシンプルに作るブログサイト』について | エビスコム - EBISUCOM</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="syntax-cchar-cstr">
-<h1>syntax: cchar, cstr<a class="headerlink" href="#syntax-cchar-cstr" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>syntax match conceal</p></li>
-<li><p>hi link Conceal</p></li>
-</ul>
-<section id="js">
-<h2>js<a class="headerlink" href="#js" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="nb">syntax</span> clear javaScriptFunction
-<span class="nb">syntax</span> <span class="k">match</span> javaScriptFunction <span class="sr">/\&lt;function\&gt;/</span> nextgroup<span class="p">=</span>javaScriptFuncName skipwhite conceal cchar<span class="p">=</span>𝔽
-<span class="nb">syntax</span> <span class="k">match</span> javaScriptFunctionNoParams <span class="sr">/function()/</span> conceal cchar<span class="p">=</span>𝔽
-
-<span class="k">hi</span> link javaScriptFunctionNoParams javaScriptFunction
-<span class="k">hi</span><span class="p">!</span> link Conceal javaScriptFunction
-</pre></div>
-</div>
-</section>
-<section id="markdown">
-<h2>markdown<a class="headerlink" href="#markdown" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://chitoku.jp/tag/vim/">Vim – ちとくのホームページ</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="highlight">
-<h1>highlight<a class="headerlink" href="#highlight" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2013 <a class="reference external" href="https://stackoverflow.com/questions/15071808/vim-conceal-highlight">vim syntax highlighting - Vim Conceal highlight - Stack Overflow</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>カスタマイズするには？<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>https://github.com/Jxstxs/conceal.nvim</p></li>
-</ul>
 </section>
 
         </article>
@@ -283,7 +252,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/TERM/nvim/nvim_conceal.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/web/SSG/HeadlessCMS.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -303,14 +272,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">使いたいところ</a></li>
-<li><a class="reference internal" href="#syntax-cchar-cstr">syntax: cchar, cstr</a><ul>
-<li><a class="reference internal" href="#js">js</a></li>
-<li><a class="reference internal" href="#markdown">markdown</a></li>
+<li><a class="reference internal" href="#">git</a><ul>
+<li><a class="reference internal" href="#tinacms">TinaCMS</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#highlight">highlight</a></li>
-<li><a class="reference internal" href="#id2">カスタマイズするには？</a></li>
 </ul>
 
           </div>

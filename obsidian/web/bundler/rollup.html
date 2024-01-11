@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>使いたいところ - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,56 +218,120 @@
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/miyataka/scraps/87ddc4c9de7394">vimでmarkdownで<code class="docutils literal notranslate"><span class="pre">*</span></code>とかが隠れちゃう(conceal)やつへの対処（のひとつ）</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://qiita.com/Cj-bc/items/e4d1ecfed8197d1f04b7">vim-pandoc-syntaxでurlを非表示にしたい #Vim - Qiita</a></p></li>
-<li><p>@2016 <a class="reference external" href="https://qiita.com/karur4n/items/a26007236c59c5fb8735">Vim で JSON のダブルクォーテーションが表示されない場合の解決法 #Vim - Qiita</a></p></li>
-<li><p>@2014 <a class="reference external" href="https://mfumi.hatenadiary.org/entry/20140328/1395946070">vimのconcealを使ってJavadocを奇麗に表示 - mfumiの日記</a></p></li>
-<li><p>@2011 <a class="reference external" href="https://blog.delphinus.dev/2011/02/use-vim-conceal.html">【Vim】新機能“conceal”構文属性を使う | blog.delphinus.dev</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>使いたいところ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <p>[[vite]]</p>
+<p><a class="reference external" href="https://rollupjs.org/">Rollup | Rollup</a></p>
 <ul class="simple">
-<li><p>消えるところ選びたい</p></li>
-<li><p>markdown の link の url</p></li>
-<li><p>conceallevel=2 にして cchar を明示的に設定するのがよさそう</p></li>
+<li><p><a class="reference external" href="https://zenn.dev/mkpoli/articles/1d11ee2edd5bee#rollup-%E3%82%92%E4%BD%BF%E3%81%86">ESM + Typescript + Jest の monorepo を Lerna と Rollup で npm に上がるまで</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://whyisthis.dev/others/old-env-to-vite/">古い環境からViteへの載せ替えについて – wit</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://qiita.com/macropygia/items/d37fd20a16fcef26914b">Viteで従来型静的サイトの開発環境を構築するためにプラグインをたくさん作った #TypeScript - Qiita</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://www.infoq.com/jp/news/2019/05/rollup-code-splitting/">Rollup 1.0、ライブラリバンドリングにコード分割をもたらす</a></p></li>
+<li><p>[x] @2016 <a class="reference external" href="https://qiita.com/cognitom/items/e3ac0da00241f427dad6">Rollupがちょうどいい感じ #JavaScript - Qiita</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>4<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2023</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="syntax-cchar-cstr">
-<h1>syntax: cchar, cstr<a class="headerlink" href="#syntax-cchar-cstr" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>実行<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id3">
+<h2>単体<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">input</span></code>, <code class="docutils literal notranslate"><span class="pre">output</span></code></p>
+</section>
+<section id="as-lib">
+<h2>as lib<a class="headerlink" href="#as-lib" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="config">
+<h1>config<a class="headerlink" href="#config" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>// build
+rollup -c
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">rollup.config.js</span></code></p>
 <ul class="simple">
-<li><p>syntax match conceal</p></li>
-<li><p>hi link Conceal</p></li>
+<li><p>@2019 <a class="reference external" href="https://qiita.com/otolab/items/95313254b62f5c0b6c10">最近作ったRollup.jsの設定詳細 (2019年7月版) #es6 - Qiita</a></p></li>
 </ul>
-<section id="js">
-<h2>js<a class="headerlink" href="#js" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="nb">syntax</span> clear javaScriptFunction
-<span class="nb">syntax</span> <span class="k">match</span> javaScriptFunction <span class="sr">/\&lt;function\&gt;/</span> nextgroup<span class="p">=</span>javaScriptFuncName skipwhite conceal cchar<span class="p">=</span>𝔽
-<span class="nb">syntax</span> <span class="k">match</span> javaScriptFunctionNoParams <span class="sr">/function()/</span> conceal cchar<span class="p">=</span>𝔽
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">path</span> <span class="kr">from</span> <span class="s1">'path'</span>
+<span class="kd">const</span> <span class="nx">PACKAGE_ROOT_PATH</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span>
+<span class="k">import</span> <span class="nx">includePaths</span> <span class="kr">from</span> <span class="s1">'rollup-plugin-includepaths'</span><span class="p">;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">input</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">PACKAGE_ROOT_PATH</span><span class="p">,</span> <span class="s1">'out'</span><span class="p">,</span> <span class="s1">'browser'</span><span class="p">,</span> <span class="s1">'public'</span><span class="p">,</span> <span class="s1">'Terminal.mjs'</span><span class="p">),</span>
+    <span class="nx">output</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">file</span><span class="o">:</span> <span class="sb">`dist/xterm.mjs`</span><span class="p">,</span>
+        <span class="nx">format</span><span class="o">:</span> <span class="s1">'esm'</span><span class="p">,</span>
+        <span class="nx">sourcemap</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">includePaths</span><span class="p">({</span> <span class="nx">paths</span><span class="o">:</span> <span class="p">[</span><span class="s2">"./out"</span><span class="p">]</span> <span class="p">})</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// rollup.config.js</span>
+<span class="k">import</span> <span class="nx">nodeResolve</span> <span class="kr">from</span> <span class="s1">'rollup-plugin-node-resolve'</span> 
+<span class="k">import</span> <span class="nx">commonjs</span> <span class="kr">from</span> <span class="s1">'rollup-plugin-commonjs'</span> 
+<span class="k">import</span> <span class="nx">babel</span> <span class="kr">from</span> <span class="s1">'rollup-plugin-babel'</span> 
 
-<span class="k">hi</span> link javaScriptFunctionNoParams javaScriptFunction
-<span class="k">hi</span><span class="p">!</span> link Conceal javaScriptFunction
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span> 
+	<span class="nx">entry</span><span class="o">:</span> <span class="s1">'src/main.js'</span><span class="p">,</span> 
+	<span class="nx">dest</span><span class="o">:</span> <span class="s1">'dist/bundle.js'</span><span class="p">,</span> 
+	<span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span> 
+		<span class="nx">nodeResolve</span><span class="p">({</span> <span class="nx">jsnext</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}),</span> <span class="c1">// npmモジュールを`node_modules`から読み込む </span>
+		<span class="nx">commonjs</span><span class="p">(),</span> <span class="c1">// CommonJSモジュールをES6に変換 </span>
+		<span class="nx">babel</span><span class="p">()</span> <span class="c1">// ES5に変換 </span>
+	<span class="p">]</span> 
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
-<section id="markdown">
-<h2>markdown<a class="headerlink" href="#markdown" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>@2019 <a class="reference external" href="https://chitoku.jp/tag/vim/">Vim – ちとくのホームページ</a></p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="id4">
+<h1>as lib<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// build.js</span>
+<span class="kd">const</span>
+  <span class="nx">rollup</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'rollup'</span><span class="p">),</span>
+  <span class="nx">npm</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'rollup-plugin-npm'</span><span class="p">),</span>
+  <span class="nx">commonjs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'rollup-plugin-commonjs'</span><span class="p">),</span>
+  <span class="nx">babel</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'rollup-plugin-babel'</span><span class="p">),</span>
+  <span class="nx">name</span> <span class="o">=</span> <span class="s1">'awesomeapp'</span>
+
+<span class="nx">rollup</span>
+  <span class="p">.</span><span class="nx">rollup</span><span class="p">({</span>
+    <span class="c1">// rollup.config.jsと同じようにentryやpluginを指定</span>
+    <span class="nx">entry</span><span class="o">:</span> <span class="s1">'dist/main.js'</span><span class="p">,</span>
+    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="nx">npm</span><span class="p">({</span> <span class="nx">jsnext</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}),</span> <span class="nx">commonjs</span><span class="p">(),</span> <span class="nx">babel</span><span class="p">()]</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">bundle</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// ES6形式で出力</span>
+    <span class="nx">bundle</span><span class="p">.</span><span class="nx">write</span><span class="p">({</span> <span class="nx">format</span><span class="o">:</span> <span class="s1">'es6'</span><span class="p">,</span> <span class="nx">dest</span><span class="o">:</span> <span class="sb">`dist/</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">.es6.js`</span> <span class="p">})</span>
+    <span class="c1">// AMD形式で出力</span>
+    <span class="nx">bundle</span><span class="p">.</span><span class="nx">write</span><span class="p">({</span> <span class="nx">format</span><span class="o">:</span> <span class="s1">'amd'</span><span class="p">,</span> <span class="nx">dest</span><span class="o">:</span> <span class="sb">`dist/</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">.amd.js`</span> <span class="p">})</span>
+    <span class="c1">// CommonJSで出力</span>
+    <span class="nx">bundle</span><span class="p">.</span><span class="nx">write</span><span class="p">({</span> <span class="nx">format</span><span class="o">:</span> <span class="s1">'cjs'</span><span class="p">,</span> <span class="nx">dest</span><span class="o">:</span> <span class="sb">`dist/</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">.cjs.js`</span> <span class="p">})</span>
+    <span class="c1">// グローバル変数を使う形式で出力</span>
+    <span class="nx">bundle</span><span class="p">.</span><span class="nx">write</span><span class="p">({</span>
+      <span class="nx">format</span><span class="o">:</span> <span class="s1">'iife'</span><span class="p">,</span>
+      <span class="nx">dest</span><span class="o">:</span> <span class="sb">`dist/</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">.js`</span><span class="p">,</span>
+      <span class="nx">moduleName</span><span class="o">:</span> <span class="nx">name</span> <span class="c1">// iifeで出力する場合は、moduleNameの指定が必須</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">})</span>
+</pre></div>
+</div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="highlight">
-<h1>highlight<a class="headerlink" href="#highlight" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2013 <a class="reference external" href="https://stackoverflow.com/questions/15071808/vim-conceal-highlight">vim syntax highlighting - Vim Conceal highlight - Stack Overflow</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>カスタマイズするには？<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>https://github.com/Jxstxs/conceal.nvim</p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="plugin">
+<h1>plugin<a class="headerlink" href="#plugin" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>[[rollup_plugin]]</p>
 </section>
 
         </article>
@@ -283,7 +347,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/TERM/nvim/nvim_conceal.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/web/bundler/rollup.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -303,14 +367,18 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">使いたいところ</a></li>
-<li><a class="reference internal" href="#syntax-cchar-cstr">syntax: cchar, cstr</a><ul>
-<li><a class="reference internal" href="#js">js</a></li>
-<li><a class="reference internal" href="#markdown">markdown</a></li>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#id1">4</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#highlight">highlight</a></li>
-<li><a class="reference internal" href="#id2">カスタマイズするには？</a></li>
+<li><a class="reference internal" href="#id2">実行</a><ul>
+<li><a class="reference internal" href="#id3">単体</a></li>
+<li><a class="reference internal" href="#as-lib">as lib</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#config">config</a></li>
+<li><a class="reference internal" href="#id4">as lib</a></li>
+<li><a class="reference internal" href="#plugin">plugin</a></li>
 </ul>
 
           </div>
