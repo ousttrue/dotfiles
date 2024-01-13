@@ -15,7 +15,7 @@ function M.setup()
   ---@param client table
   ---@param bufnr number
   local function on_attach(client, bufnr)
-    -- client.server_capabilities.semanticTokensProvider = nil
+    client.server_capabilities.semanticTokensProvider = nil
   end
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()

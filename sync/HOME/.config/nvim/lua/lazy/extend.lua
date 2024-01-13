@@ -1,6 +1,67 @@
 return {
   "folke/which-key.nvim",
   {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("config.nvim-lspconfig").setup()
+    end,
+    dependencies = {
+      -- "hrsh7th/cmp-nvim-lsp",
+      "folke/neodev.nvim",
+      -- "rcarriga/nvim-notify",
+      -- "b0o/schemastore.nvim",
+      "creativenull/efmls-configs-nvim",
+      "SmiteshP/nvim-navbuddy",
+    },
+  },
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = true,
+    event = { "WinNew" },
+  },
+  {
+    "SmiteshP/nvim-navbuddy",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim",
+      "numToStr/Comment.nvim", -- Optional
+      "nvim-telescope/telescope.nvim", -- Optional
+    },
+    config = function()
+      require("config.navbuddy").setup()
+    end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    -- dependencies = {
+    --   "nvim-tree/nvim-web-devicons",
+    -- },
+    config = function()
+      require("config.lualine").setup()
+    end,
+  },
+  {
+    "romgrk/barbar.nvim",
+    dependencies = {
+      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+      "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+    },
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
+    config = function()
+      require("barbar").setup {
+        -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+        -- animation = true,
+        -- insert_at_start = true,
+        -- …etc.
+      }
+      vim.keymap.set("n", ")", ":BufferNext<CR>", { noremap = true })
+      vim.keymap.set("n", "(", ":BufferPrevious<CR>", { noremap = true })
+    end,
+  },
+  {
     "simeji/winresizer",
   },
   {
@@ -43,6 +104,13 @@ vmap g<C-x> g<Plug>(dial-decrement)
       ]]
     end,
   },
+  -- {
+  --   "max397574/colortils.nvim",
+  --   cmd = "Colortils",
+  --   config = function()
+  --     require("colortils").setup()
+  --   end,
+  -- },
   {
     "uga-rosa/ccc.nvim",
     config = function()

@@ -1,182 +1,118 @@
-local dot = require "dot"
-
 local M = {}
 
-local win_color = {
-  bg = "#00030f",
-  comment = "#4e5f54",
-  bg2 = "#0f100c",
-  nontext = "#382f00",
-
-  -- メイン
-  -- user identifier: type, variable
-  user = "#ebc048",
-
-  -- 地味
-  -- keyword: const let local public function, bracket
-  keyword = "#b62a77",
-  -- 濃い
-  -- literal: 0, nil, true, false, ""
-  literal = "#44544b",
-  -- 中
-  -- filed
-  field = "#477284",
-  -- 薄い
-  -- function: def, call
-  func = "#8ea397",
-}
-
-local wsl_color = {
-  bg = "#0f0000",
-  bg2 = "#050505",
-  comment = "#684545",
-  nontext = "#262626",
-
-  -- literal: 0, nil, true, false, ""
-  -- メイン
-  literal = "#f69ad1",
-
-  -- keyword: const let local public function, bracket
-  -- 地味
-  keyword = "#773704",
-  -- user identifier: type, variable
-  -- 濃い
-  user = "#7a1e2c",
-  -- filed
-  -- 中
-  field = "#b55e21",
-  -- function: def, call
-  -- 薄い
-  func = "#fd9e3c",
-}
-
-local lin_color = {
-  bg = "#e7f6fa",
-  bg2 = "#def0f9",
-  comment = "#7db2c7",
-  nontext = "#bfdeeb",
-
-  -- literal: 0, nil, true, false, ""
-  -- メイン
-  literal = "#65bfc5",
-
-  -- keyword: const let local public function, bracket
-  -- 地味
-  keyword = "#9da0dd",
-  -- user identifier: type, variable
-  -- 濃い
-  user = "#51afe0",
-  -- filed
-  -- 中
-  field = "#6e97ce",
-  -- function: def, call
-  -- 薄い
-  func = "#917eee",
-}
-
-local color = {}
-local sys = dot.get_system()
-if sys == "wsl" then
-  color = wsl_color
-elseif sys == "linux" then
-  color = lin_color
-else
-  color = win_color
+---@param group_name string
+---@param val table
+local function hl(group_name, val)
+  val.force = true
+  vim.api.nvim_set_hl(0, group_name, val)
 end
 
+local dark = {
+  fg = "#0a8a11",
+  comment = "#666666",
+  non = "#303030",
+  bg_nc = "#140c36",
+  bg = "#000000",
+
+  symbol = "#8605a7",
+  literal = "#3165e7",
+}
+
+local dark_sample = {
+  fg = "#b294bb",
+  comment = "#707880",
+  non = "#373b41",
+  bg_nc = "#282a2e",
+  bg = "#1d1f21",
+
+  symbol = "#cc6666",
+  literal = "#81a2be",
+}
+
+-- light
+local light = {
+  fg = "#087a02",
+  comment = "#8b9e8b",
+  non = "#b0bfb0",
+  bg_nc = "#CCCCCC",
+  bg = "#DDDDDD",
+
+  symbol = "#67048a",
+  literal = "#143ca4",
+}
+
+local light_sample = {
+  fg = "#a54242",
+  comment = "#cc6666",
+  non = "#373b41",
+  bg_nc = "#707880",
+  bg = "#c5c8c6",
+
+  symbol = "#67048a",
+  literal = "#143ca4",
+}
+
 function M.setup()
-  if sys == "linux" then
-    vim.o.background = "light"
-  else
-    vim.o.background = "dark"
-  end
+  package.loaded.pallete = nil
+  local palette = require "color_palette"
+  -- local bg, color, diff = palette.get()
+  local bg, color = "light", light
+  -- local bg, color = "light", light_sample
+  -- local bg, color = "dark", dark
+  -- local bg, color = "dark", dark_sample
 
   vim.cmd.highlight "clear"
+  vim.o.background = "dark"
   vim.g.colors_name = "fuga"
+  palette.set_unknown()
 
-  vim.api.nvim_set_hl(0, "Normal", { fg = color.literal, bg = color.bg })
-  vim.api.nvim_set_hl(0, "Cursor", { reverse = true })
-  vim.api.nvim_set_hl(0, "ColorColumn", { bg = color.bg2 })
-  vim.api.nvim_set_hl(0, "Pmenu", { fg = color.literal, bg = color.bg })
-  vim.api.nvim_set_hl(0, "CursorLine", { underline = true })
-  vim.api.nvim_set_hl(0, "NonText", { fg = color.nontext })
-  vim.api.nvim_set_hl(0, "Directory", { fg = color.keyword })
+  hl("Normal", { fg = color.fg, bg = color.bg })
+  hl("TabLineSel", { link = "Normal" }) -- active tab
 
-  vim.api.nvim_set_hl(0, "FoldColumn", { bg = color.bg2 })
-  vim.api.nvim_set_hl(0, "SignColumn", { bg = color.bg2 })
-  vim.api.nvim_set_hl(0, "LineNr", { fg = color.nontext, bg = color.bg2 })
-  vim.api.nvim_set_hl(0, "CursorLineNr", { bg = color.bg2 })
+  -- hl("TermCursor", { fg="#FF0000" })
+  -- hl("TermCursorNC", { fg="#FF0000" })
+  -- hl("Cursor", { fg="#FF0000" })
+  -- hl("lCursor", { fg="#FF0000" })
+  -- hl("CursorLine", { fg="#FF0000" })
+  -- hl("CursorColumn", { fg="#FF0000" })
+  -- hl("CursorIM", { fg="#FF0000" })
 
-  vim.api.nvim_set_hl(0, "IncSearch", { reverse = true })
-  vim.api.nvim_set_hl(0, "Search", { reverse = true, underline = true })
-  vim.api.nvim_set_hl(0, "WildMenu", { reverse = true })
-  vim.api.nvim_set_hl(0, "WildMenu", { reverse = true })
+  hl("NormalNC", { bg = color.bg_nc })
+  hl("Search", { link = "NormalNC" })
+  hl("Visual", { link = "NormalNC" })
 
-  vim.api.nvim_set_hl(0, "Folded", { bg = color.bg2 })
-  vim.api.nvim_set_hl(0, "Visual", { bg = color.bg2 })
+  hl("Focus", { reverse = true })
+  hl("CurSearch", { link = "Focus" })
 
-  --
-  -- syntax
-  --
-  vim.api.nvim_set_hl(0, "Special", { fg = "#FF00FF" })
-  vim.api.nvim_set_hl(0, "Statement", { fg = "#FF00FF" })
-  vim.api.nvim_set_hl(0, "Constant", { fg = "#FF00FF" })
-  vim.api.nvim_set_hl(0, "Comment", { fg = color.comment })
+  hl("NonText", { fg = color.non })
+  hl("LineNr", { link = "NonText" })
+  hl("Conceal", { link = "NonText" })
+  hl("@conceal", { link = "NonText" })
 
-  vim.api.nvim_set_hl(0, "@string.lua", { fg = color.literal })
-  vim.api.nvim_set_hl(0, "@boolean.lua", { fg = color.literal })
-  vim.api.nvim_set_hl(0, "@field.lua", { fg = color.field })
-  vim.api.nvim_set_hl(0, "@variable.lua", { fg = color.user })
-  vim.api.nvim_set_hl(0, "@parameter.lua", { fg = color.user })
-  vim.api.nvim_set_hl(0, "@function.lua", { fg = color.func })
-  vim.api.nvim_set_hl(0, "@function.call.lua", { fg = color.func })
-  vim.api.nvim_set_hl(0, "@function.builtin.lua", { fg = color.func })
-  vim.api.nvim_set_hl(0, "@constant.builtin.lua", { fg = color.literal })
-  vim.api.nvim_set_hl(0, "@number.lua", { fg = color.literal })
-  vim.api.nvim_set_hl(0, "@namespace.builtin.lua", { fg = color.user })
-  vim.api.nvim_set_hl(0, "@constant.lua", { fg = color.user })
-  vim.api.nvim_set_hl(0, "@punctuation.bracket.lua", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@punctuation.delimiter.lua", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@keyword.return.lua", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@keyword.function.lua", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@keyword.lua", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@keyword.operator.lua", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@conditional.lua", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@operator.lua", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@constructor.lua", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@repeat.lua", { fg = color.keyword })
+  hl("Comment", { fg = color.comment })
+  hl("TabLine", { fg = color.comment, bg = color.bg_nc }) -- inactive tab
 
-  vim.api.nvim_set_hl(0, "@string.nu", { fg = color.literal })
-  vim.api.nvim_set_hl(0, "@boolean.nu", { fg = color.literal })
-  vim.api.nvim_set_hl(0, "@field.nu", { fg = color.field })
-  vim.api.nvim_set_hl(0, "@variable.nu", { fg = color.user })
-  vim.api.nvim_set_hl(0, "@parameter.nu", { fg = color.user })
-  vim.api.nvim_set_hl(0, "@function.nu", { fg = color.func })
-  vim.api.nvim_set_hl(0, "@function.call.nu", { fg = color.func })
-  vim.api.nvim_set_hl(0, "@function.builtin.nu", { fg = color.func })
-  vim.api.nvim_set_hl(0, "@constant.builtin.nu", { fg = color.literal })
-  vim.api.nvim_set_hl(0, "@number.nu", { fg = color.literal })
-  vim.api.nvim_set_hl(0, "@namespace.builtin.nu", { fg = color.user })
-  vim.api.nvim_set_hl(0, "@constant.nu", { fg = color.user })
-  vim.api.nvim_set_hl(0, "@punctuation.bracket.nu", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@punctuation.delimiter.nu", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@keyword.return.nu", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@keyword.function.nu", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@keyword.nu", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@keyword.operator.nu", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@conditional.nu", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@operator.nu", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@constructor.nu", { fg = color.keyword })
-  vim.api.nvim_set_hl(0, "@repeat.nu", { fg = color.keyword })
+  hl("Statement", { fg = color.fg })
+  hl("Operator", { link = "Statement" })
+  hl("Delimiter", { link = "Statement" })
 
-  vim.api.nvim_set_hl(0, "@property.nu", { fg = color.field })
-  vim.api.nvim_set_hl(0, "@type.nu", { fg = color.user })
+  hl("Literal", { fg = color.literal })
+  hl("Special", { link = "Literal" })
+  hl("String", { link = "Literal" })
+  hl("Title", { link = "Literal" })
+  -- fix lua
+  hl("@number.lua", { link = "Literal" })
+  hl("@boolean.lua", { link = "Literal" })
+
+  hl("Symbol", { fg = color.symbol })
+  hl("@variable", { link = "Symbol" })
+  hl("Identifier", { link = "Symbol" })
+  hl("@text", { link = "Symbol" })
 
   --
   -- for debug
   --
   vim.api.nvim_set_keymap("n", "gh", ":Inspect<CR>", {})
-
   vim.cmd [[command! VimSourceHighlightTest :source $VIMRUNTIME/syntax/hitest.vim]]
 
   vim.cmd [[

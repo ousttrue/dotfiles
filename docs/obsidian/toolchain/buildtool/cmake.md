@@ -62,3 +62,10 @@ code:CmakeLists.txt
 
 # Find
 [cmakeでfind_packageライクに自作ライブラリ有無をチェックしたりしたい、そんな時にはfind_package_handle_standard_argsが使える - Qiita](https://qiita.com/developer-kikikaikai/items/c357706121b3cd9051fe)
+
+# ExternalProject
+[ExternalProject — CMake 3.27.3 Documentation](https://cmake.org/cmake/help/latest/module/ExternalProject.html)
+- @2019 [CMakeのExternalProjectで外部プロジェクトのビルドシステムに環境変数を渡す - 低レイヤ強くなりたい組込み屋さんのブログ](https://tomo-wait-for-it-yuki.hatenablog.com/entry/2019/03/24/050000)
+- @2015 [CMake ExternalProject 事始め - Qiita](https://qiita.com/trairia/items/d20860d61f0e1eb2fb72)
+
+

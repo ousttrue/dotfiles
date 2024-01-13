@@ -7,7 +7,7 @@
 [[meson]]
 ## cross-file
 [meson/cross/wasm.txt at master · mesonbuild/meson · GitHub](https://github.com/mesonbuild/meson/blob/master/cross/wasm.txt)
-```
+```toml
 [binaries]
 c = 'emcc'
 cpp = 'em++'
@@ -27,7 +27,7 @@ cpu = 'wasm32'
 endian = 'little'
 ```
 
-```
+```meson
 project('hello', 'cpp')
 
 executable(

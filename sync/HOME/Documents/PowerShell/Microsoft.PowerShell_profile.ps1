@@ -3,6 +3,7 @@
 #
 Remove-Item  alias:* -force
 Set-Alias cd Set-Location
+Set-Alias pwd Get-Location
 Set-Alias % ForEach-Object
 Set-Alias ? Where-Object
 function has($cmdname)

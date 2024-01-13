@@ -60,4 +60,6 @@ return {
   "aonemd/quietlight.vim",
   "rmehri01/onenord.nvim",
   "sainnhe/edge",
+  "scysta/pink-panic.nvim",
+  "uloco/bluloco.nvim",
 }

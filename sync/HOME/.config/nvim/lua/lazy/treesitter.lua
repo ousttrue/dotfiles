@@ -44,10 +44,14 @@ return {
           query = vim.treesitter.query.parse(
             "markdown",
             [[
-                (code_fence_content) @codeblock
+(atx_heading [
+  (atx_h2_marker)
+] @headline)
+(code_fence_content) @codeblock
             ]]
           ),
           -- headline_highlights = false,
+          fat_headlines = false,
         },
       }
     end, -- or `opts = {}`

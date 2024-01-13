@@ -14,11 +14,13 @@ local function init_nvim()
   -- disable netrw's gx mapping.
   g.netrw_nogx = true
 
-  vim.keymap.set({ "n", "i" }, "<S-Insert>", "<C-R>+", { noremap = true })
+  vim.keymap.set({ "i", "c" }, "<S-Insert>", "<C-R>+", { noremap = true })
+  vim.keymap.set({ "n" }, "<S-Insert>", "p", { noremap = true })
 
   -- vim.cmd [[execute "set colorcolumn=" . join(range(81, 9999), ',')]]
   -- opt.cursorline = true
   -- opt.autowrite = true
+  opt.guicursor = ""
   opt.showtabline = 3
   opt.completeopt = "menu,preview"
   opt.ambiwidth = "single"
@@ -461,12 +463,16 @@ else
 
   init_nvim()
 
+  local cs = { "dark", "habamax" }
   if platform == "nvy" then
     vim.o.guifont = "HackGen Console NF:h13"
-    vim.o.bg = "light"
-    vim.cmd "colorschem solarized"
+    if vim.endswith(vim.fn.getcwd(), "my_nvim") then
+      cs = { "light", "PaperColor" }
+    else
+      cs = { "dark", "duskfox" }
+    end
   elseif platform == "nvim" then
-    vim.cmd "colorschem onenord"
+    cs = { "dark", "fuga" }
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
       border = DOT.border,
     })
@@ -496,6 +502,8 @@ else
       -- vim.keymap.set("n", "gx", floating_window, { noremap = true })
     end
   end
+  vim.o.bg = cs[1]
+  vim.cmd("colorschem " .. cs[2])
 
   --   vim.cmd [[
   -- augroup HLExtend
