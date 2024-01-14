@@ -1,8 +1,8 @@
 -- setup: LUA_PATH="$HOME/lua/?.lua;$HOME/lua/?/init.lua"
-if os.getenv('USERPROFILE') then
+if os.getenv "USERPROFILE" then
   -- windows
 else
-  local home = os.getenv('HOME')
+  local home = os.getenv "HOME"
   package.path = string.format("%s;%s/lua/?.lua;%s/lua/?/init.lua", package.path, home, home)
 end
 
@@ -79,9 +79,9 @@ local function setup_osx(config)
 end
 
 local TARGET_MAP = {
-  ['aarch64-apple-darwin'] = setup_osx,
-  ['x86_64-pc-windows-msvc'] = setup_windows,
-  ['x86_64-unknown-linux-gnu'] = setup_linux,
+  ["aarch64-apple-darwin"] = setup_osx,
+  ["x86_64-pc-windows-msvc"] = setup_windows,
+  ["x86_64-unknown-linux-gnu"] = setup_linux,
 }
 
 local setup = TARGET_MAP[wezterm.target_triple]
@@ -116,5 +116,14 @@ config.tls_clients = {
     bootstrap_via_ssh = "wsl",
   },
 }
+
+-- config.colors = {
+--   cursor_bg = "#000000",
+--   cursor_fg = "#FFFFFF",
+--   cursor_border = "#000000",
+-- }
+
+-- config.force_reverse_video_cursor = true
+config.default_cursor_style = 'SteadyBlock'
 
 return config

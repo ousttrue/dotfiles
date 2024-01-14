@@ -24,9 +24,10 @@
 | [[Vue.js]] | [[unplugin-vue-router]] | [[Vite]]      |
 | [[Vue.js]] | [[Nuxt]]                | [[Vite]]      |
 | [[Vue.js]] | [[VitePress]]           | [[Vite]]      |
+|            | [[vite-plugin-pages]]   | [[Vite]]      |
 | [[Svelte]] | [[SvelteKit]]           | [[Vite]]      |
 | [[Astro]]  | [[astro]]               | [[Vite]]      |
-|            | [[vite-plugin-pages]]   |               |
+| [[Astro]]  | [[Starlight]]           | [[Vite]]      |
 
 [Stencil](https://stenciljs.com/)
 
@@ -50,4 +51,3 @@
 ## Editor
 
 - [[nvim|neovim]]
-

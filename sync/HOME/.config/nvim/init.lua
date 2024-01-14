@@ -11,6 +11,22 @@ local function init_nvim()
     vim.g.sqlite_clib_path = "D:/msys64/mingw64/bin/libsqlite3-0.dll"
   end
 
+  vim.keymap.set("n", "gf", function()
+    local cfile = vim.fn.expand "<cfile>"
+    if cfile and type(cfile) == "string" then
+      if cfile:match "^https?://" then
+        -- Neovim nightlyなら `vim.ui.open(cfile)` が便利。
+        if DOT.get_system() == "windows" then
+          vim.fn.system { "cmd.exe", "/c", "start", cfile }
+        else
+          vim.fn.system { "xdg-open", cfile }
+        end
+      else
+        vim.cmd "normal! gF"
+      end
+    end
+  end)
+
   -- disable netrw's gx mapping.
   g.netrw_nogx = true
 
@@ -467,7 +483,7 @@ else
   if platform == "nvy" then
     vim.o.guifont = "HackGen Console NF:h13"
     if vim.endswith(vim.fn.getcwd(), "my_nvim") then
-      cs = { "light", "PaperColor" }
+      cs = { "light", "fuga_everforest" }
     else
       cs = { "dark", "duskfox" }
     end
@@ -525,4 +541,8 @@ else
   --   ]]
   --
   --   vim.g.neovide_cursor_animation_length = 0
+
+  -- for debug
+  vim.api.nvim_set_keymap("n", "gh", ":Inspect<CR>", {})
+  vim.cmd [[command! VimSourceHighlightTest :source $VIMRUNTIME/syntax/hitest.vim]]
 end

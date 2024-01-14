@@ -14,6 +14,8 @@ local M = {
       ".marksman.toml",
       ".npmrc",
       ".vitepress",
+      ".prettierrc",
+      ".prettierrc.mjs",
     }
 
     local function open_all_subnodes(state)

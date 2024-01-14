@@ -7,81 +7,108 @@ local function hl(group_name, val)
   vim.api.nvim_set_hl(0, group_name, val)
 end
 
-local dark = {
-  fg = "#0a8a11",
-  comment = "#666666",
-  non = "#303030",
-  bg_nc = "#140c36",
-  bg = "#000000",
+function hl_clear(name)
+  -- vim.api.nvim_set_hl(0, name, { link = "Unknown" })
+  vim.api.nvim_set_hl(0, name, {})
+end
 
-  symbol = "#8605a7",
-  literal = "#3165e7",
-}
+function set_unknown()
+  vim.api.nvim_set_hl(0, "Unknown", { force = true, fg = "#FF00FF" })
+  hl_clear "SpecialKey"
+  -- hl_clear "TermCursor"
+  hl_clear "NonText"
+  hl_clear "Directory"
+  hl_clear "ErrorMsg"
+  hl_clear "Search"
+  hl_clear "CurSearch"
+  hl_clear "MoreMsg"
+  hl_clear "ModeMsg"
+  hl_clear "LineNr"
+  -- hl_clear "CursorLineNr"
+  hl_clear "Question"
+  hl_clear "StatusLine"
+  hl_clear "StatusLineNC"
+  hl_clear "Title"
+  hl_clear "Visual"
+  hl_clear "WarningMsg"
+  hl_clear "Folded"
+  hl_clear "DiffAdd"
+  hl_clear "DiffChange"
+  hl_clear "DiffDelete"
+  hl_clear "DiffText"
+  hl_clear "SignColumn"
+  hl_clear "Conceal"
+  hl_clear "SpellBad"
+  hl_clear "SpellCap"
+  hl_clear "SpellRare"
+  hl_clear "SpellLocal"
+  hl_clear "Pmenu"
+  hl_clear "PmenuSel"
+  hl_clear "PmenuThumb"
+  hl_clear "TabLineSel"
+  -- hl_clear "CursorColumn"
+  -- hl_clear "CursorLine"
+  hl_clear "ColorColumn"
+  hl_clear "QuickFixLine"
 
-local dark_sample = {
-  fg = "#b294bb",
-  comment = "#707880",
-  non = "#373b41",
-  bg_nc = "#282a2e",
-  bg = "#1d1f21",
+  hl_clear "NormalFloat"
+  hl_clear "Cursor"
+  hl_clear "RedrawDebugNormal"
+  hl_clear "Todo"
+  hl_clear "Underlined"
+  -- hl_clear "lCursor"
+  hl_clear "Normal"
+  hl_clear "Statement"
+  hl_clear "Special"
+  hl_clear "DiagnosticError"
+  hl_clear "DiagnosticWarn"
+  hl_clear "DiagnosticInfo"
+  hl_clear "DiagnosticHint"
+  hl_clear "DiagnosticOk"
+  hl_clear "Comment"
+  hl_clear "Identifier"
+  hl_clear "String"
+  hl_clear "Function"
+  hl_clear "FloatShadow"
+  hl_clear "FloatShadowThrough"
+  hl_clear "MatchParen"
+  hl_clear "RedrawDebugClear"
+  hl_clear "RedrawDebugComposed"
+  hl_clear "RedrawDebugRecompose"
+  hl_clear "Error"
+  hl_clear "DiagnosticUnderlineError"
+  hl_clear "DiagnosticUnderlineWarn"
+  hl_clear "DiagnosticUnderlineInfo"
+  hl_clear "DiagnosticUnderlineHint"
+  hl_clear "DiagnosticUnderlineOk"
+  hl_clear "DiagnosticDeprecated"
+  hl_clear "NvimInternalError"
+end
 
-  symbol = "#cc6666",
-  literal = "#81a2be",
-}
-
--- light
-local light = {
-  fg = "#087a02",
-  comment = "#8b9e8b",
-  non = "#b0bfb0",
-  bg_nc = "#CCCCCC",
-  bg = "#DDDDDD",
-
-  symbol = "#67048a",
-  literal = "#143ca4",
-}
-
-local light_sample = {
-  fg = "#a54242",
-  comment = "#cc6666",
-  non = "#373b41",
-  bg_nc = "#707880",
-  bg = "#c5c8c6",
-
-  symbol = "#67048a",
-  literal = "#143ca4",
-}
-
-function M.setup()
-  package.loaded.pallete = nil
-  local palette = require "color_palette"
-  -- local bg, color, diff = palette.get()
-  local bg, color = "light", light
-  -- local bg, color = "light", light_sample
-  -- local bg, color = "dark", dark
-  -- local bg, color = "dark", dark_sample
-
+---@param name string
+---@param bg string
+---@param color table
+function M.setup(name, bg, color)
   vim.cmd.highlight "clear"
-  vim.o.background = "dark"
-  vim.g.colors_name = "fuga"
-  palette.set_unknown()
+  vim.o.background = bg
+  vim.g.colors_name = name
+
+  -- clear
+  set_unknown()
 
   hl("Normal", { fg = color.fg, bg = color.bg })
-  hl("TabLineSel", { link = "Normal" }) -- active tab
 
-  -- hl("TermCursor", { fg="#FF0000" })
-  -- hl("TermCursorNC", { fg="#FF0000" })
-  -- hl("Cursor", { fg="#FF0000" })
-  -- hl("lCursor", { fg="#FF0000" })
-  -- hl("CursorLine", { fg="#FF0000" })
-  -- hl("CursorColumn", { fg="#FF0000" })
-  -- hl("CursorIM", { fg="#FF0000" })
+  hl("TabLineSel", { fg = color.symbol, bg = color.bg }) -- active tab
+  hl("TabLine", { fg = color.comment, bg = color.non }) -- inactive tab
 
-  hl("NormalNC", { bg = color.bg_nc })
+  hl("NormalNC", { bg = color.non })
+  -- TODO: fix TSplayground highlight
   hl("Search", { link = "NormalNC" })
   hl("Visual", { link = "NormalNC" })
 
-  hl("Focus", { reverse = true })
+  hl("Focus", { fg = color.bg, bg = color.comment })
+  hl("MatchParen", { link = "Focus" })
+  -- TODO: fix hidden letter under cursor
   hl("CurSearch", { link = "Focus" })
 
   hl("NonText", { fg = color.non })
@@ -90,7 +117,6 @@ function M.setup()
   hl("@conceal", { link = "NonText" })
 
   hl("Comment", { fg = color.comment })
-  hl("TabLine", { fg = color.comment, bg = color.bg_nc }) -- inactive tab
 
   hl("Statement", { fg = color.fg })
   hl("Operator", { link = "Statement" })
@@ -103,47 +129,16 @@ function M.setup()
   -- fix lua
   hl("@number.lua", { link = "Literal" })
   hl("@boolean.lua", { link = "Literal" })
+  hl("@text.uri", { link = "Literal" })
+  hl("@text.strong", { link = "Literal" })
 
   hl("Symbol", { fg = color.symbol })
   hl("@variable", { link = "Symbol" })
   hl("Identifier", { link = "Symbol" })
   hl("@text", { link = "Symbol" })
 
-  --
-  -- for debug
-  --
-  vim.api.nvim_set_keymap("n", "gh", ":Inspect<CR>", {})
-  vim.cmd [[command! VimSourceHighlightTest :source $VIMRUNTIME/syntax/hitest.vim]]
-
-  vim.cmd [[
-augroup fuga_reload
-  autocmd!
-  autocmd bufWritePost fuga.lua :lua require('fuga').reload()
-augroup END
-]]
-end
-
-function M.reload()
-  package.loaded.fuga = nil
-  require("fuga").setup()
-  vim.schedule(function()
-    vim.cmd [[
-  colorscheme fuga
-  ]]
-
-    package.loaded.ccc = nil
-    require("ccc").setup {
-      -- Your preferred settings
-      -- Example: enable highlighter
-      highlighter = {
-        auto_enable = true,
-        lsp = true,
-      },
-    }
-    vim.cmd [[
-  CccHighlighterEnable
-  ]]
-  end)
+  hl("DiffAdd", { link = "Literal" })
+  hl("DiffDelete", { link = "TabLineSel" })
 end
 
 return M

@@ -6,6 +6,7 @@ function M.setup()
   vim.opt.runtimepath:append(treesitterpath)
 
   -- URIパーサーの設定追加
+  -- https://blog.atusy.net/2023/11/17/tree-sitter-uri/
   local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
   parser_config.uri = {
     install_info = {

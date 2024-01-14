@@ -5,12 +5,12 @@ function M.setup()
   -- Somewhere in your Neovim startup, e.g. init.lua
   require("luasnip").config.set_config { -- Setting LuaSnip config
 
-  --   -- Enable autotriggered snippets
-  --   enable_autosnippets = true,
+    --   -- Enable autotriggered snippets
+    --   enable_autosnippets = true,
 
-  --   -- Use Tab (or some other key if you prefer) to trigger visual selection
-  --   store_selection_keys = "<Tab>",
-  -- }
+    --   -- Use Tab (or some other key if you prefer) to trigger visual selection
+    --   store_selection_keys = "<Tab>",
+  }
 
   -- Load all snippets from the nvim/LuaSnip directory at startup
   -- local path = dot.get_config_home() .. "/nvim/LuaSnip"
@@ -36,3 +36,4 @@ function M.setup()
 end
 
 return M
+

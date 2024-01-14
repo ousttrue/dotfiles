@@ -73,4 +73,9 @@ bg-neutral text-neutral-content
 - @2022 [@tailwindcss/typography を使ってタイポグラフィを一括設定する | osgsm's personal website](https://osgsm.io/posts/tailwindcss-typography)
 - [tailwindcssの公式プラグイン4つをそれぞれ使ってみた | DevelopersIO](https://dev.classmethod.jp/articles/tailwind-official-plugins/)
 
+# sidebar
+
+- https://tailwindcomponents.com/component/layout-with-header-sidebar-and-rightbar
+- https://dev.to/devggaurav/let-s-build-3-essential-website-layouts-using-tailwind-css-1-pancake-2-sidebar-and-3-pancake-with-double-sidebars-5306
+
 

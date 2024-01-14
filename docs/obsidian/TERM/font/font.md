@@ -103,10 +103,15 @@
 
 # other
 - [C64 TrueType (TTF) Fonts | Style](http://style64.org/c64-truetype)
-- [【中国語フォント】おすすめフリーフォント・PCへの導入方法](http://cn-seminar.com/chinese-font-11257)
 - [世界の文字](http://www.chikyukotobamura.org/muse/wr_europa_4.html)
 
 - [GitHub - tomonic-x/Illusion: Programming font for JIS X 0208 with Unicode.](https://github.com/tomonic-x/Illusion)
 - [GNU Unifont Glyphs](http://unifoundry.com/unifont/index.html)
 - [Windows Terminal Cascadia Code | Microsoft Docs](https://docs.microsoft.com/en-us/windows/terminal/cascadia-code)
 - [GitHub - slavfox/Cozette: A bitmap programming font optimized for coziness 💜](https://github.com/slavfox/Cozette)
+
+# 中国
+
+- @2023 [【FONT MORE②】中華系フォント｜form and craft](https://note.com/form_and_craft/n/n8d458ae2d0b8)
+- [【中国語フォント】おすすめフリーフォント・PCへの導入方法](http://cn-seminar.com/chinese-font-11257)
+
