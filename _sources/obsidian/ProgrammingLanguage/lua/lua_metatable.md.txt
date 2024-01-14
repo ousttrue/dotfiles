@@ -13,7 +13,7 @@ from the docs:
 ---@field nmae string
 
 ---@class Some: SomeInstance
-local Some{}
+local Some = {}
 Some.__index = Some
 
 ---factory

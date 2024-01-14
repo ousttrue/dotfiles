@@ -229,33 +229,33 @@
 <section id="cross-file">
 <h2>cross-file<a class="headerlink" href="#cross-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://github.com/mesonbuild/meson/blob/master/cross/wasm.txt">meson/cross/wasm.txt at master · mesonbuild/meson · GitHub</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">binaries</span><span class="p">]</span>
-<span class="n">c</span> <span class="o">=</span> <span class="s1">'emcc'</span>
-<span class="n">cpp</span> <span class="o">=</span> <span class="s1">'em++'</span>
-<span class="n">ar</span> <span class="o">=</span> <span class="s1">'emar'</span>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[binaries]</span><span class="w"></span>
+<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'emcc'</span><span class="w"></span>
+<span class="n">cpp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'em++'</span><span class="w"></span>
+<span class="n">ar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'emar'</span><span class="w"></span>
 
-<span class="p">[</span><span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">options</span><span class="p">]</span>
-<span class="n">c_args</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">c_link_args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'-sEXPORT_ALL=1'</span><span class="p">]</span>
-<span class="n">cpp_args</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">cpp_link_args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'-sEXPORT_ALL=1'</span><span class="p">]</span>
-<span class="n">default_library</span> <span class="o">=</span> <span class="s1">'static'</span>
+<span class="k">[built-in options]</span><span class="w"></span>
+<span class="n">c_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="n">c_link_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'-sEXPORT_ALL=1'</span><span class="p">]</span><span class="w"></span>
+<span class="n">cpp_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="n">cpp_link_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'-sEXPORT_ALL=1'</span><span class="p">]</span><span class="w"></span>
+<span class="n">default_library</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'static'</span><span class="w"></span>
 
-<span class="p">[</span><span class="n">host_machine</span><span class="p">]</span>
-<span class="n">system</span> <span class="o">=</span> <span class="s1">'emscripten'</span>
-<span class="n">cpu_family</span> <span class="o">=</span> <span class="s1">'wasm32'</span>
-<span class="n">cpu</span> <span class="o">=</span> <span class="s1">'wasm32'</span>
-<span class="n">endian</span> <span class="o">=</span> <span class="s1">'little'</span>
+<span class="k">[host_machine]</span><span class="w"></span>
+<span class="n">system</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'emscripten'</span><span class="w"></span>
+<span class="n">cpu_family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'wasm32'</span><span class="w"></span>
+<span class="n">cpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'wasm32'</span><span class="w"></span>
+<span class="n">endian</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'little'</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">,</span> <span class="s1">'cpp'</span><span class="p">)</span>
+<div class="highlight-meson notranslate"><div class="highlight"><pre><span></span><span class="nb">project</span><span class="p">(</span><span class="s">'hello'</span><span class="p">,</span><span class="w"> </span><span class="s">'cpp'</span><span class="p">)</span><span class="w"></span>
 
-<span class="n">executable</span><span class="p">(</span>
-    <span class="s1">'hello'</span><span class="p">,</span>
-    <span class="p">[</span><span class="s1">'main.cpp'</span><span class="p">],</span>
-    <span class="n">install</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-    <span class="n">name_suffix</span><span class="p">:</span> <span class="s1">'html'</span><span class="p">,</span>
-<span class="p">)</span>
+<span class="nb">executable</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">'hello'</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="s">'main.cpp'</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="n">install</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">name_suffix</span><span class="p">:</span><span class="w"> </span><span class="s">'html'</span><span class="p">,</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
