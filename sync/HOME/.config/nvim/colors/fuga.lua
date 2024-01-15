@@ -1,7 +1,8 @@
 local parette = {
   bg = "#000000",
-  non = "#303030", -- よく見れば見える
+  bg_select = "#00241b",
 
+  non = "#303030", -- よく見れば見える
   comment = "#666666", -- 見やすいが目立たない
   fg = "#0a8a11", -- syntax: keyword
   symbol = "#8605a7", -- syntax: variable, constant, left value

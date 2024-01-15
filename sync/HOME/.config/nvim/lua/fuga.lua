@@ -103,8 +103,8 @@ function M.setup(name, bg, color)
 
   hl("NormalNC", { bg = color.non })
   -- TODO: fix TSplayground highlight
-  hl("Search", { link = "NormalNC" })
-  hl("Visual", { link = "NormalNC" })
+  hl("Search", { bg = color.bg_select })
+  hl("Visual", { link = "Search" })
 
   hl("Focus", { fg = color.bg, bg = color.comment })
   hl("MatchParen", { link = "Focus" })
