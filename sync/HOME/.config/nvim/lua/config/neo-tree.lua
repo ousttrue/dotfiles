@@ -16,6 +16,8 @@ local M = {
       ".vitepress",
       ".prettierrc",
       ".prettierrc.mjs",
+      ".textlintrc",
+      ".markdownlint-cli2.yaml",
     }
 
     local function open_all_subnodes(state)

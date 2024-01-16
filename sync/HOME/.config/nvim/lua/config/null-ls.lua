@@ -64,6 +64,7 @@ function M.setup()
   end
 
   null_ls.setup {
+    diagnostics_format = "[#{s}] #{c}\n#{m}",
     border = dot.border,
     -- debug = true,
     sources = {
@@ -89,6 +90,19 @@ function M.setup()
       null_ls.builtins.diagnostics.glslc.with {
         -- use opengl instead of vulkan1.0
         extra_args = { "--target-env=opengl" },
+      },
+      null_ls.builtins.diagnostics.eslint.with {
+        prefer_local = "node_modules/.bin", --プロジェクトローカルがある場合はそれを利用
+      },
+      -- npm install -g textlint textlint-rule-prh textlint-rule-preset-jtf-style textlint-rule-preset-ja-technical-writing textlint-rule-terminology textlint-rule-preset-ja-spacing
+      -- null_ls.builtins.diagnostics.textlint.with {
+      --   filetypes = { "markdown" },
+      -- },
+      -- null_ls.builtins.diagnostics.markdownlint,
+      -- https://github.com/jose-elias-alvarez/null-ls.nvim/issues/1256
+      -- https://blog.aoirint.com/entry/2023/markdownlint_cli2/
+      null_ls.builtins.diagnostics.markdownlint_cli2.with {
+        args = { "$FILENAME" },
       },
     },
     on_attach = on_attach,

@@ -30,10 +30,17 @@ return {
       ft.vala = { "//%s", "/*%s*/" }
     end,
   },
+  -- {
+  --   "sbdchd/neoformat",
+  --   config = function()
+  --     require("config.neoformat").setup()
+  --   end,
+  -- },
   {
-    "sbdchd/neoformat",
+    "nvimtools/none-ls.nvim",
     config = function()
-      require("config.neoformat").setup()
+      require("config.null-ls").setup()
     end,
   },
 }
+
