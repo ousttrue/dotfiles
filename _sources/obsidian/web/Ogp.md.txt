@@ -3,6 +3,10 @@
 - @2022 [サイトのOGP画像を自動生成する](https://zenn.dev/panda_program/articles/generate-og-image)
 - @2021 `iframe` [Zennのカードリンクのレスポンスが遅い件](https://zenn.dev/catnose99/scraps/381b3750099f49)
 
+# oglens
+
+@2023 [OGPを確認するための CLI を作った](https://zenn.dev/uzimaru0000/articles/ogp-check-cli)
+
 # satori
 
 # card
