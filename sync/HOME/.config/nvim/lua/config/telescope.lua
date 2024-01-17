@@ -56,7 +56,7 @@ function M.setup()
       live_grep_args = {
         auto_quoting = true, -- enable/disable auto-quoting
         -- define mappings, e.g.
-        mappings = {         -- extend mappings
+        mappings = { -- extend mappings
           i = {
             ["<C-k>"] = lga_actions.quote_prompt(),
             ["<C-i>"] = lga_actions.quote_prompt { postfix = " --iglob " },
@@ -109,16 +109,16 @@ function M.setup()
     vim.keymap.set("n", "<Leader><Space>", project_files, { noremap = true })
   end
 
-  -- vim.keymap.set("n", "<Leader>g", function()
-  --   local word = vim.fn.expand "<cword>"
-  --   builtin.live_grep {
-  --     cwd = vim.fn.getcwd(),
-  --   }
-  --   if #word > 0 then
-  --     vim.cmd("normal! i\\b" .. word .. "\\b")
-  --   end
-  -- end, { noremap = true })
-  vim.keymap.set("n", "<leader>g", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+  vim.keymap.set("n", "<Leader>g", function()
+    local word = vim.fn.expand "<cword>"
+    builtin.live_grep {
+      cwd = vim.fn.getcwd(),
+    }
+    if #word > 0 then
+      vim.cmd("normal! i\\b" .. word .. "\\b")
+    end
+  end, { noremap = true })
+  -- vim.keymap.set("n", "<leader>g", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 
   vim.keymap.set("n", "[[", builtin.resume, { noremap = true })
   vim.keymap.set("n", "<Leader>b", builtin.buffers, { noremap = true })
