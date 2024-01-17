@@ -53,7 +53,7 @@ local function init_nvim()
   opt.clipboard = "unnamedplus" -- Access system clipboard
   opt.laststatus = 3
   -- opt.winbar = "%f"
-  -- opt.fileformats = "unix"
+  opt.fileformats = "unix"
 
   opt.tabstop = 2
   opt.softtabstop = 2
@@ -496,7 +496,7 @@ else
       cs = { "dark", "duskfox" }
     end
   elseif platform == "nvim" then
-    cs = { "dark", "fuga" }
+    -- cs = { "dark", "fuga" }
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
       border = DOT.border,
     })

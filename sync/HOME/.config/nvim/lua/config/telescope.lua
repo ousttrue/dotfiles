@@ -10,6 +10,7 @@ function M.setup()
   telescope.load_extension "emoji"
   telescope.load_extension "notify"
   telescope.load_extension "ui-select"
+  telescope.load_extension "live_grep_args"
 
   -- https://github.com/nvim-telescope/telescope.nvim/issues/2027
   vim.api.nvim_create_autocmd("WinLeave", {
@@ -20,6 +21,15 @@ function M.setup()
     end,
   })
 
+  require("telescope").setup {
+    pickers = {
+      colorscheme = {
+        enable_preview = true,
+      },
+    },
+  }
+
+  local lga_actions = require "telescope-live-grep-args.actions"
   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-u-to-clear-prompt
   ---@diagnostic disable-next-line
   local setup = {
@@ -42,16 +52,23 @@ function M.setup()
         prompt_position = "top",
       },
     },
-  }
-
-  require("telescope").setup {
-    pickers = {
-      colorscheme = {
-        enable_preview = true,
+    extensions = {
+      live_grep_args = {
+        auto_quoting = true, -- enable/disable auto-quoting
+        -- define mappings, e.g.
+        mappings = {         -- extend mappings
+          i = {
+            ["<C-k>"] = lga_actions.quote_prompt(),
+            ["<C-i>"] = lga_actions.quote_prompt { postfix = " --iglob " },
+          },
+        },
+        -- ... also accepts theme settings, for example:
+        -- theme = "dropdown", -- use dropdown theme
+        -- theme = { }, -- use own theme spec
+        -- layout_config = { mirror=true }, -- mirror preview pane
       },
     },
   }
-
   if DOT.get_system() ~= "msys" then
     setup.vimgrep_arguments = {
       "rg",
@@ -92,15 +109,17 @@ function M.setup()
     vim.keymap.set("n", "<Leader><Space>", project_files, { noremap = true })
   end
 
-  vim.keymap.set("n", "<Leader>g", function()
-    local word = vim.fn.expand "<cword>"
-    builtin.live_grep {
-      cwd = vim.fn.getcwd(),
-    }
-    if #word > 0 then
-      vim.cmd("normal! i\\b" .. word .. "\\b")
-    end
-  end, { noremap = true })
+  -- vim.keymap.set("n", "<Leader>g", function()
+  --   local word = vim.fn.expand "<cword>"
+  --   builtin.live_grep {
+  --     cwd = vim.fn.getcwd(),
+  --   }
+  --   if #word > 0 then
+  --     vim.cmd("normal! i\\b" .. word .. "\\b")
+  --   end
+  -- end, { noremap = true })
+  vim.keymap.set("n", "<leader>g", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+
   vim.keymap.set("n", "[[", builtin.resume, { noremap = true })
   vim.keymap.set("n", "<Leader>b", builtin.buffers, { noremap = true })
   vim.keymap.set("n", "<Leader>h", builtin.help_tags, { noremap = true })
