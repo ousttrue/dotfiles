@@ -506,6 +506,14 @@ function gsr
     git switch -c $dst.Trim() $dst.Trim()
   }
 }
+
+function g_rm_merged
+{
+  git branch --merged
+  | Select-String -NotMatch -Pattern "(\*|develop|master)" 
+  | ForEach-Object{ git branch -d $_.ToString().Trim() }
+}
+
 # meson wrap
 function mewrap
 {
@@ -731,7 +739,13 @@ function now()
 
 function rmrf()
 {
-  Remove-Item -Recurse -Force $args
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipeline=$true)] [string[]] $inputStrings
+    )
+    process {
+        Remove-Item -Recurse -Force $inputStrings
+    }
 }
 
 if($env:GIS_DIR -and (Test-Path (Join-Path $env:GIS_DIR "jma/area.json")))

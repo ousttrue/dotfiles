@@ -128,7 +128,7 @@ function M.setup()
   })
 
   lspconfig.powershell_es.setup {
-    bundle_path = VSCODE .. "/extensions/ms-vscode.powershell-2023.3.3/modules",
+    bundle_path = VSCODE .. "/extensions/ms-vscode.powershell-2024.0.0/modules",
   }
 
   if vim.fn.executable "vala-language-server" == 1 then

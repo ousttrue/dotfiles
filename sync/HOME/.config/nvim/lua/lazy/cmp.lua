@@ -1,12 +1,14 @@
 return {
-  {
-    "L3MON4D3/LuaSnip",
-    -- tag = "v1.*",
-    config = function()
-      require("config.LuaSnip").setup()
-    end,
-    -- dependencies = { "rafamadriz/friendly-snippets", },
-  },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   -- tag = "v1.*",
+  --   config = function()
+  --     require("config.LuaSnip").setup()
+  --   end,
+  --   -- dependencies = { "rafamadriz/friendly-snippets", },
+  -- },
+  { "hrsh7th/vim-vsnip" },
+  { "hrsh7th/vim-vsnip-integ" },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {

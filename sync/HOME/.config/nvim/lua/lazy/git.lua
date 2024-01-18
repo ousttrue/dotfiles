@@ -3,7 +3,7 @@ return {
   {
     "NeogitOrg/neogit",
     dependencies = {
-      "nvim-lua/plenary.nvim", -- required
+      "nvim-lua/plenary.nvim",  -- required
       "sindrets/diffview.nvim", -- optional - Diff integration
 
       -- Only one of these is needed, not both.
@@ -36,5 +36,18 @@ return {
     dependencies = {
       "tpope/vim-fugitive",
     },
+  },
+  {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    config = function()
+      require("git-conflict").setup()
+      vim.keymap.set("n", "co", "<Plug>(git-conflict-ours)")
+      vim.keymap.set("n", "ct", "<Plug>(git-conflict-theirs)")
+      vim.keymap.set("n", "cb", "<Plug>(git-conflict-both)")
+      vim.keymap.set("n", "c0", "<Plug>(git-conflict-none)")
+      vim.keymap.set("n", "]x", "<Plug>(git-conflict-prev-conflict)")
+      vim.keymap.set("n", "[x", "<Plug>(git-conflict-next-conflict)")
+    end,
   },
 }
