@@ -13,11 +13,14 @@ function M.setup()
       url = "https://github.com/atusy/tree-sitter-uri",
       branch = "main",
       files = { "src/parser.c" },
-      generate_requires_npm = false, -- if stand-alone parser without npm dependencies
+      generate_requires_npm = false,          -- if stand-alone parser without npm dependencies
       requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
     },
-    filetype = "uri", -- if filetype does not match the parser name
+    filetype = "uri",                         -- if filetype does not match the parser name
   }
+
+  local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
+  ft_to_parser.mdx = "markdown"
 
   require("nvim-treesitter.configs").setup {
     parser_install_dir = treesitterpath,
@@ -101,7 +104,7 @@ function M.setup()
     playground = {
       enable = true,
       disable = {},
-      updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+      updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
       persist_queries = false, -- Whether the query persists across vim sessions
       keybindings = {
         toggle_query_editor = "o",
