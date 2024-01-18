@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>.gitattributes - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,19 +212,45 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md</p>
-<p>https://zenn.dev/teftef_ty/articles/config-markdownlint</p>
+          <p><a class="reference external" href="https://docs.github.com/ja/get-started/getting-started-with-git/configuring-git-to-handle-line-endings">行終端を処理するようGitを設定する - GitHub Docs</a></p>
+<p><a class="reference external" href="https://stackoverflow.com/questions/21472971/what-is-the-purpose-of-text-auto-in-gitattributes-file">git - What is the purpose of <code class="docutils literal notranslate"><span class="pre">text=auto</span></code> in <code class="docutils literal notranslate"><span class="pre">.gitattributes</span></code> file? - Stack Overflow</a></p>
 <ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://bsakatu.net/doc/issue-of-markdownlint/">Markdownlint で遭遇しているトラベルのメモ</a></p></li>
-<li><p>https://zenn.dev/teftef_ty/articles/config-markdownlint</p></li>
-<li><p>https://blog.aoirint.com/entry/2023/markdownlint_cli2/</p></li>
+<li><p>@2013 <a class="reference external" href="https://chryfopp.hatenablog.com/entry/2013/04/13/113754">.gitattributesのeol=crlfは改行コードをCRLFに変換してチェックインするものではない - エンジニア的考察ブログ</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="gitattributes">
+<h1>.gitattributes<a class="headerlink" href="#gitattributes" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-git notranslate"><div class="highlight"><pre><span></span>*           text=auto
+*.txt       text
+*.bat       text eol=crlf
+*.php       text eol=crlf
+*.js        text eol=lf
+*.jpg    binary
+*.png    binary
+*.gif    binary
+*.mp4    binary
+</pre></div>
+</div>
+<section id="crlf">
+<h2>CRLF<a class="headerlink" href="#crlf" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">text</span><span class="o">=</span><span class="n">auto</span> <span class="n">eol</span><span class="o">=</span><span class="n">lf</span>
+
+</pre></div>
+</div>
+</section>
+<section id="renormalize">
+<h2>renormalize<a class="headerlink" href="#renormalize" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2020 <code class="docutils literal notranslate"><span class="pre">renormlaize</span></code> <a class="reference external" href="https://qiita.com/m-tmatma/items/cfff9f2c60a26fde802d">git に登録済みのファイルの改行コードを正規化する #Git - Qiita</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/murnana/articles/eol-and-gitattributes">リポジトリで改行コードを正規化する</a></p></li>
+</ul>
+</section>
+</section>
 
         </article>
       </div>
@@ -239,7 +265,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/text/markdown/markdownlint.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/toolchain/git/git_attributes.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -247,8 +273,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">.gitattributes</a><ul>
+<li><a class="reference internal" href="#crlf">CRLF</a></li>
+<li><a class="reference internal" href="#renormalize">renormalize</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

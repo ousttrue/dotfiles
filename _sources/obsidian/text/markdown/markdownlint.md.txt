@@ -1,4 +1,4 @@
-https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.markdownlint
+https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
 
 https://zenn.dev/teftef_ty/articles/config-markdownlint
 
@@ -6,3 +6,4 @@ https://zenn.dev/teftef_ty/articles/config-markdownlint
 
 - https://zenn.dev/teftef_ty/articles/config-markdownlint
 
+- https://blog.aoirint.com/entry/2023/markdownlint_cli2/
