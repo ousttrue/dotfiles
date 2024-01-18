@@ -304,9 +304,9 @@ function prompt()
       # $branch = " `e[32m ${branch} $(git log --pretty=format:%s -n 1)`e[0m"
       $log = $(git log "--pretty=format: %cr   %s" -n 1)
       if($branch -eq "master") {
-        $branch = "`e[30m`e[42m ${branch}`e[0m ${sync} ${log}"
+        $branch = "`e[30m`e[42m  ${branch} `e[0m ${sync} ${log}"
       } else {
-        $branch = "`e[30m`e[41m ${branch}`e[0m ${sync} ${log}"
+        $branch = "`e[30m`e[41m  ${branch} `e[0m ${sync} ${log}"
       }
     }
   } 
