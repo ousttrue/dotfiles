@@ -127,10 +127,6 @@ function M.setup()
     end,
   })
 
-  lspconfig.powershell_es.setup {
-    bundle_path = VSCODE .. "/extensions/ms-vscode.powershell-2024.0.0/modules",
-  }
-
   if vim.fn.executable "vala-language-server" == 1 then
     require("lspconfig").vala_ls.setup {}
   end
@@ -176,10 +172,13 @@ function M.setup()
   -- dotnet tool install --global fantomas
   require("lspconfig").fsautocomplete.setup {}
   --
-  require("lspconfig").powershell_es.setup {
-    -- bundle_path = dot.get_home() .. "/local/src/PowerShellEditorServices",
-    bundle_path = VSCODE .. "/extensions/ms-vscode.powershell-2023.8.0/modules",
-  }
+  -- lspconfig.powershell_es.setup {
+  --   bundle_path = VSCODE .. "/extensions/ms-vscode.powershell-2024.0.0/modules",
+  -- }
+  -- require("lspconfig").powershell_es.setup {
+  --   -- bundle_path = dot.get_home() .. "/local/src/PowerShellEditorServices",
+  --   bundle_path = VSCODE .. "/extensions/ms-vscode.powershell-2023.8.0/modules",
+  -- }
 
   --
   -- web
@@ -206,6 +205,19 @@ function M.setup()
   require("lspconfig").marksman.setup {
     root_dir = lspconfig.util.root_pattern(".marksman.toml", ".git"),
   }
+
+  local mason_lspconfig = require('mason-lspconfig')
+  mason_lspconfig.setup_handlers({ function(server_name)
+    local opts = {}
+    opts.on_attach = function(_, bufnr)
+      local bufopts = { silent = true, buffer = bufnr }
+      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+      vim.keymap.set('n', 'gtD', vim.lsp.buf.type_definition, bufopts)
+      vim.keymap.set('n', 'grf', vim.lsp.buf.references, bufopts)
+      vim.keymap.set('n', '<space>p', vim.lsp.buf.format, bufopts)
+    end
+    require('lspconfig')[server_name].setup(opts)
+  end })
 end
 
 return M

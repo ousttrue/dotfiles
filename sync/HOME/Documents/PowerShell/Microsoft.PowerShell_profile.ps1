@@ -79,23 +79,23 @@ function Get-Path([string]$type)
     {
       if($IsWindows)
       {
-          switch($type)
+        switch($type)
+        {
+          "blender" 
           {
-              "blender" 
-              {
-                Get-Item (Join-Path ${env:AppData} "Blender Foundation\Blender")
-              }
-              "vswhere"
-              {
-                Get-Item (Join-Path ${env:ProgramFiles(x86)} "Microsoft Visual Studio\Installer\vswhere.exe")
-              }
-              default
-              {
-                $null 
-              }
+            Get-Item (Join-Path ${env:AppData} "Blender Foundation\Blender")
           }
-      }
-      else{
+          "vswhere"
+          {
+            Get-Item (Join-Path ${env:ProgramFiles(x86)} "Microsoft Visual Studio\Installer\vswhere.exe")
+          }
+          default
+          {
+            $null 
+          }
+        }
+      } else
+      {
         $null 
       }
     }
@@ -316,9 +316,11 @@ function prompt()
     {
       # $branch = " `e[32m ${branch} $(git log --pretty=format:%s -n 1)`e[0m"
       $log = $(git log "--pretty=format: %cr   %s" -n 1)
-      if($branch -eq "master") {
+      if($branch -eq "master")
+      {
         $branch = "`e[30m`e[42m  ${branch} `e[0m ${sync} ${log}"
-      } else {
+      } else
+      {
         $branch = "`e[30m`e[41m  ${branch} `e[0m ${sync} ${log}"
       }
     }
@@ -666,10 +668,10 @@ function Get-Dotfile
 
 function Remove-DeadLink
 {
-    Get-ChildItem ~\.config\ -Recurse
-    | Where-Object{ $_.LinkTarget -and !(Test-Path $_.LinkTarget)}
-    | ForEach-Object{write-host "Remove: $_"; $_}
-    | Remove-Item
+  Get-ChildItem ~\.config\ -Recurse
+  | Where-Object{ $_.LinkTarget -and !(Test-Path $_.LinkTarget)}
+  | ForEach-Object{write-host "Remove: $_"; $_}
+  | Remove-Item
 }
 
 function Pull-DotFile
@@ -752,13 +754,14 @@ function now()
 
 function rmrf()
 {
-    [CmdletBinding()]
-    param(
-        [Parameter(ValueFromPipeline=$true)] [string[]] $inputStrings
-    )
-    process {
-        Remove-Item -Recurse -Force $inputStrings
-    }
+  [CmdletBinding()]
+  param(
+    [Parameter(ValueFromPipeline=$true)] [string[]] $inputStrings
+  )
+  process
+  {
+    Remove-Item -Recurse -Force $inputStrings
+  }
 }
 
 if($env:GIS_DIR -and (Test-Path (Join-Path $env:GIS_DIR "jma/area.json")))
@@ -856,11 +859,12 @@ function Install-Dependency
 }
 
 # Set-Alias nvim (Join-Path (Get-Path "local-src") "nvim-win64/bin/nvim$EXE")
-if($IsWindows){
-Set-Alias nvim "C:\Program Files\Neovim\bin\nvim.exe"
-}
-else{
-Set-Alias nvim (Join-Path $env:HOME "local/bin/nvim")
+if($IsWindows)
+{
+  Set-Alias nvim "C:\Program Files\Neovim\bin\nvim.exe"
+} else
+{
+  Set-Alias nvim (Join-Path $env:HOME "local/bin/nvim")
 }
 function v()
 {

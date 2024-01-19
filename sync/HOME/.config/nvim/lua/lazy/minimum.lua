@@ -38,9 +38,32 @@ return {
   -- },
   {
     "nvimtools/none-ls.nvim",
+  },
+
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
     config = function()
-      require("config.null-ls").setup()
+      require("mason").setup()
+      require("mason-lspconfig").setup()
     end,
   },
-}
 
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("config.nvim-lspconfig").setup()
+    end,
+    dependencies = {
+      -- "hrsh7th/cmp-nvim-lsp",
+      "folke/neodev.nvim",
+      -- "rcarriga/nvim-notify",
+      -- "b0o/schemastore.nvim",
+      "creativenull/efmls-configs-nvim",
+      "SmiteshP/nvim-navbuddy",
+      "williamboman/mason-lspconfig.nvim",
+    },
+  },
+}
