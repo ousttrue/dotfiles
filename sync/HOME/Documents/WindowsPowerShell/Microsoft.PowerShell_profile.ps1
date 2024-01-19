@@ -1,1 +1,1 @@
-. ($PSScriptRoot + "/" + "..//PowerShell/Microsoft.PowerShell_profile.ps1")
+#. ($PSScriptRoot + "/" + "..//PowerShell/Microsoft.PowerShell_profile.ps1")

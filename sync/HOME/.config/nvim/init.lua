@@ -40,16 +40,16 @@ local function init_nvim()
   opt.showtabline = 3
   opt.completeopt = "menu,preview"
   opt.ambiwidth = "single"
-  opt.termguicolors = true -- Enable colors in terminal
-  opt.hlsearch = true --Set highlight on search
-  opt.number = true --Make line numbers default
+  opt.termguicolors = true      -- Enable colors in terminal
+  opt.hlsearch = true           --Set highlight on search
+  opt.number = true             --Make line numbers default
   -- opt.relativenumber = true --Make relative number default
-  opt.mouse = "a" --Enable mouse mode
-  opt.breakindent = true --Enable break indent
-  opt.ignorecase = true --Case insensitive searching unless /C or capital in search
-  opt.smartcase = true -- Smart case
-  opt.updatetime = 250 --Decrease update time
-  opt.signcolumn = "yes" -- Always show sign column
+  opt.mouse = "a"               --Enable mouse mode
+  opt.breakindent = true        --Enable break indent
+  opt.ignorecase = true         --Case insensitive searching unless /C or capital in search
+  opt.smartcase = true          -- Smart case
+  opt.updatetime = 250          --Decrease update time
+  opt.signcolumn = "yes"        -- Always show sign column
   opt.clipboard = "unnamedplus" -- Access system clipboard
   opt.laststatus = 3
   -- opt.winbar = "%f"
@@ -466,6 +466,21 @@ end
 --
 -- main
 --
+
+local SYNTAX_UTIL =  require "syntax_util"
+
+vim.api.nvim_create_autocmd('colorscheme', {
+  -- pattern = 'habamax',
+  callback = function(ev)
+    -- print('hello habamax')
+    -- print(string.format('event fired: %s', vim.inspect(ev)))
+
+    SYNTAX_UTIL.clear_syntax_link()
+    if ev.match == 'habamax' then
+      vim.api.nvim_set_hl(0, 'MatchParen', { link = "Title" })
+    end
+  end
+})
 
 -- Remap leader and local leader to <Space>
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })

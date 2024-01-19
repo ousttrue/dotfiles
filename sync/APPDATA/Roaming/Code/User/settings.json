@@ -1,5 +1,5 @@
 {
-    "terminal.integrated.fontFamily": "HackGen Console NF",
+    "terminal.integrated.fontFamily": "'HackGen Console NF', 'Fira Code', monospace",
     "git.openRepositoryInParentFolders": "never",
     "debug.onTaskErrors": "showErrors",
     "explorer.confirmDelete": false,
