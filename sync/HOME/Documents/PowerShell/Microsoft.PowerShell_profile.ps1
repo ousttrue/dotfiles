@@ -49,7 +49,7 @@ function Get-Path([string]$type)
         Get-Item (Join-Path ${env:LOCALAPPDATA} "\nvim-data\shada") 
       } else
       {
-        $null
+        Get-Item (Join-Path ${env:HOME} ".local/state/nvim/shada") 
       }
     }
     "msys"
@@ -75,16 +75,29 @@ function Get-Path([string]$type)
     {
       Get-Item (Join-Path (Get-Path "local") "src")
     }
-    "blender" 
-    {
-      Get-Item (Join-Path $env:AppData "Blender Foundation\Blender")
-    }
-    "vswhere"
-    {
-      Get-Item (Join-Path ${env:ProgramFiles(x86)} "Microsoft Visual Studio\Installer\vswhere.exe")
-    }
     default
-    {$null 
+    {
+      if($IsWindows)
+      {
+          switch($type)
+          {
+              "blender" 
+              {
+                Get-Item (Join-Path ${env:AppData} "Blender Foundation\Blender")
+              }
+              "vswhere"
+              {
+                Get-Item (Join-Path ${env:ProgramFiles(x86)} "Microsoft Visual Studio\Installer\vswhere.exe")
+              }
+              default
+              {
+                $null 
+              }
+          }
+      }
+      else{
+        $null 
+      }
     }
   }
 }
@@ -276,7 +289,7 @@ function prompt()
     {
       $location = " " + $location
     }
-  } elseif($location.FullName.StartsWith("$(Get-Path "blender")${SEP}"))
+  } elseif($IsWindows -and $location.FullName.StartsWith("$(Get-Path "blender")${SEP}"))
   {
     $location = "🐵" + [System.IO.Path]::GetRelativePath((Get-Path "blender"), $location)
   } elseif($location.FullName.StartsWith($HOME))
@@ -843,7 +856,12 @@ function Install-Dependency
 }
 
 # Set-Alias nvim (Join-Path (Get-Path "local-src") "nvim-win64/bin/nvim$EXE")
+if($IsWindows){
 Set-Alias nvim "C:\Program Files\Neovim\bin\nvim.exe"
+}
+else{
+Set-Alias nvim (Join-Path $env:HOME "local/bin/nvim")
+}
 function v()
 {
   nvim $args

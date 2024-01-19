@@ -19,8 +19,9 @@ function M.setup()
     filetype = "uri",                         -- if filetype does not match the parser name
   }
 
-  local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
-  ft_to_parser.mdx = "markdown"
+  -- local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
+  -- ft_to_parser.mdx = "markdown"
+  vim.treesitter.language.register("mdx", "markdown")
 
   require("nvim-treesitter.configs").setup {
     parser_install_dir = treesitterpath,
