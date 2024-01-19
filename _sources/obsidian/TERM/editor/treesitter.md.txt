@@ -29,3 +29,20 @@
 # emacs
 - [How to Get Started with Tree-Sitter - Mastering Emacs](https://www.masteringemacs.org/article/how-to-get-started-tree-sitter)
 - [EmacsConf - 2022 - talks - Tree-sitter beyond syntax highlighting](https://emacsconf.org/2022/talks/treesitter/)
+
+# error
+
+## heredoc_end
+
+fix: remove ~/local/lib/nvim/parser
+
+https://github.com/nvim-treesitter/nvim-treesitter/issues/3092
+https://github.com/nvim-treesitter/nvim-treesitter/issues/5680
+
+- @2022 [nvim-treesitterで「query: invalid node type at...」エラーが出た #neovim - Qiita](https://qiita.com/ZOI_dayo/items/3c39252c729dd27393f3)
+
+```error
+Query error at 9:4. Invalid node type "heredoc_end":
+```
+
+
