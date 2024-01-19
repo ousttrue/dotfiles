@@ -195,7 +195,6 @@ local function init_nvim()
   vim.keymap.set("n", "Q", close_buffer_or_window, { noremap = true })
   vim.keymap.set("n", "<C-d>", ":qa<CR>", { noremap = true })
   vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true })
-  vim.keymap.set("n", ";", "$", { noremap = true })
 
   vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
   vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })

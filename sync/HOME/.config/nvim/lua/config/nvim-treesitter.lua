@@ -1,4 +1,35 @@
-local M = {}
+local M = {
+  "query",
+  -- "help" => vimdoc,
+  "vimdoc",
+  "c",
+  "cpp",
+  "python",
+  "lua",
+  "markdown",
+  "markdown_inline",
+  "zig",
+  "html",
+  "css",
+  "c_sharp",
+  "toml",
+  "go",
+  "bash",
+  "json",
+  "vala",
+  "scss",
+  "svelte",
+  "typescript",
+  "javascript",
+  "tsx",
+  "yaml",
+
+  -- "nu",
+  "uri",
+}
+
+local langs = {
+}
 
 function M.setup()
   -- パーサーのインストール先（任意）
@@ -30,35 +61,8 @@ function M.setup()
       enable = true,
     },
     -- ensure_installed = "all",
-    ensure_installed = {
-      "query",
-      -- "help" => vimdoc,
-      "vimdoc",
-      "c",
-      "cpp",
-      "python",
-      "lua",
-      "markdown",
-      "markdown_inline",
-      "zig",
-      "html",
-      "css",
-      "c_sharp",
-      "toml",
-      "go",
-      "bash",
-      "json",
-      "vala",
-      "scss",
-      "svelte",
-      "typescript",
-      "javascript",
-      "tsx",
-      "yaml",
-
-      -- "nu",
-      "uri",
-    },
+    ensure_installed = langs
+    ,
 
     indent = {
       enable = true,
