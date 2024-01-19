@@ -132,6 +132,13 @@ if($IsWindows)
   $EXE=""
 }
 
+# asdf
+$ASDF  = Join-Path $env:HOME ".asdf/asdf.ps1"
+if(Test-Path $ASDF)
+{
+  . "${ASDF}"
+}
+
 $SEP = [System.IO.Path]::DirectorySeparatorChar
 $env:FZF_DEFAULT_OPTS="--layout=reverse --preview-window down:70%"
 $env:LUA_PATH="${HOME}${SEP}lua${SEP}?.lua;${HOME}${SEP}lua${SEP}?${SEP}init.lua"
@@ -270,7 +277,7 @@ function prompt()
     $prefix + " "
   }
 
-  $location = (Get-Item (Get-Location));
+  $location = (Get-Item -force (Get-Location));
   $title = $location.Name
   if($GHQ_ROOT -and $location.FullName.StartsWith($GHQ_ROOT.FullName + $SEP))
   {
