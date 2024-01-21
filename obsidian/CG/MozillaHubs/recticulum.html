@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>tile schema - shell note ドキュメント</title>
+        <title>Reticulum(main server) - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,85 +218,39 @@
           </label>
         </div>
         <article role="main">
-          <p>[[OpenStreetMap]] [[NaturalEarth]]
-[[charites]]</p>
-<ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://qiita.com/moritoru/items/e160f14e822ada67461c">MapLibre GL JSのスタイルファイルを読む ##Map - Qiita</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://qiita.com/T-ubu/items/02a9725dd6329d35d477">ベクトルタイル用スタイルの書き方メモ（Mapbox, Maplibre, ArcGIS API for Javascript） #MapLibre - Qiita</a></p>
-<ul>
-<li><p>@2022 <a class="reference external" href="https://qiita.com/T-ubu/items/961176fb92fb66a927e0">ベクトルタイル用スタイル・Expressionsについて（MapBoxスタイル仕様、MapLibreスタイル仕様） #mapbox - Qiita</a></p></li>
-</ul>
-</li>
-<li><p>MapLibre</p></li>
-<li><p>ArcGIS API for Javascript</p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="tile-schema">
-<h1>tile schema<a class="headerlink" href="#tile-schema" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="source-layer">
-<h2>source layer<a class="headerlink" href="#source-layer" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>tilemaker <code class="docutils literal notranslate"><span class="pre">metadata.json</span></code></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-  "bounds": [122.5607, 20.08228000000001, 154.4709, 45.815403],
-  "name": "Tilemaker example",
-  "version": "0.1",
-  "description": "Sample vector tiles for Tilemaker",
-  "minzoom": 12,
-  "maxzoom": 14,
-  "vector_layers": [
-    {
-      "id": "waterway", // 👈 source-layer: 川
-      "fields": { "class": "String" },
-      "minzoom": 11,
-      "maxzoom": 14
-    },
-    {
-      "id": "transportation", // 👈 source-layer: 道
-      "fields": { "class": "String" },
-      "minzoom": 12,
-      "maxzoom": 14
-    },
-    { "id": "building", "fields": {}, "minzoom": 14, "maxzoom": 14 },
-    {
-      "id": "poi",
-      "fields": { "class": "String", "name": "String" },
-      "minzoom": 13,
-      "maxzoom": 14
-    }
-  ]
-}
+          <section id="reticulum-main-server">
+<h1>Reticulum(main server)<a class="headerlink" href="#reticulum-main-server" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class='highlight-title=".tool-versions" notranslate'><div class="highlight"><pre><span></span>elixir 1.14.3-otp-23
+erlang 23.3.4.18
 </pre></div>
 </div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="style-json">
-<h1>style.json<a class="headerlink" href="#style-json" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>https://openmaptiles.org/schema/</p>
+<p><code class="docutils literal notranslate"><span class="pre">Erlang</span> <span class="pre">(v23.3)</span> <span class="pre">+</span> <span class="pre">Elixir</span> <span class="pre">(v1.14)</span> <span class="pre">+</span> <span class="pre">Phoenix</span></code></p>
+<p>[[elixir]]</p>
+<p><code class="docutils literal notranslate"><span class="pre">postgresql</span></code> https://github.com/mozilla/Reticulum</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># sudo apt-get install postgresql</span>
+<span class="c1"># sudo apt-get install elixir</span>
+
+asdf install elixir <span class="m">1</span>.14.5-otp-23
+</pre></div>
+</div>
+<section id="ecto">
+<h2>ecto<a class="headerlink" href="#ecto" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://qiita.com/moritoru/items/434783e50345a35d9d45">全世界のベクトルタイルOpenMapTilesを使って地図のスタイリングをする #OpenStreetMap - Qiita</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://qiita.com/sand/items/71d0b35d74a4781f3564">Elixir Ecto のまとめ #PostgreSQL - Qiita</a></p></li>
 </ul>
-<section id="layers">
-<h2>Layers<a class="headerlink" href="#layers" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>描画順</p>
+<p><code class="docutils literal notranslate"><span class="pre">mix.exs</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">_build</span></code>, <code class="docutils literal notranslate"><span class="pre">deps</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mix deps.get
+mix ecto.create
+could not compile dependency :ecto, <span class="s2">"mix compile"</span> failed. Errors may have been logged above. You can recompile this dependency with <span class="s2">"mix deps.compile ecto"</span>, update it with <span class="s2">"mix deps.update ecto"</span> or clean it with <span class="s2">"mix deps.clean ecto"</span>
+</pre></div>
+</div>
+<p>https://elixirforum.com/t/compilation-error-caused-by-ecto-after-upgrading-to-otp-26/57848</p>
 <ul class="simple">
-<li><p>background</p></li>
-<li><p>water</p></li>
-<li><p>landcover</p></li>
-<li><p>landuse</p></li>
+<li><p>@2021 <a class="reference external" href="https://qiita.com/hironori_nakae/items/b409fb9b0ff4ceb6eb9d">Reticulumをローカルで動かしてデプロイする #chef - Qiita</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://zenn.dev/kou029w/articles/hubs-custom-reticulum">Mozilla HubsのバックエンドサーバーReticulumを改造する方法</a></p></li>
 </ul>
 </section>
-<section id="maputnik">
-<h2>Maputnik<a class="headerlink" href="#maputnik" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">editor</span></code>
-<a class="reference external" href="https://openmaptiles.org/docs/style/maputnik/">Design a style with Maputnik – OpenMapTiles</a></p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="mapbox-gl-style">
-<h1>Mapbox GL style<a class="headerlink" href="#mapbox-gl-style" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://openmaptiles.org/styles/">Open-source map styles – OpenMapTiles</a></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="glyphs">
-<h1>glyphs<a class="headerlink" href="#glyphs" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[font_pbf]]</p>
 </section>
 
         </article>
@@ -312,7 +266,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/GIS/vectortile/map_style.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/CG/MozillaHubs/recticulum.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -332,17 +286,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">tile schema</a><ul>
-<li><a class="reference internal" href="#source-layer">source layer</a></li>
+<li><a class="reference internal" href="#">Reticulum(main server)</a><ul>
+<li><a class="reference internal" href="#ecto">ecto</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#style-json">style.json</a><ul>
-<li><a class="reference internal" href="#layers">Layers</a></li>
-<li><a class="reference internal" href="#maputnik">Maputnik</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mapbox-gl-style">Mapbox GL style</a></li>
-<li><a class="reference internal" href="#glyphs">glyphs</a></li>
 </ul>
 
           </div>

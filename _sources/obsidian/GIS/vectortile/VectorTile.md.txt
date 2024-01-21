@@ -46,4 +46,18 @@
 - [GitHub - vicapow/go-vtile-example: An example go server for serving vector tiles](https://github.com/vicapow/go-vtile-example)
 - [GitHub - whosonfirst/go-rasterzen: Tools for rendering raster tiles derived from Nextzen (Mapzen) Vector tiles.](https://github.com/whosonfirst/go-rasterzen)
 
+# convert
+## from mbtiles
+
+[[NaturalEarth]]
+
+- [バイナリベクトルファイル(pbf)の作り方 by shimizu](https://blocks.roadtolarissa.com/shimizu/385aff2837f6054d1ba839c1542159f3)
+
+https://github.com/mapbox/mbutil
+
+```sh
+py C:\Python310\Scripts\mb-util .\natural_earth.vector.mbtiles tiles --image_format=pbf
+
+> Get-ChildItem -Recurse .\public\ | ?{ $_ -like "*.pbf" } | %{ Rename-Item $_ "$_.gz" }
+```
 

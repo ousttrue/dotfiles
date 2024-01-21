@@ -276,6 +276,22 @@
 <li><p><a class="reference external" href="https://github.com/whosonfirst/go-rasterzen">GitHub - whosonfirst/go-rasterzen: Tools for rendering raster tiles derived from Nextzen (Mapzen) Vector tiles.</a></p></li>
 </ul>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="convert">
+<h1>convert<a class="headerlink" href="#convert" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="from-mbtiles">
+<h2>from mbtiles<a class="headerlink" href="#from-mbtiles" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[NaturalEarth]]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blocks.roadtolarissa.com/shimizu/385aff2837f6054d1ba839c1542159f3">バイナリベクトルファイル(pbf)の作り方 by shimizu</a></p></li>
+</ul>
+<p>https://github.com/mapbox/mbutil</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>py C:<span class="se">\P</span>ython310<span class="se">\S</span>cripts<span class="se">\m</span>b-util .<span class="se">\n</span>atural_earth.vector.mbtiles tiles --image_format<span class="o">=</span>pbf
+
+&gt; Get-ChildItem -Recurse .<span class="se">\p</span>ublic<span class="se">\ </span><span class="p">|</span> ?<span class="o">{</span> <span class="nv">$_</span> -like <span class="s2">"*.pbf"</span> <span class="o">}</span> <span class="p">|</span> %<span class="o">{</span> Rename-Item <span class="nv">$_</span> <span class="s2">"</span><span class="nv">$_</span><span class="s2">.gz"</span> <span class="o">}</span>
+</pre></div>
+</div>
+</section>
+</section>
 
         </article>
       </div>
@@ -319,6 +335,10 @@
 <li><a class="reference internal" href="#csharp">Csharp</a></li>
 <li><a class="reference internal" href="#renderer">Renderer</a></li>
 <li><a class="reference internal" href="#golang">golang</a></li>
+<li><a class="reference internal" href="#convert">convert</a><ul>
+<li><a class="reference internal" href="#from-mbtiles">from mbtiles</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
