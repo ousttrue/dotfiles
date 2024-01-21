@@ -1,25 +1,9 @@
-
-- [GitHub - mozilla/hubs: Duck-themed multi-user virtual spaces in WebVR. Built with A-Frame.](https://github.com/mozilla/hubs)
-
-[[janus]]
-
-## articles
-
-### local
-
-- @2023 [Mozilla Hubsをセルフホストする #kubernetes - Qiita](https://qiita.com/dodolia907/items/c350f9a69deca6e3b831)
-
-- @2022 [Mozilla Hubs Cloudをローカル（M1搭載Macbook）で実行してみた](https://zenn.dev/yh_haoareyou/articles/mozilla-hubs-run-locally-mac-m1)
-
-- @2022 [続 Mozilla Hubs – VirtualBox でホストした自作シーンに入ってみた ｜株式会社インフィニットループ技術ブログ](https://www.infiniteloop.co.jp/blog/2022/03/mozilla-hubs-virtualbox-createscene/)
-
-## CommunityEdition
-
-https://github.com/mozilla/hubs-cloud/tree/master/community-edition
-
-- @2023 https://hubs.mozilla.com/labs/welcoming-community-edition/
-
 ## Reticulum(main server)
+
+```title=".tool-versions"
+elixir 1.14.3-otp-23
+erlang 23.3.4.18
+```
 
 `Erlang (v23.3) + Elixir (v1.14) + Phoenix`
 
@@ -28,9 +12,10 @@ https://github.com/mozilla/hubs-cloud/tree/master/community-edition
 `postgresql` https://github.com/mozilla/Reticulum
 
 ```sh
-sudo apt-get install postgresql
-sudo apt-get install elixir
+# sudo apt-get install postgresql
+# sudo apt-get install elixir
 
+asdf install elixir 1.14.5-otp-23
 ```
 
 ### ecto
@@ -52,7 +37,4 @@ https://elixirforum.com/t/compilation-error-caused-by-ecto-after-upgrading-to-ot
 - @2021 [Reticulumをローカルで動かしてデプロイする #chef - Qiita](https://qiita.com/hironori_nakae/items/b409fb9b0ff4ceb6eb9d)
 - @2020 [Mozilla HubsのバックエンドサーバーReticulumを改造する方法](https://zenn.dev/kou029w/articles/hubs-custom-reticulum)
 
-## Hubs(front)
-
-## Dialog(webRTC?)
 

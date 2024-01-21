@@ -218,6 +218,7 @@ function M.setup()
     end
     require('lspconfig')[server_name].setup(opts)
   end })
+
 end
 
 return M

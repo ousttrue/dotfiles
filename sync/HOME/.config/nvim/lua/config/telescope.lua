@@ -10,7 +10,7 @@ function M.setup()
   telescope.load_extension "emoji"
   telescope.load_extension "notify"
   telescope.load_extension "ui-select"
-  telescope.load_extension "live_grep_args"
+  -- telescope.load_extension "live_grep_args"
 
   -- https://github.com/nvim-telescope/telescope.nvim/issues/2027
   vim.api.nvim_create_autocmd("WinLeave", {
@@ -21,18 +21,9 @@ function M.setup()
     end,
   })
 
-  require("telescope").setup {
-    pickers = {
-      colorscheme = {
-        enable_preview = true,
-      },
-    },
-  }
-
-  local lga_actions = require "telescope-live-grep-args.actions"
   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-u-to-clear-prompt
   ---@diagnostic disable-next-line
-  local setup = {
+  telescope.setup {
     defaults = {
       mappings = {
         i = {
@@ -52,39 +43,23 @@ function M.setup()
         prompt_position = "top",
       },
     },
-    extensions = {
-      live_grep_args = {
-        auto_quoting = true, -- enable/disable auto-quoting
-        -- define mappings, e.g.
-        mappings = { -- extend mappings
-          i = {
-            ["<C-k>"] = lga_actions.quote_prompt(),
-            ["<C-i>"] = lga_actions.quote_prompt { postfix = " --iglob " },
-          },
-        },
-        -- ... also accepts theme settings, for example:
-        -- theme = "dropdown", -- use dropdown theme
-        -- theme = { }, -- use own theme spec
-        -- layout_config = { mirror=true }, -- mirror preview pane
+    -- https://www.reddit.com/r/neovim/comments/16ikt0q/telescope_live_grep_search_some_hidden_files/
+    pickers = {
+      colorscheme = {
+        enable_preview = true,
+      },
+      live_grep = {
+        file_ignore_patterns = { "node_modules", ".git", ".venv" },
+        additional_args = function(_)
+          return { "--hidden" }
+        end,
+      },
+      find_files = {
+        file_ignore_patterns = { "node_modules", ".git", ".venv" },
+        hidden = true,
       },
     },
   }
-  if DOT.get_system() ~= "msys" then
-    setup.vimgrep_arguments = {
-      "rg",
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case",
-      "--hidden",
-      "--glob",
-      "!.git",
-    }
-  end
-
-  telescope.setup(setup)
 
   -- https://www.reddit.com/r/neovim/comments/p1xj92/make_telescope_git_files_revert_back_to_find/
   local function project_files()

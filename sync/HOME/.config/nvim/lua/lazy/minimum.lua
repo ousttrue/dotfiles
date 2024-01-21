@@ -38,6 +38,9 @@ return {
   -- },
   {
     "nvimtools/none-ls.nvim",
+    config = function()
+      require("config.null-ls").setup()
+    end,
   },
 
   {
@@ -66,4 +69,15 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
   },
+
+  -- {
+  --   "nvimdev/lspsaga.nvim",
+  --   config = function()
+  --     require("lspsaga").setup {}
+  --   end,
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter", -- optional
+  --     "nvim-tree/nvim-web-devicons", -- optional
+  --   },
+  -- },
 }

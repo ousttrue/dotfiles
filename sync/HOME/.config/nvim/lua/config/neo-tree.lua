@@ -18,6 +18,7 @@ local M = {
       ".prettierrc.mjs",
       ".textlintrc",
       ".markdownlint-cli2.yaml",
+      ".ladle",
     }
 
     local function open_all_subnodes(state)

@@ -7,81 +7,41 @@ end
 
 function M.clear_syntax_link()
   -- vim.api.nvim_set_hl(0, "Unknown", { force = true, fg = "#FF00FF" })
-  hl_clear "SpecialKey"
-  -- hl_clear "TermCursor"
-  -- hl_clear "NonText"
-  -- hl_clear "Directory"
-  -- hl_clear "ErrorMsg"
-  -- hl_clear "Search"
-  -- hl_clear "CurSearch"
-  -- hl_clear "MoreMsg"
-  -- hl_clear "ModeMsg"
-  -- hl_clear "LineNr"
-  -- hl_clear "CursorLineNr"
-  -- hl_clear "Question"
-  -- hl_clear "StatusLine"
-  -- hl_clear "StatusLineNC"
-  -- hl_clear "Title"
-  -- hl_clear "Visual"
-  -- hl_clear "WarningMsg"
-  -- hl_clear "Folded"
-  -- hl_clear "DiffAdd"
-  -- hl_clear "DiffChange"
-  -- hl_clear "DiffDelete"
-  -- hl_clear "DiffText"
-  -- hl_clear "SignColumn"
-  hl_clear "Conceal"
-  -- hl_clear "SpellBad"
-  -- hl_clear "SpellCap"
-  -- hl_clear "SpellRare"
-  -- hl_clear "SpellLocal"
-  -- hl_clear "Pmenu"
-  -- hl_clear "PmenuSel"
-  -- hl_clear "PmenuThumb"
-  -- hl_clear "TabLineSel"
-  -- hl_clear "CursorColumn"
-  -- hl_clear "CursorLine"
-  -- hl_clear "ColorColumn"
-  -- hl_clear "QuickFixLine"
+  vim.api.nvim_set_hl(0, "Conceal", { link = "NonText" })
+  vim.api.nvim_set_hl(0, "@conceal", { link = "NonText" })
 
-  -- hl_clear "NormalFloat"
-  -- hl_clear "Cursor"
-  -- hl_clear "RedrawDebugNormal"
-  -- hl_clear "Todo"
-  -- hl_clear "Underlined"
-  -- hl_clear "lCursor"
-  -- hl_clear "Normal"
-  hl_clear "Statement"
-  hl_clear "Special"
-  -- hl_clear "DiagnosticError"
-  -- hl_clear "DiagnosticWarn"
-  -- hl_clear "DiagnosticInfo"
-  -- hl_clear "DiagnosticHint"
-  -- hl_clear "DiagnosticOk"
-  -- hl_clear "Comment"
-  hl_clear "Identifier"
-  hl_clear "String"
-  hl_clear "Function"
-  hl_clear "PreProc"
-  hl_clear "Conditional"
-  hl_clear "Keyword"
-  hl_clear "Type"
-  hl_clear "Constant"
-  hl_clear "Operator"
-  -- hl_clear "FloatShadow"
-  -- hl_clear "FloatShadowThrough"
-  -- hl_clear "MatchParen"
-  -- hl_clear "RedrawDebugClear"
-  -- hl_clear "RedrawDebugComposed"
-  -- hl_clear "RedrawDebugRecompose"
-  -- hl_clear "Error"
-  -- hl_clear "DiagnosticUnderlineError"
-  -- hl_clear "DiagnosticUnderlineWarn"
-  -- hl_clear "DiagnosticUnderlineInfo"
-  -- hl_clear "DiagnosticUnderlineHint"
-  -- hl_clear "DiagnosticUnderlineOk"
-  -- hl_clear "DiagnosticDeprecated"
-  -- hl_clear "NvimInternalError"
+  -- Keyword
+  -- hl_clear "Statement"
+  -- hl_clear "Keyword"
+  -- hl_clear "Operator"
+  -- hl_clear "Conditional"
+  vim.api.nvim_set_hl(0, "Type", { link = "Statement" })
+  vim.api.nvim_set_hl(0, "Special", { link = "Statement" })
+  vim.api.nvim_set_hl(0, "PreProc", { link = "Statement" })
+
+  -- Literal
+  -- hl_clear "String"
+  vim.api.nvim_set_hl(0, "@boolean", { link = "String" })
+  vim.api.nvim_set_hl(0, "@number", { link = "String" })
+
+  -- Identifier
+  -- hl_clear "Identifier"
+  vim.api.nvim_set_hl(0, "Constant", { link = "Identifier" })
+  vim.api.nvim_set_hl(0, "Function", { link = "Identifier" })
+  vim.api.nvim_set_hl(0, "@function", { link = "Identifier" })
+  vim.api.nvim_set_hl(0, "@function.builtin", { link = "Identifier" })
+
+  vim.api.nvim_set_hl(0, "@punctuation.bracket.lua", { link = "Operator" })
+  vim.api.nvim_set_hl(0, "@field.lua", { link = "Debug" })
+  vim.api.nvim_set_hl(0, "@Constant.lua", { link = "Constant" })
+
+  vim.api.nvim_set_hl(0, "@type.typescript", { link = "Identifier" })
+
+  vim.api.nvim_set_hl(0, "@tag.astro", { link = "Identifier" })
+  vim.api.nvim_set_hl(0, "@type.astro", { link = "Identifier" })
+  vim.api.nvim_set_hl(0, "@tag.attribute.astro", { link = "Debug" })
+
+  hl_clear "@text.uri"
 end
 
 return M

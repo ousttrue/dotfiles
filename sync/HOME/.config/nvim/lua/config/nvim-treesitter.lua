@@ -28,8 +28,7 @@ local M = {
   "uri",
 }
 
-local langs = {
-}
+local langs = {}
 
 function M.setup()
   -- パーサーのインストール先（任意）
@@ -52,7 +51,7 @@ function M.setup()
 
   -- local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
   -- ft_to_parser.mdx = "markdown"
-  vim.treesitter.language.register("mdx", "markdown")
+  vim.treesitter.language.register("markdown", "mdx")
 
   require("nvim-treesitter.configs").setup {
     parser_install_dir = treesitterpath,
@@ -61,8 +60,7 @@ function M.setup()
       enable = true,
     },
     -- ensure_installed = "all",
-    ensure_installed = langs
-    ,
+    ensure_installed = langs,
 
     indent = {
       enable = true,
