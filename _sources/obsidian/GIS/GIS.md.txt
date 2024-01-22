@@ -1,10 +1,5 @@
 # GIS
 
-## vector tile renderer
-
-- [[deck.gl]]
-- [[MapLibre]] `Mapbox GL JSのv1.13.0がフォーク`
-- [[MapBox]]
 
 # backup
 

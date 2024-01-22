@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>renderer - shell note ドキュメント</title>
+        <title>online editor - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,79 +218,21 @@
           </label>
         </div>
         <article role="main">
-          <p>[[GIS]] [[zxytile]] [[MapLibre]]</p>
-<p><code class="docutils literal notranslate"><span class="pre">Mapbox</span> <span class="pre">Vector</span> <span class="pre">Tiles</span> <span class="pre">format</span></code></p>
+          <p>[[tilejson]]</p>
+<p>https://maputnik.github.io/</p>
+<p><a class="reference external" href="https://openmaptiles.org/docs/style/maputnik/">Design a style with Maputnik – OpenMapTiles</a></p>
 <ul class="simple">
-<li><p>ベクトルタイルの生成 =&gt; [[tilemaker]]</p></li>
-<li><p>セルフホスティングとStyleの記述 [[map_style]]</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">csharp</span></code> @2023 <a class="reference external" href="https://zenn.dev/yumori/articles/93289d07e8551c">ベクトルタイルを作成する方法</a></p></li>
-<li><p>@2023 <a class="reference external" href="https://developers.planet.com/docs/planetschool/xyz-tiles-and-slippy-maps/">XYZ Tiles and "Slippy Maps"</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://qiita.com/advent-calendar/2021/vt">ベクトルタイルのカレンダー | Advent Calendar 2021 - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://github.com/mapbox/awesome-vector-tiles">GitHub - mapbox/awesome-vector-tiles: awesome implementations of the Mapbox Vector Tile specification</a></p></li>
-<li><p><a class="reference external" href="https://maps.gsi.go.jp/development/vt.html">地理院地図｜ベクトルタイルとその提供実験について</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://qiita.com/asahina820/items/250a51ecacd8423d1a76">Maputnikを使ってベクトルタイルのスタイルを設定してMapLibre GL JSで表示する #JavaScript - Qiita</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://blog.geolonia.com/2020/03/20/add-source-from-gsi-japan.html">国土地理院のベクトルタイルのスタイルを Maputnik でカスタマイズ - Geolonia blog </a></p></li>
+<li><p><a class="reference external" href="https://smellman.github.io/vector_tile_book/docs/styling/maputnik.html">Maputnikによるスタイリング · HonKit</a></p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="renderer">
-<h1>renderer<a class="headerlink" href="#renderer" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>[[deck.gl]]</p></li>
-<li><p>[[MapLibre]] <code class="docutils literal notranslate"><span class="pre">Mapbox</span> <span class="pre">GL</span> <span class="pre">JSのv1.13.0がフォーク</span></code></p></li>
-<li><p>[[MapBox]]</p></li>
-<li><p>[[OpenLayers]]</p></li>
-<li><p>[[Leaflet]]</p></li>
-</ul>
+<section id="online-editor">
+<h1>online editor<a class="headerlink" href="#online-editor" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://maputnik.github.io/editor/</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="vectortilelayer">
-<h1>VectorTileLayer<a class="headerlink" href="#vectortilelayer" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="format">
-<h1>format<a class="headerlink" href="#format" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">//host/path/{zoom}/{x}/{y}.pbf</span></code></p>
-<ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://zenn.dev/mapbox_japan/articles/02201124476d84">MapboxのVectorDataを利用する</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://blog.tmlmt.com/create-style-and-render-self-hosted-vector-maps/">Create, style and render self-hosted vector maps 🗺</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://qiita.com/yuskesuzki@github/items/9ba9c65160e525b08d0e">Mapbox Vector Tiles のデータ構造 #mapbox - Qiita</a></p></li>
-<li><p>@2017 <a class="reference external" href="https://qiita.com/hfu/items/69fbe24be92654f634da">バイナリベクトルタイルの拡張子が mvt であったり pbf であったりするのはなんでだろう #geo - Qiita</a></p></li>
-<li><p>@2017 <a class="reference external" href="https://qiita.com/hfu/items/e7c0318bba67827d4327">gh-pagesで OSM 日本ベクトルタイル提供 #geo - Qiita</a></p></li>
-</ul>
-<section id="mvt">
-<h2>mvt<a class="headerlink" href="#mvt" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">mapbox</span> <span class="pre">vector</span> <span class="pre">tile</span></code></p>
-</section>
-<section id="pbf">
-<h2>pbf<a class="headerlink" href="#pbf" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">protocol</span> <span class="pre">buffer</span></code></p>
-<p>https://gis.stackexchange.com/questions/287610/how-to-find-layer-names-within-vector-tiles-without-tilejson-or-the-mbtiles-fi</p>
-<ul class="simple">
-<li><p>@2021 <a class="reference external" href="https://fukuno.jig.jp/3207">クリーンなJavaScriptのESモジュールで地図ライブラリを再構築するプロジェクト「mapthree-es」</a></p></li>
-<li><p>@2018 <a class="reference external" href="https://qiita.com/cieloazul310/items/32d692a95b87b113bf35">バイナリベクトルタイルを地図ライブラリ以外で扱う #JavaScript - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://github.com/mapbox/vector-tile-js">GitHub - mapbox/vector-tile-js: Parses vector tiles with JavaScript</a></p></li>
-<li><p>@2016 <a class="reference external" href="https://code-house.jp/2016/10/18/osmpbf1/">[OSM] .osm.pbfファイルを読み込んでみる１</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="golang">
-<h1>golang<a class="headerlink" href="#golang" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/murphy214/vector-tile-go">GitHub - murphy214/vector-tile-go: Reads / Writes vector-tiles in go. With faster reads / writes than normal protobuf implementations.</a></p></li>
-<li><p><a class="reference external" href="https://github.com/vicapow/go-vtile-example">GitHub - vicapow/go-vtile-example: An example go server for serving vector tiles</a></p></li>
-<li><p><a class="reference external" href="https://github.com/whosonfirst/go-rasterzen">GitHub - whosonfirst/go-rasterzen: Tools for rendering raster tiles derived from Nextzen (Mapzen) Vector tiles.</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="convert">
-<h1>convert<a class="headerlink" href="#convert" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="from-mbtiles">
-<h2>from mbtiles<a class="headerlink" href="#from-mbtiles" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[NaturalEarth]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://blocks.roadtolarissa.com/shimizu/385aff2837f6054d1ba839c1542159f3">バイナリベクトルファイル(pbf)の作り方 by shimizu</a></p></li>
-</ul>
-<p>https://github.com/mapbox/mbutil</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>py C:<span class="se">\P</span>ython310<span class="se">\S</span>cripts<span class="se">\m</span>b-util .<span class="se">\n</span>atural_earth.vector.mbtiles tiles --image_format<span class="o">=</span>pbf
-
-&gt; Get-ChildItem -Recurse .<span class="se">\p</span>ublic<span class="se">\ </span><span class="p">|</span> ?<span class="o">{</span> <span class="nv">$_</span> -like <span class="s2">"*.pbf"</span> <span class="o">}</span> <span class="p">|</span> %<span class="o">{</span> Rename-Item <span class="nv">$_</span> <span class="s2">"</span><span class="nv">$_</span><span class="s2">.gz"</span> <span class="o">}</span>
-</pre></div>
-</div>
-</section>
+<section id="local">
+<h1>local<a class="headerlink" href="#local" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://github.com/maplibre/maputnik/wiki/Maputnik-CLI</p>
 </section>
 
         </article>
@@ -306,7 +248,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/GIS/vectortile/VectorTile.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/GIS/vectortile/maputnik.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -326,18 +268,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">renderer</a></li>
-<li><a class="reference internal" href="#vectortilelayer">VectorTileLayer</a></li>
-<li><a class="reference internal" href="#format">format</a><ul>
-<li><a class="reference internal" href="#mvt">mvt</a></li>
-<li><a class="reference internal" href="#pbf">pbf</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#golang">golang</a></li>
-<li><a class="reference internal" href="#convert">convert</a><ul>
-<li><a class="reference internal" href="#from-mbtiles">from mbtiles</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">online editor</a></li>
+<li><a class="reference internal" href="#local">local</a></li>
 </ul>
 
           </div>

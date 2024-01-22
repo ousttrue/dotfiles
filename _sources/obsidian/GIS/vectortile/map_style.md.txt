@@ -1,5 +1,6 @@
 [[OpenStreetMap]] [[NaturalEarth]]
 [[charites]]
+[[maputnik]]
 
 - @2023 [MapLibre GL JSのスタイルファイルを読む ##Map - Qiita](https://qiita.com/moritoru/items/e160f14e822ada67461c)
 - @2022 [ベクトルタイル用スタイルの書き方メモ（Mapbox, Maplibre, ArcGIS API for Javascript） #MapLibre - Qiita](https://qiita.com/T-ubu/items/02a9725dd6329d35d477)
@@ -54,10 +55,6 @@ https://openmaptiles.org/schema/
 - water
 - landcover
 - landuse
-
-## Maputnik
-`editor`
-[Design a style with Maputnik – OpenMapTiles](https://openmaptiles.org/docs/style/maputnik/)
 
 # Mapbox GL style
 [Open-source map styles – OpenMapTiles](https://openmaptiles.org/styles/)
