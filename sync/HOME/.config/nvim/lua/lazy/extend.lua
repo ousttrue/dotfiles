@@ -129,12 +129,12 @@ vmap g<C-x> g<Plug>(dial-decrement)
     "tyru/columnskip.vim",
     config = function()
       vim.cmd [[
-nmap J <Plug>(columnskip:nonblank:next)
-omap J <Plug>(columnskip:nonblank:next)
-xmap J <Plug>(columnskip:nonblank:next)
-nmap K <Plug>(columnskip:nonblank:prev)
-omap K <Plug>(columnskip:nonblank:prev)
-xmap K <Plug>(columnskip:nonblank:prev)
+nmap sj <Plug>(columnskip:nonblank:next)
+omap sj <Plug>(columnskip:nonblank:next)
+xmap sj <Plug>(columnskip:nonblank:next)
+nmap sk <Plug>(columnskip:nonblank:prev)
+omap sk <Plug>(columnskip:nonblank:prev)
+xmap sk <Plug>(columnskip:nonblank:prev)
       ]]
     end,
   },

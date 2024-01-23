@@ -102,7 +102,7 @@ local function init_nvim()
     local qfu = require "qfu"
     qfu.Qf_filter()
   end)
-  vim.keymap.set("n", "<C-k>", "<Tab>", { noremap = true })
+  -- vim.keymap.set("n", "<C-k>", "<Tab>", { noremap = true })
   vim.keymap.set("n", "<Tab>", function()
     local items = vim.fn.getqflist()
     if #items > 1 then

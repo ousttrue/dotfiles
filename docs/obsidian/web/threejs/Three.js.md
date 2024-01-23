@@ -5,6 +5,8 @@
 
 [Three.jsをかじる本](https://zenn.dev/sdkfz181tiger/books/735e854bee9fc9)
 
+https://threepipe.org/
+
 
 [[Threejs_react]]
 
