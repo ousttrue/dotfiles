@@ -38,6 +38,7 @@ local function init_nvim()
   -- opt.autowrite = true
   opt.guicursor = ""
   opt.showtabline = 3
+  opt.startofline = false
   opt.completeopt = "menu,preview"
   opt.ambiwidth = "single"
   opt.termguicolors = true -- Enable colors in terminal
@@ -470,16 +471,8 @@ end
 local SYNTAX_UTIL = require "syntax_util"
 
 vim.api.nvim_create_autocmd("colorscheme", {
-  -- pattern = 'habamax',
   callback = function(ev)
-    -- print('hello habamax')
-    -- print(string.format('event fired: %s', vim.inspect(ev)))
-
-    SYNTAX_UTIL.clear_syntax_link()
-    if ev.match == "habamax" then
-      vim.api.nvim_set_hl(0, "MatchParen", { link = "Title" })
-      vim.api.nvim_set_hl(0, "VertSplit", { link = "NotifyDEBUGBorder" })
-    end
+    SYNTAX_UTIL.clear_syntax_link(ev)
   end,
 })
 

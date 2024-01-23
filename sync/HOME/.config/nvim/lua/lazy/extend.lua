@@ -125,5 +125,17 @@ vmap g<C-x> g<Plug>(dial-decrement)
   {
     "mattn/emmet-vim",
   },
+  {
+    "tyru/columnskip.vim",
+    config = function()
+      vim.cmd [[
+nmap J <Plug>(columnskip:nonblank:next)
+omap J <Plug>(columnskip:nonblank:next)
+xmap J <Plug>(columnskip:nonblank:next)
+nmap K <Plug>(columnskip:nonblank:prev)
+omap K <Plug>(columnskip:nonblank:prev)
+xmap K <Plug>(columnskip:nonblank:prev)
+      ]]
+    end,
+  },
 }
-

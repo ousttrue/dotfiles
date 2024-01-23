@@ -62,4 +62,13 @@ return {
   "sainnhe/edge",
   "scysta/pink-panic.nvim",
   "uloco/bluloco.nvim",
+  "thenewvu/vim-colors-sketching",
+  {
+    "ramojus/mellifluous.nvim",
+    config = function()
+      require("mellifluous").setup { --[[...]]
+      } -- optional, see configuration section.
+    end,
+  },
+  "romgrk/doom-one.vim",
 }

@@ -5,7 +5,24 @@ local function hl_clear(name)
   vim.api.nvim_set_hl(0, name, {})
 end
 
-function M.clear_syntax_link()
+function M.clear_syntax_link(ev)
+  if ev.match == "habamax" then
+    vim.api.nvim_set_hl(0, "MatchParen", { link = "Title" })
+    vim.api.nvim_set_hl(0, "VertSplit", { link = "NotifyDEBUGBorder" })
+  end
+  if vim.o.background == "dark" then
+    vim.api.nvim_set_hl(0, "NonText", { fg = "#444444" })
+  elseif vim.o.background == "light" then
+    vim.api.nvim_set_hl(0, "NonText", { fg = "#cccccc" })
+  end
+
+  vim.api.nvim_set_hl(0, "TabLineSel", { link = "CurSearch" })
+  vim.api.nvim_set_hl(0, "TabLine", { link = "Comment" })
+  hl_clear "TabLineFill"
+  hl_clear "StatusLine"
+  hl_clear "StatusLineNC"
+  hl_clear "PmenuExtra"
+
   -- vim.api.nvim_set_hl(0, "Unknown", { force = true, fg = "#FF00FF" })
   vim.api.nvim_set_hl(0, "Conceal", { link = "NonText" })
   vim.api.nvim_set_hl(0, "@conceal", { link = "NonText" })
@@ -34,6 +51,7 @@ function M.clear_syntax_link()
   vim.api.nvim_set_hl(0, "@punctuation.bracket.lua", { link = "Operator" })
   vim.api.nvim_set_hl(0, "@field.lua", { link = "Debug" })
   vim.api.nvim_set_hl(0, "@Constant.lua", { link = "Constant" })
+  hl_clear "@function.call.lua"
 
   vim.api.nvim_set_hl(0, "@type.typescript", { link = "Identifier" })
 
