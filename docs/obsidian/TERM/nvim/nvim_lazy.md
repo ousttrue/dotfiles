@@ -1,15 +1,20 @@
-[[nvim]]
+https://github.com/folke/lazy.nvim
 
-# config
+# pulgin spec
 
+## config = true
+no args
 
-# opts
+## opts = table
+call config
 config の省略記法。
+
 ```lua
 config = function()
 	require 'some'.setup(opts)
 end
 ```
 
-# init
-init functions are always executed during startup
+## config = func
+call func
+

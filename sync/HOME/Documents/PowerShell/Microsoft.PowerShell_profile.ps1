@@ -321,15 +321,15 @@ function prompt()
     $branch = $(git branch --show-current)
     if ($branch)
     {
-      # $branch = " `e[32m ${branch} $(git log --pretty=format:%s -n 1)`e[0m"
       $log = $(git log "--pretty=format: %cr   %s" -n 1)
-      if($branch -eq "master")
+      $ref = (git rev-parse --abbrev-ref origin/HEAD).Split("/")[1]
+      $branch_color="`e[30m`e[42m";
+      if($branch -ne $ref)
       {
-        $branch = "`e[30m`e[42m  ${branch} `e[0m ${sync} ${log}"
-      } else
-      {
-        $branch = "`e[30m`e[41m  ${branch} `e[0m ${sync} ${log}"
+        # red
+        $branch_color="`e[30m`e[41m";
       }
+      $branch = "${branch_color}  ${branch} `e[0m ${sync} ${log}"
     }
   } 
 
@@ -759,7 +759,7 @@ function now()
   [System.DateTimeOffset]::Now
 }
 
-function rmrf()
+function rmrf
 {
   [CmdletBinding()]
   param(
@@ -890,4 +890,29 @@ if(!(has file))
 function lk
 {
   Set-Location (walk $args)
+}
+
+function Get-Git-RemoteBranch()
+{
+  # git for-each-ref --sort=-committerdate refs/remotes/origin --format='%(refname:short)' --merged
+  git branch --remotes --merged 
+  | ForEach-Object { $_.Trim() }
+  | Where-Object { !($_.StartsWith("origin/HEAD")) }
+}
+
+function Remove-Git-RemoteBranch
+{
+  [CmdletBinding()]
+  param(
+    [Parameter(ValueFromPipeline=$true)] [string[]] $inputStrings
+  )
+  process
+  {
+    # origin/fix/hoge
+    $sp= $inputStrings.split("/", 2)
+    $remote = $sp[0]
+    $branch = $sp[1]
+    Write-Host "git push $remote :$branch"
+    git push $remote :$branch
+  }
 }

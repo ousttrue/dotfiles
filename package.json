@@ -1,12 +1,21 @@
 {
-  "dependencies": {
-    "react-splitter-layout": "^4.0.0"
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
   },
+  "scripts": {
+    "dev": "npx ladle serve",
+    "build": "npx ladle build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.19.0",
-    "@typescript-eslint/parser": "^6.19.0",
-    "eslint": "^8.56.0",
-    "eslint-plugin-react": "^7.33.2",
-    "vite": "^5.0.6"
+    "@ladle/react": "^4.0.2",
+    "@types/node": "^20.11.6",
+    "micromark": "^4.0.0"
   }
 }
