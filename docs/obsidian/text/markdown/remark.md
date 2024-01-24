@@ -2,5 +2,12 @@
 
 https://github.com/remarkjs/react-markdown
 
-- [Next.jsで作ったブログにリンクカードを実装する](https://zenn.dev/dl10yr/articles/b49e70fe595c14)
+# cardlink
 
+## esm
+
+- https://github.com/70-10/blog/blob/main/tools/remark-ogp-card/index.js
+
+## cjs
+
+- `cjs` https://github.com/gladevise/remark-link-card

@@ -59,7 +59,12 @@ function M.clear_syntax_link(ev)
   vim.api.nvim_set_hl(0, "@type.astro", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "@tag.attribute.astro", { link = "Debug" })
 
-  hl_clear "@text.uri"
+  hl_clear "@string.escape.python"
+
+  -- hl_clear "@text.uri"
+
+  vim.api.nvim_set_hl(0, "@markup", { link = "Identifier" })
+  vim.api.nvim_set_hl(0, "@markup.link.url.markdown_inline", { link = "Conceal" })
 end
 
 return M
