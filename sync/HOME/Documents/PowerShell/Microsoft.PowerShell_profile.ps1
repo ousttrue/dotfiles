@@ -322,7 +322,7 @@ function prompt()
     if ($branch)
     {
       $log = $(git log "--pretty=format: %cr   %s" -n 1)
-      $ref = (git rev-parse --abbrev-ref origin/HEAD).Split("/")[1]
+      $ref = (git rev-parse --abbrev-ref origin/HEAD).Split("/", 2)[1]
       $branch_color="`e[30m`e[42m";
       if($branch -ne $ref)
       {

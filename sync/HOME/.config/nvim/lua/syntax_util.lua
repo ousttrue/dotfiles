@@ -61,7 +61,8 @@ function M.clear_syntax_link(ev)
 
   hl_clear "@string.escape.python"
 
-  -- hl_clear "@text.uri"
+  hl_clear "@text.uri"
+  hl_clear "@lsp.type.enumMember.markdown"
 
   vim.api.nvim_set_hl(0, "@markup", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "@markup.link.url.markdown_inline", { link = "Conceal" })
