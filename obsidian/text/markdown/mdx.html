@@ -218,96 +218,16 @@
           </label>
         </div>
         <article role="main">
-          <p>[[vite_plugin]]
-[[ModuleBundler]]</p>
-<p><a class="reference external" href="https://ja.vitejs.dev/guide/features.html">特徴 | Vite</a></p>
-<ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://developers.prtimes.jp/2023/02/08/migrate-from-webpack-to-vite/">Webpack から Vite に段階的に移行しました | PR TIMES 開発者ブログ</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PHP</span></code> @2022 <a class="reference external" href="https://inside.pixiv.blog/2022/07/21/103000">vite で最高の開発体験を手に入れる - pixiv inside</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://trap.jp/post/1549/">350行でつくるVite⚡ | 東京工業大学デジタル創作同好会traP</a></p></li>
-</ul>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">normalizePath</span><span class="p">,</span> <span class="nx">createFilter</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'vite'</span>
-</pre></div>
-</div>
+          <p>remark-mdx を中心としたコンポーネント群</p>
+<p>https://mdxjs.com/packages/</p>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id1">
-<h2>5<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="id2">
-<h2>4<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="use">
-<h1>use<a class="headerlink" href="#use" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>vue ?</p>
-<section id="plugin">
-<h2>plugin<a class="headerlink" href="#plugin" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[Svelte]] <code class="docutils literal notranslate"><span class="pre">vite</span> <span class="pre">dev</span></code>
-[[vike]] <code class="docutils literal notranslate"><span class="pre">vite</span> <span class="pre">dev</span></code></p>
-</section>
-<section id="as-lib">
-<h2>as lib<a class="headerlink" href="#as-lib" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[minista]] <code class="docutils literal notranslate"><span class="pre">minista</span> <span class="pre">dev</span></code></p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="setup">
-<h1>setup<a class="headerlink" href="#setup" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">npm</span> <span class="n">create</span> <span class="n">vite</span><span class="nd">@latest</span>
-
-<span class="c1"># or</span>
-<span class="o">&gt;</span> <span class="n">npm</span> <span class="o">-</span><span class="n">D</span> <span class="n">react</span> <span class="n">react</span><span class="o">-</span><span class="n">dom</span> <span class="nd">@types</span><span class="o">/</span><span class="n">react</span> <span class="nd">@types</span><span class="o">/</span><span class="n">react</span><span class="o">-</span><span class="n">dom</span> <span class="nd">@vitejs</span><span class="o">/</span><span class="n">plugin</span><span class="o">-</span><span class="n">react</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">vite.config.js</span></code></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">defineConfig</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'vite'</span>
-<span class="k">import</span> <span class="nx">react</span> <span class="kr">from</span> <span class="s1">'@vitejs/plugin-react'</span>
-<span class="k">import</span> <span class="nx">path</span> <span class="kr">from</span> <span class="s2">"node:path"</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">fileURLToPath</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">"node:url"</span><span class="p">;</span>
-<span class="kd">const</span> <span class="nx">__filename</span> <span class="o">=</span> <span class="nx">fileURLToPath</span><span class="p">(</span><span class="k">import</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">__dirname</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">dirname</span><span class="p">(</span><span class="nx">__filename</span><span class="p">);</span>
-
-<span class="c1">// https://vitejs.dev/config/</span>
-<span class="k">export</span> <span class="k">default</span> <span class="nx">defineConfig</span><span class="p">({</span>
-  <span class="nx">root</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'client'</span><span class="p">),</span>
-  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="nx">react</span><span class="p">()],</span>
-<span class="p">})</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">index.html</span></code></p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"root"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"module"</span> <span class="na">src</span><span class="o">=</span><span class="s">"./main.tsx"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">main.tsx</span></code></p>
-<div class="highlight-tsx notranslate"><div class="highlight"><pre><span></span>import React from 'react';
-import ReactDOM from 'react-dom/client';
-function App() {
-  return (&lt;&gt;
-    &lt;div&gt;Hello&lt;/div&gt;
-  &lt;/&gt;)
-}
-ReactDOM.createRoot(document.getElementById('root')!).render(&lt;App /&gt;);
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="typescript-react">
-<h1>Typescript + React<a class="headerlink" href="#typescript-react" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>3<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">vite@latest</span></code> @2023 <a class="reference external" href="https://note.com/shift_tech/n/n9c5fcd207680">ViteでTypeScript×Reactの開発環境を構築してみた【前編】｜SHIFT Group 技術ブログ</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vite@latest</span></code> @2023 <a class="reference external" href="https://qiita.com/teradonburi/items/fcdd900adb069811bfda">viteでReact×TypeScript環境を爆速で作る最小版 #React - Qiita</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vite@latest</span></code> <code class="docutils literal notranslate"><span class="pre">build.rollupOptions</span></code> @2023 <a class="reference external" href="https://designsupply-web.com/media/programming/7578/">フロントエンドの開発環境にVite ＋ TypeScriptを導入する</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">react</span></code> @2022 <a class="reference external" href="https://www.robinwieruch.de/vite-typescript/">Vite with TypeScript</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vite@latest</span></code> @2022 <a class="reference external" href="https://zenn.dev/sikkim/articles/93bf99d8588e68">ViteでReact + TypeScript + TailwindCSSの環境構築をする</a>
-<code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">npm</span> <span class="pre">create</span> <span class="pre">vite@latest</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vue3</span></code> <code class="docutils literal notranslate"><span class="pre">vitejs@app</span></code> @2022 <a class="reference external" href="https://miyauchi.dev/ja/posts/vite-vue3-typescript/">ViteでVue3のTypescript環境を構築する | miyauci.me</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vite</span></code> @2022 <a class="reference external" href="https://for.kobayashiii.dev/articles/9jv5qclmgm7k">Vite + React + TypeScript でプロジェクトを立ち上げる | For</a></p></li>
+<li><p>@2023 https://mdxjs.com/blog/v3/</p></li>
 </ul>
-<p><a class="reference external" href="https://github.com/vitejs/vite-plugin-react-pages">GitHub - vitejs/vite-plugin-react-pages: A vite framework for building react app. Especially suitable for document site and demos/playgrounds of react components.</a></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="copy">
-<h1>copy<a class="headerlink" href="#copy" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://iwb.jp/vite-plugin-static-copy-npm-run-build-config/">Viteのvite-plugin-static-copyで特定のファイルをコピーする方法 | iwb.jp</a></p>
 </section>
 
         </article>
@@ -323,7 +243,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(&lt;App /&gt;);
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/web/javascript/Vite.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/text/markdown/mdx.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -344,18 +264,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(&lt;App /&gt;);
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Version</a><ul>
-<li><a class="reference internal" href="#id1">5</a></li>
-<li><a class="reference internal" href="#id2">4</a></li>
+<li><a class="reference internal" href="#id1">3</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#use">use</a><ul>
-<li><a class="reference internal" href="#plugin">plugin</a></li>
-<li><a class="reference internal" href="#as-lib">as lib</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#setup">setup</a></li>
-<li><a class="reference internal" href="#typescript-react">Typescript + React</a></li>
-<li><a class="reference internal" href="#copy">copy</a></li>
 </ul>
 
           </div>

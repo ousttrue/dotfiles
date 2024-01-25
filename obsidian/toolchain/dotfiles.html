@@ -272,6 +272,8 @@
 <section class="tex2jax_ignore mathjax_ignore" id="dotfiles">
 <h1>dotfiles 展開する前の最低限環境<a class="headerlink" href="#dotfiles" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
+<li><p>wsl --set-default Ubuntu-22.04</p></li>
+<li><p>sudo su -</p></li>
 <li><p>inputrc(c-n, c-p)</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"\C-n"</span><span class="p">:</span> <span class="n">history</span><span class="o">-</span><span class="n">search</span><span class="o">-</span><span class="n">forward</span>
@@ -300,10 +302,34 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="pwsh">
 <h1>pwsh<a class="headerlink" href="#pwsh" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install dotnet7
-dotnet tool install --global PowerShell
+<p><code class="docutils literal notranslate"><span class="pre">bash</span></code> not <code class="docutils literal notranslate"><span class="pre">sh</span></code></p>
+<p>https://learn.microsoft.com/ja-jp/powershell/scripting/install/install-ubuntu?view=powershell-7.4</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install dotnet-sdk-8.0
 </pre></div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>pwsh<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">SHELL</span><span class="o">=</span>/usr/bin/pwsh tmux
+</pre></div>
+</div>
+<section id="go">
+<h2>go<a class="headerlink" href="#go" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://go.dev/doc/install</p>
+</section>
+<section id="ghq">
+<h2>ghq<a class="headerlink" href="#ghq" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>go install github.com/x-motemen/ghq@latest
+</pre></div>
+</div>
+</section>
+<section id="fzf">
+<h2>fzf<a class="headerlink" href="#fzf" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone --depth <span class="m">1</span> https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -341,6 +367,12 @@ dotnet tool install --global PowerShell
             <ul>
 <li><a class="reference internal" href="#">dotfiles 展開する前の最低限環境</a></li>
 <li><a class="reference internal" href="#pwsh">pwsh</a></li>
+<li><a class="reference internal" href="#id1">pwsh</a><ul>
+<li><a class="reference internal" href="#go">go</a></li>
+<li><a class="reference internal" href="#ghq">ghq</a></li>
+<li><a class="reference internal" href="#fzf">fzf</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

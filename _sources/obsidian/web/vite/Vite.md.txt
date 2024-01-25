@@ -1,6 +1,8 @@
 [[vite_plugin]]
 [[ModuleBundler]]
 
+https://github.com/antfu/vite-plugin-inspect
+
 [特徴 | Vite](https://ja.vitejs.dev/guide/features.html)
 
 - @2023 [Webpack から Vite に段階的に移行しました | PR TIMES 開発者ブログ](https://developers.prtimes.jp/2023/02/08/migrate-from-webpack-to-vite/)

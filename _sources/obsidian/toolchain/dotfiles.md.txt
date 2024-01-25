@@ -10,6 +10,10 @@
 
 # dotfiles 展開する前の最低限環境
 
+- wsl --set-default Ubuntu-22.04
+
+- sudo su -
+
 - inputrc(c-n, c-p)
 ```
 "\C-n": history-search-forward
@@ -37,7 +41,33 @@ PS1="\[\e]0;${_termtitle}\007\]${PS1}"
 
 # pwsh
 
+`bash` not `sh`
+
+https://learn.microsoft.com/ja-jp/powershell/scripting/install/install-ubuntu?view=powershell-7.4
+
 ```sh
-sudo apt install dotnet7
-dotnet tool install --global PowerShell
+sudo apt install dotnet-sdk-8.0
 ```
+
+# pwsh
+
+```sh
+SHELL=/usr/bin/pwsh tmux
+```
+
+## go
+https://go.dev/doc/install
+
+## ghq
+
+```sh
+go install github.com/x-motemen/ghq@latest
+```
+
+## fzf
+
+```sh
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
+
