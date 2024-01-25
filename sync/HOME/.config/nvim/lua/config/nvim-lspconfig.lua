@@ -84,16 +84,18 @@ function M.setup()
     capabilities = capabilities,
   }
 
-  -- lspconfig.jsonls.setup {
-  --   settings = {
-  --     json = {
-  --       schemas = require("schemastore").json.schemas(),
-  --       validate = { enable = true },
-  --     },
-  --   },
-  -- }
-  lspconfig.jsonls.setup {
+  require("lspconfig").jsonls.setup {
     capabilities = capabilities,
+    settings = {
+      json = {
+        -- schemas = require("schemastore").json.schemas(),
+        schemas = {
+          { fileMatch = { "package.json" }, url = "https://json.schemastore.org/package.json" },
+          { fileMatch = { "tsconfig*.json" }, url = "https://json.schemastore.org/tsconfig.json" },
+        },
+        validate = { enable = true },
+      },
+    },
   }
 
   lspconfig.denols.setup {
@@ -206,19 +208,20 @@ function M.setup()
     root_dir = lspconfig.util.root_pattern(".marksman.toml", ".git"),
   }
 
-  local mason_lspconfig = require('mason-lspconfig')
-  mason_lspconfig.setup_handlers({ function(server_name)
-    local opts = {}
-    opts.on_attach = function(_, bufnr)
-      local bufopts = { silent = true, buffer = bufnr }
-      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-      vim.keymap.set('n', 'gtD', vim.lsp.buf.type_definition, bufopts)
-      vim.keymap.set('n', 'grf', vim.lsp.buf.references, bufopts)
-      vim.keymap.set('n', '<space>p', vim.lsp.buf.format, bufopts)
-    end
-    require('lspconfig')[server_name].setup(opts)
-  end })
-
+  local mason_lspconfig = require "mason-lspconfig"
+  mason_lspconfig.setup_handlers {
+    function(server_name)
+      local opts = {}
+      opts.on_attach = function(_, bufnr)
+        local bufopts = { silent = true, buffer = bufnr }
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+        vim.keymap.set("n", "gtD", vim.lsp.buf.type_definition, bufopts)
+        vim.keymap.set("n", "grf", vim.lsp.buf.references, bufopts)
+        vim.keymap.set("n", "<space>p", vim.lsp.buf.format, bufopts)
+      end
+      require("lspconfig")[server_name].setup(opts)
+    end,
+  }
 end
 
 return M
