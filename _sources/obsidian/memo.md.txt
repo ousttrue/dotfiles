@@ -1,4 +1,4 @@
-# dotfiles
+## dotfiles
 
 - vim
 - git clone
@@ -12,7 +12,7 @@
 - zoxide
 - golang
 
-# frontend
+## frontend
 
 | DSL        | Router                  | Bundler       |
 | ---------- | ----------------------- | ------------- |
@@ -31,25 +31,11 @@
 
 https://nextra.site/
 
-[Stencil](https://stenciljs.com/)
+## xr
 
-- @2020 [Stencil の SSG を試してみた所感 - @kimulaco/blog](https://blog.kimulaco.dev/article/stencil-ssg/)
+- webxr
+- remote desktop
+- MR
 
-- [[vite]] [[React]]
-- [[webxr]]
-- [[TypeScript]]
+- https://github.com/takahirox/tiny-web-metaverse
 
-# backend
-
-- [[golang]] [[pion]]
-- [[WebRTC]]
-
-# Term
-
-## Shell
-
-- [[powershell]] [[dotNET]]
-
-## Editor
-
-- [[nvim|neovim]]
