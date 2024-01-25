@@ -442,6 +442,7 @@ addPath(Join-Path $HOME "\.deno\bin")
 addPath(Join-Path $HOME "\.cargo\bin")
 addPath(Join-Path $HOME "\go\bin")
 insertPath(Join-Path $HOME "\local\bin")
+addPath("/usr/local/go/bin")
 
 if(Test-Path "C:\Python311")
 {
@@ -924,3 +925,35 @@ function Remove-Git-RemoteBranch
     git push $remote :$branch
   }
 }
+
+function Install-Go
+{
+    mkdir -p $HOME/local/src
+    Push-Location $HOME/local/src
+    wget --trust-server-names https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+    sudo rm -rf /usr/local/go
+    sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
+    Pop-Location
+    addPath("/usr/local/go/bin")
+
+    go install github.com/x-motemen/ghq@latest
+    mkdir $(ghq root)
+
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+}
+
+function Install-Nvim
+{
+    sudo apt-update
+    sudo apt-get install -y ninja-build gettext cmake unzip curl
+    ghq get https://github.com/neovim/neovim
+    Push-Location (Join-Path (ghq root) "/github.com/neovim/neovim")
+    cmake -G Ninja -S cmake.deps -B .deps -DCMAKE_BUILD_TYPE=Release
+    cmake --build .deps
+    cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release
+    cmake --build build
+    cmake --install build --prefix $HOME/local
+    Pop-Location
+}
+
