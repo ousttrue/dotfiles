@@ -22,6 +22,9 @@ function M.clear_syntax_link(ev)
   hl_clear "StatusLine"
   hl_clear "StatusLineNC"
   hl_clear "PmenuExtra"
+  vim.api.nvim_set_hl(0, "BufferCurrentMod", { link = "TabLineSel" })
+  hl_clear "BufferVisibleMod"
+  hl_clear "BufferInactiveMod"
 
   -- vim.api.nvim_set_hl(0, "Unknown", { force = true, fg = "#FF00FF" })
   vim.api.nvim_set_hl(0, "Conceal", { link = "NonText" })
@@ -64,7 +67,13 @@ function M.clear_syntax_link(ev)
   hl_clear "@text.uri"
   hl_clear "@lsp.type.enumMember.markdown"
 
-  vim.api.nvim_set_hl(0, "@markup", { link = "Identifier" })
+  hl_clear "@markup"
+  vim.api.nvim_set_hl(0, "@markup.heading.1.marker.markdown", { link = "Statement" })
+  vim.api.nvim_set_hl(0, "@markup.heading.2.marker.markdown", { link = "Statement" })
+  vim.api.nvim_set_hl(0, "@markup.heading.3.marker.markdown", { link = "Statement" })
+  vim.api.nvim_set_hl(0, "@markup.list.markdown", { link = "Statement" })
+  vim.api.nvim_set_hl(0, "@markup.link.link.markdown_inline", { link = "Statement" })
+  vim.api.nvim_set_hl(0, "@markup.link.label.markdown_inline", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "@markup.link.url.markdown_inline", { link = "Conceal" })
 end
 

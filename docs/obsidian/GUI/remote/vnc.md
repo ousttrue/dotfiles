@@ -2,8 +2,6 @@
 aliases: [RFB]
 ---
 
-#red
-
 - [第61回　いまさらながらVNC［その3］ | gihyo.jp](https://gihyo.jp/lifestyle/serial/01/ganshiki-soushi/0061)
 
 - [GitHub - nwtgck/piping-vnc-web: VNC client over pure HTTPS via Piping Server on Web browser](https://github.com/nwtgck/piping-vnc-web)
@@ -11,6 +9,10 @@ aliases: [RFB]
 `Virtual Network Computing`
 - @2014 [第60回　いまさらながらVNC［その2］：玩式草子─ソフトウェアとたわむれる日々｜gihyo.jp … 技術評論社](https://gihyo.jp/lifestyle/serial/01/ganshiki-soushi/0060)
 - [vnc-client · GitHub Topics · GitHub](https://github.com/topics/vnc-client)
+
+# node-rfb2
+- https://github.com/filipecbmoc/vnc-rfb-client
+- https://github.com/sidorares/node-rfb2
 
 # noVNC
 [GitHub - novnc/noVNC: VNC client web application](https://github.com/novnc/noVNC)

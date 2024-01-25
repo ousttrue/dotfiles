@@ -88,7 +88,7 @@ local M = {
           ["A"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
           ["d"] = "delete",
           ["r"] = "rename",
-          ["y"] = "copy_to_clipboard",
+          -- ["y"] = "copy_to_clipboard",
           ["x"] = "cut_to_clipboard",
           ["p"] = "paste_from_clipboard",
           ["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
@@ -105,6 +105,22 @@ local M = {
           ["<"] = "prev_source",
           [">"] = "next_source",
           ["i"] = "show_file_details",
+          ["y"] = function(state)
+            -- NeoTree is based on [NuiTree](https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/tree)
+            -- The node is based on [NuiNode](https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/tree#nuitreenode)
+            local node = state.tree:get_node()
+            local filename = node.name
+            vim.fn.setreg("+", filename)
+            vim.notify("Copied: " .. filename)
+          end,
+          ["Y"] = function(state)
+            -- NeoTree is based on [NuiTree](https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/tree)
+            -- The node is based on [NuiNode](https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/tree#nuitreenode)
+            local node = state.tree:get_node()
+            local filepath = node:get_id()
+            vim.fn.setreg("+", filepath)
+            vim.notify("Copied: " .. filepath)
+          end,
         },
       },
       nesting_rules = {},

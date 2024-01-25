@@ -75,3 +75,7 @@ weston --backend=rdp-backend.so --rdp4-key=rdp.key
 
 ## VNC
 [[vnc]]
+
+# browser
+https://github.com/udevbe/greenfield
+

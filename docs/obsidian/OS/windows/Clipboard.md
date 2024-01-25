@@ -11,3 +11,7 @@
 
 # wayland
 - [GitHub - bugaevc/wl-clipboard: Command-line copy/paste utilities for Wayland](https://github.com/bugaevc/wl-clipboard)
+
+# x11
+- @2019 [ヤンク履歴管理する仕組みを作った | endaaman.me](https://endaaman.me/tips/smart-yank-history)
+
