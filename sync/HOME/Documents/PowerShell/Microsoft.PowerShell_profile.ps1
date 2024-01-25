@@ -632,8 +632,14 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 #
 # dotfiles
 #
-function LinkDotFile([System.IO.FileInfo]$src)
+function LinkDotFile
 {
+  [CmdletBinding()]
+  param(
+    [Parameter(ValueFromPipeline=$true)] [System.IO.FileInfo[]] $src
+  )
+  process
+  {
   $syncHome = Get-Path "dot-sync"
   $syncApp = Get-Path "dot-sync-app"
   if($src.FullName.StartsWith($syncHome))
@@ -643,6 +649,7 @@ function LinkDotFile([System.IO.FileInfo]$src)
   {
     $dst = Join-Path (Join-Path $HOME "AppData") ($src.FullName.Substring($syncApp.FullName.Length+1))
   }
+#  Write-Host "$dst => $src"
   if(Test-Path $dst)
   {
     # green
@@ -651,7 +658,8 @@ function LinkDotFile([System.IO.FileInfo]$src)
   {
     # make symbolic link
     Write-Host -NoNewline "${dst} <== {$src}"
-    New-Item -ItemType SymbolicLink -Path $dst -Value $src -Force
+    New-Item -ItemType SymbolicLink -Path $dst -Value $src.FullName -Force
+  }
   }
 }
 
