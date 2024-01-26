@@ -360,7 +360,7 @@ local function init_nvim()
     if formatter then
       formatter()
     else
-      vim.lsp.buf.format()
+      vim.lsp.buf.format { timeout_ms = 2000 }
     end
   end
   vim.keymap.set("n", "ff", ff, { noremap = true })

@@ -68,6 +68,7 @@ function M.setup()
     border = dot.border,
     -- debug = true,
     sources = {
+      -- null_ls.builtins.formatting.csharpier,
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.black,
       -- null_ls.builtins.formatting.xmlformat,
@@ -162,6 +163,28 @@ function M.setup()
           groups = { "filename", "row", "col", "severity", "message" },
         },
       },
+    },
+  }
+
+  --
+  -- dotnet format
+  --
+  null_ls.register {
+    method = null_ls.methods.FORMATTING,
+    name = "dotnet_fmt",
+    filetypes = { "cs" },
+    generator = null_ls.formatter {
+      command = { "dotnet" },
+      args = {
+        "format",
+        "whitespace",
+        "--folder",
+        "--include",
+        "$FILENAME",
+      },
+      to_stdin = false,
+      to_temp_file = true,
+      from_temp_file = true,
     },
   }
 end

@@ -47,8 +47,16 @@ function M.setup()
       },
     }
   end
+
   -- require("lspconfig.omnisharp").setup(lspconfig, capabilities, on_attach)
-  require("lspconfig").csharp_ls.setup {}
+  require("lspconfig").csharp_ls.setup {
+    on_attach = function(client, bufnr)
+      -- print(vim.inspect(client.server_capabilities))
+      client.server_capabilities.documentFormattingProvider = false
+      on_attach(client, bufnr)
+    end,
+    capabilities = capabilities,
+  }
 
   lspconfig.gopls.setup {
     on_attach = on_attach,
@@ -186,6 +194,10 @@ function M.setup()
   -- web
   --
   lspconfig.tsserver.setup {
+    on_attach = function(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = false
+      on_attach(client, bufnr)
+    end,
     root_dir = lspconfig.util.root_pattern "package.json",
     single_file_support = false,
   }
@@ -205,6 +217,10 @@ function M.setup()
   --   capabilities = capabilities,
   -- }
   require("lspconfig").marksman.setup {
+    on_attach = function(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = false
+      on_attach(client, bufnr)
+    end,
     root_dir = lspconfig.util.root_pattern(".marksman.toml", ".git"),
   }
 

@@ -35,12 +35,12 @@ local function get_dir()
     return ""
   end
   for i, e in
-    ipairs(scandir.scan_dir(dir, {
-      depth = 1,
-      add_dirs = true,
-      only_dirs = true,
-      search_pattern = "sumneko",
-    }))
+  ipairs(scandir.scan_dir(dir, {
+    depth = 1,
+    add_dirs = true,
+    only_dirs = true,
+    search_pattern = "sumneko",
+  }))
   do
     return e .. ""
   end
@@ -128,6 +128,7 @@ function M.setup(lspconfig, capabilities, on_attach)
     on_attach = function(client, bufnr)
       -- client.server_capabilities.executeCommandProvider = false
       -- client.capabilities.window.showMessage = nil
+      client.server_capabilities.documentFormattingProvider = false
       on_attach(client, bufnr)
 
       require("nvim-navbuddy").attach(client, bufnr)
