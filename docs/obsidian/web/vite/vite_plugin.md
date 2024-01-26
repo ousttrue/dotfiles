@@ -6,8 +6,16 @@ https://rollupjs.org/plugin-development/
 
 - @2022 [Viteで従来型静的サイトの開発環境を構築するためにプラグインをたくさん作った #TypeScript - Qiita](https://qiita.com/macropygia/items/d37fd20a16fcef26914b)
 
+- https://github.com/vitejs/vite-plugin-react-pages/issues/4
+
+- https://mdxjs.com/packages/rollup/#mdxoptions
+
 # inline
 `vite.config.js` に直接記述
+
+# HMR
+
+https://ja.vitejs.dev/guide/api-hmr.html
 
 # order
 

@@ -29,6 +29,8 @@
 | [[Astro]]  | [[astro]]               | [[Vite]]      |
 | [[Astro]]  | [[Starlight]]           | [[Vite]]      |
 
+https://github.com/Daydreamer-riri/vite-react-ssg
+
 https://nextra.site/
 
 ## xr

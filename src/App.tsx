@@ -4,6 +4,18 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import collection from "/mount/index.js";
 
+if (import.meta.hot) {
+  console.log(import.meta.hot);
+  import.meta.hot.on("mount-update", (data) => {
+    console.log("mount-update", data);
+  });
+  import.meta.hot.on("special-update", (data) => {
+    console.log("special-update", data);
+  });
+} else {
+  console.log("not hot");
+}
+
 type ItemType = {
   slug: string;
   title: string;
