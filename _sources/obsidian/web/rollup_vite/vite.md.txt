@@ -13,6 +13,10 @@ https://github.com/antfu/vite-plugin-inspect
 import { normalizePath, createFilter } from 'vite'
 ```
 
+- @2022 [Viteの本番バンドルファイルを可視化する #TypeScript - Qiita](https://qiita.com/KokiSakano/items/bda906acdd95e8923b03)
+
+- [Viteで使うRollupプラグインの作り方と便利に使っている自作プラグインの解説 #vite - Qiita](https://qiita.com/NanimonoDaemon/items/26e075d20451bd2a00ae)
+
 # Version
 ## 5
 

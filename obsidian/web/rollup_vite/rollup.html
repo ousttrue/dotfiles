@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>write - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,78 +218,116 @@
           </label>
         </div>
         <article role="main">
-          <p><a class="reference external" href="https://rollupjs.org/plugin-development/">Plugin Development | Rollup</a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="write">
-<h1>write<a class="headerlink" href="#write" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">createFilter</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'rollup-pluginutils'</span>
-
-<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">uperCase</span><span class="p">(</span><span class="nx">options</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
-  <span class="c1">// options.include(=含める), options.exclude(=除外する)は対応が必須</span>
-  <span class="kd">const</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">createFilter</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">include</span><span class="p">,</span> <span class="nx">options</span><span class="p">.</span><span class="nx">exclude</span><span class="p">)</span>
-  <span class="k">return</span> <span class="p">{</span>
-    <span class="nx">transform</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">filter</span><span class="p">(</span><span class="nx">id</span><span class="p">))</span> <span class="k">return</span> <span class="kc">null</span> <span class="c1">// ファイルパスでフィルターする</span>
-      <span class="k">return</span> <span class="nx">code</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="c1">// 変換したコードを返す</span>
+          <p><a class="reference external" href="https://rollupjs.org/">Rollup | Rollup</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/mkpoli/articles/1d11ee2edd5bee#rollup-%E3%82%92%E4%BD%BF%E3%81%86">ESM + Typescript + Jest の monorepo を Lerna と Rollup で npm に上がるまで</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://whyisthis.dev/others/old-env-to-vite/">古い環境からViteへの載せ替えについて – wit</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://qiita.com/macropygia/items/d37fd20a16fcef26914b">Viteで従来型静的サイトの開発環境を構築するためにプラグインをたくさん作った #TypeScript - Qiita</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://www.infoq.com/jp/news/2019/05/rollup-code-splitting/">Rollup 1.0、ライブラリバンドリングにコード分割をもたらす</a></p></li>
+<li><p>[x] @2016 <a class="reference external" href="https://qiita.com/cognitom/items/e3ac0da00241f427dad6">Rollupがちょうどいい感じ #JavaScript - Qiita</a></p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>4<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2023</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="config">
+<h1>config<a class="headerlink" href="#config" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://rollupjs.org/configuration-options/</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rollup -c
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">rollup.config.js</span></code></p>
+<ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://qiita.com/otolab/items/95313254b62f5c0b6c10">最近作ったRollup.jsの設定詳細 (2019年7月版) #es6 - Qiita</a></p></li>
+</ul>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="k">default</span> <span class="nx">defineConfig</span><span class="p">({</span>
+  <span class="nx">build</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">rollupOptions</span><span class="o">:</span> <span class="p">{</span> <span class="c1">// 👈 これ</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="plugins">
-<h1>plugins<a class="headerlink" href="#plugins" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://github.com/rollup/plugins">GitHub - rollup/plugins: 🍣 The one-stop shop for official Rollup plugins</a></p>
-<ul class="simple">
-<li><p>rollup-plugin-node-resolve</p></li>
-<li><p>rollup-plugin-commonjs</p></li>
-<li><p>rollup-plugin-json</p></li>
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/marumarumeruru/articles/0262c9de7963b9">Rollup plugin</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="build-hook">
-<h1>build hook<a class="headerlink" href="#build-hook" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="options">
-<h2>options<a class="headerlink" href="#options" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">begin</span></code></p>
-</section>
-<section id="buildstart">
-<h2>buildStart<a class="headerlink" href="#buildstart" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">begin</span></code></p>
-</section>
-<section id="buildend">
-<h2>buildEnd<a class="headerlink" href="#buildend" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">end</span></code></p>
-</section>
-<section id="closebundle">
-<h2>closeBundle<a class="headerlink" href="#closebundle" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">end</span></code></p>
-</section>
-<section id="resolveid-source-string-string-null">
-<h2>resolveId(source: string): string | null<a class="headerlink" href="#resolveid-source-string-string-null" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">import</span></code></p>
-<ul class="simple">
-<li><p>[x] @2023 <a class="reference external" href="https://zenn.dev/irico/scraps/7bd7210d6f2dc3">rollupのプラグインの仕組みを知る</a>
-string を返すと load に来る</p></li>
-</ul>
-</section>
-<section id="load-id-string-result">
-<h2>load(id: string): result<a class="headerlink" href="#load-id-string-result" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">import</span></code>
-imort の中身？を返す</p>
-</section>
-<section id="transform">
-<h2>transform<a class="headerlink" href="#transform" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">import</span></code>
-中身を書き換える</p>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> 
-	<span class="nx">transform</span> <span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span> 
-		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">filter</span><span class="p">(</span><span class="nx">id</span><span class="p">))</span> <span class="k">return</span> <span class="kc">null</span>  <span class="c1">// ファイルパスでフィルターする </span>
-		<span class="k">return</span> <span class="nx">code</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span>  <span class="c1">// 変換したコードを返す </span>
-	<span class="p">}</span> 
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">path</span> <span class="kr">from</span> <span class="s1">'path'</span>
+<span class="kd">const</span> <span class="nx">PACKAGE_ROOT_PATH</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span>
+<span class="k">import</span> <span class="nx">includePaths</span> <span class="kr">from</span> <span class="s1">'rollup-plugin-includepaths'</span><span class="p">;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">input</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">PACKAGE_ROOT_PATH</span><span class="p">,</span> <span class="s1">'out'</span><span class="p">,</span> <span class="s1">'browser'</span><span class="p">,</span> <span class="s1">'public'</span><span class="p">,</span> <span class="s1">'Terminal.mjs'</span><span class="p">),</span>
+    <span class="nx">output</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">file</span><span class="o">:</span> <span class="sb">`dist/xterm.mjs`</span><span class="p">,</span>
+        <span class="nx">format</span><span class="o">:</span> <span class="s1">'esm'</span><span class="p">,</span>
+        <span class="nx">sourcemap</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">includePaths</span><span class="p">({</span> <span class="nx">paths</span><span class="o">:</span> <span class="p">[</span><span class="s2">"./out"</span><span class="p">]</span> <span class="p">})</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">nodeResolve</span> <span class="kr">from</span> <span class="s1">'rollup-plugin-node-resolve'</span> 
+<span class="k">import</span> <span class="nx">commonjs</span> <span class="kr">from</span> <span class="s1">'rollup-plugin-commonjs'</span> 
+<span class="k">import</span> <span class="nx">babel</span> <span class="kr">from</span> <span class="s1">'rollup-plugin-babel'</span> 
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span> 
+	<span class="nx">entry</span><span class="o">:</span> <span class="s1">'src/main.js'</span><span class="p">,</span> 
+	<span class="nx">dest</span><span class="o">:</span> <span class="s1">'dist/bundle.js'</span><span class="p">,</span> 
+	<span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span> 
+		<span class="nx">nodeResolve</span><span class="p">({</span> <span class="nx">jsnext</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}),</span> <span class="c1">// npmモジュールを`node_modules`から読み込む </span>
+		<span class="nx">commonjs</span><span class="p">(),</span> <span class="c1">// CommonJSモジュールをES6に変換 </span>
+		<span class="nx">babel</span><span class="p">()</span> <span class="c1">// ES5に変換 </span>
+	<span class="p">]</span> 
 <span class="p">}</span>
 </pre></div>
 </div>
+<section id="input-output">
+<h2>input / output<a class="headerlink" href="#input-output" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ひとつ入ってひとつ出る、が基本</p>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="as-lib">
+<h1>as lib<a class="headerlink" href="#as-lib" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// build.js</span>
+<span class="kd">const</span>
+  <span class="nx">rollup</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'rollup'</span><span class="p">),</span>
+  <span class="nx">npm</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'rollup-plugin-npm'</span><span class="p">),</span>
+  <span class="nx">commonjs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'rollup-plugin-commonjs'</span><span class="p">),</span>
+  <span class="nx">babel</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'rollup-plugin-babel'</span><span class="p">),</span>
+  <span class="nx">name</span> <span class="o">=</span> <span class="s1">'awesomeapp'</span>
+
+<span class="nx">rollup</span>
+  <span class="p">.</span><span class="nx">rollup</span><span class="p">({</span>
+    <span class="c1">// rollup.config.jsと同じようにentryやpluginを指定</span>
+    <span class="nx">entry</span><span class="o">:</span> <span class="s1">'dist/main.js'</span><span class="p">,</span>
+    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="nx">npm</span><span class="p">({</span> <span class="nx">jsnext</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}),</span> <span class="nx">commonjs</span><span class="p">(),</span> <span class="nx">babel</span><span class="p">()]</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">bundle</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// ES6形式で出力</span>
+    <span class="nx">bundle</span><span class="p">.</span><span class="nx">write</span><span class="p">({</span> <span class="nx">format</span><span class="o">:</span> <span class="s1">'es6'</span><span class="p">,</span> <span class="nx">dest</span><span class="o">:</span> <span class="sb">`dist/</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">.es6.js`</span> <span class="p">})</span>
+    <span class="c1">// AMD形式で出力</span>
+    <span class="nx">bundle</span><span class="p">.</span><span class="nx">write</span><span class="p">({</span> <span class="nx">format</span><span class="o">:</span> <span class="s1">'amd'</span><span class="p">,</span> <span class="nx">dest</span><span class="o">:</span> <span class="sb">`dist/</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">.amd.js`</span> <span class="p">})</span>
+    <span class="c1">// CommonJSで出力</span>
+    <span class="nx">bundle</span><span class="p">.</span><span class="nx">write</span><span class="p">({</span> <span class="nx">format</span><span class="o">:</span> <span class="s1">'cjs'</span><span class="p">,</span> <span class="nx">dest</span><span class="o">:</span> <span class="sb">`dist/</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">.cjs.js`</span> <span class="p">})</span>
+    <span class="c1">// グローバル変数を使う形式で出力</span>
+    <span class="nx">bundle</span><span class="p">.</span><span class="nx">write</span><span class="p">({</span>
+      <span class="nx">format</span><span class="o">:</span> <span class="s1">'iife'</span><span class="p">,</span>
+      <span class="nx">dest</span><span class="o">:</span> <span class="sb">`dist/</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">.js`</span><span class="p">,</span>
+      <span class="nx">moduleName</span><span class="o">:</span> <span class="nx">name</span> <span class="c1">// iifeで出力する場合は、moduleNameの指定が必須</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">})</span>
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -305,7 +343,7 @@ imort の中身？を返す</p>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/web/bundler/rollup_plugin.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/web/rollup_vite/rollup.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -325,18 +363,15 @@ imort の中身？を返す</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">write</a></li>
-<li><a class="reference internal" href="#plugins">plugins</a></li>
-<li><a class="reference internal" href="#build-hook">build hook</a><ul>
-<li><a class="reference internal" href="#options">options</a></li>
-<li><a class="reference internal" href="#buildstart">buildStart</a></li>
-<li><a class="reference internal" href="#buildend">buildEnd</a></li>
-<li><a class="reference internal" href="#closebundle">closeBundle</a></li>
-<li><a class="reference internal" href="#resolveid-source-string-string-null">resolveId(source: string): string | null</a></li>
-<li><a class="reference internal" href="#load-id-string-result">load(id: string): result</a></li>
-<li><a class="reference internal" href="#transform">transform</a></li>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#id1">4</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#config">config</a><ul>
+<li><a class="reference internal" href="#input-output">input / output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#as-lib">as lib</a></li>
 </ul>
 
           </div>

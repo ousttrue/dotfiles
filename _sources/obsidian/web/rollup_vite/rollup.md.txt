@@ -1,5 +1,3 @@
-[[vite]]
-
 [Rollup | Rollup](https://rollupjs.org/)
 
 - [ESM + Typescript + Jest の monorepo を Lerna と Rollup で npm に上がるまで](https://zenn.dev/mkpoli/articles/1d11ee2edd5bee#rollup-%E3%82%92%E4%BD%BF%E3%81%86)
@@ -12,23 +10,27 @@
 ## 4
 - @2023
 
-# 実行
-## 単体
-`input`, `output`
-
-## as lib
-
-
 # config
-```sh
-// build
+
+https://rollupjs.org/configuration-options/
+
+```sh title="build"
 rollup -c
 ```
 
 `rollup.config.js`
 - @2019 [最近作ったRollup.jsの設定詳細 (2019年7月版) #es6 - Qiita](https://qiita.com/otolab/items/95313254b62f5c0b6c10)
 
-```js
+```ts title="vite.config.js"
+export default defineConfig({
+  build: {
+    rollupOptions: { // 👈 これ
+    }
+  }
+}
+```
+
+```js title="rollup.config.js"
 import path from 'path'
 const PACKAGE_ROOT_PATH = process.cwd()
 import includePaths from 'rollup-plugin-includepaths';
@@ -49,8 +51,7 @@ export default [
 ]
 ```
 
-```js
-// rollup.config.js
+```js title="rollup.config.js"
 import nodeResolve from 'rollup-plugin-node-resolve' 
 import commonjs from 'rollup-plugin-commonjs' 
 import babel from 'rollup-plugin-babel' 
@@ -66,7 +67,12 @@ export default {
 }
 ```
 
+## input / output
+
+ひとつ入ってひとつ出る、が基本
+
 # as lib
+
 ```js
 // build.js
 const
@@ -101,6 +107,3 @@ rollup
   })
 ```
 
-
-# plugin
-[[rollup_plugin]]

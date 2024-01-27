@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>Vue3 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,17 +212,51 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[vite_plugin]]</p>
-<p><a class="reference external" href="https://github.com/hannoeru/vite-plugin-pages">GitHub - hannoeru/vite-plugin-pages: File system based route generator for ⚡️Vite</a></p>
+          <p>[[vite]]</p>
+<p><a class="reference external" href="https://github.com/axe-me/vite-plugin-node">axe-me/vite-plugin-node</a></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://blog.uzimaru.com/entries/dirbase-route-for-vite.md">uzimaru's Blog</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://zenn.dev/akinor1ty/articles/a17352d81b67b1">viteでTypeScriptのバックエンド開発環境を動かす</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://dev.to/lucacicada/how-to-set-up-vite-and-electron-from-scratch-with-any-frontend-framework-40mb">How to set up Vite and Electron from scratch, with any frontend framework - DEV Community</a></p></li>
+<li><p><a class="reference external" href="https://scrapbox.io/dojineko/Vite%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6Express.js%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B">Viteを使ってExpress.jsアプリを作る</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="vue3">
+<h1>Vue3<a class="headerlink" href="#vue3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/yuta-katayama-23/items/a40775326914ee9ed89a">Vite+Vue3+Vuetify3+Expressのプロジェクトを1から作成する（ESLint、Prettier、Node.jsをPJに含めたモノレポ？構成） #JavaScript - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="express-static">
+<h1>express の static と組み合わせる<a class="headerlink" href="#express-static" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/ddpn08/articles/ac30dae3e7c7ea">Viteをexpressにぶちこむ</a></p></li>
+</ul>
+<p>うまくいかなかった(static の中にある ts を解決できない)。
+代替案として、<code class="docutils literal notranslate"><span class="pre">app.use(express.static(DIR)))</span></code> の代わりに
+<code class="docutils literal notranslate"><span class="pre">vite</span></code> を組み込む。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'vite'</span>
+
+<span class="nx">createServer</span><span class="p">({</span>
+  <span class="nx">root</span><span class="o">:</span> <span class="nx">__dirname</span><span class="p">,</span>
+  <span class="nx">logLevel</span><span class="o">:</span> <span class="s1">'info'</span><span class="p">,</span>
+  <span class="nx">server</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">middlewareMode</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">usePolling</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nx">interval</span><span class="o">:</span> <span class="mf">100</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">vite</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">vite</span><span class="p">.</span><span class="nx">middlewares</span><span class="p">)</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
@@ -237,7 +271,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/web/bundler/vite-plugin-pages.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/web/rollup_vite/vite_plugin_node.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -245,8 +279,25 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Vue3</a></li>
+<li><a class="reference internal" href="#express-static">express の static と組み合わせる</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

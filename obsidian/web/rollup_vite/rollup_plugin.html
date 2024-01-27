@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Vue3 - shell note ドキュメント</title>
+        <title>Output Generation Hooks - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,44 +218,81 @@
           </label>
         </div>
         <article role="main">
-          <p>[[vite]]</p>
-<p><a class="reference external" href="https://github.com/axe-me/vite-plugin-node">axe-me/vite-plugin-node</a></p>
-<ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://zenn.dev/akinor1ty/articles/a17352d81b67b1">viteでTypeScriptのバックエンド開発環境を動かす</a></p></li>
-<li><p>@2022 <a class="reference external" href="https://dev.to/lucacicada/how-to-set-up-vite-and-electron-from-scratch-with-any-frontend-framework-40mb">How to set up Vite and Electron from scratch, with any frontend framework - DEV Community</a></p></li>
-<li><p><a class="reference external" href="https://scrapbox.io/dojineko/Vite%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6Express.js%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B">Viteを使ってExpress.jsアプリを作る</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="vue3">
-<h1>Vue3<a class="headerlink" href="#vue3" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/yuta-katayama-23/items/a40775326914ee9ed89a">Vite+Vue3+Vuetify3+Expressのプロジェクトを1から作成する（ESLint、Prettier、Node.jsをPJに含めたモノレポ？構成） #JavaScript - Qiita</a></p></li>
-</ul>
+          <p><a class="reference external" href="https://rollupjs.org/plugin-development/">Plugin Development | Rollup</a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="output-generation-hooks">
+<h1>Output Generation Hooks<a class="headerlink" href="#output-generation-hooks" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="express-static">
-<h1>express の static と組み合わせる<a class="headerlink" href="#express-static" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2022 <a class="reference external" href="https://zenn.dev/ddpn08/articles/ac30dae3e7c7ea">Viteをexpressにぶちこむ</a></p></li>
-</ul>
-<p>うまくいかなかった(static の中にある ts を解決できない)。
-代替案として、<code class="docutils literal notranslate"><span class="pre">app.use(express.static(DIR)))</span></code> の代わりに
-<code class="docutils literal notranslate"><span class="pre">vite</span></code> を組み込む。</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'vite'</span>
+<section class="tex2jax_ignore mathjax_ignore" id="write">
+<h1>write<a class="headerlink" href="#write" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">createFilter</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'rollup-pluginutils'</span>
 
-<span class="nx">createServer</span><span class="p">({</span>
-  <span class="nx">root</span><span class="o">:</span> <span class="nx">__dirname</span><span class="p">,</span>
-  <span class="nx">logLevel</span><span class="o">:</span> <span class="s1">'info'</span><span class="p">,</span>
-  <span class="nx">server</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">middlewareMode</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">usePolling</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="nx">interval</span><span class="o">:</span> <span class="mf">100</span><span class="p">,</span>
-    <span class="p">},</span>
-  <span class="p">},</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">vite</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">vite</span><span class="p">.</span><span class="nx">middlewares</span><span class="p">)</span>
-<span class="p">});</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">uperCase</span><span class="p">(</span><span class="nx">options</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
+  <span class="c1">// options.include(=含める), options.exclude(=除外する)は対応が必須</span>
+  <span class="kd">const</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">createFilter</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">include</span><span class="p">,</span> <span class="nx">options</span><span class="p">.</span><span class="nx">exclude</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">transform</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">filter</span><span class="p">(</span><span class="nx">id</span><span class="p">))</span> <span class="k">return</span> <span class="kc">null</span> <span class="c1">// ファイルパスでフィルターする</span>
+      <span class="k">return</span> <span class="nx">code</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="c1">// 変換したコードを返す</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plugins">
+<h1>plugins<a class="headerlink" href="#plugins" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://github.com/rollup/plugins">GitHub - rollup/plugins: 🍣 The one-stop shop for official Rollup plugins</a></p>
+<ul class="simple">
+<li><p>rollup-plugin-node-resolve</p></li>
+<li><p>rollup-plugin-commonjs</p></li>
+<li><p>rollup-plugin-json</p></li>
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/marumarumeruru/articles/0262c9de7963b9">Rollup plugin</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="build-hook">
+<h1>build hook<a class="headerlink" href="#build-hook" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="options">
+<h2>options<a class="headerlink" href="#options" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">begin</span></code></p>
+</section>
+<section id="buildstart">
+<h2>buildStart<a class="headerlink" href="#buildstart" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">begin</span></code></p>
+</section>
+<section id="buildend">
+<h2>buildEnd<a class="headerlink" href="#buildend" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">end</span></code></p>
+</section>
+<section id="closebundle">
+<h2>closeBundle<a class="headerlink" href="#closebundle" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">end</span></code></p>
+</section>
+<section id="resolveid-source-string-string-null">
+<h2>resolveId(source: string): string | null<a class="headerlink" href="#resolveid-source-string-string-null" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">import</span></code></p>
+<ul class="simple">
+<li><p>[x] @2023 <a class="reference external" href="https://zenn.dev/irico/scraps/7bd7210d6f2dc3">rollupのプラグインの仕組みを知る</a>
+string を返すと load に来る</p></li>
+</ul>
+</section>
+<section id="load-id-string-result">
+<h2>load(id: string): result<a class="headerlink" href="#load-id-string-result" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">import</span></code>
+imort の中身？を返す</p>
+</section>
+<section id="transform">
+<h2>transform<a class="headerlink" href="#transform" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">import</span></code>
+中身を書き換える</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> 
+	<span class="nx">transform</span> <span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span> 
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">filter</span><span class="p">(</span><span class="nx">id</span><span class="p">))</span> <span class="k">return</span> <span class="kc">null</span>  <span class="c1">// ファイルパスでフィルターする </span>
+		<span class="k">return</span> <span class="nx">code</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span>  <span class="c1">// 変換したコードを返す </span>
+	<span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -271,7 +308,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/web/vite/vite_plugin_node.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/web/rollup_vite/rollup_plugin.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -291,8 +328,19 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Vue3</a></li>
-<li><a class="reference internal" href="#express-static">express の static と組み合わせる</a></li>
+<li><a class="reference internal" href="#">Output Generation Hooks</a></li>
+<li><a class="reference internal" href="#write">write</a></li>
+<li><a class="reference internal" href="#plugins">plugins</a></li>
+<li><a class="reference internal" href="#build-hook">build hook</a><ul>
+<li><a class="reference internal" href="#options">options</a></li>
+<li><a class="reference internal" href="#buildstart">buildStart</a></li>
+<li><a class="reference internal" href="#buildend">buildEnd</a></li>
+<li><a class="reference internal" href="#closebundle">closeBundle</a></li>
+<li><a class="reference internal" href="#resolveid-source-string-string-null">resolveId(source: string): string | null</a></li>
+<li><a class="reference internal" href="#load-id-string-result">load(id: string): result</a></li>
+<li><a class="reference internal" href="#transform">transform</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
