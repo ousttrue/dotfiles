@@ -1,13 +1,15 @@
-import { defineConfig } from "vite";
-import type { Plugin, ViteDevServer } from "vite";
-import react from "@vitejs/plugin-react";
-import Inspect from "vite-plugin-inspect";
-import { glob } from "glob";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import process from "node:process";
 import fs from "node:fs/promises";
+import { glob } from "glob";
 import fm from "front-matter";
+
+import { defineConfig } from "vite";
+import type { Plugin, ViteDevServer } from "vite";
+import react from "@vitejs/plugin-react";
+import Inspect from "vite-plugin-inspect";
+import { visualizer } from "rollup-plugin-visualizer";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -119,5 +121,13 @@ export default defineConfig({
       ),
       "**/*.md",
     ),
+    visualizer(),
   ],
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, "index.html"),
+      },
+    },
+  },
 });

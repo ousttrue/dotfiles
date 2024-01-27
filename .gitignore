@@ -1,5 +1,6 @@
 /.venv/
 /_build/
+/dist/
 *.pyc
 *.exe
 .doit.*
@@ -25,3 +26,4 @@ obj/
 
 node_modules
 tmp/
+stats.html
