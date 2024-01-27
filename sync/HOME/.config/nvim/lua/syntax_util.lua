@@ -77,6 +77,7 @@ function M.clear_syntax_link(ev)
   vim.api.nvim_set_hl(0, "@markup.link.url.markdown_inline", { link = "Conceal" })
 
   hl_clear "@variable.parameter.vimdoc"
+  vim.api.nvim_set_hl(0, "@markup.link.vimdoc", { link = "Identifier" })
 end
 
 return M
