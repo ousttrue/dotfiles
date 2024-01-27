@@ -7,6 +7,7 @@ function M.setup()
   local sorters = require "telescope.sorters"
   local builtin = require "telescope.builtin"
   local utils = require "telescope.utils"
+  local action_layout = require "telescope.actions.layout"
   telescope.load_extension "emoji"
   telescope.load_extension "notify"
   telescope.load_extension "ui-select"
@@ -27,9 +28,14 @@ function M.setup()
     defaults = {
       mappings = {
         i = {
-          ["<c-[>"] = actions.close,
+          -- ["<c-[>"] = actions.close,
+          ["<M-p>"] = action_layout.toggle_preview,
           -- clear. not preview scroll
           ["<C-u>"] = false,
+          ["<C-f>"] = { "<Right>", type = "command" },
+          ["<C-b>"] = { "<Left>", type = "command" },
+          -- clear input to eol
+          ["<C-k>"] = { "<C-o>d$", type = "command" },
         },
       },
       file_sorter = sorters.get_generic_fuzzy_sorter,

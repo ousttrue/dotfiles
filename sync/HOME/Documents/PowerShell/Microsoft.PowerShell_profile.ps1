@@ -641,26 +641,26 @@ function LinkDotFile
   )
   process
   {
-  $syncHome = Get-Path "dot-sync"
-  $syncApp = Get-Path "dot-sync-app"
-  if($src.FullName.StartsWith($syncHome))
-  {
-    $dst = Join-Path $HOME ($src.FullName.Substring($syncHome.FullName.Length+1))
-  } elseif($src.FullName.StartsWith($syncApp))
-  {
-    $dst = Join-Path (Join-Path $HOME "AppData") ($src.FullName.Substring($syncApp.FullName.Length+1))
-  }
-#  Write-Host "$dst => $src"
-  if(Test-Path $dst)
-  {
-    # green
-    # Write-Host -NoNewline "${dst} exists"
-  } else
-  {
-    # make symbolic link
-    Write-Host -NoNewline "${dst} <== {$src}"
-    New-Item -ItemType SymbolicLink -Path $dst -Value $src.FullName -Force
-  }
+    $syncHome = Get-Path "dot-sync"
+    $syncApp = Get-Path "dot-sync-app"
+    if($src.FullName.StartsWith($syncHome))
+    {
+      $dst = Join-Path $HOME ($src.FullName.Substring($syncHome.FullName.Length+1))
+    } elseif($src.FullName.StartsWith($syncApp))
+    {
+      $dst = Join-Path (Join-Path $HOME "AppData") ($src.FullName.Substring($syncApp.FullName.Length+1))
+    }
+    #  Write-Host "$dst => $src"
+    if(Test-Path $dst)
+    {
+      # green
+      # Write-Host -NoNewline "${dst} exists"
+    } else
+    {
+      # make symbolic link
+      Write-Host -NoNewline "${dst} <== {$src}"
+      New-Item -ItemType SymbolicLink -Path $dst -Value $src.FullName -Force
+    }
   }
 }
 
@@ -928,32 +928,37 @@ function Remove-Git-RemoteBranch
 
 function Install-Go
 {
-    mkdir -p $HOME/local/src
-    Push-Location $HOME/local/src
-    wget --trust-server-names https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
-    sudo rm -rf /usr/local/go
-    sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
-    Pop-Location
-    addPath("/usr/local/go/bin")
+  mkdir -p $HOME/local/src
+  Push-Location $HOME/local/src
+  wget --trust-server-names https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+  sudo rm -rf /usr/local/go
+  sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
+  Pop-Location
+  addPath("/usr/local/go/bin")
 
-    go install github.com/x-motemen/ghq@latest
-    mkdir $(ghq root)
+  go install github.com/x-motemen/ghq@latest
+  mkdir $(ghq root)
 
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
 }
 
 function Install-Nvim
 {
-    sudo apt-update
-    sudo apt-get install -y ninja-build gettext cmake unzip curl
-    ghq get https://github.com/neovim/neovim
-    Push-Location (Join-Path (ghq root) "/github.com/neovim/neovim")
-    cmake -G Ninja -S cmake.deps -B .deps -DCMAKE_BUILD_TYPE=Release
-    cmake --build .deps
-    cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release
-    cmake --build build
-    cmake --install build --prefix $HOME/local
-    Pop-Location
+  sudo apt-update
+  sudo apt-get install -y ninja-build gettext cmake unzip curl
+  ghq get https://github.com/neovim/neovim
+  Push-Location (Join-Path (ghq root) "/github.com/neovim/neovim")
+  cmake -G Ninja -S cmake.deps -B .deps -DCMAKE_BUILD_TYPE=Release
+  cmake --build .deps
+  cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release
+  cmake --build build
+  cmake --install build --prefix $HOME/local
+  Pop-Location
 }
 
+function Install-Rust
+{
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  cargo install zoxide ripgrep fd-find bottom lsd bat stylua
+}

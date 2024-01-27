@@ -333,7 +333,7 @@ local function init_nvim()
   -- C-[: ESC
   -- C-O: back
   -- TAB->C-K: forward
-  vim.keymap.set("n", "<C-]>", "<cmd>tjump<CR>")
+  -- vim.keymap.set("n", "<C-]>", "<cmd>tjump<CR>")
   -- vim.keymap.set("n", "<space>q", vim.diagnostic.set_loclist, { noremap = true })
 
   -- LSP handlers

@@ -181,14 +181,8 @@ function M.setup()
   -- dotnet tool install --global fsautocomplete
   -- dotnet tool install --global fantomas
   require("lspconfig").fsautocomplete.setup {}
-  --
-  -- lspconfig.powershell_es.setup {
-  --   bundle_path = VSCODE .. "/extensions/ms-vscode.powershell-2024.0.0/modules",
-  -- }
-  -- require("lspconfig").powershell_es.setup {
-  --   -- bundle_path = dot.get_home() .. "/local/src/PowerShellEditorServices",
-  --   bundle_path = VSCODE .. "/extensions/ms-vscode.powershell-2023.8.0/modules",
-  -- }
+
+  lspconfig.powershell_es.setup {}
 
   --
   -- web

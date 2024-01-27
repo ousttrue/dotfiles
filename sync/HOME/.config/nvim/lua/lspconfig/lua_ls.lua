@@ -129,6 +129,8 @@ function M.setup(lspconfig, capabilities, on_attach)
       -- client.server_capabilities.executeCommandProvider = false
       -- client.capabilities.window.showMessage = nil
       client.server_capabilities.documentFormattingProvider = false
+      print(vim.inspect(client.server_capabilities))
+
       on_attach(client, bufnr)
 
       require("nvim-navbuddy").attach(client, bufnr)
