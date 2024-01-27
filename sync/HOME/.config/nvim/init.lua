@@ -112,8 +112,8 @@ local function init_nvim()
   --   end
   -- end)
   -- vim.keymap.set("n", "<S-Tab>", "<cmd>cp<CR>", {})
-  -- vim.keymap.set("n", "<C-n>", ":cnewer<CR>", { noremap = true, silent = true })
-  -- vim.keymap.set("n", "<C-p>", ":colder<CR>", { noremap = true, silent = true })
+  vim.keymap.set("n", "<C-n>", ":cnext<CR>", { noremap = true, silent = true })
+  vim.keymap.set("n", "<C-p>", ":cprev<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "]q", ":cnewer<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "[q", ":colder<CR>", { noremap = true, silent = true })
 

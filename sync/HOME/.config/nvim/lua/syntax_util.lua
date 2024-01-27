@@ -81,6 +81,8 @@ function M.clear_syntax_link(ev)
 
   hl_clear "@variable.parameter.vimdoc"
   vim.api.nvim_set_hl(0, "@markup.link.vimdoc", { link = "Identifier" })
+
+  vim.api.nvim_set_hl(0, "@keyword.directive.c", { fg = "#FFaa00" })
 end
 
 return M

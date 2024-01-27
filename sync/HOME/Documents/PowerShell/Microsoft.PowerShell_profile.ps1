@@ -188,7 +188,7 @@ $IconMap = @{
   rtc_memo = "⚡"
   UniVRM = " "
   minixr = " "
-  "ousttrue.github.io" = " "
+  "ousttrue.github.io" = " "
   cmake_book = "📙"
   blender_book = "📙"
   lbsm = "🐵"
@@ -310,9 +310,22 @@ function prompt()
     }
   }
 
-  if($IconMap[$title])
+  # wezterm only
+  if($env:TERM -eq "tmux-256color")
   {
-    $title = $IconMap[$title]
+    if($IconMap[$title])
+    {
+      tmux rename-window $IconMap[$title]
+    } else
+    {
+      tmux rename-window $title
+    }
+  } else
+  {
+    if($IconMap[$title])
+    {
+      $title = $IconMap[$title]
+    }
   }
 
   $sync = (get_git_status)
@@ -937,7 +950,7 @@ function Install-Go
   addPath("/usr/local/go/bin")
 
   go install github.com/x-motemen/ghq@latest
-  mkdir $(ghq root)
+  mkdir -p $(ghq root)
 
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install
@@ -961,4 +974,35 @@ function Install-Rust
 {
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   cargo install zoxide ripgrep fd-find bottom lsd bat stylua
+}
+
+function Install-Deno
+{
+  curl -fsSL https://deno.land/install.sh | sh
+}
+
+function Install-Skk-Dictionary
+{
+  mkdir -p ~/.skk
+  Push-Location ~/.skk
+  curl -o SKK-JISYO.L -L https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L
+  Pop-Location 
+}
+
+function Install-Apt
+{
+  $result = apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}"
+  if($result)
+  {
+    sudo apt install $result
+  }
+}
+
+function Install-Muon
+{
+  ghq get https://github.com/annacrombie/muon
+  Push-Location (Join-Path (ghq root) "/github.com/annacrombie/muon")
+  meson setup builddir --prefix $HOME/local
+  meson install -C builddir
+  Pop-Location
 }
