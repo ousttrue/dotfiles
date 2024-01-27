@@ -103,17 +103,17 @@ local function init_nvim()
     qfu.Qf_filter()
   end)
   -- vim.keymap.set("n", "<C-k>", "<Tab>", { noremap = true })
-  vim.keymap.set("n", "<Tab>", function()
-    local items = vim.fn.getqflist()
-    if #items > 1 then
-      vim.cmd "cn"
-    elseif #items == 1 then
-      vim.cmd "cc"
-    end
-  end)
-  vim.keymap.set("n", "<S-Tab>", "<cmd>cp<CR>", {})
-  vim.keymap.set("n", "<C-n>", ":cnewer<CR>", { noremap = true, silent = true })
-  vim.keymap.set("n", "<C-p>", ":colder<CR>", { noremap = true, silent = true })
+  -- vim.keymap.set("n", "<Tab>", function()
+  --   local items = vim.fn.getqflist()
+  --   if #items > 1 then
+  --     vim.cmd "cn"
+  --   elseif #items == 1 then
+  --     vim.cmd "cc"
+  --   end
+  -- end)
+  -- vim.keymap.set("n", "<S-Tab>", "<cmd>cp<CR>", {})
+  -- vim.keymap.set("n", "<C-n>", ":cnewer<CR>", { noremap = true, silent = true })
+  -- vim.keymap.set("n", "<C-p>", ":colder<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "]q", ":cnewer<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "[q", ":colder<CR>", { noremap = true, silent = true })
 
