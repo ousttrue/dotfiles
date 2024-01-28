@@ -1,7 +1,7 @@
 local DOT = require "dot"
 
 local function init_nvim()
-  local g = vim.g
+ local g = vim.g
   local opt = vim.opt
   ---@class uv
   local uv = vim.loop
@@ -197,12 +197,12 @@ local function init_nvim()
   vim.keymap.set("n", "<C-d>", ":qa<CR>", { noremap = true })
   vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true })
 
-  vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
-  vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
-  vim.keymap.set("n", "]c", ":cn<CR>", { noremap = true })
-  vim.keymap.set("n", "[c", ":cp<CR>", { noremap = true })
-  vim.keymap.set("n", "]l", ":ln<CR>", { noremap = true })
-  vim.keymap.set("n", "[l", ":lp<CR>", { noremap = true })
+  -- vim.keymap.set("n", "]b", ":bn<CR>", { noremap = true })
+  -- vim.keymap.set("n", "[b", ":bp<CR>", { noremap = true })
+  -- vim.keymap.set("n", "]c", ":cn<CR>", { noremap = true })
+  -- vim.keymap.set("n", "[c", ":cp<CR>", { noremap = true })
+  -- vim.keymap.set("n", "]l", ":ln<CR>", { noremap = true })
+  -- vim.keymap.set("n", "[l", ":lp<CR>", { noremap = true })
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true })
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true })
   -- vim.keymap.set("n", "<Tab>", vim.diagnostic.goto_next, { noremap = true })
