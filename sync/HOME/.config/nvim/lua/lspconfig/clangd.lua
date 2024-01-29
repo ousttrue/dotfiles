@@ -56,6 +56,10 @@ end
 ---@param capabilities any
 ---@param on_attach any
 function M.setup(lspconfig, capabilities, on_attach)
+  vim.keymap.set("n", ",,", function()
+    vim.cmd "ClangdSwitchSourceHeader"
+  end, { noremap = true })
+
   lspconfig.clangd.setup {
     -- cmd = {
     --   get_clangd(),
@@ -71,6 +75,7 @@ function M.setup(lspconfig, capabilities, on_attach)
     },
     root_dir = util.root_pattern("builddir/compile_commands.json", "build/compile_commands.json", ".git"),
     on_attach = function(client, bufnr)
+      print "clangd:on_attach"
       vim.keymap.set("n", ",,", function()
         vim.cmd "ClangdSwitchSourceHeader"
       end, { noremap = true })

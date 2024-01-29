@@ -95,7 +95,7 @@ function M.setup(lspconfig, capabilities, on_attach)
   -- https://luals.github.io/wiki/settings
   -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
   require("lspconfig").lua_ls.setup {
-    cmd = { get_lua_ls() },
+    -- cmd = { get_lua_ls() },
     on_init = function(client)
       local path = client.workspace_folders[1].name
       if not vim.loop.fs_stat(path .. "/.luarc.json") and not vim.loop.fs_stat(path .. "/.luarc.jsonc") then
