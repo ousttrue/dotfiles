@@ -454,6 +454,7 @@ addPath(Join-Path $HOME "\.fzf\bin")
 addPath(Join-Path $HOME "\.deno\bin")
 addPath(Join-Path $HOME "\.cargo\bin")
 addPath(Join-Path $HOME "\go\bin")
+addPath(Join-Path $HOME "\.local\bin")
 insertPath(Join-Path $HOME "\local\bin")
 addPath("/usr/local/go/bin")
 

@@ -57,13 +57,13 @@ end
 ---@param on_attach any
 function M.setup(lspconfig, capabilities, on_attach)
   lspconfig.clangd.setup {
-    cmd = {
-      get_clangd(),
-      "--compile-commands-dir=" .. get_compile_commands_dir(),
-      "--header-insertion=never",
-      "--clang-tidy",
-      "--enable-config",
-    },
+    -- cmd = {
+    --   get_clangd(),
+    --   "--compile-commands-dir=" .. get_compile_commands_dir(),
+    --   "--header-insertion=never",
+    --   "--clang-tidy",
+    --   "--enable-config",
+    -- },
     -- handlers = lsp_status.extensions.clangd.setup(),
     init_options = {
       clangdFileStatus = true,
