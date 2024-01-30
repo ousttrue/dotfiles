@@ -1,7 +1,7 @@
 local DOT = require "dot"
 
 local function init_nvim()
- local g = vim.g
+  local g = vim.g
   local opt = vim.opt
   ---@class uv
   local uv = vim.loop
@@ -89,13 +89,15 @@ local function init_nvim()
 
   opt.makeprg = "meson install -C builddir --tags runtime"
 
-  vim.keymap.set({ "n", "i" }, "<F7>", function()
-    -- vim.cmd "make!"
-    -- vim.cmd "wa"
-    vim.cmd "stopinsert"
-    local qfu = require "qfu"
-    qfu.async_make()
-  end)
+  -- vim.keymap.set({ "n", "i" }, "<F7>", function()
+  --   -- vim.cmd "make!"
+  --   -- vim.cmd "wa"
+  --   vim.cmd "stopinsert"
+  --   local qfu = require "qfu"
+  --   qfu.async_make()
+  -- end)
+  vim.keymap.set({ "n" }, "<F7>", ":make<CR>")
+  vim.keymap.set({ "i" }, "<F7>", "<c-o>:make<CR><ESC>")
 
   vim.keymap.set("n", "<F8>", function()
     vim.cmd "bel copen"
