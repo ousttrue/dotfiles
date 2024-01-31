@@ -165,4 +165,10 @@ xmap sk <Plug>(columnskip:nonblank:prev)
       }
     end,
   },
+  {
+    "folke/todo-comments.nvim",
+    opts = {
+      signs = true,
+    },
+  },
 }

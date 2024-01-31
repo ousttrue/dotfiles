@@ -40,14 +40,14 @@ return {
     "lukas-reineke/headlines.nvim",
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
+-- (atx_heading [
+--   (atx_h2_marker)
+-- ] @headline)
       require("headlines").setup {
         markdown = {
           query = vim.treesitter.query.parse(
             "markdown",
             [[
-(atx_heading [
-  (atx_h2_marker)
-] @headline)
 (code_fence_content) @codeblock
             ]]
           ),
