@@ -986,7 +986,7 @@ function Install-Skk-Dictionary
 {
   mkdir -p ~/.skk
   Push-Location ~/.skk
-  curl -o SKK-JISYO.L -L https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L
+  curl -L -o SKK-JISYO.L https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L
   Pop-Location 
 }
 
@@ -1005,5 +1005,17 @@ function Install-Muon
   Push-Location (Join-Path (ghq root) "/github.com/annacrombie/muon")
   meson setup builddir --prefix $HOME/local
   meson install -C builddir
+  Pop-Location
+}
+
+function Install-Win32Yank
+{
+  mkdir -p ~/local/src
+  Push-Location ~/local/src
+  curl -L -O https://github.com/equalsraf/win32yank/releases/download/v0.1.1/win32yank-x64.zip
+  unzip ./win32yank-x64.zip win32yank.exe
+  mkdir -p ~/local/bin
+  Move-Item -force win32yank.exe ~/local/bin/win32yank.exe
+  chmod +x ~/local/bin/win32yank.exe
   Pop-Location
 }

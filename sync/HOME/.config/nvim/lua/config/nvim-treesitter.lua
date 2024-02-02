@@ -43,10 +43,10 @@ function M.setup()
       url = "https://github.com/atusy/tree-sitter-uri",
       branch = "main",
       files = { "src/parser.c" },
-      generate_requires_npm = false,          -- if stand-alone parser without npm dependencies
+      generate_requires_npm = false, -- if stand-alone parser without npm dependencies
       requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
     },
-    filetype = "uri",                         -- if filetype does not match the parser name
+    filetype = "uri", -- if filetype does not match the parser name
   }
 
   -- local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
@@ -107,7 +107,7 @@ function M.setup()
     playground = {
       enable = true,
       disable = {},
-      updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
+      updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
       persist_queries = false, -- Whether the query persists across vim sessions
       keybindings = {
         toggle_query_editor = "o",
@@ -127,6 +127,8 @@ function M.setup()
   vim.treesitter.language.register("xml", "html")
 
   local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+  -- fsharp
   parser_config.fsharp = {
     install_info = {
       url = "https://github.com/Nsidorenco/tree-sitter-fsharp",
@@ -136,6 +138,16 @@ function M.setup()
       requires_generate_from_grammar = true,
     },
     filetype = "fsharp",
+  }
+
+  -- powershell
+  parser_config.powershell = {
+    install_info = {
+      url = "https://github.com/jrsconfitto/tree-sitter-powershell",
+      files = { "src/parser.c" },
+    },
+    filetype = "ps1",
+    used_by = { "psm1", "psd1", "pssc", "psxml", "cdxml" },
   }
 end
 
