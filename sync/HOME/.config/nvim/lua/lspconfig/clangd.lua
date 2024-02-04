@@ -52,38 +52,42 @@ local function get_compile_commands_dir()
   return pwd .. "/builddir"
 end
 
+M.options = {
+  cmd = {
+    vim.fn.expand "~" .. "/.local/share/nvim/mason/bin/clangd",
+    "--compile-commands-dir=" .. get_compile_commands_dir(),
+    "--header-insertion=never",
+    "--clang-tidy",
+    "--enable-config",
+  },
+  -- handlers = lsp_status.extensions.clangd.setup(),
+  init_options = {
+    clangdFileStatus = true,
+    fallbackFlags = fallbackFlags,
+  },
+  root_dir = util.root_pattern("builddir/compile_commands.json", "build/compile_commands.json", ".git"),
+  -- on_attach = function(client, bufnr)
+  --   print "clangd:on_attach"
+  --   vim.keymap.set("n", ",,", function()
+  --     vim.cmd "ClangdSwitchSourceHeader"
+  --   end, { noremap = true })
+  --   -- vim.diagnostic.disable(bufnr)
+  --   on_attach(client, bufnr)
+  -- end,
+  -- capabilities = capabilities,
+}
+
 ---@param lspconfig any
 ---@param capabilities any
 ---@param on_attach any
 function M.setup(lspconfig, capabilities, on_attach)
+  print "clangd setup"
+
   vim.keymap.set("n", ",,", function()
     vim.cmd "ClangdSwitchSourceHeader"
   end, { noremap = true })
 
-  lspconfig.clangd.setup {
-    -- cmd = {
-    --   get_clangd(),
-    --   "--compile-commands-dir=" .. get_compile_commands_dir(),
-    --   "--header-insertion=never",
-    --   "--clang-tidy",
-    --   "--enable-config",
-    -- },
-    -- handlers = lsp_status.extensions.clangd.setup(),
-    init_options = {
-      clangdFileStatus = true,
-      fallbackFlags = fallbackFlags,
-    },
-    root_dir = util.root_pattern("builddir/compile_commands.json", "build/compile_commands.json", ".git"),
-    on_attach = function(client, bufnr)
-      print "clangd:on_attach"
-      vim.keymap.set("n", ",,", function()
-        vim.cmd "ClangdSwitchSourceHeader"
-      end, { noremap = true })
-      -- vim.diagnostic.disable(bufnr)
-      on_attach(client, bufnr)
-    end,
-    capabilities = capabilities,
-  }
+  lspconfig.clangd.setup(M.options)
 end
 
 return M

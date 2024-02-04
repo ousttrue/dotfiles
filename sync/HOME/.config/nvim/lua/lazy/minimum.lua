@@ -42,33 +42,49 @@ return {
       require("config.null-ls").setup()
     end,
   },
-
   {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = {
-      "williamboman/mason.nvim",
-    },
+    "williamboman/mason.nvim",
     config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup()
-    end,
-  },
-
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("config.nvim-lspconfig").setup()
+      require("mason").setup {
+        ui = {
+          check_outdated_packages_on_open = false,
+          border = "single",
+        },
+      }
+      require("mason-lspconfig").setup_handlers {
+        function(server_name)
+          if server_name == "clangd" then
+            vim.keymap.set("n", ",,", function()
+              vim.cmd "ClangdSwitchSourceHeader"
+            end, { noremap = true })
+            require("lspconfig").clangd.setup(require("lspconfig.clangd").options)
+          else
+            require("lspconfig")[server_name].setup {}
+          end
+        end,
+      }
     end,
     dependencies = {
-      -- "hrsh7th/cmp-nvim-lsp",
-      "folke/neodev.nvim",
-      -- "rcarriga/nvim-notify",
-      "b0o/schemastore.nvim",
-      "creativenull/efmls-configs-nvim",
-      "SmiteshP/nvim-navbuddy",
       "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
     },
   },
+
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   config = function()
+  --     require("config.nvim-lspconfig").setup()
+  --   end,
+  --   dependencies = {
+  --     -- "hrsh7th/cmp-nvim-lsp",
+  --     "folke/neodev.nvim",
+  --     -- "rcarriga/nvim-notify",
+  --     "b0o/schemastore.nvim",
+  --     "creativenull/efmls-configs-nvim",
+  --     "SmiteshP/nvim-navbuddy",
+  --     -- "williamboman/mason-lspconfig.nvim",
+  --   },
+  -- },
 
   -- {
   --   "nvimdev/lspsaga.nvim",

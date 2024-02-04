@@ -214,7 +214,7 @@ local function init_nvim()
   vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
   -- lsp
-  vim.lsp.set_log_level "off"
+  -- vim.lsp.set_log_level "off"
   vim.diagnostic.config {
     virtual_text = false,
     signs = {

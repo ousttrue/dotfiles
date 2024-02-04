@@ -83,6 +83,9 @@ function M.clear_syntax_link(ev)
   vim.api.nvim_set_hl(0, "@markup.link.vimdoc", { link = "Identifier" })
 
   vim.api.nvim_set_hl(0, "@keyword.directive.c", { fg = "#FFaa00" })
+  vim.api.nvim_set_hl(0, "@lsp.type.macro.cpp", { fg = "#FFaa00" })
+  vim.api.nvim_set_hl(0, "@keyword.directive.define.cpp", { fg = "#FFaa00" })
+  vim.api.nvim_set_hl(0, "@keyword.directive.cpp", { fg = "#FFaa00" })
 end
 
 return M
