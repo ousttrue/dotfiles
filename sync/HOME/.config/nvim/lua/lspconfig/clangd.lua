@@ -87,6 +87,14 @@ function M.setup(lspconfig, capabilities, on_attach)
 end
 
 function M.override(config, on_attach)
+  config.cmd = {
+    vim.fn.expand "~/.local/share/nvim/mason/bin/clangd",
+    "--compile-commands-dir=" .. get_compile_commands_dir(),
+    "--header-insertion=never",
+    "--clang-tidy",
+    "--enable-config",
+  }
+
   -- handlers = lsp_status.extensions.clangd.setup(),
   config.init_options = {
     clangdFileStatus = true,
