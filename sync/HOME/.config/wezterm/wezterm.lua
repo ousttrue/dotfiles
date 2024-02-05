@@ -75,7 +75,8 @@ local function setup_linux(config)
 end
 
 local function setup_osx(config)
-  config.font_size = 14.0 -- raw font size
+  config.font_size = 18.0 -- raw font size
+  config.default_prog = { "/opt/homebrew/bin/pwsh" }
 end
 
 local TARGET_MAP = {
@@ -124,6 +125,6 @@ config.tls_clients = {
 -- }
 
 -- config.force_reverse_video_cursor = true
-config.default_cursor_style = 'SteadyBlock'
+config.default_cursor_style = "SteadyBlock"
 
 return config

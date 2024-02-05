@@ -28,6 +28,8 @@ local function setup_keys(keys)
   bind("CTRL|SHIFT", " ", "QuickSelect")
   bind("CTRL|SHIFT", "c", wezterm.action { CopyTo = "Clipboard" })
   bind("CTRL|SHIFT", "v", wezterm.action { PasteFrom = "Clipboard" })
+  bind("CMD", "c", wezterm.action { CopyTo = "Clipboard" })
+  bind("CMD", "v", wezterm.action { PasteFrom = "Clipboard" })
 
   -- ALT
   bind("ALT", "c", wezterm.action { SpawnTab = "CurrentPaneDomain" })

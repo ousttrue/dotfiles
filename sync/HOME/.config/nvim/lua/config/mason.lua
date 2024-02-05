@@ -79,6 +79,8 @@ function M.setup()
       -- }
     elseif server_name == "bashls" then
       config.filetypes = { "sh", "bash", "zsh" }
+    elseif server_name == "powershell_es" then
+      config.bundle_path = vim.env.HOME .. "/.local/share/nvim/mason/packages/powershell-editor-services/"
     end
     -- if vim.fn.executable "vala-language-server" == 1 then
     --   require("lspconfig").vala_ls.setup {}
@@ -86,7 +88,6 @@ function M.setup()
     -- lspconfig.fsharp_language_server.setup {}
     -- lspconfig.fsautocomplete.setup {}
     -- lspconfig.glslls.setup {}
-    -- lspconfig.powershell_es.setup {}
     --
     -- web
     --

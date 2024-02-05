@@ -274,7 +274,7 @@ function prompt()
     $prefix = " "
   } elseif($IsMacOS)
   {
-    $prefix + " "
+    $prefix = " "
   }
 
   $location = (Get-Item -force (Get-Location));
@@ -457,6 +457,7 @@ addPath(Join-Path $HOME "\go\bin")
 addPath(Join-Path $HOME "\.local\bin")
 insertPath(Join-Path $HOME "\local\bin")
 addPath("/usr/local/go/bin")
+addPath("/opt/homebrew/bin")
 
 if(Test-Path "C:\Python311")
 {
@@ -901,10 +902,10 @@ function v()
   nvim $args
 }
 
-if(!(has ldd))
-{
-  Set-Alias ldd (Join-Path (Get-Path "msys") "usr/bin/ldd.exe")
-}
+#if(!(has ldd))
+#{
+#  Set-Alias ldd (Join-Path (Get-Path "msys") "usr/bin/ldd.exe")
+#}
 if(!(has file))
 {
   Set-Alias file (Join-Path (Get-Path "msys") "usr/bin/file.exe")
@@ -959,8 +960,13 @@ function Install-Go
 
 function Install-Nvim
 {
+  if(which(brew)){
+brew install ninja cmake gettext curl
+  }
+  else{
   sudo apt-update
   sudo apt-get install -y ninja-build gettext cmake unzip curl
+  }
   ghq get https://github.com/neovim/neovim
   Push-Location (Join-Path (ghq root) "/github.com/neovim/neovim")
   cmake -G Ninja -S cmake.deps -B .deps -DCMAKE_BUILD_TYPE=Release

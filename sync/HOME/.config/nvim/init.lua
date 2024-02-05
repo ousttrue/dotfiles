@@ -433,6 +433,8 @@ local function get_platform()
     return "neovide"
   elseif vim.fn.has "wsl" == 1 then
     return "wsl"
+  elseif vim.fn.has "mac" == 1 then
+    return "osx"
   else
     return "nvim"
   end
@@ -470,6 +472,9 @@ local function init_wsl_clipboard()
   end
 end
 
+local function init_osx_clipboard()
+end
+
 --
 -- main
 --
@@ -497,6 +502,8 @@ else
   vim.opt.clipboard = "unnamedplus"
   if platform == "wsl" then
     init_wsl_clipboard()
+  elseif platform == "osx" then
+    init_osx_clipboard()
   end
 
   init_nvim()
