@@ -316,8 +316,6 @@ local function init_nvim()
 
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
-  -- vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { noremap = true })
-  vim.keymap.set("n", "<Leader>D", vim.lsp.buf.type_definition, { noremap = true })
   vim.keymap.set("n", "gn", vim.lsp.buf.rename, { noremap = true })
   vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { noremap = true })
   vim.keymap.set("n", "<f2>", vim.lsp.buf.rename, { noremap = true })
@@ -332,6 +330,11 @@ local function init_nvim()
   vim.keymap.set("n", "<Leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end)
+  -- opts.on_attach = function(_, bufnr)
+  --   local bufopts = { silent = true, buffer = bufnr }
+  --   vim.keymap.set("n", "<space>p", vim.lsp.buf.format, bufopts)
+  -- end
+
   -- C-[: ESC
   -- C-O: back
   -- TAB->C-K: forward
@@ -400,11 +403,12 @@ local function init_nvim()
       },
     }
     local plugins = {}
-    table.insert(plugins, { import = "lazy.minimum" })
+    table.insert(plugins, { import = "lazy.0_minimum" })
+    table.insert(plugins, { import = "lazy.1_treesitter" })
+    table.insert(plugins, { import = "lazy.2_lsp" })
     table.insert(plugins, { import = "lazy.extend" })
     table.insert(plugins, { import = "lazy.filer" })
     table.insert(plugins, { import = "lazy.telescope" })
-    table.insert(plugins, { import = "lazy.treesitter" })
     table.insert(plugins, { import = "lazy.denops" })
     table.insert(plugins, { import = "lazy.git" })
     table.insert(plugins, { import = "lazy.cmp" })

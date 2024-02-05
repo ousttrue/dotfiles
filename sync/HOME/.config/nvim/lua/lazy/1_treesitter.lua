@@ -1,3 +1,8 @@
+--
+-- * syntax highlight
+-- * motion
+-- * etc...
+--
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -40,9 +45,9 @@ return {
     "lukas-reineke/headlines.nvim",
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
--- (atx_heading [
---   (atx_h2_marker)
--- ] @headline)
+      -- (atx_heading [
+      --   (atx_h2_marker)
+      -- ] @headline)
       require("headlines").setup {
         markdown = {
           query = vim.treesitter.query.parse(

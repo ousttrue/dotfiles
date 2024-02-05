@@ -57,8 +57,10 @@ function M.clear_syntax_link(ev)
   vim.api.nvim_set_hl(0, "@Constant.lua", { link = "Constant" })
   hl_clear "@function.call.lua"
 
+  vim.api.nvim_set_hl(0, "@type.c", { link = "Identifier" })
+  vim.api.nvim_set_hl(0, "@type.builtin.c", { link = "Identifier" })
+  vim.api.nvim_set_hl(0, "@constant.builtin.c", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "@type.typescript", { link = "Identifier" })
-
   vim.api.nvim_set_hl(0, "@tag.astro", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "@type.astro", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "@tag.attribute.astro", { link = "Debug" })
@@ -82,10 +84,13 @@ function M.clear_syntax_link(ev)
   hl_clear "@variable.parameter.vimdoc"
   vim.api.nvim_set_hl(0, "@markup.link.vimdoc", { link = "Identifier" })
 
-  vim.api.nvim_set_hl(0, "@keyword.directive.c", { fg = "#FFaa00" })
   vim.api.nvim_set_hl(0, "@lsp.type.macro.cpp", { fg = "#FFaa00" })
-  vim.api.nvim_set_hl(0, "@keyword.directive.define.cpp", { fg = "#FFaa00" })
+  vim.api.nvim_set_hl(0, "@keyword.import.cpp", { fg = "#FFaa00" })
   vim.api.nvim_set_hl(0, "@keyword.directive.cpp", { fg = "#FFaa00" })
+  vim.api.nvim_set_hl(0, "@keyword.directive.define.cpp", { fg = "#FFaa00" })
+  vim.api.nvim_set_hl(0, "@keyword.import.c", { fg = "#FFaa00" })
+  vim.api.nvim_set_hl(0, "@keyword.directive.c", { fg = "#FFaa00" })
+  vim.api.nvim_set_hl(0, "@keyword.directive.define.c", { fg = "#FFaa00" })
 end
 
 return M

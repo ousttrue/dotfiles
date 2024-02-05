@@ -35,12 +35,12 @@ local function get_dir()
     return ""
   end
   for i, e in
-  ipairs(scandir.scan_dir(dir, {
-    depth = 1,
-    add_dirs = true,
-    only_dirs = true,
-    search_pattern = "sumneko",
-  }))
+    ipairs(scandir.scan_dir(dir, {
+      depth = 1,
+      add_dirs = true,
+      only_dirs = true,
+      search_pattern = "sumneko",
+    }))
   do
     return e .. ""
   end
@@ -136,61 +136,48 @@ function M.setup(lspconfig, capabilities, on_attach)
       require("nvim-navbuddy").attach(client, bufnr)
     end,
   }
+end
 
-  -- local settiings = {
-  --   cmd = { get_lua_ls() },
-  --   settings = {
-  --     Lua = {
-  --       runtime = {
-  --         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-  --         version = "LuaJIT",
-  --         path = {
-  --           "?.lua",
-  --           "?/init.lua",
-  --           dot.get_home() .. "/local/lua/?.lua",
-  --           dot.get_home() .. "/local/lua/?/init.lua",
-  --         },
-  --       },
-  --       diagnostics = {
-  --         enable = true,
-  --         globals = get_global(),
-  --       },
-  --       workspace = {
-  --         -- Make the server aware of Neovim runtime files
-  --         library = get_library(),
-  --         checkThirdParty = false,
-  --       },
-  --       -- Do not send telemetry data containing a randomized but unique identifier
-  --       telemetry = {
-  --         enable = false,
-  --       },
-  --       completion = {
-  --         callSnippet = "Replace",
-  --       },
-  --     },
-  --   },
-  --   capabilities = capabilities,
-  --   -- https://github.com/neovim/nvim-lspconfig/wiki/Project-local-settings
-  --   on_init = function(client)
-  --     -- print(vim.inspect(client.config.capabilities))
-  --
-  --     vim.notify("lua_ls.init: " .. client.config.root_dir, vim.log.levels.INFO)
-  --     if vim.endswith(client.config.root_dir, "/dotfiles") then
-  --       client.config.settings.Lua.diagnostics.globals = {
-  --         "vim",
-  --         "nyagos",
-  --       }
-  --     end
-  --
-  --     client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-  --     return true
-  --   end,
-  --   on_attach = function(client, bufnr)
-  --     client.server_capabilities.documentFormattingProvider = false
-  --     on_attach(client, bufnr)
-  --   end,
-  -- }
-  -- lspconfig.lua_ls.setup(settiings)
+function M.override(config, on_attach)
+  config.on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if not vim.loop.fs_stat(path .. "/.luarc.json") and not vim.loop.fs_stat(path .. "/.luarc.jsonc") then
+      print "luals: use default config"
+      client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
+        Lua = {
+          runtime = {
+            -- Tell the language server which version of Lua you're using
+            -- (most likely LuaJIT in the case of Neovim)
+            version = "LuaJIT",
+          },
+          -- Make the server aware of Neovim runtime files
+          workspace = {
+            checkThirdParty = false,
+            library = vim.api.nvim_get_runtime_file("", true),
+          },
+          format = {
+            defaultConfig = {
+              indent_style = "space",
+              indent_size = "2",
+            },
+          },
+        },
+      })
+
+      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+    end
+    return true
+  end
+  config.on_attach = function(client, bufnr)
+    -- client.server_capabilities.executeCommandProvider = false
+    -- client.capabilities.window.showMessage = nil
+    client.server_capabilities.documentFormattingProvider = false
+    print(vim.inspect(client.server_capabilities))
+
+    on_attach(client, bufnr)
+
+    require("nvim-navbuddy").attach(client, bufnr)
+  end
 end
 
 return M

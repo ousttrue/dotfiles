@@ -83,11 +83,25 @@ M.options = {
 function M.setup(lspconfig, capabilities, on_attach)
   print "clangd setup"
 
-  vim.keymap.set("n", ",,", function()
-    vim.cmd "ClangdSwitchSourceHeader"
-  end, { noremap = true })
-
   lspconfig.clangd.setup(M.options)
+end
+
+function M.override(config, on_attach)
+  -- handlers = lsp_status.extensions.clangd.setup(),
+  config.init_options = {
+    clangdFileStatus = true,
+    fallbackFlags = fallbackFlags,
+  }
+
+  config.root_dir = util.root_pattern("builddir/compile_commands.json", "build/compile_commands.json", ".git")
+
+  config.on_attach = function(client, bufnr)
+    vim.keymap.set("n", ",,", function()
+      vim.cmd "ClangdSwitchSourceHeader"
+    end, { noremap = true })
+
+    on_attach(client, bufnr)
+  end
 end
 
 return M
