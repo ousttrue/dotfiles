@@ -54,9 +54,12 @@ function M.clear_syntax_link(ev)
   vim.api.nvim_set_hl(0, "@punctuation.special", { link = "Statement" })
   vim.api.nvim_set_hl(0, "@punctuation.bracket.lua", { link = "Statement" })
   vim.api.nvim_set_hl(0, "@field.lua", { link = "Debug" })
+  vim.api.nvim_set_hl(0, "@variable.member.lua", { link = "Debug" })
   vim.api.nvim_set_hl(0, "@Constant.lua", { link = "Constant" })
   hl_clear "@function.call.lua"
 
+  -- vim.api.nvim_set_hl(0, "@variable.c", { link = "Title" })
+  vim.api.nvim_set_hl(0, "@property.c", { link = "Debug" })
   vim.api.nvim_set_hl(0, "@type.c", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "@type.builtin.c", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "@constant.builtin.c", { link = "Identifier" })

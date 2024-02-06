@@ -2,28 +2,30 @@ local M = {
   "query",
   -- "help" => vimdoc,
   "vimdoc",
+  -- langs
+  "lua",
   "c",
   "cpp",
+  "c_sharp",
   "python",
-  "lua",
+  "go",
+  "zig",
+  "vala",
+  "bash",
+  -- web
   "markdown",
   "markdown_inline",
-  "zig",
   "html",
   "css",
-  "c_sharp",
-  "toml",
-  "go",
-  "bash",
-  "json",
-  "vala",
-  "scss",
   "svelte",
+  "scss",
   "typescript",
   "javascript",
   "tsx",
   "yaml",
-
+  "json",
+  "jsonc",
+  "toml",
   -- "nu",
   "uri",
 }
@@ -141,10 +143,15 @@ function M.setup()
   }
 
   -- powershell
+  -- https://medium.com/@kacpermichta33/powershell-development-in-neovim-23ed44d453b4
   parser_config.powershell = {
     install_info = {
-      url = "https://github.com/jrsconfitto/tree-sitter-powershell",
-      files = { "src/parser.c" },
+      -- url = "https://github.com/jrsconfitto/tree-sitter-powershell",
+      url = "https://github.com/JamesWTruher/tree-sitter-powershell",
+      branch = "operator001",
+      files = { "src/scanner.c" },
+      generate_requires_npm = false,
+      requires_generate_from_grammar = false,
     },
     filetype = "ps1",
     used_by = { "psm1", "psd1", "pssc", "psxml", "cdxml" },

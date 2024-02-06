@@ -23,13 +23,16 @@ local fallbackFlags = {}
 local function get_clangd()
   if vim.fn.has "win32" == 1 then
     -- return LLVM_MINGW
-    return LLVM_PREBUILT
+    -- return LLVM_PREBUILT
+    return vim.env.LOCALAPPDATA .. "/nvim-data/mason/bin/clangd.cmd"
   else
-    for _, exe in pairs(clangd_list) do
-      if dot.which(exe) then
-        return exe
-      end
-    end
+    -- mason
+    return vim.fn.expand "~/.local/share/nvim/mason/bin/clangd"
+    -- for _, exe in pairs(clangd_list) do
+    --   if dot.which(exe) then
+    --     return exe
+    --   end
+    -- end
   end
 
   return "clangd"
@@ -88,7 +91,7 @@ end
 
 function M.override(config, on_attach)
   config.cmd = {
-    vim.fn.expand "~/.local/share/nvim/mason/bin/clangd",
+    get_clangd(),
     "--compile-commands-dir=" .. get_compile_commands_dir(),
     "--header-insertion=never",
     "--clang-tidy",
