@@ -181,8 +181,8 @@ xmap sk <Plug>(columnskip:nonblank:prev)
   {
     "haya14busa/vim-edgemotion",
     config = function()
-      vim.keymap.set("n", "<C-j>", "<Plug>(edgemotion-j)")
-      vim.keymap.set("n", "<C-k>", "<Plug>(edgemotion-k)")
+      vim.keymap.set({ "n", "v" }, "<C-j>", "<Plug>(edgemotion-j)")
+      vim.keymap.set({ "n", "v" }, "<C-k>", "<Plug>(edgemotion-k)")
     end,
   },
 }

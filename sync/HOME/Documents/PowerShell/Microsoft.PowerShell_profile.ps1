@@ -828,8 +828,8 @@ if($env:GIS_DIR -and (Test-Path (Join-Path $env:GIS_DIR "jma/area.json")))
 # }
 # 
 
-Set-Alias docker podman
-Set-Alias docker-compose podman-compose
+# Set-Alias docker podman
+# Set-Alias docker-compose podman-compose
 if(!(has tig))
 {
   Set-Alias tig D:\msys64\usr\bin\tig.exe
