@@ -113,9 +113,10 @@ local function init_nvim()
   --     vim.cmd "cc"
   --   end
   -- end)
-  -- vim.keymap.set("n", "<S-Tab>", "<cmd>cp<CR>", {})
-  vim.keymap.set("n", "<C-n>", ":cnext<CR>", { noremap = true, silent = true })
-  vim.keymap.set("n", "<C-p>", ":cprev<CR>", { noremap = true, silent = true })
+  vim.keymap.set("n", "<Tab>", ":cnext<CR>", { noremap = true, silent = true })
+  vim.keymap.set("n", "<S-Tab>", ":cprev<CR>", { noremap = true, silent = true })
+  -- vim.keymap.set("n", "<C-n>", ":cnext<CR>", { noremap = true, silent = true })
+  -- vim.keymap.set("n", "<C-p>", ":cprev<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "]q", ":cnewer<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "[q", ":colder<CR>", { noremap = true, silent = true })
 
@@ -472,8 +473,7 @@ local function init_wsl_clipboard()
   end
 end
 
-local function init_osx_clipboard()
-end
+local function init_osx_clipboard() end
 
 --
 -- main
