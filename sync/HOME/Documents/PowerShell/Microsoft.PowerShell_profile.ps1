@@ -476,6 +476,7 @@ if(Test-Path "C:\Python311")
   addPath("C:\Python311-arm64\Scripts")
   addPath("C:\Python311-arm64")
 }
+addPath("/Users/ousttrue/Library/Python/3.9/bin")
 
 # For zoxide v0.8.0+
 if(has zoxide)
@@ -960,12 +961,13 @@ function Install-Go
 
 function Install-Nvim
 {
-  if(which(brew)){
-brew install ninja cmake gettext curl
-  }
-  else{
-  sudo apt-update
-  sudo apt-get install -y ninja-build gettext cmake unzip curl
+  if(which(brew))
+  {
+    brew install ninja cmake gettext curl
+  } else
+  {
+    sudo apt-update
+    sudo apt-get install -y ninja-build gettext cmake unzip curl
   }
   ghq get https://github.com/neovim/neovim
   Push-Location (Join-Path (ghq root) "/github.com/neovim/neovim")

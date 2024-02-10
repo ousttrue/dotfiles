@@ -7,6 +7,7 @@
 .mypy_cache
 zig-out
 zig-cache
+.DS_Store
 
 bin/
 obj/
