@@ -12,6 +12,10 @@ local function setup_keys(keys)
   -- ???
   -- https://github.com/wez/wezterm/discussions/556
   bind("CTRL", "/", wezterm.action { SendString = "\x1f" })
+  bind("CMD", "h", wezterm.action.SendKey { key = "h", mods = "ALT" })
+  bind("CMD", "j", wezterm.action.SendKey { key = "j", mods = "ALT" })
+  bind("CMD", "k", wezterm.action.SendKey { key = "k", mods = "ALT" })
+  bind("CMD", "l", wezterm.action.SendKey { key = "l", mods = "ALT" })
 
   -- LEADER
   bind("LEADER", "r", "ReloadConfiguration")
@@ -33,13 +37,18 @@ local function setup_keys(keys)
 
   -- ALT
   bind("ALT", "c", wezterm.action { SpawnTab = "CurrentPaneDomain" })
+  bind("CMD", "c", wezterm.action { SpawnTab = "CurrentPaneDomain" })
   bind("ALT", "LeftArrow", wezterm.action { MoveTabRelative = -1 })
   bind("ALT", "RightArrow", wezterm.action { MoveTabRelative = 1 })
+  bind("CMD", "LeftArrow", wezterm.action { MoveTabRelative = -1 })
+  bind("CMD", "RightArrow", wezterm.action { MoveTabRelative = 1 })
 
   -- bind("ALT", "h", wezterm.action { ActivateTabRelative = -1 })
   -- bind("ALT", "l", wezterm.action { ActivateTabRelative = 1 })
   bind("ALT", ",", wezterm.action { ActivateTabRelative = -1 })
   bind("ALT", ".", wezterm.action { ActivateTabRelative = 1 })
+  bind("CMD", ",", wezterm.action { ActivateTabRelative = -1 })
+  bind("CMD", ".", wezterm.action { ActivateTabRelative = 1 })
   bind("ALT", "LeftArrow", wezterm.action { MoveTabRelative = -1 })
   bind("ALT", "RightArrow", wezterm.action { MoveTabRelative = 1 })
 end
