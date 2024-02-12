@@ -115,10 +115,10 @@ local function init_nvim()
   -- end)
   vim.keymap.set("n", "<Tab>", ":cnext<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "<S-Tab>", ":cprev<CR>", { noremap = true, silent = true })
-  -- vim.keymap.set("n", "<C-n>", ":cnext<CR>", { noremap = true, silent = true })
-  -- vim.keymap.set("n", "<C-p>", ":cprev<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "]q", ":cnewer<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "[q", ":colder<CR>", { noremap = true, silent = true })
+  vim.keymap.set("n", "F", "<C-i>", { noremap = true, silent = true })
+  vim.keymap.set("n", "B", "<C-o>", { noremap = true, silent = true })
 
   vim.cmd [[
 " " Highlight on yank

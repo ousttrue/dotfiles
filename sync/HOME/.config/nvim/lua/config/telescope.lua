@@ -29,7 +29,7 @@ function M.setup()
       mappings = {
         i = {
           -- ["<c-[>"] = actions.close,
-          ["<M-p>"] = action_layout.toggle_preview,
+          ["<Tab>"] = action_layout.toggle_preview,
           -- clear. not preview scroll
           ["<C-u>"] = false,
           ["<C-f>"] = { "<Right>", type = "command" },

@@ -458,6 +458,7 @@ addPath(Join-Path $HOME "\.local\bin")
 insertPath(Join-Path $HOME "\local\bin")
 addPath("/usr/local/go/bin")
 addPath("/opt/homebrew/bin")
+addPath(join-Path $HOME '/Downloads/Visual Studio Code.app/Contents/Resources/app/bin')
 
 if(Test-Path "C:\Python311")
 {
@@ -477,6 +478,12 @@ if(Test-Path "C:\Python311")
   addPath("C:\Python311-arm64")
 }
 addPath("/Users/ousttrue/Library/Python/3.9/bin")
+
+if($IsMacOS)
+{
+  $env:N_PREFIX=(Join-Path $env:HOME "/.n")
+  addPath(Join-Path $env:N_PREFIX "/bin")
+}
 
 # For zoxide v0.8.0+
 if(has zoxide)
@@ -777,7 +784,10 @@ if(has exa)
     ls -a $args
   }
 }
-Set-Alias code "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd"
+if(has "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd")
+{
+  Set-Alias code 
+}
 
 function now()
 {
