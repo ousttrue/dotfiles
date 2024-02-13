@@ -55,6 +55,45 @@ function M.setup()
   -- ft_to_parser.mdx = "markdown"
   vim.treesitter.language.register("markdown", "mdx")
 
+  vim.treesitter.language.register("xml", "html")
+
+  local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+  -- fsharp
+  parser_config.fsharp = {
+    install_info = {
+      url = "https://github.com/Nsidorenco/tree-sitter-fsharp",
+      branch = "develop",
+      files = { "src/scanner.cc", "src/parser.c" },
+      generate_requires_npm = true,
+      requires_generate_from_grammar = true,
+    },
+    filetype = "fsharp",
+  }
+
+  -- powershell
+  -- https://medium.com/@kacpermichta33/powershell-development-in-neovim-23ed44d453b4
+  -- tree-sitter-cli  ^0.15.2  →  ^0.20.8
+  -- %LOCALAPPDATA%\tree-sitter\lib\powershell.dll
+  -- parser/<lang>.so
+  -- module.exports = grammar({
+  --   name: 'PowerShell',
+  -- parser_config.PowerShell
+  -- 大文字小文字 /
+  parser_config.PowerShell = {
+    install_info = {
+      -- url = "https://github.com/jrsconfitto/tree-sitter-powershell",
+      -- url = "https://github.com/JamesWTruher/tree-sitter-powershell",
+      -- branch = "operator001",
+      url = "D:/ghq/github.com/JamesWTruher/tree-sitter-PowerShell",
+      files = { "src/scanner.c" },
+      -- generate_requires_npm = true,
+      -- requires_generate_from_grammar = true,
+    },
+    filetype = "ps1",
+    used_by = { "psm1", "psd1", "pssc", "psxml", "cdxml" },
+  }
+
   require("nvim-treesitter.configs").setup {
     parser_install_dir = treesitterpath,
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -124,37 +163,6 @@ function M.setup()
         show_help = "?",
       },
     },
-  }
-
-  vim.treesitter.language.register("xml", "html")
-
-  local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-  -- fsharp
-  parser_config.fsharp = {
-    install_info = {
-      url = "https://github.com/Nsidorenco/tree-sitter-fsharp",
-      branch = "develop",
-      files = { "src/scanner.cc", "src/parser.c" },
-      generate_requires_npm = true,
-      requires_generate_from_grammar = true,
-    },
-    filetype = "fsharp",
-  }
-
-  -- powershell
-  -- https://medium.com/@kacpermichta33/powershell-development-in-neovim-23ed44d453b4
-  parser_config.powershell = {
-    install_info = {
-      -- url = "https://github.com/jrsconfitto/tree-sitter-powershell",
-      url = "https://github.com/JamesWTruher/tree-sitter-powershell",
-      branch = "operator001",
-      files = { "src/scanner.c" },
-      generate_requires_npm = false,
-      requires_generate_from_grammar = false,
-    },
-    filetype = "ps1",
-    used_by = { "psm1", "psd1", "pssc", "psxml", "cdxml" },
   }
 end
 

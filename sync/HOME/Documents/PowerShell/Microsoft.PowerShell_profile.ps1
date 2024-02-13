@@ -786,7 +786,7 @@ if(has exa)
 }
 if(has "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd")
 {
-  Set-Alias code 
+  Set-Alias code (Join-Path $env:LOCALAPPDATA "\Programs\Microsoft VS Code\bin\code.cmd")
 }
 
 function now()

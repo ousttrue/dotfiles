@@ -3,6 +3,7 @@ local M = {}
 function M.setup()
   local cmp = require "cmp"
   local DOT = require "dot"
+  local lspkind = require "lspkind"
 
   cmp.setup {
     snippet = {
@@ -32,11 +33,27 @@ function M.setup()
       ["<C-e>"] = cmp.mapping.abort(),
       ["<CR>"] = cmp.mapping.confirm { select = true },
     },
+
     sources = cmp.config.sources({
       { name = "nvim_lsp" },
     }, {
+      { name = "treesitter" },
+    }, {
       { name = "buffer" },
     }),
+
+    formatting = {
+      format = lspkind.cmp_format {
+        mode = "symbol_text",
+        menu = {
+          buffer = "[Buffer]",
+          nvim_lsp = "[LSP]",
+          luasnip = "[LuaSnip]",
+          nvim_lua = "[Lua]",
+          latex_symbols = "[Latex]",
+        },
+      },
+    },
   }
 
   -- Set configuration for specific filetype.
