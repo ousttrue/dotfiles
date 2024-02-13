@@ -220,10 +220,13 @@
         <article role="main">
           <p>[[nvim]]
 [[treesitter]]</p>
+<p>https://neovim.io/doc/user/treesitter.html</p>
 <ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://blog.atusy.net/2023/11/17/tree-sitter-uri/">プラグインをURLで指定しやすくするために、tree-sitterでURIパーサーを作ってNeovimを彩ってみた | Atusy's blog</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://joker1007.hatenablog.com/entry/2023/11/17/162702">rbs の tree-sitter パーサを書いて、neovim のシンタックスハイライトに利用する - joker1007’s diary</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://blog.atusy.net/2023/11/17/tree-sitter-uri/">プラグインを URL で指定しやすくするために、tree-sitter で URI パーサーを作って Neovim を彩ってみた | Atusy's blog</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://www.jmaguire.tech/posts/treesitter_folding/">Code Folding in Neovim with Tree-sitter :: John Maguire</a></p></li>
-<li><p>@2023 <a class="reference external" href="https://blog.atusy.net/2023/04/19/tsnode-marker-nvim/">Markdownのコードブロックとかテキストの文脈に合わせて背景色を変えるtsnode-marker.nvimを作った | Atusy's blog</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://blog.atusy.net/2023/04/19/tsnode-marker-nvim/">Markdown のコードブロックとかテキストの文脈に合わせて背景色を変える tsnode-marker.nvim を作った | Atusy's blog</a></p></li>
+<li><p>@2023 <a class="reference external" href="https://blog.3qe.us/entry/2023/05/15/200750">Tree-sitterでシンタックスハイライトしたコードをHTMLで出力するワンライナー - Lambdaカクテル</a></p></li>
 </ul>
 <section class="tex2jax_ignore mathjax_ignore" id="nvim-version">
 <h1>nvim version<a class="headerlink" href="#nvim-version" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -235,11 +238,43 @@
 <h2>0.5<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>@2021 <a class="reference external" href="https://zenn.dev/monaqa/articles/2021-12-22-vim-nvim-treesitter-highlight">日常に彩りを加える nvim-treesitter の設定術</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://www.soum.co.jp/misc/vim-advanced/6/">Vimのすゝめ改 - Tree-sitter について | 株式会社創夢 — SOUM/misc</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://lab.mo-t.com/blog/neovim-v05-introduction-new-features-part-2">Neovim v0.5リリース記念 v0.5の新機能を紹介します【後編】 | MoT Lab (GO Inc. Engineering Blog)</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://zenn.dev/duglaser/articles/c02d6a937a48df">nvim-treesitterを勧めたい</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://www.soum.co.jp/misc/vim-advanced/6/">Vim のすゝめ改 - Tree-sitter について | 株式会社創夢 — SOUM/misc</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://lab.mo-t.com/blog/neovim-v05-introduction-new-features-part-2">Neovim v0.5 リリース記念 v0.5 の新機能を紹介します【後編】 | MoT Lab (GO Inc. Engineering Blog)</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://zenn.dev/duglaser/articles/c02d6a937a48df">nvim-treesitter を勧めたい</a></p></li>
 </ul>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>命名規則<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>大文字小文字含めた一貫性。</p>
+<ul class="simple">
+<li><p>js: grammar.js name: LANG</p></li>
+<li><p>lua: parser_config: LANG</p></li>
+<li><p>c: src/scanner.c: LANG</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="queries">
+<h1>queries<a class="headerlink" href="#queries" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://github.com/nvim-treesitter/nvim-treesitter/tree/master/queries/zig</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Parser/Features         H L F I J
+  - bash                ✓ ✓ ✓ . ✓
+  - c                   ✓ ✓ ✓ ✓ ✓
+
+Legend: H[ighlight], L[ocals], F[olds], I[ndents], In[j]ections
+</pre></div>
+</div>
+<section id="aerial">
+<h2>aerial<a class="headerlink" href="#aerial" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">aerial.scm</span></code></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="install">
+<h1>install 先<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>prebuilt</p></li>
+<li><p>laza config</p></li>
+<li><p>手動 TSinstall</p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="error">
 <h1>error!<a class="headerlink" href="#error" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -262,7 +297,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/ZOI_dayo/items/3c39252c729dd27393f3">nvim-treesitterで「query: invalid node type at...」エラーが出た #neovim - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/ZOI_dayo/items/3c39252c729dd27393f3">nvim-treesitter で「query: invalid node type at...」エラーが出た #neovim - Qiita</a></p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">rmrf</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">oustt</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">nvim</span><span class="o">-</span><span class="n">data</span>
 </pre></div>
@@ -344,6 +379,12 @@
 <li><a class="reference internal" href="#id2">0.5</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#id3">命名規則</a></li>
+<li><a class="reference internal" href="#queries">queries</a><ul>
+<li><a class="reference internal" href="#aerial">aerial</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install">install 先</a></li>
 <li><a class="reference internal" href="#error">error!</a></li>
 <li><a class="reference internal" href="#path">path</a></li>
 <li><a class="reference internal" href="#query-capture">query capture</a><ul>
