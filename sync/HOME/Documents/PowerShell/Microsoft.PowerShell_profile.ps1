@@ -971,7 +971,7 @@ function Install-Go
 
 function Install-Nvim
 {
-  if(which(brew))
+  if(which('brew'))
   {
     brew install ninja cmake gettext curl
   } else
