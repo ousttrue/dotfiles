@@ -11,6 +11,16 @@
 
 ## 2.1.5
 
+# Windows
+
+`%LOCALAPPDATA%\Local\opam`
+
+```pwsh
+opam switch list-available
+opam init
+(& opam env) -split '\r?\n' | ForEach-Object { Invoke-Expression $_ }
+```
+
 # build
 - [Releases · ocaml/opam](https://github.com/ocaml/opam/releases)
 
