@@ -34,13 +34,17 @@ function M.setup()
       ["<CR>"] = cmp.mapping.confirm { select = true },
     },
 
-    sources = cmp.config.sources({
-      { name = "nvim_lsp" },
-    }, {
-      { name = "treesitter" },
-    }, {
-      { name = "buffer" },
-    }),
+    sources = cmp.config.sources(
+      {
+        { name = "nvim_lsp" },
+      },
+      -- {
+      --   { name = "treesitter" },
+      -- },
+      {
+        { name = "buffer" },
+      }
+    ),
 
     formatting = {
       format = lspkind.cmp_format {
