@@ -1,4 +1,4 @@
-local M = {
+local langs = {
   "query",
   -- "help" => vimdoc,
   "vimdoc",
@@ -30,7 +30,7 @@ local M = {
   "uri",
 }
 
-local langs = {}
+local M = {}
 
 function M.setup()
   -- パーサーのインストール先（任意）
