@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>partition構成 - shell note ドキュメント</title>
+        <title>partition 構成 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,49 +218,75 @@
           </label>
         </div>
         <article role="main">
-          <p>[[boot]]</p>
+          <p>[[boot]]
+[[GPT]]</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://orumin.blogspot.com/2013/01/grubefi.html">GRUBとEFIの組み合わせで使うときのメモ またはEFI全般のtips</a></p></li>
-<li><p><a class="reference external" href="https://falog.net/kotesaki-os001/">小手先でつくる自作OS – UEFI bootからkernelロードまで | ふぁろぐねっと</a></p></li>
-<li><p><a class="reference external" href="https://orumin.blogspot.com/2014/12/4.html">ブートローダーは4行で実装される</a></p></li>
-<li><p><a class="reference external" href="http://yuma.ohgami.jp/UEFI-Bare-Metal-Programming/index.html">フルスクラッチで作る!UEFIベアメタルプログラミング</a></p></li>
+<li><p><a class="reference external" href="https://orumin.blogspot.com/2013/01/grubefi.html">GRUB と EFI の組み合わせで使うときのメモ または EFI 全般の tips</a></p></li>
+<li><p><a class="reference external" href="https://falog.net/kotesaki-os001/">小手先でつくる自作 OS – UEFI boot から kernel ロードまで | ふぁろぐねっと</a></p></li>
+<li><p><a class="reference external" href="https://orumin.blogspot.com/2014/12/4.html">ブートローダーは 4 行で実装される</a></p></li>
+<li><p><a class="reference external" href="http://yuma.ohgami.jp/UEFI-Bare-Metal-Programming/index.html">フルスクラッチで作る!UEFI ベアメタルプログラミング</a></p></li>
 <li><p><a class="reference external" href="http://yuma.ohgami.jp/ubmp/UEFI-Bare-Metal-Programming_20170811.pdf">yuma.ohgami.jp/ubmp/UEFI-Bare-Metal-Programming_20170811.pdf</a></p></li>
-<li><p><a class="reference external" href="https://sksat.hatenablog.com/entry/2020/12/21/212651">RustでUEFIアプリケーションを書く 2020 Edition - 重力に縋るな</a></p></li>
+<li><p><a class="reference external" href="https://sksat.hatenablog.com/entry/2020/12/21/212651">Rust で UEFI アプリケーションを書く 2020 Edition - 重力に縋るな</a></p></li>
 <li><p><a class="reference external" href="https://zenn.dev/nokute/articles/7b085ad55e174a">UEFI エミュレータで遊ぶ</a></p></li>
-<li><p><a class="reference external" href="https://knowledge.sakura.ad.jp/22963/">現代における自作OSの難しさ 〜自作OSのいまと昔 [第2回] | さくらのナレッジ</a></p></li>
+<li><p><a class="reference external" href="https://knowledge.sakura.ad.jp/22963/">現代における自作 OS の難しさ 〜自作 OS のいまと昔 [第 2 回] | さくらのナレッジ</a></p></li>
 </ul>
 <section id="partition">
-<h1>partition構成<a class="headerlink" href="#partition" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>partition 構成<a class="headerlink" href="#partition" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <blockquote>
-<div><p>ストレージの第一パーティションをUEFIのシステムパーティション
+<div><p>ストレージの第一パーティションを UEFI のシステムパーティション
 FAT32
 512MB くらい？</p>
 </div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda1</span>       <span class="mi">511</span><span class="n">M</span>  <span class="mf">4.0</span><span class="n">K</span>  <span class="mi">511</span><span class="n">M</span>   <span class="mi">1</span><span class="o">%</span> <span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">efi</span>
 </pre></div>
 </div>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>partition</p></th>
+<th class="head"><p>size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EFI</p></td>
+<td><p>512MB</p></td>
+</tr>
+<tr class="row-odd"><td><p>SWAP</p></td>
+<td><p>MEMORY x 2 (for example: 32GB)</p></td>
+</tr>
+<tr class="row-even"><td><p>/</p></td>
+<td><p>200GB</p></td>
+</tr>
+</tbody>
+</table></div>
 </section>
-<section id="uefi">
-<h1>UEFIブートマネージャー<a class="headerlink" href="#uefi" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</section>
+<section class="tex2jax_ignore mathjax_ignore" id="uefi">
+<h1>UEFI ブートマネージャー<a class="headerlink" href="#uefi" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="efibootmgr">
-<h1>efibootmgr<a class="headerlink" href="#efibootmgr" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>efibootmgr<a class="headerlink" href="#efibootmgr" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 <section id="application">
-<h1>Application<a class="headerlink" href="#application" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://ja.wikibooks.org/wiki/UEFI%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9/Hello_World%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0">UEFIアプリケーションの書き方/Hello Worldプログラム - Wikibooks</a></p>
+<h2>Application<a class="headerlink" href="#application" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://ja.wikibooks.org/wiki/UEFI%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9/Hello_World%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0">UEFI アプリケーションの書き方/Hello World プログラム - Wikibooks</a></p>
 </section>
 <section id="gnu-efi">
-<h1>gnu-efi<a class="headerlink" href="#gnu-efi" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>gnu-efi<a class="headerlink" href="#gnu-efi" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/tnishinaga/items/40755f414557faf45dcb">gnu-efiでUEFI遊びをはじめよう - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/tnishinaga/items/40755f414557faf45dcb">gnu-efi で UEFI 遊びをはじめよう - Qiita</a></p></li>
 </ul>
 </section>
 <section id="edk2">
-<h1>EDK2<a class="headerlink" href="#edk2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>EDK2<a class="headerlink" href="#edk2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://osdev-jp.readthedocs.io/ja/latest/2017/create-uefi-app-with-edk2.html">EDK II で UEFI アプリケーションを作る — osdev-jp core docs 1.0 ドキュメント</a></p></li>
 </ul>
+</section>
+<section id="limine">
+<h2>Limine<a class="headerlink" href="#limine" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>https://limine-bootloader.org/</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">esp/EFI/BOOT/BOOTX64.EFI</span></code></p>
+</section>
 </section>
 
         </article>
@@ -296,12 +322,15 @@ FAT32
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">partition構成</a></li>
-<li><a class="reference internal" href="#uefi">UEFIブートマネージャー</a></li>
+<li><a class="reference internal" href="#">partition 構成</a></li>
+<li><a class="reference internal" href="#uefi">UEFI ブートマネージャー</a><ul>
 <li><a class="reference internal" href="#efibootmgr">efibootmgr</a></li>
 <li><a class="reference internal" href="#application">Application</a></li>
 <li><a class="reference internal" href="#gnu-efi">gnu-efi</a></li>
 <li><a class="reference internal" href="#edk2">EDK2</a></li>
+<li><a class="reference internal" href="#limine">Limine</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
