@@ -2,13 +2,6 @@
 
 [GitHub - google/mediapipe: Cross-platform, customizable ML solutions for live and streaming media.](https://github.com/google/mediapipe)
 
-- @2022 [Simple Hand Gesture Recognition Code - Hand tracking - Mediapipe · GitHub](https://gist.github.com/TheJLifeX/74958cc59db477a91837244ff598ef4a)
-
-[Web カメラでトラッキングした手を Three.js 上で動かす｜ HIKKY 開発者ブログ](https://note.com/tech_hikky/n/n1345d2ca0539)
-
-# Windows
-
-- @2021 [Windows 10 に MediaPipe をインストール (WSL 不使用)](http://kunsen.net/2021/01/30/post-3543/)
 
 # python
 
@@ -17,8 +10,21 @@
 
 # c++
 
+- @2021 [Windows 10 に MediaPipe をインストール (WSL 不使用)](http://kunsen.net/2021/01/30/post-3543/)
+- @2022 [Simple Hand Gesture Recognition Code - Hand tracking - Mediapipe · GitHub](https://gist.github.com/TheJLifeX/74958cc59db477a91837244ff598ef4a)
+- @2021 [MediaPipe を使って 3D アバターを動かす - Qiita](https://qiita.com/Entis/items/ab9bd76ac230da2fa060)
 - @2020 [MeidiaPipe を使うために Windows に導入する話 - Qiita](https://qiita.com/Entis/items/e470ce54e70244aaf4a9)
-- [MediaPipe を使って 3D アバターを動かす - Qiita](https://qiita.com/Entis/items/ab9bd76ac230da2fa060)
+
+# threejs
+
+- [MediaPipe Handpose Javascript版](https://zenn.dev/tkada/articles/600efba2db186b)
+- @2021 [【React】MediaPipe/Hands で手を検知する #React - Qiita](https://qiita.com/nemutas/items/32ce13ae31360877baa5)
+
+```sh
+npm install @mediapipe/tasks-vision
+```
+
+- @2022 [Web カメラでトラッキングした手を Three.js 上で動かす｜ HIKKY 開発者ブログ](https://note.com/tech_hikky/n/n1345d2ca0539)
 
 # Unity
 
