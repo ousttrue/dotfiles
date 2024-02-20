@@ -87,8 +87,6 @@ local function init_nvim()
   -- set matchpairs+=<:>
   -- ]]
 
-  opt.makeprg = "meson install -C builddir --tags runtime"
-
   -- vim.keymap.set({ "n", "i" }, "<F7>", function()
   --   -- vim.cmd "make!"
   --   -- vim.cmd "wa"

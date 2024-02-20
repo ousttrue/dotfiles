@@ -26,6 +26,16 @@ function M.setup()
   ---@diagnostic disable-next-line
   telescope.setup {
     defaults = {
+      vimgrep_arguments = {
+        "rg",
+        "--hidden",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+      },
       mappings = {
         i = {
           -- ["<c-[>"] = actions.close,
@@ -90,17 +100,19 @@ function M.setup()
     vim.keymap.set("n", "<Leader><Space>", project_files, { noremap = true })
   end
 
-  vim.keymap.set("n", "<Leader>g", function()
-    local word = vim.fn.expand "<cword>"
-    builtin.live_grep {
-      cwd = vim.fn.getcwd(),
-    }
-    if #word > 0 then
-      vim.cmd("normal! i\\b" .. word .. "\\b")
-    end
-  end, { noremap = true })
+  -- vim.keymap.set("n", "<Leader>g", function()
+  --   local word = vim.fn.expand "<cword>"
+  --   builtin.live_grep {
+  --     cwd = vim.fn.getcwd(),
+  --     hidden = true,
+  --   }
+  --   if #word > 0 then
+  --     vim.cmd("normal! i\\b" .. word .. "\\b")
+  --   end
+  -- end, { noremap = true })
   -- vim.keymap.set("n", "<leader>g", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 
+  vim.keymap.set("n", "<Leader>g", builtin.live_grep, { noremap = true })
   vim.keymap.set("n", "[[", builtin.resume, { noremap = true })
   vim.keymap.set("n", "<Leader>b", builtin.buffers, { noremap = true })
   vim.keymap.set("n", "<Leader>h", builtin.help_tags, { noremap = true })
