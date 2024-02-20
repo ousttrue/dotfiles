@@ -1,6 +1,8 @@
 [FAQ · tmux/tmux Wiki · GitHub](https://github.com/tmux/tmux/wiki/FAQ
 
 # Version
+## 4
+
 ## 3.3a
 ## 3.2
 ```
