@@ -5,7 +5,7 @@ keymap : COMMAND
 keymap ( PREV_TAB
 keymap ) NEXT_TAB
 keymap M TAB_LINK
-keymap T TAB_GOTO ~/dotfiles/home/public/home.html
+keymap T TAB_GOTO ~/.w3m/bookmark.html
 keymap 0 LINE_BEGIN
 
 keymap TAB NEXT_LINK

@@ -954,13 +954,16 @@ function Remove-Git-RemoteBranch
 
 function Install-Go
 {
-  mkdir -p $HOME/local/src
-  Push-Location $HOME/local/src
-  wget --trust-server-names https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
-  sudo rm -rf /usr/local/go
-  sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
-  Pop-Location
-  addPath("/usr/local/go/bin")
+  if(!(has go))
+  {
+    mkdir -p $HOME/local/src
+    Push-Location $HOME/local/src
+    wget --trust-server-names https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+    sudo rm -rf /usr/local/go
+    sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
+    Pop-Location
+    addPath("/usr/local/go/bin")
+  }
 
   go install github.com/x-motemen/ghq@latest
   mkdir -p $(ghq root)
