@@ -15,8 +15,56 @@ void Print(const ftxui::Elment &document)
 }
 ```
 
-# Element
-## vbox
+# ftxui::Node
+
+## Text
+
+```cpp
+class Text : public Node {
+ public:
+  explicit Text(std::string text) : text_(std::move(text)) {}
+
+  void ComputeRequirement() override {
+    requirement_.min_x = string_width(text_);
+    requirement_.min_y = 1;
+  }
+
+  void Render(Screen& screen) override {
+    int x = box_.x_min;
+    const int y = box_.y_min;
+    if (y > box_.y_max) {
+      return;
+    }
+    for (const auto& cell : Utf8ToGlyphs(text_)) {
+      if (x > box_.x_max) {
+        return;
+      }
+      if (cell == "\n") {
+        continue;
+      }
+      screen.PixelAt(x, y).character = cell;
+      ++x;
+    }
+  }
+
+ private:
+  std::string text_;
+};
+```
+
+# ftxui::Render
+
+`Element => Screen`
+`Node::Render(Screen)`
+
+# ftxui::Element
+
+```cpp
+using Element = std::shared_ptr<Node>;
+using Elements = std::vector<Element>;
+```
+
+## hbox / vbox
 
 ```cpp
 // Define the document
