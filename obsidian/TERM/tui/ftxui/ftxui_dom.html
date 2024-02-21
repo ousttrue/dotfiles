@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../../genindex.html" /><link rel="search" title="検索" href="../../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Element - shell note ドキュメント</title>
+        <title>ftxui::Node - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
@@ -234,10 +234,57 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="element">
-<h1>Element<a class="headerlink" href="#element" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="vbox">
-<h2>vbox<a class="headerlink" href="#vbox" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="ftxui-node">
+<h1>ftxui::Node<a class="headerlink" href="#ftxui-node" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="text">
+<h2>Text<a class="headerlink" href="#text" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Text</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">text_</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">text</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">ComputeRequirement</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">requirement_</span><span class="p">.</span><span class="n">min_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_width</span><span class="p">(</span><span class="n">text_</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">requirement_</span><span class="p">.</span><span class="n">min_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">Render</span><span class="p">(</span><span class="n">Screen</span><span class="o">&amp;</span><span class="w"> </span><span class="n">screen</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">box_</span><span class="p">.</span><span class="n">x_min</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">box_</span><span class="p">.</span><span class="n">y_min</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">box_</span><span class="p">.</span><span class="n">y_max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cell</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Utf8ToGlyphs</span><span class="p">(</span><span class="n">text_</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">box_</span><span class="p">.</span><span class="n">x_max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cell</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="n">screen</span><span class="p">.</span><span class="n">PixelAt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">).</span><span class="n">character</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cell</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="o">++</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w"> </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">text_</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ftxui-render">
+<h1>ftxui::Render<a class="headerlink" href="#ftxui-render" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Element</span> <span class="pre">=&gt;</span> <span class="pre">Screen</span></code>
+<code class="docutils literal notranslate"><span class="pre">Node::Render(Screen)</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ftxui-element">
+<h1>ftxui::Element<a class="headerlink" href="#ftxui-element" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">Elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Element</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<section id="hbox-vbox">
+<h2>hbox / vbox<a class="headerlink" href="#hbox-vbox" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Define the document</span>
 <span class="n">document</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vbox</span><span class="p">({</span><span class="w"></span>
 <span class="w">  </span><span class="n">text</span><span class="p">(</span><span class="s">"The window"</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">bold</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">color</span><span class="p">(</span><span class="n">Color</span><span class="o">::</span><span class="n">Blue</span><span class="p">),</span><span class="w"></span>
@@ -316,7 +363,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../../_sources/obsidian/TERM/tui/ftxui/ftxui_element.md.txt"
+            | <a class="muted-link" href="../../../../_sources/obsidian/TERM/tui/ftxui/ftxui_dom.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -336,8 +383,13 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Element</a><ul>
-<li><a class="reference internal" href="#vbox">vbox</a></li>
+<li><a class="reference internal" href="#">ftxui::Node</a><ul>
+<li><a class="reference internal" href="#text">Text</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ftxui-render">ftxui::Render</a></li>
+<li><a class="reference internal" href="#ftxui-element">ftxui::Element</a><ul>
+<li><a class="reference internal" href="#hbox-vbox">hbox / vbox</a></li>
 <li><a class="reference internal" href="#border">border</a></li>
 </ul>
 </li>
