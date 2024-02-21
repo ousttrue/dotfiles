@@ -569,6 +569,7 @@ function mewrap
     meson wrap install $dst.Trim()
   }
 }
+
 # git cd root
 function root()
 {
@@ -900,6 +901,14 @@ function Install-Dependency
   }
 }
 
+if(Test-Path "nvim")
+{
+  $env:EDITOR="nvim"
+} else
+{
+  $env:EDITOR="vim"
+}
+
 # Set-Alias nvim (Join-Path (Get-Path "local-src") "nvim-win64/bin/nvim$EXE")
 if($IsWindows)
 {
@@ -1011,12 +1020,21 @@ function Install-Skk-Dictionary
   Pop-Location 
 }
 
-function Install-Apt
+function fapt
 {
   $result = apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}"
   if($result)
   {
     sudo apt install $result
+  }
+}
+
+function fpac
+{
+  $result = pacman -Sl | cut -d " " -f 2 | fzf --preview "pacman -Si {}"
+  if($result)
+  {
+    sudo pacman -S $result
   }
 }
 
