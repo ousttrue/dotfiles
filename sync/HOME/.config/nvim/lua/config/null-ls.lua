@@ -74,12 +74,7 @@ function M.setup()
       -- null_ls.builtins.formatting.xmlformat,
       -- null_ls.builtins.formatting.cmake_format,
       null_ls.builtins.formatting.prettier,
-      -- null_ls.builtins.formatting.tidy.with {
-      --   command = get_tidy(),
-      -- },
-      null_ls.builtins.diagnostics.tidy.with {
-        command = get_tidy(),
-      },
+      -- null_ls.builtins.formatting.tidy,
       null_ls.builtins.formatting.shfmt.with {
         filetypes = { "sh", "zsh" },
       },

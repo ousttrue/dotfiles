@@ -4,22 +4,23 @@ local M = {
 
     local always_show = { -- remains visible even if other settings would normally hide it
       --".gitignored",
-      ".devcontainer",
       ".config",
-      ".github",
+      ".devcontainer",
       ".gitattributes",
+      ".github",
       ".gitignore",
       ".gitmodules",
-      ".storybook",
-      ".remarkrc",
+      ".ladle",
+      ".markdownlint-cli2.yaml",
       ".marksman.toml",
       ".npmrc",
-      ".vitepress",
       ".prettierrc",
       ".prettierrc.mjs",
+      ".remarkrc",
+      ".storybook",
       ".textlintrc",
-      ".markdownlint-cli2.yaml",
-      ".ladle",
+      ".vitepress",
+      ".vscode",
     }
 
     local function open_all_subnodes(state)
