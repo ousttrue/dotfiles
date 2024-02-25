@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../../genindex.html" /><link rel="search" title="検索" href="../../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>promise_type - shell note ドキュメント</title>
+        <title>概要 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
@@ -225,13 +225,28 @@
 <li><p>@2021 <a class="reference external" href="https://qiita.com/tan-y/items/ae54153ec3eb42f80638">C++ でコルーチン (async/await 準備編) - Qiita</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://qiita.com/tyanmahou/items/522ea1c592db3468940c">[コルーチン]operator co_await と await_transform - Qiita</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://www.docswell.com/s/yohhoy/L57EJK-cpp20coro#p29">20分くらいでわかった気分になれるC++20コルーチン | ドクセル</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://www.scs.stanford.edu/~dm/blog/c++-coroutines.html">My tutorial and take on C++20 coroutines</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://qiita.com/Fuyutsubaki/items/a4c9921587ce53d95e55">C++20のコルーチン for アプリケーション - Qiita</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://logicalbeat.jp/blog/5014/">【C＋＋】C＋＋のコルーチンを気軽に試してみる – 株式会社ロジカルビート</a></p></li>
-<li><p>@2018 <a class="reference external" href="https://qiita.com/yohhoy/items/aeb3c01d02d0f640c067">C++コルーチン拡張メモ - Qiita</a></p></li>
+<li><p>@2018 <a class="reference external" href="https://qiita.com/yohhoy/items/aeb3c01d02d0f640c067">C++コルーチン拡張メモ - Qiita</a>
+<a class="reference external" href="https://gist.github.com/jbandela/95d54560abe37775d957f65881170641">co_await_asio.cpp · GitHub</a></p></li>
+<li><p><a class="reference external" href="https://downloads.ctfassets.net/oxjq45e8ilak/4kVoTkxYBiVM9lPBZiG2HO/a5e36dc80fd898885269bd6320c96196/Pavel_Novikov_Uchimsya_gotovit_C_korutiny_na_praktike_2020_06_28_18_49_49.pdf">https://downloads.ctfassets.net/oxjq45e8ilak/4kVoTkxYBiVM9lPBZiG2HO/a5e36dc80fd898885269bd6320c96196/Pavel_Novikov_Uchimsya_gotovit_C_korutiny_na_praktike_2020_06_28_18_49_49.pdf</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://itnext.io/c-20-coroutines-complete-guide-7c3fc08db89d">C++20 Coroutines — Complete* Guide | by Šimon Tóth | ITNEXT</a></p></li>
+<li><p>@2021 <a class="reference external" href="https://www.jeremyong.com/cpp/2021/01/04/cpp20-coroutines-a-minimal-async-framework/">C++20 Coroutines: sketching a minimal async framework – Jeremy's Blog</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/tyanmahou/items/1799d80c9e260b2267d5">C++20コルーチンで遊ぶ with OpenSiv3D - Qiita</a></p></li>
 </ul>
-<p><a class="reference external" href="https://gist.github.com/jbandela/95d54560abe37775d957f65881170641">co_await_asio.cpp · GitHub</a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="promise-type">
-<h1>promise_type<a class="headerlink" href="#promise-type" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">co_return</span></code>, <code class="docutils literal notranslate"><span class="pre">c_await</span></code>, <code class="docutils literal notranslate"><span class="pre">co_yield</span></code> のいずれかを含む関数が coroutine となる。
+coroutine の返り値Rは coroutine_trait を満たさなければならない。</p>
+<p><code class="docutils literal notranslate"><span class="pre">co_yield</span></code> は、<code class="docutils literal notranslate"><span class="pre">co_await</span></code> のシンタックスシュガー？</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">co_await</span></code> は coroutine に値を入れる。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">co_yield</span></code> は coroutine から値を出す。</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="r-promise-type">
+<h1>R::promise_type<a class="headerlink" href="#r-promise-type" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">R</span><span class="w"> </span><span class="nf">some_routine</span><span class="p">()</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -241,29 +256,45 @@
 <code class="docutils literal notranslate"><span class="pre">R::promise_type</span></code> が <code class="docutils literal notranslate"><span class="pre">Promise型</span></code>
 関数 body で <code class="docutils literal notranslate"><span class="pre">co_await</span></code>, <code class="docutils literal notranslate"><span class="pre">co_return</span></code>, <code class="docutils literal notranslate"><span class="pre">co_yield</span></code> を使うことができる。</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="awaiter">
-<h1>awaiter<a class="headerlink" href="#awaiter" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="co-resume-void">
+<h1>co_resume void<a class="headerlink" href="#co-resume-void" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="co-resume-t">
+<h1>co_resume T<a class="headerlink" href="#co-resume-t" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="awaiter-void">
+<h1>awaiter void<a class="headerlink" href="#awaiter-void" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">awaiter</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">bool</span><span class="w"> </span><span class="nf">await_ready</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;}</span><span class="w"></span>
+
+<span class="w">	</span><span class="kt">void</span><span class="w"> </span><span class="nf">await_suspend</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">coroutine_handle</span><span class="o">&lt;</span><span class="n">promise_type</span><span class="o">&gt;</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// これ</span>
+<span class="w">	</span><span class="kt">void</span><span class="w"> </span><span class="nf">await_resume</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="awaiter-t">
+<h1>awaiter T<a class="headerlink" href="#awaiter-t" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="awaitable-awaiter-operator-co-await-await-transform">
+<h1>awaitable =&gt; awaiter (operator co_await / await_transform)<a class="headerlink" href="#awaitable-awaiter-operator-co-await-await-transform" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">awaitable</span></code> cast, operator, await_transform により awaiter 変換できる任意の値。
+<code class="docutils literal notranslate"><span class="pre">awaitable</span></code> と <code class="docutils literal notranslate"><span class="pre">awaiter</span></code> を疎結合にできる。</p>
+<p><code class="docutils literal notranslate"><span class="pre">std::duratin</span></code> を awaiter に変換する例。</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Rep</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Period</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">co_await</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration</span><span class="o">&lt;</span><span class="n">Rep</span><span class="p">,</span><span class="w"> </span><span class="n">Period</span><span class="o">&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// 使用例</span>
+<span class="k">co_await</span><span class="w"> </span><span class="mi">10</span><span class="n">ms</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p><a class="reference external" href="https://qiita.com/tyanmahou/items/522ea1c592db3468940c">[コルーチン]operator co_await と await_transform - Qiita</a></p></li>
 </ul>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>struct awaiter {
-	bool await_ready() const noexcept { return true;}
-
-	void await_suspend(std::coroutine_handle&lt;promise_type&gt;)
-	{
-		// something with promise         
-		futureを作ってスレッドを開始する？
-	}
-
-	void await_suspend(std::coroutine_handle&lt;promise_type2&gt;)
-	{
-		// something with promise2         
-	}
-
-	void await_resume() {}        
-};
-</pre></div>
-</div>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">co_await</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Type</span><span class="o">&amp;</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">awaiter</span><span class="p">{};</span><span class="w"></span>
@@ -289,24 +320,38 @@
 </pre></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="generator">
-<h1>generator<a class="headerlink" href="#generator" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[c++23]]
-[[cpp_generator]]</p>
-<p><code class="docutils literal notranslate"><span class="pre">yield_value</span></code></p>
-<ul class="simple">
-<li><p>@2021 <a class="reference external" href="https://www.scs.stanford.edu/~dm/blog/c++-coroutines.html">My tutorial and take on C++20 coroutines</a></p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="exception">
+<h1>exception<a class="headerlink" href="#exception" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="task">
-<h1>task<a class="headerlink" href="#task" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">return_value</span></code> or <code class="docutils literal notranslate"><span class="pre">return_void</span></code></p>
+<section class="tex2jax_ignore mathjax_ignore" id="cancel">
+<h1>cancel<a class="headerlink" href="#cancel" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="libuv">
+<h1>libuv<a class="headerlink" href="#libuv" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="coro-cpp">
+<h2>coro.cpp<a class="headerlink" href="#coro-cpp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>小さい</p>
+<p><a class="reference external" href="https://gist.github.com/Qix-/09532acd0f6c9a57c09bd9ce31b3023f">C++20 coroutines + LibUV sample, v2</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">std::coro_handle::from_promise</span></code>
+<code class="docutils literal notranslate"><span class="pre">std::coroutine_handle::address</span></code>
+<code class="docutils literal notranslate"><span class="pre">std::coroutine_handle::from_address</span></code></p>
+</section>
+<section id="couv">
+<h2>couv<a class="headerlink" href="#couv" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>動いた https://github.com/CatalinMihaiGhita/libcouv</p>
+</section>
+<section id="asyncpp">
+<h2>asyncpp<a class="headerlink" href="#asyncpp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://github.com/KrystianD/asyncpp</p>
+</section>
+<section id="awaituv">
+<h2>awaituv<a class="headerlink" href="#awaituv" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>suspend_if など experimental</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://downloads.ctfassets.net/oxjq45e8ilak/4kVoTkxYBiVM9lPBZiG2HO/a5e36dc80fd898885269bd6320c96196/Pavel_Novikov_Uchimsya_gotovit_C_korutiny_na_praktike_2020_06_28_18_49_49.pdf">https://downloads.ctfassets.net/oxjq45e8ilak/4kVoTkxYBiVM9lPBZiG2HO/a5e36dc80fd898885269bd6320c96196/Pavel_Novikov_Uchimsya_gotovit_C_korutiny_na_praktike_2020_06_28_18_49_49.pdf</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://itnext.io/c-20-coroutines-complete-guide-7c3fc08db89d">C++20 Coroutines — Complete* Guide | by Šimon Tóth | ITNEXT</a></p></li>
-<li><p>@2021 <a class="reference external" href="https://www.jeremyong.com/cpp/2021/01/04/cpp20-coroutines-a-minimal-async-framework/">C++20 Coroutines: sketching a minimal async framework – Jeremy's Blog</a></p></li>
-<li><p>@2020 <a class="reference external" href="https://qiita.com/tyanmahou/items/1799d80c9e260b2267d5">C++20コルーチンで遊ぶ with OpenSiv3D - Qiita</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://devblogs.microsoft.com/cppblog/using-ibuv-with-c-resumable-functions/">California Consumer Privacy Act (CCPA) Opt-Out Icon</a></p></li>
 </ul>
+<p>https://github.com/jimspr/awaituv</p>
+</section>
 </section>
 
         </article>
@@ -342,10 +387,22 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">promise_type</a></li>
-<li><a class="reference internal" href="#awaiter">awaiter</a></li>
-<li><a class="reference internal" href="#generator">generator</a></li>
-<li><a class="reference internal" href="#task">task</a></li>
+<li><a class="reference internal" href="#">概要</a></li>
+<li><a class="reference internal" href="#r-promise-type">R::promise_type</a></li>
+<li><a class="reference internal" href="#co-resume-void">co_resume void</a></li>
+<li><a class="reference internal" href="#co-resume-t">co_resume T</a></li>
+<li><a class="reference internal" href="#awaiter-void">awaiter void</a></li>
+<li><a class="reference internal" href="#awaiter-t">awaiter T</a></li>
+<li><a class="reference internal" href="#awaitable-awaiter-operator-co-await-await-transform">awaitable =&gt; awaiter (operator co_await / await_transform)</a></li>
+<li><a class="reference internal" href="#exception">exception</a></li>
+<li><a class="reference internal" href="#cancel">cancel</a></li>
+<li><a class="reference internal" href="#libuv">libuv</a><ul>
+<li><a class="reference internal" href="#coro-cpp">coro.cpp</a></li>
+<li><a class="reference internal" href="#couv">couv</a></li>
+<li><a class="reference internal" href="#asyncpp">asyncpp</a></li>
+<li><a class="reference internal" href="#awaituv">awaituv</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
