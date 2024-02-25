@@ -4,8 +4,11 @@
 Remove-Item  alias:* -force
 Set-Alias cd Set-Location
 Set-Alias pwd Get-Location
+Set-Alias echo Write-Output
 Set-Alias % ForEach-Object
 Set-Alias ? Where-Object
+Set-alias vswhere "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe"
+
 function has($cmdname)
 {
   try
@@ -84,10 +87,6 @@ function Get-Path([string]$type)
           "blender" 
           {
             Get-Item (Join-Path ${env:AppData} "Blender Foundation\Blender")
-          }
-          "vswhere"
-          {
-            Get-Item (Join-Path ${env:ProgramFiles(x86)} "Microsoft Visual Studio\Installer\vswhere.exe")
           }
           default
           {
@@ -391,9 +390,9 @@ function ExecuteCommand ($vc_dir)
 function vcenv()
 { 
   # $vc_dir = (Get-VSSetupInstance).InstallationPath
-  $vc_dir = &(Get-Path vswhere) -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
-  #   # C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools
-  # Write-Output $bat
+  # $vc_dir = &vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+  $vc_dir = &vswhere -latest -products * -requires Microsoft.VisualStudio.Product.BuildTools -property installationPath
+  Write-Output $vc_dir
   $v = (ExecuteCommand $vc_dir)
 
   foreach($l in $v.stdout.Split("`r`n"))
@@ -460,7 +459,11 @@ addPath("/usr/local/go/bin")
 addPath("/opt/homebrew/bin")
 addPath(join-Path $HOME '/Downloads/Visual Studio Code.app/Contents/Resources/app/bin')
 
-if(Test-Path "C:\Python311")
+if(Test-Path "C:\Python312")
+{
+  addPath("C:\Python312\Scripts")
+  addPath("C:\Python312")
+} elseif(Test-Path "C:\Python311")
 {
   addPath("C:\Python311\Scripts")
   addPath("C:\Python311")
@@ -977,8 +980,14 @@ function Install-Go
   go install github.com/x-motemen/ghq@latest
   mkdir -p $(ghq root)
 
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install
+  git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+
+  if($IsWindows){
+    &"$HOME/.fzf/install.ps1"
+  }
+  else{
+    &"$HOME/.fzf/install"
+  }
 }
 
 function Install-Nvim
