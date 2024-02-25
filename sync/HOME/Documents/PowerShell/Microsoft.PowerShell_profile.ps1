@@ -34,7 +34,7 @@ function has($cmdname)
     return $false;
   }
 }
-if(!(has which))
+if(!(has 'which'))
 {
   Set-Alias which has
 }
@@ -983,16 +983,24 @@ function Install-Go
 
 function Install-Nvim
 {
-  if(which('brew'))
+  # https://github.com/neovim/neovim/blob/master/BUILD.md#build-prerequisites
+  if(has brew)
   {
     brew install ninja cmake gettext curl
-  } else
+  } 
+  if(has apt)
   {
-    sudo apt-update
-    sudo apt-get install -y ninja-build gettext cmake unzip curl
+    sudo apt update
+    sudo apt install -y build-essential ninja-build gettext cmake unzip curl
+  }
+  if(has pacman)
+  {
+    sudo pacman -Sy
+    sudo pacman -S base-devel cmake unzip ninja curl
   }
   ghq get https://github.com/neovim/neovim
   Push-Location (Join-Path (ghq root) "/github.com/neovim/neovim")
+  git pull
   cmake -G Ninja -S cmake.deps -B .deps -DCMAKE_BUILD_TYPE=Release
   cmake --build .deps
   cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release

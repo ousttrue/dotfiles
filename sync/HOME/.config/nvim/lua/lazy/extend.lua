@@ -104,31 +104,31 @@ vmap g<C-x> g<Plug>(dial-decrement)
   --     require("colortils").setup()
   --   end,
   -- },
-  {
-    "uga-rosa/ccc.nvim",
-    config = function()
-      vim.opt.termguicolors = true
-
-      local ccc = require "ccc"
-      local mapping = ccc.mapping
-
-      ccc.setup {
-        -- Your preferred settings
-        -- Example: enable highlighter
-        highlighter = {
-          auto_enable = true,
-          lsp = true,
-        },
-        mappings = {
-          ["<ESC>"] = mapping.quit,
-          [","] = mapping.decrease10,
-          ["."] = mapping.increase10,
-        },
-      }
-
-      vim.keymap.set("n", "gc", ":CccPick<CR>")
-    end,
-  },
+  -- {
+  --   "uga-rosa/ccc.nvim",
+  --   config = function()
+  --     vim.opt.termguicolors = true
+  --
+  --     local ccc = require "ccc"
+  --     local mapping = ccc.mapping
+  --
+  --     ccc.setup {
+  --       -- Your preferred settings
+  --       -- Example: enable highlighter
+  --       highlighter = {
+  --         auto_enable = true,
+  --         lsp = true,
+  --       },
+  --       mappings = {
+  --         ["<ESC>"] = mapping.quit,
+  --         [","] = mapping.decrease10,
+  --         ["."] = mapping.increase10,
+  --       },
+  --     }
+  --
+  --     vim.keymap.set("n", "gc", ":CccPick<CR>")
+  --   end,
+  -- },
   {
     "mattn/emmet-vim",
   },
