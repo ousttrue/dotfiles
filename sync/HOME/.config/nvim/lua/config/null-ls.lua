@@ -97,9 +97,9 @@ function M.setup()
       -- null_ls.builtins.diagnostics.markdownlint,
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/issues/1256
       -- https://blog.aoirint.com/entry/2023/markdownlint_cli2/
-      null_ls.builtins.diagnostics.markdownlint_cli2.with {
-        args = { "$FILENAME" },
-      },
+      -- null_ls.builtins.diagnostics.markdownlint_cli2.with {
+      --   args = { "$FILENAME" },
+      -- },
     },
     on_attach = on_attach,
   }
