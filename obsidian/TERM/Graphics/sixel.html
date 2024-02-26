@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>対応している [[TerminalEmulator]] - shell note ドキュメント</title>
+        <title>conpty 問題 - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -220,15 +220,20 @@
         <article role="main">
           <p><a class="reference external" href="https://saitoha.github.io/libsixel/">libsixel | The new standard of SIXEL development</a>
 [[DRCS]] [[w3m]]</p>
+<p>https://www.arewesixelyet.com/</p>
 <p><a class="reference external" href="https://www.arewesixelyet.com/">Are We Sixel Yet?</a></p>
 <ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://qiita.com/arakiken/items/26f6c67da5a9f9f907ac">20年前のマシンでTwitterするため30年前のSixel Graphicsの仕様が今更拡張された話 - Qiita</a></p></li>
-<li><p>@2014 <a class="reference external" href="https://qiita.com/arakiken/items/3e4bc9a6e43af0198e46">Sixel Graphicsを活用したアプリケーションの御紹介 - Qiita</a></p></li>
+<li><p>@2020 <a class="reference external" href="https://qiita.com/arakiken/items/26f6c67da5a9f9f907ac">20 年前のマシンで Twitter するため 30 年前の Sixel Graphics の仕様が今更拡張された話 - Qiita</a></p></li>
+<li><p>@2014 <a class="reference external" href="https://qiita.com/arakiken/items/3e4bc9a6e43af0198e46">Sixel Graphics を活用したアプリケーションの御紹介 - Qiita</a></p></li>
 <li><p>@2019 <a class="reference external" href="https://qiita.com/EarthSimilarityIndex/items/e674e1dd92544703b30f">WSLtty と Libsixel と PulseAudio でコンソールからマルチメディアを楽しむ / Cygwin で PulseAudio 13.0 をビルドする - Qiita</a></p></li>
 <li><p><a class="reference external" href="https://github.com/dankamongmen/notcurses">GitHub - dankamongmen/notcurses: blingful character graphics/TUI library. definitely not curses.</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/ignis_fatuus/items/609924c91343a12d6769">libsixelを使ってPythonでSixelを出力してターミナルにMatplotlibのグラフを出す。 - Qiita</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/ignis_fatuus/items/609924c91343a12d6769">libsixel を使って Python で Sixel を出力してターミナルに Matplotlib のグラフを出す。 - Qiita</a></p></li>
 <li><p><a class="reference external" href="https://vt100.net/docs/vt3xx-gp/chapter14.html">VT330/VT340 Programmer Reference Manual: Chapter 14</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="conpty">
+<h1>conpty 問題<a class="headerlink" href="#conpty" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>sixel の sequence が通過できない。</p>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="terminalemulator">
 <h1>対応している [[TerminalEmulator]]<a class="headerlink" href="#terminalemulator" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
@@ -279,7 +284,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">対応している [[TerminalEmulator]]</a></li>
+<li><a class="reference internal" href="#">conpty 問題</a></li>
+<li><a class="reference internal" href="#terminalemulator">対応している [[TerminalEmulator]]</a></li>
 <li><a class="reference internal" href="#multiplexer">対応している [[multiplexer]]</a></li>
 </ul>
 
