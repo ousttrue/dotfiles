@@ -17,6 +17,8 @@ local error_formats = {
   "%*[^ ] : %t%*[^ ] LNK%n: %m",
 }
 
+M.ninja_vc_fmt = "%Dninja: Entering directory `%f',%f(%l): %t%*[^ ] %m"
+
 M.qflist = {
   title = "--",
   lines = { "" },
