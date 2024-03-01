@@ -1,7 +1,7 @@
 #
 # clear alias
 #
-Remove-Item  alias:* -force
+Remove-Item alias:* -force
 Set-Alias cd Set-Location
 Set-Alias pwd Get-Location
 Set-Alias echo Write-Output
@@ -9,102 +9,83 @@ Set-Alias % ForEach-Object
 Set-Alias ? Where-Object
 Set-alias vswhere "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe"
 
-function has($cmdname)
-{
-  try
-  {
+function has($cmdname) {
+  try {
     # CmdletInfo | ApplicationInfo | AliasInfo | FunctionInfo
-    switch(Get-Command $cmdname -ErrorAction Stop)
-    {
-      { $_ -is [System.Management.Automation.AliasInfo]}
-      {$_.Definition
+    switch (Get-Command $cmdname -ErrorAction Stop) {
+      { $_ -is [System.Management.Automation.AliasInfo] } {
+        $_.Definition
       }
-      { $_ -is [System.Management.Automation.ApplicationInfo]}
-      {$_.Definition
+      { $_ -is [System.Management.Automation.ApplicationInfo] } {
+        $_.Definition
       }
-      { $_ -is [System.Management.Automation.CmdletInfo]}
-      {$_
+      { $_ -is [System.Management.Automation.CmdletInfo] } {
+        $_
       }
-      { $_ -is [System.Management.Automation.FunctionInfo]}
-      {$_
+      { $_ -is [System.Management.Automation.FunctionInfo] } {
+        $_
       }
-      default
-      {$_.GetType()
+      default {
+        $_.GetType()
       }
     }
-  } catch
-  {
+  }
+  catch {
     return $false;
   }
 }
-if(!(has 'which'))
-{
+if (!(has 'which')) {
   Set-Alias which has
 }
-function Get-Path([string]$type)
-{
-  switch($type)
-  {
-    "shada"
-    { 
-      if($IsWindows)
-      {
+function Get-Path([string]$type) {
+  switch ($type) {
+    "shada" { 
+      if ($IsWindows) {
         Get-Item (Join-Path ${env:LOCALAPPDATA} "\nvim-data\shada") 
-      } else
-      {
+      }
+      else {
         Get-Item (Join-Path ${env:HOME} ".local/state/nvim/shada") 
       }
     }
-    "msys"
-    {
+    "msys" {
       Get-Item D:\msys64
     }
-    "dot"
-    { Get-Item (Join-Path $HOME "dotfiles") 
+    "dot" {
+      Get-Item (Join-Path $HOME "dotfiles") 
     }
-    "dot-sync"
-    {
+    "dot-sync" {
       Get-Item (Join-Path (Get-Path "dot") "sync/HOME")
     }
-    "dot-sync-app"
-    {
+    "dot-sync-app" {
       Get-Item (Join-Path (Get-Path "dot") "sync/APPDATA")
     }
-    "local"
-    {
+    "local" {
       Get-Item (Join-Path $HOME "local")
     }
-    "local-src"
-    {
+    "local-src" {
       Get-Item (Join-Path (Get-Path "local") "src")
     }
-    default
-    {
-      if($IsWindows)
-      {
-        switch($type)
-        {
-          "blender" 
-          {
+    default {
+      if ($IsWindows) {
+        switch ($type) {
+          "blender" {
             Get-Item (Join-Path ${env:AppData} "Blender Foundation\Blender")
           }
-          default
-          {
+          default {
             $null 
           }
         }
-      } else
-      {
+      }
+      else {
         $null 
       }
     }
   }
 }
 
-$module_dir=Join-Path (Get-Path "dot") "psmodule\mymodule" 
+$module_dir = Join-Path (Get-Path "dot") "psmodule\mymodule" 
 $dll_path = Join-Path $module_dir "bin\Debug\net8.0\mymodule.dll"
-if(!(Test-Path $dll_path))
-{
+if (!(Test-Path $dll_path)) {
   Push-Location $module_dir
   dotnet build
   Pop-Location
@@ -115,37 +96,34 @@ Add-Type -Path $dll_path
 #
 # platform
 #
-if($IsWindows)
-{
+if ($IsWindows) {
   chcp 65001
   $env:HOME = $env:USERPROFILE
-  $EXE=".exe"
+  $EXE = ".exe"
   $defs = @(
     [mymodule.Dependency]::new(
       "nvim", 
       "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip",
       "nvim-win64/bin/nvim.exe")
   )
-} else
-{
-  $EXE=""
+}
+else {
+  $EXE = ""
 }
 
 # asdf
-$ASDF  = Join-Path $env:HOME ".asdf/asdf.ps1"
-if(Test-Path $ASDF)
-{
+$ASDF = Join-Path $env:HOME ".asdf/asdf.ps1"
+if (Test-Path $ASDF) {
   . "${ASDF}"
 }
 
 $SEP = [System.IO.Path]::DirectorySeparatorChar
-$env:FZF_DEFAULT_OPTS="--layout=reverse --preview-window down:70%"
-$env:LUA_PATH="${HOME}${SEP}lua${SEP}?.lua;${HOME}${SEP}lua${SEP}?${SEP}init.lua"
+$env:FZF_DEFAULT_OPTS = "--layout=reverse --preview-window down:70%"
+$env:LUA_PATH = "${HOME}${SEP}lua${SEP}?.lua;${HOME}${SEP}lua${SEP}?${SEP}init.lua"
 
 
 
-if(has ghq)
-{
+if (has ghq) {
   $GHQ_ROOT = (Get-Item (ghq root))
 }
 
@@ -183,47 +161,41 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+Oem4' -Function RevertLine
 # prompt
 #
 $IconMap = @{
-  dotfiles = " "
-  rtc_memo = "⚡"
-  UniVRM = " "
-  minixr = " "
+  dotfiles             = " "
+  rtc_memo             = "⚡"
+  UniVRM               = " "
+  minixr               = " "
   "ousttrue.github.io" = " "
-  cmake_book = "📙"
-  blender_book = "📙"
-  lbsm = "🐵"
-  "gltf-samples" = "🗿"
+  cmake_book           = "📙"
+  blender_book         = "📙"
+  lbsm                 = "🐵"
+  "gltf-samples"       = "🗿"
 }
 
-function get_git_status()
-{
+function get_git_status() {
   git rev-parse --is-inside-work-tree 2>$null
-  if(!$?)
-  {
+  if (!$?) {
     return $false
   }
 
   $lines = @(git status --porcelain --branch)
   $sync = ""
-  if($lines[0] -match "\[([^]]+)\]")
-  {
+  if ($lines[0] -match "\[([^]]+)\]") {
     $splits = $Matches[1].split(', ')
-    for ($i = 0; $i -lt $splits.Length; $i++)
-    {
-      if($splits[$i] -match "(\w+)\s+(\d+)")
-      {
+    for ($i = 0; $i -lt $splits.Length; $i++) {
+      if ($splits[$i] -match "(\w+)\s+(\d+)") {
         $sync_status = $matches[1]
         $n = $matches[2]
-        if($sync_status -eq "behind")
-        {
+        if ($sync_status -eq "behind") {
           $sync += " ${n}"
-        } elseif ($sync_status -eq "ahead")
-        {
+        }
+        elseif ($sync_status -eq "ahead") {
           $sync += " ${n}"
         }
       }
     }
-  } else
-  {
+  }
+  else {
     $sync = " "
   }
 
@@ -236,17 +208,14 @@ function get_git_status()
     "D" = " "
     "R" = "↷ "
   }
-  for ($i = 1; $i -lt $lines.Length; $i++)
-  {
+  for ($i = 1; $i -lt $lines.Length; $i++) {
     $line = $lines[$i]
     $key = $line.Substring(1, 1)
     $status[$key] += 1
   }
-  foreach ($key in $status.Keys)
-  {
+  foreach ($key in $status.Keys) {
     $icon = $iconMap[$key]
-    if([string]::IsNullOrWhiteSpace($icon))
-    {
+    if ([string]::IsNullOrWhiteSpace($icon)) {
       $icon = $key
     }
     $sync += "${icon}$($status[$key])"
@@ -255,8 +224,7 @@ function get_git_status()
   return $sync
 }
 
-function prompt()
-{
+function prompt() {
   # TODO: git status
   # TODO: project kind
   # - dotfiles
@@ -265,81 +233,70 @@ function prompt()
   $color = $? ? "32" : "31";
 
   $prefix = "🤔"
-  if($IsWindows)
-  {
+  if ($IsWindows) {
     $prefix = " "
-  } elseif($IsLinux)
-  {
+  }
+  elseif ($IsLinux) {
     $prefix = " "
-  } elseif($IsMacOS)
-  {
+  }
+  elseif ($IsMacOS) {
     $prefix = " "
   }
 
   $location = (Get-Item -force (Get-Location));
   $title = $location.Name
-  if($GHQ_ROOT -and $location.FullName.StartsWith($GHQ_ROOT.FullName + $SEP))
-  {
-    $location = $location.FullName.Substring($GHQ_ROOT.FullName.Length+1)
-    if($location.StartsWith( "github.com$()"))
-    {
+  if ($GHQ_ROOT -and $location.FullName.StartsWith($GHQ_ROOT.FullName + $SEP)) {
+    $location = $location.FullName.Substring($GHQ_ROOT.FullName.Length + 1)
+    if ($location.StartsWith( "github.com$()")) {
       $location = $location.Substring("github.com${SEP}".Length)
-      if($location.StartsWith("ousttrue${SEP}"))
-      {
+      if ($location.StartsWith("ousttrue${SEP}")) {
         $location = " " + $location.Substring("ousttrue${SEP}".Length)
-      } else
-      {
+      }
+      else {
         $location = " " + $location
       }
-    } else
-    {
+    }
+    else {
       $location = " " + $location
     }
-  } elseif($IsWindows -and $location.FullName.StartsWith("$(Get-Path "blender")${SEP}"))
-  {
+  }
+  elseif ($IsWindows -and $location.FullName.StartsWith("$(Get-Path "blender")${SEP}")) {
     $location = "🐵" + [System.IO.Path]::GetRelativePath((Get-Path "blender"), $location)
-  } elseif($location.FullName.StartsWith($HOME))
-  {
-    if($location -eq $HOME)
-    {
+  }
+  elseif ($location.FullName.StartsWith($HOME)) {
+    if ($location -eq $HOME) {
       $location = " "
-    } else
-    {
+    }
+    else {
       $location = " " + $location.FullName.Substring($HOME.Length)
     }
   }
 
   # wezterm only
-  if($env:TERM -eq "tmux-256color")
-  {
-    if($IconMap[$title])
-    {
+  if ($env:TERM -eq "tmux-256color") {
+    if ($IconMap[$title]) {
       tmux rename-window $IconMap[$title]
-    } else
-    {
+    }
+    else {
       tmux rename-window $title
     }
-  } else
-  {
-    if($IconMap[$title])
-    {
+  }
+  else {
+    if ($IconMap[$title]) {
       $title = $IconMap[$title]
     }
   }
 
   $sync = (get_git_status)
-  if($sync)
-  {
+  if ($sync) {
     $branch = $(git branch --show-current)
-    if ($branch)
-    {
+    if ($branch) {
       $log = $(git log "--pretty=format: %cr   %s" -n 1)
       $ref = (git rev-parse --abbrev-ref origin/HEAD).Split("/", 2)[1]
-      $branch_color="`e[30m`e[42m";
-      if($branch -ne $ref)
-      {
+      $branch_color = "`e[30m`e[42m";
+      if ($branch -ne $ref) {
         # red
-        $branch_color="`e[30m`e[41m";
+        $branch_color = "`e[30m`e[41m";
       }
       $branch = "${branch_color}  ${branch} `e[0m ${sync} ${log}"
     }
@@ -348,8 +305,7 @@ function prompt()
   "`e]2;${title}$([char]0x07)${prefix}`e[7m${location}`e[0m${branch}`n`e[${color}m>`e[0m "
 }
 
-function ExecuteCommand ($vc_dir) 
-{ 
+function ExecuteCommand ($vc_dir) { 
   $bat = (Join-Path $vc_dir "VC\Auxiliary\Build\vcvars64.bat")
   # (Get-Item $bat)
 
@@ -374,49 +330,43 @@ function ExecuteCommand ($vc_dir)
 
   $out = ""
   # require flush. WaitForExit cause dead lock
-  while ($null -ne ($l = $p.StandardOutput.ReadLine()))
-  {
+  while ($null -ne ($l = $p.StandardOutput.ReadLine())) {
     $out += "$l`r`n"
   }
   $p.WaitForExit()
   $p
   [pscustomobject]@{
-    stdout = $out
-    stderr = $p.StandardError.ReadToEnd()
+    stdout   = $out
+    stderr   = $p.StandardError.ReadToEnd()
     ExitCode = $p.ExitCode
   }
 }
 
-function vcenv()
-{ 
+function vcenv() { 
   # $vc_dir = (Get-VSSetupInstance).InstallationPath
   # $vc_dir = &vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
   $vc_dir = &vswhere -latest -products * -requires Microsoft.VisualStudio.Product.BuildTools -property installationPath
   Write-Output $vc_dir
   $v = (ExecuteCommand $vc_dir)
 
-  foreach($l in $v.stdout.Split("`r`n"))
-  {
+  foreach ($l in $v.stdout.Split("`r`n")) {
     $kv = $l.Split("=", 2);
-    switch($kv[0])
-    {
-      "PATH"
-      { 
-        foreach($e in $kv[1].Split(";"))
-        {
+    switch ($kv[0]) {
+      "PATH" { 
+        foreach ($e in $kv[1].Split(";")) {
           addPath($e)
         }
       }
-      "INCLUDE"
-      { "INCLUDE=> $($kv[1])"
-        $env:INCLUDE= $kv[1]
+      "INCLUDE" {
+        "INCLUDE=> $($kv[1])"
+        $env:INCLUDE = $kv[1]
       }
-      "LIB"
-      { "LIB=> $($kv[1])"
-        $env:LIB=$kv[1]
+      "LIB" {
+        "LIB=> $($kv[1])"
+        $env:LIB = $kv[1]
       }
-      "LIBPATH"
-      { "LIBPATH=> $($kv[1])"
+      "LIBPATH" {
+        "LIBPATH=> $($kv[1])"
         $env:LIBPATH = $kv[1]
       }
     }
@@ -427,22 +377,18 @@ function vcenv()
 #
 # path
 #
-function insertPath($path)
-{
-  if(-not $env:PATH.Contains($path))
-  {
+function insertPath($path) {
+  if (-not $env:PATH.Contains($path)) {
     $env:PATH = $path + [System.IO.Path]::PathSeparator + $env:PATH
   }
 }
 #
-function addPath($path)
-{
-  if(-not $env:PATH.Contains($path))
-  {
+function addPath($path) {
+  if (-not $env:PATH.Contains($path)) {
     $env:PATH = $env:PATH + [System.IO.Path]::PathSeparator + $path
     $path
-  } else
-  {
+  }
+  else {
     $null
   }
 }
@@ -459,78 +405,69 @@ addPath("/usr/local/go/bin")
 addPath("/opt/homebrew/bin")
 addPath(join-Path $HOME '/Downloads/Visual Studio Code.app/Contents/Resources/app/bin')
 
-if(Test-Path "C:\Python312")
-{
+if (Test-Path "C:\Python312") {
   addPath("C:\Python312\Scripts")
   addPath("C:\Python312")
-} elseif(Test-Path "C:\Python311")
-{
+}
+elseif (Test-Path "C:\Python311") {
   addPath("C:\Python311\Scripts")
   addPath("C:\Python311")
-} elseif(Test-Path "C:\Python310")
-{
+}
+elseif (Test-Path "C:\Python310") {
   addPath("C:\Python310\Scripts")
   addPath("C:\Python310")
-} elseif(Test-Path "C:\Python37")
-{
+}
+elseif (Test-Path "C:\Python37") {
   addPath("C:\Python37\Scripts")
   addPath("C:\Python37")
-} elseif(Test-Path "C:\Python311-arm64")
-{
+}
+elseif (Test-Path "C:\Python311-arm64") {
   addPath("C:\Python311-arm64\Scripts")
   addPath("C:\Python311-arm64")
 }
 addPath("/Users/ousttrue/Library/Python/3.9/bin")
 
-if($IsMacOS)
-{
-  $env:N_PREFIX=(Join-Path $env:HOME "/.n")
+if ($IsMacOS) {
+  $env:N_PREFIX = (Join-Path $env:HOME "/.n")
   addPath(Join-Path $env:N_PREFIX "/bin")
 }
 
 # For zoxide v0.8.0+
-if(has zoxide)
-{
+if (has zoxide) {
   Invoke-Expression (& {
-      $hook = if ($PSVersionTable.PSVersion.Major -lt 6)
-      { 'prompt' 
-      } else
-      { 'pwd' 
+      $hook = if ($PSVersionTable.PSVersion.Major -lt 6) {
+        'prompt' 
+      }
+      else {
+        'pwd' 
       }
     (zoxide init --hook $hook powershell | Out-String)
     })
 }
 
 # cd ghq
-function gg
-{
-  $dst = $(ghq list -p| fzf --reverse +m --preview "bat --color=always --style=header,grid --line-range :100 {}/README.md")
-  if($dst)
-  {
+function gg {
+  $dst = $(ghq list -p | fzf --reverse +m --preview "bat --color=always --style=header,grid --line-range :100 {}/README.md")
+  if ($dst) {
     Set-Location "$dst"
   }
 }
-function grm
-{
-  $dst = $(ghq list -p| fzf --reverse +m --preview "bat --color=always --style=header,grid {}/README.md")
-  if($dst)
-  {
+function grm {
+  $dst = $(ghq list -p | fzf --reverse +m --preview "bat --color=always --style=header,grid {}/README.md")
+  if ($dst) {
     $parent = (Split-Path -Parent $dst)
     "remove : ${dst}" | Out-Host 
     Remove-Item -Recurse -Force $dst
-    if(!(Get-ChildItem $parent))
-    {
+    if (!(Get-ChildItem $parent)) {
       # empty
       "remove parent: ${parent}" | Out-Host 
       Remove-Item -Recurse -Force $parent
     }
   }
 }
-function vv
-{
-  $dst = $(ghq list -p| fzf --reverse +m)
-  if($dst)
-  {
+function vv {
+  $dst = $(ghq list -p | fzf --reverse +m)
+  if ($dst) {
     Set-Location "$dst"
     git pull
     nvim
@@ -538,84 +475,68 @@ function vv
 }
 
 # git switch
-function gs
-{
+function gs {
   $dst = $(git branch | fzf)
-  if($dst)
-  {
+  if ($dst) {
     git switch $args $dst.Trim()
   }
 }
 # git switch remote
-function gsr
-{
+function gsr {
   $dst = $(git branch -r | fzf)
-  if($dst)
-  {
+  if ($dst) {
     git switch -c $dst.Trim() $dst.Trim()
   }
 }
 
-function g_rm_merged
-{
+function g_rm_merged {
   git branch --merged
   | Select-String -NotMatch -Pattern "(\*|develop|master)" 
-  | ForEach-Object{ git branch -d $_.ToString().Trim() }
+  | ForEach-Object { git branch -d $_.ToString().Trim() }
 }
 
 # meson wrap
-function mewrap
-{
-  $dst = $(meson wrap list| fzf --preview "meson wrap info {}")
-  if($dst)
-  {
+function mewrap {
+  $dst = $(meson wrap list | fzf --preview "meson wrap info {}")
+  if ($dst) {
     meson wrap install $dst.Trim()
   }
 }
 
 # git cd root
-function root()
-{
+function root() {
   Set-Location $(git rev-parse --show-toplevel)
 }
 # git status
-function gt()
-{
+function gt() {
   git status -sb
 }
-function glg()
-{
+function glg() {
   git lga
 }
 # pip
-function pipup()
-{
+function pipup() {
   py -m pip install pip --upgrade
 }
 
-function mkcd
-{
-  if(!(Test-Path $args))
-  {
+function mkcd {
+  if (!(Test-Path $args)) {
     New-Item -ItemType Directory $args
   }
   Set-Location $args[0]
 }
 
-function rmhere
-{
+function rmhere {
   $tmp = (Get-Location)
   Set-Location ..
   Remove-Item $tmp
 }
 
-function Get-Assembiles
-{
+function Get-Assembiles {
   [System.AppDomain]::CurrentDomain.GetAssemblies()
 }
 
-function Get-Types($Pattern = ".")
-{
+function Get-Types($Pattern = ".") {
   Get-Assembiles | ForEach-Object { 
     $_.GetExportedTypes() 
   } | Where-Object {
@@ -632,16 +553,15 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadlineOption -HistoryNoDuplicates
 Set-PSReadlineOption -AddToHistoryHandler {
   param ($command)
-  switch -regex ($command)
-  {
-    "SKIPHISTORY"
-    {return $false
+  switch -regex ($command) {
+    "SKIPHISTORY" {
+      return $false
     }
-    "^[a-z]$"
-    {return $false
+    "^[a-z]$" {
+      return $false
     }
-    "exit"
-    {return $false
+    "exit" {
+      return $false
     }
   }
   return $true
@@ -660,30 +580,26 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 #
 # dotfiles
 #
-function LinkDotFile
-{
+function LinkDotFile {
   [CmdletBinding()]
   param(
-    [Parameter(ValueFromPipeline=$true)] [System.IO.FileInfo[]] $src
+    [Parameter(ValueFromPipeline = $true)] [System.IO.FileInfo[]] $src
   )
-  process
-  {
+  process {
     $syncHome = Get-Path "dot-sync"
     $syncApp = Get-Path "dot-sync-app"
-    if($src.FullName.StartsWith($syncHome))
-    {
-      $dst = Join-Path $HOME ($src.FullName.Substring($syncHome.FullName.Length+1))
-    } elseif($src.FullName.StartsWith($syncApp))
-    {
-      $dst = Join-Path (Join-Path $HOME "AppData") ($src.FullName.Substring($syncApp.FullName.Length+1))
+    if ($src.FullName.StartsWith($syncHome)) {
+      $dst = Join-Path $HOME ($src.FullName.Substring($syncHome.FullName.Length + 1))
+    }
+    elseif ($src.FullName.StartsWith($syncApp)) {
+      $dst = Join-Path (Join-Path $HOME "AppData") ($src.FullName.Substring($syncApp.FullName.Length + 1))
     }
     #  Write-Host "$dst => $src"
-    if(Test-Path $dst)
-    {
+    if (Test-Path $dst) {
       # green
       # Write-Host -NoNewline "${dst} exists"
-    } else
-    {
+    }
+    else {
       # make symbolic link
       Write-Host -NoNewline "${dst} <== {$src}"
       New-Item -ItemType SymbolicLink -Path $dst -Value $src.FullName -Force
@@ -691,44 +607,38 @@ function LinkDotFile
   }
 }
 
-function Get-Dotfile
-{
+function Get-Dotfile {
   [CmdletBinding()]
   Param()
 
-  Process
-  {
+  Process {
     Get-ChildItem -Recurse -Force -File (Get-Path "dot-sync")
 
     # if windows AppData, LOCALAPPDATA...
-    if($IsWindows)
-    {
+    if ($IsWindows) {
       $app = Get-Path "dot-sync-app"
       Get-ChildItem -Recurse -Force -File $app
     }
   }
 }
 
-function Remove-DeadLink
-{
+function Remove-DeadLink {
   Get-ChildItem ~\.config\ -Recurse
-  | Where-Object{ $_.LinkTarget -and !(Test-Path $_.LinkTarget)}
-  | ForEach-Object{write-host "Remove: $_"; $_}
+  | Where-Object { $_.LinkTarget -and !(Test-Path $_.LinkTarget) }
+  | ForEach-Object { write-host "Remove: $_"; $_ }
   | Remove-Item
 }
 
-function Pull-DotFile
-{
+function Pull-DotFile {
   [CmdletBinding()]
   Param()
 
-  Process
-  {
+  Process {
     Push-Location (Get-Path "dot")
     git pull
 
     # make symbolic link
-    Get-Dotfile | ForEach-Object{ LinkDotFile $_ }
+    Get-Dotfile | ForEach-Object { LinkDotFile $_ }
 
     # remove dead link
     Remove-DeadLink
@@ -737,13 +647,11 @@ function Pull-DotFile
   }
 }
 
-function Push-DotFile
-{
+function Push-DotFile {
   [CmdletBinding()]
   Param()
 
-  Process
-  {
+  Process {
     Push-Location (Get-Path "dot")
     git add .
     git commit -av
@@ -755,66 +663,54 @@ function Push-DotFile
 #
 # alias
 #
-if(has exa)
-{
+if (has exa) {
   Set-Alias ls exa
-  function ll
-  { 
+  function ll { 
     exa -l $args 
   }
-  function la
-  {
+  function la {
     exa -a $args
   }
-} elseif(has lsd)
-{
+}
+elseif (has lsd) {
   Set-Alias ls lsd
-  function ll
-  { 
+  function ll { 
     lsd -l $args 
   }
-  function la
-  {
+  function la {
     lsd -a $args
   }
-} elseif(has ls)
-{
-  function ll
-  { 
+}
+elseif (has ls) {
+  function ll { 
     ls -l $args 
   }
-  function la
-  {
+  function la {
     ls -a $args
   }
 }
-if(has "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd")
-{
+if (has "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd") {
   Set-Alias code (Join-Path $env:LOCALAPPDATA "\Programs\Microsoft VS Code\bin\code.cmd")
 }
 
-function now()
-{
+function now() {
   [System.DateTimeOffset]::Now
 }
 
-function rmrf
-{
+function rmrf {
   [CmdletBinding()]
   param(
-    [Parameter(ValueFromPipeline=$true)] [string[]] $inputStrings
+    [Parameter(ValueFromPipeline = $true)] [string[]] $inputStrings
   )
-  process
-  {
+  process {
     Remove-Item -Recurse -Force $inputStrings
   }
 }
 
-if($env:GIS_DIR -and (Test-Path (Join-Path $env:GIS_DIR "jma/area.json")))
-{
+if ($env:GIS_DIR -and (Test-Path (Join-Path $env:GIS_DIR "jma/area.json"))) {
   $area = (Get-Content (Join-Path $env:GIS_DIR "jma/area.json") | ConvertFrom-Json -AsHashtable)[0]
-} else
-{
+}
+else {
   $area = @{}
 }
 
@@ -845,56 +741,48 @@ if($env:GIS_DIR -and (Test-Path (Join-Path $env:GIS_DIR "jma/area.json")))
 
 # Set-Alias docker podman
 # Set-Alias docker-compose podman-compose
-if(!(has tig))
-{
+if (!(has tig)) {
   Set-Alias tig D:\msys64\usr\bin\tig.exe
 }
 
 # object fzf
-function ofzf()
-{
+function ofzf() {
   $map = [System.Collections.Generic.Dictionary[int, Object]]::new()
   $res = $input
-  | ForEach-Object{ 
+  | ForEach-Object { 
     $i = $map.Count
     $map.Add($i, $_)
     "$i $_" }
   | fzf
-  if($res)
-  {
+  if ($res) {
     $map[[int]$res.Split()[0]]
   }
 }
 
-function Download-Dependency([mymodule.Dependency]$definition)
-{
+function Download-Dependency([mymodule.Dependency]$definition) {
   $archive = Join-Path (Get-Path "local-src") $definition.GetArchive();
-  if(Test-Path $archive)
-  {
+  if (Test-Path $archive) {
     Write-Host "$archive exists"
-  } else
-  {
+  }
+  else {
     Write-Host "download $archive <== $($definition.Url) ..."
     Invoke-WebRequest -Uri $definition.Url -OutFile $archive
   }
 }
 
-function Extract-Dependency([mymodule.Dependency]$definition)
-{
+function Extract-Dependency([mymodule.Dependency]$definition) {
   $archive = Join-Path (Get-Path "local-src") $definition.GetArchive();
   Expand-Archive -Path $archive -DestinationPath (Split-Path -parent $archive)
 }
 
-function Install-Dependency
-{
+function Install-Dependency {
   $input
-  | ForEach-Object{ 
+  | ForEach-Object { 
     $exe = Join-Path (Get-Path "local-src") $_.Exe
-    if(Test-Path $exe)
-    {
+    if (Test-Path $exe) {
       [void](Write-Host "$($_.Exe) exists")
-    } else
-    {
+    }
+    else {
       [void](Download-Dependency $_)
       $_
     }
@@ -904,24 +792,21 @@ function Install-Dependency
   }
 }
 
-if(Test-Path "nvim")
-{
-  $env:EDITOR="nvim"
-} else
-{
-  $env:EDITOR="vim"
+if (Test-Path "nvim") {
+  $env:EDITOR = "nvim"
+}
+else {
+  $env:EDITOR = "vim"
 }
 
 # Set-Alias nvim (Join-Path (Get-Path "local-src") "nvim-win64/bin/nvim$EXE")
-if($IsWindows)
-{
+if ($IsWindows) {
   Set-Alias nvim "C:\Program Files\Neovim\bin\nvim.exe"
-} else
-{
+}
+else {
   Set-Alias nvim (Join-Path $env:HOME "local/bin/nvim")
 }
-function v()
-{
+function v() {
   nvim $args
 }
 
@@ -929,34 +814,29 @@ function v()
 #{
 #  Set-Alias ldd (Join-Path (Get-Path "msys") "usr/bin/ldd.exe")
 #}
-if(!(has file))
-{
+if (!(has file)) {
   Set-Alias file (Join-Path (Get-Path "msys") "usr/bin/file.exe")
 }
 
-function lk
-{
+function lk {
   Set-Location (walk $args)
 }
 
-function Get-Git-RemoteBranch()
-{
+function Get-Git-RemoteBranch() {
   # git for-each-ref --sort=-committerdate refs/remotes/origin --format='%(refname:short)' --merged
   git branch --remotes --merged 
   | ForEach-Object { $_.Trim() }
   | Where-Object { !($_.StartsWith("origin/HEAD")) }
 }
 
-function Remove-Git-RemoteBranch
-{
+function Remove-Git-RemoteBranch {
   [CmdletBinding()]
   param(
-    [Parameter(ValueFromPipeline=$true)] [string[]] $inputStrings
+    [Parameter(ValueFromPipeline = $true)] [string[]] $inputStrings
   )
-  process
-  {
+  process {
     # origin/fix/hoge
-    $sp= $inputStrings.split("/", 2)
+    $sp = $inputStrings.split("/", 2)
     $remote = $sp[0]
     $branch = $sp[1]
     Write-Host "git push $remote :$branch"
@@ -964,10 +844,8 @@ function Remove-Git-RemoteBranch
   }
 }
 
-function Install-Go
-{
-  if(!(has go))
-  {
+function Install-Go {
+  if (!(has go)) {
     mkdir -p $HOME/local/src
     Push-Location $HOME/local/src
     wget --trust-server-names https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
@@ -982,28 +860,24 @@ function Install-Go
 
   git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
 
-  if($IsWindows){
+  if ($IsWindows) {
     &"$HOME/.fzf/install.ps1"
   }
-  else{
+  else {
     &"$HOME/.fzf/install"
   }
 }
 
-function Install-Nvim
-{
+function Install-Nvim {
   # https://github.com/neovim/neovim/blob/master/BUILD.md#build-prerequisites
-  if(has brew)
-  {
+  if (has brew) {
     brew install ninja cmake gettext curl
   } 
-  if(has apt)
-  {
+  if (has apt) {
     sudo apt update
     sudo apt install -y build-essential ninja-build gettext cmake unzip curl
   }
-  if(has pacman)
-  {
+  if (has pacman) {
     sudo pacman -Sy
     sudo pacman -S base-devel cmake unzip ninja curl
   }
@@ -1018,45 +892,37 @@ function Install-Nvim
   Pop-Location
 }
 
-function Install-Rust
-{
+function Install-Rust {
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   cargo install zoxide ripgrep fd-find bottom lsd bat stylua
 }
 
-function Install-Deno
-{
+function Install-Deno {
   curl -fsSL https://deno.land/install.sh | sh
 }
 
-function Install-Skk-Dictionary
-{
+function Install-Skk-Dictionary {
   mkdir -p ~/.skk
   Push-Location ~/.skk
   curl -L -o SKK-JISYO.L https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L
   Pop-Location 
 }
 
-function fapt
-{
+function fapt {
   $result = apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}"
-  if($result)
-  {
+  if ($result) {
     sudo apt install $result
   }
 }
 
-function fpac
-{
+function fpac {
   $result = pacman -Sl | cut -d " " -f 2 | fzf --preview "pacman -Si {}"
-  if($result)
-  {
+  if ($result) {
     sudo pacman -S $result
   }
 }
 
-function Install-Muon
-{
+function Install-Muon {
   ghq get https://github.com/annacrombie/muon
   Push-Location (Join-Path (ghq root) "/github.com/annacrombie/muon")
   meson setup builddir --prefix $HOME/local
@@ -1064,8 +930,7 @@ function Install-Muon
   Pop-Location
 }
 
-function Install-Win32Yank
-{
+function Install-Win32Yank {
   mkdir -p ~/local/src
   Push-Location ~/local/src
   curl -L -O https://github.com/equalsraf/win32yank/releases/download/v0.1.1/win32yank-x64.zip
@@ -1076,21 +941,17 @@ function Install-Win32Yank
   Pop-Location
 }
 
-function Remove-TSParser
-{
-  if(Test-Path "$HOME/local/lib/nvim/parser"
-  )
-  {
+function Remove-TSParser {
+  if (Test-Path "$HOME/local/lib/nvim/parser"
+  ) {
     rmrf "$HOME/local/lib/nvim/parser"
   }
-  if(Test-Path "$HOME/.local/share/nvim/lazy/nvim-treesitter/parser"
-  )
-  {
+  if (Test-Path "$HOME/.local/share/nvim/lazy/nvim-treesitter/parser"
+  ) {
     rmrf "$HOME/.local/share/nvim/lazy/nvim-treesitter/parser"
   }
-  if(Test-Path "$HOME/.cache/nvim/treesitter/parser"
-  )
-  {
+  if (Test-Path "$HOME/.cache/nvim/treesitter/parser"
+  ) {
     rmrf "$HOME/.cache/nvim/treesitter/parser"
   }
 }

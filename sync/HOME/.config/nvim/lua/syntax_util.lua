@@ -101,6 +101,8 @@ function M.clear_syntax_link(ev)
   vim.api.nvim_set_hl(0, "@keyword.directive.c", { fg = "#FFaa00" })
   vim.api.nvim_set_hl(0, "@keyword.directive.define.c", { fg = "#FFaa00" })
 
+  vim.api.nvim_set_hl(0, "@statement", { link = "Statement" })
+
   --
   -- cmp
   --
