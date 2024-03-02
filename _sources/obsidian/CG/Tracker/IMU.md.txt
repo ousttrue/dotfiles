@@ -9,3 +9,4 @@ IMU(Inertial Measeurement Unit:慣性計測装置)
 
 
 - [MPI for Intelligent Systemsら、6つのIMUを装着し、リアルタイムに全身の3D姿勢推定を行うdeep learningを用いた手法を発表 | Seamless](https://shiropen.com/seamless/deep-inertial-poser)
+

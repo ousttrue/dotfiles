@@ -26,6 +26,26 @@
 | SWAP      | MEMORY x 2 (for example: 32GB) |
 | /         | 200GB                          |
 
+## efi variable(NVRAM: Non Volatile Random Acess Memory)
+
+- GetVariables
+- GetNextVariablesName
+- SetVariables
+- QueryVairableInfo
+
+`/sys/firmware/efi/efivars`
+
+- @2022 [UEFI対応BIOSとSecureBootの訓練をしてみる話 | スクエニ ITエンジニア ブログ](https://blog.jp.square-enix.com/iteng-blog/posts/00021-uefi-bios-secureboot-practice/)
+- `efivars` @2018 [LinuxにおけるEFI Variableをみてみる - Blog posts by @retrage](https://retrage01.hateblo.jp/entry/2018/12/20/100949)
+
+```sh
+efivar -l
+```
+
+## secure-boot
+
+- @2016 [QEMU/KVMでセキュアブートを利用する](https://gihyo.jp/admin/serial/01/ubuntu-recipe/0446)
+
 # UEFI ブートマネージャー
 
 ## efibootmgr
@@ -33,6 +53,15 @@
 ## Application
 
 [UEFI アプリケーションの書き方/Hello World プログラム - Wikibooks](https://ja.wikibooks.org/wiki/UEFI%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9/Hello_World%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0)
+
+## Limine
+
+- https://limine-bootloader.org/
+
+`esp/EFI/BOOT/BOOTX64.EFI`
+
+
+# dev
 
 ## gnu-efi
 
@@ -42,10 +71,6 @@
 
 - [EDK II で UEFI アプリケーションを作る — osdev-jp core docs 1.0 ドキュメント](https://osdev-jp.readthedocs.io/ja/latest/2017/create-uefi-app-with-edk2.html)
 
-## Limine
+# QEMU
 
-- https://limine-bootloader.org/
-
-`esp/EFI/BOOT/BOOTX64.EFI`
-
-
+- @2022 [Linux のマルチブートを作りたい レベル３ EFIブートのGRUBでマルチブートする - それマグで！](https://takuya-1st.hatenablog.jp/entry/2022/12/28/155113)

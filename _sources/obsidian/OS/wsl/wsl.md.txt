@@ -5,12 +5,6 @@
 # /etc/wsl.conf
 
 ```
-[user]
-default=ousttrue
-
-[network]
-hostname=wgentoo
-
 [interop]
 appendWindowsPath = false
 

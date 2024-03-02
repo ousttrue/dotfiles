@@ -259,6 +259,29 @@ FAT32
 </tbody>
 </table></div>
 </section>
+<section id="efi-variable-nvram-non-volatile-random-acess-memory">
+<h1>efi variable(NVRAM: Non Volatile Random Acess Memory)<a class="headerlink" href="#efi-variable-nvram-non-volatile-random-acess-memory" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>GetVariables</p></li>
+<li><p>GetNextVariablesName</p></li>
+<li><p>SetVariables</p></li>
+<li><p>QueryVairableInfo</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">/sys/firmware/efi/efivars</span></code></p>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://blog.jp.square-enix.com/iteng-blog/posts/00021-uefi-bios-secureboot-practice/">UEFI対応BIOSとSecureBootの訓練をしてみる話 | スクエニ ITエンジニア ブログ</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">efivars</span></code> @2018 <a class="reference external" href="https://retrage01.hateblo.jp/entry/2018/12/20/100949">LinuxにおけるEFI Variableをみてみる - Blog posts by @retrage</a></p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>efivar -l
+</pre></div>
+</div>
+</section>
+<section id="secure-boot">
+<h1>secure-boot<a class="headerlink" href="#secure-boot" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2016 <a class="reference external" href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0446">QEMU/KVMでセキュアブートを利用する</a></p></li>
+</ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="uefi">
 <h1>UEFI ブートマネージャー<a class="headerlink" href="#uefi" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="efibootmgr">
@@ -268,6 +291,16 @@ FAT32
 <h2>Application<a class="headerlink" href="#application" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikibooks.org/wiki/UEFI%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9/Hello_World%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0">UEFI アプリケーションの書き方/Hello World プログラム - Wikibooks</a></p>
 </section>
+<section id="limine">
+<h2>Limine<a class="headerlink" href="#limine" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>https://limine-bootloader.org/</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">esp/EFI/BOOT/BOOTX64.EFI</span></code></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dev">
+<h1>dev<a class="headerlink" href="#dev" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="gnu-efi">
 <h2>gnu-efi<a class="headerlink" href="#gnu-efi" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
@@ -280,13 +313,12 @@ FAT32
 <li><p><a class="reference external" href="https://osdev-jp.readthedocs.io/ja/latest/2017/create-uefi-app-with-edk2.html">EDK II で UEFI アプリケーションを作る — osdev-jp core docs 1.0 ドキュメント</a></p></li>
 </ul>
 </section>
-<section id="limine">
-<h2>Limine<a class="headerlink" href="#limine" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>https://limine-bootloader.org/</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">esp/EFI/BOOT/BOOTX64.EFI</span></code></p>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="qemu">
+<h1>QEMU<a class="headerlink" href="#qemu" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://takuya-1st.hatenablog.jp/entry/2022/12/28/155113">Linux のマルチブートを作りたい レベル３ EFIブートのGRUBでマルチブートする - それマグで！</a></p></li>
+</ul>
 </section>
 
         </article>
@@ -323,14 +355,20 @@ FAT32
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">partition 構成</a></li>
+<li><a class="reference internal" href="#efi-variable-nvram-non-volatile-random-acess-memory">efi variable(NVRAM: Non Volatile Random Acess Memory)</a></li>
+<li><a class="reference internal" href="#secure-boot">secure-boot</a></li>
 <li><a class="reference internal" href="#uefi">UEFI ブートマネージャー</a><ul>
 <li><a class="reference internal" href="#efibootmgr">efibootmgr</a></li>
 <li><a class="reference internal" href="#application">Application</a></li>
-<li><a class="reference internal" href="#gnu-efi">gnu-efi</a></li>
-<li><a class="reference internal" href="#edk2">EDK2</a></li>
 <li><a class="reference internal" href="#limine">Limine</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#dev">dev</a><ul>
+<li><a class="reference internal" href="#gnu-efi">gnu-efi</a></li>
+<li><a class="reference internal" href="#edk2">EDK2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#qemu">QEMU</a></li>
 </ul>
 
           </div>

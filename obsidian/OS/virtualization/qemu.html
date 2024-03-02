@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>Version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,19 +212,118 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
+          <p>https://wiki.archlinux.jp/index.php/QEMU</p>
+<ul class="simple">
 <li><p>@2023 <a class="reference external" href="https://valinux.hatenablog.com/entry/20230112">Qemuのしくみ (の一部) - VA Linux エンジニアブログ</a></p></li>
-<li><p>@2016 <a class="reference external" href="https://qiita.com/kaishuu0123/items/33621af2aca44d8d2c72">Linux を(わりと)シンプルな構成でビルドして Qemu で起動する - Qiita</a></p></li>
-<li><p><a class="reference external" href="http://nullpo-head.hateblo.jp/entry/2015/04/20/172059">ビルドしたLinuxカーネルをブートできる最低限の環境を用意する（with Busybox &amp; qemu) - 豆腐の豆腐和え</a><span class="xref myst"></span></p></li>
-<li><p><a class="reference external" href="https://eng-notebook.com/blog-entry-143/">QEMUにUbuntu Linuxを最小構成（GUIデスクトップなし）でインストール - Engineer's Notebook</a></p></li>
-<li><p><a class="reference external" href="https://www.aps-web.jp/academy/wr-linux/18673/">QEMUで組み込みLinuxを手早く開発、実機不要の開発フローを学ぶ | APS｜組み込み業界専門メディア</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://qiita.com/wataash/items/174b454d4478898a556b">カーネルデバッグで使うQEMUオプションチートシート #QEMU - Qiita</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>8.0<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://forest.watch.impress.co.jp/docs/news/1498675.html">無料仮想化ソフト「QEMU 8.0」が公開 ～Windows版のインストーラーは64bit版のみに - 窓の杜</a></p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>7.0<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://zenn.dev/tetsu_koba/articles/af77c1e196f1a8">qemu-7.0.0 のビルド</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="windows">
+<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>https://qemu.weilnetz.de/w64/</p></li>
+</ul>
+<section id="arch-iso-efi-boot">
+<h2>arch iso を efi boot する<a class="headerlink" href="#arch-iso-efi-boot" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2018 <a class="reference external" href="https://retrage01.hateblo.jp/entry/2018/10/13/002031">EFI stubなArch Linuxのインストール - Blog posts by @retrage</a></p></li>
+<li><p><a class="reference external" href="https://cartman0.hatenablog.com/entry/2020/12/21/Windows%E7%92%B0%E5%A2%83%E3%81%ABUEFI%E3%82%A2%E3%83%97%E3%83%AA%E5%8B%95%E4%BD%9C%E7%94%A8%E3%81%AE%E4%BB%AE%E6%83%B3%E7%92%B0%E5%A2%83qemu%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC">Windows環境にUEFIアプリ動作用の仮想環境qemuをインストールする - はしくれエンジニアもどきのメモ</a></p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>qemu-system-x86_64 -m <span class="m">2048</span> -pflash ..<span class="se">\O</span>VMF.fd -hda .<span class="se">\a</span>rch.qcow2 -net nic,model<span class="o">=</span>e1000 -net user -cdrom .<span class="se">\a</span>rchlinux-x86_64.iso -boot d
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="partision">
+<h1>partision<a class="headerlink" href="#partision" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/arimax/articles/37e783f3be53a0">Linux From Scratchをqemuで実行する方法</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="linux-kernel">
+<h1>linux kernel<a class="headerlink" href="#linux-kernel" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="http://nullpo-head.hateblo.jp/entry/2015/04/20/172059">ビルドしたLinuxカーネルをブートできる最低限の環境を用意する（with Busybox &amp; qemu) - 豆腐の豆腐和え</a><span class="xref myst"></span></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="network">
+<h1>network<a class="headerlink" href="#network" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2018 <a class="reference external" href="https://yasukata.hatenablog.com/entry/2018/04/23/054418">仮想 I/O 高速化手法まとめ - かーねるさんとか</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vga">
+<h1>vga<a class="headerlink" href="#vga" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="virtio">
+<h2>virtio<a class="headerlink" href="#virtio" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[libvirt]]</p>
+<p><code class="docutils literal notranslate"><span class="pre">-vga</span> <span class="pre">virtio</span></code></p>
+</section>
+<section id="curses">
+<h2>curses<a class="headerlink" href="#curses" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2008 <a class="reference external" href="https://kvm.hatenadiary.org/entry/20080307/1204908376">QEMU/KVM curses display - KVM日記</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="accelaration">
+<h1>accelaration<a class="headerlink" href="#accelaration" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="tcg">
+<h2>TCG<a class="headerlink" href="#tcg" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2020 <a class="reference external" href="https://msyksphinz.hatenablog.com/entry/2020/08/05/040000">QEMUのTCG(Tiny Code Generator)を読み解く - FPGA開発日記</a></p></li>
+</ul>
+</section>
+<section id="kvm">
+<h2>KVM<a class="headerlink" href="#kvm" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">-accel</span> <span class="pre">kvm</span></code></p>
+</section>
+<section id="haxm-hardware-accelerated-execution-manager">
+<h2>HAXM(Hardware Accelerated Execution Manager)<a class="headerlink" href="#haxm-hardware-accelerated-execution-manager" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><strong>@2023 version 7.8 で開発終了</strong></p></li>
+<li><p><strong>新しいIntel CPUが必要（EPTが必須）</strong></p></li>
+</ul>
+<p><a class="reference external" href="https://learn.microsoft.com/ja-jp/xamarin/android/get-started/installation/android-emulator/hardware-acceleration?pivots=windows">エミュレーターのパフォーマンスのためのハードウェア高速化 (Hyper-V と HAXM)</a></p>
+<ul class="simple">
+<li><p>@2017 <a class="reference external" href="https://www.qemu.org/2017/11/22/haxm-usage-windows/">Accelerating QEMU on Windows with HAXM - QEMU</a></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">-accel</span> <span class="pre">hax</span></code></p>
+<ul class="simple">
+<li><p>@2019 <a class="reference external" href="https://hiro20180901.hatenablog.com/entry/2019/02/22/070053">Intel HAXM と android emulator と qemu - hiroの長い冒険日記</a>
+<strong>Install必要</strong></p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; sc query intelhaxm
+<span class="o">[</span>SC<span class="o">]</span> EnumQueryServicesStatus:OpenService FAILED <span class="m">1060</span>:
+
+The specified service does not exist as an installed service.
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://e-yuuki.org/netbsd/haxm.html">e-yuuki.org</a></p></li>
+</ul>
+</section>
+</section>
 
         </article>
       </div>
@@ -247,8 +346,46 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Version</a><ul>
+<li><a class="reference internal" href="#id1">8.0</a></li>
+<li><a class="reference internal" href="#id2">7.0</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#windows">Windows</a><ul>
+<li><a class="reference internal" href="#arch-iso-efi-boot">arch iso を efi boot する</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#partision">partision</a></li>
+<li><a class="reference internal" href="#linux-kernel">linux kernel</a></li>
+<li><a class="reference internal" href="#network">network</a></li>
+<li><a class="reference internal" href="#vga">vga</a><ul>
+<li><a class="reference internal" href="#virtio">virtio</a></li>
+<li><a class="reference internal" href="#curses">curses</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#accelaration">accelaration</a><ul>
+<li><a class="reference internal" href="#tcg">TCG</a></li>
+<li><a class="reference internal" href="#kvm">KVM</a></li>
+<li><a class="reference internal" href="#haxm-hardware-accelerated-execution-manager">HAXM(Hardware Accelerated Execution Manager)</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
