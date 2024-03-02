@@ -97,8 +97,11 @@ local function init_nvim()
   -- end)
   vim.keymap.set({ "n" }, "<F7>", ":make<CR>")
   vim.keymap.set({ "i" }, "<F7>", "<c-o>:make<CR><ESC>")
-  local qfu = require "qfu"
-  vim.opt.errorformat = qfu.ninja_vc_fmt
+
+  if DOT.get_system() == "windows" then
+    local qfu = require "qfu"
+    vim.opt.errorformat = qfu.ninja_vc_fmt
+  end
 
   vim.keymap.set("n", "<F8>", function()
     vim.cmd "bel copen"
