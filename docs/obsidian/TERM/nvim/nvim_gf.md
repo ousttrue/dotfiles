@@ -1,5 +1,6 @@
 [[nvim]]
 
+- @2023 [VimでgfしたらURLをブラウザで開く | Atusy's blog](https://blog.atusy.net/2023/12/09/gf-open-url/)
 - @2022 [Vim の gf について(パス移動の救世主)](https://zenn.dev/hasu_83/articles/explain-vim-gf)
 
 # nvim-gtd

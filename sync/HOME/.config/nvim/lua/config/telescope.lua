@@ -88,8 +88,9 @@ function M.setup()
   -- keymap
   --
   local OBS_DIR = string.gsub(DOT.get_dotdir() .. "\\docs\\obsidian", "/", "\\")
+  local C_P = "<C-p>"
   if vim.startswith(vim.loop.cwd() or "", OBS_DIR) then
-    vim.keymap.set("n", "<Leader><Space>", builtin.find_files, { noremap = true })
+    vim.keymap.set("n", C_P, builtin.find_files, { noremap = true })
   else
     -- https://www.reddit.com/r/neovim/comments/p1xj92/make_telescope_git_files_revert_back_to_find/
     local function project_files()
@@ -107,7 +108,7 @@ function M.setup()
         }
       end
     end
-    vim.keymap.set("n", "<Leader><Space>", project_files, { noremap = true })
+    vim.keymap.set("n", C_P, project_files, { noremap = true })
   end
 
   local function grep_under_cursor()
@@ -125,7 +126,7 @@ function M.setup()
   -- vim.keymap.set("n", "<Leader>g", builtin.live_grep, { noremap = true })
 
   -- vim.keymap.set("n", "[[", builtin.resume, { noremap = true })
-  -- vim.keymap.set("n", "<Leader>b", builtin.buffers, { noremap = true })
+  vim.keymap.set("n", "<Leader><space>", builtin.buffers, { noremap = true })
   -- vim.keymap.set("n", "<Leader>h", builtin.help_tags, { noremap = true })
   -- -- vim.keymap.set("n", "<F3>", ":<C-u>Telescope ghq list<CR>", {})
   -- vim.keymap.set("n", "<leader>f", ":Telescope find_files<cr>" .. "'" .. vim.fn.expand "<cword>")

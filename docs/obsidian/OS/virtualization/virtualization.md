@@ -1,3 +1,4 @@
+- @2023 [Docker一強の終焉にあたり、押さえるべきContainer事情](https://zenn.dev/ttnt_1013/articles/f36e251a0cd24e)
 - @2020 [QEMU、KVM、libvirt の基礎知識まとめ - えんでぃの技術ブログ](https://endy-tech.hatenablog.jp/entry/kvm_introduction)
 
 # 仮想化
@@ -16,6 +17,8 @@
 # libvirt
 
 ## virt-manager
+
+[[vertmanager]]
 
 ## Cockpit
 

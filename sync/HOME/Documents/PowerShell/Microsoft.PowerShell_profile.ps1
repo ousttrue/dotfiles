@@ -380,6 +380,10 @@ function vcenv() {
 function insertPath($path) {
   if (-not $env:PATH.Contains($path)) {
     $env:PATH = $path + [System.IO.Path]::PathSeparator + $env:PATH
+    $path
+  }
+  else {
+    $null
   }
 }
 #
@@ -401,31 +405,20 @@ addPath(Join-Path $HOME "\.cargo\bin")
 addPath(Join-Path $HOME "\go\bin")
 addPath(Join-Path $HOME "\.local\bin")
 insertPath(Join-Path $HOME "\local\bin")
-addPath("/usr/local/go/bin")
-addPath("/opt/homebrew/bin")
+if(!$IsWindows){
+  addPath("/usr/local/go/bin")
+}
+if($IsMacOS){
+  addPath("/opt/homebrew/bin")
+}
 addPath(join-Path $HOME '/Downloads/Visual Studio Code.app/Contents/Resources/app/bin')
+addPath("C:\Program Files\qemu")
 
-if (Test-Path "C:\Python312") {
-  addPath("C:\Python312\Scripts")
-  addPath("C:\Python312")
+if(has py){
+  $PY_PREFIX = $(py -c "import sys; print(sys.base_prefix)")
+  insertPath($PY_PREFIX)
+  insertPath(Join-Path $PY_PREFIX "Scripts")
 }
-elseif (Test-Path "C:\Python311") {
-  addPath("C:\Python311\Scripts")
-  addPath("C:\Python311")
-}
-elseif (Test-Path "C:\Python310") {
-  addPath("C:\Python310\Scripts")
-  addPath("C:\Python310")
-}
-elseif (Test-Path "C:\Python37") {
-  addPath("C:\Python37\Scripts")
-  addPath("C:\Python37")
-}
-elseif (Test-Path "C:\Python311-arm64") {
-  addPath("C:\Python311-arm64\Scripts")
-  addPath("C:\Python311-arm64")
-}
-addPath("/Users/ousttrue/Library/Python/3.9/bin")
 
 if ($IsMacOS) {
   $env:N_PREFIX = (Join-Path $env:HOME "/.n")
@@ -852,7 +845,9 @@ function Install-Go {
     sudo rm -rf /usr/local/go
     sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
     Pop-Location
-    addPath("/usr/local/go/bin")
+    if(!$IsWindows){
+      addPath("/usr/local/go/bin")
+    }
   }
 
   go install github.com/x-motemen/ghq@latest
@@ -894,7 +889,7 @@ function Install-Nvim {
 
 function Install-Rust {
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  cargo install zoxide ripgrep fd-find bottom lsd bat stylua
+  cargo install zoxide ripgrep fd-find bottom lsd bat stylua tree-sitter-cli
 }
 
 function Install-Deno {

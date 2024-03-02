@@ -82,8 +82,8 @@ function M.setup()
   -- 大文字小文字 /
   parser_config.PowerShell = {
     install_info = {
-      -- url = "https://github.com/ousttrue/tree-sitter-powershell",
-      url = "D:/ghq/github.com/ousttrue/tree-sitter-PowerShell",
+      url = "https://github.com/ousttrue/tree-sitter-powershell",
+      -- url = "D:/ghq/github.com/ousttrue/tree-sitter-PowerShell",
       files = { "src/scanner.c", "src/parser.c" },
       generate_requires_npm = true,
       requires_generate_from_grammar = true,

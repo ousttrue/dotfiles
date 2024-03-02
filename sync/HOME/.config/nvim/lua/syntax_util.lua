@@ -83,6 +83,9 @@ function M.clear_syntax_link(ev)
   vim.api.nvim_set_hl(0, "@markup.link.link.markdown_inline", { link = "Statement" })
   vim.api.nvim_set_hl(0, "@markup.link.label.markdown_inline", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "@markup.link.url.markdown_inline", { link = "Conceal" })
+  vim.api.nvim_set_hl(0, "@markup.strong.markdown_inline", { fg = "#FFaa00" })
+  vim.api.nvim_set_hl(0, "@text.strong.markdown", { link = "String" })
+  vim.api.nvim_set_hl(0, "@text.strong.markdown_inline", { link = "Statement" })
 
   hl_clear "@variable.parameter.vimdoc"
   vim.api.nvim_set_hl(0, "@markup.link.vimdoc", { link = "Identifier" })
