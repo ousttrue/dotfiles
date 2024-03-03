@@ -218,39 +218,45 @@
           </label>
         </div>
         <article role="main">
-          <p>#red</p>
-<p><a class="reference external" href="https://www.kernel.org/">The Linux Kernel Archives</a></p>
+          <p><a class="reference external" href="https://www.kernel.org/">The Linux Kernel Archives</a></p>
 <p><a class="reference external" href="https://www.haxibami.net/blog/posts/linux-tools-2022">Linux便利ツール2022</a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="distributions">
 <h1>Distributions<a class="headerlink" href="#distributions" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>[[gentoo]]
 [[ArchLinux]]
 [[Ubuntu]]</p>
+<section id="alpine-linux">
+<h2>Alpine Linux<a class="headerlink" href="#alpine-linux" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>軽量</p>
+<p>musl + busybox</p>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="system">
 <h1>system<a class="headerlink" href="#system" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>lfs</p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>utils</p></td>
-<td><p>coreutils</p></td>
-<td><p>busybox</p></td>
-</tr>
-<tr class="row-odd"><td><p>c</p></td>
-<td><p>glibc</p></td>
-<td><p>musl</p></td>
-</tr>
-<tr class="row-even"><td><p>init</p></td>
-<td><p>script</p></td>
-<td><p>systemd</p></td>
-</tr>
-</tbody>
-</table></div>
+<ul class="simple">
+<li><p>FHS</p></li>
+</ul>
+<section id="cruntime">
+<h2>cruntime<a class="headerlink" href="#cruntime" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>glibc</p></li>
+<li><p>musl</p></li>
+</ul>
+</section>
+<section id="init">
+<h2>init<a class="headerlink" href="#init" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>rc</p></li>
+<li><p>systemd</p></li>
+</ul>
+</section>
+<section id="utils">
+<h2>utils<a class="headerlink" href="#utils" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>coreutils</p></li>
+<li><p>busybox</p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -286,8 +292,16 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Distributions</a></li>
-<li><a class="reference internal" href="#system">system</a></li>
+<li><a class="reference internal" href="#">Distributions</a><ul>
+<li><a class="reference internal" href="#alpine-linux">Alpine Linux</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#system">system</a><ul>
+<li><a class="reference internal" href="#cruntime">cruntime</a></li>
+<li><a class="reference internal" href="#init">init</a></li>
+<li><a class="reference internal" href="#utils">utils</a></li>
+</ul>
+</li>
 </ul>
 
           </div>

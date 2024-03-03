@@ -226,17 +226,20 @@
 <section class="tex2jax_ignore mathjax_ignore" id="qxl">
 <h1>QXL<a class="headerlink" href="#qxl" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <blockquote>
-<div><p>グラフィックデバイスとしてQXLを指定した仮想マシン</p>
-</div></blockquote>
-<blockquote>
-<div><p>depends on libvirt</p>
+<div><p>グラフィックデバイスとしてQXLを指定した仮想マシン
+depends on libvirt</p>
 </div></blockquote>
 <p>ぽい？</p>
 <section id="wsl">
 <h2>WSL<a class="headerlink" href="#wsl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>WSLから qemu-system-x86_64 -vga qxl</strong> で使える。 <code class="docutils literal notranslate"><span class="pre">spice://localhost:5930</span></code></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://gist.github.com/klo2k/fe794f107c11292ba47b4d052c547983">Install virt-manager in Windows 11 WSL (qemu, Windows Subsystem for Linux) · GitHub</a></p></li>
 </ul>
+<p><strong>arch install</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>qemu-system-x86_64 -accel kvm -cpu host -vga qxl -m 8G -smp <span class="m">4</span> -drive <span class="k">if</span><span class="o">=</span>pflash,format<span class="o">=</span>raw,readonly<span class="o">=</span>on,file<span class="o">=</span>/usr/share/ovmf/OVMF.fd -pflash OVMF.fd -drive <span class="nv">file</span><span class="o">=</span>arch.qcow2,if<span class="o">=</span>virtio -net nic,model<span class="o">=</span>virtio -net user -cdrom /mnt/d/iso/archlinux-x86_64.iso -boot <span class="nv">once</span><span class="o">=</span>d -no-reboot -hda fat:rw:./efi
+</pre></div>
+</div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="client">

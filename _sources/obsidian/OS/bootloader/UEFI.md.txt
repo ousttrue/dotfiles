@@ -1,6 +1,8 @@
 [[boot]]
 [[GPT]]
 
+- https://github.com/tsuyopon/memo/blob/master/UEFI/UEFI.md
+
 - [GRUB と EFI の組み合わせで使うときのメモ または EFI 全般の tips](https://orumin.blogspot.com/2013/01/grubefi.html)
 - [小手先でつくる自作 OS – UEFI boot から kernel ロードまで | ふぁろぐねっと](https://falog.net/kotesaki-os001/)
 - [ブートローダーは 4 行で実装される](https://orumin.blogspot.com/2014/12/4.html)
