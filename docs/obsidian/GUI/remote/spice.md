@@ -6,13 +6,21 @@ https://www.spice-space.org/index.html
 # QXL
 
 > グラフィックデバイスとしてQXLを指定した仮想マシン
-
 > depends on libvirt
 
 ぽい？
 
 ## WSL
+
+**WSLから qemu-system-x86_64 -vga qxl** で使える。 `spice://localhost:5930`
+
 - [Install virt-manager in Windows 11 WSL (qemu, Windows Subsystem for Linux) · GitHub](https://gist.github.com/klo2k/fe794f107c11292ba47b4d052c547983)
+
+**arch install**
+
+```sh
+qemu-system-x86_64 -accel kvm -cpu host -vga qxl -m 8G -smp 4 -drive if=pflash,format=raw,readonly=on,file=/usr/share/ovmf/OVMF.fd -pflash OVMF.fd -drive file=arch.qcow2,if=virtio -net nic,model=virtio -net user -cdrom /mnt/d/iso/archlinux-x86_64.iso -boot once=d -no-reboot -hda fat:rw:./efi
+```
 
 # client
 

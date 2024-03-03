@@ -81,6 +81,8 @@ function M.setup()
       config.filetypes = { "sh", "bash", "zsh" }
     elseif server_name == "powershell_es" then
       config.bundle_path = vim.env.HOME .. "/.local/share/nvim/mason/packages/powershell-editor-services/"
+    elseif server_name == "elixirls" then
+      config.cmd = { vim.env.LOCALAPPDATA .. "/nvim-data/mason/bin/elixir-ls.cmd" }
     end
     -- if vim.fn.executable "vala-language-server" == 1 then
     --   require("lspconfig").vala_ls.setup {}

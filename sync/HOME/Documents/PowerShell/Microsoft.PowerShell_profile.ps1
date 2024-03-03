@@ -413,6 +413,7 @@ if($IsMacOS){
 }
 addPath(join-Path $HOME '/Downloads/Visual Studio Code.app/Contents/Resources/app/bin')
 addPath("C:\Program Files\qemu")
+addPath('C:\Program Files\Erlang OTP\bin')
 
 if(has py){
   $PY_PREFIX = $(py -c "import sys; print(sys.base_prefix)")

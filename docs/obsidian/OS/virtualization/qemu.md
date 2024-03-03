@@ -30,6 +30,20 @@ qemu-system-x86_64 -m 2048 -pflash ..\OVMF.fd -hda .\arch.qcow2 -net nic,model=e
 
 - [Linux From Scratchをqemuで実行する方法](https://zenn.dev/arimax/articles/37e783f3be53a0)
 
+```sh
+qemu-img create -f qcow2 esp.qcow2 1G
+```
+
+## EFI
+
+|         |        |                   |
+| ------- | ------ | ----------------- |
+| EFI ROM | raw    | OVMF.fd(readonly) |
+| efivars | pflash | OVMF.fd           |
+| EFI     |        |                   |
+| root    | qcow2  | fs.qcow2          |
+| install | cdrom  | install.iso       |
+
 # linux kernel
 
 - [ビルドしたLinuxカーネルをブートできる最低限の環境を用意する（with Busybox & qemu) - 豆腐の豆腐和え](http://nullpo-head.hateblo.jp/entry/2015/04/20/172059)[]()
