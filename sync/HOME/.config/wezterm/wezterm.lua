@@ -63,7 +63,9 @@ local function setup_linux(config)
   if file_exists(NYAGOS[1]) then
     config.default_prog = NYAGOS
   else
-    config.default_prog = { "bash" }
+    config.default_prog = { HOME .. "/.dotnet/tools/pwsh" }
+    config.enable_wayland = true
+    config.window_decorations = "NONE"
   end
 
   if wezterm.gui == nil or wezterm.gui.screens().main.width > 3500 then

@@ -2,7 +2,6 @@
 <openbox_menu>
   <menu id="root-menu" label="">
     <item label="Firefox"><action name="Execute" command="firefox" /></item>
-    <item label="Obsidian"><action name="Execute" command="obsidian" /></item>
     <separator />
     <item label="PCManFM"><action name="Execute" command="pcmanfm" /></item>
     <separator />

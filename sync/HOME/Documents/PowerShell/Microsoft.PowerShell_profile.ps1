@@ -1055,7 +1055,7 @@ function Install-Skk-Dictionary
 {
   mkdir -p ~/.skk
   Push-Location ~/.skk
-  curl -L -O SKK-JISYO.L https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L
+  curl -L -O https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L
   Pop-Location 
 }
 
@@ -1063,9 +1063,10 @@ function Install-Font
 {
   mkdir -p ~/.fonts
   Push-Location ~/.fonts
-  curl _L -O https://github.com/yuru7/HackGen/releases/download/v2.9.0/HackGen_NF_v2.9.0.zip
+  curl -L -O https://github.com/yuru7/HackGen/releases/download/v2.9.0/HackGen_NF_v2.9.0.zip
   unzip HackGen_NF_v2.9.0.zip
   Pop-Location
+  fc-cache -fv
 }
 
 function fapt
