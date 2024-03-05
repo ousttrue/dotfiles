@@ -107,6 +107,8 @@ function Get-Path([string]$type)
   }
 }
 
+$docs = Join-Path (Get-Path "dot") "docs/obsidian"
+
 $module_dir = Join-Path (Get-Path "dot") "psmodule\mymodule" 
 $dll_path = Join-Path $module_dir "bin\Debug\net8.0\mymodule.dll"
 if (!(Test-Path $dll_path))
@@ -986,7 +988,7 @@ function Install-Go
   {
     mkdir -p $HOME/local/src
     Push-Location $HOME/local/src
-    wget --trust-server-names https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+    curl -L -O --trust-server-names https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
     sudo rm -rf /usr/local/go
     sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
     Pop-Location
@@ -1053,7 +1055,7 @@ function Install-Skk-Dictionary
 {
   mkdir -p ~/.skk
   Push-Location ~/.skk
-  curl -L -o SKK-JISYO.L https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L
+  curl -L -O SKK-JISYO.L https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L
   Pop-Location 
 }
 
@@ -1123,4 +1125,13 @@ function Remove-TSParser
   {
     rmrf "$HOME/.cache/nvim/treesitter/parser"
   }
+}
+
+function Install-Yay
+{
+  pacman -S --needed git base-devel
+  Set-Location
+  git clone https://aur.archlinux.org/yay.git
+  Set-Location yay
+  makepkg -si
 }
