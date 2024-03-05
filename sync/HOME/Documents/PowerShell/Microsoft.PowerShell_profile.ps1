@@ -1059,6 +1059,15 @@ function Install-Skk-Dictionary
   Pop-Location 
 }
 
+function Install-Font
+{
+  mkdir -p ~/.fonts
+  Push-Location ~/.fonts
+  curl _L -O https://github.com/yuru7/HackGen/releases/download/v2.9.0/HackGen_NF_v2.9.0.zip
+  unzip HackGen_NF_v2.9.0.zip
+  Pop-Location
+}
+
 function fapt
 {
   $result = apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}"
