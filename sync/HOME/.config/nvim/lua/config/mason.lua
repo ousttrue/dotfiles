@@ -80,7 +80,11 @@ function M.setup()
     elseif server_name == "bashls" then
       config.filetypes = { "sh", "bash", "zsh" }
     elseif server_name == "powershell_es" then
-      config.bundle_path = vim.env.HOME .. "/.local/share/nvim/mason/packages/powershell-editor-services/"
+      if vim.fn.has "win32" == 1 then
+        config.bundle_path = vim.env.LOCALAPPDATA .. "/nvim-data/mason/packages/powershell-editor-services/"
+      else
+        config.bundle_path = vim.env.HOME .. "/.local/share/nvim/mason/packages/powershell-editor-services/"
+      end
     elseif server_name == "elixirls" then
       config.cmd = { vim.env.LOCALAPPDATA .. "/nvim-data/mason/bin/elixir-ls.cmd" }
     end
