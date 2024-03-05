@@ -1129,9 +1129,16 @@ function Remove-TSParser
 
 function Install-Yay
 {
+  Push-Location
   pacman -S --needed git base-devel
-  Set-Location
   git clone https://aur.archlinux.org/yay.git
-  Set-Location yay
+  Push-Location yay
   makepkg -si
+  Pop-Location
+
+  git clone https://github.com/moson-mo/pacseek.git
+  Push-Location pacseek
+  go install .
+  Pop-Location
+  Pop-Location
 }
