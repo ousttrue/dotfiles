@@ -470,8 +470,11 @@ addPath(Join-Path $HOME "\.cargo\bin")
 addPath(Join-Path $HOME "\go\bin")
 addPath(Join-Path $HOME "\.local\bin")
 insertPath(Join-Path $HOME "\local\bin")
-if(!$IsWindows)
-{
+if($IsWindows){
+  addPath("C:\Program Files\qemu")
+  addPath('C:\Program Files\Erlang OTP\bin')
+}
+else{
   addPath("/usr/local/go/bin")
 }
 if($IsMacOS)
@@ -479,8 +482,6 @@ if($IsMacOS)
   addPath("/opt/homebrew/bin")
 }
 addPath(join-Path $HOME '/Downloads/Visual Studio Code.app/Contents/Resources/app/bin')
-addPath("C:\Program Files\qemu")
-addPath('C:\Program Files\Erlang OTP\bin')
 
 if(has py)
 {
