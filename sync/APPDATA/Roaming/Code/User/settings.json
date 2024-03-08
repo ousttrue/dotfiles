@@ -37,4 +37,7 @@
     "cmake.showOptionsMovedNotification": false,
     "cmake.configureOnOpen": false,
     "workbench.colorTheme": "Default Dark Modern",
+    "[html]": {
+        "editor.defaultFormatter": "NikolaosGeorgiou.html-fmt-vscode"
+    },
 }
