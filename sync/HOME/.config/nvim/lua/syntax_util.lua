@@ -90,6 +90,7 @@ function M.clear_syntax_link(ev)
   hl_clear "@variable.parameter.vimdoc"
   vim.api.nvim_set_hl(0, "@markup.link.vimdoc", { link = "Identifier" })
 
+  vim.api.nvim_set_hl(0, "@variable.builtin.cpp", { link = "String" })
   vim.api.nvim_set_hl(0, "@lsp.type.macro.cpp", { fg = "#FFaa00" })
   vim.api.nvim_set_hl(0, "@conditional.cpp", { link = "Statement" })
   vim.api.nvim_set_hl(0, "@repeat.cpp", { link = "Statement" })

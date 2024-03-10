@@ -30,7 +30,7 @@
     // cpp
     //
     "[cpp]": {
-        "editor.defaultFormatter": "xaver.clang-format"
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
     },
     "C_Cpp.intelliSenseEngine": "disabled",
     "clangd.path": "c:\\Users\\ousttrue\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\17.0.3\\clangd_17.0.3\\bin\\clangd.exe",
