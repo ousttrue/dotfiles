@@ -222,12 +222,26 @@
 <h1>env<a class="headerlink" href="#env" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">$env</span>:MSSdk<span class="o">=</span><span class="s2">"1"</span>
 <span class="nv">$env</span>:DISTUTILS_USE_SDK<span class="o">=</span><span class="s2">"1"</span>
+
+$ pip install packaging setuptools
 </pre></div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="glib">
 <h1>glib<a class="headerlink" href="#glib" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>meson setup builddir --prefix <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/local"</span> -Dintrospection<span class="o">=</span>disabled
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ meson setup builddir --prefix <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/local"</span> -Dbuildtype<span class="o">=</span>release -Dintrospection<span class="o">=</span>disabled
+
+ Subprojects
+    gvdb               : YES
+    libffi             : YES <span class="m">1</span> warnings
+    pcre2              : YES <span class="m">1</span> warnings
+    proxy-libintl      : YES <span class="m">2</span> warnings
+    zlib               : YES
+
+  User defined options
+    buildtype          : release
+    prefix             : <span class="nv">$HOME</span>/local
+    introspection      : disabled
 </pre></div>
 </div>
 </section>
@@ -239,6 +253,62 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="glib-introspection">
 <h1>glib-introspection<a class="headerlink" href="#glib-introspection" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ meson setup builddir --prefix <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/local"</span> -Dbuildtype<span class="o">=</span>release
+
+gobject-introspection <span class="m">1</span>.80.1
+
+  User defined options
+    buildtype: release
+    prefix   : <span class="nv">$HOME</span>/local
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">$HOME</span><span class="se">\l</span>ocal<span class="se">\i</span>nclude<span class="se">\g</span>lib-2.0<span class="se">\g</span>lib<span class="se">\g</span>string.h:193: syntax error
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">fix</span> <span class="pre">libpcre2-8</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">$env</span>:LIB +<span class="o">=</span> <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">\local\lib"</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>glib<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">-Dintrospection=enabled</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vulkan-sdk">
+<h1>vulkan sdk<a class="headerlink" href="#vulkan-sdk" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>fix meson</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gtk">
+<h1>gtk<a class="headerlink" href="#gtk" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ meson setup builddir --prefix <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/local"</span> -Dbuildtype<span class="o">=</span>release -Dmedia-gstreamer<span class="o">=</span>disabled
+
+  Subprojects
+    cairo           : YES <span class="m">3</span> warnings
+    expat           : YES <span class="o">(</span>from <span class="nv">cairo</span> <span class="o">=</span>&gt; fontconfig<span class="o">)</span>
+    fontconfig      : YES <span class="m">5</span> warnings <span class="o">(</span>from cairo<span class="o">)</span>
+    freetype2       : YES <span class="m">6</span> warnings <span class="o">(</span>from <span class="nv">cairo</span> <span class="o">=</span>&gt; fontconfig<span class="o">)</span>
+    fribidi         : YES <span class="o">(</span>from pango<span class="o">)</span>
+    gdk-pixbuf      : YES <span class="m">2</span> warnings
+    gi-docgen       : NO python3 is missing modules: jinja2, markdown, markupsafe, pygments, typogrify
+    gperf           : YES <span class="o">(</span>from <span class="nv">cairo</span> <span class="o">=</span>&gt; fontconfig<span class="o">)</span>
+    graphene        : YES <span class="m">1</span> warnings
+    harfbuzz        : YES <span class="m">20</span> warnings <span class="o">(</span>from pango<span class="o">)</span>
+    libepoxy        : YES
+    libjpeg-turbo   : YES <span class="o">(</span>from gdk-pixbuf<span class="o">)</span>
+    libpng          : YES <span class="o">(</span>from cairo<span class="o">)</span>
+    libsass         : YES <span class="o">(</span>from sassc<span class="o">)</span>
+    libtiff         : YES
+    pango           : YES
+    pixman          : YES <span class="o">(</span>from cairo<span class="o">)</span>
+    proxy-libintl   : NO Neither a subproject directory nor a proxy-libintl.wrap file was found.
+    sassc           : YES
+
+  User defined options
+    buildtype       : release
+    prefix          : <span class="nv">$HOME</span>/local
+    media-gstreamer : disabled
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -278,6 +348,9 @@
 <li><a class="reference internal" href="#glib">glib</a></li>
 <li><a class="reference internal" href="#pkg-config">pkg-config</a></li>
 <li><a class="reference internal" href="#glib-introspection">glib-introspection</a></li>
+<li><a class="reference internal" href="#id1">glib</a></li>
+<li><a class="reference internal" href="#vulkan-sdk">vulkan sdk</a></li>
+<li><a class="reference internal" href="#gtk">gtk</a></li>
 </ul>
 
           </div>
