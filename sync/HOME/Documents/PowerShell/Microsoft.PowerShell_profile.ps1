@@ -1174,16 +1174,32 @@ function Install-Glib
 {
   $prefix = "$HOME/local"
 
-  ghq get https://gitlab.gnome.org/GNOME/pygobject.git
-  Push-Location (Join-Path (ghq root) "gitlab.gnome.org\GNOME\pygobject")
+  ghq get https://github.com/GNOME/glib
+  Push-Location (Join-Path (ghq root) "github.com\GNOME\pygobject")
   Get-Location
   if(Test-Path builddir){
     Remove-Item -Recurse -Force builddir
   }
-  meson setup builddir --prefix $prefix -Dbuildtype=release -Dpycairo=disabled -Dtests=false
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dpycairo=disabled
   # 838
   meson install -C builddir
   Pop-Location
+}
+
+function Install-PkgConfig
+{
+  $prefix = "$HOME/local"
+
+  ghq get https://gitlab.freedesktop.org/pkg-config/pkg-config.git
+  # Push-Location (Join-Path (ghq root) "github.com\GNOME\pygobject")
+  # Get-Location
+  # if(Test-Path builddir){
+  #   Remove-Item -Recurse -Force builddir
+  # }
+  # meson setup builddir --prefix $prefix -Dbuildtype=release -Dpycairo=disabled
+  # # 838
+  # meson install -C builddir
+  # Pop-Location
 }
 
 function Install-Gtk
