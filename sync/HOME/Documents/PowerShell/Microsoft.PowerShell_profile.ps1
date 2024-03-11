@@ -127,6 +127,8 @@ if ($IsWindows)
 {
   chcp 65001
   $env:HOME = $env:USERPROFILE
+
+  $env:PKG_CONFIG_PATH = Join-Path $env:HOME "local\lib\pkgconfig"
   $EXE = ".exe"
   $defs = @(
     [mymodule.Dependency]::new(
@@ -134,6 +136,9 @@ if ($IsWindows)
       "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip",
       "nvim-win64/bin/nvim.exe")
   )
+
+
+
 } else
 {
   $EXE = ""
@@ -430,6 +435,16 @@ function vcenv()
         "LIBPATH=> $($kv[1])"
         $env:LIBPATH = $kv[1]
       }
+      "VCINSTALLDIR"
+      {
+        "VCINSTALLDIR=> $($kv[1])"
+        $env:VCINSTALLDIR = $kv[1]
+      }
+      "VSINSTALLDIR"
+      {
+        "VSINSTALLDIR=> $($kv[1])"
+        $env:VSINSTALLDIR = $kv[1]
+      }
     }
   }
   # Write-Output $v.stdout
@@ -470,11 +485,12 @@ addPath(Join-Path $HOME "\.cargo\bin")
 addPath(Join-Path $HOME "\go\bin")
 addPath(Join-Path $HOME "\.local\bin")
 insertPath(Join-Path $HOME "\local\bin")
-if($IsWindows){
+if($IsWindows)
+{
   addPath("C:\Program Files\qemu")
   addPath('C:\Program Files\Erlang OTP\bin')
-}
-else{
+} else
+{
   addPath("/usr/local/go/bin")
 }
 if($IsMacOS)
@@ -1151,5 +1167,36 @@ function Install-Yay
   Push-Location pacseek
   go install .
   Pop-Location
+  Pop-Location
+}
+
+function Install-Glib
+{
+  $prefix = "$HOME/local"
+
+  ghq get https://gitlab.gnome.org/GNOME/pygobject.git
+  Push-Location (Join-Path (ghq root) "gitlab.gnome.org\GNOME\pygobject")
+  Get-Location
+  if(Test-Path builddir){
+    Remove-Item -Recurse -Force builddir
+  }
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dpycairo=disabled -Dtests=false
+  # 838
+  meson install -C builddir
+  Pop-Location
+}
+
+function Install-Gtk
+{
+  $prefix = "$HOME/local"
+
+  ghq get https://github.com/GNOME/gtk.git
+  Push-Location (Join-Path (ghq root) "github.com\GNOME\gtk")
+  Get-Location
+  if(Test-Path builddir){
+    Remove-Item -Recurse -Force builddir
+  }
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false
+  meson install -C builddir
   Pop-Location
 }
