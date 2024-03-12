@@ -746,6 +746,15 @@ function Remove-DeadLink
   | Remove-Item
 }
 
+function Sync-DotFileLink
+{
+  # make symbolic link
+  Get-Dotfile | ForEach-Object { LinkDotFile $_ }
+
+  # remove dead link
+  Remove-DeadLink
+}
+
 function Pull-DotFile
 {
   [CmdletBinding()]
@@ -755,14 +764,9 @@ function Pull-DotFile
   {
     Push-Location (Get-Path "dot")
     git pull
-
-    # make symbolic link
-    Get-Dotfile | ForEach-Object { LinkDotFile $_ }
-
-    # remove dead link
-    Remove-DeadLink
-
     Pop-Location
+
+    Sync-DotFileLink
   }
 }
 
@@ -1177,7 +1181,8 @@ function Install-Glib
   ghq get https://github.com/GNOME/glib
   Push-Location (Join-Path (ghq root) "github.com\GNOME\pygobject")
   Get-Location
-  if(Test-Path builddir){
+  if(Test-Path builddir)
+  {
     Remove-Item -Recurse -Force builddir
   }
   meson setup builddir --prefix $prefix -Dbuildtype=release -Dpycairo=disabled
@@ -1209,7 +1214,8 @@ function Install-Gtk
   ghq get https://github.com/GNOME/gtk.git
   Push-Location (Join-Path (ghq root) "github.com\GNOME\gtk")
   Get-Location
-  if(Test-Path builddir){
+  if(Test-Path builddir)
+  {
     Remove-Item -Recurse -Force builddir
   }
   meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false

@@ -27,7 +27,7 @@ $ meson setup builddir --prefix "$HOME/local" -Dbuildtype=release -Dintrospectio
 
 # pkg-config
 
-```Makefile.vc
+```make
 GLIB_PREFIX = $(USERPROFILE)\local
 ```
 
@@ -56,6 +56,13 @@ $env:LIB += "$HOME\local\lib"
 # glib
 
 `-Dintrospection=enabled`
+
+`GI_EXTRA_BASE_DLL_DIRS` は, `os.add_dll_directory`を追加する。
+add_dll_directory は、 dll の依存dll のPATHを指す。
+
+```
+$env:GI_EXTRA_BASE_DLL_DIRS= "C:/Users/ousttrue/local/lib/gobject-introspection/giscanner;$HOME/local/bin"
+```
 
 # vulkan sdk
 
@@ -93,6 +100,11 @@ $ meson setup builddir --prefix "$HOME/local" -Dbuildtype=release -Dmedia-gstrea
     media-gstreamer : disabled
 ```
 
+# pythonjk
 
+`mesonbuild/scripts/meson_exe.py`
 
+```
+ImportError: DLL load failed while importing _giscanner: 指定されたモジュールが見つかりません。
+```
 

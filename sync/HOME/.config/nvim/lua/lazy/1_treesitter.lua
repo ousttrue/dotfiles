@@ -41,27 +41,6 @@ return {
   --     -- vim.g.matchup_matchparen_offscreen = { method = "popup" }
   --   end,
   -- },
-  {
-    "lukas-reineke/headlines.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = function()
-      -- (atx_heading [
-      --   (atx_h2_marker)
-      -- ] @headline)
-      require("headlines").setup {
-        markdown = {
-          query = vim.treesitter.query.parse(
-            "markdown",
-            [[
-(code_fence_content) @codeblock
-            ]]
-          ),
-          -- headline_highlights = false,
-          fat_headlines = false,
-        },
-      }
-    end, -- or `opts = {}`
-  },
   -- {
   --   "Jxstxs/conceal.nvim",
   --   dependencies = "nvim-treesitter/nvim-treesitter",
@@ -121,4 +100,42 @@ return {
       vim.keymap.set("n", "<c-h>", require("tree-climber").highlight_node, keyopts)
     end,
   },
+  {
+    -- https://blog.atusy.net/2023/04/19/tsnode-marker-nvim/
+    "atusy/tsnode-marker.nvim",
+    lazy = true,
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("tsnode-marker-markdown", {}),
+        pattern = "markdown",
+        callback = function(ctx)
+          require("tsnode-marker").set_automark(ctx.buf, {
+            target = { "code_fence_content" }, -- list of target node types
+            hl_group = "CursorLine", -- highlight group
+          })
+        end,
+      })
+    end,
+  },
+  --   {
+  --     "lukas-reineke/headlines.nvim",
+  --     dependencies = "nvim-treesitter/nvim-treesitter",
+  --     config = function()
+  --       -- (atx_heading [
+  --       --   (atx_h2_marker)
+  --       -- ] @headline)
+  --       require("headlines").setup {
+  --         markdown = {
+  --           query = vim.treesitter.query.parse(
+  --             "markdown",
+  --             [[
+  -- (code_fence_content) @codeblock
+  --             ]]
+  --           ),
+  --           -- headline_highlights = false,
+  --           fat_headlines = false,
+  --         },
+  --       }
+  --     end, -- or `opts = {}`
+  --   },
 }

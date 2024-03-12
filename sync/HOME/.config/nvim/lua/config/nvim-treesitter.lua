@@ -162,6 +162,55 @@ function M.setup()
       },
     },
   }
+
+  local ts_utils = require "nvim-treesitter.ts_utils"
+  local function markdown_get_url_node(node)
+    local node_type = node:type()
+    if node_type == "uri" then
+      return node
+    elseif node_type == "scheme" then
+      return node:parent()
+    elseif node_type == "link_text" then
+      -- treesitter
+      --
+      -- * [link_text](link_destination)
+      -- inline_link [10, 2] - [10, 188]
+      --   link_text [10, 3] - [10, 116]
+      --   link_destination [10, 118] - [10, 187]
+      --
+      return ts_utils.get_next_node(node)
+    end
+
+    print(node_type)
+  end
+
+  vim.keymap.set("n", "gx", function()
+    -- https://nanasi.jp/articles/code/screen/cursor-text.html
+    local cfile = vim.fn.expand "<cfile>"
+    if type(cfile) == "string" then
+      if vim.bo.filetype == "markdown" then
+        local node = ts_utils.get_node_at_cursor()
+        if node then
+          local url_node = markdown_get_url_node(node)
+          if url_node then
+            local url = vim.treesitter.get_node_text(url_node, 0)
+            vim.ui.open(url)
+          end
+        end
+      else
+        if cfile:match "^https?://" then
+          vim.ui.open(cfile)
+        -- if DOT.get_system() == "windows" then
+        --   vim.fn.system { "cmd.exe", "/c", "start", cfile }
+        -- else
+        --   vim.fn.system { "xdg-open", cfile }
+        -- end
+        else
+          vim.cmd "normal! gF"
+        end
+      end
+    end
+  end)
 end
 
 return M

@@ -12,22 +12,6 @@ local function init_nvim()
     vim.g.sqlite_clib_path = "D:/msys64/mingw64/bin/libsqlite3-0.dll"
   end
 
-  vim.keymap.set("n", "gf", function()
-    local cfile = vim.fn.expand "<cfile>"
-    if cfile and type(cfile) == "string" then
-      if cfile:match "^https?://" then
-        -- Neovim nightlyなら `vim.ui.open(cfile)` が便利。
-        if DOT.get_system() == "windows" then
-          vim.fn.system { "cmd.exe", "/c", "start", cfile }
-        else
-          vim.fn.system { "xdg-open", cfile }
-        end
-      else
-        vim.cmd "normal! gF"
-      end
-    end
-  end)
-
   -- disable netrw's gx mapping.
   g.netrw_nogx = true
 
