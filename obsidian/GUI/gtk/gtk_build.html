@@ -247,7 +247,7 @@ $ pip install packaging setuptools
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="pkg-config">
 <h1>pkg-config<a class="headerlink" href="#pkg-config" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-Makefile.vc notranslate"><div class="highlight"><pre><span></span>GLIB_PREFIX = $(USERPROFILE)\local
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">GLIB_PREFIX</span> <span class="o">=</span> <span class="k">$(</span>USERPROFILE<span class="k">)</span><span class="se">\l</span>ocal
 </pre></div>
 </div>
 </section>
@@ -273,6 +273,11 @@ gobject-introspection <span class="m">1</span>.80.1
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>glib<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">-Dintrospection=enabled</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">GI_EXTRA_BASE_DLL_DIRS</span></code> は, <code class="docutils literal notranslate"><span class="pre">os.add_dll_directory</span></code>を追加する。
+add_dll_directory は、 dll の依存dll のPATHを指す。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$env:GI_EXTRA_BASE_DLL_DIRS= "C:/Users/ousttrue/local/lib/gobject-introspection/giscanner;$HOME/local/bin"
+</pre></div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="vulkan-sdk">
 <h1>vulkan sdk<a class="headerlink" href="#vulkan-sdk" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -307,6 +312,13 @@ gobject-introspection <span class="m">1</span>.80.1
     buildtype       : release
     prefix          : <span class="nv">$HOME</span>/local
     media-gstreamer : disabled
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pythonjk">
+<h1>pythonjk<a class="headerlink" href="#pythonjk" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">mesonbuild/scripts/meson_exe.py</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ImportError: DLL load failed while importing _giscanner: 指定されたモジュールが見つかりません。
 </pre></div>
 </div>
 </section>
@@ -351,6 +363,7 @@ gobject-introspection <span class="m">1</span>.80.1
 <li><a class="reference internal" href="#id1">glib</a></li>
 <li><a class="reference internal" href="#vulkan-sdk">vulkan sdk</a></li>
 <li><a class="reference internal" href="#gtk">gtk</a></li>
+<li><a class="reference internal" href="#pythonjk">pythonjk</a></li>
 </ul>
 
           </div>

@@ -3,12 +3,14 @@
 
 https://neovim.io/doc/user/treesitter.html
 
+- https://phelipetls.github.io/posts/template-string-converter-with-neovim-treesitter/
+
 - @2023 [rbs の tree-sitter パーサを書いて、neovim のシンタックスハイライトに利用する - joker1007’s diary](https://joker1007.hatenablog.com/entry/2023/11/17/162702)
-- @2023 [プラグインを URL で指定しやすくするために、tree-sitter で URI パーサーを作って Neovim を彩ってみた | Atusy's blog](https://blog.atusy.net/2023/11/17/tree-sitter-uri/)
+- @2022 [The power of tree-sitter](https://jhcha.app/blog/the-power-of-treesitter/)
 - @2022 [Code Folding in Neovim with Tree-sitter :: John Maguire](https://www.jmaguire.tech/posts/treesitter_folding/)
 - @2023 [Markdown のコードブロックとかテキストの文脈に合わせて背景色を変える tsnode-marker.nvim を作った | Atusy's blog](https://blog.atusy.net/2023/04/19/tsnode-marker-nvim/)
 
-- @2023 [Tree-sitterでシンタックスハイライトしたコードをHTMLで出力するワンライナー - Lambdaカクテル](https://blog.3qe.us/entry/2023/05/15/200750)
+- @2023 [Tree-sitter でシンタックスハイライトしたコードを HTML で出力するワンライナー - Lambda カクテル](https://blog.3qe.us/entry/2023/05/15/200750)
 
 # nvim version
 
@@ -22,6 +24,13 @@ inspect
 - @2021 [Vim のすゝめ改 - Tree-sitter について | 株式会社創夢 — SOUM/misc](https://www.soum.co.jp/misc/vim-advanced/6/)
 - @2021 [Neovim v0.5 リリース記念 v0.5 の新機能を紹介します【後編】 | MoT Lab (GO Inc. Engineering Blog)](https://lab.mo-t.com/blog/neovim-v05-introduction-new-features-part-2)
 - @2020 [nvim-treesitter を勧めたい](https://zenn.dev/duglaser/articles/c02d6a937a48df)
+
+# ts_utils
+
+- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt
+
+## TSNode
+
 
 # 命名規則
 
@@ -110,3 +119,15 @@ note":
 `nvim-ufo`
 
 # formatter
+
+# queries
+
+## highlights
+
+## injection
+
+`nvim/after/queries/lua/injections.scm`
+
+- @2023 [プラグインを URL で指定しやすくするために、tree-sitter で URI パーサーを作って Neovim を彩ってみた | Atusy's blog](https://blog.atusy.net/2023/11/17/tree-sitter-uri/)
+- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/queries/markdown/injections.scm
+- https://github.com/tree-sitter/tree-sitter-html/blob/master/queries/injections.scm
