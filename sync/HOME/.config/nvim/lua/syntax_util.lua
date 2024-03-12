@@ -41,71 +41,76 @@ function M.clear_syntax_link(ev)
 
   -- Literal
   -- hl_clear "String"
-  vim.api.nvim_set_hl(0, "@boolean", { link = "String" })
-  vim.api.nvim_set_hl(0, "@number", { link = "String" })
+  -- vim.api.nvim_set_hl(0, "@boolean", { link = "String" })
+  -- vim.api.nvim_set_hl(0, "@number", { link = "String" })
 
   -- Identifier
   -- hl_clear "Identifier"
   vim.api.nvim_set_hl(0, "Constant", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "Function", { link = "Identifier" })
-  vim.api.nvim_set_hl(0, "@function", { link = "Identifier" })
-  vim.api.nvim_set_hl(0, "@function.builtin", { link = "Identifier" })
+  -- vim.api.nvim_set_hl(0, "@function", { link = "Identifier" })
+  -- vim.api.nvim_set_hl(0, "@function.builtin", { link = "Identifier" })
 
-  vim.api.nvim_set_hl(0, "@punctuation.special", { link = "Statement" })
-  vim.api.nvim_set_hl(0, "@punctuation.bracket.lua", { link = "Statement" })
-  vim.api.nvim_set_hl(0, "@field.lua", { link = "Debug" })
-  vim.api.nvim_set_hl(0, "@variable.member.lua", { link = "Debug" })
-  vim.api.nvim_set_hl(0, "@Constant.lua", { link = "Constant" })
-  hl_clear "@function.call.lua"
+  -- vim.api.nvim_set_hl(0, "@punctuation.special", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@punctuation.bracket.lua", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@field.lua", { link = "Debug" })
+  -- vim.api.nvim_set_hl(0, "@variable.member.lua", { link = "Debug" })
+  -- vim.api.nvim_set_hl(0, "@Constant.lua", { link = "Constant" })
+  -- hl_clear "@function.call.lua"
 
   -- vim.api.nvim_set_hl(0, "@variable.c", { link = "Title" })
-  vim.api.nvim_set_hl(0, "@property.c", { link = "Debug" })
-  vim.api.nvim_set_hl(0, "@type.c", { link = "Identifier" })
-  vim.api.nvim_set_hl(0, "@type.builtin.c", { link = "Identifier" })
-  vim.api.nvim_set_hl(0, "@constant.builtin.c", { link = "Identifier" })
-  vim.api.nvim_set_hl(0, "@type.typescript", { link = "Identifier" })
-  vim.api.nvim_set_hl(0, "@tag.astro", { link = "Identifier" })
-  vim.api.nvim_set_hl(0, "@type.astro", { link = "Identifier" })
-  vim.api.nvim_set_hl(0, "@tag.attribute.astro", { link = "Debug" })
+  -- vim.api.nvim_set_hl(0, "@property.c", { link = "Debug" })
+  -- vim.api.nvim_set_hl(0, "@type.c", { link = "Identifier" })
+  -- vim.api.nvim_set_hl(0, "@type.builtin.c", { link = "Identifier" })
+  -- vim.api.nvim_set_hl(0, "@constant.builtin.c", { link = "Identifier" })
+  -- vim.api.nvim_set_hl(0, "@type.typescript", { link = "Identifier" })
+  -- vim.api.nvim_set_hl(0, "@tag.astro", { link = "Identifier" })
+  -- vim.api.nvim_set_hl(0, "@type.astro", { link = "Identifier" })
+  -- vim.api.nvim_set_hl(0, "@tag.attribute.astro", { link = "Debug" })
 
-  hl_clear "@string.escape.python"
+  -- hl_clear "@string.escape.python"
 
-  hl_clear "@text.uri"
-  hl_clear "@lsp.type.enumMember.markdown"
+  -- hl_clear "@text.uri"
+  -- hl_clear "@lsp.type.enumMember.markdown"
 
-  hl_clear "@markup"
-  vim.api.nvim_set_hl(0, "@markup.heading.1.marker.markdown", { link = "Statement" })
-  vim.api.nvim_set_hl(0, "@markup.heading.2.marker.markdown", { link = "Statement" })
-  vim.api.nvim_set_hl(0, "@markup.heading.3.marker.markdown", { link = "Statement" })
-  vim.api.nvim_set_hl(0, "@markup.quote.markdown", { link = "Comment" })
-  vim.api.nvim_set_hl(0, "@markup.list.markdown", { link = "Statement" })
-  vim.api.nvim_set_hl(0, "@markup.raw.delimiter.markdown", { link = "Comment" })
-  vim.api.nvim_set_hl(0, "@markup.link.link.markdown_inline", { link = "Statement" })
-  vim.api.nvim_set_hl(0, "@markup.link.label.markdown_inline", { link = "Identifier" })
-  vim.api.nvim_set_hl(0, "@markup.link.url.markdown_inline", { link = "Conceal" })
-  vim.api.nvim_set_hl(0, "@markup.strong.markdown_inline", { fg = "#FFaa00" })
-  vim.api.nvim_set_hl(0, "@text.strong.markdown", { link = "String" })
-  vim.api.nvim_set_hl(0, "@text.strong.markdown_inline", { link = "Statement" })
+  -- hl_clear "@markup"
+  -- vim.api.nvim_set_hl(0, "@markup.heading.1.marker.markdown", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@markup.heading.2.marker.markdown", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@markup.heading.3.marker.markdown", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@markup.quote.markdown", { link = "Comment" })
+  -- vim.api.nvim_set_hl(0, "@markup.list.markdown", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@markup.raw.delimiter.markdown", { link = "Comment" })
+  -- vim.api.nvim_set_hl(0, "@markup.link.link.markdown_inline", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@markup.link.label.markdown_inline", { link = "Identifier" })
+  -- vim.api.nvim_set_hl(0, "@markup.link.url.markdown_inline", { link = "Conceal" })
+  -- vim.api.nvim_set_hl(0, "@markup.strong.markdown_inline", { fg = "#FFaa00" })
+  -- vim.api.nvim_set_hl(0, "@text.strong.markdown", { link = "String" })
+  -- vim.api.nvim_set_hl(0, "@text.strong.markdown_inline", { link = "Statement" })
 
-  hl_clear "@variable.parameter.vimdoc"
-  vim.api.nvim_set_hl(0, "@markup.link.vimdoc", { link = "Identifier" })
+  -- hl_clear "@variable.parameter.vimdoc"
+  -- vim.api.nvim_set_hl(0, "@markup.link.vimdoc", { link = "Identifier" })
 
-  vim.api.nvim_set_hl(0, "@variable.builtin.cpp", { link = "String" })
-  vim.api.nvim_set_hl(0, "@lsp.type.macro.cpp", { fg = "#FFaa00" })
-  vim.api.nvim_set_hl(0, "@conditional.cpp", { link = "Statement" })
-  vim.api.nvim_set_hl(0, "@repeat.cpp", { link = "Statement" })
-  vim.api.nvim_set_hl(0, "@module.cpp", { link = "Identifier" })
-  vim.api.nvim_set_hl(0, "@storageclass.cpp", { link = "Statement" })
-  vim.api.nvim_set_hl(0, "@include.cpp", { fg = "#FFaa00" })
-  vim.api.nvim_set_hl(0, "@preproc.cpp", { fg = "#FFaa00" })
-  vim.api.nvim_set_hl(0, "@keyword.import.cpp", { fg = "#FFaa00" })
-  vim.api.nvim_set_hl(0, "@keyword.directive.cpp", { fg = "#FFaa00" })
-  vim.api.nvim_set_hl(0, "@keyword.directive.define.cpp", { fg = "#FFaa00" })
-  vim.api.nvim_set_hl(0, "@keyword.import.c", { fg = "#FFaa00" })
-  vim.api.nvim_set_hl(0, "@keyword.directive.c", { fg = "#FFaa00" })
-  vim.api.nvim_set_hl(0, "@keyword.directive.define.c", { fg = "#FFaa00" })
+  -- vim.api.nvim_set_hl(0, "@module.cpp", {})
+  -- vim.api.nvim_set_hl(0, "@punctuation.delimiter.cpp", {})
+  -- vim.api.nvim_set_hl(0, "@punctuation.bracket.cpp", {})
+  -- vim.api.nvim_set_hl(0, "@string.escape.cpp", { link = "String" })
+  -- vim.api.nvim_set_hl(0, "@constant.builtin.cpp", { link = "String" })
+  -- vim.api.nvim_set_hl(0, "@variable.builtin.cpp", { link = "String" })
+  -- vim.api.nvim_set_hl(0, "@constructor.cpp", { link = "String" })
+  -- vim.api.nvim_set_hl(0, "@lsp.type.macro.cpp", { fg = "#FFaa00" })
+  -- vim.api.nvim_set_hl(0, "@conditional.cpp", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@repeat.cpp", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@storageclass.cpp", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@include.cpp", { fg = "#FFaa00" })
+  -- vim.api.nvim_set_hl(0, "@preproc.cpp", { fg = "#FFaa00" })
+  -- vim.api.nvim_set_hl(0, "@keyword.import.cpp", { fg = "#FFaa00" })
+  -- vim.api.nvim_set_hl(0, "@keyword.directive.cpp", { fg = "#FFaa00" })
+  -- vim.api.nvim_set_hl(0, "@keyword.directive.define.cpp", { fg = "#FFaa00" })
+  -- vim.api.nvim_set_hl(0, "@keyword.import.c", { fg = "#FFaa00" })
+  -- vim.api.nvim_set_hl(0, "@keyword.directive.c", { fg = "#FFaa00" })
+  -- vim.api.nvim_set_hl(0, "@keyword.directive.define.c", { fg = "#FFaa00" })
 
-  vim.api.nvim_set_hl(0, "@statement", { link = "Statement" })
+  -- vim.api.nvim_set_hl(0, "@statement", { link = "Statement" })
 
   --
   -- cmp
