@@ -322,6 +322,13 @@ add_dll_directory は、 dll の依存dll のPATHを指す。</p>
 </pre></div>
 </div>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="g-autoptr-msvc">
+<h1>g_autoptr はmsvcでは無理<a class="headerlink" href="#g-autoptr-msvc" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define _GLIB_CLEANUP(func)               __attribute__((cleanup(func)))</span>
+</pre></div>
+</div>
+<p>https://developercommunity.visualstudio.com/t/Add-support-for-GCC-like-cleanup-attribu/1187001</p>
+</section>
 
         </article>
       </div>
@@ -364,6 +371,7 @@ add_dll_directory は、 dll の依存dll のPATHを指す。</p>
 <li><a class="reference internal" href="#vulkan-sdk">vulkan sdk</a></li>
 <li><a class="reference internal" href="#gtk">gtk</a></li>
 <li><a class="reference internal" href="#pythonjk">pythonjk</a></li>
+<li><a class="reference internal" href="#g-autoptr-msvc">g_autoptr はmsvcでは無理</a></li>
 </ul>
 
           </div>

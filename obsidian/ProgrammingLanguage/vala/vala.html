@@ -222,6 +222,7 @@
 <li><p><a class="reference external" href="https://vala.dev/">Vala Programming Language</a></p></li>
 <li><p>https://vala.gitbook.io/vala/v/english/</p></li>
 </ul>
+<p><a class="reference external" href="https://naaando.gitbooks.io/the-vala-tutorial/content/en/">Introduction · The vala Tutorial</a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="version">
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id1">
@@ -260,9 +261,17 @@
 <section id="formatter">
 <h2>formatter<a class="headerlink" href="#formatter" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>clang-format は、 lambda の <code class="docutils literal notranslate"><span class="pre">=&gt;</span></code> を分解してしまうのでダメ。</p>
+<section id="vala-lint">
+<h3>vala-lint<a class="headerlink" href="#vala-lint" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://discourse.gnome.org/t/code-formatter-for-vala/14979">Code formatter for Vala - Platform - GNOME Discourse</a></p></li>
+<li><p><a class="reference external" href="https://inthisfucking.world/ale-for-vala-lint/">Vala-LintをVimで扱う | inthisfucking.world</a></p></li>
+</ul>
+</section>
 </section>
 <section id="meson">
 <h2>meson<a class="headerlink" href="#meson" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://mesonbuild.com/Vala.html</p>
 <ul class="simple">
 <li><p>@2020 <a class="reference external" href="https://bitwalk.blogspot.com/2020/06/vala-meson.html">Site Unreachable</a></p></li>
 <li><p>@2020 <a class="reference external" href="https://bitwalk.blogspot.com/2020/08/vala-meson.html">Vala Meson</a></p></li>
@@ -325,6 +334,13 @@ Vala <span class="m">0</span>.58.0-frida
 <li><p>GObject は, gir から vapi を自動生成できる(たぶん)</p></li>
 <li><p>他の C library は、手書き(たぶん)</p></li>
 </ul>
+<section id="opengl">
+<h2>OpenGL<a class="headerlink" href="#opengl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>https://wiki.gnome.org/Projects/Vala/OpenGLSamples</p></li>
+<li><p>https://onagat.hatenablog.com/entry/2015/02/27/190948</p></li>
+</ul>
+</section>
 <section id="system">
 <h2>system<a class="headerlink" href="#system" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">/usr/share/vala-0.56/vapi</span></code></p>
@@ -344,8 +360,8 @@ Vala <span class="m">0</span>.58.0-frida
 <p><a class="reference external" href="https://discourse.gnome.org/t/opengl-vapi-missing/5079">OpenGL VAPI Missing - Platform / Language bindings - GNOME Discourse</a></p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="opengl">
-<h1>OpenGL<a class="headerlink" href="#opengl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>OpenGL<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="https://wiki.gnome.org/Projects/Vala/OpenGLSamples">Projects/Vala/OpenGLSamples - GNOME Wiki!</a>
 https://onagat.hatenablog.com/entry/2016/05/04/010306</p>
 </section>
@@ -367,7 +383,7 @@ https://onagat.hatenablog.com/entry/2016/05/04/010306</p>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/GUI/gtk/vala.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/vala/vala.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -395,7 +411,10 @@ https://onagat.hatenablog.com/entry/2016/05/04/010306</p>
 <li><a class="reference internal" href="#dev">dev</a><ul>
 <li><a class="reference internal" href="#vim">vim</a></li>
 <li><a class="reference internal" href="#lsp">lsp</a></li>
-<li><a class="reference internal" href="#formatter">formatter</a></li>
+<li><a class="reference internal" href="#formatter">formatter</a><ul>
+<li><a class="reference internal" href="#vala-lint">vala-lint</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#meson">meson</a></li>
 </ul>
 </li>
@@ -405,12 +424,13 @@ https://onagat.hatenablog.com/entry/2016/05/04/010306</p>
 </li>
 <li><a class="reference internal" href="#windows-build">Windows build</a></li>
 <li><a class="reference internal" href="#vapi">vapi</a><ul>
+<li><a class="reference internal" href="#opengl">OpenGL</a></li>
 <li><a class="reference internal" href="#system">system</a></li>
 <li><a class="reference internal" href="#generate">Generate</a></li>
 <li><a class="reference internal" href="#extra">extra</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#opengl">OpenGL</a></li>
+<li><a class="reference internal" href="#id2">OpenGL</a></li>
 <li><a class="reference internal" href="#nvim">nvim</a></li>
 </ul>
 

@@ -1,6 +1,8 @@
 - [Vala Programming Language](https://vala.dev/)
 - https://vala.gitbook.io/vala/v/english/
 
+[Introduction · The vala Tutorial](https://naaando.gitbooks.io/the-vala-tutorial/content/en/)
+
 # Version
 
 ## 0.56
@@ -36,7 +38,15 @@
 
 clang-format は、 lambda の `=>` を分解してしまうのでダメ。
 
+
+### vala-lint
+
+- [Code formatter for Vala - Platform - GNOME Discourse](https://discourse.gnome.org/t/code-formatter-for-vala/14979)
+- [Vala-LintをVimで扱う | inthisfucking.world](https://inthisfucking.world/ale-for-vala-lint/)
+
 ## meson
+
+https://mesonbuild.com/Vala.html
 
 - @2020 [Site Unreachable](https://bitwalk.blogspot.com/2020/06/vala-meson.html)
 - @2020 [Vala Meson](https://bitwalk.blogspot.com/2020/08/vala-meson.html)
@@ -100,6 +110,11 @@ vala は vapi を通して c library を使う。
 
 - GObject は, gir から vapi を自動生成できる(たぶん)
 - 他の C library は、手書き(たぶん)
+
+## OpenGL
+
+- https://wiki.gnome.org/Projects/Vala/OpenGLSamples
+- https://onagat.hatenablog.com/entry/2015/02/27/190948
 
 ## system
 
