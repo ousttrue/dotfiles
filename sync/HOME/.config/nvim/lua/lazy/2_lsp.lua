@@ -36,21 +36,21 @@ return {
       }
     end,
   },
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   config = function()
-  --     require("config.nvim-lspconfig").setup()
-  --   end,
-  --   dependencies = {
-  --     -- "hrsh7th/cmp-nvim-lsp",
-  --     "folke/neodev.nvim",
-  --     -- "rcarriga/nvim-notify",
-  --     "b0o/schemastore.nvim",
-  --     "creativenull/efmls-configs-nvim",
-  --     "SmiteshP/nvim-navbuddy",
-  --     -- "williamboman/mason-lspconfig.nvim",
-  --   },
-  -- },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("config.nvim-lspconfig").setup()
+    end,
+    dependencies = {
+      -- "hrsh7th/cmp-nvim-lsp",
+      "folke/neodev.nvim",
+      -- "rcarriga/nvim-notify",
+      "b0o/schemastore.nvim",
+      "creativenull/efmls-configs-nvim",
+      "SmiteshP/nvim-navbuddy",
+      -- "williamboman/mason-lspconfig.nvim",
+    },
+  },
   -- {
   --   "nvimdev/lspsaga.nvim",
   --   config = function()

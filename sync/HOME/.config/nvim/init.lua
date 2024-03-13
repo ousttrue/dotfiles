@@ -1,7 +1,7 @@
 local DOT = require "dot"
 
 local function init_nvim()
-  vim.cmd [[syntax off]]
+  -- vim.cmd [[syntax off]]
   local g = vim.g
   local opt = vim.opt
   ---@class uv

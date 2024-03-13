@@ -33,11 +33,12 @@
         "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
     },
     "C_Cpp.intelliSenseEngine": "disabled",
-    "clangd.path": "c:\\Users\\ousttrue\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\17.0.3\\clangd_17.0.3\\bin\\clangd.exe",
+    "clangd.path": "c://Users//ousttrue//AppData//Roaming//Code//User//globalStorage//llvm-vs-code-extensions.vscode-clangd//install//17.0.3//clangd_17.0.3//bin//clangd.exe",
     "cmake.showOptionsMovedNotification": false,
     "cmake.configureOnOpen": false,
     "workbench.colorTheme": "Default Dark Modern",
     "[html]": {
         "editor.defaultFormatter": "NikolaosGeorgiou.html-fmt-vscode"
     },
+    "vala.languageServerPath": "D:/msys64/mingw64/bin/vala-language-server.exe",
 }

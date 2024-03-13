@@ -107,4 +107,11 @@ $ meson setup builddir --prefix "$HOME/local" -Dbuildtype=release -Dmedia-gstrea
 ```
 ImportError: DLL load failed while importing _giscanner: 指定されたモジュールが見つかりません。
 ```
+# g_autoptr はmsvcでは無理
+
+```c
+#define _GLIB_CLEANUP(func)               __attribute__((cleanup(func)))
+```
+
+https://developercommunity.visualstudio.com/t/Add-support-for-GCC-like-cleanup-attribu/1187001
 
