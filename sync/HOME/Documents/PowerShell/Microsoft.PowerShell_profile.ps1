@@ -136,9 +136,6 @@ if ($IsWindows)
       "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip",
       "nvim-win64/bin/nvim.exe")
   )
-
-
-
 } else
 {
   $EXE = ""
@@ -489,6 +486,7 @@ if($IsWindows)
 {
   addPath("C:\Program Files\qemu")
   addPath('C:\Program Files\Erlang OTP\bin')
+  addPath('C:\Python312\lib\site-packages\ziglang')
 } else
 {
   addPath("/usr/local/go/bin")
