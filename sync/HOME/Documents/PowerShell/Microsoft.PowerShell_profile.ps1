@@ -474,6 +474,11 @@ function addPath($path)
   }
 }
 
+function Get-Python
+{
+  py -c "import sys; print(sys.base_prefix)"
+}
+
 # addPath(Join-Path (Get-Path "msys") "mingw64\bin")
 addPath(Join-Path $HOME "\ghq\github.com\junegunn\fzf\bin")
 addPath(Join-Path $HOME "\.fzf\bin")
@@ -486,7 +491,18 @@ if($IsWindows)
 {
   addPath("C:\Program Files\qemu")
   addPath('C:\Program Files\Erlang OTP\bin')
-  addPath('C:\Python312\lib\site-packages\ziglang')
+  # if(Test-Path "$HOME\zig")
+  # {
+  #   addPath("$HOME\zig")
+  # } else
+  # {
+  if(!(has zig))
+  {
+    addPath(Join-Path $(Get-Python) 'lib\site-packages\ziglang')
+  }
+
+  # insertPath("$HOME\local\bin\zig\0.12.0-dev.3180+83e578a18\files")
+  # }
 } else
 {
   addPath("/usr/local/go/bin")
@@ -499,7 +515,7 @@ addPath(join-Path $HOME '/Downloads/Visual Studio Code.app/Contents/Resources/ap
 
 if(has py)
 {
-  $PY_PREFIX = $(py -c "import sys; print(sys.base_prefix)")
+  $PY_PREFIX = Get-Python
   insertPath($PY_PREFIX)
   insertPath(Join-Path $PY_PREFIX "Scripts")
 }

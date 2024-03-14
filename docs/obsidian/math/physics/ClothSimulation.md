@@ -16,10 +16,18 @@ aliases: [Cloth]
 - `webgl` @2017 [WebGL で布シミュレーションを実装してみる - Qiita](https://qiita.com/yunta_robo/items/0b468b65f3412554400a)
 - `unity` [GitHub - danielshervheim/unity-cloth-simulation: A mass-spring-damper based real-time cloth simulation I wrote for a class project.](https://github.com/danielshervheim/unity-cloth-simulation)
 
+`VelocityVerlet`
+
+## Hook の法則 (Hookean)
+
 ## FastMassSpring
 
-- `c++ NoVisual` [GitHub - LegendGraphics/FastMassSpring: A modified implementation for fast mass spring systems based on Siggraph Asia 2013 Paper "Fast Simulation of Mass-Spring Systems"](https://github.com/LegendGraphics/FastMassSpring)
+http://graphics.berkeley.edu/papers/Liu-FSM-2013-11/Liu-FSM-2013-11.pdf
+
+`time integration`
+
 - `c++` [GitHub - sam007961/FastMassSpring: Interactive cloth simulator using the method described in the SIGGRAPH paper "Fast Simulation of Mass-Spring Systems" by Liu, T., Bargteil, A. W., Obrien, J. F., & Kavan, L.](https://github.com/sam007961/FastMassSpring)
+- `c++ NoVisual` [GitHub - LegendGraphics/FastMassSpring: A modified implementation for fast mass spring systems based on Siggraph Asia 2013 Paper "Fast Simulation of Mass-Spring Systems"](https://github.com/LegendGraphics/FastMassSpring)
 
 ## SPCRJointDynamics
 
@@ -31,3 +39,5 @@ aliases: [Cloth]
 
 - [Magica Cloth – Magica Soft](https://magicasoft.jp/magica-cloth/)
 - [突き抜けの防止 – Magica Soft](https://magicasoft.jp/prevent-penetration/)
+
+# 陰オイラー

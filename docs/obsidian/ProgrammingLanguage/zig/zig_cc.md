@@ -9,3 +9,8 @@
 
 # dwarf
 - [0.11.0 Release Notes ⚡ The Zig Programming Language](https://ziglang.org/download/0.11.0/release-notes.html#Debugging)
+
+# rc
+
+- https://www.ryanliptak.com/blog/zig-is-a-windows-resource-compiler/
+
