@@ -38,7 +38,7 @@
     "cmake.configureOnOpen": false,
     "workbench.colorTheme": "Default Dark Modern",
     "[html]": {
-        "editor.defaultFormatter": "NikolaosGeorgiou.html-fmt-vscode"
+        "editor.defaultFormatter": "vscode.html-language-features"
     },
     "vala.languageServerPath": "D:/msys64/mingw64/bin/vala-language-server.exe",
 }

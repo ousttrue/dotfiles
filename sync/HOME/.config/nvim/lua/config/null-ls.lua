@@ -71,7 +71,9 @@ function M.setup()
       -- null_ls.builtins.formatting.csharpier,
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.black,
-      null_ls.builtins.formatting.uncrustify,
+      null_ls.builtins.formatting.uncrustify.with {
+        filetypes = { "vala" },
+      },
       -- null_ls.builtins.formatting.xmlformat,
       -- null_ls.builtins.formatting.cmake_format,
       --
