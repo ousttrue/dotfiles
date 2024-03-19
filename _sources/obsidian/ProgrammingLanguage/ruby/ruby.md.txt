@@ -2,35 +2,51 @@
 
 - [オブジェクト指向スクリプト言語 Ruby](https://www.ruby-lang.org/ja/)
 
-@2018 [Rubyのサンドボックスを作って、evalするBotを作った - kinoppyd dev](https://kinoppyd.dev/blog/ruby-sandbox-eval-bot/)
+@2018 [Ruby のサンドボックスを作って、eval する Bot を作った - kinoppyd dev](https://kinoppyd.dev/blog/ruby-sandbox-eval-bot/)
 
 # version
-[Ruby のリリース一覧](https://www.ruby-lang.org/ja/downloads/releases/)
+
+- [Ruby のリリース一覧](https://www.ruby-lang.org/ja/downloads/releases/)
+
+- @2023 [「アイデアだけでは意味がない、実装されて初めて意味がある」　世界最古のプログラミング言語から学ぶ教訓 - ログミーTech](https://logmi.jp/tech/articles/329930)
+- @2023 [単純すぎて流行らなかった「FORTH」、複雑すぎてうまくいかなかった「PL/I」　まつもとゆきひろ氏が過去から学んだ、プログラミング言語のあるべき姿 - ログミーTech](https://logmi.jp/tech/articles/329932)
+- @2023 [まつもとゆきひろ氏が“幻のPerl6”から学んだ教訓　「OSSの最大の敵」と「セカンドシステムの危険性」 - ログミーTech](https://logmi.jp/tech/articles/329933)
+- @2023 [「Rubyは落ちるか、伸びるかの岐路に立っている」　まつもとゆきひろ氏が語る、30年後に向けた生存戦略 - ログミーTech](https://logmi.jp/tech/articles/329934)
+
 ## 3.2
-- @2022 [Rubyを手軽にブラウザ上で動かすことが可能に　WebAssemblyを使って解消する、Rubyの動作環境問題 - ログミーTech](https://logmi.jp/tech/articles/327678)
+
+- @2022 [Ruby を手軽にブラウザ上で動かすことが可能に　 WebAssembly を使って解消する、Ruby の動作環境問題 - ログミー Tech](https://logmi.jp/tech/articles/327678)
 
 ## 3.1
-- @2021 [サンプルコードでわかる！Ruby 3.1の主な新機能と変更点 - Qiita](https://qiita.com/jnchito/items/bcd9b7f59bf4b30ea5b3)
-### YJIT
-`LBBV`
-- @2022 [Alan Wu氏「YJITはRubyプロセス実行から終了まで全体のパフォーマンス向上を目指す」 ～RubyKaigi 2022 3日目キーノート | gihyo.jp](https://gihyo.jp/article/2022/10/rubykaigi2022-3)
-- @2022 [Ruby が YJIT でなんで速くなるのか？ Lazy Basic Block Versioning をサクッと理解してみた - estie inside blog](https://www.estie.jp/blog/entry/2022/08/15/153357)
-- [「Ruby 3.1.0」がリリース ～プロセス内JITコンパイラー「YJIT」をマージ【2022年1月5日追記】 - 窓の杜](https://forest.watch.impress.co.jp/docs/news/1377364.html)
 
-## 3.0 
-- @2021 [2020年リリース「Ruby 3.0.0」の変更点・新機能を解説 ｜パーソルテクノロジースタッフのエンジニア派遣](https://persol-tech-s.co.jp/hatalabo/it_engineer/540.html)
+- @2021 [サンプルコードでわかる！Ruby 3.1 の主な新機能と変更点 - Qiita](https://qiita.com/jnchito/items/bcd9b7f59bf4b30ea5b3)
+
+### YJIT
+
+`LBBV`
+
+- @2022 [Alan Wu 氏「YJIT は Ruby プロセス実行から終了まで全体のパフォーマンス向上を目指す」 ～ RubyKaigi 2022 3 日目キーノート | gihyo.jp](https://gihyo.jp/article/2022/10/rubykaigi2022-3)
+- @2022 [Ruby が YJIT でなんで速くなるのか？ Lazy Basic Block Versioning をサクッと理解してみた - estie inside blog](https://www.estie.jp/blog/entry/2022/08/15/153357)
+- [「Ruby 3.1.0」がリリース ～プロセス内 JIT コンパイラー「YJIT」をマージ【2022 年 1 月 5 日追記】 - 窓の杜](https://forest.watch.impress.co.jp/docs/news/1377364.html)
+
+## 3.0
+
+- @2021 [2020 年リリース「Ruby 3.0.0」の変更点・新機能を解説 ｜パーソルテクノロジースタッフのエンジニア派遣](https://persol-tech-s.co.jp/hatalabo/it_engineer/540.html)
 
 # vscode
+
 - [Solargraph: A Ruby Language Server](https://solargraph.org/)
-- [【2022年決定版】VSCodeをRuby超特化型にする 最高の拡張機能10選まとめ。 【VisualStudio Code】【プラグイン】 | ゆるプロ](https://yurupro.cloud/2643/)
+- [【2022 年決定版】VSCode を Ruby 超特化型にする 最高の拡張機能 10 選まとめ。 【VisualStudio Code】【プラグイン】 | ゆるプロ](https://yurupro.cloud/2643/)
 
 # rbenv
 
 ## ruby-build
-- [ruby-build | rbenv日本語リファレンス | Ruby STUDIO](https://ruby.studio-kingdom.com/rbenv/ruby_build/)
+
+- [ruby-build | rbenv 日本語リファレンス | Ruby STUDIO](https://ruby.studio-kingdom.com/rbenv/ruby_build/)
 
 # Sorbet
-- [Rubyの型チェッカーのSorbetを導入しました - freee Developers Hub](https://developers.freee.co.jp/entry/introduce-sorbet-type-checker-for-ruby)
+
+- [Ruby の型チェッカーの Sorbet を導入しました - freee Developers Hub](https://developers.freee.co.jp/entry/introduce-sorbet-type-checker-for-ruby)
 
 # build windows
 
