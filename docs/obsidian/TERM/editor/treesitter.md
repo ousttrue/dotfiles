@@ -26,9 +26,11 @@ https://tree-sitter.github.io/tree-sitter/creating-parsers
 - @2022 [Tree-sitter を用いた Scala 3 の高速パース · eed3si9n](https://eed3si9n.com/ja/fast-scala3-parsing-with-tree-sitter/)
 - @2022 [tree-sitter 文法入門 | フューチャー技術ブログ](https://future-architect.github.io/articles/20221215a/)
 
-## grammar
+## grammar.js
 
 [Guide to writing your first Tree-sitter grammar · GitHub](https://gist.github.com/Aerijo/df27228d70c633e088b0591b8857eeef)
+
+- @2023 [rbs の tree-sitter パーサを書いて、neovim のシンタックスハイライトに利用する - joker1007’s diary](https://joker1007.hatenablog.com/entry/2023/11/17/162702)
 
 # neovim
 
