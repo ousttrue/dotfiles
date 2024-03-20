@@ -69,6 +69,7 @@ function M.setup()
     -- debug = true,
     sources = {
       -- null_ls.builtins.formatting.csharpier,
+      null_ls.builtins.formatting.rufo,
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.black,
       null_ls.builtins.formatting.uncrustify.with {
