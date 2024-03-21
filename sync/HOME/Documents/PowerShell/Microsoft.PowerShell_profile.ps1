@@ -1064,9 +1064,22 @@ function Install-Nvim
     sudo pacman -Sy
     sudo pacman -S base-devel cmake unzip ninja curl
   }
-  ghq get https://github.com/neovim/neovim
-  Push-Location (Join-Path (ghq root) "/github.com/neovim/neovim")
-  git pull
+  $src = (Join-Path (ghq root) "/github.com/neovim/neovim")
+  if(Test-Path $src)
+  {
+    Push-Location $src
+    git pull
+    if(Test-Path build)
+    {
+      rmrf .deps
+      rmrf build
+    }
+  } else
+  {
+    ghq get https://github.com/neovim/neovim
+    Push-Location $src
+  }
+
   cmake -G Ninja -S cmake.deps -B .deps -DCMAKE_BUILD_TYPE=Release
   cmake --build .deps
   cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release

@@ -4,9 +4,13 @@ Component のツリーはイベントを伝搬する。
 `Renderer` の第１引数に `子Component` を指定できる。
 
 # hello
+
 [[ftxui_screen]]
+
 ## Renderer
+
 描画のみ。OnEvent が無い
+
 ```cpp
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/screen_interactive.hpp>
@@ -47,6 +51,7 @@ int main() {
 ```
 
 # widgets
+
 ## Button
 
 ## Checkbox/Radiobox
@@ -55,16 +60,15 @@ int main() {
 
 ## Input
 
-
-
 ## ftxui::ComponentBase
+
 [FTXUI: include/ftxui/component/component_base.hpp Source File](https://arthursonzogni.github.io/FTXUI/component__base_8hpp_source.html)
-OnEventでイベントハンドリングできる
+OnEvent でイベントハンドリングできる
+
 ```cpp
 	    ftxui::Element Render() override;
     bool OnEvent(ftxui::Event) override;
 ```
-
 
 # Splitter
 
@@ -119,9 +123,11 @@ int main() {
 ```
 
 # ContainerBase: ComponentBase
+
 navigation(select 制御)がある
 
 ## Container
+
 ```c++
   auto composition = Container::Horizontal({leftpane, rightpane});
 ```
@@ -141,19 +147,35 @@ ftxui::Component Custom(const std::string &label) {
 ```
 
 ## Menu(Selector)
+
 - entry は `std::string` `std::span<T>` + transform にしたい
 
 ## collabsible
+
 [FTXUI: examples/component/collapsible.cpp](https://arthursonzogni.github.io/FTXUI/examples_2component_2collapsible_8cpp-example.html)
 
 # ScreenInteractive
+
 loop で component を Rendering する。
+
+## ScreenInteractive::Loop
+
+```cpp
+void ScreenInteractive::Loop(Component component) {  // NOLINT
+  class Loop loop(this, std::move(component));
+  loop.Run();
+}
+```
+
 ## ScreenInteractive::Fullscreen
+
 - https://arthursonzogni.github.io/FTXUI/examples_2component_2resizable_split_8cpp-example.html
 
 ## ScreenInteractive::FitComponent
+
 - button
 - composition
 
 ## ScreenInteractive::TerminalOutput
+
 - maybe
