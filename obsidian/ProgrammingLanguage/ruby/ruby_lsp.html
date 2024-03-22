@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>doc - shell note ドキュメント</title>
+        <title>Shopify - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,68 +218,16 @@
           </label>
         </div>
         <article role="main">
-          <p>[[pygobject]]</p>
-<p><strong>循環参照</strong> <code class="docutils literal notranslate"><span class="pre">glib</span> <span class="pre">&lt;-</span> <span class="pre">gobject-introspection</span> <span class="pre">&lt;-</span> <span class="pre">glib(gir)</span></code></p>
+          <section class="tex2jax_ignore mathjax_ignore" id="shopify">
+<h1>Shopify<a class="headerlink" href="#shopify" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://shopify.github.io/ruby-lsp/</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://gi.readthedocs.io/en/latest/">Overview — GObject Introspection</a></p></li>
-<li><p><a class="reference external" href="https://github.com/RubyData/workshop-materials/blob/master/gobject-introspection/introduction.md">workshop-materials/introduction.md at master · RubyData/workshop-materials · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://www.clear-code.com/blog/2022/8/17/meson-and-gobject-introspection.html">Meson を使って GObject Introspection 対応のビルドシステムを構築する方法 - 2022-08-17 - ククログ</a></p></li>
-<li><p><a class="reference external" href="https://github.com/RubyData/workshop-materials/blob/master/gobject-introspection/introduction.md">workshop-materials/introduction.md at master · RubyData/workshop-materials · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://www.slideshare.net/yurenju/python-and-gobject-introspection">Python and GObject Introspection</a></p></li>
-<li><p><a class="reference external" href="https://github.com/RubyData/workshop-materials/blob/master/gobject-introspection/introduction.md">GObject Introspection入門</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="doc">
-<h1>doc<a class="headerlink" href="#doc" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/pygobject/pgi-docgen">GitHub - pygobject/pgi-docgen: API Documentation Generator for PyGObject</a></p></li>
+<li><p>https://github.com/Shopify/ruby-lsp</p></li>
+<li><p>@2023 <a class="reference external" href="https://madogiwa0124.hatenablog.com/entry/2023/10/22/133354">VSCodeの<code class="docutils literal notranslate"><span class="pre">rebornix.ruby</span></code>から<code class="docutils literal notranslate"><span class="pre">shopify.ruby-lsp</span></code>に乗り換えるメモ - Madogiwa Blog</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="lua">
-<h1>lua<a class="headerlink" href="#lua" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/lgi-devs/lgi/issues/235">How to use Gio.Socket? · Issue #235 · lgi-devs/lgi · GitHub</a></p></li>
-<li><p><a class="reference external" href="https://github.com/lgi-devs/lgi">GitHub - lgi-devs/lgi: Dynamic Lua binding to GObject libraries using GObject-Introspection</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="build">
-<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/MSVC.README.rst">MSVC.README.rst · main · GNOME / gobject-introspection · GitLab</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="gir">
-<h1>GIR<a class="headerlink" href="#gir" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">XDG_DATA_DIRS=prefix/share</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code>/gir-1.0</p>
-<p>[[Ubuntu]] では <code class="docutils literal notranslate"><span class="pre">typelib</span></code> が配布されていて、元となる <code class="docutils literal notranslate"><span class="pre">gir</span></code> ファイルは <code class="docutils literal notranslate"><span class="pre">apt</span></code> に含まれていなかった。</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/gtk-rs/gir-files">GitHub - gtk-rs/gir-files</a></p></li>
-</ul>
-<section id="g-ir-scanner">
-<h2>g-ir-scanner<a class="headerlink" href="#g-ir-scanner" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://manpages.debian.org/experimental/gobject-introspection/g-ir-scanner.1.en.html#ENVIRONMENT_VARIABLES">g-ir-scanner(1) — gobject-introspection — Debian experimental — Debian Manpages</a>
-<code class="docutils literal notranslate"><span class="pre">GI_EXTRA_BASE_DLL_DIRS</span></code>
-[[python]]</p></li>
-<li><p><a class="reference external" href="https://gitlab.gnome.org/GNOME/gobject-introspection/-/issues/416">GIR's can't be built in Windows with Python &gt;= 3.8 using subprojects. (#416) · Issues · GNOME / gobject-introspection · GitLab</a></p></li>
-<li><p><a class="reference external" href="https://gitlab.gnome.org/GNOME/pango/-/issues/522">pango 1.48 does not build with harfbuzz, trying to find 'HarfBuzz-0.0.gir' (#522) · Issues · GNOME / pango · GitLab</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="repository-typelib">
-<h1>repository: typelib<a class="headerlink" href="#repository-typelib" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">PREFIX/lib/girepository-1.0</span></code></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="libgirepository">
-<h1>libgirepository<a class="headerlink" href="#libgirepository" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://gi.readthedocs.io/en/latest/writingbindings/libgirepository.html">libgirepository — GObject Introspection</a></p></li>
-</ul>
-<section id="g-function-info-invoke">
-<h2>g_function_info_invoke<a class="headerlink" href="#g-function-info-invoke" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://gnome.pages.gitlab.gnome.org/gobject-introspection/girepository/gi-GIFunctionInfo.html#g-function-info-invoke">GIFunctionInfo: libgirepository API Reference</a></p></li>
-</ul>
-</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rebornix">
+<h1>rebornix<a class="headerlink" href="#rebornix" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </section>
 
         </article>
@@ -295,7 +243,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/GUI/gtk/gobject-introspection.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/ruby/ruby_lsp.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -315,18 +263,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">doc</a></li>
-<li><a class="reference internal" href="#lua">lua</a></li>
-<li><a class="reference internal" href="#build">build</a></li>
-<li><a class="reference internal" href="#gir">GIR</a><ul>
-<li><a class="reference internal" href="#g-ir-scanner">g-ir-scanner</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#repository-typelib">repository: typelib</a></li>
-<li><a class="reference internal" href="#libgirepository">libgirepository</a><ul>
-<li><a class="reference internal" href="#g-function-info-invoke">g_function_info_invoke</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Shopify</a></li>
+<li><a class="reference internal" href="#rebornix">rebornix</a></li>
 </ul>
 
           </div>

@@ -13,6 +13,13 @@
 - @2023 [まつもとゆきひろ氏が“幻のPerl6”から学んだ教訓　「OSSの最大の敵」と「セカンドシステムの危険性」 - ログミーTech](https://logmi.jp/tech/articles/329933)
 - @2023 [「Rubyは落ちるか、伸びるかの岐路に立っている」　まつもとゆきひろ氏が語る、30年後に向けた生存戦略 - ログミーTech](https://logmi.jp/tech/articles/329934)
 
+## 3.3
+
+- @2024 [Ruby 3.3正式リリース。YJITコンパイラの大幅な性能向上、RubyのスレッドスケジューラとしてM:Nスレッドスケジューラ導入など新機能 － Publickey](https://www.publickey1.jp/blog/24/ruby_33yjitrubymn.html)
+- @2023 [サンプルコードでわかる！Ruby 3.3の主な新機能と変更点 #Ruby - Qiita](https://qiita.com/jnchito/items/67969420ba0050a7e846)
+- `bison` 👉 [[lrama]]
+- @2023 [Ruby 3.3でYJITを今すぐ有効にすべき理由 - k0kubun&#39;s blog](https://k0kubun.hatenablog.com/entry/ruby-3-3-yjit)
+
 ## 3.2
 
 - @2022 [Ruby を手軽にブラウザ上で動かすことが可能に　 WebAssembly を使って解消する、Ruby の動作環境問題 - ログミー Tech](https://logmi.jp/tech/articles/327678)

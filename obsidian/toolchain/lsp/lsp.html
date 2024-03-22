@@ -221,6 +221,9 @@
           <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">2016年6月に、Microsoftがlanguage</span> <span class="pre">server</span> <span class="pre">protocol公開</span></code></p>
 </div></blockquote>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/myuon/articles/76047d5d575346">コンパイラを書いてセルフホストした</a></p></li>
+</ul>
 <p>[[vscode]]
 [[vscode_extension]]
 [[LSIF]]
@@ -294,9 +297,9 @@
 <section id="module">
 <h3>module<a class="headerlink" href="#module" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>	const serverOptions: ServerOptions = {
-		run: { 
-			module: serverModule, 
-			transport: TransportKind.ipc 
+		run: {
+			module: serverModule,
+			transport: TransportKind.ipc
 		},
 		debug: {
 			module: serverModule,
@@ -320,10 +323,10 @@
 </pre></div>
 </div>
 <p>zls</p>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span>  <span class="kd">let</span> <span class="nx">serverOptions</span>: <span class="kt">ServerOptions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">command</span>: <span class="kt">zlsPath</span><span class="p">,</span>
-    <span class="nx">args</span>: <span class="kt">debugLog</span> <span class="o">?</span> <span class="p">[</span><span class="s2">"--enable-debug-log"</span><span class="p">]</span> <span class="o">:</span> <span class="p">[]</span>
-  <span class="p">};</span>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">serverOptions</span>: <span class="kt">ServerOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">command</span>: <span class="kt">zlsPath</span><span class="p">,</span>
+  <span class="nx">args</span>: <span class="kt">debugLog</span> <span class="o">?</span> <span class="p">[</span><span class="s2">"--enable-debug-log"</span><span class="p">]</span> <span class="o">:</span> <span class="p">[],</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 </section>
@@ -332,17 +335,17 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/palantir/python-language-server/blob/develop/vscode-client/src/extension.ts#L27">python-language-server/extension.ts at develop · palantir/python-language-server · GitHub</a></p></li>
 </ul>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span>	<span class="kd">const</span> <span class="nx">serverOptions</span>: <span class="kt">ServerOptions</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-			<span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Socket</span><span class="p">();</span>
-			<span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">addr</span><span class="p">,</span> <span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-				<span class="nx">resolve</span><span class="p">({</span>
-					<span class="nx">reader</span>: <span class="kt">client</span><span class="p">,</span>
-					<span class="nx">writer</span>: <span class="kt">client</span>
-				<span class="p">});</span>
-			<span class="p">});</span>
-		<span class="p">});</span>
-	<span class="p">}</span>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">serverOptions</span>: <span class="kt">ServerOptions</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Socket</span><span class="p">();</span>
+    <span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">addr</span><span class="p">,</span> <span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">resolve</span><span class="p">({</span>
+        <span class="nx">reader</span>: <span class="kt">client</span><span class="p">,</span>
+        <span class="nx">writer</span>: <span class="kt">client</span><span class="p">,</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 </section>

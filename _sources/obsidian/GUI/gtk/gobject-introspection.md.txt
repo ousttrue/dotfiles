@@ -9,6 +9,8 @@
 
 - [Python and GObject Introspection](https://www.slideshare.net/yurenju/python-and-gobject-introspection)
 
+- [GObject Introspection入門](https://github.com/RubyData/workshop-materials/blob/master/gobject-introspection/introduction.md)
+
 # doc
 
 - [GitHub - pygobject/pgi-docgen: API Documentation Generator for PyGObject](https://github.com/pygobject/pgi-docgen)
