@@ -420,12 +420,12 @@ function vcenv()
       "INCLUDE"
       {
         "INCLUDE=> $($kv[1])"
-        $env:INCLUDE = $kv[1]
+        $env:INCLUDE = $kv[1] + ";$HOME\local\include"
       }
       "LIB"
       {
         "LIB=> $($kv[1])"
-        $env:LIB = $kv[1]
+        $env:LIB = $kv[1] + ";$HOME\local\lib"
       }
       "LIBPATH"
       {
@@ -802,39 +802,34 @@ function Push-DotFile
 #
 # alias
 #
-if (has exa)
-{
-  Set-Alias ls exa
-  function ll
-  { 
-    exa -l $args 
-  }
-  function la
-  {
-    exa -a $args
-  }
-} elseif (has lsd)
-{
-  Set-Alias ls lsd
-  function ll
-  { 
-    lsd -l $args 
-  }
-  function la
-  {
-    lsd -a $args
-  }
-} elseif (has ls)
-{
-  function ll
-  { 
-    ls -l $args 
-  }
-  function la
-  {
-    ls -a $args
-  }
-}
+# if (has exa)
+# {
+#   Set-Alias ls exa
+#   function ll
+#   { 
+#     exa -l $args 
+#   }
+#   function la
+#   {
+#     exa -a $args
+#   }
+# } elseif (has lsd)
+# {
+#   Set-Alias ls lsd
+#   function ll
+#   { 
+#     lsd -l $args 
+#   }
+#   function la
+#   {
+#     lsd -a $args
+#   }
+# } elseif 
+# (has ls)
+# {
+
+# }
+
 if (has "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd")
 {
   Set-Alias code (Join-Path $env:LOCALAPPDATA "\Programs\Microsoft VS Code\bin\code.cmd")
@@ -1092,6 +1087,10 @@ function Install-Rust
 {
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   cargo install zoxide ripgrep fd-find bottom lsd bat stylua tree-sitter-cli
+  if ($IsWindows)
+  {
+    cargo install coreutils --features windows
+  }
 }
 
 function Install-Deno
@@ -1248,4 +1247,44 @@ function Install-Gtk
   meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false
   meson install -C builddir
   Pop-Location
+}
+
+function Get-CoreUtils
+{
+  # or ?
+  # cargo install uu_cat
+  return @("arch", "b2sum", "b3sum", "base32", "base64", "basename", "basenc", "cat", "cksum",
+    "comm", "cp", "csplit", "cut", "date", "dd", "df", "dir", "dircolors", "dirname", "du", "echo",
+    "env", "expand", "expr", "factor", "false", "fmt", "fold", "hashsum", "head", "hostname",
+    "join", "link", "ln", "ls", "md5sum", "mkdir", "mktemp", "more", "mv", "nl", "nproc", "numfmt",
+    "od", "paste", "pr", "printenv", "printf", "ptx", 
+    # "pwd", 
+    "readlink", "realpath", "rm",
+    "rmdir", "seq", "sha1sum", "sha224sum", "sha256sum", "sha3-224sum", "sha3-256sum",
+    "sha3-384sum", "sha3-512sum", "sha384sum", "sha3sum", "sha512sum", "shake128sum",
+    "shake256sum", "shred", "shuf", "sleep", "sort", "split", "sum", "sync", "tac", "tail", "tee",
+    "test", "touch", "tr", 
+    # "true", 
+    "truncate", "tsort", "uname", "unexpand", "uniq", "unlink",
+    "vdir", "wc", "whoami", "yes")
+}
+
+foreach ($u in Get-CoreUtils)
+{
+  $src=@"
+function $u {
+  coreutils $u `$args
+}
+"@
+  # Write-Output $src
+  Invoke-Expression $src
+  # Get-Item function:$u
+}
+
+function Install-Ruby
+{
+  # yaml
+  # libssl
+  # ruby
+  # rake
 }
