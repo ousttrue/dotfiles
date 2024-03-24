@@ -74,18 +74,18 @@ function M.clear_syntax_link(ev)
   -- hl_clear "@lsp.type.enumMember.markdown"
 
   -- hl_clear "@markup"
-  -- vim.api.nvim_set_hl(0, "@markup.heading.1.marker.markdown", { link = "Statement" })
+  vim.api.nvim_set_hl(0, "@markup.heading", { link = "Statement" })
   -- vim.api.nvim_set_hl(0, "@markup.heading.2.marker.markdown", { link = "Statement" })
   -- vim.api.nvim_set_hl(0, "@markup.heading.3.marker.markdown", { link = "Statement" })
   -- vim.api.nvim_set_hl(0, "@markup.quote.markdown", { link = "Comment" })
   -- vim.api.nvim_set_hl(0, "@markup.list.markdown", { link = "Statement" })
   -- vim.api.nvim_set_hl(0, "@markup.raw.delimiter.markdown", { link = "Comment" })
-  -- vim.api.nvim_set_hl(0, "@markup.link.link.markdown_inline", { link = "Statement" })
+  vim.api.nvim_set_hl(0, "@markup.link", { link = "String" })
   -- vim.api.nvim_set_hl(0, "@markup.link.label.markdown_inline", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "@markup.link.url.markdown_inline", { link = "Conceal" })
   vim.api.nvim_set_hl(0, "@markup.strong.markdown_inline", { fg = "#FFaa00" })
   -- vim.api.nvim_set_hl(0, "@text.strong.markdown", { link = "String" })
-  -- vim.api.nvim_set_hl(0, "@text.strong.markdown_inline", { link = "Statement" })
+  vim.api.nvim_set_hl(0, "@text.strong", { link = "Statement" })
 
   -- hl_clear "@variable.parameter.vimdoc"
   -- vim.api.nvim_set_hl(0, "@markup.link.vimdoc", { link = "Identifier" })

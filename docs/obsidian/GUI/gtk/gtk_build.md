@@ -1,3 +1,13 @@
+# order
+
+- glib `introspection=disabled`
+- pkg-config
+- gobject-introspection
+- glib `introspection=enabled`
+- pygobject
+- gstreamer `bad=disabled`
+- gtk
+
 # env
 
 ```sh
@@ -107,6 +117,7 @@ $ meson setup builddir --prefix "$HOME/local" -Dbuildtype=release -Dmedia-gstrea
 ```
 ImportError: DLL load failed while importing _giscanner: 指定されたモジュールが見つかりません。
 ```
+
 # g_autoptr はmsvcでは無理
 
 ```c
@@ -114,4 +125,3 @@ ImportError: DLL load failed while importing _giscanner: 指定されたモジ�
 ```
 
 https://developercommunity.visualstudio.com/t/Add-support-for-GCC-like-cleanup-attribu/1187001
-

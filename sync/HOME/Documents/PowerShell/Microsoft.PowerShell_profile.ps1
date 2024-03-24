@@ -9,6 +9,8 @@ Set-Alias % ForEach-Object
 Set-Alias ? Where-Object
 Set-alias vswhere "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe"
 
+$NVIM_PREFIX = Join-Path $HOME "neovim"
+
 function has($cmdname)
 {
   try
@@ -128,7 +130,6 @@ if ($IsWindows)
   chcp 65001
   $env:HOME = $env:USERPROFILE
 
-  $env:PKG_CONFIG_PATH = Join-Path $env:HOME "local\lib\pkgconfig"
   $EXE = ".exe"
   $defs = @(
     [mymodule.Dependency]::new(
@@ -419,13 +420,13 @@ function vcenv()
       }
       "INCLUDE"
       {
-        "INCLUDE=> $($kv[1])"
-        $env:INCLUDE = $kv[1] + ";$HOME\local\include"
+        $env:INCLUDE = $kv[1] #+ ";$HOME\local\include"
+        "INCLUDE=> $env:INCLUDE"
       }
       "LIB"
       {
-        "LIB=> $($kv[1])"
-        $env:LIB = $kv[1] + ";$HOME\local\lib"
+        $env:LIB = $kv[1] #+ ";$HOME\local\lib"
+        "LIB=> $env:LIB"
       }
       "LIBPATH"
       {
@@ -968,9 +969,9 @@ if ($IsWindows)
 {
   Set-Alias nvim (Join-Path $env:HOME "local/bin/nvim")
 }
-function v()
+function v
 {
-  nvim $args
+  &"$NVIM_PREFIX\bin\nvim" $args
 }
 
 #if(!(has ldd))
@@ -1079,13 +1080,16 @@ function Install-Nvim
   cmake --build .deps
   cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release
   cmake --build build
-  cmake --install build --prefix $HOME/local
+  cmake --install build --prefix $NVIM_PREFIX
   Pop-Location
 }
 
-function Install-Rust
+function Install-rust
 {
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  if (!$IsWindows)
+  {
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  }
   cargo install zoxide ripgrep fd-find bottom lsd bat stylua tree-sitter-cli
   if ($IsWindows)
   {
@@ -1200,37 +1204,109 @@ function Install-Yay
   Pop-Location
 }
 
-function Install-Glib
+function Download($url, $outdir, $archive)
 {
-  $prefix = "$HOME/local"
+  if(!$archive)
+  {
+    $leaf = Split-Path -Leaf $url
+    $archive = Join-Path $outdir $leaf
+  }
+  if(!(Test-Path $archive))
+  {
+    Invoke-WebRequest -Uri $url -OutFile $archive -AllowInsecureRedirect
+  }
 
-  ghq get https://github.com/GNOME/glib
-  Push-Location (Join-Path (ghq root) "github.com\GNOME\pygobject")
+  $extract = Join-Path $outdir (Split-Path -LeafBase $archive)
+  write-host "extract: [$extract]"
+  if(!(Test-Path $extract))
+  {
+    Expand-7Zip $archive $extract
+  }
+  $extract
+}
+
+function Install-exe($src, $dst)
+{
+  New-Item -ItemType File -Path $dst -Force
+  Copy-Item $src $dst -Force
+}
+
+function Install-flex($prefix)
+{
+  $url = "https://github.com/lexxmark/winflexbison/releases/download/v2.5.25/win_flex_bison-2.5.25.zip"
+  if(!(has win_flex))
+  {
+    $dir = Download $url "$HOME/Downloads"
+    $bin_dir = Join-Path $prefix "bin"
+    New-Item $bin_dir -ItemType Directory -ErrorAction SilentlyContinue
+    Copy-Item -Recurse -Force $dir/* -Destination $bin_dir
+  }
+}
+
+function Install-gperf($prefix)
+{
+  $url = "https://gnuwin32.sourceforge.net/downlinks/gperf-bin-zip.php"
+  if(!(has gperf))
+  {
+    $dir = Download $url "$HOME/Downloads" "$HOME/Downloads/gperf-3.0.1-bin.zip"
+    Install-exe (Join-Path $dir "bin/gperf.exe") (Join-Path $prefix "bin/gperf.exe")
+  }
+}
+
+function Install-Tools($prefix)
+{
+  Install-flex $prefix
+  Install-gperf $prefix
+  if(!(has meson))
+  {
+    pip install meson
+  }
+  if(!(has cmake))
+  {
+    pip install cmake
+  }
+  if(!(has ninja))
+  {
+    pip install ninja
+  }
+}
+
+function Install-glib($prefix)
+{
+  Install-Tools $prefix
+
+  $repos = "github.com/GNOME/glib"
+
+  ghq get $repos
+  Push-Location (Join-Path (ghq root) $repos)
   Get-Location
   if(Test-Path builddir)
   {
     Remove-Item -Recurse -Force builddir
   }
-  meson setup builddir --prefix $prefix -Dbuildtype=release -Dpycairo=disabled
-  # 838
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dintrospection=disabled
   meson install -C builddir
   Pop-Location
 }
 
-function Install-PkgConfig
+function Install-PkgConfig($prefix)
+{
+  ghq get https://gitlab.freedesktop.org/pkg-config/pkg-config.git
+}
+
+function Install-Gst
 {
   $prefix = "$HOME/local"
-
-  ghq get https://gitlab.freedesktop.org/pkg-config/pkg-config.git
-  # Push-Location (Join-Path (ghq root) "github.com\GNOME\pygobject")
-  # Get-Location
-  # if(Test-Path builddir){
-  #   Remove-Item -Recurse -Force builddir
-  # }
-  # meson setup builddir --prefix $prefix -Dbuildtype=release -Dpycairo=disabled
-  # # 838
-  # meson install -C builddir
-  # Pop-Location
+  ghq get https://github.com/GStreamer/gstreamer
+  Push-Location (Join-Path (ghq root) "github.com\GStreamer/gstreamer")
+  Get-Location
+  if(Test-Path builddir)
+  {
+    Remove-Item -Recurse -Force builddir
+  }
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false
+  meson install -C builddir
+  Pop-Location
 }
 
 function Install-Gtk
@@ -1281,10 +1357,82 @@ function $u {
   # Get-Item function:$u
 }
 
-function Install-Ruby
+function Install-libyaml
 {
-  # yaml
-  # libssl
+  $dir = Join-Path (ghq root) "github.com/yaml/libyaml"
+  if(Test-Path $dir)
+  {
+    Push-Location $dir
+    git pull
+  } else
+  {
+    ghq get https://github.com/yaml/libyaml
+    Push-Location $dir
+  }
+  cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release
+  cmake --build build
+  cmake --install build --prefix $HOME/local
+  Pop-Location
+}
+
+function Install-openssl
+{
+  $dir = Join-Path (ghq root) "github.com\ousttrue\w3m\subprojects\openssl-3.0.8"
+  Push-Location $dir
+  Remove-Item -Recurse -Force builddir
+  meson setup builddir --prefix $HOME/local
+  meson install -C builddir
+  New-Item "$HOME/local/include" -ItemType Directory -ErrorAction SilentlyContinue
+
+  Copy-Item -Recurse .\generated-config\archs\VC-WIN64A\asm\include\progs.h "$HOME/local/include/progs.h"
+
+  $include_openssl = "$HOME\local\include\openssl"
+  if(Test-Path $include_openssl)
+  {
+    Remove-Item -Recurse -Force $include_openssl
+  }
+  Copy-Item -Recurse .\generated-config\archs\VC-WIN64A\asm\include\openssl $include_openssl
+
+  $include_crypto =  "$HOME\local\include\crypto"
+  if(Test-Path $include_crypto)
+  {
+    Remove-Item -Recurse -Force $include_crypto
+  }
+  Copy-Item -Recurse .\generated-config\archs\VC-WIN64A\asm\include\crypto $include_crypto
+
+  Pop-Location
+}
+
+function Install-ruby
+{
+  # Install-libyaml
+  # Install-openssl
   # ruby
-  # rake
+  New-Item "$HOME/local/src" -ItemType Directory -ErrorAction SilentlyContinue
+  Set-Location "$HOME\local\src"
+  $url = "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.0.tar.gz"
+  Invoke-WebRequest -Uri $url -OutFile "ruby-3.3.0.tar.gz"
+  tar xf "ruby-3.3.0.tar.gz"
+  Push-Location ruby-3.3.0
+  Pop-Location
+}
+
+function Set-Prefix($prefix)
+{
+  # $prefix = Join-Path $HOME "local"
+  $env:INCLUDE += ";$prefix\include"
+  $env:LIB += ";$prefix\lib"
+  $env:PKG_CONFIG_PATH = Join-Path $prefix "lib\pkgconfig"
+}
+
+function Edit-Docs
+{
+  Set-Location $docs
+  v
+}
+
+function Edit-Dotfiles
+{
+  Set-Location (Get-Path "dot")
+  v
 }
