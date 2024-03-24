@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>IOChannel - shell note ドキュメント</title>
+        <title>font 関連ライブラリーのビルド - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,52 +212,35 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <ul class="simple">
-<li><p>@2023 <a class="reference external" href="https://www.bassi.io/articles/2023/10/25/introspections-edge/">halting problem : Introspection’s edge</a></p></li>
+          <section class="tex2jax_ignore mathjax_ignore" id="font">
+<h1>font 関連ライブラリーのビルド<a class="headerlink" href="#font" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>https://stackoverflow.com/questions/41767193/how-do-i-build-cairo-harfbuzz</p></li>
 </ul>
 <blockquote>
-<div><p>glib, gmodule, gobject, gio...</p>
+<div><p>There is also a circular dependency between freetype and HarfBuzz</p>
 </div></blockquote>
-<p>[[gtk]]</p>
-<section class="tex2jax_ignore mathjax_ignore" id="iochannel">
-<h1>IOChannel<a class="headerlink" href="#iochannel" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2017 <a class="reference external" href="https://palepoli.skr.jp/wp/2017/01/22/giochannel-gjs-pygobject/">GIOChannel @ Gjs, PyGObject | Paepoi Blog</a></p></li>
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/54719569/why-do-io-add-watch-callbacks-receive-the-wrong-iochannel-object">python - Why do io_add_watch() callbacks receive the wrong IOChannel object? - Stack Overflow</a></p></li>
-</ul>
-<p>[[meson]] [[gobject-introspection]]</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">meson</span></code> @2021 <a class="reference external" href="https://www.kofuk.org/blog/20210622-gobject/">GObjectについて - チラシの表の反対側</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="vala">
-<h1>vala<a class="headerlink" href="#vala" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[vala]]</p>
-<p><a class="reference external" href="https://valadoc.org/gobject-2.0/index.htm">Index</a><a class="reference external" href="https://valadoc.org/gobject-2.0/index.htm">index.htm – gobject-2.0</a></p>
-<p>参照カウント方式。Destructor OK なので <code class="docutils literal notranslate"><span class="pre">RAII</span></code> できる。</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* class derived from GObject */</span><span class="w"></span>
-<span class="k">class</span><span class="w"> </span><span class="nc">BasicSample</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="k">public</span><span class="w"></span>
-<span class="w">  </span><span class="n">BasicSample</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">stdout</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">"new</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="o">~</span><span class="n">BasicSample</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">stdout</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">"delete</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Build Freetype using:
 
-<span class="w">  </span><span class="cm">/* public instance method */</span><span class="w"></span>
-<span class="k">public</span><span class="w"></span>
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">stdout</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello World</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+./configure --prefix<span class="o">=</span><span class="si">${</span><span class="nv">PREFIX</span><span class="si">}</span> --host<span class="o">=</span>x86_64-w64-mingw32 --with-sysroot<span class="o">=</span>/usr/x86_64-w64-mingw32 --with-harfbuzz<span class="o">=</span>no
 
-<span class="cm">/* application entry point */</span><span class="w"></span>
-<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="p">(</span><span class="n">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">var</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicSample</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="n">sample</span><span class="p">.</span><span class="n">run</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+Build HarfBuzz using:
+
+./configure --prefix<span class="o">=</span><span class="si">${</span><span class="nv">PREFIX</span><span class="si">}</span> --host<span class="o">=</span>x86_64-w64-mingw32 --with-fontconfig<span class="o">=</span>no --with-cairo<span class="o">=</span>no --with-sysroot<span class="o">=</span>/usr/x86_64-w64-mingw32
+
+Build Freetype using:
+
+./configure --prefix<span class="o">=</span><span class="si">${</span><span class="nv">PREFIX</span><span class="si">}</span> --host<span class="o">=</span>x86_64-w64-mingw32 --with-sysroot<span class="o">=</span>/usr/x86_64-w64-mingw32 --with-harfbuzz<span class="o">=</span>yes
+
+Build fontconfig.
+
+Build Cairo.
 </pre></div>
 </div>
 </section>
@@ -275,7 +258,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/GUI/gtk/GLib.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/TERM/font/font_build.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -283,25 +266,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">IOChannel</a></li>
-<li><a class="reference internal" href="#vala">vala</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

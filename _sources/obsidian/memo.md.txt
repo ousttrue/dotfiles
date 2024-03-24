@@ -12,6 +12,11 @@
 - zoxide
 - golang
 
+## prefix
+
+[[glib]]
+[[font_build]]
+
 ## frontend
 
 | DSL        | Router                  | Bundler       |
@@ -40,4 +45,3 @@ https://nextra.site/
 - MR
 
 - https://github.com/takahirox/tiny-web-metaverse
-
