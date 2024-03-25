@@ -928,7 +928,7 @@ function Extract-Dependency([mymodule.Dependency]$definition)
   Expand-Archive -Path $archive -DestinationPath (Split-Path -parent $archive)
 }
 
-function Install-Dependency
+function Install-dependency
 {
   $input
   | ForEach-Object { 
@@ -1013,16 +1013,40 @@ function Remove-Git-RemoteBranch
   }
 }
 
-function Install-Go
+function Download($url, $outdir, $archive)
+{
+  if(!$archive)
+  {
+    $leaf = Split-Path -Leaf $url
+    $archive = Join-Path $outdir $leaf
+  }
+  if(!(Test-Path $archive))
+  {
+    Invoke-WebRequest -Uri $url -OutFile $archive -AllowInsecureRedirect
+  }
+  $archive
+}
+
+function Extract($archive)
+{
+  $extract = Join-Path $outdir (Split-Path -LeafBase $archive)
+  write-host "extract: [$extract]"
+  if(!(Test-Path $extract))
+  {
+    Expand-7Zip $archive $extract
+  }
+  $extract
+}
+
+function Install-go
 {
   if (!(has go))
   {
-    mkdir -p $HOME/local/src
-    Push-Location $HOME/local/src
-    curl -L -O --trust-server-names https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+    # curl -L -O --trust-server-names https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+    mkdir -p $HOME/Downloads
+    $archive = Download "https://go.dev/dl/go1.21.6.linux-amd64.tar.gz" $HOME/Downloads
     sudo rm -rf /usr/local/go
-    sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
-    Pop-Location
+    sudo tar -C /usr/local -xzf $archive
     if(!$IsWindows)
     {
       addPath("/usr/local/go/bin")
@@ -1043,7 +1067,7 @@ function Install-Go
   }
 }
 
-function Install-Nvim
+function Install-nvim
 {
   # https://github.com/neovim/neovim/blob/master/BUILD.md#build-prerequisites
   if (has brew)
@@ -1097,12 +1121,12 @@ function Install-rust
   }
 }
 
-function Install-Deno
+function Install-deno
 {
   curl -fsSL https://deno.land/install.sh | sh
 }
 
-function Install-Skk-Dictionary
+function Install-skk-dictionary
 {
   mkdir -p ~/.skk
   Push-Location ~/.skk
@@ -1110,7 +1134,7 @@ function Install-Skk-Dictionary
   Pop-Location 
 }
 
-function Install-Font
+function Install-font
 {
   mkdir -p ~/.fonts
   Push-Location ~/.fonts
@@ -1138,7 +1162,7 @@ function fpac
   }
 }
 
-function Install-Muon
+function Install-muon
 {
   ghq get https://github.com/annacrombie/muon
   Push-Location (Join-Path (ghq root) "/github.com/annacrombie/muon")
@@ -1147,7 +1171,7 @@ function Install-Muon
   Pop-Location
 }
 
-function Install-Win32Yank
+function Install-win32yank
 {
   mkdir -p ~/local/src
   Push-Location ~/local/src
@@ -1159,14 +1183,14 @@ function Install-Win32Yank
   Pop-Location
 }
 
-function Install-All
+function Install-all
 {
-  Install-Go
-  Install-Nvim
-  Install-Rust
-  Install-Muon
-  Install-Deno
-  Install-Skk-Dictionary
+  Install-go
+  Install-nvim
+  Install-rust
+  Install-muon
+  Install-deno
+  Install-skk-dictionary
 }
 
 function Remove-TSParser
@@ -1188,7 +1212,7 @@ function Remove-TSParser
   }
 }
 
-function Install-Yay
+function Install-yay
 {
   Push-Location $HOME
   pacman -S --needed git base-devel
@@ -1202,27 +1226,6 @@ function Install-Yay
   go install .
   Pop-Location
   Pop-Location
-}
-
-function Download($url, $outdir, $archive)
-{
-  if(!$archive)
-  {
-    $leaf = Split-Path -Leaf $url
-    $archive = Join-Path $outdir $leaf
-  }
-  if(!(Test-Path $archive))
-  {
-    Invoke-WebRequest -Uri $url -OutFile $archive -AllowInsecureRedirect
-  }
-
-  $extract = Join-Path $outdir (Split-Path -LeafBase $archive)
-  write-host "extract: [$extract]"
-  if(!(Test-Path $extract))
-  {
-    Expand-7Zip $archive $extract
-  }
-  $extract
 }
 
 function Install-exe($src, $dst)
@@ -1253,7 +1256,7 @@ function Install-gperf($prefix)
   }
 }
 
-function Install-Tools($prefix)
+function Install-tools($prefix)
 {
   Install-flex $prefix
   Install-gperf $prefix
@@ -1273,7 +1276,7 @@ function Install-Tools($prefix)
 
 function Install-glib($prefix)
 {
-  Install-Tools $prefix
+  Install-tools $prefix
 
   $repos = "github.com/GNOME/glib"
 
@@ -1289,12 +1292,12 @@ function Install-glib($prefix)
   Pop-Location
 }
 
-function Install-PkgConfig($prefix)
+function Install-pkgconfig($prefix)
 {
   ghq get https://gitlab.freedesktop.org/pkg-config/pkg-config.git
 }
 
-function Install-Gst
+function Install-gst
 {
   $prefix = "$HOME/local"
   ghq get https://github.com/GStreamer/gstreamer
@@ -1309,7 +1312,7 @@ function Install-Gst
   Pop-Location
 }
 
-function Install-Gtk
+function Install-gtk
 {
   $prefix = "$HOME/local"
 
@@ -1325,7 +1328,7 @@ function Install-Gtk
   Pop-Location
 }
 
-function Get-CoreUtils
+function Get-coreutils
 {
   # or ?
   # cargo install uu_cat
@@ -1345,7 +1348,8 @@ function Get-CoreUtils
     "vdir", "wc", "whoami", "yes")
 }
 
-foreach ($u in Get-CoreUtils)
+if($IsWindows){
+foreach ($u in Get-coreutils)
 {
   $src=@"
 function $u {
@@ -1355,6 +1359,7 @@ function $u {
   # Write-Output $src
   Invoke-Expression $src
   # Get-Item function:$u
+}
 }
 
 function Install-libyaml
