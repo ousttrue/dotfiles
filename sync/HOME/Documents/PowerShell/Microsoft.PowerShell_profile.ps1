@@ -1,6 +1,7 @@
 #
 # clear alias
 #
+$ErrorActionPreference = "Stop"
 Remove-Item alias:* -force
 Set-Alias cd Set-Location
 Set-Alias pwd Get-Location
@@ -12,6 +13,19 @@ $env:_CL_ = "/utf-8"
 $env:XDG_CONFIG_HOME = "$HOME/.config"
 
 $NVIM_PREFIX = Join-Path $HOME "neovim"
+
+function is_dir($path)
+{
+  try
+  {
+    if((Get-Item $archive) -is [System.IO.DirectoryInfo])
+    {
+      return $true
+    }
+  } catch
+  {
+  }
+}
 
 function has($cmdname)
 {
@@ -307,10 +321,12 @@ function prompt()
     {
       $location = " " + $location
     }
-  } elseif ($IsWindows -and $location.FullName.StartsWith("$(Get-Path "blender")${SEP}"))
-  {
-    $location = "🐵" + [System.IO.Path]::GetRelativePath((Get-Path "blender"), $location)
-  } elseif ($location.FullName.StartsWith($HOME))
+  } 
+  # elseif ($IsWindows -and $location.FullName.StartsWith("$(Get-Path "blender")${SEP}"))
+  # {
+  #   $location = "🐵" + [System.IO.Path]::GetRelativePath((Get-Path "blender"), $location)
+  # } 
+  elseif ($location.FullName.StartsWith($HOME))
   {
     if ($location -eq $HOME)
     {
@@ -1019,7 +1035,7 @@ function Remove-Git-RemoteBranch
 function Download($url, $dst)
 {
   $archive = $dst
-  if((Get-Item $archive) -is [System.IO.DirectoryInfo])
+  if(is_dir $archive)
   {
     $leaf = Split-Path -Leaf $url
     $archive = Join-Path $archive $leaf
@@ -1371,6 +1387,12 @@ function Install-gst
 
 function Install-gtk($prefix)
 {
+  Install-glib $prefix
+  Install-pkgconfig $prefix
+  Install-gobjecgt-introspection $prefix
+  Install-glib $prefix
+  Install-cairo $prefix
+
   $repos = "github.com/GNOME/gtk"
   ghq get $repos
   Push-Location (Join-Path (ghq root) $repos)
@@ -1380,6 +1402,21 @@ function Install-gtk($prefix)
     Remove-Item -Recurse -Force builddir
   }
   meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false
+  meson install -C builddir
+  Pop-Location
+}
+
+function Install-pygobject($prefix)
+{
+  $repos = "gitlab.gnome.org/GNOME/pygobject"
+  ghq get $repos
+  Push-Location (Join-Path (ghq root) $repos)
+  Get-Location
+  if (Test-Path builddir)
+  {
+    Remove-Item -Recurse -Force builddir
+  }
+  meson setup builddir --prefix $prefix -Dbuildtype=release
   meson install -C builddir
   Pop-Location
 }
