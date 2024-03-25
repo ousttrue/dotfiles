@@ -220,7 +220,7 @@
         <article role="main">
           <p>[[OS/X11/X11]]</p>
 <ul class="simple">
-<li><p>@2022  <a class="reference external" href="https://aznote.jakou.com/archlinux/install7.html">Arch Linux インストール (7) - 各設定</a></p></li>
+<li><p>@2022 <a class="reference external" href="https://aznote.jakou.com/archlinux/install7.html">Arch Linux インストール (7) - 各設定</a></p></li>
 <li><p>@2017 <a class="reference external" href="https://www.archlinux.site/2017/04/fontconfig.html">Fontconfigでデフォルトのフォントを設定する方法 | 普段使いのArch Linux</a></p></li>
 <li><p>@2014 <a class="reference external" href="https://techracho.bpsinc.jp/baba/2014_01_27/15236">Fontconfigことはじめ｜TechRacho by BPS株式会社</a></p></li>
 </ul>
@@ -273,6 +273,31 @@ ipag.ttf: "IPAGothic" "Regular"
 <li><p><a class="reference external" href="https://xpt.sourceforge.net/techdocs/nix/x/fonts/xf18-XorgFontsGeneral/single/">X.org Fonts General</a></p></li>
 </ul>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="windows">
+<h1>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://slackware.jp/configuration/fonts.html">日本語フォントの設定 | 逆襲のSlackware</a></p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 空になる</span>
+$ fc-match --sort :lang<span class="o">=</span>ja
+<span class="nv">$env</span>:FC_DEBUG<span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 動く</span>
+$ fc-list
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ fc-conflist
+<span class="nv">$env</span>:FONTCONFIG_PATH<span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.config/fontconfig"</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ fc-cache -r
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
@@ -319,6 +344,7 @@ ipag.ttf: "IPAGothic" "Regular"
 </ul>
 </li>
 <li><a class="reference internal" href="#xft">XFT</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
 </ul>
 
           </div>
