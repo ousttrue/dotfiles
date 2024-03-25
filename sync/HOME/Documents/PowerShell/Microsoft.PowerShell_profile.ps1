@@ -8,6 +8,8 @@ Set-Alias echo Write-Output
 Set-Alias % ForEach-Object
 Set-Alias ? Where-Object
 Set-alias vswhere "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe"
+$env:_CL_ = "/utf-8"
+$env:XDG_CONFIG_HOME = "$HOME/.config"
 
 $NVIM_PREFIX = Join-Path $HOME "neovim"
 
@@ -62,10 +64,9 @@ function Get-Path([string]$type)
         Get-Item (Join-Path ${env:HOME} ".local/state/nvim/shada") 
       }
     }
-    "msys"
-    {
-      Get-Item D:\msys64
-    }
+    # "msys" {
+    #   Get-Item D:\msys64
+    # }
     "dot"
     {
       Get-Item (Join-Path $HOME "dotfiles") 
@@ -401,8 +402,11 @@ function ExecuteCommand ($vc_dir)
 function vcenv()
 { 
   # $vc_dir = (Get-VSSetupInstance).InstallationPath
-  # $vc_dir = &vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
   $vc_dir = &vswhere -latest -products * -requires Microsoft.VisualStudio.Product.BuildTools -property installationPath
+  if (!$vc_dir)
+  {
+    $vc_dir = &vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath 
+  }
   Write-Output $vc_dir
   $v = (ExecuteCommand $vc_dir)
 
@@ -488,7 +492,7 @@ addPath(Join-Path $HOME "\.cargo\bin")
 addPath(Join-Path $HOME "\go\bin")
 addPath(Join-Path $HOME "\.local\bin")
 insertPath(Join-Path $HOME "\local\bin")
-if($IsWindows)
+if ($IsWindows)
 {
   addPath("C:\Program Files\qemu")
   addPath('C:\Program Files\Erlang OTP\bin')
@@ -497,7 +501,7 @@ if($IsWindows)
   #   addPath("$HOME\zig")
   # } else
   # {
-  if(!(has zig))
+  if (!(has zig))
   {
     addPath(Join-Path $(Get-Python) 'lib\site-packages\ziglang')
   }
@@ -508,13 +512,13 @@ if($IsWindows)
 {
   addPath("/usr/local/go/bin")
 }
-if($IsMacOS)
+if ($IsMacOS)
 {
   addPath("/opt/homebrew/bin")
 }
 addPath(join-Path $HOME '/Downloads/Visual Studio Code.app/Contents/Resources/app/bin')
 
-if(has py)
+if (has py)
 {
   $PY_PREFIX = Get-Python
   insertPath($PY_PREFIX)
@@ -958,7 +962,7 @@ if (Test-Path "nvim")
 # Set-Alias nvim (Join-Path (Get-Path "local-src") "nvim-win64/bin/nvim$EXE")
 if ($IsWindows)
 {
-  if(Test-Path "C:\Program Files\Neovim\bin\nvim.exe")
+  if (Test-Path "C:\Program Files\Neovim\bin\nvim.exe")
   {
     Set-Alias nvim "C:\Program Files\Neovim\bin\nvim.exe"
   } else
@@ -978,10 +982,9 @@ function v
 #{
 #  Set-Alias ldd (Join-Path (Get-Path "msys") "usr/bin/ldd.exe")
 #}
-if (!(has file))
-{
-  Set-Alias file (Join-Path (Get-Path "msys") "usr/bin/file.exe")
-}
+# if (!(has file)) {
+#   Set-Alias file (Join-Path (Get-Path "msys") "usr/bin/file.exe")
+# }
 
 function lk
 {
@@ -1013,26 +1016,28 @@ function Remove-Git-RemoteBranch
   }
 }
 
-function Download($url, $outdir, $archive)
+function Download($url, $dst)
 {
-  if(!$archive)
+  $archive = $dst
+  if((Get-Item $archive) -is [System.IO.DirectoryInfo])
   {
     $leaf = Split-Path -Leaf $url
-    $archive = Join-Path $outdir $leaf
-  }
-  if(!(Test-Path $archive))
+    $archive = Join-Path $archive $leaf
+  } 
+  if (!(Test-Path $archive))
   {
     Invoke-WebRequest -Uri $url -OutFile $archive -AllowInsecureRedirect
   }
   $archive
 }
 
-function Extract($archive)
+function Extract($archive, $outdir)
 {
   $extract = Join-Path $outdir (Split-Path -LeafBase $archive)
   write-host "extract: [$extract]"
-  if(!(Test-Path $extract))
+  if (!(Test-Path $extract))
   {
+    # Install-Module -Name 7Zip4Powershell
     Expand-7Zip $archive $extract
   }
   $extract
@@ -1047,7 +1052,7 @@ function Install-go
     $archive = Download "https://go.dev/dl/go1.21.6.linux-amd64.tar.gz" $HOME/Downloads
     sudo rm -rf /usr/local/go
     sudo tar -C /usr/local -xzf $archive
-    if(!$IsWindows)
+    if (!$IsWindows)
     {
       addPath("/usr/local/go/bin")
     }
@@ -1085,11 +1090,11 @@ function Install-nvim
     sudo pacman -S base-devel cmake unzip ninja curl
   }
   $src = (Join-Path (ghq root) "/github.com/neovim/neovim")
-  if(Test-Path $src)
+  if (Test-Path $src)
   {
     Push-Location $src
     git pull
-    if(Test-Path build)
+    if (Test-Path build)
     {
       rmrf .deps
       rmrf build
@@ -1237,9 +1242,11 @@ function Install-exe($src, $dst)
 function Install-flex($prefix)
 {
   $url = "https://github.com/lexxmark/winflexbison/releases/download/v2.5.25/win_flex_bison-2.5.25.zip"
-  if(!(has win_flex))
+  if (!(has win_flex))
   {
-    $dir = Download $url "$HOME/Downloads"
+    $download_dir = "$HOME/Downloads"
+    $archive = Download $url $download_dir
+    $dir = Extract $archive $download_dir
     $bin_dir = Join-Path $prefix "bin"
     New-Item $bin_dir -ItemType Directory -ErrorAction SilentlyContinue
     Copy-Item -Recurse -Force $dir/* -Destination $bin_dir
@@ -1248,11 +1255,16 @@ function Install-flex($prefix)
 
 function Install-gperf($prefix)
 {
-  $url = "https://gnuwin32.sourceforge.net/downlinks/gperf-bin-zip.php"
-  if(!(has gperf))
+  # $url = "https://gnuwin32.sourceforge.net/downlinks/gperf-bin-zip.php"
+  $url = "https://github.com/leok7v/gnuwin32.mirror/raw/master/bin/gperf.exe"
+  if (!(has gperf))
   {
-    $dir = Download $url "$HOME/Downloads" "$HOME/Downloads/gperf-3.0.1-bin.zip"
-    Install-exe (Join-Path $dir "bin/gperf.exe") (Join-Path $prefix "bin/gperf.exe")
+    $dst = Join-Path $prefix "bin/gperf.exe"
+    New-Item $dst -ErrorAction SilentlyContinue
+    Remove-Item $dst
+    Download $url $dst
+    # $dir = Extract $archive $download_dir
+    # Install-exe (Join-Path $dir "bin/gperf.exe") (Join-Path $prefix "bin/gperf.exe")
   }
 }
 
@@ -1260,18 +1272,19 @@ function Install-tools($prefix)
 {
   Install-flex $prefix
   Install-gperf $prefix
-  if(!(has meson))
+  if (!(has meson))
   {
     pip install meson
   }
-  if(!(has cmake))
+  if (!(has cmake))
   {
     pip install cmake
   }
-  if(!(has ninja))
+  if (!(has ninja))
   {
     pip install ninja
   }
+  pip install packaging setuptools
 }
 
 function Install-glib($prefix)
@@ -1283,18 +1296,62 @@ function Install-glib($prefix)
   ghq get $repos
   Push-Location (Join-Path (ghq root) $repos)
   Get-Location
-  if(Test-Path builddir)
+  if (Test-Path builddir)
   {
     Remove-Item -Recurse -Force builddir
   }
-  meson setup builddir --prefix $prefix -Dbuildtype=release -Dintrospection=disabled
+
+  $use_i="disabled"
+  if(has gi-inspect-typelib.exe)
+  {
+    $use_i="enabled"
+  }
+  meson setup builddir --prefix $prefix -Dbuildtype=release "-Dintrospection=$use_i"
+
   meson install -C builddir
   Pop-Location
+
+  Copy-Item $prefix/lib/libpcre2-8.a $prefix/lib/pcre2-8.lib
 }
 
 function Install-pkgconfig($prefix)
 {
-  ghq get https://gitlab.freedesktop.org/pkg-config/pkg-config.git
+  $repos = "gitlab.freedesktop.org/pkg-config/pkg-config"
+  ghq get $repos
+  Push-Location (Join-Path (ghq root) $repos)
+  Copy-Item config.h.win32.in config.h.win32
+  $env:INCLUDE += ";$prefix\include\glib-2.0;$prefix\lib\glib-2.0\include"
+  nmake /f Makefile.vc CFG=release
+  Copy-Item release/x64/pkg-config.exe $prefix/bin/pkg-config.exe
+  Pop-Location
+}
+
+function Install-gobjecgt-introspection($prefix)
+{
+  $repos = "github.com/GNOME/gobject-introspection"
+  ghq get $repos
+  Push-Location (Join-Path (ghq root) $repos)
+  if (Test-Path builddir)
+  {
+    Remove-Item -Recurse -Force builddir
+  }
+  meson setup builddir --prefix $prefix -Dbuildtype=release
+  meson install -C builddir
+  Pop-Location
+}
+
+function Install-cairo($prefix)
+{
+  $repos = "gitlab.freedesktop.org/cairo/cairo"
+  ghq get $repos
+  Push-Location (Join-Path (ghq root) $repos)
+  if (Test-Path builddir)
+  {
+    Remove-Item -Recurse -Force builddir
+  }
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dfontconfig=enabled -Dfreetype=enabled
+  meson install -C builddir
+  Pop-Location
 }
 
 function Install-gst
@@ -1303,7 +1360,7 @@ function Install-gst
   ghq get https://github.com/GStreamer/gstreamer
   Push-Location (Join-Path (ghq root) "github.com\GStreamer/gstreamer")
   Get-Location
-  if(Test-Path builddir)
+  if (Test-Path builddir)
   {
     Remove-Item -Recurse -Force builddir
   }
@@ -1312,14 +1369,13 @@ function Install-gst
   Pop-Location
 }
 
-function Install-gtk
+function Install-gtk($prefix)
 {
-  $prefix = "$HOME/local"
-
-  ghq get https://github.com/GNOME/gtk.git
-  Push-Location (Join-Path (ghq root) "github.com\GNOME\gtk")
+  $repos = "github.com/GNOME/gtk"
+  ghq get $repos
+  Push-Location (Join-Path (ghq root) $repos)
   Get-Location
-  if(Test-Path builddir)
+  if (Test-Path builddir)
   {
     Remove-Item -Recurse -Force builddir
   }
@@ -1348,24 +1404,25 @@ function Get-coreutils
     "vdir", "wc", "whoami", "yes")
 }
 
-if($IsWindows){
-foreach ($u in Get-coreutils)
+if ($IsWindows)
 {
-  $src=@"
+  foreach ($u in Get-coreutils)
+  {
+    $src = @"
 function $u {
   coreutils $u `$args
 }
 "@
-  # Write-Output $src
-  Invoke-Expression $src
-  # Get-Item function:$u
-}
+    # Write-Output $src
+    Invoke-Expression $src
+    # Get-Item function:$u
+  }
 }
 
 function Install-libyaml
 {
   $dir = Join-Path (ghq root) "github.com/yaml/libyaml"
-  if(Test-Path $dir)
+  if (Test-Path $dir)
   {
     Push-Location $dir
     git pull
@@ -1392,14 +1449,14 @@ function Install-openssl
   Copy-Item -Recurse .\generated-config\archs\VC-WIN64A\asm\include\progs.h "$HOME/local/include/progs.h"
 
   $include_openssl = "$HOME\local\include\openssl"
-  if(Test-Path $include_openssl)
+  if (Test-Path $include_openssl)
   {
     Remove-Item -Recurse -Force $include_openssl
   }
   Copy-Item -Recurse .\generated-config\archs\VC-WIN64A\asm\include\openssl $include_openssl
 
-  $include_crypto =  "$HOME\local\include\crypto"
-  if(Test-Path $include_crypto)
+  $include_crypto = "$HOME\local\include\crypto"
+  if (Test-Path $include_crypto)
   {
     Remove-Item -Recurse -Force $include_crypto
   }
@@ -1428,6 +1485,7 @@ function Set-Prefix($prefix)
   $env:INCLUDE += ";$prefix\include"
   $env:LIB += ";$prefix\lib"
   $env:PKG_CONFIG_PATH = Join-Path $prefix "lib\pkgconfig"
+  $env:GI_EXTRA_BASE_DLL_DIRS = "$prefix\bin" 
 }
 
 function Edit-Docs
