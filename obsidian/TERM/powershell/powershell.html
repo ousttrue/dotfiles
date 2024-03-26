@@ -256,12 +256,8 @@ Windows PowerShell 5.1 ワークフロー (.xaml)</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">PSNativeCommandArgumentPassing</span></code> <a class="reference external" href="https://news.mynavi.jp/techplus/article/powershell_core_--177/">PowerShell Core入門 - 基本コマンドの使い方(177) PowerShell 7.2登場 - ゲームチェンジャーかもしれないネイティブコマンドパス解析機能 | TECH+（テックプラス）</a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Predictive</span> <span class="pre">IntelliSense</span></code> <a class="reference external" href="https://news.mynavi.jp/techplus/article/techp5887/">PowerShell Core入門 - 基本コマンドの使い方(176) PowerShell 7.2登場 - ゲームチェンジャーかもしれない入力予測機能 | TECH+（テックプラス）</a></p></li>
 <li><p><a class="reference external" href="https://www.slideshare.net/slideshow/embed_code/key/eEwNM71q6DI5ij">最近の PowerShell について</a></p></li>
-<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-72?view=powershell-7.2">What's New in PowerShell 7.2 - PowerShell | Microsoft Docs</a></p>
-<ul>
-<li><p><a class="reference external" href="https://devblogs.microsoft.com/powershell/general-availability-of-powershell-7-2/">General Availability of PowerShell 7.2 - PowerShell Team</a>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-72?view=powershell-7.2">What's New in PowerShell 7.2 - PowerShell | Microsoft Docs</a> - <a class="reference external" href="https://devblogs.microsoft.com/powershell/general-availability-of-powershell-7-2/">General Availability of PowerShell 7.2 - PowerShell Team</a>
 [[ps_out]] <code class="docutils literal notranslate"><span class="pre">$PSStyle</span></code></p></li>
-</ul>
-</li>
 </ul>
 </section>
 <section id="core-7-1">
@@ -285,13 +281,14 @@ Windows PowerShell 5.1 ワークフロー (.xaml)</p>
 <section id="core-6-0">
 <h2>Core 6.0<a class="headerlink" href="#core-6-0" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">.NET</span> <span class="pre">Core</span></code></p>
-<ul class="simple">
-<li><p>@2018 <a class="reference external" href="https://blog.shibata.tech/entry/2018/02/09/175835">PowerShell Core 6.0 新機能まとめ - しばたテックブログ</a></p></li>
-</ul>
+<ul>
+<li><p>@2018 <a class="reference external" href="https://blog.shibata.tech/entry/2018/02/09/175835">PowerShell Core 6.0 新機能まとめ - しばたテックブログ</a></p>
 <blockquote>
 <div><p>powershell(.exe) =&gt; pwsh(.exe)
 BOMなしUTF-8がデフォルト</p>
 </div></blockquote>
+</li>
+</ul>
 </section>
 <section id="id1">
 <h2>5.1<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -365,7 +362,7 @@ BOMなしUTF-8がデフォルト</p>
 </ul>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="s2">"a"</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span> <span class="p">//</span> <span class="p">=&gt;</span> <span class="n">System</span><span class="p">.</span><span class="n">String</span>
 <span class="p">@().</span><span class="n">GetType</span><span class="p">()</span> <span class="p">//</span> <span class="p">=&gt;</span> <span class="n">System</span><span class="p">.</span><span class="n">Object</span><span class="p">[]</span>
-<span class="no">[math]</span><span class="p">::</span><span class="n">pi</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span> <span class="p">//</span> <span class="p">=&gt;</span> <span class="n">Double</span> 
+<span class="no">[math]</span><span class="p">::</span><span class="n">pi</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span> <span class="p">//</span> <span class="p">=&gt;</span> <span class="n">Double</span>
 </pre></div>
 </div>
 </section>
@@ -388,7 +385,7 @@ BOMなしUTF-8がデフォルト</p>
 	<span class="nb">write-host</span> <span class="s2">"true"</span>
 <span class="p">}</span>
 
-<span class="c"># return </span>
+<span class="c"># return</span>
 <span class="c"># return の省略</span>
 <span class="c"># Out-Host</span>
 </pre></div>

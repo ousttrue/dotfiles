@@ -19,16 +19,23 @@ CurrentUserCurrentHost : %USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell
 [シェル環境のカスタマイズ - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/scripting/learn/shell/creating-profiles?view=powershell-7.4)
 
 # git
+
 ## posh-git
+
 起動が遅くなる
+
 ## alt
+
 https://github.com/libgit2/libgit2sharp
+
 - @2016 [LibGit2Sharpを使ってGitリポジトリのビュワーを作った時のTips #Git - Qiita](https://qiita.com/kurasho/items/39404e11ba3040a6ed5c)
 
 # title
+
 - [PowerShellで自分だけのオリジナルステータスバーを作る](https://zenn.dev/mdgrs/articles/c628be5212a1cb)
 
 # 測定
+
 - @2022 [PowerShellの起動時間をPSProfilerモジュールで確認してみる #PowerShell - Qiita](https://qiita.com/SAITO_Keita/items/fc385bbc6e3025686d8b)
 - @2017 [PowerShellの起動時に表示されるプロファイルに関するメッセージについて - しばたテックブログ](https://blog.shibata.tech/entry/2017/03/13/202457)
 
@@ -50,10 +57,10 @@ https://github.com/libgit2/libgit2sharp
 `$PSVersionTable`
 `$PROFILE`
 `$IsWindows` : Windowsの場合$True。
-`$IsMacOS` : macOSの場合$True。
-`$IsLinux` : Linuxの場合$True。
+`$IsMacOS`: macOSの場合$True。`$IsLinux` : Linuxの場合$True。
 
 # profile
+
 [プロファイルについて - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4)
 
 ## $PROFILE
@@ -74,5 +81,5 @@ vim $profile
 ## alias
 
 ## readline
-[[PSReadline]]
 
+[[PSReadline]]
