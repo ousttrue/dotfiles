@@ -27,6 +27,40 @@ function is_dir($path)
   }
 }
 
+function TouchDir($dir)
+{
+  if(!(is_dir $dir))
+  {
+    New-Item $dir -ItemType Directory -ErrorAction SilentlyContinue
+  }
+}
+
+function Download($url, $dst)
+{
+  $archive = ""
+  if(is_dir $dst)
+  {
+    $leaf = Split-Path -Leaf $url
+    $archive = Join-Path $archive $leaf
+  } else
+  {
+    $archive = $dst
+    TouchDir (Split-Path -Parent $dst)
+  }
+
+  if (!(Test-Path $archive))
+  {
+    Invoke-WebRequest -Uri $url -OutFile $archive -AllowInsecureRedirect
+  }
+  $archive
+}
+
+function Extract-Dependency([mymodule.Dependency]$definition)
+{
+  $archive = Join-Path (Get-Path "local-src") $definition.GetArchive();
+  Expand-Archive -Path $archive -DestinationPath (Split-Path -parent $archive)
+}
+
 function has($cmdname)
 {
   try
@@ -945,12 +979,6 @@ function Download-Dependency([mymodule.Dependency]$definition)
   }
 }
 
-function Extract-Dependency([mymodule.Dependency]$definition)
-{
-  $archive = Join-Path (Get-Path "local-src") $definition.GetArchive();
-  Expand-Archive -Path $archive -DestinationPath (Split-Path -parent $archive)
-}
-
 function Install-dependency
 {
   $input
@@ -1033,21 +1061,6 @@ function Remove-Git-RemoteBranch
     Write-Host "git push $remote :$branch"
     git push $remote :$branch
   }
-}
-
-function Download($url, $dst)
-{
-  $archive = $dst
-  if(is_dir $archive)
-  {
-    $leaf = Split-Path -Leaf $url
-    $archive = Join-Path $archive $leaf
-  } 
-  if (!(Test-Path $archive))
-  {
-    Invoke-WebRequest -Uri $url -OutFile $archive -AllowInsecureRedirect
-  }
-  $archive
 }
 
 function Extract($archive, $outdir)
@@ -1147,15 +1160,18 @@ function Install-rust
 
 function Install-deno
 {
-  curl -fsSL https://deno.land/install.sh | sh
+  if($IsWindows)
+  {
+    Invoke-RestMethod https://deno.land/install.ps1 | Invoke-Expression
+  } else
+  {
+    curl -fsSL https://deno.land/install.sh | sh
+  }
 }
 
 function Install-skk-dictionary
 {
-  mkdir -p ~/.skk
-  Push-Location ~/.skk
-  curl -L -O https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L
-  Pop-Location 
+  Download "https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L" "$HOME/.skk/SKK-JISYO.L"
 }
 
 function Install-font
