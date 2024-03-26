@@ -1,41 +1,22 @@
+$ErrorActionPreference = "Stop"
 #
 # clear alias
 #
-$ErrorActionPreference = "Stop"
 Remove-Item alias:* -force
 Set-Alias cd Set-Location
 Set-Alias pwd Get-Location
 Set-Alias echo Write-Output
 Set-Alias % ForEach-Object
 Set-Alias ? Where-Object
+
 Set-alias vswhere "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe"
+
 $env:_CL_ = "/utf-8"
 $env:XDG_CONFIG_HOME = "$HOME/.config"
 
-$NVIM_PREFIX = Join-Path $HOME "neovim"
-
-function profiling
-{
-  # "Install-Module -Name psprofiler -Scope CurrentUser -AllowPrerelease -Force"
-  pwsh.exe -NoProfile -Command {Measure-Script -path $profile -Top 5}
-}
-
-function is_dir($path)
-{
-  try
-  {
-    if((Get-Item $archive) -is [System.IO.DirectoryInfo])
-    {
-      return $true
-    }
-  } catch
-  {
-  }
-}
-
 function TouchDir($dir)
 {
-  if(!(is_dir $dir))
+  if(!(Test-Path -PathType Container $dir))
   {
     New-Item $dir -ItemType Directory -ErrorAction SilentlyContinue
   }
@@ -44,7 +25,7 @@ function TouchDir($dir)
 function Download($url, $dst)
 {
   $archive = ""
-  if(is_dir $dst)
+  if(Test-Path -PathType Container $dst)
   {
     $leaf = Split-Path -Leaf $url
     $archive = Join-Path $archive $leaf
@@ -1026,10 +1007,7 @@ if ($IsWindows)
 {
   Set-Alias nvim (Join-Path $env:HOME "local/bin/nvim")
 }
-function v
-{
-  &"$NVIM_PREFIX\bin\nvim" $args
-}
+
 
 #if(!(has ldd))
 #{
@@ -1108,47 +1086,6 @@ function Install-go
   {
     &"$HOME/.fzf/install"
   }
-}
-
-function Install-nvim
-{
-  # https://github.com/neovim/neovim/blob/master/BUILD.md#build-prerequisites
-  if (has brew)
-  {
-    brew install ninja cmake gettext curl
-  } 
-  if (has apt)
-  {
-    sudo apt update
-    sudo apt install -y build-essential ninja-build gettext cmake unzip curl
-  }
-  if (has pacman)
-  {
-    sudo pacman -Sy
-    sudo pacman -S base-devel cmake unzip ninja curl
-  }
-  $src = (Join-Path (ghq root) "/github.com/neovim/neovim")
-  if (Test-Path $src)
-  {
-    Push-Location $src
-    git pull
-    if (Test-Path build)
-    {
-      rmrf .deps
-      rmrf build
-    }
-  } else
-  {
-    ghq get https://github.com/neovim/neovim
-    Push-Location $src
-  }
-
-  cmake -G Ninja -S cmake.deps -B .deps -DCMAKE_BUILD_TYPE=Release
-  cmake --build .deps
-  cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release
-  cmake --build build
-  cmake --install build --prefix $NVIM_PREFIX
-  Pop-Location
 }
 
 function Install-rust
