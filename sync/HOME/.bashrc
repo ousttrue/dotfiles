@@ -7,6 +7,10 @@
 
 export _BASHRC_=1
 
+if [ -f "$HOME/.asdf/completions/asdf.bash" ];then
+  . "$HOME/.asdf/completions/asdf.bash"
+fi
+
 function share_history {
 	history -a
 	history -c

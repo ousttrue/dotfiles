@@ -158,10 +158,13 @@ if ($IsWindows)
 }
 
 # asdf
-$ASDF = Join-Path $env:HOME ".asdf/asdf.ps1"
-if (Test-Path $ASDF)
+function Load-Asdf
 {
-  . "${ASDF}"
+  $ASDF = Join-Path $HOME ".asdf/asdf.ps1"
+  if (Test-Path $ASDF)
+  {
+    . $ASDF
+  }
 }
 
 $SEP = [System.IO.Path]::DirectorySeparatorChar

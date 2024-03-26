@@ -86,7 +86,11 @@ function M.setup()
         config.bundle_path = vim.env.HOME .. "/.local/share/nvim/mason/packages/powershell-editor-services/"
       end
     elseif server_name == "elixirls" then
-      config.cmd = { vim.env.LOCALAPPDATA .. "/nvim-data/mason/bin/elixir-ls.cmd" }
+      if vim.fn.has "win32" == 1 then
+        config.cmd = { vim.env.LOCALAPPDATA .. "/nvim-data/mason/bin/elixir-ls.cmd" }
+      else
+        config.cmd = { "bash", "-c", vim.env.HOME .. "/.local/share/nvim/mason/bin/elixir-ls" }
+      end
     elseif server_name == "zls" then
       if vim.fn.has "win32" == 1 then
         config.cmd = { vim.env.HOME .. "/ghq/github.com/zigtools/zls/zig-out/bin/zls.exe" }
