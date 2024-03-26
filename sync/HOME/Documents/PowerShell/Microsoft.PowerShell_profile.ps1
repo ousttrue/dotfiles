@@ -14,6 +14,12 @@ $env:XDG_CONFIG_HOME = "$HOME/.config"
 
 $NVIM_PREFIX = Join-Path $HOME "neovim"
 
+function profiling
+{
+  # "Install-Module -Name psprofiler -Scope CurrentUser -AllowPrerelease -Force"
+  pwsh.exe -NoProfile -Command {Measure-Script -path $profile -Top 5}
+}
+
 function is_dir($path)
 {
   try

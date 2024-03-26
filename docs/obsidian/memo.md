@@ -12,10 +12,22 @@
 - zoxide
 - golang
 
+- [ ] powershell の分割
+
+## lsp
+
+- [[lsp]]
+
 ## prefix
 
 [[glib]]
 [[font_build]]
+
+## os
+
+## backend
+
+- [[elixir]]
 
 ## frontend
 
