@@ -13,6 +13,9 @@ Set-alias vswhere "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswh
 
 $env:_CL_ = "/utf-8"
 $env:XDG_CONFIG_HOME = "$HOME/.config"
+if($IsWindows){
+  $env:PSModulePath = "$HOME\.local\share\powershell\Modules;${env:PSModulePath}" 
+}
 
 function TouchDir($dir)
 {
