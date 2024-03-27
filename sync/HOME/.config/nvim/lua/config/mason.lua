@@ -92,9 +92,9 @@ function M.setup()
         config.cmd = { "bash", "-c", vim.env.HOME .. "/.local/share/nvim/mason/bin/elixir-ls" }
       end
     elseif server_name == "zls" then
-      if vim.fn.has "win32" == 1 then
-        config.cmd = { vim.env.HOME .. "/ghq/github.com/zigtools/zls/zig-out/bin/zls.exe" }
-      end
+      -- if vim.fn.has "win32" == 1 then
+      --   config.cmd = { vim.env.HOME .. "/ghq/github.com/zigtools/zls/zig-out/bin/zls.exe" }
+      -- end
     end
     -- if vim.fn.executable "vala-language-server" == 1 then
     --   require("lspconfig").vala_ls.setup {}

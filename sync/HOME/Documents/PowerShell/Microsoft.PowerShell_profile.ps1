@@ -526,6 +526,7 @@ function Get-Python
 {
   py -c "import sys; print(sys.base_prefix)"
 }
+Set-alias zig (Join-Path (Get-Python) "lib/site-packages/ziglang/zig")
 
 # addPath(Join-Path (Get-Path "msys") "mingw64\bin")
 addPath(Join-Path $HOME "\ghq\github.com\junegunn\fzf\bin")
