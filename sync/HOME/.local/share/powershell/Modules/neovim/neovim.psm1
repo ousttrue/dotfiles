@@ -1,9 +1,6 @@
 $NVIM_PREFIX = Join-Path $HOME "neovim"
 
-function v
-{
-  &"$NVIM_PREFIX\bin\nvim" $args
-}
+Set-Alias v (Join-Path $NVIM_PREFIX "\bin\nvim")
 
 function Install-nvim
 {
