@@ -1,11 +1,11 @@
 local M = {}
 
 function get_muon()
-  if vim.fn.has "win32" == 1 then
-    return "D:\\msys64\\usr\\bin\\muon.exe"
-  else
+  -- if vim.fn.has "win32" == 1 then
+  --   return "D:\\msys64\\usr\\bin\\muon.exe"
+  -- else
     return "muon"
-  end
+  -- end
 end
 
 function get_clang_format()
