@@ -227,7 +227,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">PHP</span></code> @2022 <a class="reference external" href="https://inside.pixiv.blog/2022/07/21/103000">vite で最高の開発体験を手に入れる - pixiv inside</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://trap.jp/post/1549/">350行でつくるVite⚡ | 東京工業大学デジタル創作同好会traP</a></p></li>
 </ul>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">normalizePath</span><span class="p">,</span> <span class="nx">createFilter</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'vite'</span>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">normalizePath</span><span class="p">,</span> <span class="nx">createFilter</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">"vite"</span><span class="p">;</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -238,6 +238,9 @@
 <h1>Version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <section id="id1">
 <h2>5<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://vitejs.dev/blog/announcing-vite5?ref=storybookblog.ghost.io">Vite 5.0 is out! | Vite</a></p></li>
+</ul>
 </section>
 <section id="id2">
 <h2>4<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -265,8 +268,8 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">vite.config.js</span></code></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">defineConfig</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'vite'</span>
-<span class="k">import</span> <span class="nx">react</span> <span class="kr">from</span> <span class="s1">'@vitejs/plugin-react'</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">defineConfig</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">"vite"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">react</span> <span class="kr">from</span> <span class="s2">"@vitejs/plugin-react"</span><span class="p">;</span>
 <span class="k">import</span> <span class="nx">path</span> <span class="kr">from</span> <span class="s2">"node:path"</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">fileURLToPath</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">"node:url"</span><span class="p">;</span>
 <span class="kd">const</span> <span class="nx">__filename</span> <span class="o">=</span> <span class="nx">fileURLToPath</span><span class="p">(</span><span class="k">import</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
@@ -274,25 +277,27 @@
 
 <span class="c1">// https://vitejs.dev/config/</span>
 <span class="k">export</span> <span class="k">default</span> <span class="nx">defineConfig</span><span class="p">({</span>
-  <span class="nx">root</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'client'</span><span class="p">),</span>
+  <span class="nx">root</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">"client"</span><span class="p">),</span>
   <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="nx">react</span><span class="p">()],</span>
-<span class="p">})</span>
+<span class="p">});</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">index.html</span></code></p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"root"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"module"</span> <span class="na">src</span><span class="o">=</span><span class="s">"./main.tsx"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"root"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"module"</span> <span class="na">src</span><span class="o">=</span><span class="s">"./main.tsx"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">main.tsx</span></code></p>
-<div class="highlight-tsx notranslate"><div class="highlight"><pre><span></span>import React from 'react';
-import ReactDOM from 'react-dom/client';
+<div class="highlight-tsx notranslate"><div class="highlight"><pre><span></span>import React from "react";
+import ReactDOM from "react-dom/client";
 function App() {
-  return (&lt;&gt;
-    &lt;div&gt;Hello&lt;/div&gt;
-  &lt;/&gt;)
+  return (
+    &lt;&gt;
+      &lt;div&gt;Hello&lt;/div&gt;
+    &lt;/&gt;
+  );
 }
-ReactDOM.createRoot(document.getElementById('root')!).render(&lt;App /&gt;);
+ReactDOM.createRoot(document.getElementById("root")!).render(&lt;App /&gt;);
 </pre></div>
 </div>
 </section>

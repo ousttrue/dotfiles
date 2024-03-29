@@ -10,7 +10,7 @@ https://github.com/antfu/vite-plugin-inspect
 - @2022 [350行でつくるVite⚡ | 東京工業大学デジタル創作同好会traP](https://trap.jp/post/1549/)
 
 ```ts
-import { normalizePath, createFilter } from 'vite'
+import { normalizePath, createFilter } from "vite";
 ```
 
 - @2022 [Viteの本番バンドルファイルを可視化する #TypeScript - Qiita](https://qiita.com/KokiSakano/items/bda906acdd95e8923b03)
@@ -18,21 +18,28 @@ import { normalizePath, createFilter } from 'vite'
 - [Viteで使うRollupプラグインの作り方と便利に使っている自作プラグインの解説 #vite - Qiita](https://qiita.com/NanimonoDaemon/items/26e075d20451bd2a00ae)
 
 # Version
+
 ## 5
+
+- @2023 [Vite 5.0 is out! | Vite](https://vitejs.dev/blog/announcing-vite5?ref=storybookblog.ghost.io)
 
 ## 4
 
 # use
+
 vue ?
 
 ## plugin
+
 [[Svelte]] `vite dev`
 [[vike]] `vite dev`
 
 ## as lib
+
 [[minista]] `minista dev`
 
 # setup
+
 ```
 > npm create vite@latest
 
@@ -41,9 +48,10 @@ vue ?
 ```
 
 `vite.config.js`
+
 ```js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
@@ -51,27 +59,31 @@ const __dirname = path.dirname(__filename);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  root: path.join(__dirname, 'client'),
+  root: path.join(__dirname, "client"),
   plugins: [react()],
-})
+});
 ```
 
 `index.html`
+
 ```html
-    <div id="root"></div>
-    <script type="module" src="./main.tsx"></script>
+<div id="root"></div>
+<script type="module" src="./main.tsx"></script>
 ```
 
 `main.tsx`
+
 ```tsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 function App() {
-  return (<>
-    <div>Hello</div>
-  </>)
+  return (
+    <>
+      <div>Hello</div>
+    </>
+  );
 }
-ReactDOM.createRoot(document.getElementById('root')!).render(<App />);
+ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
 ```
 
 # Typescript + React
@@ -81,11 +93,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(<App />);
 - `vite@latest` `build.rollupOptions` @2023 [フロントエンドの開発環境にVite ＋ TypeScriptを導入する](https://designsupply-web.com/media/programming/7578/)
 - `react` @2022 [Vite with TypeScript](https://www.robinwieruch.de/vite-typescript/)
 - `vite@latest` @2022 [ViteでReact + TypeScript + TailwindCSSの環境構築をする](https://zenn.dev/sikkim/articles/93bf99d8588e68)
-`> npm create vite@latest`
+  `> npm create vite@latest`
 - `vue3` `vitejs@app` @2022 [ViteでVue3のTypescript環境を構築する | miyauci.me](https://miyauchi.dev/ja/posts/vite-vue3-typescript/)
 - `vite` @2022 [Vite + React + TypeScript でプロジェクトを立ち上げる | For](https://for.kobayashiii.dev/articles/9jv5qclmgm7k)
 
 [GitHub - vitejs/vite-plugin-react-pages: A vite framework for building react app. Especially suitable for document site and demos/playgrounds of react components.](https://github.com/vitejs/vite-plugin-react-pages)
 
 # copy
+
 [Viteのvite-plugin-static-copyで特定のファイルをコピーする方法 | iwb.jp](https://iwb.jp/vite-plugin-static-copy-npm-run-build-config/)
