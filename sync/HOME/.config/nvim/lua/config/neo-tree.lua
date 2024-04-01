@@ -21,6 +21,7 @@ local M = {
       ".textlintrc",
       ".vitepress",
       ".vscode",
+      ".storybook",
     }
 
     local function open_all_subnodes(state)
