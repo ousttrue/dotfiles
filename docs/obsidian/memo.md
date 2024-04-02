@@ -57,3 +57,19 @@ https://nextra.site/
 - MR
 
 - https://github.com/takahirox/tiny-web-metaverse
+
+## gui widgets
+
+- tree: select / add / remove
+  - context menu
+- inspector
+  - T: position
+  - R: rotation
+  - S: scale
+- gizmo
+
+### layout
+
+- splitter
+- dock
+
