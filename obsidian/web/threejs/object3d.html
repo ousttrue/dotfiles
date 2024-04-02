@@ -220,6 +220,10 @@
         <article role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="three-object3d">
 <h1>THREE.Object3D<a class="headerlink" href="#three-object3d" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<blockquote>
+<div><p>Object3D.matrix is automatically computed based on Object3D.position, Object3D.rotation and Object3D.scale. You can disable this by setting Object3D.matrixAutoUpdate 44 to false.
+BTW: Object3D.applyMatrix4() multiplies the given matrix with the existing local one. This is something different than just setting a new matrix. In any event, Object3D.applyMatrix4() also updates Object3D.position, Object3D.rotation and Object3D.scale.</p>
+</div></blockquote>
 <section id="set-matrix">
 <h2>set matrix<a class="headerlink" href="#set-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
