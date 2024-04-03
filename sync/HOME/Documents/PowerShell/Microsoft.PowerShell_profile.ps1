@@ -11,6 +11,9 @@ Set-Alias ? Where-Object
 
 Set-alias vswhere "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe"
 
+$NVIM_PREFIX = Join-Path $HOME "neovim"
+Set-Alias v (Join-Path $NVIM_PREFIX "\bin\nvim")
+
 $env:_CL_ = "/utf-8"
 $env:XDG_CONFIG_HOME = "$HOME/.config"
 if($IsWindows)

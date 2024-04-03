@@ -1,8 +1,4 @@
-$NVIM_PREFIX = Join-Path $HOME "neovim"
-
-Set-Alias v (Join-Path $NVIM_PREFIX "\bin\nvim")
-
-function Install-nvim
+function Install-nvim($prefix = $NVIM_PREFIX)
 {
   # https://github.com/neovim/neovim/blob/master/BUILD.md#build-prerequisites
   if (has brew)
@@ -45,7 +41,7 @@ function Install-nvim
   cmake --build .deps
   cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release
   cmake --build build
-  cmake --install build --prefix $NVIM_PREFIX
+  cmake --install build --prefix $prefix
   Pop-Location
 }
 
