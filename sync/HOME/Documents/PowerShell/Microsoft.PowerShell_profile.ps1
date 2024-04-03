@@ -185,16 +185,6 @@ if ($IsWindows)
   $EXE = ""
 }
 
-# asdf
-function Load-Asdf
-{
-  $ASDF = Join-Path $HOME ".asdf/asdf.ps1"
-  if (Test-Path $ASDF)
-  {
-    . $ASDF
-  }
-}
-
 $SEP = [System.IO.Path]::DirectorySeparatorChar
 $env:FZF_DEFAULT_OPTS = "--layout=reverse --preview-window down:70%"
 $env:LUA_PATH = "${HOME}${SEP}lua${SEP}?.lua;${HOME}${SEP}lua${SEP}?${SEP}init.lua"
@@ -1145,6 +1135,7 @@ function Install-font
   fc-cache -fv
 }
 
+# https://zenn.dev/ciffelia/articles/c394962a8f188a
 function fapt
 {
   $result = apt list | cut -d "/" -f 1 | fzf --preview "apt-cache show {}"
@@ -1515,4 +1506,34 @@ function Edit-Dotfiles
 {
   Set-Location (Get-Path "dot")
   v
+}
+
+function Set-Apt-Mirror
+{
+  if(Test-Path /etc/apt/sources.list.bak)
+  {
+    Get-Item /etc/apt/sources.list.bak
+  } else
+  {
+    sudo sed -i.bak -r 's@http://(jp\.)?archive\.ubuntu\.com/ubuntu/?@https://ftp.udx.icscoe.jp/Linux/ubuntu/@g' /etc/apt/sources.list
+  }
+}
+
+$ASDF_DIR = Join-Path $HOME ".asdf"
+$ASDF = Join-Path $ASDF_DIR "asdf.ps1"
+function Install-asdf
+{
+  if(Test-Path $ASDF_DIR)
+  {
+    Get-Item $ASDF_DIR
+  } else
+  {
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+  }
+  . $ASDF
+}
+# asdf
+if(Test-Path $ASDF)
+{
+  . $ASDF
 }
