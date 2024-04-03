@@ -13,6 +13,10 @@ aliases: [LanguageServerProtocol]
 
 - @2022 [言語サーバープロトコルの概要 - Visual Studio (Windows) | Microsoft Docs](https://docs.microsoft.com/ja-jp/visualstudio/extensibility/language-server-protocol?view=vs-2022)
 
+# 中文
+
+- https://github.com/iamcco/ds-pinyin-lsp
+
 # tutorial
 
 - [Language Server Extension Guide | Visual Studio Code Extension API](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide)
