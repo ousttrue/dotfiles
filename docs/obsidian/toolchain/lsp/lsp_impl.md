@@ -16,9 +16,9 @@
 
 ## MS
 
-https://github.com/microsoft/vscode-languageserver-node
+- [Example language server - vscode-docs](https://vscode-docs.readthedocs.io/en/latest/extensions/example-language-server/)
 
-- https://vscode-docs.readthedocs.io/en/latest/extensions/example-language-server/
+https://github.com/microsoft/vscode-languageserver-node
 
 ## tinylang
 
@@ -27,3 +27,7 @@ https://github.com/microsoft/vscode-languageserver-node
 # deno
 
 - `deno` @2023 [Language Server Protocol の仕様 及び実装方法](https://zenn.dev/mtshiba/books/language_server_protocol)
+
+# go
+
+- https://tamerlan.dev/how-to-build-a-language-server-with-go/

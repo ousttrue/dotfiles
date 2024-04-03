@@ -41,4 +41,5 @@
         "editor.defaultFormatter": "vscode.html-language-features"
     },
     "vala.languageServerPath": "D:/msys64/mingw64/bin/vala-language-server.exe",
+    "C_Cpp.intelliSenseEngine": "disabled",
 }
