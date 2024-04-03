@@ -13,7 +13,8 @@ Set-alias vswhere "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswh
 
 $env:_CL_ = "/utf-8"
 $env:XDG_CONFIG_HOME = "$HOME/.config"
-if($IsWindows){
+if($IsWindows)
+{
   $env:PSModulePath = "$HOME\.local\share\powershell\Modules;${env:PSModulePath}" 
 }
 
@@ -524,8 +525,18 @@ function addPath($path)
 
 function Get-Python
 {
-  py -c "import sys; print(sys.base_prefix)"
+  if($IsWindows)
+  {
+    py -c "import sys; print(sys.base_prefix)"
+  } elseif(has python)
+  {
+    python -c "import sys; print(sys.base_prefix)"
+  } elseif(has python3)
+  {
+    python3 -c "import sys; print(sys.base_prefix)"
+  }
 }
+
 Set-alias zig (Join-Path (Get-Python) "lib/site-packages/ziglang/zig")
 
 # addPath(Join-Path (Get-Path "msys") "mingw64\bin")
