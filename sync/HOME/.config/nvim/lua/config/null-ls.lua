@@ -4,7 +4,7 @@ function get_muon()
   -- if vim.fn.has "win32" == 1 then
   --   return "D:\\msys64\\usr\\bin\\muon.exe"
   -- else
-    return "muon"
+  return "muon"
   -- end
 end
 
@@ -79,7 +79,7 @@ function M.setup()
       -- null_ls.builtins.formatting.cmake_format,
       --
       null_ls.builtins.formatting.prettier.with {
-        filetypes = { "markdown", "mdx" },
+        filetypes = { "html", "markdown", "mdx" },
       },
       -- null_ls.builtins.formatting.tidy,
       null_ls.builtins.formatting.shfmt.with {

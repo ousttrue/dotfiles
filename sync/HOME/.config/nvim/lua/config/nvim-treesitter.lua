@@ -236,6 +236,8 @@ function M.setup()
       --   link_destination [10, 118] - [10, 187]
       --
       return ts_utils.get_next_node(node)
+    elseif node_type == "link_destination" then
+      return node
     end
 
     print(node_type)
