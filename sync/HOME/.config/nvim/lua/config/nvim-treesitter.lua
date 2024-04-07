@@ -101,13 +101,13 @@ function M.setup()
     -- ensure_installed = "all",
     ensure_installed = langs,
 
-    indent = {
-      enable = true,
-      disable = {
-        "c",
-        "cpp",
-      },
-    },
+    -- indent = {
+    --   enable = true,
+    --   -- disable = {
+    --   --   "c",
+    --   --   "cpp",
+    --   -- },
+    -- },
 
     -- Install languages synchronously (only applied to `ensure_installed`)
     -- sync_install = true,

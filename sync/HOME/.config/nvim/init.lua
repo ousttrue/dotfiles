@@ -31,6 +31,9 @@ local function init_nvim()
   opt.number = true --Make line numbers default
   -- opt.relativenumber = true --Make relative number default
   opt.mouse = "a" --Enable mouse mode
+  opt.smartindent = false
+  opt.autoindent = false
+  opt.cindent = false
   opt.breakindent = true --Enable break indent
   opt.ignorecase = true --Case insensitive searching unless /C or capital in search
   opt.smartcase = true -- Smart case
