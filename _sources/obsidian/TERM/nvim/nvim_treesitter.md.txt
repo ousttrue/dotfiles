@@ -99,6 +99,10 @@ Legend: H[ighlight], L[ocals], F[olds], I[ndents], In[j]ections
 - https://github.com/nvim-treesitter/nvim-treesitter/blob/master/queries/markdown/injections.scm
 - https://github.com/tree-sitter/tree-sitter-html/blob/master/queries/injections.scm## PlayGround
 
+## indents
+
+- [NeovimビルトインのインデントとLSPのDocumentFormatの挙動の違いに辟易としたら :: s1ck h4ck ](https://4nm1tsu.com/posts/a8ipkgi/#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE)
+
 # install 先
 
 - prebuilt
