@@ -27,6 +27,8 @@ function M.setup()
   -- local capabilities =
   --   vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), require("epo").register_cap())
 
+  require("lspconfig").qmlls.setup {}
+
   -- require("lspconfig.lua_ls").setup(lspconfig, capabilities, on_attach)
 
   -- if true then

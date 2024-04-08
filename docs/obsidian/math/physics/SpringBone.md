@@ -22,3 +22,17 @@
 - [SpringBone 第 1 回 物理シミュレーションに付きまとう「暴れ現象」を抑制する方法](https://note.colopl.dev/n/n8fd987878d51)
 - [SpringBone 第 2 回 Spring Bone で布表現をする方法と、謎の距離制限について](https://note.colopl.dev/n/n137afb8296e5)
 - [SpringBone 第 3 回 右手？左手？角度制限と Maya FBX](https://note.colopl.dev/n/n901df3b9d8b8)
+
+# memo
+
+masspoint
+
+## from bone
+
+- 横方向の拘束を定義
+- list
+- ring
+
+## from vertex
+
+- 非稼動頂点に印が必要(頂点色？)
