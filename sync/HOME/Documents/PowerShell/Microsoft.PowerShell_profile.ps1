@@ -1061,7 +1061,7 @@ function Extract($archive, $outdir)
 
   if($(Split-Path -Extension $extract) -eq ".tar")
   {
-    $extract = $(Get-Item $extract).BaseName
+    $extract = Join-Path $(Split-Path -Parent $extract) $(Split-Path -LeafBase $extract)
     write-host "extract: [$extract]"
 
     Push-Location $outdir
@@ -1238,6 +1238,7 @@ function Install-exe($src, $dst)
   Copy-Item $src $dst -Force
 }
 
+# m4
 function Install-flex($prefix)
 {
   $url = "https://github.com/lexxmark/winflexbison/releases/download/v2.5.25/win_flex_bison-2.5.25.zip"
@@ -1353,9 +1354,8 @@ function Install-cairo($prefix)
   Pop-Location
 }
 
-function Install-gst
+function Install-gst($prefix)
 {
-  $prefix = "$HOME/local"
   ghq get https://github.com/GStreamer/gstreamer
   Push-Location (Join-Path (ghq root) "github.com\GStreamer/gstreamer")
   Get-Location
@@ -1363,18 +1363,18 @@ function Install-gst
   {
     Remove-Item -Recurse -Force builddir
   }
-  meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dbad=disabled
   meson install -C builddir
   Pop-Location
 }
 
 function Install-gtk($prefix)
 {
-  Install-glib $prefix
-  Install-pkgconfig $prefix
-  Install-gobjecgt-introspection $prefix
-  Install-glib $prefix
-  Install-cairo $prefix
+  # Install-glib $prefix
+  # Install-pkgconfig $prefix
+  # Install-gobjecgt-introspection $prefix
+  # Install-glib $prefix
+  # Install-cairo $prefix
 
   $repos = "github.com/GNOME/gtk"
   ghq get $repos
@@ -1387,6 +1387,15 @@ function Install-gtk($prefix)
   meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false
   meson install -C builddir
   Pop-Location
+}
+
+function Install-gtkmm($prefix)
+{
+  # doxygen
+  # graphviz
+  # cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release -Dwith_gvedit=OFF
+  # cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release -DLIBXML2_WITH_ICONV=OFF -DLIBXML2_WITH_LZMA=OFF -DLIBXML2_WITH_ZLIB=OFF -DLIBXML2_WITH_PYTHON=OFF
+  # cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release -DLIBXSLT_WITH_PYTHON=OFF
 }
 
 function Install-pygobject($prefix)
@@ -1499,6 +1508,7 @@ function Install-ruby
   Pop-Location
 }
 
+# https://doc.qt.io/qt-6/windows-building.html
 function Install-qt
 {
   param(
@@ -1509,6 +1519,14 @@ function Install-qt
   New-Item $src -ItemType Directory -ErrorAction SilentlyContinue
   $archive = Download "https://download.qt.io/archive/qt/6.7/6.7.0/single/qt-everywhere-src-6.7.0.tar.xz" $src
   Extract $archive $src 
+
+  $build = Join-Path $prefix "build"
+  New-Item $build -ItemType Directory -ErrorAction SilentlyContinue
+  Push-Location $build
+  ../src/qt-everywhere-src-6.7.0/configure.bat -prefix $prefix -make examples -debug-and-release 
+  cmake --build . --parallel
+  cmake --install .
+  Pop-Location
 }
 
 function Set-Prefix($prefix)
