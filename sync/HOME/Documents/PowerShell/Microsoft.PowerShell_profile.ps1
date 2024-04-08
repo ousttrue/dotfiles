@@ -1539,7 +1539,7 @@ function Set-Apt-Mirror
     Get-Item /etc/apt/sources.list.bak
   } else
   {
-    sudo sed -i.bak -r 's@http://(jp\.)?archive\.ubuntu\.com/ubuntu/?@https://ftp.udx.icscoe.jp/Linux/ubuntu/@g' /etc/apt/sources.list
+    sudo bash -c "sed -i.bak -r 's@http://(jp\.)?archive\.ubuntu\.com/ubuntu/?@https://ftp.udx.icscoe.jp/Linux/ubuntu/@g' /etc/apt/sources.list"
   }
 }
 
