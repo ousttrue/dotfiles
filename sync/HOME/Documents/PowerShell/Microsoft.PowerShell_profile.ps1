@@ -29,13 +29,13 @@ function TouchDir($dir)
   }
 }
 
-function Download($url, $dst)
+function Download($url, [System.IO.DirectoryInfo]$dst)
 {
   $archive = ""
   if(Test-Path -PathType Container $dst)
   {
     $leaf = Split-Path -Leaf $url
-    $archive = Join-Path $archive $leaf
+    $archive = Join-Path $dst $leaf
   } else
   {
     $archive = $dst
@@ -1058,11 +1058,23 @@ function Remove-Git-RemoteBranch
 function Extract($archive, $outdir)
 {
   $extract = Join-Path $outdir (Split-Path -LeafBase $archive)
-  write-host "extract: [$extract]"
-  if (!(Test-Path $extract))
+
+  if($(Split-Path -Extension $extract) -eq ".tar")
   {
-    # Install-Module -Name 7Zip4Powershell
-    Expand-7Zip $archive $extract
+    $extract = $(Get-Item $extract).BaseName
+    write-host "extract: [$extract]"
+
+    Push-Location $outdir
+    tar xf $archive
+    Pop-Location
+  } else
+  {
+    write-host "extract: [$extract]"
+    if (!(Test-Path $extract))
+    {
+      # Install-Module -Name 7Zip4Powershell
+      Expand-7Zip $archive $extract
+    }
   }
   $extract
 }
@@ -1485,6 +1497,18 @@ function Install-ruby
   tar xf "ruby-3.3.0.tar.gz"
   Push-Location ruby-3.3.0
   Pop-Location
+}
+
+function Install-qt
+{
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
+  $src = Join-Path $prefix "src"
+  New-Item $src -ItemType Directory -ErrorAction SilentlyContinue
+  $archive = Download "https://download.qt.io/archive/qt/6.7/6.7.0/single/qt-everywhere-src-6.7.0.tar.xz" $src
+  Extract $archive $src 
 }
 
 function Set-Prefix($prefix)

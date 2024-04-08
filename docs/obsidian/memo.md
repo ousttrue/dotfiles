@@ -73,3 +73,13 @@ https://nextra.site/
 - splitter
 - dock
 
+# 不明瞭なfilepath
+
+```sh
+cp from to
+
+cp from to
+# or
+cp from to/(from.name)
+```
+
