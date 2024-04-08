@@ -2,7 +2,13 @@
 - [Index of /](https://download.qt.io/)
 
 # version
-## 6.5
+## 6.7 @202407
+
+- [Qt 6.7 リリース](https://www.qt.io/ja-jp/blog/qt-6.7-released)
+- https://doc.qt.io/qt-6/windows-building.html
+
+## 6.5 LTS
+
 - [Qt 6.5 Release - Qt Wiki](https://wiki.qt.io/Qt_6.5_Release)
 - [Qt 6.5 Beta Released](https://www.qt.io/blog/qt-6.5-beta-released)
 - [Building Qt 6 from Git - Qt Wiki](https://wiki.qt.io/Building_Qt_6_from_Git)
