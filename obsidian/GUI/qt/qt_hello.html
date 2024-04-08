@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Spring - shell note ドキュメント</title>
+        <title>&lt;no title&gt; - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,20 +212,48 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="spring">
-<h1>Spring<a class="headerlink" href="#spring" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[SpringBone]]</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="cloth">
-<h1>Cloth<a class="headerlink" href="#cloth" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>[[ClothSimulation|Cloth]]</p>
-</section>
+          <p>qt6, meson, qml</p>
+<p>https://theolizer.com/cpp-school4/cpp-school4-4/</p>
+<p>c++ で QML を host できた。
+qml を resource(qrc) として埋め込み。</p>
+<div class="highlight-meson notranslate"><div class="highlight"><pre><span></span><span class="nb">project</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">'qt-hello'</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">'cpp'</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">default_options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s">'cpp_std=c++latest'</span><span class="p">],</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="n">qt6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">import</span><span class="p">(</span><span class="s">'qt6'</span><span class="p">)</span><span class="w"></span>
+<span class="n">qt6_dep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">dependency</span><span class="p">(</span><span class="s">'qt6'</span><span class="p">,</span><span class="w"> </span><span class="n">modules</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s">'Core'</span><span class="p">,</span><span class="w"> </span><span class="s">'Gui'</span><span class="p">,</span><span class="w"> </span><span class="s">'Widgets'</span><span class="p">,</span><span class="w"> </span><span class="s">'Qml'</span><span class="p">,</span><span class="w"> </span><span class="s">'Quick'</span><span class="p">])</span><span class="w"></span>
+<span class="c"># inc = include_directories('includes')</span><span class="w"></span>
+<span class="c"># moc_files = qt6.compile_moc(</span><span class="w"></span>
+<span class="c">#     headers: 'myclass.h',</span><span class="w"></span>
+<span class="c">#     extra_arguments: ['-DMAKES_MY_MOC_HEADER_COMPILE'],</span><span class="w"></span>
+<span class="c">#     include_directories: inc,</span><span class="w"></span>
+<span class="c">#     dependencies: qt6_dep,</span><span class="w"></span>
+<span class="c"># )</span><span class="w"></span>
+<span class="c"># translations = qt6.compile_translations(</span><span class="w"></span>
+<span class="c">#     ts_files: 'myTranslation_fr.ts',</span><span class="w"></span>
+<span class="c">#     build_by_default: true,</span><span class="w"></span>
+<span class="c"># )</span><span class="w"></span>
+<span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qt6</span><span class="p">.</span><span class="n">compile_resources</span><span class="p">(</span><span class="n">sources</span><span class="p">:</span><span class="w"> </span><span class="s">'main.qrc'</span><span class="p">)</span><span class="w"></span>
+<span class="nb">executable</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">'myprog'</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">'main.cpp'</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">rc</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c"># 'myclass.cpp',</span><span class="w"></span>
+<span class="w">    </span><span class="c"># moc_files,</span><span class="w"></span>
+<span class="w">    </span><span class="c"># include_directories: inc,</span><span class="w"></span>
+<span class="w">    </span><span class="n">dependencies</span><span class="p">:</span><span class="w"> </span><span class="n">qt6_dep</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">install</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
 
         </article>
       </div>
@@ -240,7 +268,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/math/physics/MassSpringDumperSystem.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/GUI/qt/qt_hello.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -248,25 +276,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Spring</a></li>
-<li><a class="reference internal" href="#cloth">Cloth</a></li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

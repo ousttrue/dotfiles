@@ -1,5 +1,7 @@
 # mass-spring-damper model
 
+- https://github.com/ArturoNereu/ClothSim
+
 `質点バネモデル`
 
 - `大学課題` [https://marina.sys.wakayama-u.ac.jp/~tokoi/seminar1/seminar1b.pdf](https://marina.sys.wakayama-u.ac.jp/~tokoi/seminar1/seminar1b.pdf)
