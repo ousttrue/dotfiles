@@ -226,177 +226,7 @@ Set-PSReadLineKeyHandler -Key "alt+r" -ScriptBlock {
 # [System.Console]::ReadKey()
 Set-PSReadlineKeyHandler -Key 'Ctrl+Oem4' -Function RevertLine
 
-#
-# prompt
-#
-$IconMap = @{
-  dotfiles             = " "
-  obsidian             = "📚"
-  rtc_memo             = "⚡"
-  UniVRM               = " "
-  minixr               = " "
-  "ousttrue.github.io" = " "
-  cmake_book           = "📙"
-  blender_book         = "📙"
-  lbsm                 = "🐵"
-  "gltf-samples"       = "🗿"
-}
 
-function get_git_status()
-{
-  git rev-parse --is-inside-work-tree 2>$null
-  if (!$?)
-  {
-    return $false
-  }
-
-  $lines = @(git status --porcelain --branch)
-  $sync = ""
-  if ($lines[0] -match "\[([^]]+)\]")
-  {
-    $splits = $Matches[1].split(', ')
-    for ($i = 0; $i -lt $splits.Length; $i++)
-    {
-      if ($splits[$i] -match "(\w+)\s+(\d+)")
-      {
-        $sync_status = $matches[1]
-        $n = $matches[2]
-        if ($sync_status -eq "behind")
-        {
-          $sync += " ${n}"
-        } elseif ($sync_status -eq "ahead")
-        {
-          $sync += " ${n}"
-        }
-      }
-    }
-  } else
-  {
-    $sync = " "
-  }
-
-  # A, M, D, ?, U, !, C, R
-  $status = @{
-  }
-  $iconMap = @{
-    "?" = " "
-    "M" = " "
-    "D" = " "
-    "R" = "↷ "
-  }
-  for ($i = 1; $i -lt $lines.Length; $i++)
-  {
-    $line = $lines[$i]
-    $key = $line.Substring(1, 1)
-    $status[$key] += 1
-  }
-  foreach ($key in $status.Keys)
-  {
-    $icon = $iconMap[$key]
-    if ([string]::IsNullOrWhiteSpace($icon))
-    {
-      $icon = $key
-    }
-    $sync += "${icon}$($status[$key])"
-  } 
- 
-  return $sync
-}
-
-function prompt()
-{
-  # TODO: git status
-  # TODO: project kind
-  # - dotfiles
-  # - ghq
-  # - lang
-  $color = $? ? "32" : "31";
-
-  $prefix = "🤔"
-  if ($IsWindows)
-  {
-    $prefix = " "
-  } elseif ($IsLinux)
-  {
-    $prefix = " "
-  } elseif ($IsMacOS)
-  {
-    $prefix = " "
-  }
-
-  $location = (Get-Item -force (Get-Location));
-  $title = $location.Name
-  if ($GHQ_ROOT -and $location.FullName.StartsWith($GHQ_ROOT.FullName + $SEP))
-  {
-    $location = $location.FullName.Substring($GHQ_ROOT.FullName.Length + 1)
-    if ($location.StartsWith( "github.com$()"))
-    {
-      $location = $location.Substring("github.com${SEP}".Length)
-      if ($location.StartsWith("ousttrue${SEP}"))
-      {
-        $location = " " + $location.Substring("ousttrue${SEP}".Length)
-      } else
-      {
-        $location = " " + $location
-      }
-    } else
-    {
-      $location = " " + $location
-    }
-  } 
-  # elseif ($IsWindows -and $location.FullName.StartsWith("$(Get-Path "blender")${SEP}"))
-  # {
-  #   $location = "🐵" + [System.IO.Path]::GetRelativePath((Get-Path "blender"), $location)
-  # } 
-  elseif ($location.FullName.StartsWith($HOME))
-  {
-    if ($location -eq $HOME)
-    {
-      $location = " "
-    } else
-    {
-      $location = " " + $location.FullName.Substring($HOME.Length)
-    }
-  }
-
-  # wezterm only
-  if ($env:TERM -eq "tmux-256color")
-  {
-    if ($IconMap[$title])
-    {
-      tmux rename-window $IconMap[$title]
-    } else
-    {
-      tmux rename-window $title
-    }
-  } else
-  {
-    if ($IconMap[$title])
-    {
-      $title = $IconMap[$title]
-    }
-  }
-
-  $sync = (get_git_status)
-  if ($sync)
-  {
-    $branch = $(git branch --show-current)
-    if ($branch)
-    {
-      $log = $(git log "--pretty=format: %cr   %s" -n 1)
-      $ref = (git rev-parse --abbrev-ref origin/HEAD).Split("/", 2)[1]
-      $branch_color = "`e[30m`e[42m";
-      if ($branch -ne $ref)
-      {
-        # red
-        $branch_color = "`e[30m`e[41m";
-      }
-      $branch = "${branch_color}  ${branch} `e[0m ${sync} ${log}"
-    }
-  } 
-
-  "`e]2;${title}$([char]0x07)${prefix}`e[7m${location}`e[0m${branch}`n`e[${color}m>`e[0m "
-}
 
 function ExecuteCommand ($vc_dir)
 { 
@@ -1539,18 +1369,6 @@ function Set-Prefix($prefix)
   $env:GI_EXTRA_BASE_DLL_DIRS = "$prefix\bin" 
 }
 
-function Edit-Docs
-{
-  Set-Location $docs
-  v
-}
-
-function Edit-Dotfiles
-{
-  Set-Location (Get-Path "dot")
-  v
-}
-
 function Set-Apt-Mirror
 {
   if(Test-Path /etc/apt/sources.list.bak)
@@ -1593,3 +1411,22 @@ function Install-godot
   $archive = Download $url $src
   Extract $archive $src 
 }
+
+# https://matsuand.github.io/docs.docker.jp.onthefly/engine/install/ubuntu/
+function Install-docker
+{
+  sudo apt-get update
+  sudo apt-get install ca-certificates curl gnupg lsb-release
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+  bash -c 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null'
+  sudo apt-get update
+  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+}
+
+function Start-docker-postgres
+{
+  # --rm: コンテナ終了時にコンテナ自動的に削除
+  docker run -d --rm -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres:16-alpine
+}
+
+Import-Module prompt
