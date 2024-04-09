@@ -231,6 +231,7 @@ Set-PSReadlineKeyHandler -Key 'Ctrl+Oem4' -Function RevertLine
 #
 $IconMap = @{
   dotfiles             = " "
+  obsidian             = "📚"
   rtc_memo             = "⚡"
   UniVRM               = " "
   minixr               = " "
@@ -1578,4 +1579,17 @@ function Install-asdf
 if(Test-Path $ASDF)
 {
   . $ASDF
+}
+
+function Install-godot
+{
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
+  $src = Join-Path $prefix "src"
+  New-Item $src -ItemType Directory -ErrorAction SilentlyContinue
+  $url = "https://github.com/godotengine/godot/releases/download/4.2.1-stable/godot-4.2.1-stable.tar.xz"
+  $archive = Download $url $src
+  Extract $archive $src 
 }

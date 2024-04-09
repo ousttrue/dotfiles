@@ -17,12 +17,12 @@ return {
   },
   { "sindrets/diffview.nvim" },
   { "rhysd/git-messenger.vim" },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("config.gitsigns").setup()
-    end,
-  },
+  -- {
+  --   "lewis6991/gitsigns.nvim",
+  --   config = function()
+  --     require("config.gitsigns").setup()
+  --   end,
+  -- },
   {
     "niuiic/git-log.nvim",
     dependencies = {
