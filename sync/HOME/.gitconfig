@@ -1,7 +1,7 @@
 [core]
     ; pager = less -cm
     pager = delta
-	autocrlf = false
+    autocrlf = false
 
 [user]
     email = ousttrue@gmail.com
@@ -13,9 +13,7 @@
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [init]
-	defaultBranch = master
-; [pager]
-; 	diff = false
+    defaultBranch = master
 
 
 [interactive]
