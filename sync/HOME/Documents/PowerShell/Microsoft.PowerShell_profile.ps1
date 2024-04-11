@@ -21,77 +21,6 @@ if($IsWindows)
   $env:PSModulePath = "$HOME\.local\share\powershell\Modules;${env:PSModulePath}" 
 }
 
-function TouchDir($dir)
-{
-  if(!(Test-Path -PathType Container $dir))
-  {
-    New-Item $dir -ItemType Directory -ErrorAction SilentlyContinue
-  }
-}
-
-function Download($url, [System.IO.DirectoryInfo]$dst)
-{
-  $archive = ""
-  if(Test-Path -PathType Container $dst)
-  {
-    $leaf = Split-Path -Leaf $url
-    $archive = Join-Path $dst $leaf
-  } else
-  {
-    $archive = $dst
-    TouchDir (Split-Path -Parent $dst)
-  }
-
-  if (!(Test-Path $archive))
-  {
-    Invoke-WebRequest -Uri $url -OutFile $archive -AllowInsecureRedirect
-  }
-  $archive
-}
-
-function Extract-Dependency([mymodule.Dependency]$definition)
-{
-  $archive = Join-Path (Get-Path "local-src") $definition.GetArchive();
-  Expand-Archive -Path $archive -DestinationPath (Split-Path -parent $archive)
-}
-
-function has($cmdname)
-{
-  try
-  {
-    # CmdletInfo | ApplicationInfo | AliasInfo | FunctionInfo
-    switch (Get-Command $cmdname -ErrorAction Stop)
-    {
-      { $_ -is [System.Management.Automation.AliasInfo] }
-      {
-        $_.Definition
-      }
-      { $_ -is [System.Management.Automation.ApplicationInfo] }
-      {
-        $_.Definition
-      }
-      { $_ -is [System.Management.Automation.CmdletInfo] }
-      {
-        $_
-      }
-      { $_ -is [System.Management.Automation.FunctionInfo] }
-      {
-        $_
-      }
-      default
-      {
-        $_.GetType()
-      }
-    }
-  } catch
-  {
-    return $false;
-  }
-}
-if (!(has 'which'))
-{
-  Set-Alias which has
-}
 function Get-Path([string]$type)
 {
   switch ($type)
@@ -155,6 +84,89 @@ function Get-Path([string]$type)
 $docs = Join-Path (Get-Path "dot") "docs/obsidian"
 
 $module_dir = Join-Path (Get-Path "dot") "psmodule\mymodule" 
+
+function download($url, [System.IO.DirectoryInfo]$dst)
+{
+  $archive = ""
+  if(Test-Path -PathType Container $dst)
+  {
+    $leaf = Split-Path -Leaf $url
+    $archive = Join-Path $dst $leaf
+  } else
+  {
+    $archive = $dst
+    New-Item (Split-Path -Parent $dst) -ItemType Directory -ErrorAction SilentlyContinue
+  }
+
+  if (!(Test-Path $archive))
+  {
+    Invoke-WebRequest -Uri $url -OutFile $archive -AllowInsecureRedirect
+  }
+  $archive
+}
+
+function extract($archive, $outdir)
+{
+  $extract = Join-Path $outdir (Split-Path -LeafBase $archive)
+
+  if($(Split-Path -Extension $extract) -eq ".tar")
+  {
+    $extract = Join-Path $(Split-Path -Parent $extract) $(Split-Path -LeafBase $extract)
+    write-host "extract: [$extract]"
+
+    Push-Location $outdir
+    tar xf $archive
+    Pop-Location
+  } else
+  {
+    write-host "extract: [$extract]"
+    if (!(Test-Path $extract))
+    {
+      # Install-Module -Name 7Zip4Powershell
+      Expand-7Zip $archive $extract
+    }
+  }
+  $extract
+}
+
+function has($cmdname)
+{
+  try
+  {
+    # CmdletInfo | ApplicationInfo | AliasInfo | FunctionInfo
+    switch (Get-Command $cmdname -ErrorAction Stop)
+    {
+      { $_ -is [System.Management.Automation.AliasInfo] }
+      {
+        $_.Definition
+      }
+      { $_ -is [System.Management.Automation.ApplicationInfo] }
+      {
+        $_.Definition
+      }
+      { $_ -is [System.Management.Automation.CmdletInfo] }
+      {
+        $_
+      }
+      { $_ -is [System.Management.Automation.FunctionInfo] }
+      {
+        $_
+      }
+      default
+      {
+        $_.GetType()
+      }
+    }
+  } catch
+  {
+    return $false;
+  }
+}
+if (!(has 'which'))
+{
+  Set-Alias which has
+}
+
 $dll_path = Join-Path $module_dir "bin\Debug\net8.0\mymodule.dll"
 if (!(Test-Path $dll_path))
 {
@@ -363,7 +375,6 @@ function Get-Python
 
 Set-alias zig (Join-Path (Get-Python) "lib/site-packages/ziglang/zig")
 
-# addPath(Join-Path (Get-Path "msys") "mingw64\bin")
 addPath(Join-Path $HOME "\ghq\github.com\junegunn\fzf\bin")
 addPath(Join-Path $HOME "\.fzf\bin")
 addPath(Join-Path $HOME "\.deno\bin")
@@ -805,25 +816,6 @@ function Download-Dependency([mymodule.Dependency]$definition)
   }
 }
 
-function Install-dependency
-{
-  $input
-  | ForEach-Object { 
-    $exe = Join-Path (Get-Path "local-src") $_.Exe
-    if (Test-Path $exe)
-    {
-      [void](Write-Host "$($_.Exe) exists")
-    } else
-    {
-      [void](Download-Dependency $_)
-      $_
-    }
-  }
-  | ForEach-Object {
-    [void](Extract-Dependency $_)
-  }
-}
-
 if (Test-Path "nvim")
 {
   $env:EDITOR = "nvim"
@@ -886,29 +878,6 @@ function Remove-Git-RemoteBranch
   }
 }
 
-function Extract($archive, $outdir)
-{
-  $extract = Join-Path $outdir (Split-Path -LeafBase $archive)
-
-  if($(Split-Path -Extension $extract) -eq ".tar")
-  {
-    $extract = Join-Path $(Split-Path -Parent $extract) $(Split-Path -LeafBase $extract)
-    write-host "extract: [$extract]"
-
-    Push-Location $outdir
-    tar xf $archive
-    Pop-Location
-  } else
-  {
-    write-host "extract: [$extract]"
-    if (!(Test-Path $extract))
-    {
-      # Install-Module -Name 7Zip4Powershell
-      Expand-7Zip $archive $extract
-    }
-  }
-  $extract
-}
 
 function Install-go
 {
@@ -1441,4 +1410,5 @@ function Custom-RightClick
   Stop-Process -Name explorer -Force
 }
 
-Import-Module prompt
+Import-Module prompt -ErrorAction SilentlyContinue
+
