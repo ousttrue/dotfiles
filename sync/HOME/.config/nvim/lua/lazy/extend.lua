@@ -1,10 +1,10 @@
 return {
   "folke/which-key.nvim",
-  {
-    "nvim-zh/colorful-winsep.nvim",
-    config = true,
-    event = { "WinNew" },
-  },
+  -- {
+  --   "nvim-zh/colorful-winsep.nvim",
+  --   config = true,
+  --   event = { "WinNew" },
+  -- },
   {
     "SmiteshP/nvim-navbuddy",
     dependencies = {

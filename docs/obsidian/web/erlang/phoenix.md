@@ -57,3 +57,9 @@ mix phx.server
 # webxr
 
 - [WebXR「Tiny Web Metaverse」のローカル環境構築｜【しばぱぱ三上】XRとAI関連のクリエイティブ情報](https://note.com/gugenkamikami/n/nf3dad69fdd1e)
+
+# ecsx
+
+- https://hexdocs.pm/ecsx/initial_setup.html
+
+
