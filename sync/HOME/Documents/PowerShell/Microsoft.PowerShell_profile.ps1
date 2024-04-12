@@ -1410,5 +1410,10 @@ function Custom-RightClick
   Stop-Process -Name explorer -Force
 }
 
+function Install-elixir
+{
+  sudo apt install inotify-tools
+}`
+
 Import-Module prompt -ErrorAction SilentlyContinue
 
