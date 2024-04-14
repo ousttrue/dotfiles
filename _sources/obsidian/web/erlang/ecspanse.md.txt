@@ -4,4 +4,4 @@ https://github.com/iacobson/ecspanse
 
 # tutorial
 
-- https://hexdocs.pm/ecspanse/tutorial.html
+- `わからん` https://hexdocs.pm/ecspanse/tutorial.html

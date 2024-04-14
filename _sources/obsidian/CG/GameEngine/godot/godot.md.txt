@@ -5,6 +5,11 @@
 
 - @2023 [Godot でゲーム開発がしてみたい](https://zenn.dev/frommiddle1/articles/godot-tutorial)
 - @2020 [今から始める『Godot Engine』](https://zenn.dev/saitos/articles/lets_start_godot_engine)
+- [NwSnKn｜note](https://note.com/nwsnkn/)
+
+- [ゲームエンジンGodotでテキストエディタを作る](https://zenn.dev/tkmfujise/articles/5651b342278e59)
+- https://github.com/AllenDang/model_explorer_godot4
+- https://github.com/habiter-app/elixir_mmorpg
 
 - [List of features — Godot Engine (latest) documentation in English](https://docs.godotengine.org/en/latest/about/list_of_features.html)
 - [GitHub - godotengine/godot-demo-projects: Demonstration and Template Projects](https://github.com/godotengine/godot-demo-projects)

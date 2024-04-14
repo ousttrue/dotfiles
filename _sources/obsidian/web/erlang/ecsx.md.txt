@@ -6,5 +6,7 @@
 
 ## ship
 
+https://hexdocs.pm/ecsx/initial_setup.html
+
 - https://github.com/ecsx-framework/ship
 - https://github.com/Teifion/ecsx_ship_tutorial
