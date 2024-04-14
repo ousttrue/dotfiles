@@ -1399,7 +1399,7 @@ function Start-docker-postgres
 }
 
 # https://qiita.com/www-tacos/items/d23b24f5af8687f2db88
-function Custom-RightClick
+function Windows-RightClick
 {
   $key = "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"
   if (! (Test-Path ${key}) )
