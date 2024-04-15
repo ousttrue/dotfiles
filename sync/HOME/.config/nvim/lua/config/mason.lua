@@ -49,17 +49,6 @@ function M.setup()
         client.server_capabilities.document_formatting = false
         on_attach(client, bufnr)
       end
-    elseif server_name == "jsonls" then
-      config.settings = {
-        json = {
-          -- schemas = require("schemastore").json.schemas(),
-          schemas = {
-            { fileMatch = { "package.json" }, url = "https://json.schemastore.org/package.json" },
-            { fileMatch = { "tsconfig*.json" }, url = "https://json.schemastore.org/tsconfig.json" },
-          },
-          validate = { enable = true },
-        },
-      }
     elseif server_name == "denols" then
       -- lspconfig.denols.setup {
       --   root_dir = lspconfig.util.root_pattern "deno.json",

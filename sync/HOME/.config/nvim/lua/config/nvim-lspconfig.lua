@@ -94,19 +94,16 @@ function M.setup()
   --   capabilities = capabilities,
   -- }
 
-  -- require("lspconfig").jsonls.setup {
-  --   capabilities = capabilities,
-  --   settings = {
-  --     json = {
-  --       -- schemas = require("schemastore").json.schemas(),
-  --       schemas = {
-  --         { fileMatch = { "package.json" }, url = "https://json.schemastore.org/package.json" },
-  --         { fileMatch = { "tsconfig*.json" }, url = "https://json.schemastore.org/tsconfig.json" },
-  --       },
-  --       validate = { enable = true },
-  --     },
-  --   },
-  -- }
+  -- https://github.com/b0o/SchemaStore.nvim
+  -- npm i -g vscode-langservers-extracted
+  require("lspconfig").jsonls.setup {
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
+        validate = { enable = true },
+      },
+    },
+  }
 
   -- lspconfig.denols.setup {
   --   root_dir = lspconfig.util.root_pattern "deno.json",

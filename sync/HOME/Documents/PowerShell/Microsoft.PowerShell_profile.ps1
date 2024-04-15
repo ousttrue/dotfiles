@@ -919,6 +919,14 @@ function Install-rust
   {
     cargo install coreutils --features windows
   }
+  cargo install gitui --locked
+}
+
+function Set-SSl($prefix)
+{
+  $env:OPENSSL_LIB_DIR="$prefix\lib"
+  $env:OPENSSL_INCLUDE_DIR="$prefix\include"
+  $env:OPENSSL_DIR=$prefix
 }
 
 function Install-deno
