@@ -45,4 +45,24 @@ function Install-nvim($prefix = $NVIM_PREFIX)
   Pop-Location
 }
 
+function Remove-TSParser
+{
+  if (Test-Path "$HOME/local/lib/nvim/parser"
+  )
+  {
+    rmrf "$HOME/local/lib/nvim/parser"
+  }
+  if (Test-Path "$HOME/.local/share/nvim/lazy/nvim-treesitter/parser"
+  )
+  {
+    rmrf "$HOME/.local/share/nvim/lazy/nvim-treesitter/parser"
+  }
+  if (Test-Path "$HOME/.cache/nvim/treesitter/parser"
+  )
+  {
+    rmrf "$HOME/.cache/nvim/treesitter/parser"
+  }
+}
+
+
 Export-ModuleMember -Function * -Alias *

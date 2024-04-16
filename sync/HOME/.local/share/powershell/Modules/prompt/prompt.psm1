@@ -1,4 +1,34 @@
 #
+# readline
+#
+# https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.2
+# まとめて設定
+#
+# Set-PSReadLineOption -EditMode emacs
+# 個別に設定
+Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function BackwardDeleteLine
+Set-PSReadlineKeyHandler -Key 'Ctrl+b' -Function BackwardChar
+Set-PSReadlineKeyHandler -Key 'Ctrl+f' -Function ForwardChar
+Set-PSReadlineKeyHandler -Key 'Ctrl+d' -Function DeleteCharOrExit
+Set-PSReadlineKeyHandler -Key 'Ctrl+h' -Function BackwardDeleteChar
+Set-PSReadlineKeyHandler -Key 'Ctrl+p' -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key 'Ctrl+n' -Function HistorySearchForward
+Set-PSReadlineKeyHandler -Key 'Ctrl+a' -Function BeginningOfLine
+Set-PSReadlineKeyHandler -Key 'Ctrl+e' -Function EndOfLine
+Set-PSReadlineKeyHandler -Key 'Ctrl+m' -Function AcceptLine
+Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function ForwardDeleteLine
+
+Set-PSReadLineKeyHandler -Key "alt+r" -ScriptBlock {
+  [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+  [Microsoft.PowerShell.PSConsoleReadLine]::Insert('<#SKIPHISTORY#> . $PROFILE')
+  [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+
+# ctrl + [
+# [System.Console]::ReadKey()
+Set-PSReadlineKeyHandler -Key 'Ctrl+Oem4' -Function RevertLine
+
+#
 # prompt
 #
 $IconMap = @{
@@ -115,12 +145,7 @@ function prompt()
     {
       $location = " " + $location
     }
-  } 
-  # elseif ($IsWindows -and $location.FullName.StartsWith("$(Get-Path "blender")${SEP}"))
-  # {
-  #   $location = "🐵" + [System.IO.Path]::GetRelativePath((Get-Path "blender"), $location)
-  # } 
-  elseif ($location.FullName.StartsWith($HOME))
+  } elseif ($location.FullName.StartsWith($HOME))
   {
     if ($location -eq $HOME)
     {
@@ -172,6 +197,7 @@ function prompt()
 
 function Edit-Docs
 {
+  $docs = Join-Path $dot_dir "docs/obsidian"
   Set-Location $docs
   if ($env:TERM -eq "tmux-256color")
   {
@@ -183,7 +209,7 @@ function Edit-Docs
 
 function Edit-Dotfiles
 {
-  Set-Location (Get-Path "dot")
+  Set-Location $dot_dir
   if ($env:TERM -eq "tmux-256color")
   {
     tmux rename-window " "
@@ -191,5 +217,43 @@ function Edit-Dotfiles
   Write-Host "`e]2; $([char]0x07)"
   v
 }
+
+#
+# module
+# default not required
+# Import-Module -Verbose -Name CompletionPredictor
+Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadlineOption -HistoryNoDuplicates
+Set-PSReadlineOption -AddToHistoryHandler {
+  param ($command)
+  switch -regex ($command)
+  {
+    "SKIPHISTORY"
+    {
+      return $false
+    }
+    "^[a-z]$"
+    {
+      return $false
+    }
+    "exit"
+    {
+      return $false
+    }
+  }
+  return $true
+}
+# Import-Module -Verbose posh-git
+# $GitPromptSettings.EnableFileStatus = $false
+# Import-Module -Verbose -Name Terminal-Icons
+
+Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
+  param($wordToComplete, $commandAst, $cursorPosition)
+  dotnet complete --position $cursorPosition "$commandAst" | ForEach-Object {
+    [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+  }
+}
+
 
 Export-ModuleMember -Function * -Alias *

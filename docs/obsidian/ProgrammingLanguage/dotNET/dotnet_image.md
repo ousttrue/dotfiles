@@ -4,8 +4,8 @@
 
 # write png
 
-
 # SkiaSharp
+
 [SkiaSharp Namespace | Microsoft Learn](https://learn.microsoft.com/ja-jp/dotnet/api/skiasharp?view=skiasharp-2.88)o
 
 - [SkiaSharp ビットマップの作成と描画 - Xamarin | Microsoft Learn](https://learn.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/graphics/skiasharp/bitmaps/drawing)
@@ -17,4 +17,5 @@
 [SkiaSharp グラフィックス Xamarin.Forms - Xamarin | Microsoft Learn](https://learn.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/graphics/skiasharp/)
 
 # tga
+
 [GitHub - nickbabcock/Pfim: .NET Standard targa (.tga) and direct draw surface (.dds) image decoder](https://github.com/nickbabcock/Pfim)
