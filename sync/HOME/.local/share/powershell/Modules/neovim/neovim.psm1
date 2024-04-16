@@ -1,3 +1,15 @@
+function rmrf
+{
+  [CmdletBinding()]
+  param(
+    [Parameter(ValueFromPipeline = $true)] [string[]] $inputStrings
+  )
+  process
+  {
+    Remove-Item -Recurse -Force $inputStrings
+  }
+}
+
 function Install-nvim($prefix = $NVIM_PREFIX)
 {
   # https://github.com/neovim/neovim/blob/master/BUILD.md#build-prerequisites
