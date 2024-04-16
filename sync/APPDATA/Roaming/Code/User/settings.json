@@ -42,4 +42,7 @@
     },
     "vala.languageServerPath": "D:/msys64/mingw64/bin/vala-language-server.exe",
     "C_Cpp.intelliSenseEngine": "disabled",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
 }
