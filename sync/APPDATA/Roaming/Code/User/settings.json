@@ -45,4 +45,5 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
+    "mesonbuild.downloadLanguageServer": true,
 }
