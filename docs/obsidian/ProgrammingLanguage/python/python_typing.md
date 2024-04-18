@@ -1,6 +1,3 @@
----
-aliases: [stub]
----
 [[python]]
 
 

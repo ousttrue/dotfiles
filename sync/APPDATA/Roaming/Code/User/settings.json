@@ -25,7 +25,7 @@
     //
     // python
     //
-    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.typeCheckingMode": "strict",
     //
     // cpp
     //
@@ -36,7 +36,7 @@
     "clangd.path": "c://Users//ousttrue//AppData//Roaming//Code//User//globalStorage//llvm-vs-code-extensions.vscode-clangd//install//17.0.3//clangd_17.0.3//bin//clangd.exe",
     "cmake.showOptionsMovedNotification": false,
     "cmake.configureOnOpen": false,
-    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "Visual Studio 2019 Dark",
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
@@ -46,4 +46,5 @@
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "mesonbuild.downloadLanguageServer": true,
+    "git.enableSmartCommit": true,
 }
