@@ -17,7 +17,12 @@ local error_formats = {
   "%*[^ ] : %t%*[^ ] LNK%n: %m",
 }
 
-M.ninja_vc_fmt = "%Dninja: Entering directory `%f',%f(%l): %t%*[^ ] %m"
+-- zig cc
+-- ../kilo.cpp:478:27: error: member reference base type 'char[256]' is not a structure or union
+--   478 |                E->filename.c_str(), E->numrows, E->dirty ? "(modified)" : "");
+--       |                ~~~~~~~~~~~^~~~~~
+
+M.ninja_vc_fmt = "%Dninja: Entering directory `%f',%f(%l): %t%*[^ ] %m,%f:%l:%c: %t%*[^:]: %m"
 
 M.qflist = {
   title = "--",
