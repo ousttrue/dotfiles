@@ -3,11 +3,15 @@ project(
     'c',
     'cpp',
     version: '0.0.1',
-    default_options: ['c_std=c99'],
+    default_options: [
+        'cpp_std=c++20',
+        'c_std=c99',
+    ],
 )
 
 srcs = [
     'kilo.cpp',
+    'kilo_highlight.cpp',
     'main.cpp',
 ]
 args = []
@@ -18,8 +22,8 @@ else
     srcs += 'ipty_posix.cpp'
     args += [
         '-Wall',
-        '-W',
-        '-pedantic',
+        # '-W',
+        '-pedantic-errors',
     ]
 endif
 
