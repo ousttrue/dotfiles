@@ -1,14 +1,24 @@
 project(
     'kilo',
-    'c', 'cpp',
+    'c',
+    'cpp',
     default_options: ['c_std=c99'],
 )
+
+srcs = [
+    'kilo.cpp',
+    'main.cpp',
+]
+
+if host_machine.system() == 'windows'
+  srcs += 'ipty_win32.cpp'
+else
+  srcs += 'ipty_posix.cpp'
+endif
+
 executable(
     'kilo',
-    [
-        'kilo.cpp',
-        'main.cpp',
-    ],
+    srcs,
     c_args: [
         '-Wall',
         '-W',

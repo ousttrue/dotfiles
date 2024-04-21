@@ -1,4 +1,5 @@
 #include "kilo.h"
+#include "ipty.h"
 /* Kilo -- A very simple editor in less than 1-kilo lines of code (as counted
  *         by "cloc"). Does not depend on libcurses, directly emits VT100
  *         escapes on the terminal.
@@ -95,19 +96,32 @@ typedef struct hlcolor {
 } hlcolor;
 
 struct editorConfig {
-  int cx, cy;     /* Cursor x and y position in characters */
-  int rowoff;     /* Offset of row displayed. */
-  int coloff;     /* Offset of column displayed. */
-  int screenrows; /* Number of rows that we can show */
-  int screencols; /* Number of cols that we can show */
-  int numrows;    /* Number of rows */
-  int rawmode;    /* Is terminal raw mode enabled? */
-  erow *row;      /* Rows */
-  int dirty;      /* File modified but not saved. */
-  char *filename; /* Currently open filename */
+  // Cursor x
+  int cx = 0;
+  // Cursor y
+  int cy = 0;
+  // Offset of row displayed.
+  int rowoff = 0;
+  // Offset of column displayed.
+  int coloff = 0;
+  // Number of rows that we can show
+  int screenrows;
+  // Number of cols that we can show
+  int screencols;
+  // Number of rows
+  int numrows = 0;
+  // Is terminal raw mode enabled?
+  int rawmode;
+  // Rows
+  erow *row = nullptr;
+  // File modified but not saved.
+  int dirty = 0;
+  // Currently open filename
+  char *filename = nullptr;
   char statusmsg[80];
   time_t statusmsg_time;
-  struct editorSyntax *syntax; /* Current syntax highlight, or NULL. */
+  // Current syntax highlight, or NULL.
+  struct editorSyntax *syntax = nullptr;
 };
 
 static struct editorConfig E;
@@ -315,74 +329,6 @@ int editorReadKey(int fd) {
       return c;
     }
   }
-}
-
-/* Use the ESC [6n escape sequence to query the horizontal cursor position
- * and return it. On error -1 is returned, on success the position of the
- * cursor is stored at *rows and *cols and 0 is returned. */
-int getCursorPosition(int ifd, int ofd, int *rows, int *cols) {
-  char buf[32];
-  unsigned int i = 0;
-
-  /* Report cursor location */
-  if (write(ofd, "\x1b[6n", 4) != 4)
-    return -1;
-
-  /* Read the response: ESC [ rows ; cols R */
-  while (i < sizeof(buf) - 1) {
-    if (read(ifd, buf + i, 1) != 1)
-      break;
-    if (buf[i] == 'R')
-      break;
-    i++;
-  }
-  buf[i] = '\0';
-
-  /* Parse it. */
-  if (buf[0] != ESC || buf[1] != '[')
-    return -1;
-  if (sscanf(buf + 2, "%d;%d", rows, cols) != 2)
-    return -1;
-  return 0;
-}
-
-/* Try to get the number of columns in the current terminal. If the ioctl()
- * call fails the function will try to query the terminal itself.
- * Returns 0 on success, -1 on error. */
-int getWindowSize(int ifd, int ofd, int *rows, int *cols) {
-  struct winsize ws;
-
-  if (ioctl(1, TIOCGWINSZ, &ws) == -1 || ws.ws_col == 0) {
-    /* ioctl() failed. Try to query the terminal itself. */
-    int orig_row, orig_col, retval;
-
-    /* Get the initial position so we can restore it later. */
-    retval = getCursorPosition(ifd, ofd, &orig_row, &orig_col);
-    if (retval == -1)
-      goto failed;
-
-    /* Go to right/bottom margin and get position. */
-    if (write(ofd, "\x1b[999C\x1b[999B", 12) != 12)
-      goto failed;
-    retval = getCursorPosition(ifd, ofd, rows, cols);
-    if (retval == -1)
-      goto failed;
-
-    /* Restore position. */
-    char seq[32];
-    snprintf(seq, 32, "\x1b[%d;%dH", orig_row, orig_col);
-    if (write(ofd, seq, strlen(seq)) == -1) {
-      /* Can't recover... */
-    }
-    return 0;
-  } else {
-    *cols = ws.ws_col;
-    *rows = ws.ws_row;
-    return 0;
-  }
-
-failed:
-  return -1;
 }
 
 /* ====================== Syntax highlight color scheme  ==================== */
@@ -1342,15 +1288,6 @@ void handleSigWinCh(int unused __attribute__((unused))) {
 }
 
 void initEditor(void) {
-  E.cx = 0;
-  E.cy = 0;
-  E.rowoff = 0;
-  E.coloff = 0;
-  E.numrows = 0;
-  E.row = NULL;
-  E.dirty = 0;
-  E.filename = NULL;
-  E.syntax = NULL;
   updateWindowSize();
   signal(SIGWINCH, handleSigWinCh);
 }
