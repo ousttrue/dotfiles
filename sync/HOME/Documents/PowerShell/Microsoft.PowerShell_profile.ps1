@@ -154,31 +154,18 @@ function Get-Python
   }
 }
 
-Set-alias zig (Join-Path (Get-Python) "lib/site-packages/ziglang/zig")
-
 addPath(Join-Path $HOME "\ghq\github.com\junegunn\fzf\bin")
 addPath(Join-Path $HOME "\.fzf\bin")
 addPath(Join-Path $HOME "\.deno\bin")
 addPath(Join-Path $HOME "\.cargo\bin")
 addPath(Join-Path $HOME "\go\bin")
 addPath(Join-Path $HOME "\.local\bin")
+addPath(Join-Path $HOME "\zig")
 insertPath(Join-Path $HOME "\local\bin")
 if ($IsWindows)
 {
   addPath("C:\Program Files\qemu")
   addPath('C:\Program Files\Erlang OTP\bin')
-  # if(Test-Path "$HOME\zig")
-  # {
-  #   addPath("$HOME\zig")
-  # } else
-  # {
-  if (!(has zig))
-  {
-    addPath(Join-Path $(Get-Python) 'lib\site-packages\ziglang')
-  }
-
-  # insertPath("$HOME\local\bin\zig\0.12.0-dev.3180+83e578a18\files")
-  # }
 } else
 {
   addPath("/usr/local/go/bin")
@@ -597,3 +584,5 @@ function Windows-RightClick
 }
 
 Import-Module prompt -ErrorAction SilentlyContinue
+Import-Module util -ErrorAction SilentlyContinue
+Import-Module install -ErrorAction SilentlyContinue

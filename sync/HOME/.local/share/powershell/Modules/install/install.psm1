@@ -1,3 +1,5 @@
+# https://stackoverflow.com/questions/46577686/some-imported-command-names-contain-one-or-more-of-the-following-restricted-char
+
 function Set-Prefix($prefix)
 {
   # $prefix = Join-Path $HOME "local"
@@ -50,7 +52,7 @@ function Install-deno
   }
 }
 
-function Install-skk-dictionary
+function Install-skk_dictionary
 {
   Download "https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L" "$HOME/.skk/SKK-JISYO.L"
 }
@@ -255,7 +257,7 @@ function Install-pkgconfig($prefix)
   Pop-Location
 }
 
-function Install-gobjecgt-introspection($prefix)
+function Install-gobjecgtintrospection($prefix)
 {
   $repos = "github.com/GNOME/gobject-introspection"
   ghq get $repos
@@ -458,4 +460,11 @@ function Set-SSl($prefix)
   $env:OPENSSL_DIR=$prefix
 }
 
+function Install-zig
+{
+  $url = "https://ziglang.org/builds/zig-windows-x86_64-0.12.0.zip"
+  $archive = Download $url "$HOME/Download"
+  Extract $archive "$HOME/zig"
+}
 
+Export-ModuleMember -Function * -Alias *

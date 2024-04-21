@@ -1,7 +1,11 @@
 #pragma once
+#include <vector>
 
 using AtExitFunc = void (*)(void);
-int enableRawMode(int fd, AtExitFunc atExit);
-void disableRawMode(int fd);
+using KeyHandler = bool (*)(int);
 
-int getWindowSize(int ifd, int ofd, int *rows, int *cols);
+int enableRawMode(AtExitFunc atExit);
+void disableRawMode();
+bool getWindowSize(int *rows, int *cols);
+
+std::vector<int> getInput();

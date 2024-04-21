@@ -76,5 +76,4 @@ function Remove-TSParser
   }
 }
 
-
 Export-ModuleMember -Function * -Alias *

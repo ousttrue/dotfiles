@@ -6,14 +6,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#if _MSC_VER
+#include <io.h>
+#else
 #include <unistd.h> // STDIN_FILENO
-                    //
+#endif
+
 /* Called at exit to avoid remaining in raw mode. */
-static void editorAtExit(void) { disableRawMode(STDIN_FILENO); }
+static void editorAtExit(void) { disableRawMode(); }
 
 struct editorConfig E;
 
-void handleSigWinCh(int unused __attribute__((unused))) {
+void handleSigWinCh(int) {
   updateWindowSize(&E);
   if (E.cy > E.screenrows)
     E.cy = E.screenrows - 1;
@@ -22,78 +26,9 @@ void handleSigWinCh(int unused __attribute__((unused))) {
   editorRefreshScreen(&E);
 }
 
-/* Read a key from the terminal put in raw mode, trying to handle
- * escape sequences. */
-int editorReadKey(int fd) {
-  int nread;
-  char c, seq[3];
-  while ((nread = read(fd, &c, 1)) == 0)
-    ;
-  if (nread == -1)
-    exit(1);
-
-  while (1) {
-    switch (c) {
-    case ESC: /* escape sequence */
-      /* If this is just an ESC, we'll timeout here. */
-      if (read(fd, seq, 1) == 0)
-        return ESC;
-      if (read(fd, seq + 1, 1) == 0)
-        return ESC;
-
-      /* ESC [ sequences. */
-      if (seq[0] == '[') {
-        if (seq[1] >= '0' && seq[1] <= '9') {
-          /* Extended escape, read additional byte. */
-          if (read(fd, seq + 2, 1) == 0)
-            return ESC;
-          if (seq[2] == '~') {
-            switch (seq[1]) {
-            case '3':
-              return DEL_KEY;
-            case '5':
-              return PAGE_UP;
-            case '6':
-              return PAGE_DOWN;
-            }
-          }
-        } else {
-          switch (seq[1]) {
-          case 'A':
-            return ARROW_UP;
-          case 'B':
-            return ARROW_DOWN;
-          case 'C':
-            return ARROW_RIGHT;
-          case 'D':
-            return ARROW_LEFT;
-          case 'H':
-            return HOME_KEY;
-          case 'F':
-            return END_KEY;
-          }
-        }
-      }
-
-      /* ESC O sequences. */
-      else if (seq[0] == 'O') {
-        switch (seq[1]) {
-        case 'H':
-          return HOME_KEY;
-        case 'F':
-          return END_KEY;
-        }
-      }
-      break;
-    default:
-      return c;
-    }
-  }
-}
-
 #define KILO_QUERY_LEN 256
 
-void editorFind(editorConfig *E, int fd) {
+void editorFind(editorConfig *E) {
   char query[KILO_QUERY_LEN + 1] = {0};
   int qlen = 0;
   int last_match = -1;    /* Last line where a match was found. -1 for none. */
@@ -118,76 +53,77 @@ void editorFind(editorConfig *E, int fd) {
     editorSetStatusMessage(E, "Search: %s (Use ESC/Arrows/Enter)", query);
     editorRefreshScreen(E);
 
-    int c = editorReadKey(fd);
-    if (c == DEL_KEY || c == CTRL_H || c == BACKSPACE) {
-      if (qlen != 0)
-        query[--qlen] = '\0';
-      last_match = -1;
-    } else if (c == ESC || c == ENTER) {
-      if (c == ESC) {
-        E->cx = saved_cx;
-        E->cy = saved_cy;
-        E->coloff = saved_coloff;
-        E->rowoff = saved_rowoff;
-      }
-      FIND_RESTORE_HL;
-      editorSetStatusMessage(E, "");
-      return;
-    } else if (c == ARROW_RIGHT || c == ARROW_DOWN) {
-      find_next = 1;
-    } else if (c == ARROW_LEFT || c == ARROW_UP) {
-      find_next = -1;
-    } else if (isprint(c)) {
-      if (qlen < KILO_QUERY_LEN) {
-        query[qlen++] = c;
-        query[qlen] = '\0';
+    for (auto c : getInput()) {
+      if (c == DEL_KEY || c == CTRL_H || c == BACKSPACE) {
+        if (qlen != 0)
+          query[--qlen] = '\0';
         last_match = -1;
+      } else if (c == ESC || c == ENTER) {
+        if (c == ESC) {
+          E->cx = saved_cx;
+          E->cy = saved_cy;
+          E->coloff = saved_coloff;
+          E->rowoff = saved_rowoff;
+        }
+        FIND_RESTORE_HL;
+        editorSetStatusMessage(E, "");
+        return;
+      } else if (c == ARROW_RIGHT || c == ARROW_DOWN) {
+        find_next = 1;
+      } else if (c == ARROW_LEFT || c == ARROW_UP) {
+        find_next = -1;
+      } else if (isprint(c)) {
+        if (qlen < KILO_QUERY_LEN) {
+          query[qlen++] = c;
+          query[qlen] = '\0';
+          last_match = -1;
+        }
       }
-    }
 
-    /* Search occurrence. */
-    if (last_match == -1)
-      find_next = 1;
-    if (find_next) {
-      char *match = NULL;
-      int match_offset = 0;
-      int i, current = last_match;
+      /* Search occurrence. */
+      if (last_match == -1)
+        find_next = 1;
+      if (find_next) {
+        char *match = NULL;
+        int match_offset = 0;
+        int i, current = last_match;
 
-      for (i = 0; i < E->numrows; i++) {
-        current += find_next;
-        if (current == -1)
-          current = E->numrows - 1;
-        else if (current == E->numrows)
-          current = 0;
-        match = strstr(E->row[current].render, query);
+        for (i = 0; i < E->numrows; i++) {
+          current += find_next;
+          if (current == -1)
+            current = E->numrows - 1;
+          else if (current == E->numrows)
+            current = 0;
+          match = strstr(E->row[current].render, query);
+          if (match) {
+            match_offset = match - E->row[current].render;
+            break;
+          }
+        }
+        find_next = 0;
+
+        /* Highlight */
+        FIND_RESTORE_HL;
+
         if (match) {
-          match_offset = match - E->row[current].render;
-          break;
-        }
-      }
-      find_next = 0;
-
-      /* Highlight */
-      FIND_RESTORE_HL;
-
-      if (match) {
-        erow *row = &E->row[current];
-        last_match = current;
-        if (row->hl) {
-          saved_hl_line = current;
-          saved_hl = (char *)malloc(row->rsize);
-          memcpy(saved_hl, row->hl, row->rsize);
-          memset(row->hl + match_offset, HL_MATCH, qlen);
-        }
-        E->cy = 0;
-        E->cx = match_offset;
-        E->rowoff = current;
-        E->coloff = 0;
-        /* Scroll horizontally as needed. */
-        if (E->cx > E->screencols) {
-          int diff = E->cx - E->screencols;
-          E->cx -= diff;
-          E->coloff += diff;
+          erow *row = &E->row[current];
+          last_match = current;
+          if (row->hl) {
+            saved_hl_line = current;
+            saved_hl = (char *)malloc(row->rsize);
+            memcpy(saved_hl, row->hl, row->rsize);
+            memset(row->hl + match_offset, HL_MATCH, qlen);
+          }
+          E->cy = 0;
+          E->cx = match_offset;
+          E->rowoff = current;
+          E->coloff = 0;
+          /* Scroll horizontally as needed. */
+          if (E->cx > E->screencols) {
+            int diff = E->cx - E->screencols;
+            E->cx -= diff;
+            E->coloff += diff;
+          }
         }
       }
     }
@@ -197,12 +133,11 @@ void editorFind(editorConfig *E, int fd) {
 /* Process events arriving from the standard input, which is, the user
  * is typing stuff on the terminal. */
 #define KILO_QUIT_TIMES 3
-void editorProcessKeypress(editorConfig *E, int fd) {
+void editorProcessKeypress(editorConfig *E, int c) {
   /* When the file is modified, requires Ctrl-q to be pressed N times
    * before actually quitting. */
   static int quit_times = KILO_QUIT_TIMES;
 
-  int c = editorReadKey(fd);
   switch (c) {
   case ENTER: /* Enter */
     editorInsertNewline(E);
@@ -227,7 +162,7 @@ void editorProcessKeypress(editorConfig *E, int fd) {
     editorSave(E);
     break;
   case CTRL_F:
-    editorFind(E, fd);
+    editorFind(E);
     break;
   case BACKSPACE: /* Backspace */
   case CTRL_H:    /* Ctrl-h */
@@ -277,12 +212,14 @@ int main(int argc, char **argv) {
   // E.syntax = s;
   E.syntax = editorSelectSyntaxHighlight(argv[1]);
   editorOpen(&E, argv[1]);
-  enableRawMode(STDIN_FILENO, editorAtExit);
+  enableRawMode(editorAtExit);
   editorSetStatusMessage(&E,
                          "HELP: Ctrl-S = save | Ctrl-Q = quit | Ctrl-F = find");
   while (1) {
     editorRefreshScreen(&E);
-    editorProcessKeypress(&E, STDIN_FILENO);
+    for (auto input : getInput()) {
+      editorProcessKeypress(&E, input);
+    }
   }
 
   return 0;

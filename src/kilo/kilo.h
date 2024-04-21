@@ -1,5 +1,6 @@
 #pragma once
 #include <time.h>
+#include <string>
 
 /* This structure represents a single line of the file we are editing. */
 struct erow {
@@ -33,7 +34,7 @@ struct editorConfig {
   // File modified but not saved.
   int dirty = 0;
   // Currently open filename
-  char *filename = nullptr;
+  std::string filename;
   char statusmsg[80];
   time_t statusmsg_time;
   // Current syntax highlight, or NULL.

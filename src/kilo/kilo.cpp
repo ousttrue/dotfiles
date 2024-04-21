@@ -1,7 +1,3 @@
-#include "kilo.h"
-#include "ipty.h"
-#include "key_action.h"
-#include "kilo_highlight.h"
 /* Kilo -- A very simple editor in less than 1-kilo lines of code (as counted
  *         by "cloc"). Does not depend on libcurses, directly emits VT100
  *         escapes on the terminal.
@@ -42,16 +38,26 @@
 #define _POSIX_C_SOURCE 200809L
 #endif
 
+#include "kilo.h"
+#include "ipty.h"
+#include "key_action.h"
+#include "kilo_highlight.h"
 #include <fcntl.h>
+#include <fstream>
 #include <signal.h>
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/time.h>
+#include <string>
 #include <sys/types.h>
+#ifdef _MSC_VER
+#include <io.h>
+#else
+#include <sys/time.h>
 #include <unistd.h>
+#endif
 
 /* ======================= Editor rows implementation ======================= */
 
@@ -310,13 +316,10 @@ void editorDelChar(editorConfig *E) {
 int editorOpen(editorConfig *E, const char *filename) {
 
   E->dirty = 0;
-  free(E->filename);
-  size_t fnlen = strlen(filename) + 1;
-  E->filename = (char *)malloc(fnlen);
-  memcpy(E->filename, filename, fnlen);
+  E->filename = filename;
 
-  auto fp = fopen(filename, "r");
-  if (!fp) {
+  std::ifstream f(filename, std::ios::binary);
+  if (!f) {
     // if (errno != ENOENT) {
     //   perror("Opening file");
     //   exit(1);
@@ -324,16 +327,13 @@ int editorOpen(editorConfig *E, const char *filename) {
     return 1;
   }
 
-  char *line = NULL;
   size_t linecap = 0;
-  ssize_t linelen;
-  while ((linelen = getline(&line, &linecap, fp)) != -1) {
-    if (linelen && (line[linelen - 1] == '\n' || line[linelen - 1] == '\r'))
-      line[--linelen] = '\0';
-    editorInsertRow(E, E->numrows, line, linelen);
+  std::string line;
+  while (std::getline(f, line)) {
+    // if (linelen && (line[linelen - 1] == '\n' || line[linelen - 1] == '\r'))
+    //   line[--linelen] = '\0';
+    editorInsertRow(E, E->numrows, line.c_str(), line.size());
   }
-  free(line);
-  fclose(fp);
   E->dirty = 0;
   return 0;
 }
@@ -342,14 +342,14 @@ int editorOpen(editorConfig *E, const char *filename) {
 int editorSave(editorConfig *E) {
   int len;
   char *buf = editorRowsToString(E, &len);
-  int fd = open(E->filename, O_RDWR | O_CREAT, 0644);
+  int fd = open(E->filename.c_str(), O_RDWR | O_CREAT, 0644);
   if (fd == -1)
     goto writeerr;
 
   /* Use truncate + a single write(2) call in order to make saving
    * a bit safer, under the limits of what we can do in a small editor. */
-  if (ftruncate(fd, len) == -1)
-    goto writeerr;
+  // if (ftruncate(fd, len) == -1)
+  //   goto writeerr;
   if (write(fd, buf, len) != len)
     goto writeerr;
 
@@ -473,8 +473,9 @@ void editorRefreshScreen(editorConfig *E) {
   abAppend(&ab, "\x1b[0K", 4);
   abAppend(&ab, "\x1b[7m", 4);
   char status[80], rstatus[80];
-  int len = snprintf(status, sizeof(status), "%.20s - %d lines %s", E->filename,
-                     E->numrows, E->dirty ? "(modified)" : "");
+  int len =
+      snprintf(status, sizeof(status), "%.20s - %d lines %s",
+               E->filename.c_str(), E->numrows, E->dirty ? "(modified)" : "");
   int rlen = snprintf(rstatus, sizeof(rstatus), "%d/%d", E->rowoff + E->cy + 1,
                       E->numrows);
   if (len > E->screencols)
@@ -515,7 +516,7 @@ void editorRefreshScreen(editorConfig *E) {
   snprintf(buf, sizeof(buf), "\x1b[%d;%dH", E->cy + 1, cx);
   abAppend(&ab, buf, strlen(buf));
   abAppend(&ab, "\x1b[?25h", 6); /* Show cursor. */
-  write(STDOUT_FILENO, ab.b, ab.len);
+  write(1, ab.b, ab.len);
   abFree(&ab);
 }
 
@@ -609,8 +610,7 @@ void editorMoveCursor(editorConfig *E, int key) {
 int editorFileWasModified(editorConfig *E) { return E->dirty; }
 
 void updateWindowSize(editorConfig *E) {
-  if (getWindowSize(STDIN_FILENO, STDOUT_FILENO, &E->screenrows,
-                    &E->screencols) == -1) {
+  if (!getWindowSize(&E->screenrows, &E->screencols)) {
     perror("Unable to query the screen for size (columns / rows)");
     exit(1);
   }
@@ -619,5 +619,8 @@ void updateWindowSize(editorConfig *E) {
 
 void initEditor(editorConfig *E, SignalHandler onWinCh) {
   updateWindowSize(E);
+#ifdef _MSC_VER
+#else
   signal(SIGWINCH, onWinCh);
+#endif
 }
