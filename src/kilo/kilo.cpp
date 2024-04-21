@@ -42,6 +42,7 @@
 #include "ipty.h"
 #include "key_action.h"
 #include "kilo_highlight.h"
+
 #include <fcntl.h>
 #include <fstream>
 #include <signal.h>
@@ -619,6 +620,14 @@ void updateWindowSize(editorConfig *E) {
 }
 
 void initEditor(editorConfig *E, SignalHandler onWinCh) {
+  E->cx = 0;
+  E->cy = 0;
+  E->rowoff = 0;
+  E->coloff = 0;
+  E->numrows = 0;
+  E->row = nullptr;
+  E->dirty = 0;
+  E->syntax = nullptr;
   updateWindowSize(E);
 #ifdef SIGWINCH
   signal(SIGWINCH, onWinCh);
@@ -652,77 +661,76 @@ void editorFind(editorConfig *E) {
     editorSetStatusMessage(E, "Search: %s (Use ESC/Arrows/Enter)", query);
     editorRefreshScreen(E);
 
-    for (auto c : getInput()) {
-      if (c == DEL_KEY || c == CTRL_H || c == BACKSPACE) {
-        if (qlen != 0)
-          query[--qlen] = '\0';
+    int c = getInput();
+    if (c == DEL_KEY || c == CTRL_H || c == BACKSPACE) {
+      if (qlen != 0)
+        query[--qlen] = '\0';
+      last_match = -1;
+    } else if (c == ESC || c == ENTER) {
+      if (c == ESC) {
+        E->cx = saved_cx;
+        E->cy = saved_cy;
+        E->coloff = saved_coloff;
+        E->rowoff = saved_rowoff;
+      }
+      FIND_RESTORE_HL;
+      editorSetStatusMessage(E, "");
+      return;
+    } else if (c == ARROW_RIGHT || c == ARROW_DOWN) {
+      find_next = 1;
+    } else if (c == ARROW_LEFT || c == ARROW_UP) {
+      find_next = -1;
+    } else if (isprint(c)) {
+      if (qlen < KILO_QUERY_LEN) {
+        query[qlen++] = c;
+        query[qlen] = '\0';
         last_match = -1;
-      } else if (c == ESC || c == ENTER) {
-        if (c == ESC) {
-          E->cx = saved_cx;
-          E->cy = saved_cy;
-          E->coloff = saved_coloff;
-          E->rowoff = saved_rowoff;
-        }
-        FIND_RESTORE_HL;
-        editorSetStatusMessage(E, "");
-        return;
-      } else if (c == ARROW_RIGHT || c == ARROW_DOWN) {
-        find_next = 1;
-      } else if (c == ARROW_LEFT || c == ARROW_UP) {
-        find_next = -1;
-      } else if (isprint(c)) {
-        if (qlen < KILO_QUERY_LEN) {
-          query[qlen++] = c;
-          query[qlen] = '\0';
-          last_match = -1;
+      }
+    }
+
+    /* Search occurrence. */
+    if (last_match == -1)
+      find_next = 1;
+    if (find_next) {
+      char *match = NULL;
+      int match_offset = 0;
+      int i, current = last_match;
+
+      for (i = 0; i < E->numrows; i++) {
+        current += find_next;
+        if (current == -1)
+          current = E->numrows - 1;
+        else if (current == E->numrows)
+          current = 0;
+        match = strstr(E->row[current].render, query);
+        if (match) {
+          match_offset = match - E->row[current].render;
+          break;
         }
       }
+      find_next = 0;
 
-      /* Search occurrence. */
-      if (last_match == -1)
-        find_next = 1;
-      if (find_next) {
-        char *match = NULL;
-        int match_offset = 0;
-        int i, current = last_match;
+      /* Highlight */
+      FIND_RESTORE_HL;
 
-        for (i = 0; i < E->numrows; i++) {
-          current += find_next;
-          if (current == -1)
-            current = E->numrows - 1;
-          else if (current == E->numrows)
-            current = 0;
-          match = strstr(E->row[current].render, query);
-          if (match) {
-            match_offset = match - E->row[current].render;
-            break;
-          }
+      if (match) {
+        erow *row = &E->row[current];
+        last_match = current;
+        if (row->hl) {
+          saved_hl_line = current;
+          saved_hl = (char *)malloc(row->rsize);
+          memcpy(saved_hl, row->hl, row->rsize);
+          memset(row->hl + match_offset, HL_MATCH, qlen);
         }
-        find_next = 0;
-
-        /* Highlight */
-        FIND_RESTORE_HL;
-
-        if (match) {
-          erow *row = &E->row[current];
-          last_match = current;
-          if (row->hl) {
-            saved_hl_line = current;
-            saved_hl = (char *)malloc(row->rsize);
-            memcpy(saved_hl, row->hl, row->rsize);
-            memset(row->hl + match_offset, HL_MATCH, qlen);
-          }
-          E->cy = 0;
-          E->cx = match_offset;
-          E->rowoff = current;
-          E->coloff = 0;
-          /* Scroll horizontally as needed. */
-          if (E->cx > E->screencols) {
-            int diff = E->cx - E->screencols;
-            E->cx -= diff;
-            E->coloff += diff;
-          }
+        E->cy = 0;
+        E->cx = match_offset;
+        E->rowoff = current;
+        E->coloff = 0;
+        /* Scroll horizontally as needed. */
+        if (E->cx > E->screencols) {
+          int diff = E->cx - E->screencols;
+          E->cx -= diff;
+          E->coloff += diff;
         }
       }
     }

@@ -1,5 +1,9 @@
 #pragma once
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 enum KEY_ACTION {
   KEY_NULL = 0,    /* NULL */
   CTRL_C = 3,      /* Ctrl-c */
@@ -26,3 +30,7 @@ enum KEY_ACTION {
   PAGE_UP,
   PAGE_DOWN
 };
+
+#ifdef __cplusplus
+}
+#endif

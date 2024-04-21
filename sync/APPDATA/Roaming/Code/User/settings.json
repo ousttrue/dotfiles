@@ -46,4 +46,8 @@
     },
     "mesonbuild.downloadLanguageServer": true,
     "git.enableSmartCommit": true,
+    // zig
+    "zig.path": "${env:APPDATA}\\Code\\User\\globalStorage\\ziglang.vscode-zig\\zig_install\\zig.exe",
+    "zig.initialSetupDone": true,
+    "zig.zls.path": "zls",
 }

@@ -1,5 +1,6 @@
 #include "ipty.h"
 #include <Windows.h>
+#include <vector>
 
 DWORD g_fdwSaveOldMode = 0;
 HANDLE g_hStdin;
@@ -23,7 +24,7 @@ int enableRawMode(AtExitFunc atExit) {
 
 void disableRawMode() { SetConsoleMode(g_hStdin, g_fdwSaveOldMode); }
 
-bool getWindowSize(int *rows, int *cols) {
+int getWindowSize(int *rows, int *cols) {
   CONSOLE_SCREEN_BUFFER_INFO csbi;
   if (GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi) == 0) {
     return false;
@@ -34,28 +35,32 @@ bool getWindowSize(int *rows, int *cols) {
   return true;
 }
 
-std::vector<int> getInput() {
+INPUT_RECORD g_irInBuf[128];
+DWORD g_cNumRead = 0;
+size_t g_current = 0;
 
-  INPUT_RECORD irInBuf[128];
-  DWORD cNumRead;
-  if (!ReadConsoleInput(g_hStdin,     // input buffer handle
-                        irInBuf,      // buffer to read into
-                        128,          // size of read buffer
-                        &cNumRead)) { // number of records read
-    return {};
-    // ErrorExit("ReadConsoleInput");
+int getInput() {
+  if (g_current >= g_cNumRead) {
+    g_current = 0;
+    if (!ReadConsoleInput(g_hStdin,       // input buffer handle
+                          g_irInBuf,      // buffer to read into
+                          128,            // size of read buffer
+                          &g_cNumRead)) { // number of records read
+      return {};
+      // ErrorExit("ReadConsoleInput");
+    }
   }
 
   // Dispatch the events to the appropriate handler.
-  std::vector<int> buf;
-  for (int i = 0; i < cNumRead; i++) {
-    switch (irInBuf[i].EventType) {
+  for (; g_current < g_cNumRead;) {
+    auto record = g_irInBuf[g_current++];
+    switch (record.EventType) {
     case KEY_EVENT: // keyboard input
       // KeyEventProc(irInBuf[i].Event.KeyEvent);
       {
-        auto e = irInBuf[i].Event.KeyEvent;
+        auto e = record.Event.KeyEvent;
         if (e.bKeyDown) {
-          buf.push_back(e.uChar.AsciiChar);
+          return e.uChar.AsciiChar;
         }
       }
       break;
@@ -78,5 +83,6 @@ std::vector<int> getInput() {
       break;
     }
   }
-  return buf;
+
+  return 0;
 }

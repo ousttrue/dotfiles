@@ -1,5 +1,9 @@
 #pragma once
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 struct hlcolor {
   int r, g, b;
 };
@@ -32,6 +36,10 @@ struct editorSyntax {
 };
 
 struct editorConfig;
-editorSyntax *editorSelectSyntaxHighlight(const char *filename);
-void editorUpdateSyntax(editorConfig *E, struct erow *row);
+struct editorSyntax *editorSelectSyntaxHighlight(const char *filename);
+void editorUpdateSyntax(struct editorConfig *E, struct erow *row);
 int editorSyntaxToColor(int hl);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,11 +1,18 @@
 #pragma once
-#include <vector>
 
-using AtExitFunc = void (*)(void);
-using KeyHandler = bool (*)(int);
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+typedef void (*AtExitFunc)(void);
+typedef int (*KeyHandler)(int);
 
 int enableRawMode(AtExitFunc atExit);
 void disableRawMode();
-bool getWindowSize(int *rows, int *cols);
+int getWindowSize(int *rows, int *cols);
 
-std::vector<int> getInput();
+int getInput();
+
+#ifdef __cplusplus
+}
+#endif

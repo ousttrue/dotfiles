@@ -1,10 +1,12 @@
 #include "ipty.h"
 #include "kilo.h"
 #include "kilo_highlight.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 struct editorConfig E;
 
-static void handleSigWinCh(int) {
+static void handleSigWinCh(int _) {
   updateWindowSize(&E);
   if (E.cy > E.screenrows)
     E.cy = E.screenrows - 1;
@@ -31,9 +33,8 @@ int main(int argc, char **argv) {
                          "HELP: Ctrl-S = save | Ctrl-Q = quit | Ctrl-F = find");
   while (1) {
     editorRefreshScreen(&E);
-    for (auto input : getInput()) {
-      editorProcessKeypress(&E, input);
-    }
+    int input = getInput();
+    editorProcessKeypress(&E, input);
   }
 
   return 0;

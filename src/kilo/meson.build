@@ -12,7 +12,7 @@ project(
 srcs = [
     'kilo.cpp',
     'kilo_highlight.cpp',
-    'main.cpp',
+    'main.c',
 ]
 args = []
 

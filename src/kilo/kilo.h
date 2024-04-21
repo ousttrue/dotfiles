@@ -1,5 +1,9 @@
 #pragma once
-#include <string>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <time.h>
 
 /* This structure represents a single line of the file we are editing. */
@@ -16,40 +20,44 @@ struct erow {
 
 struct editorConfig {
   // Cursor x
-  int cx = 0;
+  int cx;
   // Cursor y
-  int cy = 0;
+  int cy;
   // Offset of row displayed.
-  int rowoff = 0;
+  int rowoff;
   // Offset of column displayed.
-  int coloff = 0;
+  int coloff;
   // Number of rows that we can show
   int screenrows;
   // Number of cols that we can show
   int screencols;
   // Number of rows
-  int numrows = 0;
+  int numrows;
   // Rows
-  erow *row = nullptr;
+  struct erow *row;
   // File modified but not saved.
-  int dirty = 0;
+  int dirty;
   // Currently open filename
   char filename[256];
   char statusmsg[80];
   time_t statusmsg_time;
   // Current syntax highlight, or NULL.
-  struct editorSyntax *syntax = nullptr;
+  struct editorSyntax *syntax;
 };
 
-using SignalHandler = void (*)(int);
-void initEditor(editorConfig *E, SignalHandler onWinCh);
-int editorOpen(editorConfig *E, const char *filename);
-void editorSetStatusMessage(editorConfig *E, const char *fmt, ...);
-void editorRefreshScreen(editorConfig *E);
-void updateWindowSize(editorConfig *E);
-void editorInsertNewline(editorConfig *E);
-int editorSave(editorConfig *E);
-void editorDelChar(editorConfig *E);
-void editorMoveCursor(editorConfig *E, int key);
-void editorInsertChar(editorConfig *E, int c);
-void editorProcessKeypress(editorConfig *E, int c);
+typedef void (*SignalHandler)(int);
+void initEditor(struct editorConfig *E, SignalHandler onWinCh);
+int editorOpen(struct editorConfig *E, const char *filename);
+void editorSetStatusMessage(struct editorConfig *E, const char *fmt, ...);
+void editorRefreshScreen(struct editorConfig *E);
+void updateWindowSize(struct editorConfig *E);
+void editorInsertNewline(struct editorConfig *E);
+int editorSave(struct editorConfig *E);
+void editorDelChar(struct editorConfig *E);
+void editorMoveCursor(struct editorConfig *E, int key);
+void editorInsertChar(struct editorConfig *E, int c);
+void editorProcessKeypress(struct editorConfig *E, int c);
+
+#ifdef __cplusplus
+}
+#endif
