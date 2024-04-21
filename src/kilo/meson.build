@@ -2,6 +2,7 @@ project(
     'kilo',
     'c',
     'cpp',
+    version: '0.0.1',
     default_options: ['c_std=c99'],
 )
 
@@ -9,20 +10,22 @@ srcs = [
     'kilo.cpp',
     'main.cpp',
 ]
+args = []
 
 if host_machine.system() == 'windows'
-  srcs += 'ipty_win32.cpp'
+    srcs += 'ipty_win32.cpp'
 else
-  srcs += 'ipty_posix.cpp'
+    srcs += 'ipty_posix.cpp'
+    args += [
+        '-Wall',
+        '-W',
+        '-pedantic',
+    ]
 endif
 
 executable(
     'kilo',
     srcs,
-    c_args: [
-        '-Wall',
-        '-W',
-        '-pedantic',
-    ],
+    cpp_args: args,
     install: true,
 )

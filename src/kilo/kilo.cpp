@@ -41,7 +41,6 @@
 #endif
 
 #include <ctype.h>
-#include <errno.h>
 #include <fcntl.h>
 #include <signal.h>
 #include <stdarg.h>
@@ -49,10 +48,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/ioctl.h>
 #include <sys/time.h>
 #include <sys/types.h>
-#include <termios.h>
 #include <time.h>
 #include <unistd.h>
 
@@ -110,8 +107,6 @@ struct editorConfig {
   int screencols;
   // Number of rows
   int numrows = 0;
-  // Is terminal raw mode enabled?
-  int rawmode;
   // Rows
   erow *row = nullptr;
   // File modified but not saved.
@@ -210,57 +205,6 @@ struct editorSyntax HLDB[] = {{/* C / C++ */
 #define HLDB_ENTRIES (sizeof(HLDB) / sizeof(HLDB[0]))
 
 /* ======================= Low level terminal handling ====================== */
-
-static struct termios orig_termios; /* In order to restore at exit.*/
-
-void disableRawMode(int fd) {
-  /* Don't even check the return value as it's too late. */
-  if (E.rawmode) {
-    tcsetattr(fd, TCSAFLUSH, &orig_termios);
-    E.rawmode = 0;
-  }
-}
-
-/* Called at exit to avoid remaining in raw mode. */
-void editorAtExit(void) { disableRawMode(STDIN_FILENO); }
-
-/* Raw mode: 1960 magic shit. */
-int enableRawMode(int fd) {
-  struct termios raw;
-
-  if (E.rawmode)
-    return 0; /* Already enabled. */
-  if (!isatty(STDIN_FILENO))
-    goto fatal;
-  atexit(editorAtExit);
-  if (tcgetattr(fd, &orig_termios) == -1)
-    goto fatal;
-
-  raw = orig_termios; /* modify the original mode */
-  /* input modes: no break, no CR to NL, no parity check, no strip char,
-   * no start/stop output control. */
-  raw.c_iflag &= ~(BRKINT | ICRNL | INPCK | ISTRIP | IXON);
-  /* output modes - disable post processing */
-  raw.c_oflag &= ~(OPOST);
-  /* control modes - set 8 bit chars */
-  raw.c_cflag |= (CS8);
-  /* local modes - choing off, canonical off, no extended functions,
-   * no signal chars (^Z,^C) */
-  raw.c_lflag &= ~(ECHO | ICANON | IEXTEN | ISIG);
-  /* control chars - set return condition: min number of bytes and timer. */
-  raw.c_cc[VMIN] = 0;  /* Return each byte, or zero for timeout. */
-  raw.c_cc[VTIME] = 1; /* 100 ms timeout (unit is tens of second). */
-
-  /* put terminal in raw mode after flushing */
-  if (tcsetattr(fd, TCSAFLUSH, &raw) < 0)
-    goto fatal;
-  E.rawmode = 1;
-  return 0;
-
-fatal:
-  errno = ENOTTY;
-  return -1;
-}
 
 /* Read a key from the terminal put in raw mode, trying to handle
  * escape sequences. */
@@ -792,7 +736,6 @@ void editorDelChar() {
 /* Load the specified program in the editor memory and returns 0 on success
  * or 1 on error. */
 int editorOpen(const char *filename) {
-  FILE *fp;
 
   E.dirty = 0;
   free(E.filename);
@@ -800,12 +743,12 @@ int editorOpen(const char *filename) {
   E.filename = (char *)malloc(fnlen);
   memcpy(E.filename, filename, fnlen);
 
-  fp = fopen(filename, "r");
+  auto fp = fopen(filename, "r");
   if (!fp) {
-    if (errno != ENOENT) {
-      perror("Opening file");
-      exit(1);
-    }
+    // if (errno != ENOENT) {
+    //   perror("Opening file");
+    //   exit(1);
+    // }
     return 1;
   }
 
@@ -848,7 +791,7 @@ writeerr:
   free(buf);
   if (fd != -1)
     close(fd);
-  editorSetStatusMessage("Can't save! I/O error: %s", strerror(errno));
+  editorSetStatusMessage("Can't save! I/O" /* error: %s", strerror(errno)*/);
   return 1;
 }
 
