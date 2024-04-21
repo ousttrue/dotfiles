@@ -327,7 +327,7 @@ int editorOpen(editorConfig *E, const char *filename) {
     return 1;
   }
 
-  size_t linecap = 0;
+  // size_t linecap = 0;
   std::string line;
   while (std::getline(f, line)) {
     // if (linelen && (line[linelen - 1] == '\n' || line[linelen - 1] == '\r'))
@@ -619,8 +619,7 @@ void updateWindowSize(editorConfig *E) {
 
 void initEditor(editorConfig *E, SignalHandler onWinCh) {
   updateWindowSize(E);
-#ifdef _MSC_VER
-#else
+#ifdef SIGWINCH
   signal(SIGWINCH, onWinCh);
 #endif
 }
