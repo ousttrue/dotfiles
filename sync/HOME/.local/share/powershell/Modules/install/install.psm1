@@ -460,11 +460,19 @@ function Set-SSl($prefix)
   $env:OPENSSL_DIR=$prefix
 }
 
-function Install-zig
+# function Install-zig
+# {
+#   $url = "https://ziglang.org/builds/zig-windows-x86_64-0.12.0.zip"
+#   $archive = Download $url "$HOME/Downloads"
+#   Extract $archive "$HOME/zig"
+# }
+
+function Install-zigup
 {
-  $url = "https://ziglang.org/builds/zig-windows-x86_64-0.12.0.zip"
-  $archive = Download $url "$HOME/Download"
-  Extract $archive "$HOME/zig"
+  $url = "https://github.com/marler8997/zigup/releases/download/v2024_03_13/zigup.windows-latest-x86_64.zip"
+  $archive = Download $url "$HOME/Downloads"
+  $dir = Extract $archive "$HOME/Downloads"
+  Copy-Item (Join-Path $dir "zigup.exe") $HOME/zig
 }
 
 Export-ModuleMember -Function * -Alias *
