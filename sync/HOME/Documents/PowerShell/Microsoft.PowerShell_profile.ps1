@@ -587,12 +587,3 @@ Import-Module prompt -ErrorAction SilentlyContinue
 Import-Module util -ErrorAction SilentlyContinue
 Import-Module install -ErrorAction SilentlyContinue
 
-function cd-blender($version="4.1")
-{
-  $dir = Join-Path $HOME "AppData\Roaming\Blender Foundation\Blender\$version\scripts\addons"
-  if(!(Test-Path dir)){
-  New-Item $dir -ItemType Directory -ErrorAction SilentlyContinue
-  }
-  cd $dir
-}
-

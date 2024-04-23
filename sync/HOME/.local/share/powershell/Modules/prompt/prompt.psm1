@@ -44,6 +44,8 @@ $IconMap = @{
   "gltf-samples"       = "🗿"
 }
 
+$BLENDER = Join-Path $HOME "AppData\Roaming\Blender Foundation\Blender" 
+
 function get_git_status()
 {
   git rev-parse --is-inside-work-tree 2>$null
@@ -105,6 +107,21 @@ function get_git_status()
   return $sync
 }
 
+function replacePrefix($full, $prefix, $to)
+{
+  if ($full -eq $prefix)
+  {
+    return $to
+  } 
+
+  if($full -is [string])
+  {
+    return $to + $full.Substring($prefix.Length)
+  }
+
+  return $to + $full.FullName.Substring($prefix.Length)
+}
+
 function prompt()
 {
   # TODO: git status
@@ -131,12 +148,12 @@ function prompt()
   if ($GHQ_ROOT -and $location.FullName.StartsWith($GHQ_ROOT.FullName + $SEP))
   {
     $location = $location.FullName.Substring($GHQ_ROOT.FullName.Length + 1)
-    if ($location.StartsWith( "github.com$()"))
+    if ($location.StartsWith( "github.com${SEP}"))
     {
       $location = $location.Substring("github.com${SEP}".Length)
-      if ($location.StartsWith("ousttrue${SEP}"))
+      if ($location.StartsWith("ousttrue"))
       {
-        $location = " " + $location.Substring("ousttrue${SEP}".Length)
+        $location = replacePrefix $location "ousttrue" " "
       } else
       {
         $location = " " + $location
@@ -145,16 +162,13 @@ function prompt()
     {
       $location = " " + $location
     }
+  } elseif($location.FullName.StartsWith($BLENDER))
+  {
+    $location = replacePrefix $location $BLENDER "󰂫 "
   } elseif ($location.FullName.StartsWith($HOME))
   {
-    if ($location -eq $HOME)
-    {
-      $location = " "
-    } else
-    {
-      $location = " " + $location.FullName.Substring($HOME.Length)
-    }
-  }
+    $location = replacePrefix $location $HOME " "
+  } 
 
   # wezterm only
   if ($env:TERM -eq "tmux-256color")
@@ -255,5 +269,14 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
   }
 }
 
+function Enter-blender($version="4.1")
+{
+  $dir = "$BLENDER\$version\scripts\addons"
+  if(!(Test-Path dir))
+  {
+    New-Item $dir -ItemType Directory -ErrorAction SilentlyContinue
+  }
+  Set-Location $dir
+}
 
 Export-ModuleMember -Function * -Alias *
