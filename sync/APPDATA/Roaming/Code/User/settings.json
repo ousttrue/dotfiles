@@ -2,13 +2,15 @@
     "terminal.integrated.fontFamily": "'HackGen Console NF', 'Fira Code', monospace",
     "debug.onTaskErrors": "showErrors",
     "explorer.confirmDelete": false,
+    "workbench.list.automaticKeyboardNavigation": false,
+    "workbench.colorTheme": "Visual Studio 2019 Dark",
+    "git.enableSmartCommit": true,
     //
     // vim
     //
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
-    "workbench.list.automaticKeyboardNavigation": false,
     //
     // webdev
     //
@@ -25,6 +27,9 @@
     // python
     //
     "python.analysis.typeCheckingMode": "strict",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
     //
     // cpp
     //
@@ -32,22 +37,18 @@
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
     // "C_Cpp.intelliSenseEngine": "disabled",
+    "C_Cpp.intelliSenseEngine": "disabled",
     "clangd.path": "c://Users//ousttrue//AppData//Roaming//Code//User//globalStorage//llvm-vs-code-extensions.vscode-clangd//install//17.0.3//clangd_17.0.3//bin//clangd.exe",
     "cmake.showOptionsMovedNotification": false,
     "cmake.configureOnOpen": false,
-    "workbench.colorTheme": "Visual Studio 2019 Dark",
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "vala.languageServerPath": "D:/msys64/mingw64/bin/vala-language-server.exe",
-    "C_Cpp.intelliSenseEngine": "disabled",
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
-    },
     "mesonbuild.downloadLanguageServer": true,
-    "git.enableSmartCommit": true,
+    "vala.languageServerPath": "D:/msys64/mingw64/bin/vala-language-server.exe",
     // zig
     "zig.path": "${env:APPDATA}\\Code\\User\\globalStorage\\ziglang.vscode-zig\\zig_install\\zig.exe",
     "zig.initialSetupDone": true,
     "zig.zls.path": "zls",
+    // other
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
 }
