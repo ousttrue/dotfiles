@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,14 +212,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <p>[[python]]</p>
-<ul class="simple">
+          <ul class="simple">
+<li><p>@2021 <a class="reference external" href="https://qiita.com/nicco_mirai/items/5591c1c48b1422c324c9">Pythonの型を完全に理解するためのtypingモジュール全解説(3.10対応) #Python - Qiita</a></p></li>
 <li><p>@2022 <a class="reference external" href="https://jellis18.github.io/post/2022-01-11-abc-vs-protocol/">Abstract Base Classes and Protocols: What Are They? When To Use Them?? Lets Find Out! - Justin A. Ellis</a></p></li>
 <li><p>@2021 <a class="reference external" href="https://www.sambaiz.net/article/325/">PythonのProtocolによるstructural subtypingでインタフェースを記述する - sambaiz-net</a></p></li>
 </ul>
@@ -228,7 +228,67 @@
 <ul class="simple">
 <li><p>@2019 <a class="reference external" href="https://qiita.com/spicy_laichi/items/29ef79eac29d61fcb503">PythonでProtocolを使って静的ダック・タイピング - Qiita</a></p></li>
 </ul>
-<p>[[TypeHints]]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="function-value">
+<h1>function value<a class="headerlink" href="#function-value" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Callable</span><span class="p">[[</span><span class="n">PARAMS</span><span class="p">],</span> <span class="n">RET</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="def-yield">
+<h1>def yield<a class="headerlink" href="#def-yield" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Iterator</span><span class="p">[</span><span class="n">YIELD_TYPE</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tuple">
+<h1>Tuple<a class="headerlink" href="#tuple" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+
+<span class="c1"># import 不要</span>
+<span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="union">
+<h1>Union<a class="headerlink" href="#union" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+
+<span class="c1"># 3.10</span>
+<span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="intersection">
+<h1>Intersection<a class="headerlink" href="#intersection" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>@2023 <a class="reference external" href="https://medium.com/@wrefordmessi/advanced-python-typing-union-and-intersection-in-type-hints-45e7090e2a76">Advanced Python (Typing: Union and Intersection in Type Hints) | by Andrew Wreford Eshakz | Medium</a></p></li>
+<li><p>@2019 <a class="reference external" href="https://qiita.com/halhorn/items/5ac350627dd4b47264c9">type hinting で複数の Protocol を実装したクラスの型を表現する #Python - Qiita</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="self">
+<h1>Self<a class="headerlink" href="#self" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>3.11<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.jp/news/wnpython311/typing2.html">Python 3.11の新機能(その6) 型ヒントの新機能 - PEP-673 Self型: Python3.11の新機能 - python.jp</a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>型引数<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="type-typevar">
+<h2>Type, TypeVar<a class="headerlink" href="#type-typevar" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/Showy1/items/b5fe2a39ecae83ab738f">クラス自体に対しての型ヒントに使える python の typing.Type #Python - Qiita</a></p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>3.12<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/junkmd/items/1aa7be17401cfebab92d">Python3.12からPEP695-Type Parameter Syntax(型引数構文)が導入され、型変数を使ったクラスや関数の定義が大きく変わる #Python - Qiita</a></p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -252,8 +312,38 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">typing.Protocol</a></li>
+<li><a class="reference internal" href="#function-value">function value</a></li>
+<li><a class="reference internal" href="#def-yield">def yield</a></li>
+<li><a class="reference internal" href="#tuple">Tuple</a></li>
+<li><a class="reference internal" href="#union">Union</a></li>
+<li><a class="reference internal" href="#intersection">Intersection</a></li>
+<li><a class="reference internal" href="#self">Self</a><ul>
+<li><a class="reference internal" href="#id1">3.11</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">型引数</a><ul>
+<li><a class="reference internal" href="#type-typevar">Type, TypeVar</a></li>
+<li><a class="reference internal" href="#id3">3.12</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
