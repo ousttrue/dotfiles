@@ -279,4 +279,26 @@ function Enter-blender($version="4.1")
   Set-Location $dir
 }
 
+function Enter-python
+{
+  if($IsWindows)
+  {
+    $dir = py -c "import sys; print(sys.base_prefix)"
+  } elseif(has python)
+  {
+    $dir = python -c "import sys; print(sys.base_prefix)"
+  } elseif(has python3)
+  {
+    $dir = python3 -c "import sys; print(sys.base_prefix)"
+  }
+
+  if($dir)
+  {
+    Set-Location $dir
+    $dir
+  }
+}
+
+
+
 Export-ModuleMember -Function * -Alias *
