@@ -6,25 +6,28 @@
 
 - @2019 [PythonでProtocolを使って静的ダック・タイピング - Qiita](https://qiita.com/spicy_laichi/items/29ef79eac29d61fcb503)
 
-# function value
+# List
 
 ```py
-Callable[[PARAMS], RET]
-```
-
-# def yield
-
-```py
-Iterator[YIELD_TYPE]
+List[str]
+# import 不要
+list[str]
 ```
 
 # Tuple
 
 ```py
 Tuple[int, str]
-
 # import 不要
 tuple[int, str]
+```
+
+# Dict
+
+```py
+Dict[str, str]
+# import 不要
+dict[str, str]
 ```
 
 # Union
@@ -40,6 +43,18 @@ int | str
 
 - @2023 [Advanced Python (Typing: Union and Intersection in Type Hints) | by Andrew Wreford Eshakz | Medium](https://medium.com/@wrefordmessi/advanced-python-typing-union-and-intersection-in-type-hints-45e7090e2a76)
 - @2019 [type hinting で複数の Protocol を実装したクラスの型を表現する #Python - Qiita](https://qiita.com/halhorn/items/5ac350627dd4b47264c9)
+
+# function value
+
+```py
+Callable[[PARAMS], RET]
+```
+
+# def yield
+
+```py
+Iterator[YIELD_TYPE]
+```
 
 # Self
 
