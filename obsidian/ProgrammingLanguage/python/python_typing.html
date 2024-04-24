@@ -229,24 +229,27 @@
 <li><p>@2019 <a class="reference external" href="https://qiita.com/spicy_laichi/items/29ef79eac29d61fcb503">PythonでProtocolを使って静的ダック・タイピング - Qiita</a></p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="function-value">
-<h1>function value<a class="headerlink" href="#function-value" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Callable</span><span class="p">[[</span><span class="n">PARAMS</span><span class="p">],</span> <span class="n">RET</span><span class="p">]</span>
-</pre></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="def-yield">
-<h1>def yield<a class="headerlink" href="#def-yield" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Iterator</span><span class="p">[</span><span class="n">YIELD_TYPE</span><span class="p">]</span>
+<section class="tex2jax_ignore mathjax_ignore" id="list">
+<h1>List<a class="headerlink" href="#list" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="c1"># import 不要</span>
+<span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="tuple">
 <h1>Tuple<a class="headerlink" href="#tuple" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
-
 <span class="c1"># import 不要</span>
 <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dict">
+<h1>Dict<a class="headerlink" href="#dict" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+<span class="c1"># import 不要</span>
+<span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
@@ -265,6 +268,18 @@
 <li><p>@2023 <a class="reference external" href="https://medium.com/@wrefordmessi/advanced-python-typing-union-and-intersection-in-type-hints-45e7090e2a76">Advanced Python (Typing: Union and Intersection in Type Hints) | by Andrew Wreford Eshakz | Medium</a></p></li>
 <li><p>@2019 <a class="reference external" href="https://qiita.com/halhorn/items/5ac350627dd4b47264c9">type hinting で複数の Protocol を実装したクラスの型を表現する #Python - Qiita</a></p></li>
 </ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="function-value">
+<h1>function value<a class="headerlink" href="#function-value" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Callable</span><span class="p">[[</span><span class="n">PARAMS</span><span class="p">],</span> <span class="n">RET</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="def-yield">
+<h1>def yield<a class="headerlink" href="#def-yield" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Iterator</span><span class="p">[</span><span class="n">YIELD_TYPE</span><span class="p">]</span>
+</pre></div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="self">
 <h1>Self<a class="headerlink" href="#self" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -325,11 +340,13 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">typing.Protocol</a></li>
-<li><a class="reference internal" href="#function-value">function value</a></li>
-<li><a class="reference internal" href="#def-yield">def yield</a></li>
+<li><a class="reference internal" href="#list">List</a></li>
 <li><a class="reference internal" href="#tuple">Tuple</a></li>
+<li><a class="reference internal" href="#dict">Dict</a></li>
 <li><a class="reference internal" href="#union">Union</a></li>
 <li><a class="reference internal" href="#intersection">Intersection</a></li>
+<li><a class="reference internal" href="#function-value">function value</a></li>
+<li><a class="reference internal" href="#def-yield">def yield</a></li>
 <li><a class="reference internal" href="#self">Self</a><ul>
 <li><a class="reference internal" href="#id1">3.11</a></li>
 </ul>
