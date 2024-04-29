@@ -69,6 +69,9 @@ local function init_nvim()
   opt.keywordprg = ":help"
   opt.makeprg = "meson install -C builddir --tags runtime"
 
+  opt.spelllang = "en_us"
+  opt.spell = true
+
   -- opt.showmatch = true
   -- opt.matchtime = 1
   -- vim.cmd[[

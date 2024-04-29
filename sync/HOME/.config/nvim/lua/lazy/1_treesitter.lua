@@ -10,6 +10,7 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-treesitter/playground",
+      "nvim-treesitter/nvim-treesitter-context",
     },
   },
   {
