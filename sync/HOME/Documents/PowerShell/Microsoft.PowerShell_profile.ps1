@@ -583,6 +583,11 @@ function Windows-RightClick
   Stop-Process -Name explorer -Force
 }
 
+function Set-Env($name, $value)
+{
+  [Environment]::SetEnvironmentVariable($name, $value, [EnvironmentVariableTarget]::User)
+}
+
 Import-Module prompt -ErrorAction SilentlyContinue
 Import-Module util -ErrorAction SilentlyContinue
 Import-Module install -ErrorAction SilentlyContinue

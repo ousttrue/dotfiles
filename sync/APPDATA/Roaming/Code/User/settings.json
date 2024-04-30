@@ -21,7 +21,9 @@
     // cs
     //
     "[csharp]": {
-        "editor.defaultFormatter": "ms-dotnettools.csharp"
+        "editor.defaultFormatter": "ms-dotnettools.csharp",
+        "suggest.autoImports": false,
+        "editor.suggestOnTriggerCharacters": false,
     },
     //
     // python
