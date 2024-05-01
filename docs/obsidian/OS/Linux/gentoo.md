@@ -2,14 +2,22 @@
 
 - [Downloads – Gentoo Linux](https://www.gentoo.org/downloads/)
 
+# profile
+
+## default/linux/amd64/23.0
+
+## default/linux/amd64/17.1
+
 # WSL
+
 [[OS/Linux/wsl]]
+
 - [Gentoo in WSL - Gentoo Wiki](https://wiki.gentoo.org/wiki/Gentoo_in_WSL)
 - @2022 [Gentoo on WSL2](https://zenn.dev/nanasess/articles/gentoo-on-wsl2)
 
 ## 手順
 
-get stage3 [Downloads – Gentoo Linux](https://www.gentoo.org/downloads/) 
+get stage3 [Downloads – Gentoo Linux](https://www.gentoo.org/downloads/)
 
 ```powershell
 PS> wsl --import Gentoo C:\Users\Larry\AppData\Local\WSL\Gentoo\ .\stage3-amd64-openrc-20211121T170545Z.tar --version 2
@@ -17,7 +25,7 @@ PS> wsl -d Gentoo
 ```
 
 ```
-# emerge-websync 
+# emerge-websync
 # eselect news read
 # emerge -av vim
 # vim /etc/inputrc
