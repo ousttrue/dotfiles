@@ -1,0 +1,2 @@
+- [ユニファイドカーネルイメージ - ArchWiki](https://wiki.archlinux.jp/index.php/%E3%83%A6%E3%83%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%89%E3%82%AB%E3%83%BC%E3%83%8D%E3%83%AB%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8)
+- @2022 [より堅牢なLinux起動プロセスを求めて](https://gihyo.jp/article/2022/12/daily-linux-221222)
