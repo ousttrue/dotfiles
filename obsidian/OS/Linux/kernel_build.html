@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>&lt;no title&gt; - shell note ドキュメント</title>
+        <title>Gentoo - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -220,6 +220,46 @@
         <article role="main">
           <p>[[Linux]]
 <a class="reference external" href="https://qiita.com/progrunner/items/d2ab0a85b3881a4b7ed8">Linuxカーネルビルド大全 - Qiita</a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="gentoo">
+<h1>Gentoo<a class="headerlink" href="#gentoo" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>https://wiki.gentoo.org/wiki/Kernel/Overview/ja</p></li>
+</ul>
+<section id="sys-kernel-gentoo-sources">
+<h2>sys-kernel/gentoo-sources<a class="headerlink" href="#sys-kernel-gentoo-sources" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Kernel#Alternative:_Manual_configuration</p></li>
+<li><p>https://wiki.gentoo.org/wiki/Kernel/Gentoo_Kernel_Configuration_Guide</p></li>
+</ul>
+</section>
+<section id="sys-kernel-vanilla-sources">
+<h2>sys-kernel/vanilla-sources<a class="headerlink" href="#sys-kernel-vanilla-sources" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="efi-stub">
+<h2>EFI stub<a class="headerlink" href="#efi-stub" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>[[UKI]]</p>
+<ul class="simple">
+<li><p>https://wiki.gentoo.org/wiki/EFI_stub/ja</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Processor</span> <span class="nb">type</span> <span class="ow">and</span> <span class="n">features</span>  <span class="o">---&gt;</span>
+    <span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Built</span><span class="o">-</span><span class="ow">in</span> <span class="n">kernel</span> <span class="n">command</span> <span class="n">line</span>
+    <span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="n">PARTUUID</span><span class="o">=</span><span class="n">adf55784</span><span class="o">-</span><span class="mi">15</span><span class="n">d9</span><span class="o">-</span><span class="mi">4</span><span class="n">ca3</span><span class="o">-</span><span class="n">bb3f</span><span class="o">-</span><span class="mi">56</span><span class="n">de0b35d88d</span> <span class="n">ro</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>boot entry</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">efibootmgr</span> <span class="o">--</span><span class="n">create</span> <span class="o">--</span><span class="n">disk</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda</span> <span class="o">--</span><span class="n">label</span> <span class="s2">"Gentoo EFI Stub"</span> <span class="o">--</span><span class="n">loader</span> <span class="s2">"\EFI\example</span><span class="se">\b</span><span class="s2">zImage.efi"</span> <span class="o">-</span><span class="n">u</span> <span class="s2">"root=/dev/sda3"</span>
+
+<span class="n">efibootmgr</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda</span> <span class="o">-</span><span class="n">p</span> <span class="mi">1</span> <span class="o">-</span><span class="n">L</span> <span class="s2">"Gentoo EFI Stub"</span> <span class="o">-</span><span class="n">l</span> <span class="s1">'\EFI\example</span><span class="se">\b</span><span class="s1">zImage.efi'</span> <span class="o">-</span><span class="n">u</span> <span class="s1">'root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx initrd=\EFI\example\initrd.cpio.gz'</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="config">
+<h1>.config<a class="headerlink" href="#config" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>https://wiki.gentoo.org/wiki/Kernel/Configuration/ja</p></li>
+</ul>
+</section>
 
         </article>
       </div>
@@ -242,8 +282,30 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Gentoo</a><ul>
+<li><a class="reference internal" href="#sys-kernel-gentoo-sources">sys-kernel/gentoo-sources</a></li>
+<li><a class="reference internal" href="#sys-kernel-vanilla-sources">sys-kernel/vanilla-sources</a></li>
+<li><a class="reference internal" href="#efi-stub">EFI stub</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#config">.config</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
