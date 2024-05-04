@@ -23,6 +23,7 @@ local config = {
   initial_cols = 126,
   initial_rows = 50,
   window_background_opacity = 0.88,
+  check_for_updates = false,
 }
 
 ---@param config table
