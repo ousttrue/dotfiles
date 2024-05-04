@@ -1,6 +1,8 @@
 - https://kidscancode.org/godot_recipes/4.x/
 - https://www.nightquestgames.com/
 
+- @2023 [Godot4でQuestパススルーするWebXRプロジェクトを作った記録｜sachi](https://note.com/sachi2222/n/nf08b3576cd72)
+
 - [Godot Engineメモ - フレームシンセシス](https://framesynthesis.jp/tech/godot/)
 
 - @2023 [Godot でゲーム開発がしてみたい](https://zenn.dev/frommiddle1/articles/godot-tutorial)

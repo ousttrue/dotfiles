@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="検索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>client - shell note ドキュメント</title>
+        <title>version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -218,17 +218,35 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="client">
-<h1>client<a class="headerlink" href="#client" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>4.0<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.musicpd.org/clients/">Clients for the Music Player Daemon</a></p></li>
-<li><p>https://github.com/CDrummond/cantata</p></li>
+<li><p>https://socket.io/docs/v3/migrating-from-3-x-to-4-0/</p></li>
 </ul>
-<section id="golang">
-<h2>golang<a class="headerlink" href="#golang" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/ambientsound/pms">GitHub - ambientsound/pms: Practical Music Search is an interactive Vim-like console client for the Music Player Daemon.</a></p></li>
-</ul>
+</section>
+<section id="x">
+<h2>3.x<a class="headerlink" href="#x" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="erroor">
+<h1>erroor<a class="headerlink" href="#erroor" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="eio-400">
+<h2>EIO 400<a class="headerlink" href="#eio-400" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unsupported protocol version"</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>https://stackoverflow.com/questions/66047026/socket-io-v3-unsupported-protocol-version-error</p>
+<p>https://stackoverflow.com/questions/48920541/whats-the-meaning-of-eio-and-t-in-socketio</p>
+</section>
+<section id="cannot-read-property-emit-of-undefined">
+<h2>Cannot read property 'emit' of undefined<a class="headerlink" href="#cannot-read-property-emit-of-undefined" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">io</span><span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="s1">'room_name'</span><span class="p">).</span><span class="nx">broadcast</span><span class="p">.</span><span class="nx">emit</span><span class="p">()</span>
+<span class="c1">// 👇</span>
+<span class="nx">io</span><span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="s1">'room_name'</span><span class="p">).</span><span class="nx">emit</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -245,7 +263,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/obsidian/AudioVideo/mpd.md.txt"
+            | <a class="muted-link" href="../../_sources/obsidian/web/socket.io.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -265,8 +283,14 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">client</a><ul>
-<li><a class="reference internal" href="#golang">golang</a></li>
+<li><a class="reference internal" href="#">version</a><ul>
+<li><a class="reference internal" href="#id1">4.0</a></li>
+<li><a class="reference internal" href="#x">3.x</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#erroor">erroor</a><ul>
+<li><a class="reference internal" href="#eio-400">EIO 400</a></li>
+<li><a class="reference internal" href="#cannot-read-property-emit-of-undefined">Cannot read property 'emit' of undefined</a></li>
 </ul>
 </li>
 </ul>

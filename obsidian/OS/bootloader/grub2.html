@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>command boot - shell note ドキュメント</title>
+        <title>update-grub - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -221,6 +221,33 @@
           <ul class="simple">
 <li><p><a class="reference external" href="https://www.linuxfoundation.org/blog/blog/classic-sysadmin-how-to-rescue-a-non-booting-grub-2-on-linux">Classic SysAdmin: How to Rescue a Non-booting GRUB 2 on Linux - Linux Foundation</a></p></li>
 </ul>
+<section class="tex2jax_ignore mathjax_ignore" id="update-grub">
+<h1>update-grub<a class="headerlink" href="#update-grub" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="http://fedoranize.seesaa.net/article/483266532.html">grub(2)-mkconfig(update-grub)の振る舞いの違い、各ディストロでの。: ゆったりとLinux</a></p></li>
+<li><p><a class="reference external" href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0743">Ubuntuの標準ブートローダーであるGRUBを改めて見直す</a></p></li>
+<li><p><a class="reference external" href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0746">update-grubの仕組みを使ってUbuntuのGRUBをさらにカスタマイズする</a></p></li>
+<li><p><a class="reference external" href="https://blog.goo.ne.jp/aopen000/e/c8746e4fa0dc065c90afb50be27bc07a">Ubuntuの起動メニュー（GNU　GRUB）を整理する方法 - 青ペンのIT事情</a></p></li>
+<li><p>/etc/default/grub</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">GRUB_DEFAULT</span><span class="o">=</span><span class="s2">"saved"</span>
+<span class="nv">GRUB_SAVEDEFAULT</span><span class="o">=</span><span class="s2">"true"</span>
+<span class="c1">#GRUB_DISABLE_OS_PROBER=false</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>/etc/grub.d/</p></li>
+</ul>
+<p>👇</p>
+<p><code class="docutils literal notranslate"><span class="pre">update-grub(grub-mkconfig)</span></code></p>
+<p>👇</p>
+<ul class="simple">
+<li><p>/boot/grub/grub.cfg</p></li>
+</ul>
+<section id="etc-grub-d-30-os-prober">
+<h2>/etc/grub.d/30_os-prober<a class="headerlink" href="#etc-grub-d-30-os-prober" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="command-boot">
 <h1>command boot<a class="headerlink" href="#command-boot" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grub</span><span class="o">&gt;</span> <span class="nb">set</span> <span class="n">root</span><span class="o">=</span><span class="p">(</span><span class="n">hd0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># UEFI partision</span>
@@ -297,7 +324,11 @@ chainloader <span class="o">(</span><span class="si">${</span><span class="nv">r
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">command boot</a><ul>
+<li><a class="reference internal" href="#">update-grub</a><ul>
+<li><a class="reference internal" href="#etc-grub-d-30-os-prober">/etc/grub.d/30_os-prober</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#command-boot">command boot</a><ul>
 <li><a class="reference internal" href="#saved">saved</a></li>
 <li><a class="reference internal" href="#windows">windows</a></li>
 </ul>

@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>Gentoo - shell note ドキュメント</title>
+        <title>gitignore - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,12 +218,116 @@
           </label>
         </div>
         <article role="main">
-          <p>[[Linux]]
-<a class="reference external" href="https://qiita.com/progrunner/items/d2ab0a85b3881a4b7ed8">Linuxカーネルビルド大全 - Qiita</a></p>
+          <p>[[Linux]]</p>
+<ul class="simple">
+<li><p>@2022 <a class="reference external" href="https://qiita.com/progrunner/items/d2ab0a85b3881a4b7ed8">Linuxカーネルビルド大全 - Qiita</a></p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/torvalds/linux.git <span class="c1"># ソースコードを取得</span>
+$ <span class="nb">cd</span> linux
+$ git checkout バージョン <span class="c1"># ビルドしたいバージョンにcheckout</span>
+
+$ git switch -c custom
+<span class="c1"># .gitignore</span>
+<span class="c1"># !.config</span>
+
+$ mkdir ../build <span class="c1"># out-of-treeビルド（ソースコードと生成物を分離したビルド）の為のディレクトリを作成</span>
+$ make olddefconfig <span class="nv">O</span><span class="o">=</span>../build <span class="c1"># 既存のコンフィグをコピー＆ビルド用ディレクトリに必要なものを生成</span>
+$ <span class="nb">cd</span> ../build <span class="c1"># 以降、ソースコードの変更を伴わない場合、基本的にはビルド用ディレクトリで作業</span>
+$ make localmodconfig <span class="c1"># 不要なモジュールを無効化</span>
+$ make menuconfig <span class="c1"># 個別に機能の選択</span>
+
+$ <span class="nv">LOCALVERSION</span><span class="o">=</span>-mybuild make -j8 <span class="c1"># カーネル本体＆モジュールのビルド</span>
+$ sudo make modules_install <span class="c1"># モジュールのインストール</span>
+$ sudo make install <span class="c1"># カーネル本体のインストール(GRUBのエントリ生成もしてくれる）</span>
+
+$ sudo reboot <span class="c1"># 再起動後、必要に応じてgrubでビルドしたカーネルを選択</span>
+</pre></div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="gitignore">
+<h1>gitignore<a class="headerlink" href="#gitignore" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.*
+!.config
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="build-env">
+<h1>build env<a class="headerlink" href="#build-env" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>https://wiki.ubuntu.com/Kernel/BuildYourOwnKernel</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf llvm bc
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="make">
+<h1>make<a class="headerlink" href="#make" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Configuration</span> <span class="n">targets</span><span class="p">:</span>
+  <span class="n">config</span>          <span class="o">-</span> <span class="n">Update</span> <span class="n">current</span> <span class="n">config</span> <span class="n">utilising</span> <span class="n">a</span> <span class="n">line</span><span class="o">-</span><span class="n">oriented</span> <span class="n">program</span>
+  <span class="n">nconfig</span>         <span class="o">-</span> <span class="n">Update</span> <span class="n">current</span> <span class="n">config</span> <span class="n">utilising</span> <span class="n">a</span> <span class="n">ncurses</span> <span class="n">menu</span> <span class="n">based</span> <span class="n">program</span>
+  <span class="n">menuconfig</span>      <span class="o">-</span> <span class="n">Update</span> <span class="n">current</span> <span class="n">config</span> <span class="n">utilising</span> <span class="n">a</span> <span class="n">menu</span> <span class="n">based</span> <span class="n">program</span>
+  <span class="n">xconfig</span>         <span class="o">-</span> <span class="n">Update</span> <span class="n">current</span> <span class="n">config</span> <span class="n">utilising</span> <span class="n">a</span> <span class="n">Qt</span> <span class="n">based</span> <span class="n">front</span><span class="o">-</span><span class="n">end</span>
+  <span class="n">gconfig</span>         <span class="o">-</span> <span class="n">Update</span> <span class="n">current</span> <span class="n">config</span> <span class="n">utilising</span> <span class="n">a</span> <span class="n">GTK</span><span class="o">+</span> <span class="n">based</span> <span class="n">front</span><span class="o">-</span><span class="n">end</span>
+  <span class="n">oldconfig</span>       <span class="o">-</span> <span class="n">Update</span> <span class="n">current</span> <span class="n">config</span> <span class="n">utilising</span> <span class="n">a</span> <span class="n">provided</span> <span class="o">.</span><span class="n">config</span> <span class="k">as</span> <span class="n">base</span>
+  <span class="n">localmodconfig</span>  <span class="o">-</span> <span class="n">Update</span> <span class="n">current</span> <span class="n">config</span> <span class="n">disabling</span> <span class="n">modules</span> <span class="ow">not</span> <span class="n">loaded</span>
+                    <span class="k">except</span> <span class="n">those</span> <span class="n">preserved</span> <span class="n">by</span> <span class="n">LMC_KEEP</span> <span class="n">environment</span> <span class="n">variable</span>
+  <span class="n">localyesconfig</span>  <span class="o">-</span> <span class="n">Update</span> <span class="n">current</span> <span class="n">config</span> <span class="n">converting</span> <span class="n">local</span> <span class="n">mods</span> <span class="n">to</span> <span class="n">core</span>
+                    <span class="k">except</span> <span class="n">those</span> <span class="n">preserved</span> <span class="n">by</span> <span class="n">LMC_KEEP</span> <span class="n">environment</span> <span class="n">variable</span>
+  <span class="n">defconfig</span>       <span class="o">-</span> <span class="n">New</span> <span class="n">config</span> <span class="k">with</span> <span class="n">default</span> <span class="kn">from</span> <span class="nn">ARCH</span> <span class="n">supplied</span> <span class="n">defconfig</span>
+  <span class="n">savedefconfig</span>   <span class="o">-</span> <span class="n">Save</span> <span class="n">current</span> <span class="n">config</span> <span class="k">as</span> <span class="o">./</span><span class="n">defconfig</span> <span class="p">(</span><span class="n">minimal</span> <span class="n">config</span><span class="p">)</span>
+  <span class="n">allnoconfig</span>     <span class="o">-</span> <span class="n">New</span> <span class="n">config</span> <span class="n">where</span> <span class="nb">all</span> <span class="n">options</span> <span class="n">are</span> <span class="n">answered</span> <span class="k">with</span> <span class="n">no</span>
+  <span class="n">allyesconfig</span>    <span class="o">-</span> <span class="n">New</span> <span class="n">config</span> <span class="n">where</span> <span class="nb">all</span> <span class="n">options</span> <span class="n">are</span> <span class="n">accepted</span> <span class="k">with</span> <span class="n">yes</span>
+  <span class="n">allmodconfig</span>    <span class="o">-</span> <span class="n">New</span> <span class="n">config</span> <span class="n">selecting</span> <span class="n">modules</span> <span class="n">when</span> <span class="n">possible</span>
+  <span class="n">alldefconfig</span>    <span class="o">-</span> <span class="n">New</span> <span class="n">config</span> <span class="k">with</span> <span class="nb">all</span> <span class="n">symbols</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">default</span>
+  <span class="n">randconfig</span>      <span class="o">-</span> <span class="n">New</span> <span class="n">config</span> <span class="k">with</span> <span class="n">random</span> <span class="n">answer</span> <span class="n">to</span> <span class="nb">all</span> <span class="n">options</span>
+  <span class="n">yes2modconfig</span>   <span class="o">-</span> <span class="n">Change</span> <span class="n">answers</span> <span class="kn">from</span> <span class="nn">yes</span> <span class="n">to</span> <span class="n">mod</span> <span class="k">if</span> <span class="n">possible</span>
+  <span class="n">mod2yesconfig</span>   <span class="o">-</span> <span class="n">Change</span> <span class="n">answers</span> <span class="kn">from</span> <span class="nn">mod</span> <span class="n">to</span> <span class="n">yes</span> <span class="k">if</span> <span class="n">possible</span>
+  <span class="n">mod2noconfig</span>    <span class="o">-</span> <span class="n">Change</span> <span class="n">answers</span> <span class="kn">from</span> <span class="nn">mod</span> <span class="n">to</span> <span class="n">no</span> <span class="k">if</span> <span class="n">possible</span>
+  <span class="n">listnewconfig</span>   <span class="o">-</span> <span class="n">List</span> <span class="n">new</span> <span class="n">options</span>
+  <span class="n">helpnewconfig</span>   <span class="o">-</span> <span class="n">List</span> <span class="n">new</span> <span class="n">options</span> <span class="ow">and</span> <span class="n">help</span> <span class="n">text</span>
+  <span class="n">olddefconfig</span>    <span class="o">-</span> <span class="n">Same</span> <span class="k">as</span> <span class="n">oldconfig</span> <span class="n">but</span> <span class="n">sets</span> <span class="n">new</span> <span class="n">symbols</span> <span class="n">to</span> <span class="n">their</span>
+                    <span class="n">default</span> <span class="n">value</span> <span class="n">without</span> <span class="n">prompting</span>
+  <span class="n">tinyconfig</span>      <span class="o">-</span> <span class="n">Configure</span> <span class="n">the</span> <span class="n">tiniest</span> <span class="n">possible</span> <span class="n">kernel</span>
+  <span class="n">testconfig</span>      <span class="o">-</span> <span class="n">Run</span> <span class="n">Kconfig</span> <span class="n">unit</span> <span class="n">tests</span> <span class="p">(</span><span class="n">requires</span> <span class="n">python3</span> <span class="ow">and</span> <span class="n">pytest</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="make-allnoconfig">
+<h2>make allnoconfig<a class="headerlink" href="#make-allnoconfig" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenn.dev/kaishuu0123/articles/bfdeedc0492483281a4c">Linux を(わりと)シンプルな構成でビルドして Qemu で起動する</a></p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ make allnoconfig
+  LEX     scripts/kconfig/lexer.lex.c
+  YACC    scripts/kconfig/parser.tab.<span class="o">[</span>ch<span class="o">]</span>
+  HOSTCC  scripts/kconfig/lexer.lex.o
+  HOSTCC  scripts/kconfig/menu.o
+  HOSTCC  scripts/kconfig/parser.tab.o
+  HOSTCC  scripts/kconfig/preprocess.o
+  HOSTCC  scripts/kconfig/symbol.o
+  HOSTCC  scripts/kconfig/util.o
+  HOSTLD  scripts/kconfig/conf
+<span class="c1">#</span>
+<span class="c1"># configuration written to .config</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+<p>1400 行くらいある</p>
+</section>
+<section id="make-oldconfig-make-olddefconfig">
+<h2>make oldconfig / make olddefconfig<a class="headerlink" href="#make-oldconfig-make-olddefconfig" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="make-localmodconfig">
+<h2>make localmodconfig<a class="headerlink" href="#make-localmodconfig" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2021 <a class="reference external" href="http://fedoranize.seesaa.net/article/483732745.html">make localmodconfigの注意点。カーネル構築で。: ゆったりとLinux</a></p></li>
+</ul>
+</section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="gentoo">
 <h1>Gentoo<a class="headerlink" href="#gentoo" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
 <li><p>https://wiki.gentoo.org/wiki/Kernel/Overview/ja</p></li>
+<li><p><a class="reference external" href="https://wiki.gentoo.org/wiki/Kernel/Upgrade/ja#.config_.E3.83.95.E3.82.A1.E3.82.A4.E3.83.AB.E3.82.92.E6.9B.B4.E6.96.B0.E3.81.99.E3.82.8B">カーネル/アップグレード - Gentoo wiki</a></p></li>
+<li><p>https://wiki.gentoo.org/wiki/Kernel/Configuration/ja</p></li>
 </ul>
 <section id="sys-kernel-gentoo-sources">
 <h2>sys-kernel/gentoo-sources<a class="headerlink" href="#sys-kernel-gentoo-sources" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -254,10 +358,11 @@
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="config">
-<h1>.config<a class="headerlink" href="#config" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="lfs">
+<h1>LFS<a class="headerlink" href="#lfs" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>https://wiki.gentoo.org/wiki/Kernel/Configuration/ja</p></li>
+<li><p>https://www.linuxfromscratch.org/lfs/view/stable/chapter10/kernel.html</p></li>
+<li><p>https://www.linuxfromscratch.org/blfs/view/12.1/longindex.html#kernel-config-index</p></li>
 </ul>
 </section>
 
@@ -294,13 +399,21 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Gentoo</a><ul>
+<li><a class="reference internal" href="#">gitignore</a></li>
+<li><a class="reference internal" href="#build-env">build env</a></li>
+<li><a class="reference internal" href="#make">make</a><ul>
+<li><a class="reference internal" href="#make-allnoconfig">make allnoconfig</a></li>
+<li><a class="reference internal" href="#make-oldconfig-make-olddefconfig">make oldconfig / make olddefconfig</a></li>
+<li><a class="reference internal" href="#make-localmodconfig">make localmodconfig</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gentoo">Gentoo</a><ul>
 <li><a class="reference internal" href="#sys-kernel-gentoo-sources">sys-kernel/gentoo-sources</a></li>
 <li><a class="reference internal" href="#sys-kernel-vanilla-sources">sys-kernel/vanilla-sources</a></li>
 <li><a class="reference internal" href="#efi-stub">EFI stub</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#config">.config</a></li>
+<li><a class="reference internal" href="#lfs">LFS</a></li>
 </ul>
 
           </div>
