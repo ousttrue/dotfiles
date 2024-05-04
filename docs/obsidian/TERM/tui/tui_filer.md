@@ -1,3 +1,4 @@
+https://github.com/sxyazi/yazi
 
 - @2021 [Linuxのターミナル上で動作するファイルマネージャを集めてみた | クロの思考ノート](http://note.kurodigi.com/terminal-file-manager/)
 - [ターミナルで利用するCLIファイルマネージャ（ファイラー）の比較・おすすめ [インフラエンジニアのPC環境]](https://pc.oreda.net/software/filer/terminal)
