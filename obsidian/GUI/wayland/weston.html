@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>wlroots - shell note ドキュメント</title>
+        <title>version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,105 +218,49 @@
           </label>
         </div>
         <article role="main">
-          <p>[[wayland]]
-[[wayland_client]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/okazoh-tk/minic">GitHub - okazoh-tk/minic: Minimal wayland compositor for learning</a></p></li>
-<li><p><a class="reference external" href="https://github.com/wiztk/compositor">GitHub - wiztk/compositor</a></p>
-<ul>
-<li><p>依存 skia</p></li>
+          <ul class="simple">
+<li><p><a class="reference external" href="https://gitlab.freedesktop.org/wayland/weston">wayland / weston · GitLab</a></p></li>
 </ul>
-</li>
-<li><p><a class="reference external" href="https://github.com/ec1oud/grefsen">GitHub - ec1oud/grefsen: A Qt/Wayland desktop</a></p></li>
-<li><p><a class="reference external" href="https://github.com/Link1J/Awning">GitHub - Link1J/Awning: A Wayland Compositor</a></p></li>
-<li><p><a class="reference external" href="https://github.com/st3r4g/swvkc">GitHub - st3r4g/swvkc: experimental Wayland Vulkan compositor</a></p></li>
-<li><p>@2017 <a class="reference external" href="https://qiita.com/maueki/items/34323b2762e3c3342c51">作って学ぶWayland - Qiita</a>
-X11上での実行専用。</p></li>
-</ul>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;wayland-server.h&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">wl_display</span><span class="o">*</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wl_display_create</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"hello, wayland</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">wl_display_run</span><span class="p">(</span><span class="n">display</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="wlroots">
-<h1>wlroots<a class="headerlink" href="#wlroots" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>13<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/swaywm/wlroots">wlroots</a></p></li>
-<li><p><a class="reference external" href="https://way-cooler.org/book/wayland_introduction.html">Introduction -</a></p></li>
-</ul>
-<section id="tiling">
-<h2>tiling<a class="headerlink" href="#tiling" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="hyprland">
-<h3>Hyprland<a class="headerlink" href="#hyprland" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a class="reference external" href="https://github.com/hyprwm/Hyprland">GitHub - hyprwm/Hyprland: Hyprland is a highly customizable dynamic tiling Wayland compositor that doesn't sacrifice on its looks.</a></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://qiita.com/k0kubun/items/f80817d34a3eba5122bc#nvidia%E7%94%A8%E3%81%AE%E5%AF%BE%E5%BF%9C">Arch LinuxとHyprlandをインストールする - Qiita</a></p></li>
-<li><p><a class="reference external" href="https://zenn.dev/asa1984/scraps/e4d8b9947d8351">NixOSとHyprlandで最強のLinuxデスクトップ環境を作る</a></p></li>
-</ul>
-</section>
-<section id="tinywl">
-<h3>tinywl<a class="headerlink" href="#tinywl" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a class="reference external" href="https://gitlab.freedesktop.org/wlroots/wlroots/-/tree/master/tinywl">tinywl · master · wlroots / wlroots · GitLab</a></p>
-</section>
-<section id="sway">
-<h3>sway<a class="headerlink" href="#sway" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>[[sway]]</p>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="python">
-<h1>python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="newm">
-<h2>newm<a class="headerlink" href="#newm" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[python]]</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/jbuchermn/newm">GitHub - jbuchermn/newm: Wayland compositor</a></p></li>
-</ul>
-</section>
-<section id="qtile">
-<h2>qtile<a class="headerlink" href="#qtile" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>[[qtile]]</p></li>
+<li><p>backend: vnc、rdp、pipewire</p></li>
 </ul>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="backend">
 <h1>backend<a class="headerlink" href="#backend" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="drm">
+<h2>drm<a class="headerlink" href="#drm" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">weston</span> <span class="pre">--backend=drm</span></code></p>
 <ul class="simple">
-<li><p>x11</p></li>
-<li><p>drm</p></li>
-<li><p>wayland</p></li>
-<li><p>headless</p></li>
-<li><p>fbdev</p></li>
+<li><p>https://man.archlinux.org/man/extra/weston/weston-drm.7.en</p></li>
+<li><p>https://developer.nvidia.com/docs/drive/drive-os/6.0.9/public/drive-os-linux-sdk/common/topics/window_system_stub/WestonBackendOptions32.html</p></li>
 </ul>
+</section>
 <section id="rdp">
-<h2>RDP<a class="headerlink" href="#rdp" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[RDP]]</p>
+<h2>rdp<a class="headerlink" href="#rdp" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>@2017 <a class="reference external" href="https://qiita.com/junjihashimoto@github/items/2c37ee557360a6459926">Wayland RDP backend試してみた - Qiita</a></p></li>
+<li><p>@2017 <a class="reference external" href="https://qiita.com/junjihashimoto@github/items/2c37ee557360a6459926">Wayland RDP backend試してみた #RDP - Qiita</a></p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">f</span> <span class="n">rdp</span><span class="o">.</span><span class="n">key</span>
-<span class="n">weston</span> <span class="o">--</span><span class="n">backend</span><span class="o">=</span><span class="n">rdp</span><span class="o">-</span><span class="n">backend</span><span class="o">.</span><span class="n">so</span> <span class="o">--</span><span class="n">rdp4</span><span class="o">-</span><span class="n">key</span><span class="o">=</span><span class="n">rdp</span><span class="o">.</span><span class="n">key</span>
-</pre></div>
-</div>
 </section>
-<section id="vnc">
-<h2>VNC<a class="headerlink" href="#vnc" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>[[vnc]]</p>
+<section id="x11">
+<h2>x11<a class="headerlink" href="#x11" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
+<section id="headless">
+<h2>headless<a class="headerlink" href="#headless" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="browser">
-<h1>browser<a class="headerlink" href="#browser" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>https://github.com/udevbe/greenfield</p>
+<section id="fbdev">
+<h2>fbdev<a class="headerlink" href="#fbdev" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="wayland-nested">
+<h2>wayland(nested)<a class="headerlink" href="#wayland-nested" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>@2013 https://tokyodebian-team.pages.debian.net/pdf2013/debianmeetingresume201311-presentation-nozzy.pdf</p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -332,7 +276,7 @@ X11上での実行専用。</p></li>
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/GUI/wayland/wayland_compositor.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/GUI/wayland/weston.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -352,26 +296,19 @@ X11上での実行専用。</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">wlroots</a><ul>
-<li><a class="reference internal" href="#tiling">tiling</a><ul>
-<li><a class="reference internal" href="#hyprland">Hyprland</a></li>
-<li><a class="reference internal" href="#tinywl">tinywl</a></li>
-<li><a class="reference internal" href="#sway">sway</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#python">python</a><ul>
-<li><a class="reference internal" href="#newm">newm</a></li>
-<li><a class="reference internal" href="#qtile">qtile</a></li>
+<li><a class="reference internal" href="#">version</a><ul>
+<li><a class="reference internal" href="#id1">13</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#backend">backend</a><ul>
-<li><a class="reference internal" href="#rdp">RDP</a></li>
-<li><a class="reference internal" href="#vnc">VNC</a></li>
+<li><a class="reference internal" href="#drm">drm</a></li>
+<li><a class="reference internal" href="#rdp">rdp</a></li>
+<li><a class="reference internal" href="#x11">x11</a></li>
+<li><a class="reference internal" href="#headless">headless</a></li>
+<li><a class="reference internal" href="#fbdev">fbdev</a></li>
+<li><a class="reference internal" href="#wayland-nested">wayland(nested)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#browser">browser</a></li>
 </ul>
 
           </div>

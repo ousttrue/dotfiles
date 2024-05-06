@@ -218,9 +218,15 @@
           </label>
         </div>
         <article role="main">
-          <p>Kernel Mode Setting
-Direct Rendering Manager
-Direct Rendering Infrastructure</p>
+          <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KMS</span> <span class="o">=</span> <span class="n">Kernel</span> <span class="n">Mode</span> <span class="n">Setting</span>
+<span class="n">DRM</span> <span class="o">=</span> <span class="n">Direct</span> <span class="n">Rendering</span> <span class="n">Manager</span>
+<span class="n">DRI</span> <span class="o">=</span> <span class="n">Direct</span> <span class="n">Rendering</span> <span class="n">Infrastructure</span>
+
+<span class="o">+-</span><span class="n">kernel</span><span class="o">-+</span>
+<span class="o">|</span>   <span class="n">DRM</span> <span class="o">&lt;==</span> <span class="n">libdrm</span> <span class="o">&lt;==</span> <span class="n">app</span>
+<span class="o">+--------+</span>
+</pre></div>
+</div>
 <p>[[Linux]] [[console]] [[wayland]]</p>
 <ul class="simple">
 <li><p>@2020 <a class="reference external" href="https://qiita.com/Pctg-x8/items/52c7e018556ec5c867de">ttyから自作ゲームエンジンを起動する - Qiita</a></p></li>
