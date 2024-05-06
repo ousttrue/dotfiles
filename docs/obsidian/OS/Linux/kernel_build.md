@@ -139,3 +139,6 @@ efibootmgr -c -d /dev/sda -p 1 -L "Gentoo EFI Stub" -l '\EFI\example\bzImage.efi
 
 - https://www.linuxfromscratch.org/lfs/view/stable/chapter10/kernel.html
 - https://www.linuxfromscratch.org/blfs/view/12.1/longindex.html#kernel-config-index
+
+# DRM
+

@@ -1,10 +1,12 @@
----
-aliases: [KMS, DRI]
----
+```
+KMS = Kernel Mode Setting
+DRM = Direct Rendering Manager
+DRI = Direct Rendering Infrastructure
 
-Kernel Mode Setting
-Direct Rendering Manager
-Direct Rendering Infrastructure
++-kernel-+
+|   DRM <== libdrm <== app
++--------+
+```
 
 [[Linux]] [[console]] [[wayland]]
 
@@ -14,6 +16,7 @@ Direct Rendering Infrastructure
 # LibDRM
 
 # API
+
 ## GBM（Generic Buffer Manager）
 
 ## EGLStreams
