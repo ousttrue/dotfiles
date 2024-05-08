@@ -475,4 +475,25 @@ function Install-zigup
   Copy-Item (Join-Path $dir "zigup.exe") $HOME/zig
 }
 
+function Install-pacseek
+{
+  # yay
+  sudo pacman -Sy --needed git base-devel
+  if(!(Test-Path $HOME/yay))
+  {
+    git clone https://aur.archlinux.org/yay.git $HOME/yay
+  }
+  Push-Location $HOME/yay
+  makepkg -si
+  Pop-Location
+  # pakseek
+  if(!(Test-Path $HOME/pacseek))
+  {
+    git clone https://github.com/moson-mo/pacseek.git $HOME/pacseek
+  }
+  Push-Location $HOME/pacseek
+  go install .
+  Pop-Location
+}
+
 Export-ModuleMember -Function * -Alias *

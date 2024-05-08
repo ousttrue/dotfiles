@@ -1,6 +1,10 @@
 #!/bin/sh
 waybar&
+# ime
 fcitx5&
+# monitoring
 conky&
+# notification daemon
+dunst&
+# wallpaper
 swww init
-
