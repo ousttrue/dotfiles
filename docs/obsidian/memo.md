@@ -14,6 +14,14 @@
 
 - [ ] powershell の分割
 
+## lang
+
+https://github.com/vtereshkov/umka-lang
+
+## raylib + zig
+
+どうか
+
 ## lsp
 
 - [[lsp]]
@@ -82,4 +90,3 @@ cp from to
 # or
 cp from to/(from.name)
 ```
-
