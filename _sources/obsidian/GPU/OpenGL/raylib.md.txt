@@ -1,13 +1,28 @@
 [raylib | A simple and easy-to-use library to enjoy videogames programming](https://www.raylib.com/)
 
+# version
+
+## 5.0
+
+- @2023 [ゲームプログラミング向けOSSライブラリ「raylib」がバージョン5.0をリリース。プラットフォームの追加・改修を容易にするアップデートなど｜ゲームメーカーズ](https://gamemakers.jp/article/2023_12_12_56471/)
+
+## 4.0
+
 # template
+
 - @2022 [raylibを試す](https://zenn.dev/slowhand/articles/10628496100c85)
 - [GitHub - raysan5/raylib-game-template: A small template to start your raylib game](https://github.com/raysan5/raylib-game-template)
 
+# gizmo
+
+- https://github.com/alexeykarnachev/raygizmo
+
 # lua
+
 - [GitHub - TSnake41/raylib-lua: A modern LuaJIT binding for Raylib (also available at https://gitlab.com/TSnake41/raylib-lua)](https://github.com/TSnake41/raylib-lua)
 
 # meson
+
 ```meson.build
 project('raylib', 'c', version: '4.2.0')
 
