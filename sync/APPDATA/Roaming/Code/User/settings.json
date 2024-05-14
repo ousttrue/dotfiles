@@ -25,6 +25,7 @@
         "suggest.autoImports": false,
         "editor.suggestOnTriggerCharacters": false,
     },
+    "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": false,
     //
     // python
     //
