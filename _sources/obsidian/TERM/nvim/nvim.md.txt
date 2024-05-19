@@ -1,8 +1,13 @@
 - [News - Neovim](https://neovim.io/news/)
 - [Roadmap - Neovim](https://neovim.io/roadmap/)
-```sh
-nvim +Tutor
-```
+
+# version
+
+## 0.12 dev
+
+- tbl_xxx の deprecated
+
+## 0.11
 
 # vscode
 
@@ -11,6 +16,7 @@ nvim +Tutor
 - [Vim基本 #Vim - Qiita](https://qiita.com/kishiro/items/1899519d243b59973406)
 
 # articles
+
 - [vim.ui.inputを自作floating windowにした (Vim駅伝)](https://ryota2357.com/blog/2023/neovim-custom-vim-ui-input/)
 - @2022 [Neovim の設定集（2022年12月30時点） - 閑古鳥ブログ](https://kankodori-blog.com/posts/2022-12-30/)
 - @2023 [Neovim で今風のプラグインを書く方法 - Speaker Deck](https://speakerdeck.com/delphinus/neovim-dejin-feng-nopuraguinwoshu-kufang-fa)
@@ -23,4 +29,3 @@ nvim +Tutor
 - @2022 [NeovimをもっとLuaLuaさせた | 点と接線。](https://riq0h.jp/2022/10/21/150848/)
 - [Learn Neovim The Practical Way. All articles on how to configure and… | by alpha2phi | Medium](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f#545a)
   - [Neovim for Beginners — init.lua. Let’s start our journey to customize… | by alpha2phi | Medium](https://alpha2phi.medium.com/neovim-for-beginners-init-lua-45ff91f741cb)
-

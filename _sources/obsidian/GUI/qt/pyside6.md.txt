@@ -37,4 +37,24 @@ https://doc.qt.io/qt-6/qmainwindow.html
 
 - @2020 [QTreeWidgetの基本的なこと - takuroooのブログ](https://takuroooooo.hatenablog.com/entry/2020/01/12/QTreeWidget%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E3%81%93%E3%81%A8)
 
+# native window
+
+## HWND
+
+```py
+from PySide6 import QtWidgets, QtGui
+
+app = QtWidgets.QApplication()
+
+
+class MyWindow(QtGui.QWindow):
+    def exposeEvent(self, *args):
+        draw_frame()
+
+
+w = MyWindow()
+w.resize(500, 500)
+w.show()
+hwnd = w.winId()
+```
 
