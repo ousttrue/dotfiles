@@ -3,7 +3,7 @@ local M = {}
 -- https://qiita.com/uhooi/items/99aeff822d4870a8e269
 local lsp_names = function()
   local clients = {}
-  for _, client in ipairs(vim.lsp.get_active_clients { bufnr = 0 }) do
+  for _, client in ipairs(vim.lsp.get_clients { bufnr = 0 }) do
     if client.name == "null-ls" then
       local sources = {}
       for _, source in ipairs(require("null-ls.sources").get_available(vim.bo.filetype)) do
@@ -21,7 +21,7 @@ end
 local function lsp_name()
   local msg = "No Active"
   local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-  local clients = vim.lsp.get_active_clients()
+  local clients = vim.lsp.get_clients()
   if next(clients) == nil then
     return msg
   end

@@ -37,15 +37,15 @@
     // cpp
     //
     "[cpp]": {
-        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+        "editor.defaultFormatter": "xaver.clang-format"
     },
     // "C_Cpp.intelliSenseEngine": "disabled",
-    "C_Cpp.intelliSenseEngine": "disabled",
     "clangd.path": "c:\\Users\\ousttrue\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\18.1.3\\clangd_18.1.3\\bin\\clangd.exe",
     "cmake.showOptionsMovedNotification": false,
     "cmake.configureOnOpen": false,
     "mesonbuild.downloadLanguageServer": true,
     "vala.languageServerPath": "D:/msys64/mingw64/bin/vala-language-server.exe",
+    "clang-format.executable": "C:/Program Files/LLVM/bin/clang-format.exe",
     // zig
     "zig.path": "${env:APPDATA}\\Code\\User\\globalStorage\\ziglang.vscode-zig\\zig_install\\zig.exe",
     "zig.initialSetupDone": true,

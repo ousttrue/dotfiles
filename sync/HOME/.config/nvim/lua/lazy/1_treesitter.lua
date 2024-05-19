@@ -4,15 +4,15 @@
 -- * etc...
 --
 return {
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    config = require("config.nvim-treesitter").setup,
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-treesitter/playground",
-      "nvim-treesitter/nvim-treesitter-context",
-    },
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-textobjects",
+  --   config = require("config.nvim-treesitter").setup,
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "nvim-treesitter/playground",
+  --     "nvim-treesitter/nvim-treesitter-context",
+  --   },
+  -- },
   {
     "m-demare/hlargs.nvim",
     config = function()

@@ -16,7 +16,7 @@ return {
   --     neogit.setup {}
   --   end,
   -- },
-  { "sindrets/diffview.nvim" },
+  -- { "sindrets/diffview.nvim" },
   { "rhysd/git-messenger.vim" },
   -- {
   --   "lewis6991/gitsigns.nvim",

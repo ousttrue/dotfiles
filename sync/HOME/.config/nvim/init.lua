@@ -383,7 +383,7 @@ local function init_nvim()
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
+        -- "--branch=stable", -- latest stable release
         lazypath,
       }
     end
