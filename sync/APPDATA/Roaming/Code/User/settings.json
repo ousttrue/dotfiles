@@ -57,4 +57,5 @@
         "editor.defaultFormatter": "vscode.html-language-features"
     },
     "explorer.confirmDragAndDrop": false,
+    "C_Cpp.intelliSenseEngine": "disabled",
 }
