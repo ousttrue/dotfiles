@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>stub - shell note ドキュメント</title>
+        <title>pyrightconfig.json - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,75 +218,15 @@
           </label>
         </div>
         <article role="main">
-          <p>python binding</p>
-<ul class="simple">
-<li><p>@2024 <a class="reference external" href="https://qiita.com/phyblas/items/d56003904c83938823f2">PyQt6の基本の使い方からのまとめとPyQt5との違い #Python - Qiita</a></p></li>
-</ul>
-<section class="tex2jax_ignore mathjax_ignore" id="stub">
-<h1>stub<a class="headerlink" href="#stub" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="pyside6">
-<h2>pyside6 には最初から同梱されているのでは？<a class="headerlink" href="#pyside6" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>👍</p>
+          <section class="tex2jax_ignore mathjax_ignore" id="pyrightconfig-json">
+<h1>pyrightconfig.json<a class="headerlink" href="#pyrightconfig-json" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://github.com/microsoft/pyright/blob/main/docs/configuration.md</p>
 </section>
-<section id="pyside-genpyi">
-<h2>pyside-genpyi<a class="headerlink" href="#pyside-genpyi" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>https://doc.qt.io/qtforpython-6/tools/pyside-genpyi.html</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; pyside6-genpyi.exe --outpath typings all
-</pre></div>
-</div>
-</section>
-<section id="pyside6-stubs">
-<h2>PySide6-stubs<a class="headerlink" href="#pyside6-stubs" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>https://pypi.org/project/PySide6-stubs/</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">PySide6</span><span class="o">-</span><span class="n">stubs</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="input">
-<h1>input<a class="headerlink" href="#input" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://ymt-lab.com/post/2023/keyboard_mouse_monitor/">YMT Lab | PySide6でキーボードとマウスの入力内容を表示するアプリを作ってみました</a>[keyboard_mouse_monitor</p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="qmainwindow">
-<h1>QMainWindow<a class="headerlink" href="#qmainwindow" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>https://doc.qt.io/qt-6/qmainwindow.html</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="qdockwidget">
-<h1>QDockWidget<a class="headerlink" href="#qdockwidget" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>https://tanalib.com/use-qdockwidget/</p></li>
-<li><p>http://qt-log.open-memo.net/sub/first__make_window.html</p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="qtreewidget">
-<h1>QTreeWidget<a class="headerlink" href="#qtreewidget" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><p>@2020 <a class="reference external" href="https://takuroooooo.hatenablog.com/entry/2020/01/12/QTreeWidget%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E3%81%93%E3%81%A8">QTreeWidgetの基本的なこと - takuroooのブログ</a></p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="native-window">
-<h1>native window<a class="headerlink" href="#native-window" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<section id="hwnd">
-<h2>HWND<a class="headerlink" href="#hwnd" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PySide6</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">QtGui</span>
-
-<span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">()</span>
-
-
-<span class="k">class</span> <span class="nc">MyWindow</span><span class="p">(</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QWindow</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">exposeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="n">draw_frame</span><span class="p">()</span>
-
-
-<span class="n">w</span> <span class="o">=</span> <span class="n">MyWindow</span><span class="p">()</span>
-<span class="n">w</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">w</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">hwnd</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">winId</span><span class="p">()</span>
-</pre></div>
-</div>
-</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pip-install-e">
+<h1><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> が効かない件<a class="headerlink" href="#pip-install-e" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>system の <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> が見られていない。<code class="docutils literal notranslate"><span class="pre">venv</span></code> 想定？</p>
+<p>https://github.com/microsoft/pyright/blob/main/docs/import-resolution.md#editable-installs</p>
+<p>https://stackoverflow.com/questions/69711606/how-to-install-a-package-using-pip-in-editable-mode-with-pyproject-toml</p>
 </section>
 
         </article>
@@ -302,7 +242,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/GUI/qt/pyside6.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/ProgrammingLanguage/python/pyright.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -322,20 +262,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">stub</a><ul>
-<li><a class="reference internal" href="#pyside6">pyside6 には最初から同梱されているのでは？</a></li>
-<li><a class="reference internal" href="#pyside-genpyi">pyside-genpyi</a></li>
-<li><a class="reference internal" href="#pyside6-stubs">PySide6-stubs</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#input">input</a></li>
-<li><a class="reference internal" href="#qmainwindow">QMainWindow</a></li>
-<li><a class="reference internal" href="#qdockwidget">QDockWidget</a></li>
-<li><a class="reference internal" href="#qtreewidget">QTreeWidget</a></li>
-<li><a class="reference internal" href="#native-window">native window</a><ul>
-<li><a class="reference internal" href="#hwnd">HWND</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">pyrightconfig.json</a></li>
+<li><a class="reference internal" href="#pip-install-e"><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> が効かない件</a></li>
 </ul>
 
           </div>
