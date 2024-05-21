@@ -1,7 +1,11 @@
 # https://stackoverflow.com/questions/46577686/some-imported-command-names-contain-one-or-more-of-the-following-restricted-char
 
-function Set-Prefix($prefix)
+function Set-Prefix
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
   # $prefix = Join-Path $HOME "local"
   $env:INCLUDE += ";$prefix\include"
   $env:LIB += ";$prefix\lib"
@@ -170,8 +174,13 @@ function Install-exe($src, $dst)
 }
 
 # m4
-function Install-flex($prefix)
+function Install-flex
 {
+  param(
+    [Parameter(Mandatory=$true)]
+    [string]$prefix
+  )
+
   $url = "https://github.com/lexxmark/winflexbison/releases/download/v2.5.25/win_flex_bison-2.5.25.zip"
   if (!(has win_flex))
   {
@@ -184,8 +193,13 @@ function Install-flex($prefix)
   }
 }
 
-function Install-gperf($prefix)
+function Install-gperf
 {
+  param(
+    [Parameter(Mandatory=$true)]
+    [string]$prefix
+  )
+
   # $url = "https://gnuwin32.sourceforge.net/downlinks/gperf-bin-zip.php"
   $url = "https://github.com/leok7v/gnuwin32.mirror/raw/master/bin/gperf.exe"
   if (!(has gperf))
@@ -199,8 +213,13 @@ function Install-gperf($prefix)
   }
 }
 
-function Install-tools($prefix)
+function Install-tools
 {
+  param(
+    [Parameter(Mandatory=$true)]
+    [string]$prefix
+  )
+
   Install-flex $prefix
   Install-gperf $prefix
   if (!(has meson))
@@ -218,8 +237,13 @@ function Install-tools($prefix)
   pip install packaging setuptools
 }
 
-function Install-glib($prefix)
+function Install-glib
 {
+  param(
+    [Parameter(Mandatory=$true)]
+    [string]$prefix
+  )
+
   Install-tools $prefix
 
   $repos = "github.com/GNOME/glib"
@@ -245,8 +269,12 @@ function Install-glib($prefix)
   Copy-Item $prefix/lib/libpcre2-8.a $prefix/lib/pcre2-8.lib
 }
 
-function Install-pkgconfig($prefix)
+function Install-pkgconfig
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
   $repos = "gitlab.freedesktop.org/pkg-config/pkg-config"
   ghq get $repos
   Push-Location (Join-Path (ghq root) $repos)
@@ -257,8 +285,15 @@ function Install-pkgconfig($prefix)
   Pop-Location
 }
 
-function Install-gobjecgtintrospection($prefix)
+function Install-gobjecgtintrospection
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
+  Install-glib $prefix
+  Install-pkgconfig $prefix
+
   $repos = "github.com/GNOME/gobject-introspection"
   ghq get $repos
   Push-Location (Join-Path (ghq root) $repos)
@@ -266,13 +301,21 @@ function Install-gobjecgtintrospection($prefix)
   {
     Remove-Item -Recurse -Force builddir
   }
+
+  # G_ALWAYS_INLINE
+  $env:LIB+=";$prefix\lib"
+  
   meson setup builddir --prefix $prefix -Dbuildtype=release
   meson install -C builddir
   Pop-Location
 }
 
-function Install-cairo($prefix)
+function Install-cairo
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
   $repos = "gitlab.freedesktop.org/cairo/cairo"
   ghq get $repos
   Push-Location (Join-Path (ghq root) $repos)
@@ -285,8 +328,12 @@ function Install-cairo($prefix)
   Pop-Location
 }
 
-function Install-gst($prefix)
+function Install-gst
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
   ghq get https://github.com/GStreamer/gstreamer
   Push-Location (Join-Path (ghq root) "github.com\GStreamer/gstreamer")
   Get-Location
@@ -299,8 +346,12 @@ function Install-gst($prefix)
   Pop-Location
 }
 
-function Install-gtk($prefix)
+function Install-gtk
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
   # Install-glib $prefix
   # Install-pkgconfig $prefix
   # Install-gobjecgt-introspection $prefix
@@ -315,13 +366,17 @@ function Install-gtk($prefix)
   {
     Remove-Item -Recurse -Force builddir
   }
-  meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false -Dintrospection=enabled
   meson install -C builddir
   Pop-Location
 }
 
-function Install-gtkmm($prefix)
+function Install-gtkmm
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
   # doxygen
   # graphviz
   # cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release -Dwith_gvedit=OFF
@@ -329,8 +384,12 @@ function Install-gtkmm($prefix)
   # cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release -DLIBXSLT_WITH_PYTHON=OFF
 }
 
-function Install-pygobject($prefix)
+function Install-pygobject
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
   $repos = "gitlab.gnome.org/GNOME/pygobject"
   ghq get $repos
   Push-Location (Join-Path (ghq root) $repos)
@@ -453,8 +512,12 @@ function Install-openssl
   Pop-Location
 }
 
-function Set-SSl($prefix)
+function Set-SSl
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
   $env:OPENSSL_LIB_DIR="$prefix\lib"
   $env:OPENSSL_INCLUDE_DIR="$prefix\include"
   $env:OPENSSL_DIR=$prefix
@@ -495,5 +558,11 @@ function Install-pacseek
   go install .
   Pop-Location
 }
+
+# TODO
+
+# harfbuzz
+# fontconfig
+# pango
 
 Export-ModuleMember -Function * -Alias *
