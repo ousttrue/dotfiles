@@ -341,7 +341,8 @@ function Install-gst
   {
     Remove-Item -Recurse -Force builddir
   }
-  meson setup builddir --prefix $prefix -Dbuildtype=release -Dbad=disabled
+  # meson setup builddir --prefix $prefix -Dbuildtype=release -Dbad=disabled
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dbad=enabled
   meson install -C builddir
   Pop-Location
 }
@@ -366,7 +367,8 @@ function Install-gtk
   {
     Remove-Item -Recurse -Force builddir
   }
-  meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false -Dintrospection=enabled
+  # meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false -Dintrospection=enabled
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dbuild-tests=false -Dintrospection=enabled
   meson install -C builddir
   Pop-Location
 }
