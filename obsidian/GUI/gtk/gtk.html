@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,7 +212,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -224,6 +224,27 @@
 <h1>settings<a class="headerlink" href="#settings" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">$XDG_CONFIG_HOME/gtk-3.0/settings.ini</span></code>
 <code class="docutils literal notranslate"><span class="pre">~/.gtkrc-2.0</span></code></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gsk-backend">
+<h1><code class="docutils literal notranslate"><span class="pre">gsk_backend</span></code><a class="headerlink" href="#gsk-backend" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://docs.gtk.org/gtk4/running.html</p>
+<section id="ngl">
+<h2>ngl<a class="headerlink" href="#ngl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://blog.gtk.org/2024/01/28/new-renderers-for-gtk/</p>
+<p>動かない</p>
+</section>
+<section id="gl">
+<h2>gl<a class="headerlink" href="#gl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://gitlab.gnome.org/GNOME/gtk/-/issues/6636</p>
+<p>OK</p>
+</section>
+<section id="cairo">
+<h2>cairo<a class="headerlink" href="#cairo" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://stdin.top/posts/gtk4-on-windows/</p>
+<div class="highlight-pwsh notranslate"><div class="highlight"><pre><span></span><span class="nv">$env:GSK_RENDERER</span> <span class="p">=</span> <span class="s2">"CAIRO"</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -247,8 +268,30 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">settings</a></li>
+<li><a class="reference internal" href="#gsk-backend"><code class="docutils literal notranslate"><span class="pre">gsk_backend</span></code></a><ul>
+<li><a class="reference internal" href="#ngl">ngl</a></li>
+<li><a class="reference internal" href="#gl">gl</a></li>
+<li><a class="reference internal" href="#cairo">cairo</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
