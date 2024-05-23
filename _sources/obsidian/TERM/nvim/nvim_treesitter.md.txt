@@ -7,6 +7,10 @@ https://neovim.io/doc/user/treesitter.html
 
 # nvim version
 
+## 0.12
+
+
+
 ## 0.9
 
 - inspect
