@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
-        <title>build - shell note ドキュメント</title>
+        <title>version - shell note ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -218,65 +218,20 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="build">
-<h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
+          <section class="tex2jax_ignore mathjax_ignore" id="version">
+<h1>version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><p>gobject-introspection</p></li>
+<li><p>https://developer.gimp.org/core/roadmap/</p></li>
 </ul>
-<section id="freetype">
-<h2>freetype<a class="headerlink" href="#freetype" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://freetype.org/freetype2/docs/glyphs/glyphs-3.html">FreeType Glyph Conventions | Glyph Metrics</a></p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">FT_GlyphSlotRec</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">FT_Bitmap</span><span class="w">         </span><span class="n">bitmap</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">FT_Int</span><span class="w">            </span><span class="n">bitmap_left</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">FT_Int</span><span class="w">            </span><span class="n">bitmap_top</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="harfbuzz">
-<h2>harfbuzz<a class="headerlink" href="#harfbuzz" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>https://stackoverflow.com/questions/41767193/how-do-i-build-cairo-harfbuzz</p>
+<section id="id1">
+<h2>2.99<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>Freetype --with-harfbuzz=no</p></li>
-<li><p>HarfBuzz</p></li>
-<li><p>Freetype --with-harfbuzz=yes</p></li>
-<li><p>fontconfig.</p></li>
-<li><p>Cairo.</p></li>
+<li><p>GTK3</p></li>
+<li><p>@2021 <a class="reference external" href="https://note.com/histone/n/n2552c7cb4a0e">GIMP 3.0に期待｜Histone</a></p></li>
 </ul>
 </section>
-<section id="fontconfig">
-<h2>fontconfig<a class="headerlink" href="#fontconfig" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</section>
-<section id="cairo">
-<h2>cairo<a class="headerlink" href="#cairo" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>freetype</p></li>
-<li><p>pixman</p></li>
-</ul>
-</section>
-<section id="pango">
-<h2>pango<a class="headerlink" href="#pango" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>最後にビルド？</p>
-<ul class="simple">
-<li><p>https://github.com/ImageMagick/pango/blob/main/meson.build</p>
-<ul>
-<li><p>cairo</p></li>
-<li><p>freetype</p></li>
-<li><p>fontconfig</p></li>
-<li><p>harfbuzz</p></li>
-</ul>
-</li>
-</ul>
-<p>https://stackoverflow.com/questions/21790759/building-pango-with-cairo-support</p>
-<ul class="simple">
-<li><p>Build and install FreeType</p></li>
-<li><p>Build and install fontconfig</p></li>
-<li><p>Build and install Cairo (after ./configure please make sure freetype and fontconfig are found)</p></li>
-<li><p>Build and install Harfbuzz</p></li>
-<li><p>Build and install Pango</p></li>
-</ul>
+<section id="id2">
+<h2>2.10<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </section>
 </section>
 
@@ -293,7 +248,7 @@
               Copyright &#169; 2022, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/obsidian/TERM/font/freetype.md.txt"
+            | <a class="muted-link" href="../../../_sources/obsidian/GUI/gtk/gimp.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -313,12 +268,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">build</a><ul>
-<li><a class="reference internal" href="#freetype">freetype</a></li>
-<li><a class="reference internal" href="#harfbuzz">harfbuzz</a></li>
-<li><a class="reference internal" href="#fontconfig">fontconfig</a></li>
-<li><a class="reference internal" href="#cairo">cairo</a></li>
-<li><a class="reference internal" href="#pango">pango</a></li>
+<li><a class="reference internal" href="#">version</a><ul>
+<li><a class="reference internal" href="#id1">2.99</a></li>
+<li><a class="reference internal" href="#id2">2.10</a></li>
 </ul>
 </li>
 </ul>
