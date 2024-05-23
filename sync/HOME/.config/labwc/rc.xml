@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <labwc_config>
-
+  <theme>
+    <name>Numix</name>
+  </theme>
+:
   <keyboard>
     <default />
     <keybind key="W-Return">

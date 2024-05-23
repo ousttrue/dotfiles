@@ -87,7 +87,13 @@ function M.setup()
   --
   -- keymap
   --
-  local OBS_DIR = string.gsub(DOT.get_dotdir() .. "\\docs\\obsidian", "/", "\\")
+
+  local OBS_DIR = ""
+  if DOT.get_system() == "windows" then
+    OBS_DIR = string.gsub(DOT.get_dotdir() .. "\\docs\\obsidian", "/", "\\")
+  else
+    OBS_DIR = DOT.get_dotdir() .. "/docs/obsidian"
+  end
   local C_P = "<C-p>"
   if vim.startswith(vim.loop.cwd() or "", OBS_DIR) then
     vim.keymap.set("n", C_P, builtin.find_files, { noremap = true })

@@ -1,9 +1,11 @@
 #!/bin/sh
+xremap ~/.xremap&
+
 waybar&
 # ime
 fcitx5&
 # monitoring
-conky&
+# conky&
 # notification daemon
 dunst&
 # wallpaper

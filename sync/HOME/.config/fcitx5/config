@@ -48,6 +48,8 @@ EnumerateSkipFirst=False
 [Behavior]
 # Active By Default
 ActiveByDefault=False
+# Reset state on Focus In
+resetStateWhenFocusIn=No
 # Share Input State
 ShareInputState=No
 # Show preedit in application
@@ -63,13 +65,19 @@ ShowFirstInputMethodInformation=True
 # Default page size
 DefaultPageSize=5
 # Override Xkb Option
-OverrideXkbOption=False
+OverrideXkbOption=True
 # Custom Xkb Option
-CustomXkbOption=
+CustomXkbOption=caps:ctrl
 # Force Enabled Addons
 EnabledAddons=
 # Force Disabled Addons
 DisabledAddons=
 # Preload input method to be used by default
 PreloadInputMethod=True
+# Allow input method in the password field
+AllowInputMethodForPassword=False
+# Show preedit text when typing password
+ShowPreeditForPassword=False
+# Interval of saving user data in minutes
+AutoSavePeriod=30
 

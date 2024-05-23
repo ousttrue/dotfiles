@@ -112,7 +112,7 @@ function Install-rust
   {
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   }
-  cargo install zoxide ripgrep fd-find bottom lsd bat stylua tree-sitter-cli
+  cargo install zoxide ripgrep fd-find bottom lsd bat stylua tree-sitter-cli xremap
   if ($IsWindows)
   {
     cargo install coreutils --features windows

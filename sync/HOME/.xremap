@@ -1,0 +1,5 @@
+modmap:
+  - name: global
+    remap:
+      # Capslock をCtrlキーとして利用
+      Capslock: Ctrl_L
