@@ -15,9 +15,14 @@ function Set-Prefix
 
 function Install-muon
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
+
   ghq get https://github.com/annacrombie/muon
   Push-Location (Join-Path (ghq root) "/github.com/annacrombie/muon")
-  meson setup builddir --prefix $HOME/local
+  meson setup builddir --prefix $prefix
   meson install -C builddir
   Pop-Location
 }
@@ -118,10 +123,15 @@ function Install-rust
 
 function Install-ruby
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
+
   # Install-libyaml
   # Install-openssl
   # ruby
-  New-Item "$HOME/local/src" -ItemType Directory -ErrorAction SilentlyContinue
+  New-Item "$prefix/src" -ItemType Directory -ErrorAction SilentlyContinue
   Set-Location "$HOME\local\src"
   $url = "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.0.tar.gz"
   Invoke-WebRequest -Uri $url -OutFile "ruby-3.3.0.tar.gz"
@@ -342,7 +352,7 @@ function Install-gst
     Remove-Item -Recurse -Force builddir
   }
   # meson setup builddir --prefix $prefix -Dbuildtype=release -Dbad=disabled
-  meson setup builddir --prefix $prefix -Dbuildtype=release -Dbad=enabled
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dbad=enabled -Dgst-plugins-bad:vulkan=disabled
   meson install -C builddir
   Pop-Location
 }
@@ -470,6 +480,11 @@ if(Test-Path $ASDF)
 
 function Install-libyaml
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
+
   $dir = Join-Path (ghq root) "github.com/yaml/libyaml"
   if (Test-Path $dir)
   {
@@ -482,20 +497,25 @@ function Install-libyaml
   }
   cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release
   cmake --build build
-  cmake --install build --prefix $HOME/local
+  cmake --install build --prefix $prefix
   Pop-Location
 }
 
 function Install-openssl
 {
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
+
   $dir = Join-Path (ghq root) "github.com\ousttrue\w3m\subprojects\openssl-3.0.8"
   Push-Location $dir
   Remove-Item -Recurse -Force builddir
-  meson setup builddir --prefix $HOME/local
+  meson setup builddir --prefix $prefix
   meson install -C builddir
-  New-Item "$HOME/local/include" -ItemType Directory -ErrorAction SilentlyContinue
+  New-Item "$prefix/include" -ItemType Directory -ErrorAction SilentlyContinue
 
-  Copy-Item -Recurse .\generated-config\archs\VC-WIN64A\asm\include\progs.h "$HOME/local/include/progs.h"
+  Copy-Item -Recurse .\generated-config\archs\VC-WIN64A\asm\include\progs.h "$prefix/include/progs.h"
 
   $include_openssl = "$HOME\local\include\openssl"
   if (Test-Path $include_openssl)
@@ -566,5 +586,20 @@ function Install-pacseek
 # harfbuzz
 # fontconfig
 # pango
+
+function Install-ffmpeg
+{
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
+
+  ghq get https://gitlab.freedesktop.org/gstreamer/meson-ports/ffmpeg
+  Push-Location (Join-Path (ghq root) "\gitlab.freedesktop.org\gstreamer\meson-ports\ffmpeg")
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dprograms=enabled -Dlibx264=enabled -Dlibx264_encoder=enabled --reconfigure
+  meson install -C builddir
+  Pop-Location
+}
+
 
 Export-ModuleMember -Function * -Alias *
