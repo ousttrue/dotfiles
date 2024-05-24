@@ -87,3 +87,8 @@ glfw_dep = declare_dependency(
   compile_args: args,
   )
 ```
+
+# python
+
+- https://github.com/overdev/raylibpyctbg
+

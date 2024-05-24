@@ -4,6 +4,12 @@
 -- * etc...
 --
 return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "nushell/tree-sitter-nu",
+    },
+  },
   -- {
   --   "nvim-treesitter/nvim-treesitter-textobjects",
   --   config = require("config.nvim-treesitter").setup,
@@ -31,6 +37,7 @@ return {
   },
   {
     "stevearc/aerial.nvim",
+    -- branch = "v4",
     config = function()
       require("config.aerial").setup()
     end,

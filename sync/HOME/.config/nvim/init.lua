@@ -576,3 +576,6 @@ else
   --   print(vim.inspect(result))
   -- end, { noremap = true, silent = false })
 end
+
+vim.cmd "syntax off"
+vim.cmd "TSEnable highlight"

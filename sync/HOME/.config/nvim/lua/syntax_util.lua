@@ -25,6 +25,7 @@ function M.clear_syntax_link(ev)
   vim.api.nvim_set_hl(0, "BufferCurrentMod", { link = "TabLineSel" })
   hl_clear "BufferVisibleMod"
   hl_clear "BufferInactiveMod"
+  -- vim.cmd "syn clear markdownError"
 
   -- vim.api.nvim_set_hl(0, "Unknown", { force = true, fg = "#FF00FF" })
   vim.api.nvim_set_hl(0, "Conceal", { link = "NonText" })

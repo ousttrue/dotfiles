@@ -1,6 +1,7 @@
 python binding
 
 - @2024 [PyQt6の基本の使い方からのまとめとPyQt5との違い #Python - Qiita](https://qiita.com/phyblas/items/d56003904c83938823f2)
+- @2017 https://thors-novels.seesaa.net/search?keyword=pyqt
 
 # stub
 

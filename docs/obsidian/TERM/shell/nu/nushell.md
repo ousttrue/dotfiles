@@ -16,6 +16,8 @@
 
 ## 0.93
 
+- @2024 [Nushell 0.93.0 | Nushell](https://www.nushell.sh/blog/2024-04-30-nushell_0_93_0.html)
+
 ## 0.83
 
 ## 0.71
@@ -33,6 +35,8 @@
 - @2022 [Nushell + Starshipで最速Windowsターミナル環境構築](https://zenn.dev/dozo/articles/8dd9af5fba0808)
 
 # configuration
+
+[Configuration | Nushell](https://www.nushell.sh/book/configuration.html)
 
 `$nu.config-path`
 
