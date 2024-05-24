@@ -1,5 +1,0 @@
-/subprojects/*
-!/subprojects/packagefiles
-!/subprojects/lua.wrap
-!/subprojects/lpeg.wrap
-/prefix/

@@ -22,6 +22,7 @@ $env:XDG_CONFIG_HOME = "$HOME/.config"
 if($IsWindows)
 {
   $env:PSModulePath = "$HOME\.local\share\powershell\Modules;${env:PSModulePath}" 
+  Set-Alias winget (Join-Path $env:LOCALAPPDATA "Microsoft\WindowsApps\winget.exe")
 }
 
 # dirs

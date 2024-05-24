@@ -4,6 +4,8 @@
   - [Coming from Bash | Nushell](https://www.nushell.sh/book/coming_from_bash.html)
   - [Nu map from other shells and domain specific languages | Nushell](https://www.nushell.sh/book/nushell_map.html)
 
+- @2022 [Nushell入門](https://zenn.dev/hkawa/books/610c7f5c3bce09)
+
 - [GitHub - nushell/nushell: A new type of shell](https://github.com/nushell/nushell)
 
 - @2023 [Nushell入門](https://zenn.dev/hkawa/books/610c7f5c3bce09)
