@@ -1,4 +1,5 @@
 return {
+  "rapan931/lasterisk.nvim",
   {
     "LhKipp/nvim-nu",
     opts = {

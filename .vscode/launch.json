@@ -5,6 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "asset_viewer",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "asset_viewer",
+            "args": [
+                "${env:ASSETS_DIR}",
+            ]
+        },
+        {
             "name": "con",
             "type": "cppvsdbg",
             "request": "launch",
@@ -17,7 +26,7 @@
         },
         {
             "name": "doit",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "module": "doit",
             "args": [
@@ -28,7 +37,7 @@
         },
         {
             "name": "build_python",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/build_python.py",
             "console": "integratedTerminal",

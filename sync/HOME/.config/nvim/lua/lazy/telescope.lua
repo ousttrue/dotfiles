@@ -2,6 +2,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
+      "danielfalk/smart-open.nvim",
       "nvim-lua/plenary.nvim",
       -- "nvim-telescope/telescope-frecency.nvim",
       "xiyaowong/telescope-emoji.nvim",
@@ -15,6 +16,18 @@ return {
       require("config.telescope").setup()
     end,
   },
+  {
+    "danielfalk/smart-open.nvim",
+    branch = "0.2.x",
+    dependencies = {
+      "kkharji/sqlite.lua",
+      -- Only required if using match_algorithm fzf
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      -- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+      { "nvim-telescope/telescope-fzy-native.nvim" },
+    },
+  },
+
   -- {
   --   "danielfalk/smart-open.nvim",
   --   branch = "0.2.x",
