@@ -29,16 +29,16 @@ function M.setup()
   -- ---@diagnostic disable-next-line
   telescope.setup {
     defaults = {
-      --     vimgrep_arguments = {
-      --       "rg",
-      --       "--hidden",
-      --       "--color=never",
-      --       "--no-heading",
-      --       "--with-filename",
-      --       "--line-number",
-      --       "--column",
-      --       "--smart-case",
-      --     },
+      vimgrep_arguments = {
+        "rg",
+        "--hidden",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+      },
       mappings = {
         i = {
           -- ["<c-[>"] = actions.close,

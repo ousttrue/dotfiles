@@ -15,7 +15,11 @@
 3. stub package(`-stub` `*.pyi`)
 4. inline package(annotation `py.typed`)
 5. typeshed
-   `typings/bpy`
+
+|                            |     |
+| -------------------------- | --- |
+| `typings/bpy.pyi`          | x   |
+| `typings/bpy/__init__.pyi` | o   |
 
 # 実装
 
