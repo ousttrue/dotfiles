@@ -38,10 +38,6 @@ https://doc.qt.io/qt-6/qmainwindow.html
 - https://tanalib.com/use-qdockwidget/
 - http://qt-log.open-memo.net/sub/first__make_window.html
 
-# QTreeWidget
-
-- @2020 [QTreeWidgetの基本的なこと - takuroooのブログ](https://takuroooooo.hatenablog.com/entry/2020/01/12/QTreeWidget%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E3%81%93%E3%81%A8)
-
 # native window
 
 ## HWND
