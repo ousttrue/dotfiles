@@ -12,7 +12,7 @@ function M.setup()
   -- telescope.load_extension "notify"
   telescope.load_extension "ui-select"
   -- -- telescope.load_extension "live_grep_args"
-  telescope.load_extension "smart_open"
+  -- telescope.load_extension "smart_open"
 
   -- -- https://github.com/nvim-telescope/telescope.nvim/issues/2027
   -- vim.api.nvim_create_autocmd("WinLeave", {
@@ -135,9 +135,9 @@ function M.setup()
   -- vim.keymap.set("n", "[[", builtin.resume, { noremap = true })
   -- vim.keymap.set("n", "<Leader><space>", builtin.buffers, { noremap = true })
 
-  vim.keymap.set("n", "<leader><leader>", function()
-    require("telescope").extensions.smart_open.smart_open()
-  end, { noremap = true, silent = true })
+  -- vim.keymap.set("n", "<leader><leader>", function()
+  --   require("telescope").extensions.smart_open.smart_open()
+  -- end, { noremap = true, silent = true })
 
   -- vim.keymap.set("n", "<Leader>h", builtin.help_tags, { noremap = true })
   -- -- vim.keymap.set("n", "<F3>", ":<C-u>Telescope ghq list<CR>", {})
