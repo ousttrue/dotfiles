@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Kimbie Dark",
+    "workbench.colorTheme": "Monokai",
     "C_Cpp.default.compileCommands": "builddir\\compile_commands.json",
     "clangd.arguments": [
         "--compile-commands-dir=${workspaceFolder}/builddir",
