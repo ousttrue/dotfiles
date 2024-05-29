@@ -581,12 +581,6 @@ function Install-pacseek
   Pop-Location
 }
 
-# TODO
-
-# harfbuzz
-# fontconfig
-# pango
-
 function Install-ffmpeg
 {
   param(
@@ -601,5 +595,34 @@ function Install-ffmpeg
   Pop-Location
 }
 
+function Install-zigup
+{
+  $url = "https://github.com/marler8997/zigup/releases/download/v2024_05_05/zigup-x86_64-windows.zip"
+  $archive = Download $url $HOME/local/src
+  Extract $archive $HOME/local/src
+  Copy-Item -Path $HOME/local/src/zigup-x86_64-windows/zigup.exe -Destination $HOME/local/bin/zigup.exe -Force
+}
+
+function Install-zls
+{
+  $url = "https://github.com/zigtools/zls/releases/download/0.12.0/zls-x86_64-windows.zip"
+  $archive = Download $url $HOME/local/src
+  Extract $archive $HOME/local/src
+  Copy-Item -Path $HOME/local/src/zls-x86_64-windows/zls.exe -Destination $HOME/local/bin/zls.exe -Force
+}
+
+function Install-zig
+{
+  New-Item $HOME/local/src -ItemType Directory -ErrorAction SilentlyContinue
+
+  Install-zigup
+  zigup 0.12.0
+  Install-zls
+}
+
+# TODO:
+# harfbuzz
+# fontconfig
+# pango
 
 Export-ModuleMember -Function * -Alias *

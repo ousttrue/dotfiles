@@ -69,6 +69,12 @@ function M.setup()
     elseif server_name == "bashls" then
       config.filetypes = { "sh", "bash", "zsh" }
     elseif server_name == "powershell_es" then
+      config.on_attach = function(client, bufnr)
+        -- print(vim.inspect(client.server_capabilities))
+        -- client.server_capabilities.documentFormattingProvider = false
+        -- on_attach(client, bufnr)
+      end
+
       if vim.fn.has "win32" == 1 then
         config.bundle_path = vim.env.LOCALAPPDATA .. "/nvim-data/mason/packages/powershell-editor-services/"
       else
