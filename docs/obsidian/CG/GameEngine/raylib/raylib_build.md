@@ -2,12 +2,6 @@
 cmake -G Ninja -S . -B build -DBUILD_EXAMPLES=ON
 ```
 
-# zig
-
-- https://github.com/Not-Nik/raylib-zig
-
-`b.installArtifact(exe)` を足してやると `zig-cache` から `zig-out` に来る。
-
 # cmake
 
 - [GitHub - raysan5/raylib-game-template: A small template to start your raylib game](https://github.com/raysan5/raylib-game-template)
