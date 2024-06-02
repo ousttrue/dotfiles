@@ -1,0 +1,5 @@
+- 4.1
+  - scripts
+    - addons
+      - io_scene_fbx
+        - export_fbx_bin.py

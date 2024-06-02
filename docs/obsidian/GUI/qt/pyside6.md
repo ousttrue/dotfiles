@@ -29,15 +29,6 @@ pip install PySide6-stubs
 
 - [YMT Lab | PySide6でキーボードとマウスの入力内容を表示するアプリを作ってみました](https://ymt-lab.com/post/2023/keyboard_mouse_monitor/)[keyboard_mouse_monitor
 
-# QMainWindow
-
-https://doc.qt.io/qt-6/qmainwindow.html
-
-# QDockWidget
-
-- https://tanalib.com/use-qdockwidget/
-- http://qt-log.open-memo.net/sub/first__make_window.html
-
 # native window
 
 ## HWND

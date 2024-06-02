@@ -12,3 +12,7 @@ https://github.com/KhronosGroup/Vulkan-Docs/blob/main/proposals/VK_EXT_mesh_shad
 > It is not yet available in WebGPU (gpuweb#3015 is the feature request).
 
 VertexShader の前のステージ？
+
+# OpenGL
+
+- https://www.geeks3d.com/20200519/introduction-to-mesh-shaders-opengl-and-vulkan/
