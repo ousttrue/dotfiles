@@ -1,6 +1,7 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    -- tag = "0.1.6",
     dependencies = {
       "danielfalk/smart-open.nvim",
       "nvim-lua/plenary.nvim",
@@ -8,9 +9,6 @@ return {
       "xiyaowong/telescope-emoji.nvim",
       "rcarriga/nvim-notify",
       "nvim-telescope/telescope-live-grep-args.nvim",
-      -- This will not install any breaking changes.
-      -- For major updates, this must be adjusted manually.
-      version = "^1.0.0",
     },
     config = function()
       require("config.telescope").setup()
