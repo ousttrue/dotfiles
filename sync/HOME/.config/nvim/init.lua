@@ -181,12 +181,12 @@ local function init_nvim()
       if newBufNum == currentBufNum then
         vim.cmd "enew"
       end
-      -- -- 非表示になった buffer を削除
-      -- vim.cmd("silent bwipeout " .. currentBufNum)
-      -- --   bwipeoutに失敗した場合はウインドウ上のバッファを復元
-      -- if vim.fn.bufloaded(currentBufNum) ~= 0 then
-      --   vim.cmd("buffer " .. currentBufNum)
-      -- end
+      -- 非表示になった buffer を削除
+      vim.cmd("silent bwipeout " .. currentBufNum)
+      --   bwipeoutに失敗した場合はウインドウ上のバッファを復元
+      if vim.fn.bufloaded(currentBufNum) ~= 0 then
+        vim.cmd("buffer " .. currentBufNum)
+      end
     end
   end
   vim.keymap.set("n", "<C-q>", close_buffer_or_window, { noremap = true })
