@@ -1,6 +1,16 @@
 return {
   "rapan931/lasterisk.nvim",
   {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
+  {
     "LhKipp/nvim-nu",
     opts = {
       use_lsp_features = true, -- requires https://github.com/jose-elias-alvarez/null-ls.nvim

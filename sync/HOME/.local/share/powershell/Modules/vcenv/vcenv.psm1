@@ -85,6 +85,11 @@ function vcenv()
         "VSINSTALLDIR=> $($kv[1])"
         $env:VSINSTALLDIR = $kv[1]
       }
+      "VSCMD_VER"
+      {
+        "VSCMD_VER=> $($kv[1])"
+        $env:VSCMD_VER = $kv[1]
+      }
     }
   }
   # Write-Output $v.stdout
