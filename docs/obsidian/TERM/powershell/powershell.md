@@ -1,5 +1,9 @@
 [[dotNET]]
 
+```
+dotnet tool install --global PowerShell
+```
+
 - @2023 [PowerShellの起動を速くする | PowerShell from Japan!! Blog](https://blog.powershell-from.jp/?p=276)
 - @2023 [PowerShell+fzfでコマンド入力支援](https://zenn.dev/mebiusbox/articles/b922c7e6ded49a)
 - @2021 [PowerShellモジュールのPSFzfとZLocationをつかってみる #PowerShell - Qiita](https://qiita.com/SAITO_Keita/items/f1832b34a9946fc8c716)
@@ -14,6 +18,10 @@
 Windows PowerShell 5.1 ワークフロー (.xaml)
 
 # Version
+
+## 7.5
+
+- PSNativeWindowsTildeExpansion
 
 ## Core 7.4(LTS)
 

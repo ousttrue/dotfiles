@@ -1,5 +1,12 @@
 [[luv]]
 
+# version
+
+- https://dist.libuv.org/dist/
+- https://github.com/libuv/libuv/releases
+
+## 1.48
+
 # book
 - [Table of Contents — An Introduction to libuv](https://nikhilm.github.io/uvbook/)
 	- [uvbook -- libuvの仕組みとidle-basicの解説 · wshito's diary](http://diary.wshito.com/comp/lisp/uvbook/uvbook-idle-basic/)
