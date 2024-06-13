@@ -1,4 +1,5 @@
 return {
+  "marekmaskarinec/vim-umka",
   "rapan931/lasterisk.nvim",
   {
     "kylechui/nvim-surround",

@@ -10,6 +10,26 @@ function M.setup()
       -- toml = { "treesitter" },
       lua = { "lsp", "treesitter" },
     },
+
+    lsp = {
+      -- If true, fetch document symbols when LSP diagnostics update.
+      diagnostics_trigger_update = true,
+
+      -- Set to false to not update the symbols when there are LSP errors
+      update_when_errors = true,
+
+      -- How long to wait (in ms) after a buffer change before updating
+      -- Only used when diagnostics_trigger_update = false
+      update_delay = 300,
+
+      -- Map of LSP client name to priority. Default value is 10.
+      -- Clients with higher (larger) priority will be used before those with lower priority.
+      -- Set to -1 to never use the client.
+      priority = {
+        -- pyright = 10,
+      },
+    },
+
     -- close_automatic_events = { "switch_buffer" },
     -- optionally use on_attach to set keymaps when aerial has attached to a buffer
     on_attach = function(bufnr)

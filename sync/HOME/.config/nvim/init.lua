@@ -1,7 +1,7 @@
 local DOT = require "dot"
 
 local function init_nvim()
-  -- vim.cmd [[syntax off]]
+  vim.cmd [[syntax on]]
   local g = vim.g
   local opt = vim.opt
   ---@class uv
@@ -410,6 +410,23 @@ local function init_nvim()
     table.insert(plugins, { import = "lazy.colorschemes" })
     require("lazy").setup(plugins, opts)
   end
+
+  function on_filetype(ev)
+    -- print(string.format("event fired: %s", vim.inspect(ev)))
+    local ft = ev.match
+    local ts = require("nvim-treesitter.parsers").filetype_to_parsername[ft]
+    if ts then
+      -- print(ts)
+      vim.opt_local.syntax='off'
+    else
+      -- vim.opt_local.syntax = "ON"
+      -- vim.cmd[[syntax on]]
+    end
+  end
+
+  vim.api.nvim_create_autocmd("FileType", {
+    callback = on_filetype,
+  })
 end
 
 --
@@ -577,5 +594,4 @@ else
   -- end, { noremap = true, silent = false })
 end
 
-vim.cmd "syntax off"
 vim.cmd "TSEnable highlight"

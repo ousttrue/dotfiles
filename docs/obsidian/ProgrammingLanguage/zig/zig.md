@@ -2,8 +2,10 @@
 
 [Home ⚡ Zig Programming Language](https://ziglang.org/)
 
+- [Learning Zig](https://www.openmymind.net/learning_zig/)
 - [GitHub - nrdmn/awesome-zig](https://github.com/nrdmn/awesome-zig)
 - [[全編無料] 他言語習得者がとりあえず使えるようになるZig](https://zenn.dev/drumato/books/learn-zig-to-be-a-beginner)
+
 
 # Version
 ## 0.12 development
