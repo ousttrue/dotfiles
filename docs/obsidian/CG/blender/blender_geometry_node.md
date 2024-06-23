@@ -30,6 +30,13 @@ https://docs.blender.org/manual/ja/dev/modeling/geometry_nodes/index.html
 
 - `CurveResample` @2023 [Blenderのジオメトリノードで作る線路の解説 | 街の創作屋さん](https://sousakuyasan.jp/blender_rail_geometory/)
 
+# 眼球
+
+- https://www.youtube.com/watch?v=3TxZBbq8BMA
+- https://www.youtube.com/watch?v=N01CLPV9HRQ
+- https://x.com/tomo_/status/1458379419299446786?lang=ja
+- https://x.com/7se3d/status/1604068597608824832
+
 # 木
 
 - @2023 [ジオメトリノードを使用して線のオブジェクトから木を作る方法｜sttzki](https://note.com/st_tzki/n/n7682ea1b5fdf)

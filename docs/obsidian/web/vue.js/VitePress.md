@@ -7,4 +7,12 @@ https://vitepress.dev/
   - VuePress2
   - VitePress 👈
 
+# Version
 
+## 1.2
+
+## 1.0
+
+# Build-Time Data Loading
+
+https://vitepress.dev/guide/data-loading
