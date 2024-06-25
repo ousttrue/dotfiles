@@ -1,5 +1,9 @@
 # version
 
+## 3.12 @2023
+
+## 3.11 @2022
+
 # linter formatter
 
 - https://github.com/astral-sh/ruff
