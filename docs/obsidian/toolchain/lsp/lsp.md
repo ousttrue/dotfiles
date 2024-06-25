@@ -2,6 +2,10 @@
 aliases: [LanguageServerProtocol]
 ---
 
+- https://www.hugchange.life/posts/wen_lsp.html
+
+- https://github.com/pschanely/CrossHair
+
 > `2016年6月に、Microsoftがlanguage server protocol公開`
 
 - [コンパイラを書いてセルフホストした](https://zenn.dev/myuon/articles/76047d5d575346)

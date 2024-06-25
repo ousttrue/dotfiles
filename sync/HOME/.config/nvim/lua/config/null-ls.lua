@@ -93,6 +93,8 @@ function M.setup()
         -- use opengl instead of vulkan1.0
         extra_args = { "--target-env=opengl" },
       },
+      null_ls.builtins.formatting.topiary,
+
       -- null_ls.builtins.diagnostics.eslint,
       -- null_ls.builtins.diagnostics.eslint.with {
       --   prefer_local = "node_modules/.bin", --プロジェクトローカルがある場合はそれを利用

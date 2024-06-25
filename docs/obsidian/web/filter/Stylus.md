@@ -39,3 +39,18 @@ x {
 	margin-top: 1000em;
 }
 ```
+
+# X
+
+```css
+div[aria-label="トレンド"]{
+    display: none;
+}
+header[role="banner"] {
+    display: none;
+}
+div[aria-label="ホームタイムライン"]{
+    width: 100vw;
+    background: white;
+}
+```
