@@ -59,4 +59,5 @@
     "explorer.confirmDragAndDrop": false,
     "C_Cpp.intelliSenseEngine": "disabled",
     "git.openRepositoryInParentFolders": "never",
+    "python.defaultInterpreterPath": "C:\\ghq\\github.com\\openlawlibrary\\pygls\\env",
 }

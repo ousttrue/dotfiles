@@ -2,54 +2,65 @@ local DOT = require "dot"
 
 local function init_nvim()
   vim.cmd [[syntax on]]
-  local g = vim.g
-  local opt = vim.opt
-  ---@class uv
-  local uv = vim.loop
-
   if vim.fn.has "win32" == 1 then
     vim.keymap.set("n", "<C-z>", "<Nop>")
     vim.g.sqlite_clib_path = "D:/msys64/mingw64/bin/libsqlite3-0.dll"
   end
 
-  -- disable netrw's gx mapping.
-  g.netrw_nogx = true
+  -- Create an event handler for the FileType autocommand
+  vim.api.nvim_create_autocmd("FileType", {
+    -- This handler will fire when the buffer's 'filetype' is "python"
+    pattern = "markdown",
+    callback = function(ev)
+      local OBS_DIR = string.gsub(DOT.get_dotdir() .. "\\docs\\obsidian", "/", "\\")
+      if vim.startswith(ev.file, OBS_DIR) then
+        print "obsidian !"
+        vim.lsp.start {
+          name = "obsidian-lsp",
+          cmd = { "py", "lsp.py" },
+          -- Set the "root directory" to the parent directory of the file in the
+          -- current buffer (`ev.buf`) that contains either a "setup.py" or a
+          -- "pyproject.toml" file. Files that share a root directory will reuse
+          -- the connection to the same LSP server.
+          root_dir = vim.fs.root(ev.buf, { "lsp.py" }),
+        }
+      end
+    end,
+  })
+
+  vim.g.netrw_nogx = true -- disable netrw's gx mapping.
 
   vim.keymap.set({ "i", "c" }, "<S-Insert>", "<C-R>+", { noremap = true })
   vim.keymap.set({ "n" }, "<S-Insert>", "p", { noremap = true })
 
-  -- vim.cmd [[execute "set colorcolumn=" . join(range(81, 9999), ',')]]
-  -- opt.cursorline = true
-  -- opt.autowrite = true
-  opt.guicursor = ""
-  opt.showtabline = 3
-  opt.startofline = false
-  opt.completeopt = "menu,preview"
-  opt.ambiwidth = "single"
-  opt.termguicolors = true -- Enable colors in terminal
-  opt.hlsearch = true --Set highlight on search
-  opt.number = true --Make line numbers default
-  -- opt.relativenumber = true --Make relative number default
-  opt.mouse = "a" --Enable mouse mode
-  opt.smartindent = false
-  opt.autoindent = false
-  opt.cindent = false
-  opt.breakindent = true --Enable break indent
-  opt.ignorecase = true --Case insensitive searching unless /C or capital in search
-  opt.smartcase = true -- Smart case
-  opt.updatetime = 250 --Decrease update time
-  opt.signcolumn = "yes" -- Always show sign column
-  opt.clipboard = "unnamedplus" -- Access system clipboard
-  opt.laststatus = 3
-  -- opt.winbar = "%f"
-  opt.fileformats = "unix"
+  vim.opt.guicursor = ""
+  vim.opt.showtabline = 3
+  vim.opt.startofline = false
+  vim.opt.completeopt = "menu,preview"
+  vim.opt.ambiwidth = "single"
+  vim.opt.termguicolors = true -- Enable colors in terminal
+  vim.opt.hlsearch = true --Set highlight on search
+  vim.opt.number = true --Make line numbers default
+  -- vim.opt.relativenumber = true --Make relative number default
+  vim.opt.mouse = "a" --Enable mouse mode
+  vim.opt.smartindent = false
+  vim.opt.autoindent = false
+  vim.opt.cindent = false
+  vim.opt.breakindent = true --Enable break indent
+  vim.opt.ignorecase = true --Case insensitive searching unless /C or capital in search
+  vim.opt.smartcase = true -- Smart case
+  vim.opt.updatetime = 250 --Decrease update time
+  vim.opt.signcolumn = "yes" -- Always show sign column
+  vim.opt.clipboard = "unnamedplus" -- Access system clipboard
+  vim.opt.laststatus = 3
+  vim.opt.fileformats = "unix"
 
-  opt.tabstop = 2
-  opt.softtabstop = 2
-  opt.shiftwidth = 2
-  opt.expandtab = true
-  opt.list = true
-  opt.listchars = {
+  vim.opt.tabstop = 2
+  vim.opt.softtabstop = 2
+  vim.opt.shiftwidth = 2
+  vim.opt.expandtab = true
+  vim.opt.list = true
+  vim.opt.listchars = {
     eol = "$",
     tab = ">-",
     trail = "~",
@@ -57,37 +68,29 @@ local function init_nvim()
     precedes = "<",
     conceal = "_",
   }
-  opt.concealcursor = "nvic"
-  -- opt.conceallevel = 2
-  opt.belloff = "all"
-  opt.swapfile = false
-  opt.undofile = false
-  opt.backup = false
-  opt.hlsearch = true
-  opt.hidden = true
-  opt.modeline = true
-  opt.keywordprg = ":help"
-  opt.makeprg = "meson install -C builddir --tags runtime"
+  vim.opt.concealcursor = "nvic"
+  --vim.opt.conceallevel = 2
+  vim.opt.belloff = "all"
+  vim.opt.swapfile = false
+  vim.opt.undofile = false
+  vim.opt.backup = false
+  vim.opt.hlsearch = true
+  vim.opt.hidden = true
+  vim.opt.modeline = true
+  vim.opt.keywordprg = ":help"
+  vim.opt.makeprg = "meson install -C builddir --tags runtime"
 
-  opt.spelllang = "en_us"
-  opt.spell = true
+  vim.opt.spelllang = "en_us"
+  vim.opt.spell = true
 
-  -- opt.showmatch = true
-  -- opt.matchtime = 1
+  --vim.opt.showmatch = true
+  --vim.opt.matchtime = 1
   -- vim.cmd[[
   -- set matchpairs+=<:>
   -- ]]
 
-  -- vim.keymap.set({ "n", "i" }, "<F7>", function()
-  --   -- vim.cmd "make!"
-  --   -- vim.cmd "wa"
-  --   vim.cmd "stopinsert"
-  --   local qfu = require "qfu"
-  --   qfu.async_make()
-  -- end)
   vim.keymap.set({ "n" }, "<F7>", ":make<CR>")
   vim.keymap.set({ "i" }, "<F7>", "<c-o>:make<CR><ESC>")
-
   if DOT.get_system() == "windows" then
     local qfu = require "qfu"
     vim.opt.errorformat = qfu.ninja_vc_fmt
@@ -98,15 +101,6 @@ local function init_nvim()
     local qfu = require "qfu"
     qfu.Qf_filter()
   end)
-  -- vim.keymap.set("n", "<C-k>", "<Tab>", { noremap = true })
-  -- vim.keymap.set("n", "<Tab>", function()
-  --   local items = vim.fn.getqflist()
-  --   if #items > 1 then
-  --     vim.cmd "cn"
-  --   elseif #items == 1 then
-  --     vim.cmd "cc"
-  --   end
-  -- end)
   vim.keymap.set("n", "<Tab>", ":cnext<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "<S-Tab>", ":cprev<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "]q", ":cnewer<CR>", { noremap = true, silent = true })
@@ -129,7 +123,7 @@ local function init_nvim()
   vim.keymap.set({ "i", "c" }, "<C-a>", "<HOME>")
   vim.cmd "packadd cfilter"
 
-  -- opt.completeopt = "menuone,noinsert"
+  --vim.opt.completeopt = "menuone,noinsert"
   vim.keymap.set("i", "<C-j>", "<C-x><C-o>")
   -- vim.cmd[[
   -- inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
@@ -417,7 +411,7 @@ local function init_nvim()
     local ts = require("nvim-treesitter.parsers").filetype_to_parsername[ft]
     if ts then
       -- print(ts)
-      vim.opt_local.syntax='off'
+      vim.opt_local.syntax = "off"
     else
       -- vim.opt_local.syntax = "ON"
       -- vim.cmd[[syntax on]]

@@ -12,6 +12,14 @@
 
 ## 0.11
 
+# 一から設定しなおす手順
+
+- init.lua(basic)
+- lazy
+- lua 開発環境(treesitter, lsp, stylua)
+- telescope
+- cmp
+
 # vscode
 
 - [📜2023-10-07 vscode-neovimを導入してみた - Minerva](https://minerva.mamansoft.net/Notes/%F0%9F%93%9C2023-10-07+vscode-neovim%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F)

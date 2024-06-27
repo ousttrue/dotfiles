@@ -17,6 +17,12 @@ aliases: [LanguageServerProtocol]
 
 - @2022 [言語サーバープロトコルの概要 - Visual Studio (Windows) | Microsoft Docs](https://docs.microsoft.com/ja-jp/visualstudio/extensibility/language-server-protocol?view=vs-2022)
 
+# version
+
+## 3.17
+
+## 3.6
+
 # 中文
 
 - https://github.com/iamcco/ds-pinyin-lsp

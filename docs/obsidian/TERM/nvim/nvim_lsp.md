@@ -6,6 +6,27 @@
 - [Neovimを一瞬でVSCode並みに便利にする - k0kubun's blog](https://k0kubun.hatenablog.com/entry/neovim-lsp)
 - @2019 [NeovimのBuiltin LSPを使ってみる - Qiita](https://qiita.com/slin/items/2b43925065de3b9a6d3b)
 
+# manual start
+
+```lua
+-- Create an event handler for the FileType autocommand
+vim.api.nvim_create_autocmd('FileType', {
+  -- This handler will fire when the buffer's 'filetype' is "python"
+  pattern = 'python',
+  callback = function(ev)
+    vim.lsp.start({
+      name = 'my-server-name',
+      cmd = {'name-of-language-server-executable', '--option', 'arg1', 'arg2'},
+      -- Set the "root directory" to the parent directory of the file in the
+      -- current buffer (`ev.buf`) that contains either a "setup.py" or a
+      -- "pyproject.toml" file. Files that share a root directory will reuse
+      -- the connection to the same LSP server.
+      root_dir = vim.fs.root(ev.buf, {'setup.py', 'pyproject.toml'}),
+    })
+  end,
+})
+```
+
 # version
 
 ## 0.8
@@ -23,6 +44,17 @@
 
 - [GitHub - neovim/nvim-lspconfig: Quickstart configurations for the Nvim LSP client](https://github.com/neovim/nvim-lspconfig)
   - [nvim-lspconfig/server_configurations.md at master · neovim/nvim-lspconfig · GitHub](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
+
+## autostart
+
+```lua
+lsp_config.bashls.setup({
+    autostart = false,
+    ... rest of configuration
+})
+```
+
+- https://stackoverflow.com/questions/77582090/neovim-start-lsp-only-on-first-insert
 
 # ProjectLocal
 

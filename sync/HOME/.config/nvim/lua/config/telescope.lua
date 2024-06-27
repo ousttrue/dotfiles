@@ -76,10 +76,12 @@ function M.setup()
   else
     OBS_DIR = DOT.get_dotdir() .. "/docs/obsidian"
   end
-  local C_P = "<C-p>"
+  local C_P = "<Leader>p"
+
   if vim.startswith(vim.loop.cwd() or "", OBS_DIR) then
     vim.keymap.set("n", C_P, ts_builtin.find_files, { noremap = true })
   else
+
     -- https://www.reddit.com/r/neovim/comments/p1xj92/make_telescope_git_files_revert_back_to_find/
     local function project_files()
       local _, ret, _ = ts_utils.get_os_command_output { "git", "rev-parse", "--is-inside-work-tree" }
