@@ -23,6 +23,10 @@ aliases: [LanguageServerProtocol]
 
 ## 3.6
 
+# spec
+
+- https://github.com/tennashi/lsp_spec_ja
+
 # 中文
 
 - https://github.com/iamcco/ds-pinyin-lsp

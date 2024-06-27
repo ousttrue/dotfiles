@@ -1,5 +1,6 @@
 import logging
 import re
+import pathlib
 
 from lsprotocol import types
 
@@ -11,7 +12,7 @@ class ObsidianLanguageServer(LanguageServer):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # self.index = {}
+        self.index: dict[str, pathlib.Path] = {}
 
     # def parse(self, doc: TextDocument):
     #     typedefs = {}
@@ -46,6 +47,26 @@ class ObsidianLanguageServer(LanguageServer):
 server = ObsidianLanguageServer("obsidian-server", "v1")
 
 
+@server.feature(types.TEXT_DOCUMENT_DID_OPEN)
+def did_open(ls: ObsidianLanguageServer, params: types.DidOpenTextDocumentParams):
+    """Parse each document when it is opened"""
+    if ls.index:
+        return
+
+    def traverse(dir: pathlib.Path):
+        for child in dir.iterdir():
+            if child.is_dir():
+                traverse(child)
+            elif child.is_file():
+                ls.index[child.stem] = child.absolute()
+
+    if ls.workspace.root_path:
+        traverse(pathlib.Path(ls.workspace.root_path))
+
+    # doc = .get_text_document(params.text_document.uri)
+    # ls.parse(doc)
+
+
 @server.feature(types.TEXT_DOCUMENT_DEFINITION)
 def goto_definition(ls: ObsidianLanguageServer, params: types.DefinitionParams):
     """Jump to an object's definition."""
@@ -59,13 +80,15 @@ def goto_definition(ls: ObsidianLanguageServer, params: types.DefinitionParams):
     # Is word a type?
     # if (range_ := index["types"].get(word, None)) is not None:
     #     return types.Location(uri=doc.uri, range=range_)
-    return types.Location(
-        uri=f"{ls.workspace.root_uri}/memo.md",
-        range=types.Range(
-            types.Position(line=0, character=0),
-            types.Position(line=0, character=0),
-        ),
-    )
+    path = ls.index[word]
+    if path:
+        return types.Location(
+            uri=path.as_uri(),
+            range=types.Range(
+                types.Position(line=0, character=0),
+                types.Position(line=0, character=0),
+            ),
+        )
 
 
 if __name__ == "__main__":

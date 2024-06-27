@@ -1,5 +1,13 @@
 local DOT = require "dot"
 
+local function fullpath(src)
+  local expand = vim.fn.fnamemodify(src, ":p")
+  if vim.startswith(expand, "c:") then
+    expand = "C:" .. expand:sub(3)
+  end
+  return expand
+end
+
 local function init_nvim()
   vim.cmd [[syntax on]]
   if vim.fn.has "win32" == 1 then
@@ -13,8 +21,8 @@ local function init_nvim()
     pattern = "markdown",
     callback = function(ev)
       local OBS_DIR = string.gsub(DOT.get_dotdir() .. "\\docs\\obsidian", "/", "\\")
-      if vim.startswith(ev.file, OBS_DIR) then
-        print "obsidian !"
+      if vim.startswith(fullpath(ev.file), OBS_DIR) then
+        -- print "obsidian !"
         vim.lsp.start {
           name = "obsidian-lsp",
           cmd = { "py", "lsp.py" },
@@ -24,6 +32,8 @@ local function init_nvim()
           -- the connection to the same LSP server.
           root_dir = vim.fs.root(ev.buf, { "lsp.py" }),
         }
+      else
+        -- print(OBS_DIR, fullpath(ev.file))
       end
     end,
   })
