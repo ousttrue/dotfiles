@@ -1,0 +1,1 @@
+- [How to use hash map contexts to save memory when doing a string table](https://zig.news/andrewrk/how-to-use-hash-map-contexts-to-save-memory-when-doing-a-string-table-3l33)
