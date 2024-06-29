@@ -45,7 +45,6 @@ local function init_nvim()
   vim.opt.ambiwidth = "single"
   vim.opt.termguicolors = true -- Enable colors in terminal
   vim.opt.hlsearch = true --Set highlight on search
-  vim.opt.number = true --Make line numbers default
   -- vim.opt.relativenumber = true --Make relative number default
   vim.opt.mouse = "a" --Enable mouse mode
   vim.opt.smartindent = false

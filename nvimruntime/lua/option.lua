@@ -18,6 +18,7 @@ local M = {
     vim.opt.signcolumn = "yes" -- Always show sign column
     vim.opt.showtabline = 3
     vim.opt.laststatus = 3
+    vim.opt.number = true --Make line numbers default
 
     -- buffer
     vim.opt.fileformats = "unix"
