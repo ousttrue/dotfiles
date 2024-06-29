@@ -1,5 +1,4 @@
 return {
-  { "tpope/vim-fugitive" },
   -- {
   --   "NeogitOrg/neogit",
   --   branch = "nightly",

@@ -1,5 +1,5 @@
 --
---
+-- https://lazy.folke.io/spec/examples
 --
 return {
   { "nvim-lua/plenary.nvim" },
@@ -10,26 +10,26 @@ return {
         mappings = { basic = false, extra = false },
       }
 
-      local api = require "Comment.api"
-      local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
-
       -- Toggle current line (linewise) using C-/
-      vim.keymap.set("n", "<C-_>", api.toggle.linewise.current)
-      vim.keymap.set("n", "<C-/>", api.toggle.linewise.current)
+      vim.keymap.set("n", "<C-_>", require("Comment.api").toggle.linewise.current)
+      vim.keymap.set("n", "<C-/>", require("Comment.api").toggle.linewise.current)
 
       -- Toggle selection (linewise)
-      function vcomment()
+      local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
+      local function vcomment()
         vim.api.nvim_feedkeys(esc, "nx", false)
-        api.toggle.linewise(vim.fn.visualmode())
+        require("Comment.api").toggle.linewise(vim.fn.visualmode())
       end
 
       vim.keymap.set("x", "<C-_>", vcomment)
       vim.keymap.set("x", "<C-/>", vcomment)
 
+      -- vala lang
       local ft = require "Comment.ft"
       ft.vala = { "//%s", "/*%s*/" }
     end,
   },
+  { "tpope/vim-fugitive" },
   {
     "liangxianzhe/floating-input.nvim",
     config = function()
@@ -37,5 +37,36 @@ return {
         require("floating-input").input(opts, on_confirm, { border = "double" })
       end
     end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("config.lualine").setup()
+    end,
+  },
+  {
+    "haya14busa/vim-edgemotion",
+    keys = {
+      { "<C-j>", "<Plug>(edgemotion-j)", mode = { "n", "v" } },
+      { "<C-k>", "<Plug>(edgemotion-k)", mode = { "n", "v" } },
+    },
+  },
+  {
+    "romgrk/barbar.nvim",
+    dependencies = {
+      -- "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+      "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+    },
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
+    opts = {},
+    keys = {
+      { ")", ":BufferNext<CR>",     { noremap = true } },
+      { "(", ":BufferPrevious<CR>", { noremap = true } },
+    },
   },
 }

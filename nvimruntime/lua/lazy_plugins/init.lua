@@ -1,3 +1,6 @@
+--
+-- https://lazy.folke.io/
+--
 local M = {
   setup = function()
     --
@@ -21,15 +24,19 @@ local M = {
     --
     local plugins = {}
     table.insert(plugins, { import = "lazy_plugins.0_minimum" })
+    -- highlight
     table.insert(plugins, { import = "lazy_plugins.1_treesitter" })
-    table.insert(plugins, { import = "lazy_plugins.telescope" })
-    table.insert(plugins, { import = "lazy_plugins.filer" })
+    -- finder
+    table.insert(plugins, { import = "lazy_plugins.2_telescope" })
+    -- left panel
+    table.insert(plugins, { import = "lazy_plugins.3_filer" })
+    -- formatter
+    table.insert(plugins, { import = "lazy_plugins.4_lsp" })
+
     -- table.insert(plugins, { import = "lazy_plugins.extend" })
     -- table.insert(plugins, { import = "lazy_plugins.9_denops" })
-    table.insert(plugins, { import = "lazy_plugins.git" })
     -- table.insert(plugins, { import = "lazy_plugins.cmp" })
     -- table.insert(plugins, { import = "lazy_plugins.colorschemes" })
-    table.insert(plugins, { import = "lazy_plugins.2_lsp" })
 
     local opts = {
       change_detection = {

@@ -38,40 +38,11 @@ return {
       "neovim/nvim-lspconfig",
       "SmiteshP/nvim-navic",
       "MunifTanjim/nui.nvim",
-      "numToStr/Comment.nvim", -- Optional
+      "numToStr/Comment.nvim",         -- Optional
       "nvim-telescope/telescope.nvim", -- Optional
     },
     config = function()
       require("config.navbuddy").setup()
-    end,
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    -- dependencies = {
-    --   "nvim-tree/nvim-web-devicons",
-    -- },
-    config = function()
-      require("config.lualine").setup()
-    end,
-  },
-  {
-    "romgrk/barbar.nvim",
-    dependencies = {
-      -- "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
-      "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
-    },
-    init = function()
-      vim.g.barbar_auto_setup = false
-    end,
-    config = function()
-      require("barbar").setup {
-        -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-        -- animation = true,
-        -- insert_at_start = true,
-        -- …etc.
-      }
-      vim.keymap.set("n", ")", ":BufferNext<CR>", { noremap = true })
-      vim.keymap.set("n", "(", ":BufferPrevious<CR>", { noremap = true })
     end,
   },
   {
@@ -190,11 +161,11 @@ xmap sk <Plug>(columnskip:nonblank:prev)
           local bm = require "bookmarks"
           local map = vim.keymap.set
           map("n", "mm", bm.bookmark_toggle) -- add or remove bookmark at current line
-          map("n", "mi", bm.bookmark_ann) -- add or edit mark annotation at current line
-          map("n", "mc", bm.bookmark_clean) -- clean all marks in local buffer
-          map("n", "]m", bm.bookmark_next) -- jump to next mark in local buffer
-          map("n", "[m", bm.bookmark_prev) -- jump to previous mark in local buffer
-          map("n", "ml", bm.bookmark_list) -- show marked file list in quickfix window
+          map("n", "mi", bm.bookmark_ann)    -- add or edit mark annotation at current line
+          map("n", "mc", bm.bookmark_clean)  -- clean all marks in local buffer
+          map("n", "]m", bm.bookmark_next)   -- jump to next mark in local buffer
+          map("n", "[m", bm.bookmark_prev)   -- jump to previous mark in local buffer
+          map("n", "ml", bm.bookmark_list)   -- show marked file list in quickfix window
         end,
       }
     end,
@@ -205,13 +176,6 @@ xmap sk <Plug>(columnskip:nonblank:prev)
       signs = true,
     },
   },
-  {
-    "haya14busa/vim-edgemotion",
-    config = function()
-      vim.keymap.set({ "n", "v" }, "<C-j>", "<Plug>(edgemotion-j)")
-      vim.keymap.set({ "n", "v" }, "<C-k>", "<Plug>(edgemotion-k)")
-    end,
-  },
 
   {
     "lewis6991/hover.nvim",
@@ -220,8 +184,8 @@ xmap sk <Plug>(columnskip:nonblank:prev)
         init = function()
           -- Require providers
           require "hover.providers.lsp"
-          require('hover.providers.gh')
-          require('hover.providers.gh_user')
+          require "hover.providers.gh"
+          require "hover.providers.gh_user"
           -- require('hover.providers.jira')
           -- require('hover.providers.dap')
           -- require('hover.providers.fold_preview')
