@@ -18,10 +18,21 @@ function GET_SYSTEM()
   end
 end
 
+
+function PATH_EXISTS(path)
+  if vim.loop.fs_stat(path) then
+    return true
+  end
+end
+
+
 local M = {
   setup = function()
+    require("option").setup()
     require("keymap").setup()
+    require("clipboard").setup()
     require("lazy_plugins").setup()
+    require("color").setup()
   end,
 }
 return M

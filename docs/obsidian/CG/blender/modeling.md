@@ -21,6 +21,9 @@
 
 - [匠メカハンドシリーズ 『13cmサイズロボット用ハンド・角指①』について – アワートレジャー](http://ourtreasure.co.jp/2017/08/25/%E5%8C%A0%E3%83%A1%E3%82%AB%E3%83%8F%E3%83%B3%E3%83%89%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E3%80%8E13cm%E3%82%B5%E3%82%A4%E3%82%BA%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E7%94%A8%E3%83%8F%E3%83%B3-2/)
 
+## 指
+- https://x.com/sasahara3DCG/status/1537006840268984320
+
 # room
 
 - [作成した3Dモデルの中にthree.jsで影をつける方法](https://zenn.dev/kaito_takase/articles/c96c2ed77fbaee)

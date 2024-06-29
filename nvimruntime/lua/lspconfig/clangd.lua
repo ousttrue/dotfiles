@@ -1,7 +1,5 @@
 local M = {}
 
-local dot = require "dot"
-
 local util = require "lspconfig.util"
 
 local clangd_list = {
@@ -40,15 +38,15 @@ end
 
 local function get_compile_commands_dir()
   local pwd = vim.fn.getcwd()
-  if dot.exists "builddir/compile_commands.json" then
+  if PATH_EXISTS "builddir/compile_commands.json" then
     return pwd .. "/builddir"
   end
 
-  if dot.exists "build/compile_commands.json" then
+  if PATH_EXISTS "build/compile_commands.json" then
     return pwd .. "/build"
   end
 
-  if dot.exists "compile_commands.json" then
+  if PATH_EXISTS "compile_commands.json" then
     return pwd
   end
 

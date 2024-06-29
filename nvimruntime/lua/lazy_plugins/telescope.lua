@@ -5,7 +5,7 @@ return {
     dependencies = {
       "danielfalk/smart-open.nvim",
       "nvim-lua/plenary.nvim",
-      -- "nvim-telescope/telescope-frecency.nvim",
+      "nvim-telescope/telescope-frecency.nvim",
       "xiyaowong/telescope-emoji.nvim",
       "rcarriga/nvim-notify",
       "nvim-telescope/telescope-live-grep-args.nvim",
@@ -73,7 +73,7 @@ return {
       }
     end,
   }, ]]
-  { "nvim-telescope/telescope-ui-select.nvim" },
+  -- { "nvim-telescope/telescope-ui-select.nvim" },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {

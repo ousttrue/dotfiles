@@ -1,16 +1,16 @@
-local DOT = require "dot"
+-- local DOT = require "dot"
 -- local CMP = DOT.safe_require("cmp_nvim_lsp")
 
-local VSCODE_SERVER = DOT.get_home() .. "/.vscode-server"
-local VSCODE_LOCAL = DOT.get_home() .. "/.vscode"
-local VSCODE = DOT.is_wsl and VSCODE_SERVER or VSCODE_LOCAL
+-- local VSCODE_SERVER = DOT.get_home() .. "/.vscode-server"
+-- local VSCODE_LOCAL = DOT.get_home() .. "/.vscode"
+-- local VSCODE = DOT.is_wsl and VSCODE_SERVER or VSCODE_LOCAL
 
 local M = {}
 function M.setup()
   local lspconfig = require "lspconfig"
   local util = require "lspconfig.util"
 
-  require("lspconfig.ui.windows").default_options.border = DOT.border
+  -- require("lspconfig.ui.windows").default_options.border = DOT.border
 
   ---@param client table
   ---@param bufnr number

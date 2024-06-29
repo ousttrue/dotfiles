@@ -8,11 +8,23 @@ function M.setup()
   local ts_builtin = require "telescope.builtin"
   local ts_utils = require "telescope.utils"
   local ts_actions_layout = require "telescope.actions.layout"
-  ts.load_extension "ui-select"
+  -- ts.load_extension "ui-select"
+  ts.load_extension "frecency"
+  if vim.fn.has "win32" == 1 then
+    vim.g.sqlite_clib_path = "D:/msys64/mingw64/bin/libsqlite3-0.dll"
+  end
 
   local file_ignore_patterns = { "node_modules", ".git", ".venv", ".cache" }
   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-u-to-clear-prompt
   ts.setup {
+    extensions = {
+      frecency = {
+        auto_validate = true,
+        db_safe_mode = false,
+        matcher = "fuzzy",
+        path_display = { "filename_first" },
+      },
+    },
     defaults = {
       vimgrep_arguments = {
         "rg",
@@ -109,6 +121,7 @@ function M.setup()
     end
   end
   vim.keymap.set("n", "<Leader>g", grep_under_cursor, { noremap = true })
+  vim.keymap.set("n", "<Leader> ", ":Telescope frecency<CR>", { silent = true, noremap = true })
   -- vim.keymap.set("n", "<leader>g", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
   -- vim.keymap.set("n", "<Leader>g", builtin.live_grep, { noremap = true })
 

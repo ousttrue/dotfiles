@@ -22,11 +22,20 @@ return {
         vim.api.nvim_feedkeys(esc, "nx", false)
         api.toggle.linewise(vim.fn.visualmode())
       end
+
       vim.keymap.set("x", "<C-_>", vcomment)
       vim.keymap.set("x", "<C-/>", vcomment)
 
       local ft = require "Comment.ft"
       ft.vala = { "//%s", "/*%s*/" }
+    end,
+  },
+  {
+    "liangxianzhe/floating-input.nvim",
+    config = function()
+      vim.ui.input = function(opts, on_confirm)
+        require("floating-input").input(opts, on_confirm, { border = "double" })
+      end
     end,
   },
 }

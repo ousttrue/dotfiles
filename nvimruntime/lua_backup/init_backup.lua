@@ -11,7 +11,6 @@ end
 local function init_nvim()
   vim.cmd [[syntax on]]
   if vim.fn.has "win32" == 1 then
-    vim.keymap.set("n", "<C-z>", "<Nop>")
     vim.g.sqlite_clib_path = "D:/msys64/mingw64/bin/libsqlite3-0.dll"
   end
 
@@ -40,11 +39,7 @@ local function init_nvim()
 
   vim.g.netrw_nogx = true -- disable netrw's gx mapping.
 
-  vim.keymap.set({ "i", "c" }, "<S-Insert>", "<C-R>+", { noremap = true })
-  vim.keymap.set({ "n" }, "<S-Insert>", "p", { noremap = true })
-
   vim.opt.guicursor = ""
-  vim.opt.showtabline = 3
   vim.opt.startofline = false
   vim.opt.completeopt = "menu,preview"
   vim.opt.ambiwidth = "single"
@@ -60,24 +55,7 @@ local function init_nvim()
   vim.opt.ignorecase = true --Case insensitive searching unless /C or capital in search
   vim.opt.smartcase = true -- Smart case
   vim.opt.updatetime = 250 --Decrease update time
-  vim.opt.signcolumn = "yes" -- Always show sign column
-  vim.opt.clipboard = "unnamedplus" -- Access system clipboard
-  vim.opt.laststatus = 3
-  vim.opt.fileformats = "unix"
 
-  vim.opt.tabstop = 2
-  vim.opt.softtabstop = 2
-  vim.opt.shiftwidth = 2
-  vim.opt.expandtab = true
-  vim.opt.list = true
-  vim.opt.listchars = {
-    eol = "$",
-    tab = ">-",
-    trail = "~",
-    extends = ">",
-    precedes = "<",
-    conceal = "_",
-  }
   vim.opt.concealcursor = "nvic"
   --vim.opt.conceallevel = 2
   vim.opt.belloff = "all"
@@ -129,8 +107,6 @@ local function init_nvim()
 " autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow
 ]]
 
-  vim.keymap.set({ "i", "c" }, "<C-e>", "<END>")
-  vim.keymap.set({ "i", "c" }, "<C-a>", "<HOME>")
   vim.cmd "packadd cfilter"
 
   --vim.opt.completeopt = "menuone,noinsert"
@@ -146,16 +122,6 @@ local function init_nvim()
   -- vim.keymap.set("n", "<C-l>", ":bnext<CR>", { noremap = true })initl
   -- vim.keymap.set("n", "<C-h>", ":bprev<CR>", { noremap = true })
   -- vim.keymap.set("n", "<Leader>c", "<C-l>", { noremap = true })
-  vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
-  local function write_buffer()
-    if vim.startswith(vim.fn.mode(), "i") then
-      vim.cmd "stopinsert"
-    end
-    -- vim.lsp.buf.format { async = false }
-    vim.api.nvim_command "write"
-  end
-  vim.keymap.set("n", "<C-s>", write_buffer, { noremap = true })
-  vim.keymap.set("i", "<C-s>", write_buffer, { noremap = true })
 
   local function should_close(bufnr)
     local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
@@ -307,11 +273,6 @@ local function init_nvim()
   vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
 
-  vim.keymap.set("n", "<M-h>", "<C-w>h", { noremap = true })
-  vim.keymap.set("n", "<M-j>", "<C-w>j", { noremap = true })
-  vim.keymap.set("n", "<M-k>", "<C-w>k", { noremap = true })
-  vim.keymap.set("n", "<M-l>", "<C-w>l", { noremap = true })
-
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
   vim.keymap.set("n", "gn", vim.lsp.buf.rename, { noremap = true })
@@ -357,16 +318,6 @@ local function init_nvim()
   vim.cmd [[command! VimSyntaxTest :source $VIMRUNTIME/syntax/hitest.vim]]
   vim.cmd [[command! ReloadHl :lua require('dot').reload_hl()]]
   vim.cmd [[command! CrLfToLf :%s/\r$//]]
-
-  local function ff()
-    local formatter = DOT.formatters[vim.bo.filetype]
-    if formatter then
-      formatter()
-    else
-      vim.lsp.buf.format { timeout_ms = 2000 }
-    end
-  end
-  vim.keymap.set("n", "ff", ff, { noremap = true })
 
   require("keymap").setup()
 

@@ -52,7 +52,6 @@ end
 function M.setup()
   local null_ls = require "null-ls"
   local helpers = require "null-ls.helpers"
-  local dot = require "dot"
 
   ---@param client table
   ---@param bufnr number
@@ -65,7 +64,7 @@ function M.setup()
 
   null_ls.setup {
     diagnostics_format = "[#{s}] #{c}\n#{m}",
-    border = dot.border,
+    -- border = dot.border,
     -- debug = true,
     sources = {
       -- null_ls.builtins.formatting.csharpier,
