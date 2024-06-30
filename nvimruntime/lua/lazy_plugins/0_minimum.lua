@@ -1,8 +1,11 @@
 --
 -- https://lazy.folke.io/spec/examples
 --
+-- config > opts
 return {
   { "nvim-lua/plenary.nvim" },
+  { "mattn/emmet-vim" },
+  { "tpope/vim-fugitive" },
   {
     "numToStr/Comment.nvim",
     config = function()
@@ -29,7 +32,6 @@ return {
       ft.vala = { "//%s", "/*%s*/" }
     end,
   },
-  { "tpope/vim-fugitive" },
   {
     "liangxianzhe/floating-input.nvim",
     config = function()
@@ -65,7 +67,7 @@ return {
     end,
     opts = {},
     keys = {
-      { ")", ":BufferNext<CR>",     { noremap = true } },
+      { ")", ":BufferNext<CR>", { noremap = true } },
       { "(", ":BufferPrevious<CR>", { noremap = true } },
     },
   },

@@ -128,9 +128,6 @@ return {
     end,
   },
   {
-    "mattn/emmet-vim",
-  },
-  {
     "tyru/columnskip.vim",
     config = function()
       vim.cmd [[

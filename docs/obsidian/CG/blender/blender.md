@@ -1,5 +1,9 @@
 # Version
 
+## 4.2
+
+- https://developer.blender.org/docs/release_notes/4.2/
+
 ## 4.1
 
 - python-3.11

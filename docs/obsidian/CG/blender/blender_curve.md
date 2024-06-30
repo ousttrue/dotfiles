@@ -1,5 +1,9 @@
 https://github.com/Shriinivas/blenderbezierutils
 
+# 向き表示
+
+- [【blender】カーブの向きを表示する｜五十嵐カブ](https://note.com/igarashi_cub/n/nd50be263e29a)
+
 # 閉じる
 
 `alt-c`
