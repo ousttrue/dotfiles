@@ -91,9 +91,12 @@ return {
       --
       -- keymap
       --
-      local OBS_DIR = vim.fn.fnamemodify("~", ":p") .. "/dotfiles/docs/obsidian"
+      local OBS_DIR = vim.fs.joinpath(vim.fn.fnamemodify("~", ":p"), "dotfiles/docs/obsidian")
       if GET_SYSTEM() == "windows" then
-        OBS_DIR = string.gsub(OBS_DIR, "/", "\\")
+        OBS_DIR = OBS_DIR:gsub("/", "\\"):gsub("\\+", "\\")
+        if OBS_DIR[2] == ":" then
+          OBS_DIR = OBS_DIR[1]:upper() .. ":" .. OBS_DIR:sub(3)
+        end
       end
       local C_P = "<Leader>p"
 

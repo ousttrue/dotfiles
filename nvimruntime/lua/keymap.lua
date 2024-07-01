@@ -14,6 +14,7 @@ local M = {
     vim.keymap.set("n", "<M-k>", "<C-w>k", { noremap = true })
     vim.keymap.set("n", "<M-l>", "<C-w>l", { noremap = true })
     vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
+    vim.keymap.set("n", "t", "zt", { noremap = true, silent = true })
 
     vim.keymap.set({ "i", "c" }, "<S-Insert>", "<C-R>+", { noremap = true })
     vim.keymap.set({ "n" }, "<S-Insert>", "p", { noremap = true })
@@ -29,6 +30,13 @@ local M = {
     end
     vim.keymap.set("n", "<C-s>", write_buffer, { noremap = true })
     vim.keymap.set("i", "<C-s>", write_buffer, { noremap = true })
+
+    vim.keymap.set({ "n" }, "<F7>", ":make<CR>")
+    vim.keymap.set({ "i" }, "<F7>", "<c-o>:make<CR><ESC>")
+    vim.keymap.set("n", "<C-n>", ":cnext<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "<C-p>", ":cprev<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "]q", ":cnewer<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "[q", ":colder<CR>", { noremap = true, silent = true })
 
     -- local function ff()
     --   local formatter = DOT.formatters[vim.bo.filetype]

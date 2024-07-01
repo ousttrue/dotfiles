@@ -9,8 +9,6 @@ https://neovim.io/doc/user/treesitter.html
 
 ## 0.12
 
-
-
 ## 0.9
 
 - inspect

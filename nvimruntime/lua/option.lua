@@ -1,5 +1,8 @@
 local M = {
   setup = function()
+    vim.opt.belloff = "all"
+    vim.opt.hidden = true
+
     -- visual
     vim.opt.tabstop = 2
     vim.opt.softtabstop = 2

@@ -44,28 +44,26 @@ local function init_nvim()
   vim.opt.completeopt = "menu,preview"
   vim.opt.ambiwidth = "single"
   vim.opt.termguicolors = true -- Enable colors in terminal
-  vim.opt.hlsearch = true --Set highlight on search
+  vim.opt.hlsearch = true      --Set highlight on search
   -- vim.opt.relativenumber = true --Make relative number default
-  vim.opt.mouse = "a" --Enable mouse mode
+  vim.opt.mouse = "a"          --Enable mouse mode
   vim.opt.smartindent = false
   vim.opt.autoindent = false
   vim.opt.cindent = false
   vim.opt.breakindent = true --Enable break indent
-  vim.opt.ignorecase = true --Case insensitive searching unless /C or capital in search
-  vim.opt.smartcase = true -- Smart case
-  vim.opt.updatetime = 250 --Decrease update time
+  vim.opt.ignorecase = true  --Case insensitive searching unless /C or capital in search
+  vim.opt.smartcase = true   -- Smart case
+  vim.opt.updatetime = 250   --Decrease update time
 
   vim.opt.concealcursor = "nvic"
   --vim.opt.conceallevel = 2
-  vim.opt.belloff = "all"
+
   vim.opt.swapfile = false
   vim.opt.undofile = false
   vim.opt.backup = false
   vim.opt.hlsearch = true
-  vim.opt.hidden = true
   vim.opt.modeline = true
   vim.opt.keywordprg = ":help"
-  vim.opt.makeprg = "meson install -C builddir --tags runtime"
 
   vim.opt.spelllang = "en_us"
   vim.opt.spell = true
@@ -75,13 +73,6 @@ local function init_nvim()
   -- vim.cmd[[
   -- set matchpairs+=<:>
   -- ]]
-
-  vim.keymap.set({ "n" }, "<F7>", ":make<CR>")
-  vim.keymap.set({ "i" }, "<F7>", "<c-o>:make<CR><ESC>")
-  if DOT.get_system() == "windows" then
-    local qfu = require "qfu"
-    vim.opt.errorformat = qfu.ninja_vc_fmt
-  end
 
   vim.keymap.set("n", "<F8>", function()
     vim.cmd "bel copen"
@@ -102,7 +93,6 @@ local function init_nvim()
 "   autocmd TextYankPost * silent! lua vim.highlight.on_yank()
 " augroup end
 
-" autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 " autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow
 ]]
 
@@ -346,10 +336,6 @@ local function init_vscode()
   vim.notify = vscode.notify
 end
 
-local function init_buffer_local()
-  vim.keymap.set("n", "t", "zt", { noremap = true, silent = true })
-end
-
 local function init_wsl_clipboard()
   if vim.fn.executable "win32yank.exe" == 1 then
     vim.g.clipboard = {
@@ -373,16 +359,7 @@ local function init_osx_clipboard() end
 -- main
 --
 
-local SYNTAX_UTIL = require "syntax_util"
-
-vim.api.nvim_create_autocmd("colorscheme", {
-  callback = function(ev)
-    SYNTAX_UTIL.clear_syntax_link(ev)
-  end,
-})
-
 local platform = get_platform()
-init_buffer_local()
 
 if platform == "vscode" then
   init_vscode()

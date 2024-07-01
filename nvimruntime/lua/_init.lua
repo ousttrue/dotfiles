@@ -30,6 +30,7 @@ local M = {
   setup = function()
     require("option").setup()
     require("keymap").setup()
+    require("quick_fix").setup()
     require("clipboard").setup()
     require("lazy_plugins").setup()
     require("color").setup()

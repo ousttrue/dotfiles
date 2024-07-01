@@ -13,7 +13,11 @@
 - https://github.com/KhronosGroup/Basis-Universal-Transcoders
 
 # Version
-## 1.16
+## 1.16 @2023
+
+## 1.15 @2022
+
+## 1.14 @2021
 
 # UASTC
 `8-bpp`
