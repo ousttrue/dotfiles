@@ -36,3 +36,4 @@
     hunk-header-style = file line-number syntax
 [safe]
 	directory = D:/ghq/github.com/ousttrue/meson_book
+	directory = D:/ghq/github.com/ousttrue/VrmEditor

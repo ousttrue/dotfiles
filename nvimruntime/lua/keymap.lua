@@ -76,7 +76,7 @@ local M = {
       else
         -- buffer 切り替え｀
         -- vim.cmd "BufferLineCycleNext"
-        vim.cmd "BufferNext" -- barbar
+        vim.cmd ":BufferNext" -- barbar
         local newBufNum = vim.fn.bufnr "%"
         if newBufNum == currentBufNum then
           vim.cmd "enew"

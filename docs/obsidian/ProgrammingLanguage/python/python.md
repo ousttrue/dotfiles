@@ -1,12 +1,10 @@
+https://gihyo.jp/list/group/Python-Monthly-Topics#rt:/article/2023/03/monthly-python-2303
+
 # version
 
 ## 3.12 @2023
 
 ## 3.11 @2022
-
-# linter formatter
-
-- https://github.com/astral-sh/ruff
 
 # DLL の import 仕様が変わっている
 
