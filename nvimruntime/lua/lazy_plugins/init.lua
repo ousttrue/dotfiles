@@ -32,6 +32,8 @@ local M = {
     table.insert(plugins, { import = "lazy_plugins.3_filer" })
     -- formatter
     table.insert(plugins, { import = "lazy_plugins.4_lsp" })
+    -- completion
+    table.insert(plugins, { import = "lazy_plugins.5_cmp" })
 
     -- table.insert(plugins, { import = "lazy_plugins.extend" })
     -- table.insert(plugins, { import = "lazy_plugins.9_denops" })
