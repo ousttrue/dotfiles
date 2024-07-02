@@ -59,18 +59,16 @@ return {
   {
     "romgrk/barbar.nvim",
     dependencies = {
-      -- "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
       "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
     },
+    config = function()
+      require("barbar").setup {}
+      vim.keymap.set("n", ")", ":BufferNext<CR>", { noremap = true })
+      vim.keymap.set("n", "(", ":BufferPrevious<CR>", { noremap = true })
+    end,
     init = function()
       vim.g.barbar_auto_setup = false
     end,
-    -- opts = {
-    --   insert_at_start = true,
-    -- },
-    keys = {
-      { ")", ":BufferNext<CR>",     { noremap = true } },
-      { "(", ":BufferPrevious<CR>", { noremap = true } },
-    },
   },
 }

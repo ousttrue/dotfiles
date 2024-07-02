@@ -1,13 +1,19 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
     dependencies = {
-      "nushell/tree-sitter-nu",
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "m-demare/hlargs.nvim",
+    },
+    main = "nvim-treesitter.configs",
+    opts = {
+      highlight = { enable = true },
     },
   },
   {
-    "m-demare/hlargs.nvim",
-    opts = {},
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    event = "CursorMoved",
   },
   {
     -- https://github.com/kevinhwang91/nvim-ufo
@@ -18,7 +24,7 @@ return {
     },
     config = function()
       vim.o.foldcolumn = "0" -- '0' is not bad
-      vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
 
@@ -112,7 +118,7 @@ return {
         callback = function(ctx)
           require("tsnode-marker").set_automark(ctx.buf, {
             target = { "code_fence_content" }, -- list of target node types
-            hl_group = "CursorLine",           -- highlight group
+            hl_group = "CursorLine", -- highlight group
           })
         end,
       })

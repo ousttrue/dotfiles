@@ -1,11 +1,39 @@
-[Atom understands your code better than ever before - The GitHub Blog](https://github.blog/2018-10-31-atoms-new-parsing-system/)
+[Tree-sitter ｜ Introduction](https://tree-sitter.github.io/tree-sitter/)
 
-- [Tree-sitter ｜ Introduction](https://tree-sitter.github.io/tree-sitter/)
+[[nvim-treesitter]]
 
-  - [Tree-sitter ｜ Using Parsers](https://tree-sitter.github.io/tree-sitter/using-parsers)
-  - [tree-sitter/api.h at master · tree-sitter/tree-sitter · GitHub](https://github.com/tree-sitter/tree-sitter/blob/master/lib/include/tree_sitter/api.h)
+# creating `grammar.js`
 
-- [Neovim v0.5 リリース記念 v0.5 の新機能を紹介します【後編】 | MoT Lab (GO Inc. Engineering Blog)](https://lab.mo-t.com/blog/neovim-v05-introduction-new-features-part-2)
+- [Tree-sitter｜Creating Parsers](https://tree-sitter.github.io/tree-sitter/creating-parsers)
+- [Guide to writing your first Tree-sitter grammar · GitHub](https://gist.github.com/Aerijo/df27228d70c633e088b0591b8857eeef)
+- @2023 [プラグインを URL で指定しやすくするために、tree-sitter で URI パーサーを作って Neovim を彩ってみた | Atusy's blog](https://blog.atusy.net/2023/11/17/tree-sitter-uri/)
+- @2022 https://zenn.dev/tanzaku/articles/tree-sitter-calculator
+
+## sql
+
+- @2022 [tree-sitter文法入門 | フューチャー技術ブログ](https://future-architect.github.io/articles/20221215a/)
+
+## powershell
+
+- https://github.com/airbus-cert/tree-sitter-powershell
+
+## scala
+
+- @2022 [Tree-sitter を用いた Scala 3 の高速パース &middot; eed3si9n](https://eed3si9n.com/ja/fast-scala3-parsing-with-tree-sitter/)
+
+## rbs
+
+- @2023 [rbsのtree-sitterパーサを書いて、neovimのシンタックスハイライトに利用する - joker1007’s diary](https://joker1007.hatenablog.com/entry/2023/11/17/162702)
+
+# using
+
+- [Tree-sitter ｜ Using Parsers](https://tree-sitter.github.io/tree-sitter/using-parsers)
+
+# articles
+
+- @2018 [Atom understands your code better than ever before - The GitHub Blog](https://github.blog/2018-10-31-atoms-new-parsing-system/)
+- @2023 [Tree-sitter でシンタックスハイライトしたコードを HTML で出力するワンライナー - Lambda カクテル](https://blog.3qe.us/entry/2023/05/15/200750)
+
 - [GitHub - nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 
 - @2023 [Tree-sitter でシンタックスハイライトしたコードを HTML で出力するワンライナー - Lambda カクテル](https://blog.3qe.us/entry/2023/05/15/200750)
