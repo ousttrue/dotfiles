@@ -1,3 +1,8 @@
+- https://github.com/JCSaltFish/GLShaderNodeEditor
+- https://github.com/AdrienTD/wkbre
+- https://github.com/laleksic/tiny_csg
+- https://garux.github.io/NRC/
+
 - https://github.com/eliasdaler/edbr
 
 - [GitHub - ucpu/cage: Game development framework / engine designed for programmers, focusing at ease of use.](https://github.com/ucpu/cage)
