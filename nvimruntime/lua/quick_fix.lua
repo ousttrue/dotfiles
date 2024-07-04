@@ -21,9 +21,9 @@ local M = {
   setup = function()
     vim.opt.makeprg = "meson install -C builddir --tags runtime"
 
-    vim.cmd [[
-autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
-]]
+--     vim.cmd [[
+-- autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
+-- ]]
 
     -- if DOT.get_system() == "windows" then
     --   local qfu = require "qfu"

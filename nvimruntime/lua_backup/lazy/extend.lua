@@ -52,9 +52,6 @@ return {
       require("config.nvim-scrollbar").setup()
     end,
   },
-  {
-    "simeji/winresizer",
-  },
   -- {
   --   "tyru/open-browser.vim",
   --   config = function()

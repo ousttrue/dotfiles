@@ -6,6 +6,7 @@ return {
   { "nvim-lua/plenary.nvim" },
   { "mattn/emmet-vim" },
   { "tpope/vim-fugitive" },
+  { "simeji/winresizer" },
   {
     "numToStr/Comment.nvim",
     config = function()
