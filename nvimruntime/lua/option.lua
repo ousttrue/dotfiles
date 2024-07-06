@@ -23,6 +23,9 @@ local M = {
     vim.opt.laststatus = 3
     vim.opt.number = false
 
+    -- for tmux
+    vim.opt.termguicolors = true -- Enable colors in terminal
+
     -- buffer
     vim.opt.fileformats = "unix"
   end,

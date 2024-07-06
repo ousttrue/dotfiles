@@ -140,9 +140,11 @@ function M.setup()
     cmd = { "D:/msys64/mingw64/bin/vala-language-server.exe" },
   }
 
-  require("lspconfig").nushell.setup {
-    cmd = { vim.env.LOCALAPPDATA .. "/Programs/nu/bin/nu.exe", "--lsp" },
-  }
+  if GET_SYSTEM() == "windows" then
+    require("lspconfig").nushell.setup {
+      cmd = { vim.env.LOCALAPPDATA .. "/Programs/nu/bin/nu.exe", "--lsp" },
+    }
+  end
 
   -- lspconfig.fsharp_language_server.setup {}
 
