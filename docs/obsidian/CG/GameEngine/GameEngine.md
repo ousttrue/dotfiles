@@ -2,6 +2,8 @@
 - https://github.com/AdrienTD/wkbre
 - https://github.com/laleksic/tiny_csg
 - https://garux.github.io/NRC/
+- https://github.com/BobbyAnguelov/Esoterica
+- https://github.com/o3de/o3de
 
 - https://github.com/eliasdaler/edbr
 
