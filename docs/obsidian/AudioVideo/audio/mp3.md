@@ -1,1 +1,4 @@
-- [EasyTAG：Linuxで使える音楽ファイルのタグ編集ソフト | クロの思考ノート](http://note.kurodigi.com/linux-easytag/)
+## tui
+
+- https://github.com/issadarkthing/gomu
+- [GitHub - forward-step/rust-player: a local audio player tui](https://github.com/forward-step/rust-player)
