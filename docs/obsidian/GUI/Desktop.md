@@ -1,3 +1,14 @@
+| name     | wayland     |              |
+| -------- | ----------- | ------------ |
+| gnome    | ok          |              |
+| plasuma6 | ok          |              |
+| Budgie   |             |              |
+| Cinnamon |             | gnome3 fork  |
+| LXDE     |             |              |
+| Phosh    | ok          | gnome base   |
+| UKUI     |             | ubunts kylin |
+| xfce     | from 4.20 ? |
+
 # Budgie
 
 - @2022 [Ubuntuのデスクトップ環境をBudgieに切り替える - Qiita](https://qiita.com/YasutomoNakajima/items/f3ae08ff7f20c94bb8d0)
@@ -57,3 +68,7 @@ KDE
 ### 6
 
 Plasma
+
+# Phosh
+
+- @2022 https://gihyo.jp/article/2022/11/daily-linux-221115

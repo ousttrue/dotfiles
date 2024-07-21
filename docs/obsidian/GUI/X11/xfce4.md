@@ -10,6 +10,11 @@ $ sudo apt-get xubuntu-desktop
 
 - https://wiki.xfce.org/releng/wayland_roadmap
 
+## 4.20
+
+- wayland ?
+- https://wiki.xfce.org/releng/wayland_roadmap
+
 ## 4.18
 
 # notifyd
