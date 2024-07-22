@@ -87,6 +87,8 @@ local M = {
           nowait = true,
         },
         mappings = {
+          ["<c-b>"] = nil,
+          ["<c-f>"] = nil,
           ["<space>"] = {
             "toggle_node",
             nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use

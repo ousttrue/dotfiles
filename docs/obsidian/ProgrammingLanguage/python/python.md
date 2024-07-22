@@ -1,6 +1,16 @@
-https://gihyo.jp/list/group/Python-Monthly-Topics#rt:/article/2023/03/monthly-python-2303
+https://www.python.org/
+
+- https://gihyo.jp/list/group/Python-Monthly-Topics#rt:/article/2023/03/monthly-python-2303
 
 # version
+
+> 毎年10月
+
+## 3.13 @2024
+
+- https://docs.python.org/3.13/whatsnew/3.13.html
+- [PEP 703 – Making the Global Interpreter Lock Optional in CPython](https://peps.python.org/pep-0703/)
+- [PEP 744 – JIT Compilation](https://peps.python.org/pep-0744/)
 
 ## 3.12 @2023
 

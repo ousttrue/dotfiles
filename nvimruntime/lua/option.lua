@@ -17,6 +17,7 @@ local M = {
       precedes = "<",
       conceal = "_",
     }
+    -- vim.cmd[[set iskeyword-=_]]
 
     vim.opt.signcolumn = "yes" -- Always show sign column
     vim.opt.showtabline = 3
