@@ -5,6 +5,7 @@
     "workbench.list.automaticKeyboardNavigation": false,
     "workbench.colorTheme": "Visual Studio 2019 Dark",
     "git.enableSmartCommit": true,
+    "files.eol": "\n",
     //
     // vim
     //

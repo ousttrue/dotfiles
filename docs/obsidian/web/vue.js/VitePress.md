@@ -9,6 +9,10 @@ https://vitepress.dev/
 
 # Version
 
+## 1.3
+
+- https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md
+
 ## 1.2
 
 ## 1.0
