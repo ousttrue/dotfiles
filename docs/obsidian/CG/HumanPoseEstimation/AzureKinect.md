@@ -1,5 +1,9 @@
 [[Open3D]]
 
+https://github.com/microsoft/Azure-Kinect-Sensor-SDK
+
+https://learn.microsoft.com/ja-jp/azure/kinect-dk/body-sdk-download
+
 [Azure Kinect DK のドキュメント | Microsoft Docs](https://docs.microsoft.com/ja-jp/azure/Kinect-dk/)
 - [GitHub - microsoft/Azure-Kinect-Samples: Samples for Azure Kinect](https://github.com/microsoft/Azure-Kinect-Samples)
 
