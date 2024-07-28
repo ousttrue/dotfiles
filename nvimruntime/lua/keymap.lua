@@ -47,7 +47,7 @@ local M = {
     --   end
     -- end
     -- vim.keymap.set("n", "ff", ff, { noremap = true })
-    vim.keymap.set("n", "ff", function()
+    vim.keymap.set("n", "<C-M-f>", function()
       vim.lsp.buf.format { timeout_ms = 2000 }
     end, { noremap = true })
 
