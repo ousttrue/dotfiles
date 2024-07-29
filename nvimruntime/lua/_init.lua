@@ -1,5 +1,9 @@
 -- https://neovim.io/doc/user/lua.html
 
+vim.g.editorconfig = false
+vim.cmd[[
+let g:zig_recommended_style = 0
+]]
 
 function GET_SYSTEM()
   if vim.fn.has "wsl" ~= 0 then
