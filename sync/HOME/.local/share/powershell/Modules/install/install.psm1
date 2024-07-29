@@ -620,6 +620,11 @@ function Install-zig
   Install-zls
 }
 
+function Install-nkf
+{
+  ghq get https://github.com/nurse/nkf
+}
+
 # TODO:
 # harfbuzz
 # fontconfig
