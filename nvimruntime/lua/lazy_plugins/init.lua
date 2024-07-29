@@ -51,7 +51,8 @@ local M = {
           reset = true, -- reset the runtime path to $VIMRUNTIME and your config directory
           ---@type string[]
           paths = {
-            MY_RUNIME(),
+            "~/dotfiles/nvimruntime",
+            -- MY_RUNIME(),
           }, -- add any custom paths here that you want to includes in the rtp
         },
       },
