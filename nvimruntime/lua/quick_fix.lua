@@ -17,18 +17,25 @@ local error_formats = {
 
 local ninja_vc_fmt = "%Dninja: Entering directory `%f',%f(%l): %t%*[^ ] %m,%f:%l:%c: %t%*[^:]: %m"
 
+local gcc_fmt = "%f:%l:%c: %t%*[^:]: %m"
+
 local M = {
   setup = function()
-    vim.opt.makeprg = "meson install -C builddir --tags runtime"
+    -- vim.opt.makeprg = "meson install -C builddir --tags runtime"
+    vim.opt.makeprg = "zig build 2>&1"
 
---     vim.cmd [[
--- autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
--- ]]
+    --     vim.cmd [[
+    -- autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
+    -- ]]
 
     -- if DOT.get_system() == "windows" then
     --   local qfu = require "qfu"
     -- end
-    vim.opt.errorformat = ninja_vc_fmt
+    if GET_SYSTEM() == "windows" then
+      vim.opt.errorformat = ninja_vc_fmt
+    else
+      vim.opt.errorformat = gcc_fmt
+    end
   end,
 }
 
