@@ -206,6 +206,8 @@ function prompt()
     }
   } 
 
+  # OSC7
+  # https://wezfurlong.org/wezterm/shell-integration.html#osc-7-on-windows-with-cmdexe
   "`e]2;${title}$([char]0x07)${prefix}`e[7m${location}`e[0m${branch}`n`e[${color}m>`e[0m "
 }
 
@@ -298,7 +300,5 @@ function Enter-python
     $dir
   }
 }
-
-
 
 Export-ModuleMember -Function * -Alias *

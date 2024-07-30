@@ -74,15 +74,6 @@
 - [IBM Plex Sans JP](https://www.ibm.com/blogs/think/jp-ja/how-ibm-plex-an-opensource-font-was-born/)
 - @2021 [PlemolJPか、それ以外か – プログラミング用フォント徹底比較！](https://pouhon.net/font-plemol/6599/)
 
-## noto font 系
-- [[source_han|noto]]
-- [[hackgen]]
-- Source Han Mono
-
-## mplus 系
-- [[mplus]]
-- [GitHub - miiton/Cica: プログラミング用日本語等幅フォント Cica(シカ)](https://github.com/miiton/Cica)
-- @2006 [【レビュー】「M+ FONTS」と「IPAフォント」を統合した日本語フォント「MigMix」 - 窓の杜](https://forest.watch.impress.co.jp/docs/review/516569.html)
 
 ## IPA系
 - [[IPAfont]]
@@ -109,11 +100,4 @@
 - [GNU Unifont Glyphs](http://unifoundry.com/unifont/index.html)
 - [Windows Terminal Cascadia Code | Microsoft Docs](https://docs.microsoft.com/en-us/windows/terminal/cascadia-code)
 - [GitHub - slavfox/Cozette: A bitmap programming font optimized for coziness 💜](https://github.com/slavfox/Cozette)
-
-# 中文
-
-- https://github.com/lxgw/LxgwNeoZhiSong
-
-- @2023 [【FONT MORE②】中華系フォント｜form and craft](https://note.com/form_and_craft/n/n8d458ae2d0b8)
-- [【中国語フォント】おすすめフリーフォント・PCへの導入方法](http://cn-seminar.com/chinese-font-11257)
 

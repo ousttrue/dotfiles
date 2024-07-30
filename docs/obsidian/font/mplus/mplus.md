@@ -2,5 +2,11 @@
 
 [[mgen]]
 [[ricty]]
-[[cica]]
 [[myrica]]
+
+# Version
+
+## 1
+
+## 2
+
