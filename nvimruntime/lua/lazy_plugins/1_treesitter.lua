@@ -9,6 +9,7 @@ return {
     main = "nvim-treesitter.configs",
     opts = {
       highlight = { enable = true },
+      indent = { enable = true },
     },
   },
   {

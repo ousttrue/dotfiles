@@ -70,7 +70,7 @@ function M.setup()
       -- null_ls.builtins.formatting.csharpier,
       null_ls.builtins.formatting.rufo,
       null_ls.builtins.formatting.stylua,
-      -- null_ls.builtins.formatting.black,
+      null_ls.builtins.formatting.black,
       null_ls.builtins.formatting.uncrustify.with {
         filetypes = { "vala" },
       },
@@ -78,7 +78,7 @@ function M.setup()
       -- null_ls.builtins.formatting.cmake_format,
       --
       null_ls.builtins.formatting.prettier.with {
-        filetypes = { "html", "markdown", "mdx" },
+        filetypes = { "html", "markdown", "mdx", "css" },
       },
       -- null_ls.builtins.formatting.tidy,
       null_ls.builtins.formatting.shfmt.with {
