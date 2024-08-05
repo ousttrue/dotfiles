@@ -3,6 +3,15 @@
 - [C/C++ から WebAssembly へのコンパイル - WebAssembly | MDN](https://developer.mozilla.org/ja/docs/WebAssembly/C_to_Wasm)
 - [WebAssemblyとEmscriptenに入門した | フューチャー技術ブログ](https://future-architect.github.io/articles/20230517a/)
 
+# version
+
+## 3.1.64
+
+# build
+
+- https://emscripten.org/docs/building_from_source/index.html
+- @2023 [emscriptenをビルドする](https://zenn.dev/kokoro/scraps/eeccd52172b1a6)
+
 # meson
 
 [[meson]]
