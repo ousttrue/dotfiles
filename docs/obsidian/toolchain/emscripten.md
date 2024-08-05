@@ -4,9 +4,13 @@
 - [WebAssemblyとEmscriptenに入門した | フューチャー技術ブログ](https://future-architect.github.io/articles/20230517a/)
 
 # meson
+
 [[meson]]
+
 ## cross-file
+
 [meson/cross/wasm.txt at master · mesonbuild/meson · GitHub](https://github.com/mesonbuild/meson/blob/master/cross/wasm.txt)
+
 ```toml
 [binaries]
 c = 'emcc'
@@ -39,18 +43,26 @@ executable(
 ```
 
 # OpenGL
+
 window platform と webgl2
 
 ## GLFW3 ?
+
 `-sUSE_GLFW=3`
 [emscripten glfw3 or webgl sample · GitHub](https://gist.github.com/ousttrue/0f3a11d5d28e365b129fe08f18f4e141)
 `imgui/examples/example_glfw_opengl3/main.cpp` などを見ると良い。
 
 ## SDL2 ?
+
 `-sUSE_SDL=2`
+
 - [GitHub - erik-larsen/emscripten-sdl2-ogles2: C++/SDL2/OpenGLES2 samples running in the browser via Emscripten](https://github.com/erik-larsen/emscripten-sdl2-ogles2/tree/master)
 - [GitHub - redblobgames/helloworld-sdl2-opengl-emscripten: Basic program that uses SDL2+OpenGL, compiling both locally and via emscripten](https://github.com/redblobgames/helloworld-sdl2-opengl-emscripten)
 
 ## glew ?
 
 ## imgui ?
+
+# libs
+
+- [emscripten 向け C++ ライブラリのビルド | Junk-Box](https://junk-box.net/toy/2024/01/29/godot-gdextension-%E3%81%AE-web-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88%EF%BC%88%E3%81%9D%E3%81%AE4%EF%BC%89/)

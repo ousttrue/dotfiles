@@ -99,7 +99,6 @@ GUI => TUI(PTY) => CUI
 
 - @2022 [Windows10にSKKの環境を作る – RagtimeBlues](https://ragtimeblues.net/?p=226)
 - @2022 [SKKメモ](https://zenn.dev/nazo6/scraps/40ac298709db14)
-- @2022 [Windowsで'vim-skk/skkeleton'を使う](https://arimasou16.com/blog/2022/02/16/00451/)
 
 ## yaskkserv2
 
