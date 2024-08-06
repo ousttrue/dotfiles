@@ -8,6 +8,17 @@ return {
   { "tpope/vim-fugitive" },
   { "simeji/winresizer" },
   {
+    "vim-scripts/VimIM",
+    -- "vimim/vimim",
+    config = function()
+      vim.cmd [[
+set runtimepath+=~\AppData\Local\nvim-data\lazy\vimim
+      ]]
+      -- 关闭云输入
+      vim.g.Vimim_cloud = -1
+    end,
+  },
+  {
     "stevearc/profile.nvim",
     config = function()
       local should_profile = os.getenv "NVIM_PROFILE"
@@ -93,7 +104,7 @@ return {
   {
     "romgrk/barbar.nvim",
     dependencies = {
-      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+      "lewis6991/gitsigns.nvim",     -- OPTIONAL: for git status
       "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
     },
     config = function()

@@ -54,6 +54,7 @@ local M = {
           ---@type string[]
           paths = {
             "~/dotfiles/nvimruntime",
+            "~/AppData/Local/nvim-data/lazy/vimim",
             -- MY_RUNIME(),
           }, -- add any custom paths here that you want to includes in the rtp
         },

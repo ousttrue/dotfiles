@@ -2,6 +2,12 @@
 
 - https://github.com/ZSaberLv0/ZFVimIM
 - https://github.com/pi314/ime.vim
+- https://github.com/noearc/jieba.nvim
+
+## lsp
+
+- https://github.com/yehuohan/cmp-im
+- https://rime.im/
 
 ## VimIM
 
@@ -12,7 +18,7 @@ https://github.com/vim-scripts/VimIM
 deinでサクッとインストール。 使い方がわからんなぁと思っていたら書いてあるサイトを見つけた。
 
 - @2021 [Vim 实现的输入法体验 &#183; Blowfish](https://jdhao.github.io/2021/02/26/ime_inside_vim/)
-- http://shenyu.me/2016/01/03/vim-plugin-vimim.html
+- https://github.com/chrisniael/chrisniael.github.io/blob/master/_posts/2016-01-03-vim-plugin-vimim.md
 
 insert modeで `ctrl + _`とすることで発動。再度 `ctrl + _` で元に戻る。
 
