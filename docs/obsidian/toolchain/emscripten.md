@@ -3,6 +3,8 @@
 - [C/C++ から WebAssembly へのコンパイル - WebAssembly | MDN](https://developer.mozilla.org/ja/docs/WebAssembly/C_to_Wasm)
 - [WebAssemblyとEmscriptenに入門した | フューチャー技術ブログ](https://future-architect.github.io/articles/20230517a/)
 
+
+
 # version
 
 ## 3.1.64
@@ -11,6 +13,16 @@
 
 - https://emscripten.org/docs/building_from_source/index.html
 - @2023 [emscriptenをビルドする](https://zenn.dev/kokoro/scraps/eeccd52172b1a6)
+
+```sh
+> git switch -c llvmorg-18.1.8
+> cmake -B build -S llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_PROJECTS='lld;clang;libcpp' -DLLVM_TARGETS_TO_BUILD="host;WebAssembly" -DLLVM_INCLUDE_EXAMPLES=OFF -DLLVM_INCLUDE_TESTS=OFF -DLIBCXX_ABI_UNSTABLE=OFF -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++
+```
+- ubuntu に clang を導入
+
+- 並列
+  - Ninja クラッシュしてビルドできない
+  - cmake --build build -- -j6 どうか
 
 # meson
 
