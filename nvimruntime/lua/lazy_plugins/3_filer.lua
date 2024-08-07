@@ -1,94 +1,149 @@
 return {
   {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
+    "theblob42/drex.nvim",
+    dependencies = { "kyazdani42/nvim-web-devicons" },
     config = function()
-      local function my_on_attach(bufnr)
-        local api = require "nvim-tree.api"
-
-        local function opts(desc)
-          return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-        end
-
-        -- default mappings
-        api.config.mappings.default_on_attach(bufnr)
-
-        -- custom mappings
-        --vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
-        --vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
-        vim.keymap.set("n", "<C-e>", function() end, { buffer = bufnr })
-        vim.keymap.set("n", "u", api.tree.change_root_to_parent, { buffer = bufnr })
-        vim.keymap.set("n", "h", api.node.navigate.parent_close, { buffer = bufnr })
-      end
-
-      -- vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", { noremap = true })
-      vim.keymap.set("n", "<Leader>e", ":NvimTreeFindFileToggle<CR>", { noremap = true })
-
-      require("nvim-tree").setup {
-        -- sync_root_with_cwd = true,
-        -- respect_buf_cwd = true,
-        update_focused_file = {
-          enable = true,
-          -- update_root = true,
-          ignore_list = { ".git", "gitcommit" },
+      require("drex.config").configure {
+        icons = {
+          file_default = "",
+          dir_open = "",
+          dir_closed = "",
+          link = "",
+          others = "",
         },
-        view = {
-          width = 36,
-          -- float = {
-          --     enable = true,
-          --     quit_on_focus_loss = true,
-          --     open_win_config = {
-          --         relative = "editor",
-          --         border = "rounded",
-          --         width = 30,
-          --         height = 30,
-          --         row = 1,
-          --         col = 1,
-          --     },
-          -- },
-        },
-        renderer = {
-          indent_width = 2,
-          indent_markers = {
-            enable = true,
-          },
-          highlight_git = true,
-          -- icons = {
-          --   glyphs = {
-          --     git = {
-          --       unstaged = "",
-          --       staged = "✓",
-          --       unmerged = "",
-          --       renamed = "➜",
-          --       untracked = "ﰂ",
-          --       deleted = "ﯰ",
-          --       ignored = "◌",
-          --     },
-          --   },
-          -- },
-          icons = {
-            show = {
-              git = false,
-            },
+        colored_icons = true,
+        hide_cursor = true,
+        hijack_netrw = false,
+        keepalt = false,
+        sorting = function(a, b)
+          local aname, atype = a[1], a[2]
+          local bname, btype = b[1], b[2]
+
+          local aisdir = atype == "directory"
+          local bisdir = btype == "directory"
+
+          if aisdir ~= bisdir then
+            return aisdir
+          end
+
+          return aname < bname
+        end,
+        drawer = {
+          side = "left",
+          default_width = 30,
+          window_picker = {
+            enabled = true,
+            labels = "abcdefghijklmnopqrstuvwxyz",
           },
         },
-        filters = {
-          -- dotfiles = true,
-        },
-        actions = {
-          use_system_clipboard = true,
-          change_dir = {
-            enable = false,
-            global = false,
-            restrict_above_cwd = false,
+        -- actions = {
+        --   files = {
+        --     delete_cmd = nil,
+        --   },
+        -- },
+        disable_default_keybindings = false,
+        keybindings = {
+          ["n"] = {
+            ["<C-m>"] = { '<cmd>lua require("drex.elements").expand_element()<CR>', { desc = "expand element" } },
           },
         },
-        on_attach = my_on_attach,
+        -- on_enter = nil,
+        -- on_leave = nil,
       }
+
+      vim.keymap.set("n", "<Leader>e", ":DrexDrawerToggle<CR>", { noremap = true })
     end,
   },
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   dependencies = {
+  --     "nvim-tree/nvim-web-devicons",
+  --   },
+  --   config = function()
+  --     local function my_on_attach(bufnr)
+  --       local api = require "nvim-tree.api"
+  --
+  --       local function opts(desc)
+  --         return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  --       end
+  --
+  --       -- default mappings
+  --       api.config.mappings.default_on_attach(bufnr)
+  --
+  --       -- custom mappings
+  --       --vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
+  --       --vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+  --       vim.keymap.set("n", "<C-e>", function() end, { buffer = bufnr })
+  --       vim.keymap.set("n", "u", api.tree.change_root_to_parent, { buffer = bufnr })
+  --       vim.keymap.set("n", "h", api.node.navigate.parent_close, { buffer = bufnr })
+  --     end
+  --
+  --     -- vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", { noremap = true })
+  --     vim.keymap.set("n", "<Leader>e", ":NvimTreeFindFileToggle<CR>", { noremap = true })
+  --
+  --     require("nvim-tree").setup {
+  --       -- sync_root_with_cwd = true,
+  --       -- respect_buf_cwd = true,
+  --       update_focused_file = {
+  --         enable = true,
+  --         -- update_root = true,
+  --         ignore_list = { ".git", "gitcommit" },
+  --       },
+  --       view = {
+  --         width = 36,
+  --         -- float = {
+  --         --     enable = true,
+  --         --     quit_on_focus_loss = true,
+  --         --     open_win_config = {
+  --         --         relative = "editor",
+  --         --         border = "rounded",
+  --         --         width = 30,
+  --         --         height = 30,
+  --         --         row = 1,
+  --         --         col = 1,
+  --         --     },
+  --         -- },
+  --       },
+  --       renderer = {
+  --         indent_width = 2,
+  --         indent_markers = {
+  --           enable = true,
+  --         },
+  --         highlight_git = true,
+  --         -- icons = {
+  --         --   glyphs = {
+  --         --     git = {
+  --         --       unstaged = "",
+  --         --       staged = "✓",
+  --         --       unmerged = "",
+  --         --       renamed = "➜",
+  --         --       untracked = "ﰂ",
+  --         --       deleted = "ﯰ",
+  --         --       ignored = "◌",
+  --         --     },
+  --         --   },
+  --         -- },
+  --         icons = {
+  --           show = {
+  --             git = false,
+  --           },
+  --         },
+  --       },
+  --       filters = {
+  --         -- dotfiles = true,
+  --       },
+  --       actions = {
+  --         use_system_clipboard = true,
+  --         change_dir = {
+  --           enable = false,
+  --           global = false,
+  --           restrict_above_cwd = false,
+  --         },
+  --       },
+  --       on_attach = my_on_attach,
+  --     }
+  --   end,
+  -- },
   -- {
   --   "nvim-tree/nvim-web-devicons",
   --   config = function()
