@@ -113,6 +113,10 @@ local M = {
     vim.keymap.set("n", "<Leader>wl", function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end)
+
+    vim.keymap.set({ "n", "v", "c", "i" }, "<M-;>", function()
+      print(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
+    end)
   end,
 }
 return M

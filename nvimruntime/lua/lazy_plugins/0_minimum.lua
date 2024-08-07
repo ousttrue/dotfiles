@@ -7,17 +7,21 @@ return {
   { "mattn/emmet-vim" },
   { "tpope/vim-fugitive" },
   { "simeji/winresizer" },
-  {
-    "vim-scripts/VimIM",
-    -- "vimim/vimim",
-    config = function()
-      vim.cmd [[
-set runtimepath+=~\AppData\Local\nvim-data\lazy\vimim
-      ]]
-      -- 关闭云输入
-      vim.g.Vimim_cloud = -1
-    end,
-  },
+  -- {
+  --   -- "vim-scripts/VimIM",
+  --   "vimim/vimim",
+  --   -- "yuweijun/vim-im",
+  --   config = function()
+  --     vim.g.vimim_cloud = -1 -- "google,sogou,baidu,qq"
+  --     -- vim.g.vimim_map = "tab_as_gi"
+  --     -- vim.g.vimim_mode = "dynamic"
+  --     vim.g.vimim_mycloud = 0
+  --     vim.g.vimim_plugin = vim.fn.fnamemodify("~", ":p") .. "/AppData/Local/nvim-data/lazy/vimim/plugin"
+  --     vim.g.vimim_punctuation = 2
+  --     vim.g.vimim_shuangpin = 0
+  --     vim.g.vimim_toggle = "pinyin" --,google,sogou"
+  --   end,
+  -- },
   {
     "stevearc/profile.nvim",
     config = function()
@@ -104,7 +108,7 @@ set runtimepath+=~\AppData\Local\nvim-data\lazy\vimim
   {
     "romgrk/barbar.nvim",
     dependencies = {
-      "lewis6991/gitsigns.nvim",     -- OPTIONAL: for git status
+      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
       "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
     },
     config = function()

@@ -1,17 +1,20 @@
 # vim
 
-- https://github.com/ZSaberLv0/ZFVimIM
-- https://github.com/pi314/ime.vim
 - https://github.com/noearc/jieba.nvim
+
+## cmp
+
+- https://github.com/yehuohan/cmp-im
 
 ## lsp
 
-- https://github.com/yehuohan/cmp-im
 - https://rime.im/
 
 ## VimIM
 
 https://github.com/vim-scripts/VimIM
+- https://github.com/pi314/ime.vim
+- https://github.com/ZSaberLv0/ZFVimIM
 
 - https://github.com/yuweijun/vim-im
 

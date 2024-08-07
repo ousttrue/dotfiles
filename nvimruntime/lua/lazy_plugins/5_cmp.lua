@@ -19,11 +19,33 @@ return {
       -- "hrsh7th/cmp-vsnip",
       "hrsh7th/vim-vsnip",
       "hrsh7th/vim-vsnip-integ",
+      "yehuohan/cmp-im",
+      "yehuohan/cmp-im-zh",
     },
     config = function()
       local lspkind = require "lspkind"
 
       local cmp = require "cmp"
+
+      local cmp_im = require "cmp_im"
+      cmp_im.setup {
+        -- Enable/Disable IM
+        enable = false,
+        -- IM keyword pattern
+        keyword = [[\l\+]],
+        -- IM tables path array
+        tables = require("cmp_im_zh").tables {
+          -- "wubi",
+          "pinyin",
+        },
+        -- Function to format IM-key and IM-tex for completion display
+        format = function(key, text)
+          return vim.fn.printf("%-15S %s", text, key)
+        end,
+        -- Max number entries to show for completion of each table
+        maxn = 8,
+      }
+
       cmp.setup {
         snippet = {
           -- REQUIRED - you must specify a snippet engine
@@ -62,6 +84,9 @@ return {
           -- },
           {
             { name = "buffer" },
+          },
+          {
+            { name = "IM" },
           }
         ),
 
