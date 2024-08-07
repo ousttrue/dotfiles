@@ -115,7 +115,7 @@ return {
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm { select = true },
         },
-        sources = make_sources("nvim_lsp_signature_help", "nvim_lsp", "buffer", "IM", "emoji",),
+        sources = make_sources("nvim_lsp_signature_help", "nvim_lsp", "buffer", "IM", "emoji"),
         window = WINDOW,
         formatting = formatting,
       }
