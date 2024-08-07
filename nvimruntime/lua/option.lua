@@ -30,16 +30,19 @@ local M = {
     -- buffer
     vim.opt.fileformats = "unix"
 
-    -- lsp
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    -- diagnostics
+    vim.diagnostic.config {
+      severity_sort = true,
+      update_in_insert = false,
       signs = {
-        -- severity_limit = "Hint",
-        severity_limit = "Warning",
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.HINT] = "",
+        },
       },
-      virtual_text = {
-        severity_limit = "Warning",
-      },
-    })
+    }
   end,
 }
 

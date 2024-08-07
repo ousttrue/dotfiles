@@ -54,6 +54,7 @@ return {
           indent_markers = {
             enable = true,
           },
+          highlight_git = true,
           -- icons = {
           --   glyphs = {
           --     git = {
@@ -67,6 +68,11 @@ return {
           --     },
           --   },
           -- },
+          icons = {
+            show = {
+              git = false,
+            },
+          },
         },
         filters = {
           -- dotfiles = true,

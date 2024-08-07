@@ -36,11 +36,8 @@ local M = {
     table.insert(plugins, { import = "lazy_plugins.5_cmp" })
     -- skk
     -- table.insert(plugins, { import = "lazy_plugins.6_denops" })
-
-    -- table.insert(plugins, { import = "lazy_plugins.extend" })
-    -- table.insert(plugins, { import = "lazy_plugins.9_denops" })
-    -- table.insert(plugins, { import = "lazy_plugins.cmp" })
-    -- table.insert(plugins, { import = "lazy_plugins.colorschemes" })
+    -- git
+    table.insert(plugins, { import = "lazy_plugins.7_git" })
 
     local opts = {
       change_detection = {

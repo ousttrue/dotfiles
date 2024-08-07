@@ -9,7 +9,6 @@ from pygls.workspace import TextDocument
 
 
 class ObsidianLanguageServer(LanguageServer):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.index: dict[str, pathlib.Path] = {}
