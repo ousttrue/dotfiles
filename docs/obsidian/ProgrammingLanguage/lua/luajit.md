@@ -5,24 +5,33 @@
 - @2020 [【AviUtl】LuaJITを導入して動作を高速化しよう！【拡張編集】 - AKETAMA OFFICIAL BLOG](https://aketama.work/aviutl-luajit)
 
 # Version
+
 ## 2.1.0-beta3
 
 # DynASM
+
 - [DynASM](https://luajit.org/dynasm.html)
 - [The Unofficial DynASM Documentation](https://corsix.github.io/dynasm-doc/)
 
 # FFI
+
 - @2020 [LuaJIT FFIでモジュールを書く時のハウツー · hnakamur's blog](https://hnakamur.github.io/blog/2020/03/21/how-to-write-luajit-ffi-module/)
 
 # build
+
 gcc/clang/msvc ビルド可能だが、
 MinGWを非MSYS環境で使う場合にこける？
 neovim のビルドのため 非MSYS の MinGW でビルドしたい。
-	
+
 - LLVM-MInGW(ucrt) + meson でできた https://github.com/franko/luajit
+
 ```
 > meson setup builddir --prefix %USERPROFILE%/build/llvm-mingw --buildtype=release
 > meson install -C builddir
 ```
 
 [[nvim_build]]
+
+## luajit
+
+- https://github.com/ziglang/zig/issues/14089
