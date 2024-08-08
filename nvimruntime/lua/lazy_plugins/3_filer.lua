@@ -1,59 +1,65 @@
 return {
   {
-    "theblob42/drex.nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons" },
+    "preservim/nerdtree",
     config = function()
-      require("drex.config").configure {
-        icons = {
-          file_default = "",
-          dir_open = "",
-          dir_closed = "",
-          link = "",
-          others = "",
-        },
-        colored_icons = true,
-        hide_cursor = true,
-        hijack_netrw = false,
-        keepalt = false,
-        sorting = function(a, b)
-          local aname, atype = a[1], a[2]
-          local bname, btype = b[1], b[2]
-
-          local aisdir = atype == "directory"
-          local bisdir = btype == "directory"
-
-          if aisdir ~= bisdir then
-            return aisdir
-          end
-
-          return aname < bname
-        end,
-        drawer = {
-          side = "left",
-          default_width = 30,
-          window_picker = {
-            enabled = true,
-            labels = "abcdefghijklmnopqrstuvwxyz",
-          },
-        },
-        -- actions = {
-        --   files = {
-        --     delete_cmd = nil,
-        --   },
-        -- },
-        disable_default_keybindings = false,
-        keybindings = {
-          ["n"] = {
-            ["<C-m>"] = { '<cmd>lua require("drex.elements").expand_element()<CR>', { desc = "expand element" } },
-          },
-        },
-        -- on_enter = nil,
-        -- on_leave = nil,
-      }
-
-      vim.keymap.set("n", "<Leader>e", ":DrexDrawerToggle<CR>", { noremap = true })
+      vim.keymap.set("n", "<Leader>e", ":NERDTreeToggle<CR>", { noremap = true })
     end,
   },
+  -- {
+  --   "theblob42/drex.nvim",
+  --   dependencies = { "kyazdani42/nvim-web-devicons" },
+  --   config = function()
+  --     require("drex.config").configure {
+  --       icons = {
+  --         file_default = "",
+  --         dir_open = "",
+  --         dir_closed = "",
+  --         link = "",
+  --         others = "",
+  --       },
+  --       colored_icons = true,
+  --       hide_cursor = true,
+  --       hijack_netrw = false,
+  --       keepalt = false,
+  --       sorting = function(a, b)
+  --         local aname, atype = a[1], a[2]
+  --         local bname, btype = b[1], b[2]
+  --
+  --         local aisdir = atype == "directory"
+  --         local bisdir = btype == "directory"
+  --
+  --         if aisdir ~= bisdir then
+  --           return aisdir
+  --         end
+  --
+  --         return aname < bname
+  --       end,
+  --       drawer = {
+  --         side = "left",
+  --         default_width = 30,
+  --         window_picker = {
+  --           enabled = true,
+  --           labels = "abcdefghijklmnopqrstuvwxyz",
+  --         },
+  --       },
+  --       -- actions = {
+  --       --   files = {
+  --       --     delete_cmd = nil,
+  --       --   },
+  --       -- },
+  --       disable_default_keybindings = false,
+  --       keybindings = {
+  --         ["n"] = {
+  --           ["<C-m>"] = { '<cmd>lua require("drex.elements").expand_element()<CR>', { desc = "expand element" } },
+  --         },
+  --       },
+  --       -- on_enter = nil,
+  --       -- on_leave = nil,
+  --     }
+  --
+  --     vim.keymap.set("n", "<Leader>e", ":DrexDrawerToggle<CR>", { noremap = true })
+  --   end,
+  -- },
   -- {
   --   "nvim-tree/nvim-tree.lua",
   --   dependencies = {
@@ -141,27 +147,6 @@ return {
   --         },
   --       },
   --       on_attach = my_on_attach,
-  --     }
-  --   end,
-  -- },
-  -- {
-  --   "nvim-tree/nvim-web-devicons",
-  --   config = function()
-  --     require("nvim-web-devicons").setup {
-  --       override = {
-  --         fs = {
-  --           icon = "󰯙 ",
-  --           -- color = "#3178C6", -- TypeScriptの色
-  --         },
-  --         vs = {
-  --           icon = "󰯙 ",
-  --           -- color = "#3178C6", -- TypeScriptの色
-  --         },
-  --         gs = {
-  --           icon = "󰯙 ",
-  --           -- color = "#3178C6", -- TypeScriptの色
-  --         },
-  --       },
   --     }
   --   end,
   -- },
@@ -259,6 +244,27 @@ return {
   --     })
   --
   --     vim.keymap.set("n", "<c-p>", require("lir.float").toggle(), {})
+  --   end,
+  -- },
+  -- {
+  --   "nvim-tree/nvim-web-devicons",
+  --   config = function()
+  --     require("nvim-web-devicons").setup {
+  --       override = {
+  --         fs = {
+  --           icon = "󰯙 ",
+  --           -- color = "#3178C6", -- TypeScriptの色
+  --         },
+  --         vs = {
+  --           icon = "󰯙 ",
+  --           -- color = "#3178C6", -- TypeScriptの色
+  --         },
+  --         gs = {
+  --           icon = "󰯙 ",
+  --           -- color = "#3178C6", -- TypeScriptの色
+  --         },
+  --       },
+  --     }
   --   end,
   -- },
 }
