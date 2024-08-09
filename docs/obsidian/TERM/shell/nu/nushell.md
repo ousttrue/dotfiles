@@ -14,6 +14,8 @@
 
 - [Nu Blog | Nushell](https://www.nushell.sh/blog/)
 
+## 0.96
+
 ## 0.93
 
 - @2024 [Nushell 0.93.0 | Nushell](https://www.nushell.sh/blog/2024-04-30-nushell_0_93_0.html)

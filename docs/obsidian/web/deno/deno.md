@@ -1,5 +1,9 @@
 [[v8]] [[deno_nvim]]
 
+- [Denoで自分用Dotfilesマネージャーを作ってみた](https://zenn.dev/kato_k/articles/06ab404938f896)
+- [Denoでdotfilesを書く - くたくたじゅうよん](https://scrapbox.io/takker/Deno%E3%81%A7dotfiles%E3%82%92%E6%9B%B8%E3%81%8F)
+- [Deno+daxでDotfilesのセットアップ用CLIツールを整備する](https://zenn.dev/3w36zj6/articles/074d432c0bcc5c)
+
 [Deno Runtime Quick Start | Deno Docs](https://docs.deno.com/runtime/manual)
 
 - [Deno by Example](https://examples.deno.land/)

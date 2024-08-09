@@ -1,5 +1,13 @@
 - [新しいコマンドライン環境](https://zenn.dev/zenwerk/scraps/8d323eaa63b76d)
 
+# ls系
+
+## eza
+
+## lsd
+
+## exa
+
 # rg
 
 [[Rust]] grep

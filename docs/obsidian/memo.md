@@ -1,3 +1,13 @@
+|             | **multi**         | Windows   | git bash       | msys     | wsl      | Linux    |
+| ----------- | ----------------- | --------- | -------------- | -------- | -------- | -------- |
+| term        | WezTerm           | WezTerm   | mintty         | mintty   | WezTerm  | WezTerm  |
+| CHOST       | **CROSS**         |           | x86_64-pc-msys |          |          |
+| fep         | nyagos-skk ?      |           |                | uim-fep  | uim-fep  |
+| muxer       | WezTerm           | WezTerm   |                | tmux     | tmux     | tmux     |
+| shell       | nyagos            | nyagos    | bash           | zsh      | zsh      | zsh      |
+| cp,mv,rm... | binutils / buybox | busybox64 | binutils       | binutils | binutils | binutils |
+| editor      | nvim              | vim       | nvim(msys)     | nvim     | nvim     |
+
 - offline dev
 - simple desktop
 - more tui(w3m)

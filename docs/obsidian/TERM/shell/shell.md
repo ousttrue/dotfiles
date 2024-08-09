@@ -2,15 +2,24 @@
 - [GitHub - alebcay/awesome-shell: A curated list of awesome command-line frameworks, toolkits, guides and gizmos. Inspired by awesome-php.](https://github.com/alebcay/awesome-shell)
 - @2022 [シェルの歴史 総まとめ（種類と系統図）と POSIX の役割 〜 シェルスクリプトの現在・過去・未来【POSIX 改訂間近】 - Qiita](https://qiita.com/ko1nksm/items/e7f43428352c0b4c78f9)
 
-|             | **multi**         | Windows   | git bash       | msys     | wsl      | Linux    |
-| ----------- | ----------------- | --------- | -------------- | -------- | -------- | -------- |
-| term        | WezTerm           | WezTerm   | mintty         | mintty   | WezTerm  | WezTerm  |
-| CHOST       | **CROSS**         |           | x86_64-pc-msys |          |          |
-| fep         | nyagos-skk ?      |           |                | uim-fep  | uim-fep  |
-| muxer       | WezTerm           | WezTerm   |                | tmux     | tmux     | tmux     |
-| shell       | nyagos            | nyagos    | bash           | zsh      | zsh      | zsh      |
-| cp,mv,rm... | binutils / buybox | busybox64 | binutils       | binutils | binutils | binutils |
-| editor      | nvim              | vim       | nvim(msys)     | nvim     | nvim     |
+| shell  | Windows | Linux | memo                      |
+| ------ | ------- | ----- | ------------------------- |
+| bash   | x       | o     |                           |
+| pwsh   | o       | o     |                           |
+| xonsh  | o       | o     | xonsh script が微妙       |
+| nyagos | o       | o     | Windows以外はちょっと弱い |
+
+# repl
+
+- prompt
+- hisory search: `c-n`, `c-p`
+- completion: `tab`
+- pipe / redirection
+- `~` expansion
+- `glob` expansion
+
+- scripting は別に必須ではないのでは？
+- 環境変数を設定できればよい。
 
 # 自作
 
