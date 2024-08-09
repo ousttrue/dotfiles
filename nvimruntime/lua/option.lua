@@ -33,7 +33,9 @@ local M = {
     -- diagnostics
     vim.diagnostic.config {
       severity_sort = true,
+      underline = true,
       update_in_insert = false,
+      virtual_text = false,
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = "",
@@ -43,6 +45,30 @@ local M = {
         },
       },
     }
+
+    -- You will likely want to reduce updatetime which affects CursorHold
+    -- note: this setting is global and should be set only once
+    vim.o.updatetime = 250
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+      callback = function()
+        vim.diagnostic.open_float(nil, { focus = false })
+      end,
+    })
+    -- vim.api.nvim_create_autocmd("CursorHold", {
+    --   buffer = bufnr,
+    --   callback = function()
+    --     local opts = {
+    --       focusable = false,
+    --       close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+    --       border = "rounded",
+    --       source = "always",
+    --       prefix = " ",
+    --       scope = "cursor",
+    --     }
+    --     vim.diagnostic.open_float(nil, opts)
+    --   end,
+    -- })
   end,
 }
 

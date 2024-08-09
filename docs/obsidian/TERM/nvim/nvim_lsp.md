@@ -1,6 +1,8 @@
 [[null-ls]]
 [[nvim_diagnostics]]
 
+- https://github.com/jinzhongjia/LspUI.nvim?tab=readme-ov-file
+
 - @2022 `0.7.2` [Neovim+LSPをなるべく簡単な設定で構築する](https://zenn.dev/botamotch/articles/21073d78bc68bf)
 - [Nvim documentation: lsp](https://neovim.io/doc/user/lsp.html)
 - [Neovimを一瞬でVSCode並みに便利にする - k0kubun's blog](https://k0kubun.hatenablog.com/entry/neovim-lsp)

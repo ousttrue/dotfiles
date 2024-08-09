@@ -61,15 +61,15 @@ return {
   --     "nvim-tree/nvim-web-devicons", -- optional
   --   },
   -- },
-  {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      vim.diagnostic.config {
-        virtual_text = false,
-      }
-      require("lsp_lines").setup()
-    end,
-  },
+  -- {
+  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  --   config = function()
+  --     vim.diagnostic.config {
+  --       virtual_text = false,
+  --     }
+  --     require("lsp_lines").setup()
+  --   end,
+  -- },
   {
     "elixir-tools/elixir-tools.nvim",
     version = "*",

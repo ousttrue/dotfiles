@@ -1,6 +1,5 @@
 [Nvim documentation: diagnostic](https://neovim.io/doc/user/diagnostic.html)
 
-
 # src
 
 ## 改造
@@ -8,6 +7,18 @@
 - @2022 [NeovimのDiagnosticsに文字列でフィルタをかける - Qiita](https://qiita.com/laughingmanbtc/items/1477bc5c01014f777c02)
 
 ## vim.diagnostic.config
+
+https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
+
+```lua
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})
+```
 
 - @2024 [nvim-lspの作用に少し凝ったカスタマイズを加える旅](https://zenn.dev/vim_jp/articles/c62b397647e3c9)
 - @2024 [Neovimのdiagnosticの設定を見直す | えいじのサイバー備忘録](https://eiji.page/blog/neovim-diagnostic-config/)
