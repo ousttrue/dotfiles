@@ -201,6 +201,7 @@ local neo_tree = {
       ".xinitrc",
       ".xsession",
       ".zshrc",
+      "zig-out",
     }
 
     local function open_all_subnodes(state)
