@@ -5,8 +5,8 @@
 | plugin    | keepleft | keymap    | icon      |
 | --------- | -------- | --------- | --------- |
 | NerdTree  | x        |           | x bracket |
-| nvim-tree | o        | x c-f,c-b | x bmv     |
-| neo-tree  | o        |           |
+| nvim-tree | o        |           | x bmv     |
+| neo-tree  | o        | x c-f,c-b |
 | chadtree  |
 | drex      |
 | fern      |
