@@ -1,5 +1,9 @@
 return {
   {
+    "lucario387/nvim-ts-format",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     dependencies = {

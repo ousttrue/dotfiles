@@ -19,3 +19,16 @@ $ sudo install git dotnet-sdk-8.0 build-essential
 $ dotnet tool install --global PowerShell
 $ SHELL=$HOME/.dotnet/tools/pwsh tmux
 ```
+
+# 3rd
+
+## /etc/wsl.conf
+
+```ini
+[interop]
+appendWindowsPath = false
+```
+
+## npm
+
+- [Ubuntu で Node の最新版/推奨版を使う (n コマンド編) #Node.js - Qiita](https://qiita.com/cointoss1973/items/c000c4f84ae4b0c166b5)

@@ -3,6 +3,7 @@
 --
 -- config > opts
 return {
+  { "prettier/vim-prettier" },
   { "nvim-lua/plenary.nvim" },
   { "mattn/emmet-vim" },
   { "tpope/vim-fugitive" },
