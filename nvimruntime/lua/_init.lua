@@ -1,7 +1,7 @@
 -- https://neovim.io/doc/user/lua.html
 
 vim.g.editorconfig = false
-vim.cmd[[
+vim.cmd [[
 let g:zig_recommended_style = 0
 ]]
 
@@ -22,13 +22,11 @@ function GET_SYSTEM()
   end
 end
 
-
 function PATH_EXISTS(path)
   if vim.loop.fs_stat(path) then
     return true
   end
 end
-
 
 local M = {
   setup = function()

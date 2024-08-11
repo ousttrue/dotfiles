@@ -78,7 +78,7 @@ function M.setup()
       -- null_ls.builtins.formatting.cmake_format,
       --
       null_ls.builtins.formatting.prettierd.with {
-        filetypes = { "html", "markdown", "mdx", "css" },
+        filetypes = { "xml","xml",  "html", "markdown", "mdx", "css" },
       },
       -- null_ls.builtins.formatting.tidy,
       null_ls.builtins.formatting.shfmt.with {

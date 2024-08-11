@@ -35,7 +35,7 @@ local M = {
     -- completion
     table.insert(plugins, { import = "lazy_plugins.5_cmp" })
     -- skk
-    -- table.insert(plugins, { import = "lazy_plugins.6_denops" })
+    table.insert(plugins, { import = "lazy_plugins.6_denops" })
     -- git
     table.insert(plugins, { import = "lazy_plugins.7_git" })
 

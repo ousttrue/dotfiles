@@ -10,9 +10,13 @@
     <item label="Foot"><action name="Execute" command="foot" /></item>
     <separator />
     <item label="pavucontrol"><action name="Execute" command="pavucontrol" /></item>
+    <item label="gmpc"><action name="Execute" command="gmpc" /></item>
+    <item label="vlc"><action name="Execute" command="vlc" /></item>
+    <separator />
     <item label="conky"><action name="Execute" command="conky" /></item>
     <separator />
     <item label="Reconfigure"><action name="Reconfigure" /></item>
+    <item label="wdisplays"><action name="wdisplays" /></item>
     <item label="Exit"><action name="Exit" /></item>
   </menu>
 </openbox_menu>

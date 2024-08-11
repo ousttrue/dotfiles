@@ -63,3 +63,7 @@ systemd=true
 `distord`
 
 - @2021 [Arch Linux on WSL2 で systemd を動かす - gifnksmの雑多なメモ](https://gifnksm.hatenablog.jp/entry/2021/01/02/183830)
+
+# user service
+
+- https://wiki.archlinux.jp/index.php/Systemd/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC
