@@ -1,10 +1,18 @@
-# 1st
+# 0
 
-`vim, tmux, sudo`
+`ssh-server`
+
+```sh
+$ sudo apt install openssh-server vim
+$ ip addr
+```
+
+# 1st
 
 ```sh
 $ sudo visudo
-$ sudo /etc/inputrc
+USER_NAME ALL=(ALL) NOPASSWD:ALL
+$ sudo vim /etc/inputrc
 "\C-n":history-search-forward
 "\C-p":history-search-backward
 $ exit
@@ -15,7 +23,7 @@ $ exit
 ```sh
 $ sudo sed -i.bak -r 's@http://(jp\.)?archive\.ubuntu\.com/ubuntu/?@https://ftp.udx.icscoe.jp/Linux/ubuntu/@g' /etc/apt/sources.list
 $ sudo apt update && sudo apt upgrade -y
-$ sudo install git dotnet-sdk-8.0 build-essential
+$ sudo apt install git dotnet-sdk-8.0 build-essential tmux curl
 $ dotnet tool install --global PowerShell
 $ SHELL=$HOME/.dotnet/tools/pwsh tmux
 ```
@@ -38,4 +46,12 @@ $ sudo apt install nodejs npm
 $ sudo npm install n -g
 $ sudo n lts
 $ sudo apt purge nodejs npm
+```
+
+この辺で dotfiles 導入
+
+# desktop
+
+```sh
+sudo apt install labwc foot pcmanfm
 ```

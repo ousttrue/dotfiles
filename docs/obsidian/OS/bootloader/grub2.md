@@ -29,8 +29,6 @@ GRUB_SAVEDEFAULT="true"
 
 ## /etc/grub.d/30_os-prober
 
-
-
 # command boot
 
 ```

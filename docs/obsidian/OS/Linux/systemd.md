@@ -67,3 +67,9 @@ systemd=true
 # user service
 
 - https://wiki.archlinux.jp/index.php/Systemd/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC
+
+## セッシオン維持
+
+```sh
+sudo loginctl enable-linger username
+```
