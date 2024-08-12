@@ -144,7 +144,11 @@ function addPath($path)
 
 function Get-Python
 {
-  if($IsWindows)
+  $pyenv_py = Join-Path $HOME ".pyenv/shims/python"
+  if(Test-Path $pyenv_py)
+  {
+    Join-Path $HOME ".pyenv/shims"
+  } elseif($IsWindows)
   {
     py -c "import sys; print(sys.base_prefix)"
   } elseif(has python)
@@ -179,12 +183,12 @@ if ($IsMacOS)
 }
 addPath(join-Path $HOME '/Downloads/Visual Studio Code.app/Contents/Resources/app/bin')
 
-if (has py)
-{
-  $PY_PREFIX = Get-Python
-  insertPath($PY_PREFIX)
-  insertPath(Join-Path $PY_PREFIX "Scripts")
-}
+# if (has py)
+# {
+$PY_PREFIX = Get-Python
+insertPath($PY_PREFIX)
+insertPath(Join-Path $PY_PREFIX "Scripts")
+# }
 
 if ($IsMacOS)
 {
