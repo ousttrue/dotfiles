@@ -7,6 +7,7 @@ return {
   { "nvim-lua/plenary.nvim" },
   { "mattn/emmet-vim" },
   { "tpope/vim-fugitive" },
+  { "nil70n/floating-help" },
   { "simeji/winresizer" },
   -- {
   --   -- "vim-scripts/VimIM",
