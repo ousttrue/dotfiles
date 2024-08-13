@@ -24,20 +24,14 @@ local M = {
     --
     local plugins = {}
     table.insert(plugins, { import = "lazy_plugins.0_minimum" })
-    -- highlight
     table.insert(plugins, { import = "lazy_plugins.1_treesitter" })
-    -- finder
     table.insert(plugins, { import = "lazy_plugins.2_telescope" })
-    -- left panel
     table.insert(plugins, { import = "lazy_plugins.3_filer" })
-    -- formatter
     table.insert(plugins, { import = "lazy_plugins.4_lsp" })
-    -- completion
     table.insert(plugins, { import = "lazy_plugins.5_cmp" })
-    -- skk
     table.insert(plugins, { import = "lazy_plugins.6_denops" })
-    -- git
     table.insert(plugins, { import = "lazy_plugins.7_git" })
+    table.insert(plugins, { import = "lazy_plugins.8_edit" })
 
     local opts = {
       change_detection = {

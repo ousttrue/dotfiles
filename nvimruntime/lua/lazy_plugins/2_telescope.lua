@@ -23,7 +23,7 @@ return {
         vim.g.sqlite_clib_path = "D:/msys64/mingw64/bin/libsqlite3-0.dll"
       end
 
-      local file_ignore_patterns = { "node_modules", ".git", ".venv", ".cache" }
+      local file_ignore_patterns = { "node_modules", "\\.git", "\\.venv", "\\.cache" }
       -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-u-to-clear-prompt
       ts.setup {
         extensions = {
