@@ -9,7 +9,13 @@
 
 # Version
 
+## 3.5
+
+- https://docusaurus.io/blog/releases/3.5
+
 ## 3.4
+
+- https://docusaurus.io/blog/releases/3.4
 
 ## 3.1
 
