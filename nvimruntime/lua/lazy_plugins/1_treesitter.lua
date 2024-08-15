@@ -44,6 +44,13 @@ return {
     "stevearc/aerial.nvim",
     -- branch = "v4",
     opts = {
+      layout = {
+        default_direction = "right",
+        placement = "edge",
+      },
+
+      filter_kind = false,
+
       nerd_font = "auto",
 
       backends = {
@@ -79,17 +86,16 @@ return {
         vim.keymap.set({ "n", "v" }, "[a", "<cmd>AerialPrev<CR>", { buffer = bufnr })
         vim.keymap.set({ "n", "v" }, "]a", "<cmd>AerialNext<CR>", { buffer = bufnr })
       end,
-      default_direction = "right",
       -- Options for opening aerial in a floating win
       float = {
         -- Controls border appearance. Passed to nvim_open_win
-        border = "none",
+        border = "rounded",
 
         -- Determines location of floating window
         --   cursor - Opens float on top of the cursor
         --   editor - Opens float centered in the editor
         --   win    - Opens float centered in the window
-        relative = "win",
+        relative = "editor",
         anchor = "NE",
         -- row = 1,
         -- col = 1,
@@ -98,7 +104,7 @@ return {
         -- They can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
         -- min_height and max_height can be a list of mixed types.
         -- min_height = {8, 0.1} means "the greater of 8 rows or 10% of total"
-        height = 0.8,
+        height = 0.9,
         width = 28,
 
         override = function(conf, source_winid)

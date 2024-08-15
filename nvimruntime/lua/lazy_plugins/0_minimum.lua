@@ -4,13 +4,26 @@
 -- config > opts
 return {
   {
-    "kylechui/nvim-surround",
+    "folke/edgy.nvim",
+    event = "VeryLazy",
     opts = {},
+  },
+  {
+    "nil70n/floating-help",
+    opts = {
+      border = "single",
+      ratio = 0.8,
+    },
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
   },
   { "prettier/vim-prettier" },
   { "nvim-lua/plenary.nvim" },
   { "mattn/emmet-vim" },
-  { "tpope/vim-fugitive" },
   { "nil70n/floating-help" },
   { "simeji/winresizer" },
   -- {
@@ -114,7 +127,7 @@ return {
   {
     "romgrk/barbar.nvim",
     dependencies = {
-      "lewis6991/gitsigns.nvim",     -- OPTIONAL: for git status
+      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
       "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
     },
     config = function()

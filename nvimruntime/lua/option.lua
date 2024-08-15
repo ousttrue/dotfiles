@@ -18,6 +18,7 @@ local M = {
       conceal = "_",
     }
     -- vim.cmd[[set iskeyword-=_]]
+    vim.opt.splitkeep = "screen"
 
     vim.opt.signcolumn = "yes" -- Always show sign column
     vim.opt.showtabline = 3

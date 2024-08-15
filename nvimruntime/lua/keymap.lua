@@ -1,3 +1,52 @@
+local close_buf_filetype = { "fugitive", "help", "qf" }
+
+local function should_close(bufnr)
+  local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
+  for _, t in ipairs(close_buf_filetype) do
+    if filetype == t then
+      return true
+    end
+  end
+  if vim.api.nvim_win_get_config(0).zindex then
+    return true
+  end
+  if vim.fn.buflisted(bufnr) then
+    return false
+  end
+  return true
+end
+
+local function close_buffer_or_window()
+  local currentBufNum = vim.fn.bufnr "%"
+  if should_close(currentBufNum) then
+    vim.cmd "close"
+  else
+    -- buffer 切り替え｀
+    -- vim.cmd "BufferLineCycleNext"
+    vim.cmd ":BufferNext" -- barbar
+    local newBufNum = vim.fn.bufnr "%"
+    if newBufNum == currentBufNum then
+      vim.cmd "enew"
+    end
+    -- 非表示になった buffer を削除
+    vim.cmd("silent bwipeout " .. currentBufNum)
+    --   bwipeoutに失敗した場合はウインドウ上のバッファを復元
+    if vim.fn.bufloaded(currentBufNum) ~= 0 then
+      vim.cmd("buffer " .. currentBufNum)
+    end
+  end
+end
+
+local function is_floating_win(winid)
+  local config = vim.api.nvim_win_get_config(winid)
+  return config.relative ~= ""
+end
+local function close_floating_window()
+  if is_floating_win(0) then
+    vim.cmd "close"
+  end
+end
+
 local M = {
   setup = function()
     -- Remap leader and local leader to <Space>
@@ -51,46 +100,9 @@ local M = {
       vim.lsp.buf.format { timeout_ms = 2000 }
     end, { noremap = true })
 
-    local close_buf_filetype = { "fugitive", "help" }
-
-    local function should_close(bufnr)
-      local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
-      for _, t in ipairs(close_buf_filetype) do
-        if filetype == t then
-          return true
-        end
-      end
-      if vim.api.nvim_win_get_config(0).zindex then
-        return true
-      end
-      if vim.fn.buflisted(bufnr) then
-        return false
-      end
-      return true
-    end
-
-    local function close_buffer_or_window()
-      local currentBufNum = vim.fn.bufnr "%"
-      if should_close(currentBufNum) then
-        vim.cmd "close"
-      else
-        -- buffer 切り替え｀
-        -- vim.cmd "BufferLineCycleNext"
-        vim.cmd ":BufferNext" -- barbar
-        local newBufNum = vim.fn.bufnr "%"
-        if newBufNum == currentBufNum then
-          vim.cmd "enew"
-        end
-        -- 非表示になった buffer を削除
-        vim.cmd("silent bwipeout " .. currentBufNum)
-        --   bwipeoutに失敗した場合はウインドウ上のバッファを復元
-        if vim.fn.bufloaded(currentBufNum) ~= 0 then
-          vim.cmd("buffer " .. currentBufNum)
-        end
-      end
-    end
     vim.keymap.set("n", "<C-q>", close_buffer_or_window, { noremap = true })
     vim.keymap.set("n", "Q", close_buffer_or_window, { noremap = true })
+    vim.keymap.set("n", "q", close_floating_window, { noremap = treu })
 
     vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
     vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
