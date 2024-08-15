@@ -149,6 +149,50 @@ local drex = {
     vim.keymap.set("n", "<Leader>e", ":DrexDrawerToggle<CR>", { noremap = true })
   end,
 }
+local always_show = { -- remains visible even if other settings would normally hide it
+  --".gitignored",
+  ".Xresources",
+  ".bashrc",
+  ".config",
+  ".conkyrc",
+  ".devcontainer",
+  ".elinks",
+  ".emacs.d",
+  ".eslintrc.json",
+  ".gitattributes",
+  ".gitconfig",
+  ".github",
+  ".gitignore",
+  ".gitmodules",
+  ".inputrc",
+  ".ladle",
+  ".local",
+  ".markdownlint-cli2.yaml",
+  ".marksman.toml",
+  ".mlterm",
+  ".npmrc",
+  ".nyagos",
+  ".omnisharp",
+  ".prettierrc",
+  ".prettierrc.mjs",
+  ".profile",
+  ".remarkrc",
+  ".storybook",
+  ".textlintrc",
+  ".tigrc",
+  ".tmux.conf",
+  ".uim",
+  ".vimrc",
+  ".vitepress",
+  ".vscode",
+  ".w3m",
+  ".xinitrc",
+  ".xsession",
+  ".zshrc",
+  "zig-out",
+  ".vitepress",
+}
+
 local neo_tree = {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
@@ -160,49 +204,6 @@ local neo_tree = {
   },
   config = function()
     vim.keymap.set("n", "<Leader>e", ":Neotree toggle<CR>", { noremap = true })
-
-    local always_show = { -- remains visible even if other settings would normally hide it
-      --".gitignored",
-      ".Xresources",
-      ".bashrc",
-      ".config",
-      ".conkyrc",
-      ".devcontainer",
-      ".elinks",
-      ".emacs.d",
-      ".eslintrc.json",
-      ".gitattributes",
-      ".gitconfig",
-      ".github",
-      ".gitignore",
-      ".gitmodules",
-      ".inputrc",
-      ".ladle",
-      ".local",
-      ".markdownlint-cli2.yaml",
-      ".marksman.toml",
-      ".mlterm",
-      ".npmrc",
-      ".nyagos",
-      ".omnisharp",
-      ".prettierrc",
-      ".prettierrc.mjs",
-      ".profile",
-      ".remarkrc",
-      ".storybook",
-      ".textlintrc",
-      ".tigrc",
-      ".tmux.conf",
-      ".uim",
-      ".vimrc",
-      ".vitepress",
-      ".vscode",
-      ".w3m",
-      ".xinitrc",
-      ".xsession",
-      ".zshrc",
-      "zig-out",
-    }
 
     local function open_all_subnodes(state)
       local node = state.tree:get_node()
@@ -227,8 +228,8 @@ local neo_tree = {
       --   },
       -- },
       open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-      sort_case_insensitive = false,                                     -- used when sorting files and directories in the tree
-      sort_function = nil,                                               -- use a custom function for sorting files and directories in the tree
+      sort_case_insensitive = false, -- used when sorting files and directories in the tree
+      sort_function = nil, -- use a custom function for sorting files and directories in the tree
       -- sort_function = function (a,b)
       --       if a.type == b.type then
       --           return a.path > b.path
@@ -322,7 +323,7 @@ local neo_tree = {
       filesystem = {
         filtered_items = {
           visible = false, -- when true, they will just be displayed differently than normal items
-          hide_dotfiles = true,
+          hide_dotfiles = false,
           hide_gitignored = true,
           hide_hidden = true, -- only works on Windows for hidden files/directories
           hide_by_name = {
@@ -332,7 +333,7 @@ local neo_tree = {
             --"*.meta",
             --"*/src/*/tsconfig.json",
           },
-          always_show = always_show,
+          -- always_show = always_show,
           never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
             --".DS_Store",
             --"thumbs.db"
@@ -342,11 +343,11 @@ local neo_tree = {
           },
         },
         follow_current_file = {
-          enabled = true,                       -- This will find and focus the file in the active buffer every time
+          enabled = true, -- This will find and focus the file in the active buffer every time
           --               -- the current file is changed while the tree is open.
-          leave_dirs_open = true,               -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+          leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
-        group_empty_dirs = false,               -- when true, empty folders will be grouped together
+        group_empty_dirs = false, -- when true, empty folders will be grouped together
         hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
         -- in whatever position is specified in window.position
         -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -359,7 +360,7 @@ local neo_tree = {
             ["<bs>"] = "navigate_up",
             ["."] = "set_root",
             ["H"] = "toggle_hidden",
-            ["/"] = "noop",         --"fuzzy_finder",
+            ["/"] = "noop", --"fuzzy_finder",
             ["D"] = "fuzzy_finder_directory",
             ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
             -- ["D"] = "fuzzy_sorter_directory",

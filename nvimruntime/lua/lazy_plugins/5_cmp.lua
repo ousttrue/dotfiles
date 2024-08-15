@@ -100,11 +100,8 @@ return {
       }
 
       cmp.setup {
-        snippet = {
-          -- REQUIRED - you must specify a snippet engine
-          expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-          end,
+        completion = {
+          completeopt = "menu,menuone,noinsert,noselect",
         },
         mapping = cmp.mapping.preset.insert {
           ["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -113,11 +110,17 @@ return {
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm { select = true },
+          ["<CR>"] = cmp.mapping.confirm { select = false },
         },
         sources = make_sources("nvim_lsp_signature_help", "nvim_lsp", "buffer", "IM", "emoji"),
         window = WINDOW,
         formatting = formatting,
+        snippet = {
+          -- REQUIRED - you must specify a snippet engine
+          expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+          end,
+        },
       }
 
       -- Set configuration for specific filetype.

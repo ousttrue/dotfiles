@@ -1,28 +1,44 @@
 [Vike](https://vike.dev/)
 
-`vite-plugin-ssr` から rename
+- https://github.com/vikejs/vike
 
 - @2023 [Vite + React で SSG する](https://kasyalog.site/blog/vite-react-ssg-with-vite-plugin-ssr/)
 - [[Vite + React の SSR/SSG の基本的な動きを理解する - kasya blog](https://kasyalog.site/blog/vite-react-ssr-ssg-basic/)
- 
+
 - @2023 [vite-plugin-ssrの素振り - 🍊miyamonz🍊](https://scrapbox.io/miyamonz/vite-plugin-ssr%E3%81%AE%E7%B4%A0%E6%8C%AF%E3%82%8A)
 
+# version
+
+## v0.4.183
+
+https://github.com/vikejs/vike/blob/main/CHANGELOG.md
+
+## v0.4.142
+
+`vite-plugin-ssr` から rename
+
 # server & client
+
 ## vite dev
-- vite(server)  に アクセスして client(browser) で Rendering する？
+
+- vite(server) に アクセスして client(browser) で Rendering する？
 
 ## vite preview
+
 ?
 
 ## vite build
+
 - vite(server) が rendering してファイルに出力する
 
 # react-ts
+
 ```sh
 > npm init vike@latest
 ```
 
 `package.json`
+
 ```json
 {
   "scripts": {
@@ -63,6 +79,7 @@
 ```
 
 `tsconfig.json`
+
 ```json
 {
   "compilerOptions": {
@@ -89,6 +106,7 @@
 ```
 
 `vite.config.js`
+
 ```js
 import react from '@vitejs/plugin-react'
 import vike from 'vike/plugin'

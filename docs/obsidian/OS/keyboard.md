@@ -6,9 +6,19 @@ _英字_ + bluetooth キーボード選別
 
 # normal
 
-| vender  | name         | kp   |
-| ------- | ------------ | ---- |
-| BUFFALO | BSKBU100ENBK | 19mm |
+| vender          | name             | 価格 | pitch | fn / F / 10  | width |
+| --------------- | ---------------- | ---- | ----- | ------------ | ----- |
+| BUFFALO         | BSKBU100ENBK     |      | 19    |              |       |
+| BUFFALO         | BSKBU108ENBK     | 2073 | 19    | 無 / 独 / 独 | 441   |
+| SANWA           | SKB-E2UN         |      | 19    | 独 有        | 345   |
+| SANWA           | SKB-E3UN         | 2800 | 19    | 有 / 独 / 無 | 293   |
+| SANWA           | SKB-E5UW         | 3645 | 19    | 無 / 独 / 有 | 441   |
+| ELECOM          | TK-MC50UKPBK     |      | 19    |
+| LENOVO          | 4X30M86879       |      | 19.05 | 無 独 有     | 453   |
+| LENOVO          | 4Y41C68663       |      | 19.05 | 有 独 有     | 424   |
+| Perixx          | PERIBOARD-106WUS | 5999 |       | 無 / 独 / 有 | 487   |
+| RK ROYAL KLUDGE | M75              |      |       | 有 / 独 / 無 |
+| ARCHISS         | AS-KBQ89/TGB     | 7255 | 19    | 有 独 無     | 360   |
 
 # 充電
 
