@@ -173,7 +173,7 @@ function M.setup(config)
       background = PALETTE.TABBAR_BG,
     },
   }
-  config.status_update_interval = 1000
+  config.status_update_interval = 30
 
   wezterm.on("format-window-title", on_format_window_title)
   wezterm.on("format-tab-title", on_format_tab_title)

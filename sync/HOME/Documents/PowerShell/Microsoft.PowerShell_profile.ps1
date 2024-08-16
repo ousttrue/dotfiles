@@ -114,6 +114,10 @@ if (has ghq)
 {
   $GHQ_ROOT = (Get-Item (ghq root))
 }
+if(has ov)
+{
+  $env:PAGER="ov"
+}
 
 #
 # path

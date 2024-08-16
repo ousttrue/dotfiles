@@ -104,6 +104,8 @@ function Install-go
   {
     &"$HOME/.fzf/install"
   }
+
+  go install github.com/noborus/ov@latest
 }
 
 function Install-rust

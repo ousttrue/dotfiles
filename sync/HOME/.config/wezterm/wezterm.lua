@@ -58,12 +58,12 @@ local function setup_linux(config)
     config.window_decorations = "NONE"
   end
 
-  if wezterm.gui == nil or wezterm.gui.screens().main.width > 3500 then
-    -- 14 x 1.5
-    config.font_size = 21.0 -- raw font size
-  else
-    config.font_size = 11.0 -- raw font size
-  end
+  -- if wezterm.gui == nil or wezterm.gui.screens().main.width > 3500 then
+  --   -- 14 x 1.5
+  --   config.font_size = 21.0 -- raw font size
+  -- else
+  --   config.font_size = 11.0 -- raw font size
+  -- end
 end
 
 local function setup_osx(config)
