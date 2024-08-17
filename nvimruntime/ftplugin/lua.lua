@@ -19,7 +19,7 @@ end
 if is_lazy_config() then
   vim.keymap.set("n", "gx", function()
     local cfile = vim.fn.expand "<cfile>"
-    if cfile:match "" then
+    if cfile:match "^[^/]*/[^/]*$" then
       local url = "https://github.com/" .. cfile
       print(url)
       vim.ui.open(url)

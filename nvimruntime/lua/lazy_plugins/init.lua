@@ -23,17 +23,19 @@ local M = {
     -- plugins
     --
     local plugins = {}
-    table.insert(plugins, { import = "lazy_plugins.0_minimum" })
-    table.insert(plugins, { import = "lazy_plugins.1_treesitter" })
-    table.insert(plugins, { import = "lazy_plugins.2_telescope" })
-    table.insert(plugins, { import = "lazy_plugins.3_filer" })
-    table.insert(plugins, { import = "lazy_plugins.4_lsp" })
-    table.insert(plugins, { import = "lazy_plugins.5_cmp" })
-    if vim.fn.has "windows" ~= 0 then
-      table.insert(plugins, { import = "lazy_plugins.6_denops" })
+    table.insert(plugins, { import = "lazy_plugins.00_minimum" })
+    table.insert(plugins, { import = "lazy_plugins.01_treesitter" })
+    table.insert(plugins, { import = "lazy_plugins.02_telescope" })
+    table.insert(plugins, { import = "lazy_plugins.03_filer" })
+    table.insert(plugins, { import = "lazy_plugins.04_lsp" })
+    table.insert(plugins, { import = "lazy_plugins.05_cmp" })
+    if vim.fn.has "win64" ~= 0 then
+      table.insert(plugins, { import = "lazy_plugins.06_denops" })
+    else
+      -- use fcitx
     end
-    table.insert(plugins, { import = "lazy_plugins.7_git" })
-    table.insert(plugins, { import = "lazy_plugins.8_edit" })
+    table.insert(plugins, { import = "lazy_plugins.07_git" })
+    table.insert(plugins, { import = "lazy_plugins.08_edit" })
 
     local opts = {
       change_detection = {

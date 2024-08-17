@@ -29,7 +29,7 @@ return {
     },
     config = function()
       vim.o.foldcolumn = "0" -- '0' is not bad
-      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
 
@@ -129,10 +129,15 @@ return {
         callback = function(ctx)
           require("tsnode-marker").set_automark(ctx.buf, {
             target = { "code_fence_content" }, -- list of target node types
-            hl_group = "CursorLine", -- highlight group
+            hl_group = "CursorLine",           -- highlight group
           })
         end,
       })
     end,
+  },
+  {
+    "davidmh/mdx.nvim",
+    config = true,
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
 }

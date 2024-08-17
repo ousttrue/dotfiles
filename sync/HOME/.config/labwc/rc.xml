@@ -9,6 +9,14 @@
     <keybind key="W-Return">
       <action name="Execute" command="foot" />
     </keybind>
+
+    <keybind key="A-Left">
+      <action name="None" />
+    </keybind>
+    <keybind key="A-Right">
+      <action name="None" />
+    </keybind>
+
   </keyboard>
 
 </labwc_config>

@@ -12,7 +12,7 @@ return {
     "nil70n/floating-help",
     opts = {
       border = "single",
-      ratio = 0.8,
+      ratio = 0.9,
     },
   },
   {
@@ -24,7 +24,6 @@ return {
   { "prettier/vim-prettier" },
   { "nvim-lua/plenary.nvim" },
   { "mattn/emmet-vim" },
-  { "nil70n/floating-help" },
   { "simeji/winresizer" },
   -- {
   --   -- "vim-scripts/VimIM",
