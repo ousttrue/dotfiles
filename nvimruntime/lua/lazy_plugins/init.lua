@@ -29,7 +29,9 @@ local M = {
     table.insert(plugins, { import = "lazy_plugins.3_filer" })
     table.insert(plugins, { import = "lazy_plugins.4_lsp" })
     table.insert(plugins, { import = "lazy_plugins.5_cmp" })
-    table.insert(plugins, { import = "lazy_plugins.6_denops" })
+    if vim.fn.has "windows" ~= 0 then
+      table.insert(plugins, { import = "lazy_plugins.6_denops" })
+    end
     table.insert(plugins, { import = "lazy_plugins.7_git" })
     table.insert(plugins, { import = "lazy_plugins.8_edit" })
 
