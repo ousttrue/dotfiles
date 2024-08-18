@@ -15,3 +15,11 @@
 # x11
 - @2019 [ヤンク履歴管理する仕組みを作った | endaaman.me](https://endaaman.me/tips/smart-yank-history)
 
+
+# rofi
+
+## greenclip
+
+https://zenn.dev/syui/articles/archlinux-sway-wm-i3-change
+
+- [Greenclip - ArchWiki](https://wiki.archlinux.jp/index.php/Greenclip)

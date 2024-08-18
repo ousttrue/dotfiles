@@ -1,0 +1,2 @@
+- [小さな道具を組み合わせてWayland環境でスクリーンショット／スクリーンキャストを撮る · GitHub](https://gist.github.com/sheepla/2dee9cee224b992cf9912f926b59cbd5)
+- [スクリーンキャプチャ - ArchWiki](https://wiki.archlinux.jp/index.php/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3#Wayland)

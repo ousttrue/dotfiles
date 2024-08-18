@@ -31,6 +31,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
+output HDMI-A-1 resolution 1920x1080 position 2559,0
+output HDMI-A-2 resolution 3840x2160 position 0,0
+output HDMI-A-2 scale 1.5
+
 ### Idle configuration
 #
 # Example configuration:
@@ -179,16 +183,16 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 50px
-    bindsym $down resize grow height 50px
-    bindsym $up resize shrink height 50px
-    bindsym $right resize grow width 50px
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 50px
-    bindsym Down resize grow height 50px
-    bindsym Up resize shrink height 50px
-    bindsym Right resize grow width 50px
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
 
     # Return to default mode
     bindsym Return mode "default"
@@ -219,3 +223,8 @@ bar {
 #}
 
 include /etc/sway/config.d/*
+
+exec fcitx5 &
+# bindsym $mod+Shift+s exec grimshot --notify copy area | wl-paste -t image/png > ~/Pictures/Screenshots/$(date "+%Y%m%d-%H%M%S")'_grim_area.png'
+bindsym $mod+Shift+v exec clipman pick -t wofi
+exec wl-paste -t text --watch clipman store --no-persist

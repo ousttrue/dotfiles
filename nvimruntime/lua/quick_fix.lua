@@ -22,7 +22,7 @@ local gcc_fmt = "%f:%l:%c: %t%*[^:]: %m"
 local M = {
   setup = function()
     -- vim.opt.makeprg = "meson install -C builddir --tags runtime"
-    vim.opt.makeprg = "zig build 2>&1"
+    -- vim.opt.makeprg = "zig build 2>&1"
 
     --     vim.cmd [[
     -- autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
