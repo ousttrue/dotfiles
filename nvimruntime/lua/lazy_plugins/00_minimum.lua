@@ -32,7 +32,7 @@ return {
         {
           ft = "qf",
           title = "QuickFix",
-          size = { height = 20 }
+          size = { height = 14 }
         },
         {
           ft = "help",

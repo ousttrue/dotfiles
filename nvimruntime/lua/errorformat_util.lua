@@ -16,6 +16,7 @@ local M = {
       "%f|%l col %c %t%*[^|]| %m",
       -- msvc
       "%f(%l): %t%*[^ ] C%n: %m",
+      "%f(%l): fatal %t%*[^ ] C%n: %m",
     }, ",")
   end,
 }
