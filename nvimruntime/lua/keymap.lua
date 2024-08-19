@@ -108,7 +108,8 @@ local M = {
     vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
     vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
     -- vim.keymap.set("n", "<C-m>", vim.lsp.buf.definition, { noremap = true })
-    vim.keymap.set("n", "<C-m>", "<C-]>", { noremap = true })
+    -- conflict quickfix
+    -- vim.keymap.set("n", "<C-m>", "<C-]>", { noremap = true })
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })

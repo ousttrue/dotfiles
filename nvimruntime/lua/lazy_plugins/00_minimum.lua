@@ -29,7 +29,11 @@ return {
           end,
         },
         "Trouble",
-        { ft = "qf",            title = "QuickFix" },
+        {
+          ft = "qf",
+          title = "QuickFix",
+          size = { height = 20 }
+        },
         {
           ft = "help",
           size = { height = 20 },
