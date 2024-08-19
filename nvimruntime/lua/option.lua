@@ -3,9 +3,6 @@ local M = {
     vim.opt.belloff = "all"
     vim.opt.hidden = true
 
-    -- qf
-    vim.opt.shellpipe = "2>&1| tee"
-
     -- visual
     vim.opt.splitkeep = "screen"
     vim.opt.tabstop = 2

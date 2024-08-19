@@ -1,8 +1,11 @@
 local M = {
   meson = function()
-    -- print "errorformat_util.meson()"
-    -- ninja: Entering directory `/grapho/build'
-    -- ../subprojects/glew-2.2.0/include/GL/glew.h:224:14: fatal error: 'cstddef' file not found
+    -- qf
+    if vim.fn.has "win32" == 1 then
+      vim.opt.makeprg = "meson install -C builddir"
+    else
+      vim.opt.shellpipe = "2>&1| tee"
+    end
 
     vim.opt.errorformat = vim.fn.join({
       "%Dninja: Entering directory `%f'",
@@ -11,6 +14,8 @@ local M = {
       "%f:%l:%c: fatal %t%*[^:]: %m",
       -- gcc
       "%f|%l col %c %t%*[^|]| %m",
+      -- msvc
+      "%f(%l): %t%*[^ ] C%n: %m",
     }, ",")
   end,
 }
