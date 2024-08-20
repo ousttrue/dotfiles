@@ -2,7 +2,7 @@ local M = {
   meson = function()
     -- qf
     if vim.fn.has "win32" == 1 then
-      vim.opt.makeprg = "meson install -C builddir"
+      -- vim.opt.makeprg = "meson install -C builddir"
     else
       vim.opt.shellpipe = "2>&1| tee"
     end
