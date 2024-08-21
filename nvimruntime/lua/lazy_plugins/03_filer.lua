@@ -333,7 +333,7 @@ local neo_tree = {
             --"*.meta",
             --"*/src/*/tsconfig.json",
           },
-          -- always_show = always_show,
+          always_show = always_show,
           never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
             --".DS_Store",
             --"thumbs.db"
