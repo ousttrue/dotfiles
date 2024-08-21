@@ -7,6 +7,8 @@
 
 - @2023 [vite-plugin-ssrの素振り - 🍊miyamonz🍊](https://scrapbox.io/miyamonz/vite-plugin-ssr%E3%81%AE%E7%B4%A0%E6%8C%AF%E3%82%8A)
 
+- @2022 [Viteを使ってSSGを試した話 #AWS - Qiita](https://qiita.com/Kodak_tmo/items/23c0c334c6f08a4a036a)
+
 # version
 
 ## v0.4.183
