@@ -1,7 +1,7 @@
 https://ja.vitejs.dev/
 
 ```sh
-npm create vite@latest ./ --template vanilla-ts
+npm create vite@latest ./
 ```
 
 # script tag や import 文を transpile する
@@ -57,6 +57,7 @@ server が扱う url と、vite が server を経由せずに扱う url で切�
 
 - @2023 [viteでTypeScriptのバックエンド開発環境を動かす](https://zenn.dev/akinor1ty/articles/a17352d81b67b1)
 
+- @2023 [Vite + React の SSR/SSG の基本的な動きを理解する - kasya blog](https://kasyalog.site/blog/vite-react-ssr-ssg-basic/)
 - @2024 [Viteで作成したReactアプリをSSGで出力出来るように変更 #JavaScript - Qiita](https://qiita.com/otohusan/items/16f8d244859a1f1af46d)
 
 ### vite-node
