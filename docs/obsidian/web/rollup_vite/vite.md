@@ -1,7 +1,7 @@
 https://ja.vitejs.dev/
 
 ```sh
-npm create vite@latest
+npm create vite@latest ./ --template vanilla-ts
 ```
 
 # script tag や import 文を transpile する
