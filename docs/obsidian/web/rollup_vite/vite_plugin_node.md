@@ -1,5 +1,3 @@
-[[vite]]
-
 [axe-me/vite-plugin-node](https://github.com/axe-me/vite-plugin-node)
 
 - @2023 [viteでTypeScriptのバックエンド開発環境を動かす](https://zenn.dev/akinor1ty/articles/a17352d81b67b1)

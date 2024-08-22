@@ -1,5 +1,7 @@
 [Plugin Development | Rollup](https://rollupjs.org/plugin-development/)
 
+https://github.com/antfu/vite-plugin-inspect
+
 # Output Generation Hooks
 
 

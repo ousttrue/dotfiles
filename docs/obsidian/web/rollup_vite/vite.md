@@ -1,26 +1,31 @@
-[[vite_plugin]]
-[[ModuleBundler]]
+https://ja.vitejs.dev/
 
-https://github.com/antfu/vite-plugin-inspect
-
-[特徴 | Vite](https://ja.vitejs.dev/guide/features.html)
-
-- @2023 [Webpack から Vite に段階的に移行しました | PR TIMES 開発者ブログ](https://developers.prtimes.jp/2023/02/08/migrate-from-webpack-to-vite/)
-- `PHP` @2022 [vite で最高の開発体験を手に入れる - pixiv inside](https://inside.pixiv.blog/2022/07/21/103000)
-- @2022 [350行でつくるVite⚡ | 東京工業大学デジタル創作同好会traP](https://trap.jp/post/1549/)
-
-```ts
-import { normalizePath, createFilter } from "vite";
+```sh
+npm create vite@latest
 ```
 
-- @2022 [Viteの本番バンドルファイルを可視化する #TypeScript - Qiita](https://qiita.com/KokiSakano/items/bda906acdd95e8923b03)
+# script tag や import 文を transpile する
 
-- [Viteで使うRollupプラグインの作り方と便利に使っている自作プラグインの解説 #vite - Qiita](https://qiita.com/NanimonoDaemon/items/26e075d20451bd2a00ae)
+```html
+<script type="module" src="/src/main.ts"></script>
+```
+
+```js
+import "hoge.ts";
+```
+
+素の状態では、Serer 処理は無い
 
 # Version
 
+## 6
+
+- https://github.com/vitejs/vite/milestone/17
+- [Environment API · vitejs/vite · Discussion #16358 · GitHub](https://github.com/vitejs/vite/discussions/16358)
+
 ## 5
 
+- https://ja.vitejs.dev/guide/api-vite-runtime.html
 - @2023 [Vite 5.0 is out! | Vite](https://vitejs.dev/blog/announcing-vite5?ref=storybookblog.ghost.io)
 
 ## 4
@@ -29,76 +34,38 @@ import { normalizePath, createFilter } from "vite";
 
 vue ?
 
-## plugin
+# backend 統合
 
-[[Svelte]] `vite dev`
-[[vike]] `vite dev`
+- https://ja.vitejs.dev/guide/backend-integration.html
 
-## as lib
+`node server.js` が起点になる。
 
-[[minista]] `minista dev`
+## 切り分け
 
-# setup
+server が扱う url と、vite が server を経由せずに扱う url で切り分け。
 
-```
-> npm create vite@latest
+### vite主: server.proxy
 
-# or
-> npm -D react react-dom @types/react @types/react-dom @vitejs/plugin-react
-```
+- [Vite で別のサーバーと一緒に動かしたいときは server.proxy オプションを使うメモ &#8211; 1ft-seabass.jp.MEMO](https://www.1ft-seabass.jp/memo/2024/04/06/vite-server-proxy-option-simple/)
 
-`vite.config.js`
+### vitemiddle ware
 
-```js
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  root: path.join(__dirname, "client"),
-  plugins: [react()],
-});
+## server.ts
+
+- https://github.com/cyco130/vavite
+
+- @2023 [viteでTypeScriptのバックエンド開発環境を動かす](https://zenn.dev/akinor1ty/articles/a17352d81b67b1)
+
+- @2024 [Viteで作成したReactアプリをSSGで出力出来るように変更 #JavaScript - Qiita](https://qiita.com/otohusan/items/16f8d244859a1f1af46d)
+
+### vite-node
+
+```sh
+vite-node --watch server.ts
 ```
 
-`index.html`
+## SSR server.ssrLoadModule
 
-```html
-<div id="root"></div>
-<script type="module" src="./main.tsx"></script>
-```
-
-`main.tsx`
-
-```tsx
-import React from "react";
-import ReactDOM from "react-dom/client";
-function App() {
-  return (
-    <>
-      <div>Hello</div>
-    </>
-  );
-}
-ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
-```
-
-# Typescript + React
-
-- `vite@latest` @2023 [ViteでTypeScript×Reactの開発環境を構築してみた【前編】｜SHIFT Group 技術ブログ](https://note.com/shift_tech/n/n9c5fcd207680)
-- `vite@latest` @2023 [viteでReact×TypeScript環境を爆速で作る最小版 #React - Qiita](https://qiita.com/teradonburi/items/fcdd900adb069811bfda)
-- `vite@latest` `build.rollupOptions` @2023 [フロントエンドの開発環境にVite ＋ TypeScriptを導入する](https://designsupply-web.com/media/programming/7578/)
-- `react` @2022 [Vite with TypeScript](https://www.robinwieruch.de/vite-typescript/)
-- `vite@latest` @2022 [ViteでReact + TypeScript + TailwindCSSの環境構築をする](https://zenn.dev/sikkim/articles/93bf99d8588e68)
-  `> npm create vite@latest`
-- `vue3` `vitejs@app` @2022 [ViteでVue3のTypescript環境を構築する | miyauci.me](https://miyauchi.dev/ja/posts/vite-vue3-typescript/)
-- `vite` @2022 [Vite + React + TypeScript でプロジェクトを立ち上げる | For](https://for.kobayashiii.dev/articles/9jv5qclmgm7k)
-
-[GitHub - vitejs/vite-plugin-react-pages: A vite framework for building react app. Especially suitable for document site and demos/playgrounds of react components.](https://github.com/vitejs/vite-plugin-react-pages)
-
-# copy
-
-[Viteのvite-plugin-static-copyで特定のファイルをコピーする方法 | iwb.jp](https://iwb.jp/vite-plugin-static-copy-npm-run-build-config/)
+- https://vitejs.dev/guide/ssr
+- @2023 [Viteでの開発中のSSR対応の仕組み | 東京工業大学デジタル創作同好会traP ](https://trap.jp/post/1863/)

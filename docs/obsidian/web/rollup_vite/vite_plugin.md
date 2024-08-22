@@ -1,5 +1,11 @@
 [[vite]] [[rollup_plugin]]
 
+[GitHub - vitejs/vite-plugin-react-pages: A vite framework for building react app. Especially suitable for document site and demos/playgrounds of react components.](https://github.com/vitejs/vite-plugin-react-pages)
+
+[GitHub - hannoeru/vite-plugin-pages: File system based route generator for ⚡️Vite](https://github.com/hannoeru/vite-plugin-pages)
+
+- [uzimaru's Blog](https://blog.uzimaru.com/entries/dirbase-route-for-vite.md)
+
 [プラグイン API | Vite](https://ja.vitejs.dev/guide/api-plugin.html)
 
 https://rollupjs.org/plugin-development/
@@ -10,6 +16,9 @@ https://rollupjs.org/plugin-development/
 
 - https://mdxjs.com/packages/rollup/#mdxoptions
 
+# copy
+
+[Viteのvite-plugin-static-copyで特定のファイルをコピーする方法 | iwb.jp](https://iwb.jp/vite-plugin-static-copy-npm-run-build-config/)
 # inline
 `vite.config.js` に直接記述
 
