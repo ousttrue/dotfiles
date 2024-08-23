@@ -276,7 +276,7 @@ function gsr
   }
 }
 
-function g_rm_merged
+function git_rm_merged
 {
   git branch --merged
   | Select-String -NotMatch -Pattern "(\*|develop|master)" 

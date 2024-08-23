@@ -151,6 +151,7 @@ local drex = {
 }
 local always_show = { -- remains visible even if other settings would normally hide it
   --".gitignored",
+  "Makefile",
   ".Xresources",
   ".bashrc",
   ".config",

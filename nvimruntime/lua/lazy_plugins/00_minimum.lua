@@ -32,7 +32,7 @@ return {
         {
           ft = "qf",
           title = "QuickFix",
-          size = { height = 14 }
+          size = { height = 14 },
         },
         {
           ft = "help",
@@ -185,7 +185,7 @@ return {
   {
     "romgrk/barbar.nvim",
     dependencies = {
-      "lewis6991/gitsigns.nvim",     -- OPTIONAL: for git status
+      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
       "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
     },
     config = function()

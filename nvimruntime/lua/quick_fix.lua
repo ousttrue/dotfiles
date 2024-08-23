@@ -36,6 +36,12 @@ local M = {
     else
       vim.opt.errorformat = gcc_fmt
     end
+
+    vim.cmd [[
+autocmd QuickFixCmdPost *grep* cwindow
+autocmd QuickFixCmdPost *make* cwindow
+autocmd FileType qf wincmd J
+      ]]
   end,
 }
 
