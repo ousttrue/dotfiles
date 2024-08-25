@@ -15,9 +15,11 @@ local error_formats = {
   "%*[^ ] : %t%*[^ ] LNK%n: %m",
 }
 
-local ninja_vc_fmt = "%Dninja: Entering directory `%f',%f(%l): %t%*[^ ] %m,%f:%l:%c: %t%*[^:]: %m"
+local zig = "%f:%l:%c: %m,"
 
-local gcc_fmt = "%f:%l:%c: %t%*[^:]: %m"
+local ninja_vc_fmt = zig .. "%Dninja: Entering directory `%f',%f(%l): %t%*[^ ] %m,%f:%l:%c: %t%*[^:]: %m"
+
+local gcc_fmt = zig .. "%f:%l:%c: %t%*[^:]: %m"
 
 local M = {
   setup = function()
