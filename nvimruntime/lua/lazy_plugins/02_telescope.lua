@@ -23,7 +23,12 @@ return {
         vim.g.sqlite_clib_path = "D:/msys64/mingw64/bin/libsqlite3-0.dll"
       end
 
-      local file_ignore_patterns = { "node_modules", "\\.git", "\\.venv", "\\.cache" }
+      local file_ignore_patterns = {
+        "^node_modules[/\\]",
+        "^%.git[/\\]",
+        "^%.venv[/\\]",
+        "^%.cache[/\\]",
+      }
       -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-u-to-clear-prompt
       ts.setup {
         extensions = {
@@ -105,7 +110,11 @@ return {
       else
         -- https://www.reddit.com/r/neovim/comments/p1xj92/make_telescope_git_files_revert_back_to_find/
         local function project_files()
-          local _, ret, _ = ts_utils.get_os_command_output { "git", "rev-parse", "--is-inside-work-tree" }
+          local _, ret, _ = ts_utils.get_os_command_output {
+            "git",
+            "rev-parse",
+            "--is-inside-work-tree",
+          }
           if ret == 0 then
             ts_builtin.git_files {
               show_untracked = true,

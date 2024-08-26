@@ -1,3 +1,27 @@
+-- local M = {
+--   meson = function()
+--     -- qf
+--     if vim.fn.has "win32" == 1 then
+--       -- vim.opt.makeprg = "meson install -C builddir"
+--     else
+--       vim.opt.shellpipe = "2>&1| tee"
+--     end
+--
+--     vim.opt.errorformat = vim.fn.join({
+--       "%Dninja: Entering directory `%f'",
+--       -- clang
+--       "%f:%l:%c: %t%*[^:]: %m",
+--       "%f:%l:%c: fatal %t%*[^:]: %m",
+--       -- gcc
+--       "%f|%l col %c %t%*[^|]| %m",
+--       -- msvc
+--       "%f(%l): %t%*[^ ] C%n: %m",
+--       "%f(%l): fatal %t%*[^ ] C%n: %m",
+--     }, ",")
+--   end,
+-- }
+-- return M
+
 local icon = {
   e = "%#DiagnosticError# %#Normal#",
   w = "%#DiagnosticWarn# %#Normal#",
@@ -25,6 +49,15 @@ local M = {
   setup = function()
     -- vim.opt.makeprg = "meson install -C builddir --tags runtime"
     -- vim.opt.makeprg = "zig build 2>&1"
+    if vim.fn.has "win32" == 1 then
+      -- vim.opt.makeprg = "meson install -C builddir"
+    else
+      vim.opt.shellpipe = "2>&1| tee"
+    end
+    vim.opt.errorformat = vim.fn.join({
+      "%t%*[^:]:%*[ \t]%*[^:]:%*[ \t]%f:%l:%c:%*[ \t]%m",
+      "%f:%l:%c:%*[ \t]%m",
+    }, ",")
 
     --     vim.cmd [[
     -- autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
@@ -33,11 +66,11 @@ local M = {
     -- if DOT.get_system() == "windows" then
     --   local qfu = require "qfu"
     -- end
-    if GET_SYSTEM() == "windows" then
-      vim.opt.errorformat = ninja_vc_fmt
-    else
-      vim.opt.errorformat = gcc_fmt
-    end
+    -- if GET_SYSTEM() == "windows" then
+    --   vim.opt.errorformat = ninja_vc_fmt
+    -- else
+    --   vim.opt.errorformat = gcc_fmt
+    -- end
 
     vim.cmd [[
 autocmd QuickFixCmdPost *grep* cwindow
