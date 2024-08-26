@@ -106,6 +106,8 @@ function Install-go
   }
 
   go install github.com/noborus/ov@latest
+
+  go install github.com/jesseduffield/lazygit@latest
 }
 
 function Install-rust
