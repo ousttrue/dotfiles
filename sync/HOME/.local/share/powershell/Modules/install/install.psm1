@@ -629,6 +629,24 @@ function Install-nkf
   ghq get https://github.com/nurse/nkf
 }
 
+function Install-python
+{
+  param(
+    [Parameter(Mandatory)]
+    [System.IO.DirectoryInfo]$prefix
+  )
+
+  $src = Join-Path $prefix "src"
+  New-Item $src -ItemType Directory -ErrorAction SilentlyContinue
+  $archive = Download "https://www.python.org/ftp/python/3.12.5/Python-3.12.5.tar.xz" $src
+  $dir = Extract $archive $src 
+  Push-Location $dir
+  ./configure --prefix=$prefix --with-ensurepip=install
+  make
+  make install
+  Pop-Location
+}
+
 # TODO:
 # harfbuzz
 # fontconfig
