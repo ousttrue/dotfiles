@@ -57,11 +57,14 @@ local M = {
     vim.opt.errorformat = vim.fn.join({
       "%t%*[^:]:%*[ \t]%*[^:]:%*[ \t]%f:%l:%c:%*[ \t]%m",
       "%f:%l:%c:%*[ \t]%m",
+      -- meson. ninja + msvc
+      "%Dninja: Entering directory `%f'",
+      "%f(%l): %t%*[^ ] %m",
     }, ",")
 
-    --     vim.cmd [[
-    -- autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
-    -- ]]
+    vim.cmd [[
+    autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
+    ]]
 
     -- if DOT.get_system() == "windows" then
     --   local qfu = require "qfu"

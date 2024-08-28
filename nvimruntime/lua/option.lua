@@ -32,10 +32,18 @@ local M = {
     -- buffer
     vim.opt.fileformats = "unix"
 
-    -- diagnostics
+    -- local function on_cursor_hold()
+    --   vim.diagnostic.open_float()
+    -- end
+    -- local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
+    -- vim.api.nvim_set_option("updatetime", 500)
+    -- vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
+    -- vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
+
+    -- https://neovim.io/doc/user/diagnostic.html
     vim.diagnostic.config {
       severity_sort = true,
-      underline = true,
+      -- underline = true,
       update_in_insert = false,
       virtual_text = true,
       signs = {
@@ -45,6 +53,10 @@ local M = {
           [vim.diagnostic.severity.INFO] = "",
           [vim.diagnostic.severity.HINT] = "",
         },
+      },
+      float = {
+        source = true, -- Or "if_many"
+        border = "rounded",
       },
     }
 
