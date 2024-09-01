@@ -1,3 +1,8 @@
+| tool | content  |         |
+| ---- | -------- | ------- |
+| zig  | graphics | sokol   |
+| vite | ssg      | minista |
+
 |             | **multi**         | Windows   | git bash       | msys     | wsl      | Linux    |
 | ----------- | ----------------- | --------- | -------------- | -------- | -------- | -------- |
 | term        | WezTerm           | WezTerm   | mintty         | mintty   | WezTerm  | WezTerm  |

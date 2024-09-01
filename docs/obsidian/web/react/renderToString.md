@@ -6,6 +6,10 @@
 
 https://ja.react.dev/reference/react-dom/server/renderToString
 
+# vue
+
+https://vuejs.org/api/ssr
+
 # vite
 
 https://vitejs.dev/guide/ssr

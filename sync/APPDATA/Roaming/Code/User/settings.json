@@ -64,4 +64,7 @@
     "security.allowedUNCHosts": [
         "wsl.localhost"
     ],
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
 }

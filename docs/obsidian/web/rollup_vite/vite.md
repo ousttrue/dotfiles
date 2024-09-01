@@ -4,6 +4,15 @@ https://ja.vitejs.dev/
 npm create vite@latest ./
 ```
 
+# 起動スクリプト
+
+```ts
+import { createServer } from "vite";
+const viteServer = await createServer();
+await viteServer.listen();
+viteServer.printUrls();
+```
+
 # script tag や import 文を transpile する
 
 ```html
@@ -47,9 +56,6 @@ server が扱う url と、vite が server を経由せずに扱う url で切�
 ### vite主: server.proxy
 
 - [Vite で別のサーバーと一緒に動かしたいときは server.proxy オプションを使うメモ &#8211; 1ft-seabass.jp.MEMO](https://www.1ft-seabass.jp/memo/2024/04/06/vite-server-proxy-option-simple/)
-
-### vitemiddle ware
-
 
 ## server.ts
 
