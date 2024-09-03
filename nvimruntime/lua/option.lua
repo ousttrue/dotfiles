@@ -30,7 +30,7 @@ local M = {
     vim.opt.termguicolors = true -- Enable colors in terminal
 
     -- buffer
-    vim.opt.fileformats = "unix"
+    vim.opt.fileformats = {"unix", "dos"}
 
     -- local function on_cursor_hold()
     --   vim.diagnostic.open_float()
