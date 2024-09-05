@@ -32,6 +32,7 @@ function M.clear_syntax_link(ev)
   vim.api.nvim_set_hl(0, "@conceal", { link = "NonText" })
 
   vim.api.nvim_set_hl(0, "SignColumn", { bg = "#111111" })
+  vim.api.nvim_set_hl(0, "SatelliteCursor", { bg = "#f00" })
 
   -- Keyword
   -- hl_clear "Statement"
