@@ -69,3 +69,7 @@ pip install browsr
 ## cp, mv, ln, rm, mkdir
 
 ## recursive rename
+
+# windows
+
+- https://github.com/FarGroup/FarManager

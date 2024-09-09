@@ -49,12 +49,20 @@ function Install-nvim($prefix = $NVIM_PREFIX)
     Push-Location $src
   }
 
+  #git switch -c v0.10.1 tags/v0.10.1
+  git switch v0.10.1
+
   cmake -G Ninja -S cmake.deps -B .deps -DCMAKE_BUILD_TYPE=Release
   cmake --build .deps
   cmake -G Ninja -S . -B build -DCMAKE_BUILD_TYPE=Release
   cmake --build build
   cmake --install build --prefix $prefix
   Pop-Location
+
+  if($IsWindows)
+  {
+    # $env:LOCALAPPDATA \nvim-data
+  }
 }
 
 function Remove-TSParser

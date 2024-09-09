@@ -34,6 +34,10 @@
 
 [[libuv]] 使うべし
 
+## termbox2
+
+- https://github.com/termbox/termbox2
+
 # languages
 
 ## go

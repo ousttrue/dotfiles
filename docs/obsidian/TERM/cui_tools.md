@@ -1,5 +1,7 @@
 - [新しいコマンドライン環境](https://zenn.dev/zenwerk/scraps/8d323eaa63b76d)
 
+- https://fekir.info/post/tui-programs-for-windows/
+
 # ls系
 
 ## eza
