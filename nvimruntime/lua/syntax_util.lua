@@ -45,8 +45,8 @@ function M.clear_syntax_link(ev)
 
   -- Literal
   -- hl_clear "String"
-  -- vim.api.nvim_set_hl(0, "@boolean", { link = "String" })
-  -- vim.api.nvim_set_hl(0, "@number", { link = "String" })
+  vim.api.nvim_set_hl(0, "@boolean", { link = "String" })
+  vim.api.nvim_set_hl(0, "@number", { link = "String" })
 
   -- Identifier
   -- hl_clear "Identifier"

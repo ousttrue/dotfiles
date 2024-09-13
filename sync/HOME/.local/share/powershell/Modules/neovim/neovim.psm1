@@ -50,7 +50,7 @@ function Install-nvim($prefix = $NVIM_PREFIX)
   }
 
   #git switch -c v0.10.1 tags/v0.10.1
-  git switch v0.10.1
+  # git switch v0.10.1
 
   cmake -G Ninja -S cmake.deps -B .deps -DCMAKE_BUILD_TYPE=Release
   cmake --build .deps
