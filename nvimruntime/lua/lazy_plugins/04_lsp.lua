@@ -158,7 +158,6 @@ return {
     -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
     config = function()
       require("goto-preview").setup()
-      vim.keymap.set("n", "<leader> ", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
     end,
   },
 }

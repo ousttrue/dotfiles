@@ -101,8 +101,6 @@ function M.setup()
         "diff",
       },
       lualine_z = {
-        "location",
-        "progress",
       },
     },
     inactive_winbar = {
@@ -125,11 +123,13 @@ function M.setup()
       },
       lualine_y = {
         "filetype",
+        "encoding",
+        "fileformat",
       },
       lualine_z = {
         -- "mode",
-        "encoding",
-        "fileformat",
+        "location",
+        "progress",
       },
     },
     -- tabline = {

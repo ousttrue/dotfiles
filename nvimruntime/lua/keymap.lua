@@ -96,7 +96,7 @@ local M = {
     --   end
     -- end
     -- vim.keymap.set("n", "ff", ff, { noremap = true })
-    vim.keymap.set("n", "<C-M-f>", function()
+    vim.keymap.set("n", "<leader> ", function()
       vim.lsp.buf.format { timeout_ms = 2000 }
     end, { noremap = true })
 
@@ -119,7 +119,7 @@ local M = {
     vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { noremap = true })
     vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { noremap = true })
     vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, { noremap = true })
-    vim.keymap.set("n", "gf", vim.diagnostic.open_float, { noremap = true })
+    vim.keymap.set("n", "ga", vim.diagnostic.open_float, { noremap = true })
     -- vim.keymap.set("n", "<Leader>e", vim.diagnostic.show_line_diagnostics, { noremap = true })
     vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { noremap = true })
     vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, { noremap = true })
