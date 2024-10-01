@@ -23,7 +23,12 @@
 https://github.com/JetBrains/JetBrainsRuntime
 
 Java jbr を展開
+
 `JAVA_HOME=D:/Java/jbr_jcef-17.0.8.1-windows-x64-b1080.1`
+
+### JetBrainsRuntime AndroidStudio
+
+`D:/Program Files/Android/Android Studio/jbr`
 
 # sdkmanager
 
