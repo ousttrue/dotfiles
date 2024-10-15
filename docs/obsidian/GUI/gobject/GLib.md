@@ -14,6 +14,31 @@ https://gitlab.gnome.org/GNOME/glib
 
 - https://docs.gtk.org/glib/building.html
 
+## glib.h and glibconf.h
+
+生成 header
+
+```meson
+glib_conf = configuration_data()
+configure_file(output : 'config.h', configuration : glib_conf)
+
+glibconfig_conf = configuration_data()
+glibconfig_h = configure_file(input : 'glibconfig.h.in', output : 'glibconfig.h',
+  install_dir : join_paths(get_option('libdir'), 'glib-2.0/include'),
+  install_tag : 'devel',
+  configuration : glibconfig_conf)
+glib_sources += glibconfig_h
+```
+
+```zig
+    var user_config = b.addConfigHeader(.{
+        .style = .{ .cmake = .{ .path = "conf.h.in" } },
+        .include_path = "foo/conf.h",
+    }, .{});
+```
+
+- [bluepyのインストール時に、glib.h、glibconfig.hがないと言われてうまくいかなかったので対処 - 工作と競馬2](https://dekuo-03.hatenablog.jp/entry/2020/03/09/130807)
+
 ## iconv
 
 https://www.gnu.org/software/libiconv/

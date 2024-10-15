@@ -3,3 +3,7 @@
 # link
 
 https://github.com/ziglang/zig/blob/master/src/link/Wasm.zig#L3567
+
+# host
+
+https://github.com/malcolmstill/zware
