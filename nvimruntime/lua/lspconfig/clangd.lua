@@ -105,7 +105,7 @@ function M.override(config, on_attach)
   config.root_dir = util.root_pattern("builddir/compile_commands.json", "build/compile_commands.json", ".git")
 
   config.on_attach = function(client, bufnr)
-    vim.keymap.set("n", ",,", function()
+    vim.keymap.set("n", "gh", function()
       vim.cmd "ClangdSwitchSourceHeader"
     end, { noremap = true })
 

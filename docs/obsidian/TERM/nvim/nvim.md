@@ -10,7 +10,22 @@
 
 - tbl_xxx の deprecated
 
-## 0.11
+## 0.11 dev
+
+## 0.10
+
+`202405`
+
+- https://gihyo.jp/article/2024/05/neovim-0.10
+- https://neovim.io/doc/user/news-0.10.html
+  - https://neovim.io/doc/user/options.html#'winfixbuf'
+  - https://neovim.io/doc/user/treesitter.html#treesitter-highlight-groups
+  - https://neovim.io/doc/user/deprecated.html#vim.diagnostic.goto_next()
+  - `gx` https://neovim.io/doc/user/lua.html#vim.ui.open()
+
+## 0.9
+
+- https://neovim.io/doc/user/news-0.9.html#news-0.9
 
 # 一から設定しなおす手順
 

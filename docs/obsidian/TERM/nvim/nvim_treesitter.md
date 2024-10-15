@@ -27,6 +27,8 @@ https://neovim.io/doc/user/treesitter.html
 
 # textobject
 
+- [【Neovim】vifでメソッド内を範囲選択する方法 #Vim - Qiita](https://qiita.com/ysmb-wtsg/items/2c9eaf444c60ca172588)
+
 `select`, `swap`, `move`
 
 - https://github.com/nvim-treesitter/nvim-treesitter-textobjects

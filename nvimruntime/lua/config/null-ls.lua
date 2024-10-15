@@ -78,20 +78,22 @@ function M.setup()
       -- null_ls.builtins.formatting.cmake_format,
       --
       null_ls.builtins.formatting.prettierd.with {
-        filetypes = { "xml","xml",  "html", "markdown", "mdx", "css" },
+        filetypes = { "xml", "xml", "html", "markdown", "mdx", "css" },
       },
       -- null_ls.builtins.formatting.tidy,
       null_ls.builtins.formatting.shfmt.with {
         filetypes = { "sh", "zsh" },
       },
-      null_ls.builtins.formatting.clang_format.with {
-        command = get_clang_format(),
-        filetypes = { "glsl" },
-      },
-      null_ls.builtins.diagnostics.glslc.with {
-        -- use opengl instead of vulkan1.0
-        extra_args = { "--target-env=opengl" },
-      },
+
+      -- null_ls.builtins.formatting.clang_format.with {
+      --   command = get_clang_format(),
+      --   filetypes = { "glsl" },
+      -- },
+      -- null_ls.builtins.diagnostics.glslc.with {
+      --   -- use opengl instead of vulkan1.0
+      --   extra_args = { "--target-env=opengl" },
+      -- },
+
       -- null_ls.builtins.formatting.topiary,
 
       -- null_ls.builtins.diagnostics.eslint,
