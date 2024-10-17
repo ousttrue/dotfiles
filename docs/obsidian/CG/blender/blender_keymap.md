@@ -1,13 +1,20 @@
-# 137を生かしたまま割り当てる
+# space
 
-## f1
+search ?
 
-`help` => `view3d.view_axis.Font`
+# input
 
-## f3
+- [x] emulate numpad
 
-`search` => `view3d.view_axis.Right`
+`1` => `f1`
+`2` => `f2`
+`3` => `f3`
+`f2` => `f4`
 
-## f7
+# navigation
 
-`cycle` => `view3d.view_axis.Top`
+- [x] orbit around selection
+
+# keyap
+
+- spacebar action => search
