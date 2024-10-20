@@ -18,3 +18,7 @@ search ?
 # keyap
 
 - spacebar action => search
+
+# undo step
+
+256
