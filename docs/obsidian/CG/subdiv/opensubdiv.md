@@ -1,5 +1,7 @@
 [GitHub - PixarAnimationStudios/OpenSubdiv: An Open-Source subdivision surface library.](https://github.com/PixarAnimationStudios/OpenSubdiv)
 
+- https://takahito-tejima.github.io/OpenSubdivJpDoc/subdivision_surfaces.html#introduction
+
 - http://graphics.pixar.com/opensubdiv/docs/subdivision_surfaces.html
 - http://graphics.pixar.com/opensubdiv/docs/api_overview.html
 
