@@ -5,6 +5,15 @@ https://github.com/ValveSoftware/openvr/wiki/API-Documentation
 https://github.com/OpenVR-Advanced-Settings/OpenVR-AdvancedSettings
 https://github.com/gpsnmeajp/EasyOpenVRUtil/wiki/接続デバイス管理
 
+# repos
+
+- https://github.com/ousttrue/VRExperiment
+- https://github.com/ousttrue/ExtraTracker
+
+- https://github.com/terminal29/Simple-OpenVR-Driver-Tutorial
+- https://github.com/alvr-org/ALVR
+- https://github.com/schellingb/PseudoVive
+
 # version
 
 ## 1.11.11
@@ -21,8 +30,14 @@ https://github.com/gpsnmeajp/EasyOpenVRUtil/wiki/接続デバイス管理
 
 # config
 
+`%STEAM%\steamapps\common\SteamVR\resources\settings\steamvr.vrsettings`
+
 - [steamvr.vrsettingsのメモ書き - Ρの日本語練習ブログ](https://ugokutennp.hatenablog.com/entry/2022/02/10/222621)
 - [Oculus Quest＋ALVR＋BaseStation2.0+Tracker2018 で、フルトラ化（BaseStation2.0+Tracker2018セットアップ）｜かせー](https://note.com/kasei_s/n/n10e12d021e2a)
+
+## DriverManifest
+
+- https://github.com/ValveSoftware/openvr/wiki/DriverManifest
 
 ## NoHeadset
 
@@ -42,13 +57,10 @@ https://github.com/gpsnmeajp/EasyOpenVRUtil/wiki/接続デバイス管理
 }
 ```
 
-# viewer
-
-- https://github.com/ousttrue/VRExperiment
-
 # driver
 
-- [DriverManifest · ValveSoftware/openvr Wiki · GitHub](https://github.com/ValveSoftware/openvr/wiki/DriverManifest)
+`msvc` でビルドするべし。`zig` は動かない？
+
 - [Virtual Motion Trackerを作ったときのノウハウ #VR - Qiita](https://qiita.com/gpsnmeajp/items/9c41654e6c89c6b9702f)
 - https://github.com/ousttrue/OpenVR-InputEmulator
 
@@ -110,6 +122,8 @@ http://shop-0761.hatenablog.com/entry/2018/01/08/034418
 ## IVRVirtualDisplay
 
 https://github.com/ValveSoftware/virtual_display
+
+- https://github.com/ibrahimduran/openvr
 
 HMDの最終画像を得る。Wirelessヘッドセットへの転送など
 
