@@ -1,3 +1,7 @@
+# vox
+
+- https://multlabs.ru/blog/vox
+
 # cityGen
 
 - [GitHub - jmespadero/cityGen: An automatic generator for medieval scenes and games](https://github.com/jmespadero/cityGen)
