@@ -1,3 +1,5 @@
+- [Blender: シェイプキーを維持してモディファイアーを適用するアドオン「SKkeeper」 | reflectorange.net](https://reflectorange.net/archives/282.html)
+
 # vox
 
 - https://multlabs.ru/blog/vox
