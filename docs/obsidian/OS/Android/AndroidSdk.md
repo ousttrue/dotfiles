@@ -4,6 +4,12 @@
 
 # install
 
+default
+
+`%LOCALAPPDATA%\Android\Sdk`
+
+custom
+
 `ANDROID_HOME=D:/android_sdk`
 
 ## cmdline-tools
