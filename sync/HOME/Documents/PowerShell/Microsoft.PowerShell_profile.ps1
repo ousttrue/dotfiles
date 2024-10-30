@@ -199,11 +199,15 @@ if ($IsMacOS)
   $env:N_PREFIX = (Join-Path $env:HOME "/.n")
   addPath(Join-Path $env:N_PREFIX "/bin")
 }
-$jbr_dir = "C:\java\jbr_jcef-17.0.10-windows-x64-b1207.14"
-if(Test-Path $jbr_dir)
+
+if($null -eq $env:JAVA_HOME)
 {
-  $env:JAVA_HOME = $jbr_dir
-  addPath (Join-Path $jbr_dir "bin")
+  $jbr_dir = "C:\java\jbr_jcef-17.0.10-windows-x64-b1207.14"
+  if(Test-Path $jbr_dir)
+  {
+    $env:JAVA_HOME = $jbr_dir
+    addPath (Join-Path $jbr_dir "bin")
+  }
 }
 
 # For zoxide v0.8.0+
