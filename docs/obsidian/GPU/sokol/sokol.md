@@ -25,3 +25,13 @@ fips に頼らない。
 - [GitHub - jeffkdev/sokol-zig-examples](https://github.com/jeffkdev/sokol-zig-examples)
 
 - https://github.com/floooh/sokol-zig-imgui-sample/
+
+# without-sapp
+
+## glfw
+
+- https://github.com/floooh/sokol-samples/blob/master/glfw/multiwindow-glfw.c
+
+## CreateWindow
+
+## openxr
