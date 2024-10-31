@@ -1,0 +1,172 @@
+<html>
+  <body>
+    <div class="box search">
+      <h1>{ name: "github", url: "https://github.com/ " },</h1>
+      <form
+        action="https://github.com/search"
+        method="GET"
+        accept-charset="UTF-8"
+      >
+        <input name="q" />
+      </form>
+    </div>
+
+    <div class="box search">
+      <h1>Zenn</h1>
+      <form
+        action="https://zenn.dev/search"
+        method="GET"
+        accept-charset="UTF-8"
+      >
+        <input name="q" />
+      </form>
+    </div>
+
+    <div class="box search">
+      <h1>pypi</h1>
+      <form
+        action="https://pypi.org/search/"
+        method="GET"
+        accept-charset="UTF-8"
+      >
+        <input name="q" />
+      </form>
+    </div>
+
+    <div class="box search">
+      <h1>JM Project</h1>
+      <form method="GET" action="https://linuxjm.osdn.jp/cgi-bin/man.cgi">
+        <input type="TEXT" name="Pagename" />
+        <br />
+        <input type="CHECKBOX" name="Sec1" checked="" />1
+        <input type="CHECKBOX" name="Sec2" checked="" />2
+        <input type="CHECKBOX" name="Sec3" checked="" />3
+        <input type="CHECKBOX" name="Sec4" checked="" />4
+        <input type="CHECKBOX" name="Sec5" checked="" />5
+        <input type="CHECKBOX" name="Sec6" checked="" />6
+        <input type="CHECKBOX" name="Sec7" checked="" />7
+        <input type="CHECKBOX" name="Sec8" checked="" />8
+      </form>
+    </div>
+
+    <div class="box search">
+      <h1>Google</h1>
+      <form
+        action="https://www.google.com/search"
+        method="GET"
+        accept-charset="UTF-8"
+      >
+        <input name="as_q" type="text" value="" />
+        <input name="num" value="50" type="hidden" />
+      </form>
+    </div>
+
+    <div class="box search">
+      <h1>duckduckgo</h1>
+      <form
+        action="https://duckduckgo.com/"
+        method="GET"
+        accept-charset="UTF-8"
+      >
+        <input name="q" />
+      </form>
+    </div>
+
+    <div class="box search">
+      <h1>Google Advanced</h1>
+      <form
+        action="https://www.google.com/search"
+        method="GET"
+        name="f"
+        accept-charset="UTF-8"
+      >
+        <!-- <input name="hl" type="hidden" value="ja"/> -->
+        <h2>検索するキーワード</h2>
+        <table>
+          <tr>
+            <td>すべてのキーワードを含む:</td>
+            <td><input name="as_q" type="text" value="" /></td>
+          </tr>
+          <tr>
+            <td>num</td>
+            <td><input name="num" value="50" /></td>
+          </tr>
+          <tr>
+            <td>検索結果の絞り込み 言語:</td>
+            <td>
+              <select name="lr">
+                <option selected="selected" value="">すべての言語</option>
+                <option value="lang_ja">日本語</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td>地域:</td>
+            <td>
+              <select name="cr">
+                <option selected="selected" value="">すべての地域</option>
+                <option value="countryJP">日本</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td>最終更新日時:</td>
+            <td>
+              <select name="as_qdr">
+                <option selected="selected" value="all">指定なし</option>
+                <option value="d">24 時間以内</option>
+                <option value="w">1 週間以内</option>
+                <option value="m">1 か月以内</option>
+                <option value="y">1 年以内</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>検索対象の範囲:</td>
+            <td>
+              <select name="as_occt">
+                <option value="">ページ全体</option>
+                <option value="title">ページ タイトルのみ</option>
+                <option value="body">ページ本文のみ</option>
+                <option value="url">ページ URL のみ</option>
+                <option value="links">そのページへのリンク内</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>セーフサーチ</td>
+            <td>
+              <select name="safe">
+                <option selected="selected" value="images">
+                  不適切な検索結果を表示する
+                </option>
+                <option value="active">不適切な検索結果を非表示にする</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>ファイル形式</td>
+            <td>
+              <select name="as_filetype">
+                <option selected="selected" value="">すべての形式</option>
+                <option value="pdf">Adobe Acrobat PDF（.pdf）</option>
+                <option value="ps">Adobe PostScript（.ps）</option>
+                <option value="dwf">Autodesk DWF（.dwf）</option>
+                <option value="kml">Google Earth KML（.kml）</option>
+                <option value="kmz">Google Earth KMZ（.kmz）</option>
+                <option value="xls">Microsoft Excel（.xls）</option>
+                <option value="ppt">Microsoft PowerPoint（.ppt）</option>
+                <option value="doc">Microsoft Word（.doc）</option>
+                <option value="rtf">リッチ テキスト形式（.rtf）</option>
+                <option value="swf">Shockwave Flash（.swf）</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <input type="submit" value="search" />
+      </form>
+    </div>
+  </body>
+</html>
