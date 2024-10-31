@@ -22,3 +22,13 @@ https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-react
 `import 'hoge.css';` に必要だった。
 
 - [renderToStringとhydrateを作って学ぶReactのSSR・SSG](https://zenn.dev/did0es/articles/b41d0de60934cc)
+
+# hydrate 無しで css を動作させる
+
+inline と style tag でできる。
+
+```tsx
+import styles from './App.css?inline'
+
+<style>{styles}</style>
+```

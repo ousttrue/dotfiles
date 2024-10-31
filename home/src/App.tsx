@@ -1,4 +1,4 @@
-import './App.css'
+import styles from './App.css?inline'
 import { type ItemType, ITEMS } from './data';
 
 function Item(props: ItemType) {
@@ -19,11 +19,12 @@ function Item(props: ItemType) {
 }
 
 function App() {
-  return (
+  return (<>
+    <style>{styles}</style>
     <div className="container">
       {ITEMS.map((props, i) => <Item key={i} {...props} />)}
     </div>
-  );
+  </>);
 }
 
 export default App
