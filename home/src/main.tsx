@@ -1,10 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
 import App from './App.tsx'
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import type { IncomingMessage } from 'connect';
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+
+export async function render(req: IncomingMessage): Promise<string | null> {
+  let url = req.originalUrl || '';
+  if (url.endsWith('/')) {
+    url += 'index.html';
+  }
+  const html = ReactDOMServer.renderToString(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode >
+  );
+  return html;
+}
