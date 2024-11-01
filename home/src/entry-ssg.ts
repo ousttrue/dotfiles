@@ -5,7 +5,7 @@ import type { IncomingMessage } from 'connect';
 
 // pre-render each route...
 async function prerenderAndWrite(template: string, url: string, dist: string) {
-  let filePath = dist + url;
+  let filePath = path.join(dist, url);
   console.log('pre-render...:', filePath)
 
   const rendered = await render({
