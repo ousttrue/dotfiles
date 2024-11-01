@@ -66,7 +66,7 @@ export const ITEMS: ItemType[] = [
 
   { name: "lang" },
   { name: "fsharp", url: "https://learn.microsoft.com/ja-jp/dotnet/fsharp/" },
-  { name: "go", img: "/gopher.png", url: "https://go.dev/" },
+  { name: "go", img: "gopher.png", url: "https://go.dev/" },
   { name: "StandardLibrary", url: "https://pkg.go.dev/std" },
   { name: "bubbletea", url: "https://github.com/charmbracelet/bubbletea" },
   { name: "lua", img: "https://www.lua.org/images/logo.gif", url: "http://www.lua.org/" },

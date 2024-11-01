@@ -9,7 +9,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prerender": "node prerender.js"
+    "prerender": "npm run build && node prerender.js"
   },
   "dependencies": {
     "react": "^18.3.1",

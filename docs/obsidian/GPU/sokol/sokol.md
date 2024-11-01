@@ -30,6 +30,7 @@ fips に頼らない。
 
 ## glfw
 
+- https://github.com/floooh/sokol-samples/blob/master/glfw/triangle-glfw.c
 - https://github.com/floooh/sokol-samples/blob/master/glfw/multiwindow-glfw.c
 
 ## CreateWindow
