@@ -33,6 +33,12 @@ $ code
 
 - @2021 [VSCode/WSL2/Docker の組み合わせで遭遇するエラーとその対策 - Qiita](https://qiita.com/iwaiktos/items/33ab69a42c3a1cc35dfb#3init-4010-error-utilconnecttointeropserver300-connect-failed-2)
 
+# startup
+
+```bat
+wsl /bin/bash --login -c btm
+```
+
 # maintenance
 
 ## list --online
@@ -40,7 +46,7 @@ $ code
 インストール可能の一覧
 
 ```sh
-wsl --list --online
+> wsl --list --online
 ```
 
 ## install
@@ -49,7 +55,32 @@ wsl --list --online
 wsl --install Ubuntu22.04
 ```
 
+初手
+
+```sh
+sudo apt install vim git unzip
+
+sudo visudo
+hoge ALL=NOPASSWD: ALL
+
+sudo /etc/inputrc
+"\C-n":history-search-forward
+"\C-p":history-search-backward
+
+sudo vim /etc/wsl.conf
+[interop]
+appendWindowsPath = false
+
+curl -fsSL https://bun.sh/install | bash
+```
+
 ## uninstall
+
+```sh
+wsl --unregister Ubuntu-22.04
+```
+
+image ごと消える。
 
 - @2021 [グチャグチャになった「Ubuntu on WSL2」のやり直し方 #Ubuntu - Qiita](https://qiita.com/PoodleMaster/items/b54db3608c4d343d27c4)
 
@@ -58,15 +89,3 @@ wsl --install Ubuntu22.04
 わりと大容量になる
 
 %LOCALAPPDATA%/Packages/CanonicalGroupLimited.Ubuntu22.04LTS\_.../LocalState/ext4.vhdx => 30G
-
-```sh
-wsl --unregister Ubuntu-22.04
-```
-
-image ごと消える。
-
-# startup
-
-```bat
-wsl /bin/bash --login -c btm
-```
