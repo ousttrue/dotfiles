@@ -33,9 +33,19 @@ https://docs.blender.org/manual/ja/dev/modeling/geometry_nodes/index.html
 # 眼球
 
 - https://www.youtube.com/watch?v=3TxZBbq8BMA
-- https://www.youtube.com/watch?v=N01CLPV9HRQ
+- `mabuta` https://www.youtube.com/watch?v=N01CLPV9HRQ
 - https://x.com/tomo_/status/1458379419299446786?lang=ja
 - https://x.com/7se3d/status/1604068597608824832
+
+## color
+
+`StoreNamedAttribute`, `SetMaterial`
+
+- https://blender.stackexchange.com/questions/289294/changing-color-with-geometry-nodes
+
+## animation
+
+- https://www.youtube.com/watch?v=LS1yBCi6BxE
 
 # 木
 

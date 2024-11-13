@@ -2,9 +2,12 @@
 
 `%USERPROFILE%/Documents/Blender/Assets`
 
-- https://www.blender.org/download/demo-files/
-
 - https://docs.blender.org/manual/ja/latest/files/asset_libraries/index.html
+
+## Human Base Meshes v1.2
+
+- https://www.blender.org/download/demo-files/
+- https://www.youtube.com/watch?v=qSR-qK2vRQY
 
 # Catalog
 
