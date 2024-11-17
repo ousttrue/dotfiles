@@ -1,4 +1,11 @@
-[[OS/X11/X11]]
+# ARCH
+
+```
+dumpkeys > nocaps.map
+vim nocaps.map # 58 CapsLock => Control
+sudo cp nocaps.map /usr/share/kbd/keymaps
+sudo localectl set-keymap --no-convert nocaps
+```
 
 # evremap
 
