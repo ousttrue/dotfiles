@@ -9,6 +9,10 @@
 | xonsh  | o       | o     | xonsh script が微妙       |
 | nyagos | o       | o     | Windows以外はちょっと弱い |
 
+# shell
+
+- https://github.com/PhilippRados/PShell?tab=readme-ov-file
+
 # repl
 
 - prompt

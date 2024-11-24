@@ -11,6 +11,7 @@ https://www.python.org/
 - https://docs.python.org/3.13/whatsnew/3.13.html
 - [PEP 703 – Making the Global Interpreter Lock Optional in CPython](https://peps.python.org/pep-0703/)
 - [PEP 744 – JIT Compilation](https://peps.python.org/pep-0744/)
+- @202410 [Python3.13正式リリースが出ました！ #Python - Qiita](https://qiita.com/t3tra/items/152b6023e47c5b09bffe)
 
 ## 3.12 @2023
 

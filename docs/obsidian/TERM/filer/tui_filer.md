@@ -31,6 +31,7 @@ pip install browsr
 
 - [Minase/README_JP.md at master · SAT1226/Minase · GitHub](https://github.com/SAT1226/Minase/blob/master/README_JP.md)
 - [GitHub - mananapr/cfiles: A ncurses file manager written in C with vim like keybindings](https://github.com/mananapr/cfiles)
+- https://github.com/leo-arch/clifm?tab=readme-ov-file
 
 ## fd
 
