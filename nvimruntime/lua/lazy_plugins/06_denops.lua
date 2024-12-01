@@ -12,7 +12,11 @@ return {
           --   \ 'eggLikeNewline': v:true
           --   \ })
           vim.fn["skkeleton#config"] {
-            globalDictionaries = { HOME .. "/.skk/SKK-JISYO.L" },
+            globalDictionaries = {
+              { HOME .. "/.skk/SKK_JISYO.shikakugoma", "utf-8" },
+              HOME .. "/.skk/SKK-JISYO.L",
+              { HOME .. "/.skk/SKK_JISYO.seikana", "utf-8" },
+            },
             userDictionary = HOME .. "/.skkeleton",
             eggLikeNewline = true,
           }
