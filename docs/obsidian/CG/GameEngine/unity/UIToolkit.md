@@ -50,8 +50,12 @@ namespace UIToolKitSample.Editor.Inspector
         public override VisualElement CreateInspectorGUI()
         {
             var root = new VisualElement();
-
-            // ここでインスペクタに表示する要素を作成していく
+            root.Bind(serializedObject);
+            {
+                var s = new PropertyField { bindingPath = "m_Script" };
+                s.SetEnabled(false);
+                root.Add(s);
+            }
 
             return root;
         }

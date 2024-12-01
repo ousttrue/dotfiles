@@ -41,6 +41,10 @@ function vcenv()
 { 
   # $vc_dir = (Get-VSSetupInstance).InstallationPath
   $vc_dir = &vswhere -latest -products * -requires Microsoft.VisualStudio.Product.BuildTools -property installationPath
+  if(!$vc_dir)
+  {
+    $vc_dir = &vswhere -latest -products * -requires Microsoft.VisualStudio.Product.Community -property installationPath
+  }
   if (!$vc_dir)
   {
     $vc_dir = &vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath 

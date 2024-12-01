@@ -81,13 +81,14 @@ function Install-go
 {
   if (!(has go))
   {
-    # curl -L -O --trust-server-names https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
-    mkdir -p $HOME/Downloads
-    $archive = Download "https://go.dev/dl/go1.21.6.linux-amd64.tar.gz" $HOME/Downloads
-    sudo rm -rf /usr/local/go
-    sudo tar -C /usr/local -xzf $archive
     if (!$IsWindows)
     {
+      # curl -L -O --trust-server-names https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+      mkdir -p $HOME/Downloads
+      $archive = Download "https://go.dev/dl/go1.21.6.linux-amd64.tar.gz" $HOME/Downloads
+      sudo rm -rf /usr/local/go
+      sudo tar -C /usr/local -xzf $archive
+
       addPath("/usr/local/go/bin")
     }
   }

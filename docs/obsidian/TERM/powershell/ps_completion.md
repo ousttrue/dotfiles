@@ -1,5 +1,3 @@
-[[PSReadline]]
-
 [シェルでのタブ補完の使用 - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/scripting/learn/shell/tab-completion?view=powershell-7.4)
 
 @2020 [PowerShellでbash-like, zsh-likeなタブ補完 #PowerShell - Qiita](https://qiita.com/FKbelm/items/2edb23d4f57e8c0d4fb4)
@@ -16,8 +14,8 @@
 
 ## ValidateSet 
 
-
 # Predictive IntelliSense
+
 from [[PSReadline]] -2.1 `history` 補完
 [PSReadLine の予測機能を使用する - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/scripting/learn/shell/using-predictors?view=powershell-7.4)
 
