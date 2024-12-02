@@ -28,6 +28,7 @@ return {
       vim.keymap.set({ "i", "c" }, "<C-j>", "<Plug>(skkeleton-enable)")
     end,
   },
+  { "delphinus/skkeleton_indicator.nvim", opts = {} },
   {
     "lambdalisue/kensaku.vim",
     dependencies = "vim-denops/denops.vim",
@@ -42,6 +43,7 @@ return {
       "Shougo/pum.vim",
       "Shougo/ddc-ui-pum",
       -- source
+      "vim-skk/denops-skkeleton.vim",
       "LumaKernel/ddc-source-file",
       "Shougo/ddc-source-around",
       "Shougo/ddc-source-cmdline",
@@ -68,6 +70,7 @@ return {
       vim.fn["ddc#custom#patch_global"]("sources", {
         "lsp",
         "around",
+        "skkeleton",
       })
       vim.fn["ddc#custom#patch_global"]("sourceOptions", {
         _ = {
@@ -80,14 +83,22 @@ return {
           mark = "LSP",
           forceCompletionPattern = "\\.\\w*|:\\w*|->\\w*",
         },
+        skkeleton = {
+          mark = "SKK",
+          matchers = { "skkeleton" },
+          sorters = {},
+          converters = {},
+          isVolatile = true,
+          -- minAutoCompleteLength = 1,
+        },
       })
       vim.fn["ddc#enable"]()
-      vim.keymap.set("n", "<Tab>", "<Cmd>call pum#map#insert_relative(+1)<CR>", { noremap = true })
-      vim.keymap.set("n", "<S-Tab>", "<Cmd>call pum#map#insert_relative(-1)<CR>", { noremap = true })
-      vim.keymap.set("n", "<C-n>", "<Cmd>call pum#map#insert_relative(+1)<CR>", { noremap = true })
-      vim.keymap.set("n", "<C-p>", "<Cmd>call pum#map#insert_relative(-1)<CR>", { noremap = true })
-      vim.keymap.set("n", "<C-y>", "<Cmd>call pum#map#confirm()<CR>", { noremap = true })
-      vim.keymap.set("n", "<C-e>", "<Cmd>call pum#map#cancel()<CR>", { noremap = true })
+      -- vim.keymap.set("n", "<Tab>", "<Cmd>call pum#map#insert_relative(+1)<CR>", { noremap = true })
+      -- vim.keymap.set("n", "<S-Tab>", "<Cmd>call pum#map#insert_relative(-1)<CR>", { noremap = true })
+      vim.keymap.set({ "i" }, "<C-n>", "<Cmd>call pum#map#insert_relative(+1)<CR>", { noremap = true })
+      vim.keymap.set({ "i" }, "<C-p>", "<Cmd>call pum#map#insert_relative(-1)<CR>", { noremap = true })
+      vim.keymap.set({ "i" }, "<C-y>", "<Cmd>call pum#map#confirm()<CR>", { noremap = true })
+      vim.keymap.set({ "i" }, "<C-e>", "<Cmd>call pum#map#cancel()<CR>", { noremap = true })
     end,
   },
 }
