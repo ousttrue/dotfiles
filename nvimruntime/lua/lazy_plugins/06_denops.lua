@@ -13,9 +13,10 @@ return {
           --   \ })
           vim.fn["skkeleton#config"] {
             globalDictionaries = {
-              { HOME .. "/.skk/SKK_JISYO.shikakugoma", "utf-8" },
+              HOME .. "/.skk/SKK_JISYO.seikana",
+              HOME .. "/.skk/SKK_JISYO.shikakugoma",
               HOME .. "/.skk/SKK-JISYO.L",
-              { HOME .. "/.skk/SKK_JISYO.seikana", "utf-8" },
+              HOME .. "/.skk/SKK-JISYO.pinyin",
             },
             userDictionary = HOME .. "/.skkeleton",
             eggLikeNewline = true,
@@ -89,7 +90,7 @@ return {
           sorters = {},
           converters = {},
           isVolatile = true,
-          -- minAutoCompleteLength = 1,
+          minAutoCompleteLength = 1,
         },
       })
       vim.fn["ddc#enable"]()
@@ -99,6 +100,76 @@ return {
       vim.keymap.set({ "i" }, "<C-p>", "<Cmd>call pum#map#insert_relative(-1)<CR>", { noremap = true })
       vim.keymap.set({ "i" }, "<C-y>", "<Cmd>call pum#map#confirm()<CR>", { noremap = true })
       vim.keymap.set({ "i" }, "<C-e>", "<Cmd>call pum#map#cancel()<CR>", { noremap = true })
+    end,
+  },
+  -- https://zenn.dev/vim_jp/articles/c0d75d1f3c7f33
+  {
+    "Shougo/ddu.vim",
+    dependencies = {
+      "vim-denops/denops.vim",
+      "Shougo/ddu-ui-ff",
+      -- source
+      "Shougo/ddu-source-file_rec",
+      -- kind
+      "Shougo/ddu-kind-file",
+      -- matcher
+      "Shougo/ddu-filter-matcher_substring",
+    },
+    config = function()
+      -- 全体に共通する設定を行う
+      vim.fn["ddu#custom#patch_global"] {
+        ui = "ff",
+        sourceOptions = {
+          _ = {
+            matchers = { "matcher_substring" },
+          },
+        },
+      }
+
+      -- DduWholeFiles
+      vim.fn["ddu#custom#patch_local"]("whole-files", {
+        sources = { "file_rec" },
+        sourceParams = {
+          file_rec = {
+            ignoredDirectories = { ".git" },
+          },
+        },
+        sourceOptions = {
+          file_rec = {
+            maxItems = 50000,
+          },
+        },
+      })
+      vim.api.nvim_create_user_command("DduWholeFiles", function()
+        vim.fn["ddu#start"] {
+          name = "whole-files",
+          sourceOptions = { file_rec = { path = vim.fn.getcwd() } },
+        }
+      end, {})
+
+      -- DduNodeFiles
+      vim.fn["ddu#custom#patch_local"]("node-files", {
+        sources = { "file_rec" },
+        sourceParams = {
+          file_rec = {
+            ignoredDirectories = { ".git", "node_modules" },
+          },
+        },
+      })
+      vim.api.nvim_create_user_command("DduNodeFiles", function()
+        vim.fn["ddu#start"] {
+          name = "node-files",
+          sourceOptions = { file_rec = { path = vim.fn.getcwd() } },
+        }
+      end, {})
+
+      vim.cmd [[
+" ddu-ui-ff上でのみ有効なKeymap（`e`）を設定する
+function s:ddu_ff_settings() abort
+    nnoremap <buffer> e <Cmd>call ddu#ui#do_action('itemAction', {'name': 'open'})<CR>
+endfunction
+autocmd FileType ddu-ff call s:ddu_ff_settings()
+]]
     end,
   },
 }
