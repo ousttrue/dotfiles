@@ -32,4 +32,55 @@ return {
     "lambdalisue/kensaku.vim",
     dependencies = "vim-denops/denops.vim",
   },
+  -- ddc
+  -- minimum: https://gist.github.com/rbtnn/4373572564964a905d1c162ed3931497
+  -- https://wagomu.me/blog/2023-09-22
+  {
+    "Shougo/ddc.vim",
+    dependencies = {
+      "vim-denops/denops.vim",
+      "Shougo/pum.vim",
+      "Shougo/ddc-ui-pum",
+      -- source
+      "LumaKernel/ddc-source-file",
+      "Shougo/ddc-source-around",
+      "Shougo/ddc-source-cmdline",
+      "Shougo/ddc-source-cmdline-history",
+      "Shougo/ddc-source-copilot",
+      "Shougo/ddc-source-input",
+      "Shougo/ddc-source-nvim-lsp",
+      "Shougo/ddc-source-rg",
+      "Shougo/ddc-source-shell",
+      "Shougo/ddc-source-shell-native",
+      "matsui54/ddc-buffer",
+      "uga-rosa/ddc-source-nvim-lua",
+      -- filter
+      "Shougo/ddc-filter-converter_remove_overlap",
+      "Shougo/ddc-filter-matcher_head",
+      "Shougo/ddc-filter-matcher_length",
+      "Shougo/ddc-filter-matcher_prefix",
+      "Shougo/ddc-filter-sorter_head",
+      "Shougo/ddc-filter-sorter_rank",
+    },
+    config = function()
+      vim.fn["ddc#custom#patch_global"]("ui", "pum")
+      -- https://github.com/search?q=repo%3AShougo%2Fddc.vim%20completionMenu&type=code
+      vim.fn["ddc#custom#patch_global"]("sources", { "around" })
+      vim.fn["ddc#custom#patch_global"]("sourceOptions", {
+        _ = {
+          matchers = { "matcher_head" },
+          sorters = { "sorter_rank" },
+          converters = { "converter_remove_overlap" },
+        },
+        around = { mark = "A" },
+      })
+      vim.fn["ddc#enable"]()
+      vim.keymap.set("n", "<Tab>", "<Cmd>call pum#map#insert_relative(+1)<CR>", { noremap = true })
+      vim.keymap.set("n", "<S-Tab>", "<Cmd>call pum#map#insert_relative(-1)<CR>", { noremap = true })
+      vim.keymap.set("n", "<C-n>", "<Cmd>call pum#map#insert_relative(+1)<CR>", { noremap = true })
+      vim.keymap.set("n", "<C-p>", "<Cmd>call pum#map#insert_relative(-1)<CR>", { noremap = true })
+      vim.keymap.set("n", "<C-y>", "<Cmd>call pum#map#confirm()<CR>", { noremap = true })
+      vim.keymap.set("n", "<C-e>", "<Cmd>call pum#map#cancel()<CR>", { noremap = true })
+    end,
+  },
 }
