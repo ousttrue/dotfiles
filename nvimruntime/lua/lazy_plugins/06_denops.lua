@@ -65,7 +65,10 @@ return {
     config = function()
       vim.fn["ddc#custom#patch_global"]("ui", "pum")
       -- https://github.com/search?q=repo%3AShougo%2Fddc.vim%20completionMenu&type=code
-      vim.fn["ddc#custom#patch_global"]("sources", { "around" })
+      vim.fn["ddc#custom#patch_global"]("sources", {
+        "lsp",
+        "around",
+      })
       vim.fn["ddc#custom#patch_global"]("sourceOptions", {
         _ = {
           matchers = { "matcher_head" },
@@ -73,6 +76,10 @@ return {
           converters = { "converter_remove_overlap" },
         },
         around = { mark = "A" },
+        lsp = {
+          mark = "LSP",
+          forceCompletionPattern = "\\.\\w*|:\\w*|->\\w*",
+        },
       })
       vim.fn["ddc#enable"]()
       vim.keymap.set("n", "<Tab>", "<Cmd>call pum#map#insert_relative(+1)<CR>", { noremap = true })
