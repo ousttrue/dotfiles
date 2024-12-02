@@ -206,9 +206,17 @@ function prompt()
     }
   } 
 
+  # https://learn.microsoft.com/en-us/windows/terminal/tutorials/new-tab-same-directory
+  $loc = $executionContext.SessionState.Path.CurrentLocation;
+  $out = "";
+  if ($loc.Provider.Name -eq "FileSystem") {
+    $out += "`e]9;9;`"$($loc.ProviderPath)`"`e$([char]0x5c)"
+  }
+
   # OSC7
   # https://wezfurlong.org/wezterm/shell-integration.html#osc-7-on-windows-with-cmdexe
-  "`e]2;${title}$([char]0x07)${prefix}`e[7m${location}`e[0m${branch}`n`e[${color}m>`e[0m "
+  "${out} `e]2;${title}$([char]0x07)${prefix}`e[7m${location}`e[0m${branch}`n`e[${color}m>`e[0m "
+
 }
 
 function Edit-Docs
