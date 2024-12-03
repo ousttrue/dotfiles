@@ -107,18 +107,54 @@ return {
     "Shougo/ddu.vim",
     dependencies = {
       "vim-denops/denops.vim",
+      -- ui
       "Shougo/ddu-ui-ff",
       -- source
       "Shougo/ddu-source-file_rec",
+      -- filter
+      "Shougo/ddu-filter-matcher_substring",
       -- kind
       "Shougo/ddu-kind-file",
-      -- matcher
-      "Shougo/ddu-filter-matcher_substring",
     },
     config = function()
+      local height = tonumber(vim.api.nvim_command_output "echo &lines") or 0
+      local width = tonumber(vim.api.nvim_command_output "echo &columns") or 0
       -- 全体に共通する設定を行う
       vim.fn["ddu#custom#patch_global"] {
         ui = "ff",
+        uiParams = {
+          ff = {
+            -- autoResize = true,
+            winWidth = width,
+            winHeight = height * 0.7,
+            split = "floating",
+            -- split = "vertical",
+            -- splitDirection = "topleft",
+            -- startFilter = true,
+            -- filterFloatingPosition = "bottom",
+            filterSplitDirection = "floating",
+            floatingBorder = "rounded",
+            --
+            startAutoAction = true,
+            autoAction = { name = "preview", delay = 0 },
+            --
+            previewWidth = width,
+            -- previewHeight = height * 0.3,
+            previewFloating = true,
+            previewFloatingBorder = "rounded",
+            previewFloatingTitle = "Preview",
+            -- previewSplit = "horizontal",
+            prompt = "> ",
+          },
+        },
+        kindOptions = {
+          file = {
+            defaultAction = "open",
+          },
+          colorscheme = {
+            defaultAction = "set",
+          },
+        },
         sourceOptions = {
           _ = {
             matchers = { "matcher_substring" },
@@ -127,8 +163,17 @@ return {
       }
 
       -- DduWholeFiles
-      vim.fn["ddu#custom#patch_local"]("whole-files", {
-        sources = { "file_rec" },
+      vim.fn["ddu#custom#patch_local"]("files", {
+        sources = {
+          {
+            name = "file_rec",
+            options = {
+              matchers = {
+                "matcher_substring",
+              },
+            },
+          },
+        },
         sourceParams = {
           file_rec = {
             ignoredDirectories = { ".git" },
@@ -142,34 +187,25 @@ return {
       })
       vim.api.nvim_create_user_command("DduWholeFiles", function()
         vim.fn["ddu#start"] {
-          name = "whole-files",
+          name = "files",
           sourceOptions = { file_rec = { path = vim.fn.getcwd() } },
         }
       end, {})
 
-      -- DduNodeFiles
-      vim.fn["ddu#custom#patch_local"]("node-files", {
-        sources = { "file_rec" },
-        sourceParams = {
-          file_rec = {
-            ignoredDirectories = { ".git", "node_modules" },
-          },
-        },
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "ddu-ff",
+        callback = function()
+          -- vim.bo.cursorline = true
+
+          local opts = { noremap = true, silent = true, buffer = true }
+          vim.keymap.set("n", "e", [[<Cmd>call ddu#ui#do_action('itemAction', {'name': 'open'})<CR>]], opts)
+          vim.keymap.set("n", "<CR>", [[<Cmd>call ddu#ui#do_action('itemAction', {'name': 'open'})<CR>]], opts)
+          vim.keymap.set({ "n" }, "q", [[<Cmd>call ddu#ui#do_action("quit")<CR>]], opts)
+          vim.keymap.set({ "n" }, "i", [[<Cmd>call ddu#ui#do_action("openFilterWindow")<CR>]], opts)
+        end,
       })
-      vim.api.nvim_create_user_command("DduNodeFiles", function()
-        vim.fn["ddu#start"] {
-          name = "node-files",
-          sourceOptions = { file_rec = { path = vim.fn.getcwd() } },
-        }
-      end, {})
-
-      vim.cmd [[
-" ddu-ui-ff上でのみ有効なKeymap（`e`）を設定する
-function s:ddu_ff_settings() abort
-    nnoremap <buffer> e <Cmd>call ddu#ui#do_action('itemAction', {'name': 'open'})<CR>
-endfunction
-autocmd FileType ddu-ff call s:ddu_ff_settings()
-]]
     end,
+
+    vim.keymap.set("n", "<SPACE>p", "<Cmd>DduWholeFiles<CR>", { noremap = true }),
   },
 }
