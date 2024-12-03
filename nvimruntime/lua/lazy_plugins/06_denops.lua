@@ -111,6 +111,7 @@ return {
       "Shougo/ddu-ui-ff",
       -- source
       "Shougo/ddu-source-file_rec",
+      "matsui54/ddu-source-help",
       -- filter
       "Shougo/ddu-filter-matcher_substring",
       -- kind
@@ -162,6 +163,48 @@ return {
         },
       }
 
+      vim.fn["ddu#custom#patch_local"]("help-ff", {
+        sources = {
+          { name = "help" },
+        },
+      })
+      local keymap = vim.keymap.set
+      local ddu_do_action = vim.fn["ddu#ui#do_action"]
+
+      local function ddu_ff_keymaps()
+        keymap("n", "<CR>", function()
+          ddu_do_action "itemAction"
+        end, { buffer = true })
+        keymap("n", "i", function()
+          ddu_do_action "openFilterWindow"
+        end, { buffer = true })
+        keymap("n", "q", function()
+          ddu_do_action "quit"
+        end, { buffer = true })
+      end
+
+      local function ddu_ff_filter_keymaps()
+        keymap("i", "<CR>", function()
+          vim.cmd.stopinsert()
+          ddu_do_action "closeFilterWindow"
+        end, { buffer = true })
+        keymap("n", "<CR>", function()
+          ddu_do_action "cloeFilterWindow"
+        end, { buffer = true })
+      end
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "ddu-ff",
+        callback = ddu_ff_keymaps,
+      })
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "ddu-ff-filter",
+        callback = ddu_ff_filter_keymaps,
+      })
+
+      vim.api.nvim_create_user_command("Help", function()
+        vim.fn["ddu#start"] { name = "help-ff" }
+      end, {})
       -- DduWholeFiles
       vim.fn["ddu#custom#patch_local"]("files", {
         sources = {

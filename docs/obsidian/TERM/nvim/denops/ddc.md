@@ -43,3 +43,7 @@ vim.keymap.set("n", "<C-e>", "<Cmd>call pum#map#cancel()<CR>", { noremap = true 
 
 - [【メモ】skkeletonとddcの設定 | 自ら環境を構築して執筆するブログ ](https://blog.takef-n.com/entry/post049/)
 - @2024 [neovimとlazy.nvimでskkeletonを使いたい #Linux - Qiita](https://qiita.com/osamou/items/99b05016f1417bd7b46d)
+
+## plugins
+
+- https://zenn.dev/vim_jp/articles/4fa91c21-fffc-4a74-9444-b06658b194b3

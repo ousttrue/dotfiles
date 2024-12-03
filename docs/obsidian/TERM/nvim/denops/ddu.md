@@ -13,11 +13,13 @@ https://zenn.dev/shougo/articles/ddu-vim-beta
 
 - @2023 `preview` [NeoVimにddu.vimを導入する #neovim - Qiita](https://qiita.com/t7u-ito/items/5227cfcee113e7662c50)
 
-# ui-ff
+# ui
+
+## ui-ff
 
 `help: ddu-ui-ff`
 
-## PARAMS
+### PARAMS
 
 ```lua
 vim.fn["ddu#custom#patch_global"] {
@@ -29,3 +31,9 @@ vim.fn["ddu#custom#patch_global"] {
   },
 },
 ```
+
+# source
+
+## source-help
+
+- [ヘルプ検索から始めるddu](https://zenn.dev/vim_jp/articles/0005-search_help_with_ddu)
