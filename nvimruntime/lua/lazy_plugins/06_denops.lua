@@ -118,8 +118,8 @@ return {
       "Shougo/ddu-kind-file",
     },
     config = function()
-      local height = tonumber(vim.api.nvim_command_output "echo &lines") or 0
-      local width = tonumber(vim.api.nvim_command_output "echo &columns") or 0
+      local width = vim.fn.winwidth(0)
+      local height = vim.fn.winheight(0)
       -- 全体に共通する設定を行う
       vim.fn["ddu#custom#patch_global"] {
         ui = "ff",
@@ -127,7 +127,7 @@ return {
           ff = {
             -- autoResize = true,
             winWidth = width,
-            winHeight = height * 0.7,
+            winHeight = math.floor(height * 0.7),
             split = "floating",
             -- split = "vertical",
             -- splitDirection = "topleft",
