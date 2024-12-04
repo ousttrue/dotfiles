@@ -244,6 +244,7 @@ return {
           vim.keymap.set("n", "e", [[<Cmd>call ddu#ui#do_action('itemAction', {'name': 'open'})<CR>]], opts)
           vim.keymap.set("n", "<CR>", [[<Cmd>call ddu#ui#do_action('itemAction', {'name': 'open'})<CR>]], opts)
           vim.keymap.set({ "n" }, "q", [[<Cmd>call ddu#ui#do_action("quit")<CR>]], opts)
+          vim.keymap.set({ "n" }, "<ESC>", [[<Cmd>call ddu#ui#do_action("quit")<CR>]], opts)
           vim.keymap.set({ "n" }, "i", [[<Cmd>call ddu#ui#do_action("openFilterWindow")<CR>]], opts)
         end,
       })
