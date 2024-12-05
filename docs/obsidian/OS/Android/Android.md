@@ -17,3 +17,6 @@ https://developer.android.com/tools/releases/platforms
 
 - [Android 15リリースへ⁠⁠、Android 16の姿も見えてきた](https://gihyo.jp/article/2024/09/android-weekly-topics-240912)
 
+# xiaomi
+
+
