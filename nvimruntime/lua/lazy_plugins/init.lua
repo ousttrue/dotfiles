@@ -28,7 +28,7 @@ local M = {
     table.insert(plugins, { import = "lazy_plugins.02_telescope" })
     table.insert(plugins, { import = "lazy_plugins.03_filer" })
     table.insert(plugins, { import = "lazy_plugins.04_lsp" })
-    -- table.insert(plugins, { import = "lazy_plugins.05_cmp" })
+    table.insert(plugins, { import = "lazy_plugins.05_cmp" })
     if vim.fn.has "win64" ~= 0 then
       table.insert(plugins, { import = "lazy_plugins.06_denops" })
     else

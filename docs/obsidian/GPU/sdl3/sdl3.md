@@ -11,3 +11,10 @@
 ## 2.x
 
 - @2023 https://kameya-z.way-nifty.com/blog/2023/06/post-67a35a.html
+
+# build
+
+- 👍 https://github.com/swan-www/zig_sdl3
+
+- `binder`, `LinkSystemLibrary` https://github.com/Gota7/zig-sdl3
+- `befor LazyPath?` https://github.com/HesamR/SDL3

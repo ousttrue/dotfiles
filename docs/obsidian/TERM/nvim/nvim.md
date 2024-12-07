@@ -1,10 +1,48 @@
-- [News - Neovim](https://neovim.io/news/)
-- [Roadmap - Neovim](https://neovim.io/roadmap/)
-- https://neovim.discourse.group/
+# TODO
 
-[📘あまり紹介されていないけど かけがえのないNeovimプラグインたち - Minerva](https://minerva.mamansoft.net/%F0%9F%93%98Articles/%F0%9F%93%98%E3%81%82%E3%81%BE%E3%82%8A%E7%B4%B9%E4%BB%8B%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%81%AA%E3%81%84%E3%81%91%E3%81%A9+%E3%81%8B%E3%81%91%E3%81%8C%E3%81%88%E3%81%AE%E3%81%AA%E3%81%84Neovim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%9F%E3%81%A1)
+- plugin unicode を文字表示
+- spelling English
+- cmp で pinyin
+- cmp で 四角号碼入力
+- markdown gx: link の title の方から gx したい
+- VSCODE みたいに入力が複数あるやつ
+
+# vim
+
+- [NeoVim使いのためのnvim-lspconfig おすすめキーマッピングの紹介 - アルパカログ](https://alpacat.com/blog/nvim-lspconfig-key-mappings)
+- https://github.com/gelguy/wilder.nvim
+- https://easyramble.com/vim-leader-space-vimrc.html
+- [Vimでの日本語編集がはかどるキーマッピング - Qiita](https://qiita.com/ssh0/items/9e7f0d8b8f033183dd0b)
+- [【Windows】コンテキストメニュー(右クリック)に [Vimで開く] を追加する手順 – oki2a24](https://oki2a24.com/2017/05/27/add-edit-with-vim-to-right-click-context-menu/)
+- [GitHub - tjdevries/colorbuddy.nvim: Your color buddy for making cool neovim color schemes](https://github.com/tjdevries/colorbuddy.nvim)
+
+vim 文字コード
+`ga` でカーソル上の文字のコードが分かる
+
+# replace
+
+- [Vimでs/正規表現/関数/ substituteで置換後文字列を関数にする方法 | コマンドの達人](https://life-is-command.com/vim-sub-replace-expression/)
+
+# 日本語
+
+- [Vimでの日本語編集がはかどるキーマッピング - Qiita](https://qiita.com/ssh0/items/9e7f0d8b8f033183dd0b)o
+
+```
+grep search
+- pattern
+- include
+- exclude
+
+file search
+- pattern
+- include
+- exclude
+```
 
 # version
+
+- [News - Neovim](https://neovim.io/news/)
+- [Roadmap - Neovim](https://neovim.io/roadmap/)
 
 ## 0.12 dev
 

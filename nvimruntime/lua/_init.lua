@@ -36,6 +36,8 @@ local M = {
     require("clipboard").setup()
     require("lazy_plugins").setup()
     require("color").setup()
+
+    require("myplugin").setup()
   end,
 }
 return M

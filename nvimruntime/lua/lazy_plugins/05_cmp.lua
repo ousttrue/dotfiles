@@ -65,6 +65,7 @@ return {
       "hrsh7th/vim-vsnip-integ",
       "yehuohan/cmp-im",
       "yehuohan/cmp-im-zh",
+      "uga-rosa/cmp-skkeleton",
     },
     config = function()
       local cmp = require "cmp"
@@ -117,7 +118,8 @@ return {
           "nvim_lsp",
           "buffer",
           "IM",
-          "emoji"
+          "emoji",
+          "skkeleton"
         ),
         window = WINDOW,
         formatting = formatting,
