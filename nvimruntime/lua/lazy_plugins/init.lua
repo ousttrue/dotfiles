@@ -23,19 +23,20 @@ local M = {
     -- plugins
     --
     local plugins = {}
-    table.insert(plugins, { import = "lazy_plugins.00_minimum" })
-    table.insert(plugins, { import = "lazy_plugins.01_treesitter" })
-    table.insert(plugins, { import = "lazy_plugins.02_telescope" })
-    table.insert(plugins, { import = "lazy_plugins.03_filer" })
-    table.insert(plugins, { import = "lazy_plugins.04_lsp" })
-    table.insert(plugins, { import = "lazy_plugins.05_cmp" })
-    if vim.fn.has "win64" ~= 0 then
-      table.insert(plugins, { import = "lazy_plugins.06_denops" })
-    else
-      -- use fcitx
-    end
-    table.insert(plugins, { import = "lazy_plugins.07_git" })
-    table.insert(plugins, { import = "lazy_plugins.08_edit" })
+    table.insert(plugins, { import = "lazy_plugins.01_new" })
+    table.insert(plugins, { import = "lazy_plugins.10_treesitter" })
+    table.insert(plugins, { import = "lazy_plugins.20_telescope" })
+    table.insert(plugins, { import = "lazy_plugins.30_filer" })
+    table.insert(plugins, { import = "lazy_plugins.40_lsp" })
+    -- table.insert(plugins, { import = "lazy_plugins.50_cmp" })
+    -- if vim.fn.has "win64" ~= 0 then
+    -- table.insert(plugins, { import = "lazy_plugins.90_denops" })
+    -- else
+    --   -- use fcitx
+    -- end
+    table.insert(plugins, { import = "lazy_plugins.60_edit" })
+    table.insert(plugins, { import = "lazy_plugins.70_git" })
+    table.insert(plugins, { import = "lazy_plugins.80_ui" })
 
     local opts = {
       change_detection = {

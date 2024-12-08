@@ -10,7 +10,7 @@
 -- filetype 確定時に、nvim-lspconfig の設定を起動する？
 -- * 起動条件を変更？
 --
--- おそらく MasinInstall 済みのものが列挙される。
+-- おそらく MasonInstall 済みのものが列挙される。
 --
 return {
   {
@@ -70,43 +70,35 @@ return {
   --     require("lsp_lines").setup()
   --   end,
   -- },
-  {
-    "elixir-tools/elixir-tools.nvim",
-    version = "*",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      local elixir = require "elixir"
-      local elixirls = require "elixir.elixirls"
-
-      elixir.setup {
-        nextls = { enable = true },
-        credo = {},
-        elixirls = {
-          enable = true,
-          settings = elixirls.settings {
-            dialyzerEnabled = false,
-            enableTestLenses = false,
-          },
-          on_attach = function(client, bufnr)
-            vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
-            vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
-            vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
-          end,
-        },
-      }
-    end,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-  },
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
-    opts = {},
-    config = function(_, opts)
-      require("lsp_signature").setup(opts)
-    end,
-  },
+  -- {
+  --   "elixir-tools/elixir-tools.nvim",
+  --   version = "*",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   config = function()
+  --     local elixir = require "elixir"
+  --     local elixirls = require "elixir.elixirls"
+  --
+  --     elixir.setup {
+  --       nextls = { enable = true },
+  --       credo = {},
+  --       elixirls = {
+  --         enable = true,
+  --         settings = elixirls.settings {
+  --           dialyzerEnabled = false,
+  --           enableTestLenses = false,
+  --         },
+  --         on_attach = function(client, bufnr)
+  --           vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
+  --           vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
+  --           vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
+  --         end,
+  --       },
+  --     }
+  --   end,
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  -- },
   {
     "ray-x/lsp_signature.nvim",
     event = "VeryLazy",

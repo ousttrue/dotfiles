@@ -15,7 +15,7 @@ function M.setup()
   --
   -- client_capabilities
   --
-  local calient_capabilities = vim.lsp.protocol.make_client_capabilities()
+  local client_capabilities = vim.lsp.protocol.make_client_capabilities()
   -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
   if CMP then
     client_capabilities = CMP.default_capabilities()
@@ -24,9 +24,9 @@ function M.setup()
   --   vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), require("epo").register_cap())
   -- print(vim.inspect(client_capabilities))
 
-  local function get_config(server_name, client_capabilities)
+  local function get_config(server_name)
     local config = {
-      on_attach = on_attach,
+      -- on_attach = on_attach,
       capabilities = client_capabilities,
     }
 
@@ -148,7 +148,7 @@ function M.setup()
   require("mason-lspconfig").setup_handlers {
     function(server_name)
       -- print(server_name)
-      require("lspconfig")[server_name].setup(get_config(server_name, client_capabilities))
+      require("lspconfig")[server_name].setup(get_config(server_name))
     end,
   }
   require("mason-lspconfig").setup {}

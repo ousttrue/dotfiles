@@ -1,7 +1,6 @@
-[[null-ls]]
-[[nvim_diagnostics]]
-
 - https://github.com/jinzhongjia/LspUI.nvim?tab=readme-ov-file
+
+- https://lsp-zero.netlify.app/docs/getting-started.html
 
 - @2022 `0.7.2` [Neovim+LSPをなるべく簡単な設定で構築する](https://zenn.dev/botamotch/articles/21073d78bc68bf)
 - [Nvim documentation: lsp](https://neovim.io/doc/user/lsp.html)
@@ -10,13 +9,15 @@
 
 # manual start
 
+https://neovim.io/doc/user/lsp.html
+
 ```lua
 -- Create an event handler for the FileType autocommand
 vim.api.nvim_create_autocmd('FileType', {
   -- This handler will fire when the buffer's 'filetype' is "python"
   pattern = 'python',
   callback = function(ev)
-    vim.lsp.start({
+    vim.lsp.start({ -- 👈
       name = 'my-server-name',
       cmd = {'name-of-language-server-executable', '--option', 'arg1', 'arg2'},
       -- Set the "root directory" to the parent directory of the file in the

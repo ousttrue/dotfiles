@@ -14,6 +14,8 @@ https://github.com/KhronosGroup/glTF-Sample-Environments
 
 [ミップマップを使ってラフネスのある材質のリフレクションを実装した https://riyaaaaasan.hatenablog.com/entry/2018/04/11/220629]
 
+[【Unity】Shader GraphでStylizedなSkyboxシェーダを実装する【Advent Calendar 12/5】](https://media.colorfulpalette.co.jp/n/n136e0ef5e1e7)
+
 resource
 
 

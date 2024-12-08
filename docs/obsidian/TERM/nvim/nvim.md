@@ -1,9 +1,9 @@
 # TODO
 
-- plugin unicode を文字表示
+- cmp で 四角号碼入力
+- cursor 下の情報を message 表示: ga
 - spelling English
 - cmp で pinyin
-- cmp で 四角号碼入力
 - markdown gx: link の title の方から gx したい
 - VSCODE みたいに入力が複数あるやつ
 

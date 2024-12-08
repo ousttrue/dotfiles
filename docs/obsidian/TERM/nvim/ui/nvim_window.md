@@ -9,3 +9,10 @@ https://neovim.io/doc/user/windows.html
 # layout
 
 - https://github.com/folke/edgy.nvim
+
+# winfixbuf
+
+- winfixheight
+- winfixwidth
+
+https://dotfyle.com/this-week-in-neovim/65

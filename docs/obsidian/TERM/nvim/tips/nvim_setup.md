@@ -5,8 +5,11 @@
 - @2022 [vim沼: NeovimのReact、TypeScript、Tailwind CSS用セットアップ](https://zenn.dev/takuya/articles/4472285edbc132)
 
 # first
+
 lua を快適に編集する
+
 - comment
+
 ```lua
   {
     "numToStr/Comment.nvim",
@@ -17,7 +20,9 @@ lua を快適に編集する
     end,
   },
 ```
+
 - formatter
+
 ```lua
   {
     "ckipp01/stylua-nvim",
@@ -26,7 +31,9 @@ lua を快適に編集する
 local opts = { noremap = true, silent = true }
 vim.api.nvim_buf_set_keymap(0, "n", "F", [[<cmd>lua require("stylua-nvim").format_file()<CR>]], opts)
 ```
+
 - lualine
+
 ```lua
 {
     "nvim-lualine/lualine.nvim",
@@ -36,15 +43,23 @@ vim.api.nvim_buf_set_keymap(0, "n", "F", [[<cmd>lua require("stylua-nvim").forma
     end,
 }
 ```
+
 - git
+
 ```lua
 "tpope/vim-fugitive",
 ```
 
 # いろいろ
+
 ## highlgiht
+
 ## nvim-tree
+
 ## language server
+
 ## vscode task
+
 ## telescope
+
 ## tree-sitter

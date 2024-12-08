@@ -5,6 +5,14 @@ vim.cmd [[
 let g:zig_recommended_style = 0
 ]]
 
+-- Remap leader and local leader to <Space>
+vim.g.mapleader = " "
+vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
+vim.g.maplocalleader = " "
+if vim.fn.has "win32" == 1 then
+  vim.keymap.set("n", "<C-z>", "<Nop>")
+end
+
 function GET_SYSTEM()
   if vim.fn.has "wsl" ~= 0 then
     return "wsl"
@@ -32,12 +40,14 @@ local M = {
   setup = function()
     require("option").setup()
     require("keymap").setup()
-    require("quick_fix").setup()
+    -- require("quick_fix").setup()
     require("clipboard").setup()
     require("lazy_plugins").setup()
     require("color").setup()
-
-    require("myplugin").setup()
+    require("lsp").setup()
+    --
+    require("tools.myplugin").setup()
+    require("tools.iim").setup()
   end,
 }
 return M

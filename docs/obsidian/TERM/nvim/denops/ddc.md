@@ -1,6 +1,12 @@
 [GitHub - Shougo/ddc.vim: Dark deno-powered completion framework for neovim/Vim](https://github.com/Shougo/ddc.vim)
 
+# ddc
+
+- [自動補完プラグイン ddc.vim + pum.vim](https://zenn.dev/shougo/articles/ddc-vim-pum-vim)
+
 https://zenn.dev/shougo/articles/ddc-vim-beta
+
+https://zenn.dev/shougo/articles/ddc-vim-pum-vim
 
 - @2023 [NeoVimにddc.vimを導入する #neovim - Qiita](https://qiita.com/t7u-ito/items/e43cbb8597ffa21835a6)
 - @2021 [Vimの新しい自動補完プラグイン「ddc.vim」を使ってみた｜Dentsu Digital Tech Blog](https://note.com/dd_techblog/n/n97f2b6ca09d8)
