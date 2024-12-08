@@ -81,6 +81,7 @@ return {
             nvim_lua = "[Lua]",
             latex_symbols = "[Latex]",
             path = "[Path]",
+            unihan = "[四角]",
           },
         },
 
@@ -100,6 +101,8 @@ return {
         -- },
       }
 
+      require("cmp").register_source("unihan", require("cmp_unihan").new())
+
       cmp.setup {
         completion = {
           completeopt = "menu,menuone,noinsert,noselect",
@@ -114,10 +117,11 @@ return {
           ["<CR>"] = cmp.mapping.confirm { select = false },
         },
         sources = make_sources(
-          -- "nvim_lsp_signature_help",
+        -- "nvim_lsp_signature_help",
           "nvim_lsp",
           "buffer",
           "IM",
+          "unihan",
           "emoji",
           "skkeleton"
         ),
@@ -129,6 +133,7 @@ return {
             vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
           end,
         },
+        matching = { disallow_partial_matching = false },
       }
 
       -- Set configuration for specific filetype.

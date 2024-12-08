@@ -1,4 +1,4 @@
-local PLUGIN_NAME = "myplugin"
+local PLUGIN_NAME = "tools.myplugin"
 local utf8 = require "utf8"
 
 local Highlighter = {}
@@ -41,17 +41,15 @@ end
 return {
   setup = function()
     vim.keymap.set("n", "gt", function()
-      require("myplugin").enable()
+      require(PLUGIN_NAME).enable()
     end, { noremap = true })
 
     vim.keymap.set("n", "gT", function()
-      require("myplugin").disable()
+      require(PLUGIN_NAME).disable()
     end, { noremap = true })
   end,
 
   enable = function()
-    print(PLUGIN_NAME)
-
     local highlighters = {}
     local ns = vim.api.nvim_create_namespace(PLUGIN_NAME)
     vim.api.nvim_set_decoration_provider(ns, {

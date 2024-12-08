@@ -28,9 +28,9 @@ local M = {
     table.insert(plugins, { import = "lazy_plugins.20_telescope" })
     table.insert(plugins, { import = "lazy_plugins.30_filer" })
     table.insert(plugins, { import = "lazy_plugins.40_lsp" })
-    -- table.insert(plugins, { import = "lazy_plugins.50_cmp" })
+    table.insert(plugins, { import = "lazy_plugins.50_cmp" })
     -- if vim.fn.has "win64" ~= 0 then
-    -- table.insert(plugins, { import = "lazy_plugins.90_denops" })
+    table.insert(plugins, { import = "lazy_plugins.90_denops" })
     -- else
     --   -- use fcitx
     -- end

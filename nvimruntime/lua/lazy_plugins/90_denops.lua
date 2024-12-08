@@ -29,7 +29,12 @@ return {
       vim.keymap.set({ "i", "c" }, "<C-j>", "<Plug>(skkeleton-enable)")
     end,
   },
-  { "delphinus/skkeleton_indicator.nvim", opts = {} },
+  {
+    "delphinus/skkeleton_indicator.nvim",
+    opts = {
+      eijiText = " ",
+    }
+  },
   {
     "lambdalisue/kensaku.vim",
     dependencies = "vim-denops/denops.vim",

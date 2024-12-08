@@ -47,7 +47,7 @@ local M = {
     require("lsp").setup()
     --
     require("tools.myplugin").setup()
-    require("tools.iim").setup()
+    -- require("tools.iim").setup()
   end,
 }
 return M
