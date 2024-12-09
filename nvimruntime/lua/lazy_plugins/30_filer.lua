@@ -28,7 +28,6 @@ local nvim_tree = {
       vim.keymap.set("n", "h", api.node.navigate.parent_close, { buffer = bufnr })
     end
 
-    -- vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", { noremap = true })
     vim.keymap.set("n", "<Leader>e", ":NvimTreeFindFileToggle<CR>", { noremap = true })
 
     require("nvim-tree").setup {
@@ -204,7 +203,15 @@ local neo_tree = {
     -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   config = function()
-    vim.keymap.set("n", "<Leader>e", ":Neotree toggle<CR>", { noremap = true })
+    vim.keymap.set("n", "<Leader>e", function()
+      local path = vim.fn.expand "%"
+      if #path > 0 then
+        vim.cmd([[Neotree toggle float reveal_file=%s]]):format(path)
+      else
+        vim.cmd [[Neotree toggle float]]
+      end
+    end, { noremap = true })
+    -- nnoremap gd :Neotree float reveal_file=<cfile> reveal_force_cwd<cr>
 
     local function open_all_subnodes(state)
       local node = state.tree:get_node()
