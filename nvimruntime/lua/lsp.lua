@@ -15,7 +15,7 @@ local function setup_completion(event)
   ---@param mode? string|string[]
   local function keymap(lhs, rhs, opts, mode)
     opts = type(opts) == "string" and { desc = opts }
-        or vim.tbl_extend("error", opts --[[@as table]], { buffer = event.buf })
+      or vim.tbl_extend("error", opts --[[@as table]], { buffer = event.buf })
     mode = mode or "n"
     vim.keymap.set(mode, lhs, rhs, opts)
   end
@@ -132,7 +132,13 @@ local function setup()
     severity_sort = true,
     -- underline = true,
     update_in_insert = false,
-    virtual_text = true,
+    virtual_text = false,
+    -- virtual_text = {
+    --   format = function(diagnostic)
+    --     return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+    --   end,
+    -- },
+
     signs = {
       text = {
         [vim.diagnostic.severity.ERROR] = "",

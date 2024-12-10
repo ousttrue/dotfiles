@@ -45,6 +45,7 @@ local M = {
     require("lazy_plugins").setup()
     require("color").setup()
     require("lsp").setup()
+    require("markdown").setup()
     --
     require("tools.myplugin").setup()
     -- require("tools.iim").setup()

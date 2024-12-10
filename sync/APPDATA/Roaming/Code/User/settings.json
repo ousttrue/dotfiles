@@ -70,4 +70,9 @@
     "[c]": {
         "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
     },
+    "xml.symbols.maxItemsComputed": 65534,
+    "xml.server.vmargs": "-Xmx256M",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
 }

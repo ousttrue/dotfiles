@@ -142,7 +142,6 @@ return {
   },
   { "prettier/vim-prettier" },
   { "nvim-lua/plenary.nvim" },
-  { "mattn/emmet-vim" },
   { "simeji/winresizer" },
   -- {
   --   -- "vim-scripts/VimIM",

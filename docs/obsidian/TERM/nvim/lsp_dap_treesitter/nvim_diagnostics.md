@@ -1,5 +1,7 @@
 [Nvim documentation: diagnostic](https://neovim.io/doc/user/diagnostic.html)
 
+- @2024 [Neovimのdiagnosticの設定を見直す | えいじのサイバー備忘録](https://eiji.page/blog/neovim-diagnostic-config/)
+
 # src
 
 ## 改造

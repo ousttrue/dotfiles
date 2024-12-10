@@ -28,6 +28,7 @@ local M = {
     table.insert(plugins, { import = "lazy_plugins.20_telescope" })
     table.insert(plugins, { import = "lazy_plugins.30_filer" })
     table.insert(plugins, { import = "lazy_plugins.40_lsp" })
+    table.insert(plugins, { import = "lazy_plugins.41_diagnostics" })
     table.insert(plugins, { import = "lazy_plugins.50_cmp" })
     -- if vim.fn.has "win64" ~= 0 then
     table.insert(plugins, { import = "lazy_plugins.90_denops" })
@@ -36,6 +37,8 @@ local M = {
     -- end
     table.insert(plugins, { import = "lazy_plugins.60_edit" })
     table.insert(plugins, { import = "lazy_plugins.70_git" })
+    table.insert(plugins, { import = "lazy_plugins.71_markdown" })
+
     table.insert(plugins, { import = "lazy_plugins.80_ui" })
 
     local opts = {
