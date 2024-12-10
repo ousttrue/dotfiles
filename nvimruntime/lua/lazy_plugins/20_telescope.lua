@@ -143,6 +143,15 @@ return {
       end
       vim.keymap.set("n", "<Leader>g", grep_under_cursor, { noremap = true })
       -- vim.keymap.set("n", "<Leader> ", ":Telescope frecency<CR>", { silent = true, noremap = true })
+
+      local function help_under_cursor()
+        local word = vim.fn.expand "<cword>"
+        ts_builtin.help_tags()
+        if #word > 0 then
+          vim.cmd("normal! i" .. word)
+        end
+      end
+      vim.keymap.set("n", "<space>h", help_under_cursor, { noremap = true })
     end,
   },
 }

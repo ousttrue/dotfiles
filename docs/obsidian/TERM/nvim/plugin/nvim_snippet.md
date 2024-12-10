@@ -1,5 +1,7 @@
 [[nvim_completion]]
 
+https://neovim.io/doc/user/lua.html#_lua-module:-vim.snippet
+
 - [スニペットプラグインについて 2020 年版](https://zenn.dev/shougo/articles/snippet-plugins-2020)
 
 # LuaSnip
