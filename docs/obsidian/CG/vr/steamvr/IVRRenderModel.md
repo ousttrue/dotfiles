@@ -3,6 +3,7 @@
 https://github.com/ValveSoftware/openvr/wiki/IVRRenderModels_Overview
 
 # ロードする
+
 LoadRenderModel_Async
 
 ```cpp
@@ -10,12 +11,13 @@ LoadRenderModel_Async
  struct RenderModel_Vertex_t
  {
  	HmdVector3_t vPosition;		// position in meters in device space
- 	HmdVector3_t vNormal;		
+ 	HmdVector3_t vNormal;
  	float rfTextureCoord[ 2 ];
  };
 ```
 
 # 更新する
+
 部品の姿勢を得る？
 
 ```cpp
@@ -31,11 +33,13 @@ LoadRenderModel_Async
 ```
 
 # unity
+
 [[Unity]]
 `SteamVR_RenderModel::LoadComponents`
 `SteamVR_RenderModel::UpdateComponents`
 
 # driver 側から供給するには
+
 https://github.com/ValveSoftware/driver_hydra
 [https://www.youtube.com/watch?v=0KEeympkT2Y]
 
@@ -45,7 +49,7 @@ https://github.com/ValveSoftware/driver_hydra
  uint32_t CHydraHmdLatest::GetStringTrackedDeviceProperty( vr::ETrackedDeviceProperty prop, char * pchValue, uint32_t unBufferSize, vr::ETrackedPropertyError * pError )
  {
  	std::ostringstream ssRetVal;
- 
+
  	switch ( prop )
  	{
  	case vr::Prop_RenderModelName_String:

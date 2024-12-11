@@ -1,5 +1,7 @@
 - [OpenXR - Mixed Reality | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/mixed-reality/develop/native/openxr)
 
+https://www.openxr-tutorial.com/
+
 # version
 
 ## 1.1.38

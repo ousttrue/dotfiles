@@ -1,3 +1,3 @@
 - [Welcome to Wolvic](https://wolvic.org/en/)
-	- [GitHub - Igalia/wolvic: A fast and secure browser for standalone virtual-reality and augmented-reality headsets.](https://github.com/Igalia/wolvic)
+  - [GitHub - Igalia/wolvic: A fast and secure browser for standalone virtual-reality and augmented-reality headsets.](https://github.com/Igalia/wolvic)
 - @2022 [WebXRをサポートするFirefox Realityの後継ブラウザ「Wolvic」について - CrossRoad](https://www.crossroad-tech.com/entry/Wolvic-XR)
