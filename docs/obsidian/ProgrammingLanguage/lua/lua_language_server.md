@@ -1,19 +1,17 @@
-[[lua]]
-
 # vscode
+
 - [GitHub - sumneko/vscode-lua: Release lua-language-server for VSCode](https://github.com/sumneko/vscode-lua)
-`.vscode/settings.json`
+  `.vscode/settings.json`
+
 ```json
-    "Lua.workspace.library": [
-        "${3rd}/lovr/library"
-    ],
-    "Lua.workspace.userThirdParty": [
-        "${workspaceFolder}/.vscode/annotations"
-    ],
+{
+  "Lua.workspace.library": ["${3rd}/lovr/library"],
+  "Lua.workspace.userThirdParty": ["${workspaceFolder}/.vscode/annotations"]
+}
 ```
 
-
 # lspconfig
+
 - [nvim-lspconfig/server_configurations.md at master · neovim/nvim-lspconfig · GitHub](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls)
 
 ```lua
@@ -42,7 +40,9 @@ require'lspconfig'.lua_ls.setup {
 ```
 
 # workspace
+
 ## nvim API
+
 [NeoVim API information not working with lua-language-server (sumneko) - Language Server Protocol (LSP) - Neovim Discourse](https://neovim.discourse.group/t/neovim-api-information-not-working-with-lua-language-server-sumneko/2162)
 
 => [GitHub - folke/neodev.nvim: 💻 Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.](https://github.com/folke/neodev.nvim)
@@ -52,6 +52,7 @@ require'lspconfig'.lua_ls.setup {
 `project root` に空の `.luarc.json`を配置しておく
 `lua_ls` の問い合わせに、`apply and modify`
 👇
+
 ```json
 {
   "workspace": {
@@ -66,7 +67,8 @@ require'lspconfig'.lua_ls.setup {
 ```
 
 # nvim
+
 起動速くするには？
+
 - [FAQ · LuaLS/lua-language-server Wiki · GitHub](https://github.com/LuaLS/lua-language-server/wiki/FAQ#how-can-i-improve-startup-speeds)
- `workspace.ignoreDir`
- 
+  `workspace.ignoreDir`

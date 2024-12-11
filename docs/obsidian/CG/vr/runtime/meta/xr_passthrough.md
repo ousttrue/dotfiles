@@ -1,8 +1,16 @@
+# XR_ENVIRONMENT_BLEND_MODE_ADDITIVE ?
+
+# openxr-steamvr-passthrough
+
+https://github.com/Rectus/openxr-steamvr-passthrough
+
+# meta
+
 - [Site Unreachable](https://developer.oculus.com/documentation/native/android/mobile-passthrough/)]
 
 `XR_FB_passthrough` and `XR_FB_triangle_mesh`.
 
-# over quest link
+## over quest link
 
 - [Site Unreachable](https://developer.oculus.com/documentation/native/android/mobile-passthrough-over-link/)
 

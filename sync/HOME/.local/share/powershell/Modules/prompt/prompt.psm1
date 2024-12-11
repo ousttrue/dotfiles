@@ -242,6 +242,7 @@ function Edit-Dotfiles
   v
 }
 
+# https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81
 #
 # module
 # default not required
@@ -249,6 +250,7 @@ function Edit-Dotfiles
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadlineOption -HistoryNoDuplicates
+Set-PSReadLineOption -WordDelimiters ";:,.[]{}()/\|^&*-=+'`" !?@#$%&_<>「」（）『』『』［］、，。：；／"
 Set-PSReadlineOption -AddToHistoryHandler {
   param ($command)
   switch -regex ($command)

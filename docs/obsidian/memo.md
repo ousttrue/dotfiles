@@ -1,3 +1,12 @@
+# todo
+
+- zig build: https://github.com/meta-quest/Meta-OpenXR-SDK
+- zig build: https://github.com/bjornbytes/lovr
+
+合体
+
+# memo
+
 | tool | content  |         |
 | ---- | -------- | ------- |
 | zig  | graphics | sokol   |
