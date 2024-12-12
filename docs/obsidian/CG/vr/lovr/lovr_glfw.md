@@ -22,22 +22,26 @@ Android 版の entry point を見るべし。
 `src/main.c`
 
 下記で起動できる？
+
 ```sh
-> lua.exe etc/boot.lua 
+> lua.exe etc/boot.lua
 ```
 
 `lovr.dll` に `luaopen_lovr` が含まれていなかった
 👇
 `src/api/l_lovr.c`
+
 ```c
 L#define LOVR_EXPORT __declspec(dllexport)
 OVR_EXPORT int luaopen_lovr(lua_State *L)
 ```
 
 luajit.exe 作る
+
 ```cmake
 # set_target_properties(luajit PROPERTIES EXCLUDE_FROM_ALL 1)
 ```
+
 👇
 `build/luajit/src/luajit.exe`
 

@@ -45,42 +45,42 @@ local ninja_vc_fmt = zig .. "%Dninja: Entering directory `%f',%f(%l): %t%*[^ ] %
 
 local gcc_fmt = zig .. "%f:%l:%c: %t%*[^:]: %m"
 
-local M = {
-  setup = function()
-    -- vim.opt.makeprg = "meson install -C builddir --tags runtime"
-    -- vim.opt.makeprg = "zig build 2>&1"
-    if vim.fn.has "win32" == 1 then
-      -- vim.opt.makeprg = "meson install -C builddir"
-    else
-      vim.opt.shellpipe = "2>&1| tee"
-    end
-    vim.opt.errorformat = vim.fn.join({
-      "%t%*[^:]:%*[ \t]%*[^:]:%*[ \t]%f:%l:%c:%*[ \t]%m",
-      "%f:%l:%c:%*[ \t]%m",
-      -- meson. ninja + msvc
-      "%Dninja: Entering directory `%f'",
-      "%f(%l): %t%*[^ ] %m",
-    }, ",")
+local function setup()
+  -- vim.opt.makeprg = "meson install -C builddir --tags runtime"
+  -- vim.opt.makeprg = "zig build 2>&1"
+  if vim.fn.has "win32" == 1 then
+    -- vim.opt.makeprg = "meson install -C builddir"
+  else
+    vim.opt.shellpipe = "2>&1| tee"
+  end
+  vim.opt.errorformat = vim.fn.join({
+    "%t%*[^:]:%*[ \t]%*[^:]:%*[ \t]%f:%l:%c:%*[ \t]%m",
+    "%f:%l:%c:%*[ \t]%m",
+    -- meson. ninja + msvc
+    "%Dninja: Entering directory `%f'",
+    "%f(%l): %t%*[^ ] %m",
+  }, ",")
 
-    vim.cmd [[
+  vim.cmd [[
     autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
     ]]
 
-    -- if DOT.get_system() == "windows" then
-    --   local qfu = require "qfu"
-    -- end
-    -- if GET_SYSTEM() == "windows" then
-    --   vim.opt.errorformat = ninja_vc_fmt
-    -- else
-    --   vim.opt.errorformat = gcc_fmt
-    -- end
+  -- if DOT.get_system() == "windows" then
+  --   local qfu = require "qfu"
+  -- end
+  -- if GET_SYSTEM() == "windows" then
+  --   vim.opt.errorformat = ninja_vc_fmt
+  -- else
+  --   vim.opt.errorformat = gcc_fmt
+  -- end
 
-    vim.cmd [[
-autocmd QuickFixCmdPost *grep* cwindow
-autocmd QuickFixCmdPost *make* cwindow
+  vim.cmd [[
+autocmd QuickFixCmdPost *grep* copen
+autocmd QuickFixCmdPost *make* copen
 autocmd FileType qf wincmd J
       ]]
-  end,
-}
+end
 
-return M
+return {
+  setup = setup,
+}

@@ -123,6 +123,9 @@ local function setup()
   -- vim.keymap.set({ "n", "v", "c", "i" }, "<M-;>", function()
   --   print(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
   -- end)
+
+  vim.keymap.set("n", "g/", "<Cmd>s/\\\\/\\//g<CR>", { noremap = true })
+  vim.keymap.set("x", "g/", "<Esc>:'<,'>s/\\\\/\\//g<CR>", { noremap = true })
 end
 
 local M = {
