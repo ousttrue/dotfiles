@@ -12,7 +12,7 @@ local WINDOW = {
 local function make_sources(...)
   local sources = {}
   for _, src in ipairs { ... } do
-    print(vim.inspect(src))
+    -- print(vim.inspect(src))
     table.insert(sources, { name = src })
   end
   return sources
@@ -42,6 +42,15 @@ end
 
 return {
   {
+    "ousttrue/cmp-unihan",
+    -- name = "ousttrue/cmp-unihan",
+    -- dir = "E:/repos/github.com/ousttrue/cmp-unihan",
+    dependencies = { "uga-rosa/utf8.nvim" },
+    opts = {
+      data = vim.fn.expand "~/.skk/Unihan_DictionaryLikeData.txt",
+    },
+  },
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
@@ -59,13 +68,15 @@ return {
       "hrsh7th/cmp-calc",
       "onsails/lspkind.nvim",
       --
+      -- "L3MON4D3/LuaSnip",
       -- "saadparwaiz1/cmp_luasnip",
       -- "hrsh7th/cmp-vsnip",
-      "hrsh7th/vim-vsnip",
-      "hrsh7th/vim-vsnip-integ",
+      -- "hrsh7th/vim-vsnip",
+      -- "hrsh7th/vim-vsnip-integ",
       "yehuohan/cmp-im",
       "yehuohan/cmp-im-zh",
       "uga-rosa/cmp-skkeleton",
+      -- "ousttrue/cmp-unihan",
     },
     config = function()
       local cmp = require "cmp"
@@ -77,7 +88,7 @@ return {
           menu = {
             buffer = "[Buffer]",
             nvim_lsp = "[LSP]",
-            luasnip = "[LuaSnip]",
+            -- luasnip = "[LuaSnip]",
             nvim_lua = "[Lua]",
             latex_symbols = "[Latex]",
             path = "[Path]",
@@ -100,8 +111,6 @@ return {
         --   -- end,
         -- },
       }
-
-      require("cmp").register_source("unihan", require("cmp_unihan").new())
 
       cmp.setup {
         completion = {
@@ -130,7 +139,9 @@ return {
         snippet = {
           -- REQUIRED - you must specify a snippet engine
           expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            -- require("luasnip").lsp_expand(args.body)
+            vim.snippet.expand(args.body)
           end,
         },
         matching = { disallow_partial_matching = false },

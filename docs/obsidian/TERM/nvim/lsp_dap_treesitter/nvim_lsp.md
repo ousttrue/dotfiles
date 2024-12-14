@@ -7,6 +7,12 @@
 - [Neovimを一瞬でVSCode並みに便利にする - k0kubun's blog](https://k0kubun.hatenablog.com/entry/neovim-lsp)
 - @2019 [NeovimのBuiltin LSPを使ってみる - Qiita](https://qiita.com/slin/items/2b43925065de3b9a6d3b)
 
+# version
+
+## 0.8
+
+- `LspAttach` @2023 [Neovim 0.8以降のビルトインLSPについて](https://zenn.dev/ryoppippi/articles/8aeedded34c914)
+
 # manual start
 
 https://neovim.io/doc/user/lsp.html
@@ -29,12 +35,6 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 ```
-
-# version
-
-## 0.8
-
-- `LspAttach` @2023 [Neovim 0.8以降のビルトインLSPについて](https://zenn.dev/ryoppippi/articles/8aeedded34c914)
 
 # border
 
@@ -65,7 +65,7 @@ lsp_config.bashls.setup({
 
 # hover
 
-[Neovim LSP Hoverのデザインを変更する](https://zenn.dev/botamotch/scraps/4ce17ce1f311c9)
+- @2022 [Neovim LSP Hoverのデザインを変更する](https://zenn.dev/botamotch/scraps/4ce17ce1f311c9)
 
 ## quickfix
 

@@ -82,44 +82,15 @@ local function setup()
   vim.keymap.set("n", "]]", "<Cmd>cnext<CR>")
   vim.keymap.set("n", "[[", "<Cmd>cprev<CR>")
 
-  -- -- local function ff()
-  -- --   local formatter = DOT.formatters[vim.bo.filetype]
-  -- --   if formatter then
-  -- --     formatter()
-  -- --   else
-  -- --     vim.lsp.buf.format { timeout_ms = 2000 }
-  -- --   end
-  -- -- end
-  -- -- vim.keymap.set("n", "ff", ff, { noremap = true })
-
   vim.keymap.set("n", "<C-q>", close_buffer_or_window, { noremap = true })
   vim.keymap.set("n", "Q", close_buffer_or_window, { noremap = true })
   vim.keymap.set("n", "q", close_floating_window, { noremap = true })
 
-  -- vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
-  -- vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
-  -- vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
-  -- -- vim.keymap.set("n", "<C-m>", vim.lsp.buf.definition, { noremap = true })
-  -- -- conflict quickfix
-  -- -- vim.keymap.set("n", "<C-m>", "<C-]>", { noremap = true })
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
-  -- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
-  -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
-  -- vim.keymap.set("n", "gn", vim.lsp.buf.rename, { noremap = true })
-  -- vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { noremap = true })
-  -- vim.keymap.set("n", "<f2>", vim.lsp.buf.rename, { noremap = true })
-  -- -- vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { noremap = true })
-  -- vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { noremap = true })
-  -- vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, { noremap = true })
-  -- -- vim.keymap.set("n", "ga", vim.diagnostic.open_float, { noremap = true })
-  -- -- vim.keymap.set("n", "<Leader>e", vim.diagnostic.show_line_diagnostics, { noremap = true })
-  -- vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { noremap = true })
-  -- vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, { noremap = true })
-  -- vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, { noremap = true })
-  -- vim.keymap.set("n", "<Leader>wl", function()
-  --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  -- end)
-  --
+  vim.keymap.set("n", "gf", "gF", { noremap = true })
+  vim.keymap.set("n", "gi", function()
+    vim.o.ic = not vim.o.ic
+  end, { noremap = true })
+
   -- vim.keymap.set({ "n", "v", "c", "i" }, "<M-;>", function()
   --   print(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
   -- end)

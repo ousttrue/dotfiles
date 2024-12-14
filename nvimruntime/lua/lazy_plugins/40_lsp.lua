@@ -20,6 +20,29 @@ return {
     end,
   },
   {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts)
+      require("lsp_signature").setup(opts)
+    end,
+  },
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   opts = {
+  --     -- add any options here
+  --   },
+  --   dependencies = {
+  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --     "MunifTanjim/nui.nvim",
+  --     -- OPTIONAL:
+  --     --   `nvim-notify` is only needed, if you want to use the notification view.
+  --     --   If not available, we use `mini` as the fallback
+  --     "rcarriga/nvim-notify",
+  --   },
+  -- },
+  {
     "williamboman/mason.nvim",
     config = require("config.mason").setup,
     dependencies = {
@@ -38,9 +61,6 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    config = function()
-      require("config.nvim-lspconfig").setup()
-    end,
     dependencies = {
       -- "hrsh7th/cmp-nvim-lsp",
       "folke/neodev.nvim",

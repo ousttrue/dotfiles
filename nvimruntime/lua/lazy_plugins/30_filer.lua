@@ -204,7 +204,7 @@ local neo_tree = {
   },
   config = function()
     vim.keymap.set("n", "<Leader>e", function()
-      local path = vim.fn.expand "%"
+      local path = vim.fn.expand "%:p"
       if #path > 0 then
         vim.cmd([[Neotree toggle float reveal_file=%s]]):format(path)
       else

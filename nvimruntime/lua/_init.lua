@@ -36,19 +36,20 @@ function PATH_EXISTS(path)
   end
 end
 
-local M = {
-  setup = function()
-    require("option").setup()
-    require("keymap").setup()
-    require("quick_fix").setup()
-    require("clipboard").setup()
-    require("lazy_plugins").setup()
-    require("color").setup()
-    require("lsp").setup()
-    require("markdown").setup()
-    --
-    require("tools.myplugin").setup()
-    -- require("tools.iim").setup()
-  end,
+local function setup()
+  require("option").setup()
+  require("keymap").setup()
+  require("quick_fix").setup()
+  require("clipboard").setup()
+  require("lazy_plugins").setup()
+  require("color").setup()
+  require("lsp").setup()
+  require("markdown").setup()
+  --
+  require("tools.myplugin").setup()
+  -- require("tools.iim").setup()
+end
+
+return {
+  setup = setup,
 }
-return M

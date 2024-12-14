@@ -15,7 +15,7 @@ local function setup_completion(event)
   ---@param mode? string|string[]
   local function keymap(lhs, rhs, opts, mode)
     opts = type(opts) == "string" and { desc = opts }
-      or vim.tbl_extend("error", opts --[[@as table]], { buffer = event.buf })
+        or vim.tbl_extend("error", opts --[[@as table]], { buffer = event.buf })
     mode = mode or "n"
     vim.keymap.set(mode, lhs, rhs, opts)
   end
@@ -149,33 +149,70 @@ local function setup()
     },
     float = {
       source = true, -- Or "if_many"
-      border = "rounded",
+      config = { border = "rounded" },
     },
   }
-  -- vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-  --   group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
-  --   callback = function()
-  --     vim.diagnostic.open_float(nil, { focus = false })
+
+  -- vim.api.nvim_create_autocmd("LspAttach", {
+  --   callback = function(args)
+  --     vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+  --       buffer = args.buf,
+  --       -- group = vim.api.nvim_ceate_augroup("float_diagnostic", { clear = true }),
+  --       callback = function()
+  --         -- vim.diagnostic.open_float(nil, { focus = false })
+  --         vim.lsp.buf.signature_help {
+  --           border = "rounded",
+  --         }
+  --       end,
+  --     })
   --   end,
   -- })
 
   -- You will likely want to reduce updatetime which affects CursorHold
   -- note: this setting is global and should be set only once
   vim.o.updatetime = 250
-  -- vim.api.nvim_create_autocmd("CursorHold", {
-  --   buffer = bufnr,
-  --   callback = function()
-  --     local opts = {
-  --       focusable = false,
-  --       close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-  --       border = "rounded",
-  --       source = "always",
-  --       prefix = " ",
-  --       scope = "cursor",
-  --     }
-  --     vim.diagnostic.open_float(nil, opts)
-  --   end,
-  -- })
+  vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+      vim.api.nvim_create_autocmd("CursorHold", {
+        buffer = args.buf,
+        callback = function()
+          local opts = {
+            focusable = false,
+            close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+            border = "rounded",
+            source = "always",
+            prefix = " ",
+            scope = "cursor",
+          }
+          vim.diagnostic.open_float(nil, opts)
+        end,
+      })
+    end,
+  })
+
+  vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
+  -- vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
+  -- vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
+  -- -- vim.keymap.set("n", "<C-m>", vim.lsp.buf.definition, { noremap = true })
+  -- -- conflict quickfix
+  -- -- vim.keymap.set("n", "<C-m>", "<C-]>", { noremap = true })
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
+  -- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
+  -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
+  -- vim.keymap.set("n", "gn", vim.lsp.buf.rename, { noremap = true })
+  -- vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { noremap = true })
+  -- vim.keymap.set("n", "<f2>", vim.lsp.buf.rename, { noremap = true })
+  -- -- vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { noremap = true })
+  -- vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { noremap = true })
+  -- vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, { noremap = true })
+  vim.keymap.set("n", "ga", vim.diagnostic.open_float, { noremap = true })
+  -- -- vim.keymap.set("n", "<Leader>e", vim.diagnostic.show_line_diagnostics, { noremap = true })
+  -- vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { noremap = true })
+  -- vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, { noremap = true })
+  -- vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, { noremap = true })
+  -- vim.keymap.set("n", "<Leader>wl", function()
+  --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  -- end)
 end
 
 return {

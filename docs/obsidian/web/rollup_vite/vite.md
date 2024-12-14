@@ -27,8 +27,10 @@ import "hoge.ts";
 
 # Version
 
-## 6
+## 6 @202412
 
+- https://green.sapphi.red/blog/increasing-vites-potential-with-the-environment-api
+- https://pre-vue-fes-2024-environment-api-slide.sapphi.red
 - https://github.com/vitejs/vite/milestone/17
 - [Environment API · vitejs/vite · Discussion #16358 · GitHub](https://github.com/vitejs/vite/discussions/16358)
 

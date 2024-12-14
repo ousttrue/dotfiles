@@ -36,8 +36,8 @@ function M.setup()
       end, { noremap = true })
       -- require("lspconfig").clangd.setup()
       require("lspconfig.clangd").override(config, on_attach)
-    -- elseif server_name == "lua_ls" then
-    --   require("lspconfig.lua_ls").override(config, on_attach)
+      -- elseif server_name == "lua_ls" then
+      --   require("lspconfig.lua_ls").override(config, on_attach)
     elseif server_name == "csharp_ls" then
       config.on_attach = function(client, bufnr)
         -- print(vim.inspect(client.server_capabilities))
@@ -141,7 +141,7 @@ function M.setup()
         package_uninstalled = "✗",
       },
       check_outdated_packages_on_open = false,
-      border = "single",
+      border = "rounded",
     },
   }
 
@@ -163,4 +163,5 @@ function M.setup()
   --   end,
   -- })
 end
+
 return M

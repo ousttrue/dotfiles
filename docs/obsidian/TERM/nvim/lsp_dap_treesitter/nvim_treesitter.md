@@ -1,6 +1,3 @@
-[[nvim]]
-[[treesitter]]
-
 https://neovim.io/doc/user/treesitter.html
 
 # nvim version
@@ -35,7 +32,7 @@ https://neovim.io/doc/user/treesitter.html
 
 # scripting
 
-- https://phelipetls.github.io/posts/template-string-converter-with-neovim-treesitter/
+- @2022 https://phelipetls.github.io/posts/template-string-converter-with-neovim-treesitter/
 - @2022 [The power of tree-sitter](https://jhcha.app/blog/the-power-of-treesitter/)
 
 ```lua
@@ -45,6 +42,11 @@ local start_row, start_col, end_row, end_col = node:range()
 ## ts_utils
 
 - https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt
+
+```lua
+local ts_utils = require "nvim-treesitter.ts_utils"
+local node = ts_utils.get_node_at_cursor()
+```
 
 # queries
 
