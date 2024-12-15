@@ -42,15 +42,6 @@ end
 
 return {
   {
-    "ousttrue/cmp-unihan",
-    -- name = "ousttrue/cmp-unihan",
-    -- dir = "E:/repos/github.com/ousttrue/cmp-unihan",
-    dependencies = { "uga-rosa/utf8.nvim" },
-    opts = {
-      data = vim.fn.expand "~/.skk/Unihan_DictionaryLikeData.txt",
-    },
-  },
-  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
@@ -76,10 +67,21 @@ return {
       "yehuohan/cmp-im",
       "yehuohan/cmp-im-zh",
       "uga-rosa/cmp-skkeleton",
-      -- "ousttrue/cmp-unihan",
+      "uga-rosa/utf8.nvim",
+      "ousttrue/cmp-unihan",
+      -- { dir = "E:/repos/github.com/ousttrue/cmp-unihan" },
     },
     config = function()
       local cmp = require "cmp"
+
+      cmp.register_source(
+        "unihan",
+        require("cmp-unihan").new {
+          data = vim.fn.expand "~/.skk/Unihan_DictionaryLikeData.txt",
+          trigger_characters = { ";" },
+          keyword_pattern = [=[;\zs\d\d*]=],
+        }
+      )
 
       cmp_im_setup()
       local formatting = {
@@ -126,7 +128,7 @@ return {
           ["<CR>"] = cmp.mapping.confirm { select = false },
         },
         sources = make_sources(
-        -- "nvim_lsp_signature_help",
+          -- "nvim_lsp_signature_help",
           "nvim_lsp",
           "buffer",
           "IM",

@@ -11,4 +11,10 @@ return {
     end,
   },
   { "uga-rosa/utf8.nvim" },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
 }

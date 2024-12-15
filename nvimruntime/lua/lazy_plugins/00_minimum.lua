@@ -134,12 +134,6 @@ return {
       ratio = 0.9,
     },
   },
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup()
-    end,
-  },
   { "prettier/vim-prettier" },
   { "nvim-lua/plenary.nvim" },
   { "simeji/winresizer" },
