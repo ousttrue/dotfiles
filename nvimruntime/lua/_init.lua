@@ -45,6 +45,7 @@ local function setup()
   require("color").setup()
   require("lsp").setup()
   require("markdown").setup()
+  require "inspector"
   --
   require("tools.myplugin").setup()
   -- require("tools.iim").setup()

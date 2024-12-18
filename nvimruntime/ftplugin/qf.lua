@@ -1,1 +1,1 @@
-vim.wo.winfixbuf = true
+-- vim.wo.winfixbuf = true
