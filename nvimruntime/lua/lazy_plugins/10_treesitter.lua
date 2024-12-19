@@ -42,7 +42,6 @@ return {
   },
   {
     "stevearc/aerial.nvim",
-    -- branch = "v4",
     opts = {
       layout = {
         default_direction = "right",
@@ -95,8 +94,8 @@ return {
         --   cursor - Opens float on top of the cursor
         --   editor - Opens float centered in the editor
         --   win    - Opens float centered in the window
-        relative = "editor",
-        anchor = "NE",
+        -- relative = "editor",
+        -- anchor = "NE",
         -- row = 1,
         -- col = 1,
 
@@ -104,8 +103,8 @@ return {
         -- They can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
         -- min_height and max_height can be a list of mixed types.
         -- min_height = {8, 0.1} means "the greater of 8 rows or 10% of total"
-        height = 0.9,
-        width = 28,
+        -- height = 0.9,
+        -- width = 28,
 
         override = function(conf, source_winid)
           -- This is the config that will be passed to nvim_open_win.
@@ -115,7 +114,7 @@ return {
       },
     },
     keys = {
-      { "<leader>a", "<cmd>AerialToggle!<CR>" },
+      { "<leader>a", "<cmd>AerialToggle float<CR>" },
     },
   },
   {

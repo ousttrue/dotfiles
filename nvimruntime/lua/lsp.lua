@@ -15,7 +15,7 @@ local function setup_completion(event)
   ---@param mode? string|string[]
   local function keymap(lhs, rhs, opts, mode)
     opts = type(opts) == "string" and { desc = opts }
-        or vim.tbl_extend("error", opts --[[@as table]], { buffer = event.buf })
+      or vim.tbl_extend("error", opts --[[@as table]], { buffer = event.buf })
     mode = mode or "n"
     vim.keymap.set(mode, lhs, rhs, opts)
   end
@@ -110,7 +110,7 @@ local function on_attach(event)
   -- Enable completion and configure keybindings.
   -- setup_completion(event)
 
-  vim.keymap.set("n", "<leader> ", function()
+  vim.keymap.set("n", "<Space><Space>", function()
     vim.lsp.buf.format { timeout_ms = 2000 }
   end, { noremap = true })
 end
@@ -119,54 +119,6 @@ local function setup()
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = on_attach,
   })
-
-  -- local function on_cursor_hold()
-  --   vim.diagnostic.open_float()
-  -- end
-  -- local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
-  -- vim.api.nvim_set_option("updatetime", 500)
-  -- vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
-  -- vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
-  -- https://neovim.io/doc/user/diagnostic.html
-  vim.diagnostic.config {
-    severity_sort = true,
-    -- underline = true,
-    update_in_insert = false,
-    virtual_text = false,
-    -- virtual_text = {
-    --   format = function(diagnostic)
-    --     return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
-    --   end,
-    -- },
-
-    signs = {
-      text = {
-        [vim.diagnostic.severity.ERROR] = "",
-        [vim.diagnostic.severity.WARN] = "",
-        [vim.diagnostic.severity.INFO] = "",
-        [vim.diagnostic.severity.HINT] = "",
-      },
-    },
-    float = {
-      source = true, -- Or "if_many"
-      config = { border = "rounded" },
-    },
-  }
-
-  -- vim.api.nvim_create_autocmd("LspAttach", {
-  --   callback = function(args)
-  --     vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-  --       buffer = args.buf,
-  --       -- group = vim.api.nvim_ceate_augroup("float_diagnostic", { clear = true }),
-  --       callback = function()
-  --         -- vim.diagnostic.open_float(nil, { focus = false })
-  --         vim.lsp.buf.signature_help {
-  --           border = "rounded",
-  --         }
-  --       end,
-  --     })
-  --   end,
-  -- })
 
   -- You will likely want to reduce updatetime which affects CursorHold
   -- note: this setting is global and should be set only once
@@ -205,9 +157,6 @@ local function setup()
   -- -- vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { noremap = true })
   -- vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { noremap = true })
   -- vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, { noremap = true })
-  vim.keymap.set("n", "ga", vim.diagnostic.open_float, { noremap = true })
-  -- -- vim.keymap.set("n", "<Leader>e", vim.diagnostic.show_line_diagnostics, { noremap = true })
-  -- vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { noremap = true })
   -- vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, { noremap = true })
   -- vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, { noremap = true })
   -- vim.keymap.set("n", "<Leader>wl", function()

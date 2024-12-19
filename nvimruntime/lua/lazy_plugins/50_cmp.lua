@@ -133,8 +133,8 @@ return {
           "buffer",
           "IM",
           "unihan",
-          "emoji",
-          "skkeleton"
+          "emoji"
+          -- "skkeleton"
         ),
         window = WINDOW,
         formatting = formatting,

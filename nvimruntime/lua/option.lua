@@ -21,8 +21,10 @@ local function setup()
   vim.opt.splitkeep = "screen"
 
   vim.opt.signcolumn = "yes" -- Always show sign column
-  vim.opt.showtabline = 3
-  vim.opt.laststatus = 3
+  vim.opt.showtabline = 0
+  -- vim.opt.laststatus = 3
+  vim.opt.laststatus = 0
+  vim.opt.cmdheight = 0
   vim.opt.number = false
 
   -- for tmux

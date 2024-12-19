@@ -44,6 +44,7 @@ local function setup()
   require("lazy_plugins").setup()
   require("color").setup()
   require("lsp").setup()
+  require("diagnostics").setup()
   require("markdown").setup()
   require "inspector"
   --

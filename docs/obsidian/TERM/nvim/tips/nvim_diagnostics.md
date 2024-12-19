@@ -36,3 +36,10 @@ vim.diagnostic.config {
 ```
 
 https://neovim.discourse.group/t/lsp-diagnostics-how-and-where-to-retrieve-severity-level-to-customise-border-color/1679
+
+# producer
+
+```lua
+nvim_create_namespace()
+vim.diagnostic.set()
+```

@@ -27,7 +27,8 @@
 | gd  |                         | goto local definition          |
 | gD  |                         | goto global declaration        |
 | ge  |                         |
-| gf  |                         | open under cursor              |
+| gf  | gF                      | edit under cursor              |
+| gF  |                         | edit line under cursor         |
 | gg  |                         | home                           |
 | gh  | TODO: help under cursor | select highlight               |
 | gH  |                         | select highlight line          |
