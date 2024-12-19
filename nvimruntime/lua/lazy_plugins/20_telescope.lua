@@ -110,6 +110,7 @@ return {
       else
         -- https://www.reddit.com/r/neovim/comments/p1xj92/make_telescope_git_files_revert_back_to_find/
         local function project_files()
+          local word = vim.fn.expand "<cfile>"
           local _, ret, _ = ts_utils.get_os_command_output {
             "git",
             "rev-parse",
@@ -126,6 +127,9 @@ return {
               follow = true,
               hidden = false,
             }
+          end
+          if #word > 0 then
+            vim.cmd("normal! i\\b" .. word .. "\\b")
           end
         end
         vim.keymap.set("n", C_P, project_files, { noremap = true })

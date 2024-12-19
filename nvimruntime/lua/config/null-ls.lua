@@ -75,8 +75,8 @@ function M.setup()
         filetypes = { "vala" },
       },
       -- null_ls.builtins.formatting.xmlformat,
-      -- null_ls.builtins.formatting.cmake_format,
-      --
+      null_ls.builtins.formatting.cmake_format,
+
       null_ls.builtins.formatting.prettierd.with {
         filetypes = { "xml", "xml", "html", "markdown", "mdx", "css" },
       },

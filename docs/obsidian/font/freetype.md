@@ -1,6 +1,35 @@
 # build
 
-- gobject-introspection
+関連ライブラリーの依存について
+
+- https://stackoverflow.com/questions/41767193/how-do-i-build-cairo-harfbuzz
+
+| lib        | dep                        |
+| ---------- | -------------------------- |
+| cairo      | fontconfig, harfbuzz(test) |
+| fontconfig | freetype, harfbuzz(test)   |
+| freetype   | harfbuzz                   |
+| harfbuzz   | freetype                   |
+| pango      |
+
+```sh
+> meson setup builddir --prefix "$(pwd)/prefix" -Ddefault_library=static --native-file .\clang.ini -Dglib:sysprof=disabled -Dglib:introspection=disabled
+# pango
+  Subprojects
+    cairo          : YES 1 warnings
+    freetype2      : YES 1 warnings (from harfbuzz)
+    fribidi        : YES
+    glib           : YES
+    gvdb           : YES (from glib)
+    harfbuzz       : YES 7 warnings
+    libffi         : YES (from glib)
+    libpng         : YES (from harfbuzz => freetype2)
+    pcre2          : YES (from glib)
+    pixman         : YES (from cairo)
+    proxy-libintl  : YES (from glib)
+    sysprof        : YES 1 warnings (from glib)
+    zlib           : YES (from glib)
+```
 
 ## freetype
 

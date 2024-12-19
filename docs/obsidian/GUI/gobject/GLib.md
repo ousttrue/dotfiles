@@ -10,6 +10,10 @@ https://gitlab.gnome.org/GNOME/glib
 
 ## 2.81.1 @202408
 
+# glib-genmarshal
+
+https://github.com/bratsche/glib/blob/master/gobject/glib-genmarshal.c
+
 # build / dependencies
 
 - https://docs.gtk.org/glib/building.html
