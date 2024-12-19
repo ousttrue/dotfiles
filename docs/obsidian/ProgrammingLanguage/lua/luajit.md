@@ -8,6 +8,11 @@
 
 ## 2.1.0-beta3
 
+# LuaJIT Remake
+
+- @2022 https://sillycross.github.io/2022/11/22/2022-11-22/
+- [luajit-remakeを試してみた &#183; hnakamur's blog](https://hnakamur.github.io/blog/2022/12/28/tried-luajit-remake/)
+
 # DynASM
 
 - [DynASM](https://luajit.org/dynasm.html)
@@ -30,7 +35,9 @@ neovim のビルドのため 非MSYS の MinGW でビルドしたい。
 > meson install -C builddir
 ```
 
-[[nvim_build]]
+# build.zig
+
+- https://nathancraddock.com/blog/complex-luajit/
 
 ## luajit
 
