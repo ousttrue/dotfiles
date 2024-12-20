@@ -2,6 +2,8 @@
 
 **循環参照** `glib <- gobject-introspection <- glib(gir)`
 
+- https://www.bassi.io/articles/2023/10/25/introspections-edge/
+
 - [Overview — GObject Introspection](https://gi.readthedocs.io/en/latest/)
 - [workshop-materials/introduction.md at master · RubyData/workshop-materials · GitHub](https://github.com/RubyData/workshop-materials/blob/master/gobject-introspection/introduction.md)
 - [Meson を使って GObject Introspection 対応のビルドシステムを構築する方法 - 2022-08-17 - ククログ](https://www.clear-code.com/blog/2022/8/17/meson-and-gobject-introspection.html)

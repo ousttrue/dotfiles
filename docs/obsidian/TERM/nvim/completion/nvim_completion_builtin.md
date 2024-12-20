@@ -2,6 +2,8 @@
 - [vim-jp » Hack #9: Insert mode補完　設定編](https://vim-jp.org/vim-users-jp/2009/05/11/Hack-9.html)
 - [VimのCTRL-X補完について - daisuzu's notes](https://daisuzu.hatenablog.com/entry/2015/12/05/002129)
 
+- [VimのCtrl-X補完を使えるようになりたい - koturnの日記](https://koturn.hatenablog.com/entry/2018/02/10/170000)
+
 ```
 1. 行全体                                               i_CTRL-X_CTRL-L
 2. 現在のファイルのキーワード                           i_CTRL-X_CTRL-N
@@ -17,6 +19,10 @@
 12. スペリング補完                                      i_CTRL-X_s
 13. 'complete' のキーワード                             i_CTRL-N i_CTRL-P
 ```
+
+- [vim-jp &raquo; Hack #4: Insert mode補完　導入編](https://vim-jp.org/vim-users-jp/2009/05/01/Hack-4.html)
+
+> オムニ補完とユーザー定義補完は機構としては全く同じですが使用目的が異なります。オムニ補完は'filetype'に応じた賢い補完を提供するためにある一方、ユーザー定義補完はユーザーが任意の補完を行うことができるよう提供されています。
 
 # Built-in completion
 

@@ -1,5 +1,6 @@
 # sekme.nvim
 
+- [Unified Theory of Completion](https://zmc.space/unified-theory-of-completion.html)
 - https://www.reddit.com/r/neovim/comments/qk5ud2/plugin_sekmenvim_chain_completion_for/
   - https://github.com/Furkanzmc/dotfiles/blob/master/vim/lua/vimrc/lsp.lua
 

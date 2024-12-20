@@ -15,3 +15,4 @@
 # impl
 
 - @2023 [SKK実装入門 (1) ローマ字 -> ひらがな変換](https://zenn.dev/uga_rosa/articles/ec5281d5a95a57)
+- @2023 [Vimで日本語入力する思考記録](https://zenn.dev/kawarimidoll/scraps/894ee4850c548b)

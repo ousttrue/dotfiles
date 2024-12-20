@@ -156,6 +156,22 @@ return {
         end
       end
       vim.keymap.set("n", "<space>h", help_under_cursor, { noremap = true })
+
+      local function jump()
+        local jumplist = vim.fn.getjumplist()
+        require("telescope.builtin").jumplist {
+          on_complete = {
+            function(self)
+              -- select current
+              local n = #jumplist[1]
+              if n ~= jumplist[2] then
+                self:move_selection(jumplist[2] - #jumplist[1] + 1)
+              end
+            end,
+          },
+        }
+      end
+      vim.keymap.set("n", "<space>j", jump, { noremap = true })
     end,
   },
 }

@@ -50,6 +50,7 @@ local function setup()
   --
   require("tools.myplugin").setup()
   -- require("tools.iim").setup()
+  require("tools.mycomp").setup()
 end
 
 return {
