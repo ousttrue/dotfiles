@@ -147,6 +147,9 @@ function Comp.new(opts)
     end,
   })
 
+  --
+  -- reload when write
+  --
   local file = debug.getinfo(1, "S").source:sub(2)
   local dir = vim.fs.dirname(file)
   vim.api.nvim_create_autocmd("BufWritePost", {
@@ -171,6 +174,20 @@ function Comp.new(opts)
       end
     end,
   })
+
+  --
+  -- keymap
+  --
+  vim.keymap.set("n", "gy", function()
+    if self.win then
+      self:close()
+    else
+      self:open()
+      if self.content then
+        self:set_content(self.content)
+      end
+    end
+  end, { noremap = true })
 
   return self
 end
