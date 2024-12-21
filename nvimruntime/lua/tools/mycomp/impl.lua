@@ -1,7 +1,10 @@
 local Cls = {}
 Cls.__index = Cls
 
-function Cls.set_content(self, content, row, col)
+function Cls.set_content(self, content)
+  local row = vim.fn.winline()
+  local col = vim.fn.wincol()
+  self.content = content
   if not self.win then
     return
   end
@@ -19,7 +22,7 @@ function Cls.set_content(self, content, row, col)
     vim.api.nvim_win_set_config(self.win, {
       relative = "editor",
       anchor = "SW",
-      row = y + row,
+      row = y + row - 1,
       col = x + col - 2,
       width = w,
       height = h,
@@ -35,6 +38,7 @@ function Cls.set_content(self, content, row, col)
     })
   end
   vim.api.nvim_buf_set_lines(self.buf, 0, -1, true, lines)
+  vim.cmd [[redraw]]
 end
 
 function Cls.buf_enter(self, event)
@@ -66,10 +70,7 @@ function Cls.cursor_moved(self, event)
     self:open()
   end
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  local y = vim.fn.winline()
-  local x = vim.fn.wincol()
-  self:set_content(("%03d:%03d"):format(row, col), y, x)
-  vim.cmd [[redraw]]
+  self:set_content(("%03d:%03d"):format(row, col))
 end
 
 function Cls.close(self)
@@ -94,6 +95,14 @@ function Cls.open(self)
   self.win = win
 end
 
+function Cls.delete(self)
+  self:close()
+  vim.api.nvim_buf_delete(self.buf, {
+    force = true,
+    unload = false,
+  })
+end
+
 function Cls.new(opts)
   local buf = vim.api.nvim_create_buf(false, true)
   local self = setmetatable({
@@ -113,6 +122,15 @@ function M.get_instance(opts)
     M.instance = Cls.new(opts)
   end
   return M.instance
+end
+
+function M.delete()
+  if M.instance then
+    local content = M.instance.win and M.instance.content
+    M.instance:delete()
+    M.instance = nil
+    return content
+  end
 end
 
 return M
