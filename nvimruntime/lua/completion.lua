@@ -83,7 +83,8 @@ local function on_enter(args)
 end
 
 function M.setup()
-  vim.opt.completeopt = { "menuone", "noinsert", "preview", "noselect" }
+  -- vim.opt.completeopt = { "menuone", "noinsert", "preview", "noselect" }
+  vim.opt.completeopt = { "menuone", "preview" }
   vim.api.nvim_create_autocmd("BufEnter", {
     -- group = group,
     callback = on_enter,

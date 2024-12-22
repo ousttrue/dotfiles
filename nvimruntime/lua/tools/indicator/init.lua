@@ -28,6 +28,16 @@ end
 ---@param buf integer
 function Content.set(self, content, buf)
   self.content = content
+  self.lines = nil
+end
+
+function Content.get_lines(self, buf)
+  if not self.content then
+    return nil
+  end
+  if self.lines then
+    return self.lines
+  end
   self.lines = vim.fn.split(self.content, "\n")
   self.cols = 0
   self.rows = 0
@@ -57,6 +67,7 @@ function Comp.new(opts)
     opts = opts,
     content = Content.new(),
   }, Comp)
+  M.instance = self
 
   --
   -- buf
@@ -87,8 +98,11 @@ function Comp.new(opts)
     group = group,
     pattern = USER_SET_CONTENT,
     callback = function(event)
-      self:set_content(event.data)
-      self:redraw()
+      -- self:redraw()
+      vim.defer_fn(function()
+        self:set_content(event.data)
+        self:redraw()
+      end, 0)
     end,
   })
 
@@ -135,7 +149,7 @@ function Comp.redraw(self)
   if not self.win then
     return
   end
-  local lines = self.content.lines
+  local lines = self.content:get_lines(self.buf)
   if not lines then
     return
   end
@@ -174,6 +188,9 @@ function Comp.set_content(self, content)
 end
 
 function Comp.open(self)
+  if self.win then
+    return
+  end
   local win = vim.api.nvim_open_win(self.buf, false, {
     relative = "editor",
     row = 1,
@@ -221,6 +238,22 @@ function M.set(content)
     pattern = USER_SET_CONTENT,
     data = content,
   })
+end
+
+function M.open()
+  if M.instance then
+    vim.defer_fn(function()
+      M.instance:open()
+    end, 0)
+  end
+end
+
+function M.close()
+  if M.instance then
+    vim.defer_fn(function()
+      M.instance:close()
+    end, 0)
+  end
 end
 
 return M

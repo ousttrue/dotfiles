@@ -6,7 +6,7 @@ local function on_attach(args)
 
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, args.buf) then
       -- lsp completion
-      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
     end
 
     -- formatter
