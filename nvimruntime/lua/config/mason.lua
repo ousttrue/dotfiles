@@ -12,19 +12,23 @@ function M.setup()
     client.server_capabilities.semanticTokensProvider = nil
   end
 
-  --
-  -- client_capabilities
-  --
-  local client_capabilities = vim.lsp.protocol.make_client_capabilities()
-  -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
-  if CMP then
-    client_capabilities = CMP.default_capabilities()
-  end
   -- client_capabilities =
   --   vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), require("epo").register_cap())
   -- print(vim.inspect(client_capabilities))
 
   local function get_config(server_name)
+    --
+    -- client_capabilities
+    --
+    local client_capabilities = vim.lsp.protocol.make_client_capabilities()
+    -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+    -- if CMP then
+    --   client_capabilities = CMP.default_capabilities()
+    -- end
+
+    -- https://neovim.discourse.group/t/how-to-disable-lsp-snippets/922
+    client_capabilities.textDocument.completion.completionItem.snippetSupport = false
+
     local config = {
       -- on_attach = on_attach,
       capabilities = client_capabilities,

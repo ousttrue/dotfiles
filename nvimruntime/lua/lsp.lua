@@ -1,18 +1,25 @@
-local function on_attach(args)
-  local client = vim.lsp.get_client_by_id(args.data.client_id)
+local function on_attach(event)
+  local client = vim.lsp.get_client_by_id(event.data.client_id)
   if client then
     -- Disable semantic highlights
     client.server_capabilities.semanticTokensProvider = nil
 
-    if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, args.buf) then
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, event.buf) then
       -- lsp completion
-      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
+      vim.lsp.completion.enable(true, client.id, event.buf, {
+        autotrigger = false,
+      })
     end
 
     -- formatter
     vim.keymap.set("n", "<Space><Space>", function()
       vim.lsp.buf.format { timeout_ms = 2000 }
     end, { noremap = true })
+
+    -- inlay
+    if client:supports_method "textDocument/inlayHint" then
+      vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+    end
   end
 end
 

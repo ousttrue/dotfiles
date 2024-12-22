@@ -14,7 +14,8 @@ local M = {
 autocmd FileType markdown hi link markdownError NONE
 ]]
 
-    vim.cmd "colorschem habamax"
+    -- vim.cmd "colorschem habamax"
+    vim.cmd "colorschem retrobox"
   end,
 }
 return M
