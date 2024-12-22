@@ -44,13 +44,14 @@ local function setup()
   require("lazy_plugins").setup()
   require("color").setup()
   require("lsp").setup()
+  require("completion").setup()
   require("diagnostics").setup()
   require("markdown").setup()
   require "inspector"
   --
-  require("tools.myplugin").setup()
+  require("tools.indicator").setup()
+  -- require("tools.myplugin").setup()
   -- require("tools.iim").setup()
-  require("tools.mycomp").setup()
 end
 
 return {

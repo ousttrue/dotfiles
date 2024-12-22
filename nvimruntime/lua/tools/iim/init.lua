@@ -1,10 +1,10 @@
 local M = {}
 
--- TODO: extmarks 
+-- TODO: extmarks
 -- TODO: indicator
 
 function M.setup()
-  print "hello"
+  -- print "hello"
   local Context = require "tools.iim.context"
   M.Keymap = require "tools.iim.keymap"
   M.context = Context.new()
@@ -23,36 +23,36 @@ function M.setup()
     end,
   })
 
-  vim.api.nvim_create_autocmd("InsertCharPre", {
-    pattern = { "*" },
-    callback = function(ev)
-      if not M.enabled then
-        return
-      end
-      M.on_insert_char_pre(ev)
-    end,
-  })
+  -- vim.api.nvim_create_autocmd("InsertCharPre", {
+  --   pattern = { "*" },
+  --   callback = function(ev)
+  --     if not M.enabled then
+  --       return
+  --     end
+  --     M.on_insert_char_pre(ev)
+  --   end,
+  -- })
 
-  M.ns = vim.api.nvim_create_namespace ""
-  vim.api.nvim_set_decoration_provider(M.ns, {
-    on_win = function(_, _, bufnr)
-      return M.enabled and #M.buffer > 0
-    end,
-    on_line = function(_, winid, bufnr, row)
-      if not M.enabled or #M.buffer == 0 then
-        return false
-      end
-      vim.api.nvim_buf_set_extmark(bufnr, M.ns, row, M.start, {
-        virt_text = { { M.buffer, "DiffAdd" } },
-        virt_text_pos = "overlay",
-        ephemeral = true,
-      })
-      return true
-    end,
-  })
-
-  M.indicator = require "tools.iim.indicator.indicator" ()
-  M.indicator:open()
+  -- M.ns = vim.api.nvim_create_namespace ""
+  -- vim.api.nvim_set_decoration_provider(M.ns, {
+  --   on_win = function(_, _, bufnr)
+  --     return M.enabled and #M.buffer > 0
+  --   end,
+  --   on_line = function(_, winid, bufnr, row)
+  --     if not M.enabled or #M.buffer == 0 then
+  --       return false
+  --     end
+  --     vim.api.nvim_buf_set_extmark(bufnr, M.ns, row, M.start, {
+  --       virt_text = { { M.buffer, "DiffAdd" } },
+  --       virt_text_pos = "overlay",
+  --       ephemeral = true,
+  --     })
+  --     return true
+  --   end,
+  -- })
+  --
+  -- M.indicator = require "tools.iim.indicator.indicator" ()
+  -- M.indicator:open()
 end
 
 function M.on_insert_char_pre(ev)
@@ -81,14 +81,25 @@ function M.handle(key)
   return output
 end
 
+local keys = vim.split("abcdefghijklmnopqrstuvwxyz", "")
+
 ---@return string
 function M.enable()
-  if M.enabled then
+  -- if M.enabled then
+  --   return ""
+  -- end
+  M.enabled = true
+
+  if vim.bo.iminsert ~= 1 then
+    for _, lhs in ipairs(keys) do
+      vim.keymap.set("l", lhs, function()
+        return M.handle(lhs)
+      end, { buffer = true, silent = true, expr = true })
+    end
+    return "<C-^>"
+  else
     return ""
   end
-
-  M.enabled = true
-  return "<C-^>"
 end
 
 ---@return string
@@ -100,7 +111,15 @@ function M.disable()
   M.start = 0
   M.buffer = ""
   M.enabled = false
-  return "<C-^>"
+
+  if vim.bo.iminsert == 1 then
+    for _, lhs in ipairs(keys) do
+      vim.keymap.del("l", lhs, { buffer = true })
+    end
+    return "<C-^>"
+  else
+    return ""
+  end
 end
 
 ---@return string

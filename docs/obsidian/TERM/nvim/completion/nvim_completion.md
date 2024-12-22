@@ -1,9 +1,3 @@
-# sekme.nvim
-
-- [Unified Theory of Completion](https://zmc.space/unified-theory-of-completion.html)
-- https://www.reddit.com/r/neovim/comments/qk5ud2/plugin_sekmenvim_chain_completion_for/
-  - https://github.com/Furkanzmc/dotfiles/blob/master/vim/lua/vimrc/lsp.lua
-
 # mini.completion
 
 - [GitHub - echasnovski/mini.nvim: Library of 30+ independent Lua modules improving overall Neovim (version 0.7 and higher) experience with minimal effort](https://github.com/echasnovski/mini.nvim)

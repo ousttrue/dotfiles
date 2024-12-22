@@ -1,4 +1,4 @@
-local function setup() 
+local function setup()
   -- local function on_cursor_hold()
   --   vim.diagnostic.open_float()
   -- end
