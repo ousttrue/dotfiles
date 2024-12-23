@@ -1,5 +1,5 @@
-local Context = require("tools.iim.context")
-local dispatch = require("tools.iim.testutil").dispatch
+local Context = require("tools.skk.context")
+local dispatch = require("tools.skk.testutil").dispatch
 
 ---@type Context
 local context

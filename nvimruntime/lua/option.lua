@@ -3,6 +3,7 @@ local function setup()
   vim.opt.hidden = true
 
   -- visual
+  vim.opt.visualbell = false
   vim.opt.splitkeep = "screen"
   vim.opt.tabstop = 2
   vim.opt.softtabstop = 2

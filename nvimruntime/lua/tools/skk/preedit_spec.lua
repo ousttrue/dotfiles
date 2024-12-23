@@ -1,4 +1,4 @@
-local PreEdit = require("tools.iim.preedit")
+local PreEdit = require("tools.skk.preedit")
 
 describe("preedit test", function()
   it("normal", function()

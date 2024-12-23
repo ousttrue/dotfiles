@@ -1,4 +1,4 @@
-local input = require("tools.iim.input")
+local input = require("tools.skk.input")
 
 local M = {}
 

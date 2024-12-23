@@ -58,7 +58,7 @@ local function setup()
   vim.keymap.set("n", "<M-j>", "<C-w>j", { noremap = true })
   vim.keymap.set("n", "<M-k>", "<C-w>k", { noremap = true })
   vim.keymap.set("n", "<M-l>", "<C-w>l", { noremap = true })
-  vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", {})
+  -- vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", { noremap = true })
 
   -- vim.keymap.set("n", "t", "zt", { noremap = true, silent = true })
   vim.keymap.set({ "i", "c" }, "<C-e>", "<END>")

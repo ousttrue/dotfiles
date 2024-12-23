@@ -51,7 +51,7 @@ local function setup()
   --
   require("tools.indicator").setup()
   -- require("tools.myplugin").setup()
-  require("tools.iim").setup()
+  require("tools.skk").setup()
 end
 
 return {
