@@ -1,33 +1,47 @@
+local utf8 = require "utf8"
 local KEYS = vim.split("abcdefghijklmnopqrstuvwxyz", "")
+local KanaTable = require "tools.skk.kana_table"
 
-local KanaTable = require "tools.skk.kana.kana_table"
-local PreEdit = require "tools.skk.preedit"
-local InputState = require("tools.skk.state").InputState
+---バッファの変化から差分を生成する
+---@class PreEdit
+local PreEdit = {}
 
-local Input = require "tools.skk.input"
+---@return PreEdit
+function PreEdit.new()
+  return setmetatable({
+    current = "",
+    kakutei = "",
+  }, { __index = PreEdit })
+end
 
----@class Keymap
-local Keymap = {}
+---@param str string
+function PreEdit:doKakutei(str)
+  self.kakutei = self.kakutei .. str
+end
 
-local keyMaps = {
-  input = setmetatable({}, {
-    __index = function()
-      return Input.kanaInput
-    end,
-  }),
-  henkan = {},
-}
-
----@param context Context
----@param key string
-function Keymap.handleKey(context, key)
-  keyMaps[context.state.type][key](context, key)
+---@param next string
+---@return string
+function PreEdit:output(next)
+  local ret
+  if self.kakutei == "" and vim.startswith(next, self.current) then
+    ret = next:sub(#self.current)
+  else
+    local current_len = utf8.len(self.current) or 0 --[[@as integer]]
+    ret = string.rep("\b", current_len) .. self.kakutei .. next
+  end
+  self.current = next
+  self.kakutei = ""
+  return ret
 end
 
 ---@class Context
 ---@field kanaTable KanaTable 全ての変換ルール
 ---@field preEdit PreEdit
----@field state State
+---@field type string
+---@field feed string
+---@field mode string
+---@field current string
+---@field kakutei string
 ---@field tmpResult? KanaRule feedに完全一致する変換ルール
 local Context = {}
 
@@ -36,9 +50,42 @@ function Context.new()
   local self = setmetatable({}, { __index = Context })
   self.kanaTable = KanaTable.new()
   self.preEdit = PreEdit.new()
-  self.state = InputState.new()
-
+  self.type = "input"
+  self.mode = "direct"
+  self.feed = ""
   return self
+end
+
+---@param result KanaRule
+function Context.acceptResult(self, result)
+  local preEdit = self.preEdit
+  local kana, feed = result.output, result.next
+  preEdit:doKakutei(kana)
+  self.feed = feed
+end
+
+---@param char string
+function Context.kanaInput(self, char)
+  local input = self.feed .. char
+  local candidates = self.kanaTable:filter(input)
+  if #candidates == 1 and candidates[1].input == input then
+    -- 候補が一つかつ完全一致。確定
+    self:acceptResult(candidates[1])
+    self:updateTmpResult()
+  elseif #candidates > 0 then
+    -- 未確定
+    self.feed = input
+    self:updateTmpResult(candidates)
+  elseif self.tmpResult then
+    -- 新しい入力によりtmpResultで確定
+    self:acceptResult(self.tmpResult)
+    self:updateTmpResult()
+    self:kanaInput(char)
+  else
+    -- 入力ミス。context.tmpResultは既にnil
+    self.feed = ""
+    self:kanaInput(char)
+  end
 end
 
 ---@return string
@@ -50,8 +97,8 @@ function Context.enable(self)
   -- language-mapping
   for _, lhs in ipairs(KEYS) do
     vim.keymap.set("l", lhs, function()
-      Keymap.handleKey(self, lhs)
-      return self.preEdit:output(self:toString())
+      self:kanaInput(lhs)
+      return self.preEdit:output(self.feed)
     end, {
       buffer = true,
       silent = true,
@@ -90,19 +137,14 @@ end
 
 ---@param candidates? KanaRule[]
 function Context:updateTmpResult(candidates)
-  candidates = candidates or self.kanaTable:filter(self.state.feed)
+  candidates = candidates or self.kanaTable:filter(self.feed)
   self.tmpResult = nil
   for _, candidate in ipairs(candidates) do
-    if candidate.input == self.state.feed then
+    if candidate.input == self.feed then
       self.tmpResult = candidate
       break
     end
   end
-end
-
----@return string
-function Context:toString()
-  return self.state:toString()
 end
 
 return Context

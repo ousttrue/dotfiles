@@ -1,3 +1,7 @@
+---
+--- https://zenn.dev/uga_rosa/articles/ec5281d5a95a57
+--- https://zenn.dev/uga_rosa/articles/e4c532a59de7d6
+---
 local M = {}
 
 ---@class Skk
