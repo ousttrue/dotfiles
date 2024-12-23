@@ -2,26 +2,27 @@ local utf8 = require "utf8"
 local KEYS = vim.split("abcdefghijklmnopqrstuvwxyz", "")
 local KanaTable = require "tools.skk.kana_table"
 
----バッファの変化から差分を生成する
----@class PreEdit
-local PreEdit = {}
+---@class Context
+---@field kanaTable KanaTable 全ての変換ルール
+---@field feed string
+---@field current string
+---@field kakutei string
+---@field tmpResult? KanaRule feedに完全一致する変換ルール
+local Context = {}
 
----@return PreEdit
-function PreEdit.new()
-  return setmetatable({
-    current = "",
-    kakutei = "",
-  }, { __index = PreEdit })
-end
-
----@param str string
-function PreEdit:doKakutei(str)
-  self.kakutei = self.kakutei .. str
+---@return Context
+function Context.new()
+  local self = setmetatable({}, { __index = Context })
+  self.kanaTable = KanaTable.new()
+  self.feed = ""
+  self.current = ""
+  self.kakutei = ""
+  return self
 end
 
 ---@param next string
 ---@return string
-function PreEdit:output(next)
+function Context:preedit(next)
   local ret
   if self.kakutei == "" and vim.startswith(next, self.current) then
     ret = next:sub(#self.current)
@@ -34,34 +35,22 @@ function PreEdit:output(next)
   return ret
 end
 
----@class Context
----@field kanaTable KanaTable 全ての変換ルール
----@field preEdit PreEdit
----@field type string
----@field feed string
----@field mode string
----@field current string
----@field kakutei string
----@field tmpResult? KanaRule feedに完全一致する変換ルール
-local Context = {}
-
----@return Context
-function Context.new()
-  local self = setmetatable({}, { __index = Context })
-  self.kanaTable = KanaTable.new()
-  self.preEdit = PreEdit.new()
-  self.type = "input"
-  self.mode = "direct"
-  self.feed = ""
-  return self
-end
-
 ---@param result KanaRule
 function Context.acceptResult(self, result)
-  local preEdit = self.preEdit
-  local kana, feed = result.output, result.next
-  preEdit:doKakutei(kana)
-  self.feed = feed
+  self.kakutei = self.kakutei .. result.output
+  self.feed = result.next
+end
+
+---@param candidates? KanaRule[]
+function Context:updateTmpResult(candidates)
+  candidates = candidates or self.kanaTable:filter(self.feed)
+  self.tmpResult = nil
+  for _, candidate in ipairs(candidates) do
+    if candidate.input == self.feed then
+      self.tmpResult = candidate
+      break
+    end
+  end
 end
 
 ---@param char string
@@ -98,7 +87,7 @@ function Context.enable(self)
   for _, lhs in ipairs(KEYS) do
     vim.keymap.set("l", lhs, function()
       self:kanaInput(lhs)
-      return self.preEdit:output(self.feed)
+      return self:preedit(self.feed)
     end, {
       buffer = true,
       silent = true,
@@ -133,18 +122,6 @@ function Context.disable(self)
   -- end, 0)
   vim.cmd [[set iminsert=0]]
   return "<C-^>"
-end
-
----@param candidates? KanaRule[]
-function Context:updateTmpResult(candidates)
-  candidates = candidates or self.kanaTable:filter(self.feed)
-  self.tmpResult = nil
-  for _, candidate in ipairs(candidates) do
-    if candidate.input == self.feed then
-      self.tmpResult = candidate
-      break
-    end
-  end
 end
 
 return Context
