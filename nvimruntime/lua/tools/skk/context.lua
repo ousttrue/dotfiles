@@ -17,7 +17,36 @@ function Context.new()
   self.feed = ""
   self.current = ""
   self.kakutei = ""
+
+  self:map()
+
   return self
+end
+
+function Context.delete(self)
+  self:unmap()
+end
+
+--- language-mapping
+function Context.map(self)
+  for _, lhs in ipairs(KEYS) do
+    vim.keymap.set("l", lhs, function()
+      self:kanaInput(lhs)
+      return self:preedit(self.feed)
+    end, {
+      -- buffer = true,
+      silent = true,
+      expr = true,
+    })
+  end
+end
+
+function Context.unmap(self)
+  -- language-mapping
+  for _, lhs in ipairs(KEYS) do
+    -- vim.api.nvim_buf_del_keymap(0, "l", lhs)
+    vim.api.nvim_del_keymap("l", lhs)
+  end
 end
 
 ---@param next string
@@ -83,18 +112,6 @@ function Context.enable(self)
     return ""
   end
 
-  -- language-mapping
-  for _, lhs in ipairs(KEYS) do
-    vim.keymap.set("l", lhs, function()
-      self:kanaInput(lhs)
-      return self:preedit(self.feed)
-    end, {
-      buffer = true,
-      silent = true,
-      expr = true,
-    })
-  end
-
   -- vim.defer_fn(function()
   local indicator = require "tools.indicator"
   indicator:open()
@@ -108,11 +125,6 @@ end
 function Context.disable(self)
   if vim.bo.iminsert ~= 1 then
     return ""
-  end
-
-  -- language-mapping
-  for _, lhs in ipairs(KEYS) do
-    vim.api.nvim_buf_del_keymap(0, "l", lhs)
   end
 
   -- vim.defer_fn(function()

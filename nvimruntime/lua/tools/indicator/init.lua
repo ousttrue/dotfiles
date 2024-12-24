@@ -1,5 +1,4 @@
 local MODULE_NAME = "tools.indicator"
-local MODULE_NAME_DOT = MODULE_NAME .. "."
 local USER_SET_CONTENT = "tools.indicator.set_content"
 
 --
@@ -111,29 +110,20 @@ function Comp.new(opts)
   --
   local file = debug.getinfo(1, "S").source:sub(2)
   local dir = vim.fs.dirname(file)
-  vim.api.nvim_create_autocmd("BufWritePost", {
-    group = group,
-    pattern = { dir .. "/*.lua" },
+  require("tools.reload").autocmd(group, dir, MODULE_NAME, function()
+    -- shutdown
+    local content = self.content
+    self:delete()
+    return content
+  end, function(content)
     -- reload
-    callback = function(event)
-      local content = self.content
-      -- shutdown
-      self:delete()
-      -- clear module
-      for key in pairs(package.loaded) do
-        if key == MODULE_NAME or vim.startswith(key, MODULE_NAME_DOT) then
-          package.loaded[key] = nil
-        end
-      end
-      -- reload new module
-      local new_instance = require(MODULE_NAME).Comp.new(opts)
-      new_instance:set_content(content.content)
+    local new_instance = require(MODULE_NAME).Comp.new(opts)
 
-      if new_instance.content then
-        new_instance:redraw()
-      end
-    end,
-  })
+    new_instance:set_content(content.content)
+    if new_instance.content then
+      new_instance:redraw()
+    end
+  end)
 
   --
   -- keymap
