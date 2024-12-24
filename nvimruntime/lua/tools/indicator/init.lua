@@ -108,9 +108,7 @@ function Comp.new(opts)
   --
   -- reload when write
   --
-  local file = debug.getinfo(1, "S").source:sub(2)
-  local dir = vim.fs.dirname(file)
-  require("tools.reload").autocmd(group, dir, MODULE_NAME, function()
+  require("tools.reload").autocmd(group, MODULE_NAME, function()
     -- shutdown
     local content = self.content
     self:delete()
