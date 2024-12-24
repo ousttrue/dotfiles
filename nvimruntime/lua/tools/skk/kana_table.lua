@@ -2,9 +2,12 @@
 ---@field input string
 ---@field output string
 ---@field next string
+local KanaRule = {}
+
+local M = {}
 
 ---@type KanaRule[]
-local kanaRules = {
+M.rules = {
   { input = "-", output = "ー", next = "" },
   { input = "~", output = "〜", next = "" },
   { input = ".", output = "。", next = "" },
@@ -329,24 +332,4 @@ local kanaRules = {
   { input = "who", output = "うぉ", next = "" },
 }
 
----@class KanaTable
----@field rules KanaRule[]
-local KanaTable = {
-  rules = kanaRules,
-}
-
----@return KanaTable
-function KanaTable.new()
-  return setmetatable({}, { __index = KanaTable })
-end
-
----inputとの前方一致で絞り込む
----@param pre string
----@return KanaRule[]
-function KanaTable:filter(pre)
-  return vim.tbl_filter(function(rule)
-    return vim.startswith(rule.input, pre)
-  end, self.rules)
-end
-
-return KanaTable
+return M

@@ -1,9 +1,18 @@
 local utf8 = require "utf8"
 local KEYS = vim.split("abcdefghijklmnopqrstuvwxyz", "")
-local KanaTable = require "tools.skk.kana_table"
+
+local KanaTable = require("tools.skk.kana_table").rules
+
+---inputとの前方一致で絞り込む
+---@param pre string
+---@return KanaRule[]
+local function filter(pre)
+  return vim.tbl_filter(function(rule)
+    return vim.startswith(rule.input, pre)
+  end, KanaTable)
+end
 
 ---@class Context
----@field kanaTable KanaTable 全ての変換ルール
 ---@field feed string
 ---@field current string
 ---@field kakutei string
@@ -13,7 +22,6 @@ local Context = {}
 ---@return Context
 function Context.new()
   local self = setmetatable({}, { __index = Context })
-  self.kanaTable = KanaTable.new()
   self.feed = ""
   self.current = ""
   self.kakutei = ""
@@ -72,7 +80,7 @@ end
 
 ---@param candidates? KanaRule[]
 function Context:updateTmpResult(candidates)
-  candidates = candidates or self.kanaTable:filter(self.feed)
+  candidates = candidates or filter(self.feed)
   self.tmpResult = nil
   for _, candidate in ipairs(candidates) do
     if candidate.input == self.feed then
@@ -85,7 +93,7 @@ end
 ---@param char string
 function Context.kanaInput(self, char)
   local input = self.feed .. char
-  local candidates = self.kanaTable:filter(input)
+  local candidates = filter(input)
   if #candidates == 1 and candidates[1].input == input then
     -- 候補が一つかつ完全一致。確定
     self:acceptResult(candidates[1])
