@@ -6,8 +6,9 @@
 
 ```sh
 > pip install hererocks
-> hererocks -j 2.1 --luarocks latest "$env:APPDATA\lua"
+> hererocks -l 5.1 -r latest "$env:APPDATA\lua"
 > $env:APPDATA\lua\bin\activate.ps1
+> luarocks install vusted
 ```
 
 # articles

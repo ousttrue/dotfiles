@@ -1,5 +1,5 @@
-local Context = require("tools.skk.context")
-local dispatch = require("tools.skk.testutil").dispatch
+local Context = require("context")
+local dispatch = require("testutil").dispatch
 
 ---@type Context
 local context

@@ -40,8 +40,19 @@ function M.setup()
       end, { noremap = true })
       -- require("lspconfig").clangd.setup()
       require("lspconfig.clangd").override(config, on_attach)
-      -- elseif server_name == "lua_ls" then
-      --   require("lspconfig.lua_ls").override(config, on_attach)
+    elseif server_name == "lua_ls" then
+      config.settings = {
+        Lua = {
+          workspace = {
+            library = {
+              "${3rd}/luv/library",
+              "${3rd}/busted/library",
+              "${3rd}/luassert/library",
+            },
+            checkThirdParty = "Disable",
+          },
+        },
+      }
     elseif server_name == "csharp_ls" then
       config.on_attach = function(client, bufnr)
         -- print(vim.inspect(client.server_capabilities))
