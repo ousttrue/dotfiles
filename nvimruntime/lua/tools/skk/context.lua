@@ -39,8 +39,7 @@ end
 function Context.map(self)
   for _, lhs in ipairs(KEYS) do
     vim.keymap.set("l", lhs, function()
-      self:kanaInput(lhs)
-      return self:preedit(self.feed)
+      return self:kanaInput(lhs)
     end, {
       -- buffer = true,
       silent = true,
@@ -57,6 +56,61 @@ function Context.unmap(self)
   end
 end
 
+---@param char string
+---@return string
+function Context.kanaInput(self, char)
+  local input = self.feed .. char
+  local candidates = filter(input)
+  if #candidates == 1 and candidates[1].input == input then
+    -- 候補が一つかつ完全一致。確定
+    -- self:acceptResult(candidates[1])
+    self.kakutei = self.kakutei .. candidates[1].output
+    self.feed = candidates[1].next
+    -- self:updateTmpResult()
+    candidates = candidates or filter(self.feed)
+    self.tmpResult = nil
+    for _, candidate in ipairs(candidates) do
+      if candidate.input == self.feed then
+        self.tmpResult = candidate
+        break
+      end
+    end
+  elseif #candidates > 0 then
+    -- 未確定
+    self.feed = input
+    -- self:updateTmpResult(candidates)
+    candidates = candidates or filter(self.feed)
+    self.tmpResult = nil
+    for _, candidate in ipairs(candidates) do
+      if candidate.input == self.feed then
+        self.tmpResult = candidate
+        break
+      end
+    end
+  elseif self.tmpResult then
+    -- 新しい入力によりtmpResultで確定
+    -- self:acceptResult(self.tmpResult)
+    self.kakutei = self.kakutei .. self.tmpResult.output
+    self.feed = self.tmpResult.next
+    -- self:updateTmpResult()
+    candidates = candidates or filter(self.feed)
+    self.tmpResult = nil
+    for _, candidate in ipairs(candidates) do
+      if candidate.input == self.feed then
+        self.tmpResult = candidate
+        break
+      end
+    end
+    self:kanaInput(char)
+  else
+    -- 入力ミス。context.tmpResultは既にnil
+    self.feed = ""
+    self:kanaInput(char)
+  end
+
+  return self:preedit(self.feed)
+end
+
 ---@param next string
 ---@return string
 function Context:preedit(next)
@@ -70,48 +124,6 @@ function Context:preedit(next)
   self.current = next
   self.kakutei = ""
   return ret
-end
-
----@param result KanaRule
-function Context.acceptResult(self, result)
-  self.kakutei = self.kakutei .. result.output
-  self.feed = result.next
-end
-
----@param candidates? KanaRule[]
-function Context:updateTmpResult(candidates)
-  candidates = candidates or filter(self.feed)
-  self.tmpResult = nil
-  for _, candidate in ipairs(candidates) do
-    if candidate.input == self.feed then
-      self.tmpResult = candidate
-      break
-    end
-  end
-end
-
----@param char string
-function Context.kanaInput(self, char)
-  local input = self.feed .. char
-  local candidates = filter(input)
-  if #candidates == 1 and candidates[1].input == input then
-    -- 候補が一つかつ完全一致。確定
-    self:acceptResult(candidates[1])
-    self:updateTmpResult()
-  elseif #candidates > 0 then
-    -- 未確定
-    self.feed = input
-    self:updateTmpResult(candidates)
-  elseif self.tmpResult then
-    -- 新しい入力によりtmpResultで確定
-    self:acceptResult(self.tmpResult)
-    self:updateTmpResult()
-    self:kanaInput(char)
-  else
-    -- 入力ミス。context.tmpResultは既にnil
-    self.feed = ""
-    self:kanaInput(char)
-  end
 end
 
 ---@return string
