@@ -2,18 +2,29 @@
 
 [LuaRocks - The Lua package manager](https://luarocks.org/)
 
+# windows
+
+```sh
+> pip install hererocks
+> hererocks -j 2.1 --luarocks latest "$env:APPDATA\lua"
+> $env:APPDATA\lua\bin\activate.ps1
+```
+
 # articles
+
 - @2017 [LuaRocksで環境ごとにパッケージをインストールしてパスを通す - Qiita](https://qiita.com/iwai/items/61419987a1d859245dde#lua_path)
 - @2014 [LuaRocks で Lua のモジュールを管理する - Qiita](https://qiita.com/mah0x211/items/a07a2628f129285a9337)
 
 # tree
 
 ## lfs
+
 ```
 %APPDATA%/LuaRocks/lib/lua/5.1/lfs.dll
 ```
 
 # install
+
 - [Installation instructions for Windows · luarocks/luarocks Wiki · GitHub](https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Windows)
 
 - [File locations · luarocks/luarocks Wiki · GitHub](https://github.com/luarocks/luarocks/wiki/File-locations)
@@ -52,11 +63,13 @@ $ make install
 ```
 
 # system-wide
+
 `/usr/local/lib/luarocks`
 =>
 `/usr/local/lib/luarocks/bin/`
 
 # per-user
+
 `$HOME/.luarocks/rocks/`
 =>
 `$HOME/.luarocks/bin/`
@@ -64,9 +77,11 @@ $ make install
 # per-project
 
 # luajit-rocks
+
 https://qiita.com/suzuryo3893/items/bd7685ea49ac81bad6f3
 
 # hererocks
+
 - [GitHub - luarocks/hererocks: Python script for installing Lua/LuaJIT and LuaRocks into a local directory](https://github.com/luarocks/hererocks)
 - [Windows環境にluarocksをインストールするにはhererocksが便利 | Birth, Gaming, Gaming, Death](https://bggd.github.io/2019/12/20/hererocks-on-windows.html)
 
