@@ -5,6 +5,7 @@
 
 ```json
 {
+  "Lua.runtime.version": "LuaJIT",
   "Lua.workspace.library": ["${3rd}/lovr/library"],
   "Lua.workspace.userThirdParty": ["${workspaceFolder}/.vscode/annotations"]
 }

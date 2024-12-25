@@ -1,5 +1,3 @@
-[[luarocks]]
-
 [Creating a rock · luarocks/luarocks Wiki · GitHub](https://github.com/luarocks/luarocks/wiki/Creating-a-rock#using-luarocks-as-a-build-system)
 
 - @2018 [LuaRocksにモジュールを登録する方法 - 2018-11-19 - ククログ](https://www.clear-code.com/blog/2018/11/19.html)
@@ -30,10 +28,13 @@ build = {
 ```
 
 # template
+
 ```
 $ luarocks write_rockspec
 ```
+
 `${package}-${version}.rockspec`
+
 ```lua
 package = "lvrm"
 version = "dev-1"
@@ -42,12 +43,17 @@ build = {
 ```
 
 # format
+
 [Rockspec format · luarocks/luarocks Wiki · GitHub](https://github.com/luarocks/luarocks/wiki/Rockspec-format)
 
 # build.type
+
 [Rockspec format · luarocks/luarocks Wiki · GitHub](https://github.com/luarocks/luarocks/wiki/Rockspec-format#build-back-ends)
+
 ## builtin
 
 ## cmake
+
 ## make
+
 ## command

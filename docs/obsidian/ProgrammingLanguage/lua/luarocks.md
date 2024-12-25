@@ -1,5 +1,3 @@
-[[lua]] [[rockspec]]
-
 [LuaRocks - The Lua package manager](https://luarocks.org/)
 
 # windows
@@ -13,6 +11,7 @@
 
 # articles
 
+- https://leafo.net/guides/customizing-the-luarocks-tree.html#the-install-locations/using-a-custom-directory
 - @2017 [LuaRocksで環境ごとにパッケージをインストールしてパスを通す - Qiita](https://qiita.com/iwai/items/61419987a1d859245dde#lua_path)
 - @2014 [LuaRocks で Lua のモジュールを管理する - Qiita](https://qiita.com/mah0x211/items/a07a2628f129285a9337)
 

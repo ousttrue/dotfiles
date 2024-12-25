@@ -1,15 +1,40 @@
+--
+-- vim に関わらない状態
+--
 local utf8 = require "utf8"
-local KEYS = vim.split("abcdefghijklmnopqrstuvwxyz", "")
 
 local KanaTable = require("tools.skk.kana_table").rules
+
+local function string_startswith(self, start)
+  return self:sub(1, #start) == start
+end
 
 ---inputとの前方一致で絞り込む
 ---@param pre string
 ---@return KanaRule[]
 local function filter(pre)
-  return vim.tbl_filter(function(rule)
-    return vim.startswith(rule.input, pre)
-  end, KanaTable)
+  local items = {}
+  for i, item in ipairs(KanaTable) do
+    if string_startswith(item.input, pre) then
+      table.insert(items, item)
+    end
+  end
+  return items
+end
+
+local function dump(o)
+  if type(o) == "table" then
+    local s = "{ "
+    for k, v in pairs(o) do
+      if type(k) ~= "number" then
+        k = '"' .. k .. '"'
+      end
+      s = s .. "[" .. k .. "] = " .. dump(v) .. ","
+    end
+    return s .. "} "
+  else
+    return tostring(o)
+  end
 end
 
 ---@class Context
@@ -26,41 +51,18 @@ function Context.new()
   self.current = ""
   self.kakutei = ""
 
-  self:map()
-
   return self
 end
 
-function Context.delete(self)
-  self:unmap()
-end
+function Context.delete(self) end
 
---- language-mapping
-function Context.map(self)
-  for _, lhs in ipairs(KEYS) do
-    vim.keymap.set("l", lhs, function()
-      return self:kanaInput(lhs)
-    end, {
-      -- buffer = true,
-      silent = true,
-      expr = true,
-    })
-  end
-end
-
-function Context.unmap(self)
-  -- language-mapping
-  for _, lhs in ipairs(KEYS) do
-    -- vim.api.nvim_buf_del_keymap(0, "l", lhs)
-    vim.api.nvim_del_keymap("l", lhs)
-  end
-end
-
+-- https://zenn.dev/uga_rosa/articles/e4c532a59de7d6
 ---@param char string
 ---@return string
 function Context.kanaInput(self, char)
   local input = self.feed .. char
   local candidates = filter(input)
+  print(dump(candidates))
   if #candidates == 1 and candidates[1].input == input then
     -- 候補が一つかつ完全一致。確定
     -- self:acceptResult(candidates[1])
@@ -115,7 +117,7 @@ end
 ---@return string
 function Context:preedit(next)
   local ret
-  if self.kakutei == "" and vim.startswith(next, self.current) then
+  if self.kakutei == "" and string_startswith(next, self.current) then
     ret = next:sub(#self.current)
   else
     local current_len = utf8.len(self.current) or 0 --[[@as integer]]
@@ -124,36 +126,6 @@ function Context:preedit(next)
   self.current = next
   self.kakutei = ""
   return ret
-end
-
----@return string
-function Context.enable(self)
-  if vim.bo.iminsert == 1 then
-    return ""
-  end
-
-  -- vim.defer_fn(function()
-  local indicator = require "tools.indicator"
-  indicator:open()
-  indicator.set "あ"
-  -- end, 0)
-  vim.cmd [[set iminsert=1]]
-  return "<C-^>"
-end
-
----@return string
-function Context.disable(self)
-  if vim.bo.iminsert ~= 1 then
-    return ""
-  end
-
-  -- vim.defer_fn(function()
-  local indicator = require "tools.indicator"
-  indicator.set "Aa"
-  indicator:close()
-  -- end, 0)
-  vim.cmd [[set iminsert=0]]
-  return "<C-^>"
 end
 
 return Context

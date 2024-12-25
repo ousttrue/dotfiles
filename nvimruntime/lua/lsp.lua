@@ -7,7 +7,7 @@ local function on_attach(event)
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, event.buf) then
       -- lsp completion
       vim.lsp.completion.enable(true, client.id, event.buf, {
-        autotrigger = false,
+        autotrigger = true,
       })
     end
 

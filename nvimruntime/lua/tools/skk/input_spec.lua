@@ -1,19 +1,16 @@
-local Context = require("context")
-local dispatch = require("testutil").dispatch
+local Context = require "tools.skk.context"
 
----@type Context
-local context
+local State = {}
 
 ---@param input string
 ---@param expect string
 local function test(input, expect)
-  dispatch(context, input)
-  assert.are.equals(expect, context.preEdit:output(""))
+  assert.are.equals(expect, State.context:kanaInput(input))
 end
 
 describe("Tests for input.lua", function()
   before_each(function()
-    context = Context.new()
+    State.context = Context.new()
   end)
 
   it("single char", function()

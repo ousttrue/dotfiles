@@ -11,20 +11,38 @@ local function on_enter(args)
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), "n", true)
   end
 
-  -- Use <C-n> to navigate to the next completion or:
-  -- - Trigger LSP completion.
-  -- - If there's no one, fallback to vanilla omnifunc.
+  --
+  -- trigger
+  --
+  -- https://vim-jp.org/vim-users-jp/2009/05/01/Hack-4.html
+  -- <C-n> 次の候補を選択し、カーソル位置に挿入します。
+  -- <C-p> 前の候補を選択し、カーソル位置に挿入します。
+  -- <C-y> 現在選択している補完候補を挿入し、補完を終了します。
+  -- <C-e> 補完をキャンセルします。 また、補完のポップアップメニューが表示されている場合は以下のキー操作が有効になります。
+  -- <BS>または<C-h> 一文字削除して、候補を再検索します。
+  -- <PageDown> ポップアップメニューを順方向に改ページします。
+  -- <PageUp> ポップアップメニューを逆方向に改ページします。
+  -- <Down> 次の候補を選択しますが、<C-p>とは違って候補を挿入しません。
+  -- <Up> 前の候補を選択しますが、<C-n>とは違って候補を挿入しません。
+  -- <C-l> マッチするものから一文字追加し、補完を絞り込みます。
+  -- <Space>または<Tab> 候補選択を終了し、タイプした文字を挿入します。
+  -- <Enter>だけは少々特殊です。候補を選択している場合はその候補を挿入し、それ以外の場合は改行します。
   vim.keymap.set("i", "<C-n>", function()
     if pumvisible() then
       feedkeys "<C-n>"
     else
       if next(vim.lsp.get_clients { bufnr = 0 }) then
+        -- lsp で候補を取得して
+        -- vim.fn.complete(start_col, matches)
+        -- とする
         vim.lsp.completion.trigger()
       else
-        if vim.bo.omnifunc == "" then
-          feedkeys "<C-x><C-n>"
-        else
+        if vim.bo.completefunc then
+          feedkeys "<C-x><C-u>"
+        elseif vim.bo.omnifunc then
           feedkeys "<C-x><C-o>"
+        else
+          feedkeys "<C-x><C-n>"
         end
       end
     end
@@ -83,8 +101,9 @@ local function on_enter(args)
 end
 
 function M.setup()
+  -- https://vim-jp.org/vim-users-jp/2009/05/11/Hack-9.html
   -- vim.opt.completeopt = { "menuone", "noinsert", "preview", "noselect" }
-  vim.opt.completeopt = { "menuone", "preview", "fuzzy" }
+  vim.opt.completeopt = { "menuone", "noinsert", "popup", "fuzzy" }
   vim.api.nvim_create_autocmd("BufEnter", {
     -- group = group,
     callback = on_enter,

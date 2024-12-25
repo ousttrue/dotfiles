@@ -49,7 +49,6 @@
     "clang-format.executable": "C:/Program Files/LLVM/bin/clang-format.exe",
     // zig
     "zig.path": "${env:APPDATA}\\Code\\User\\globalStorage\\ziglang.vscode-zig\\zig_install\\zig.exe",
-    "zig.initialSetupDone": true,
     "zig.zls.path": "zls",
     // glsl
     "glsl-canvas.useCompactFormatter": false,
