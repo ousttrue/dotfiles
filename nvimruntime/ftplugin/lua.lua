@@ -28,3 +28,8 @@ if is_lazy_config() then
     end
   end, { buffer = 0, noremap = true, silent = true })
 end
+
+vim.opt.errorformat = vim.fn.join({
+  -- ./lua\lkk\input_spec.lua:1: module 'lkk.context' not found:
+  "%f:%l: %m",
+}, ",")

@@ -1,7 +1,8 @@
 # no prefix
 
-| key |                       |
+| key | default               |
 | --- | --------------------- |
+| K   | lsp.buf.hover()       |
 | Q   | close current content |
 
 # ][

@@ -37,9 +37,9 @@ local function on_enter(args)
         -- とする
         vim.lsp.completion.trigger()
       else
-        if vim.bo.completefunc then
+        if #vim.o.completefunc > 0 or #vim.bo.completefunc > 0 then
           feedkeys "<C-x><C-u>"
-        elseif vim.bo.omnifunc then
+        elseif #vim.bo.omnifunc > 0 then
           feedkeys "<C-x><C-o>"
         else
           feedkeys "<C-x><C-n>"
@@ -50,14 +50,20 @@ local function on_enter(args)
     buffer = args.buf,
   })
 
-  -- ---For replacing certain <C-x>... keymaps.
-  -- -- Use enter to accept completions.
-  -- vim.keymap.set("i", "<cr>", function()
-  --   return pumvisible() and "<C-y>" or "<cr>"
-  -- end, {
-  --   buffer = args.buf,
-  --   expr = true,
-  -- })
+  ---For replacing certain <C-x>... keymaps.
+  -- Use enter to accept completions.
+  vim.keymap.set("i", "<cr>", function()
+    return pumvisible() and "<C-y>" or "<cr>"
+  end, {
+    buffer = args.buf,
+    expr = true,
+  })
+  vim.keymap.set("i", "<ESC>", function()
+    return pumvisible() and "<C-e>" or "<ESC>"
+  end, {
+    buffer = args.buf,
+    expr = true,
+  })
 
   -- -- Use slash to dismiss the completion menu.
   -- vim.keymap.set("i", "/", function()

@@ -7,7 +7,7 @@ local function setup()
   -- vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
   -- vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
   -- https://neovim.io/doc/user/diagnostic.html
-  vim.diagnostic.config {
+  DIAGNOSTIC_CONFIG = {
     severity_sort = true,
     -- underline = true,
     update_in_insert = false,
@@ -28,9 +28,12 @@ local function setup()
     },
     float = {
       source = true, -- Or "if_many"
-      config = { border = "rounded" },
+      conig = {
+        border = "rounded",
+      },
     },
   }
+  vim.diagnostic.config(DIAGNOSTIC_CONFIG)
 
   vim.keymap.set("n", "ga", vim.diagnostic.open_float, { noremap = true })
   -- -- vim.keymap.set("n", "<Leader>e", vim.diagnostic.show_line_diagnostics, { noremap = true })

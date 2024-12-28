@@ -42,15 +42,6 @@ local M = {
 
     table.insert(plugins, { import = "lazy_plugins.80_ui" })
 
-    -- table.insert(plugins, {
-    --   {
-    --     "bettervim/yugen.nvim",
-    --     config = function()
-    --       vim.cmd.colorscheme "yugen"
-    --     end,
-    --   },
-    -- })
-
     local opts = {
       change_detection = {
         -- automatically check for config file changes and reload the ui

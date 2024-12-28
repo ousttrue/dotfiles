@@ -53,6 +53,8 @@ local function setup()
   vim.keymap.set("n", "<C-_>", "gcc", { remap = true })
   vim.keymap.set("x", "<C-_>", "gc", { remap = true })
 
+  vim.keymap.set("n", "<C-u>", "<Tab>", { remap = false })
+
   vim.keymap.set("n", "<C-d>", ":qa<CR>", { noremap = true })
   vim.keymap.set("n", "<M-h>", "<C-w>h", { noremap = true })
   vim.keymap.set("n", "<M-j>", "<C-w>j", { noremap = true })
@@ -79,8 +81,8 @@ local function setup()
   -- vim.keymap.set("n", "<C-p>", ":cprev<CR>", { noremap = true, silent = true })
   -- vim.keymap.set("n", "]q", ":cnewer<CR>", { noremap = true, silent = true })
   -- vim.keymap.set("n", "[q", ":colder<CR>", { noremap = true, silent = true })
-  vim.keymap.set("n", "]]", "<Cmd>cnext<CR>")
-  vim.keymap.set("n", "[[", "<Cmd>cprev<CR>")
+  vim.keymap.set("n", "<Tab>", "<Cmd>cnext<CR>")
+  vim.keymap.set("n", "<S-Tab>", "<Cmd>cprev<CR>")
 
   vim.keymap.set("n", "<C-q>", close_buffer_or_window, { noremap = true })
   vim.keymap.set("n", "Q", close_buffer_or_window, { noremap = true })
@@ -100,6 +102,17 @@ local function setup()
 
   vim.keymap.set("n", "g'", [=[<Cmd>s/'/"/g<CR>]=], { noremap = true })
   vim.keymap.set("x", "g'", [=[<Esc>:'<,'>s/'/"/g<CR>]=], { noremap = true })
+
+  vim.api.nvim_create_user_command("Help", function()
+    local wid = vim.fn.win_getid()
+    vim.cmd [[
+    help <args>
+    resize 20
+    ]]
+    vim.fn.win_gotoid(wid)
+  end, {
+    nargs = "*",
+  })
 end
 
 local M = {
