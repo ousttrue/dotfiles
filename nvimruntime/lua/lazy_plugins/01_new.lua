@@ -15,13 +15,21 @@ return {
     config = function()
       require("neoskk").setup {
         jisyo = vim.fn.expand "~/.skk/SKK-JISYO.L",
+        unihan = vim.fn.expand "~/unihan/Unihan_DictionaryLikeData.txt",
+        xszd = vim.fn.expand "~/.skk/xszd.txt",
       }
-      vim.keymap.set("i", "<C-j>", function()
-        return require("neoskk").toggle()
-      end, {
+      local opts = {
         remap = false,
         expr = true,
-      })
+      }
+      vim.keymap.set("i", "<C-j>", function()
+        local neoskk = require "neoskk"
+        return neoskk.toggle()
+      end, opts)
+      vim.keymap.set("i", "<C-b>", function()
+        local neoskk = require "neoskk"
+        return neoskk.toggle "zhuyin"
+      end, opts)
     end,
   },
   -- {

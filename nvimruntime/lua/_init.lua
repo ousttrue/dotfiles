@@ -49,10 +49,11 @@ local function setup()
   require("markdown").setup()
   require "inspector"
   --
+  require("tools.myplugin").setup()
   -- require("tools.indicator").setup()
-  -- require("tools.myplugin").setup()
   -- require("tools.skk").setup()
   require("tools.loghighlighter").setup()
+
 end
 
 return {

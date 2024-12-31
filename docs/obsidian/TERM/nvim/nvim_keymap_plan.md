@@ -1,9 +1,9 @@
 # no prefix
 
-| key | default               |
-| --- | --------------------- |
-| K   | lsp.buf.hover()       |
-| Q   | close current content |
+| key | custom                          | default               | +          |
+| --- | ------------------------------- | --------------------- | ---------- |
+| K   | カーソル下を split/float したい | lsp.buf.hover()       | keywordprg |
+| Q   |                                 | close current content |
 
 # ][
 
