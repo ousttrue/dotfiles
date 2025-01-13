@@ -1,5 +1,5 @@
-
 internal を含むように生成。
+
 ```sh
 > cd cimgui
 cimgui> LUA_PATH=./?.lua D:/msys64/mingw64/bin/luajit generator.lua cl "internal freetype"
@@ -11,6 +11,7 @@ build/cmake.dll
 ```
 
 ## config
+
 - [Config file format · luarocks/luarocks Wiki · GitHub](https://github.com/luarocks/luarocks/wiki/Config-file-format)
 
 ```lua
@@ -24,15 +25,18 @@ config={
 ```
 
 ## Windows
+
 - [GitHub - luarocks/luarocks: LuaRocks is the package manager for the Lua programming language.](https://github.com/luarocks/luarocks/tree/master)
 - [Installation instructions for Windows · luarocks/luarocks Wiki · GitHub](https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Windows)
-`install.bat` を改造するべし
+  `install.bat` を改造するべし
+
 ```lua
 # 独立したフォルダを指定するのがよい(クリアされる)
 > luajit install.bat /P %USERPROFILE%/luarocks /NOADMIN /MW /F
 ```
 
 ### tools
+
 ダブルクォートが余分について `md5sum` のサーチに失敗する。
 
 ```lua
@@ -41,7 +45,9 @@ variables = {
    MD5SUM = "\"C:/User/bin/tools/md5sum.exe\"", -- 👈
 }
 ```
+
 👇
+
 ```lua
 --config-5.1.lua
 variables = {
@@ -50,6 +56,7 @@ variables = {
 ```
 
 `tools`
+
 ```lua
 function unquote(str)
   if string.sub(str, 1, 1)=='"' and string.sub(str, -1)=='"' then
@@ -59,4 +66,3 @@ function unquote(str)
   end
 end
 ```
-

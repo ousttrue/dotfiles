@@ -1,5 +1,47 @@
 [LuaRocks - The Lua package manager](https://luarocks.org/)
 
+- https://github.com/luarocks/luarocks/wiki/Documentation
+
+# Rocks repositories
+
+https://github.com/luarocks/luarocks/wiki/Rocks-repositories
+
+```
+ {base}                (base rocks tree directory)
+  ├── luarocks/config-5.1.lua
+  ├── bin              (deployment of command line scripts)
+  ├── lib
+  │    ├── luarocks
+  │    │    └── rocks  (contains manifest and sub-dirs with rocks)
+  │    │
+  │    └── lua
+  │         └── 5.1    (deployment of binary modules)
+  │
+  └── share
+       └── lua
+            └── 5.1    (deployment of Lua modules)
+```
+
+## config file
+
+https://github.com/luarocks/luarocks/wiki/Config-file-format
+
+## system
+
+## user(local)
+
+## manifest(project)
+
+- @2014 [LuaRocks で Lua のモジュールを管理する #GitHub - Qiita](https://qiita.com/mah0x211/items/a07a2628f129285a9337#github-%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%A7%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E7%AE%A1%E7%90%86)
+
+# luarocks-admin
+
+https://github.com/luarocks/luarocks/wiki/luarocks-admin
+
+## make-manifest
+
+https://github.com/luarocks/luarocks/wiki/make-manifest
+
 # windows
 
 ```sh
