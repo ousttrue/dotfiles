@@ -17,6 +17,7 @@ return {
         jisyo = vim.fn.expand "~/.skk/SKK-JISYO.L",
         unihan = vim.fn.expand "~/unihan/Unihan_DictionaryLikeData.txt",
         xszd = vim.fn.expand "~/.skk/xszd.txt",
+        emoji = vim.fn.expand "~/.skk/emoji-data.txt",
       }
       local opts = {
         remap = false,
