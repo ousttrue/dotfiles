@@ -9,7 +9,7 @@ return {
   },
   {
     name = "ousttrue/neoskk",
-    dir = "E:/repos/github.com/ousttrue/neoskk",
+    dir = vim.env["GHQ_ROOT"] .. "/github.com/ousttrue/neoskk",
     dev = true,
     -- "ousttrue/neoskk",
     config = function()

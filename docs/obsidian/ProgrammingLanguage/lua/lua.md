@@ -1,4 +1,3 @@
-#red
 
 - [The Programming Language Lua](https://www.lua.org/)
 
@@ -7,6 +6,10 @@
 [Lua: documentation](https://www.lua.org/docs.html)
 
 - [LabLua - Programming Language Research](http://www.lua.inf.puc-rio.br/publications.html)
+
+# https
+
+https://github.com/love2d/lua-https/blob/main/cmake/FindLuaJIT.cmake
 
 # memo
 
