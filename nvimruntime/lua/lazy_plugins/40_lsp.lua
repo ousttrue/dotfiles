@@ -15,6 +15,9 @@
 return {
   {
     "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    },
     config = function()
       require("config.null-ls").setup()
     end,

@@ -51,6 +51,11 @@ function M.setup()
             },
             checkThirdParty = "Disable",
           },
+          diagnostics = {
+            globals = {
+              "love",
+            },
+          },
         },
       }
     elseif server_name == "csharp_ls" then

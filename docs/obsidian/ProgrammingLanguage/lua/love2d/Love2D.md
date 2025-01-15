@@ -5,6 +5,14 @@
 - [LÖVE(Love2D) プログラミング入門](https://love2d-programming.com/)
 - @2021 [Love2D(Lua)でゲームをつくる](https://zenn.dev/m9m/scraps/52a88a63cdd1f4) [[luajit]] [[luarocks]]
 
+# version
+
+[Version History - LOVE](https://love2d.org/wiki/Version_History)
+
+## 11.5 @202312
+
+## 11.4 @202201
+
 # sample
 
 - [Lead Haul by YouDoYouBuddy](https://youdoyoubuddy.itch.io/lead-haul)
@@ -15,14 +23,6 @@
 # shader
 
 - [GitHub - camchenry/shaderview: A GLSL shader development tool for the LÖVE game framework.](https://github.com/camchenry/shaderview)
-
-# version
-
-[Version History - LOVE](https://love2d.org/wiki/Version_History)
-
-## 11.5 @202312
-
-## 11.4 @202201
 
 # project
 
@@ -70,24 +70,6 @@ custom interpleter
 こっちでビルドできる
 
 - [GitHub - love2d/megasource: Megasource is a CMake-buildable collection of all LÖVE dependencies.](https://github.com/love2d/megasource)
-
-# debugger
-
-コマンドライン引数。
-`love.dll` が最初から分かれているので、起動スクリプトがあればデバッグできそう？
-
-- `src/modules/love/love.jitsetup.lua`
-- `src/modules/love/boot.lua`
-
-改造しないと厳しそう？
-
-- [Love as Lua module - LÖVE](https://love2d.org/forums/viewtopic.php?t=86145)
-
-slandalone lua の `-e` オプションを追加するのが良いか？
-
-`lua local-debug` でデバッグするのがよい。
-
-- [GitHub - tomblind/local-lua-debugger-vscode: Local Lua Debugger for VSCode](https://github.com/tomblind/local-lua-debugger-vscode)
 
 # testing
 
