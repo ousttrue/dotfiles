@@ -48,6 +48,7 @@ function M.setup()
               "${3rd}/luv/library",
               "${3rd}/busted/library",
               "${3rd}/luassert/library",
+              "${3rd}/love2d/library",
             },
             checkThirdParty = "Disable",
           },
