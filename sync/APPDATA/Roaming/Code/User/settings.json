@@ -74,4 +74,30 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    "outline.collapseItems": "alwaysCollapse",
+    "outline.showArrays": false,
+    "outline.showBooleans": false,
+    "outline.showEnumMembers": false,
+    "outline.showClasses": false,
+    "outline.showConstants": false,
+    "outline.showConstructors": false,
+    "outline.showEnums": false,
+    "outline.showFields": false,
+    "outline.showEvents": false,
+    "outline.showFiles": false,
+    "outline.showInterfaces": false,
+    "outline.showKeys": false,
+    "outline.showModules": false,
+    "outline.showNamespaces": false,
+    "outline.showNull": false,
+    "outline.showNumbers": false,
+    "outline.showObjects": false,
+    "outline.showOperators": false,
+    "outline.showPackages": false,
+    "outline.showProperties": false,
+    "outline.showStrings": false,
+    "outline.showVariables": false,
+    "[lua]": {
+        "editor.defaultFormatter": "JohnnyMorganz.stylua"
+    },
 }
