@@ -2,6 +2,16 @@
 
 - https://github.com/luarocks/luarocks/wiki/Documentation
 
+# install for exists lua interpreter
+
+https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Windows
+
+## windows
+
+```sh
+> install.bat
+```
+
 # Rocks repositories
 
 https://github.com/luarocks/luarocks/wiki/Rocks-repositories
