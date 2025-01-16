@@ -15,6 +15,7 @@
 
 ## dll
 
+- https://love2d.org/forums/viewtopic.php?t=86145
 - [Loadable love in Lua · GitHub](https://gist.github.com/markandgo/dfa7d4c1fc7b81da2ed5)
 
 ## 3D
