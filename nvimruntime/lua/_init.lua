@@ -53,7 +53,6 @@ local function setup()
   -- require("tools.indicator").setup()
   -- require("tools.skk").setup()
   require("tools.loghighlighter").setup()
-
 end
 
 return {

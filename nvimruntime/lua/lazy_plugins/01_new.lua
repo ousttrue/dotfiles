@@ -1,6 +1,7 @@
 return {
   { "uga-rosa/utf8.nvim" },
   { "simeji/winresizer" },
+  -- { "mistweaverco/kulala.nvim", opts = {} },
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
