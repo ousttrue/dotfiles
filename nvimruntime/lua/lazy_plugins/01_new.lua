@@ -16,9 +16,10 @@ return {
     config = function()
       require("neoskk").setup {
         jisyo = vim.fn.expand "~/.skk/SKK-JISYO.L",
-        unihan = vim.fn.expand "~/unihan/Unihan_DictionaryLikeData.txt",
+        unihan_dir = vim.fn.expand "~/unihan",
         xszd = vim.fn.expand "~/.skk/xszd.txt",
         emoji = vim.fn.expand "~/.skk/emoji-data.txt",
+        kangxi = vim.fn.expand "~/cjkvi-dict/kx2ucs.txt",
       }
       local opts = {
         remap = false,
