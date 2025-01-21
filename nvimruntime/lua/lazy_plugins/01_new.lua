@@ -20,6 +20,7 @@ return {
         xszd = vim.fn.expand "~/.skk/xszd.txt",
         emoji = vim.fn.expand "~/.skk/emoji-data.txt",
         kangxi = vim.fn.expand "~/cjkvi-dict/kx2ucs.txt",
+        chinadat = vim.fn.expand "~/.skk/chinadat.csv",
       }
       local opts = {
         remap = false,

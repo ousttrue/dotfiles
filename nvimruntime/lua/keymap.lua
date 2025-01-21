@@ -84,6 +84,7 @@ local function make_markdown_link(node, url)
       local title = rawdata:sub(begin_e + 1, end_s - 1)
       if title then
         print(url, title)
+        -- TODO &quot; => "
 
         -- https://phelipetls.github.io/posts/template-string-converter-with-neovim-treesitter/#replace-the-string-surroundings-with-
         local start_row, start_col, end_row, end_col = node:range()

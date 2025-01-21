@@ -8,6 +8,7 @@ let g:zig_recommended_style = 0
 -- Remap leader and local leader to <Space>
 vim.g.mapleader = " "
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
+
 vim.g.maplocalleader = " "
 if vim.fn.has "win32" == 1 then
   vim.keymap.set("n", "<C-z>", "<Nop>")
