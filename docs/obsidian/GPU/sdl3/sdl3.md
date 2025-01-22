@@ -2,6 +2,8 @@
 
 ## 3.0
 
+- https://wiki.libsdl.org/SDL3/QuickReference
+
 > SDL3 is currently the "main" branch in git.
 
 - https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.3
