@@ -3,7 +3,7 @@ return {
     -- treesitter required
     "jghauser/follow-md-links.nvim",
   },
-  { "mattn/emmet-vim" },
+  -- { "mattn/emmet-vim" },
   -- {"ixru/nvim-markdown"},
   -- {
   --   "genkiroid/mdlink-vim",

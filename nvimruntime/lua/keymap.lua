@@ -47,6 +47,82 @@ local function close_floating_window()
   end
 end
 
+---@param node TSNode?
+---@param list TSNode[]?
+local function get_parent(node, list)
+  if not list then
+    list = {}
+  end
+  if node then
+    table.insert(list, 1, node)
+    get_parent(node:parent(), list)
+  end
+  return list
+end
+
+local http_pattern = [[^https?://[%w%(%)@:%_%+-%.~#?&/=]+]]
+
+---@param node TSNode
+---@url string
+local function make_markdown_link(node, url)
+  print(node, url)
+  local h = io.popen("curl -s -L " .. url)
+  if not h then
+    return
+  end
+  local rawdata = h:read "all"
+  h:close()
+  if not rawdata then
+    return
+  end
+
+  -- local t = vim.json.decode(rawdata)
+  local begin_s, begin_e = rawdata:find "<title>"
+  if begin_s then
+    local end_s, end_e = rawdata:find("</title>", begin_e + 1)
+    if end_s then
+      local title = rawdata:sub(begin_e + 1, end_s - 1)
+      if title then
+        print(url, title)
+        -- TODO &quot; => "
+
+        -- https://phelipetls.github.io/posts/template-string-converter-with-neovim-treesitter/#replace-the-string-surroundings-with-
+        local start_row, start_col, end_row, end_col = node:range()
+        local markdown_link = ("[%s](%s)"):format(title, url)
+        vim.api.nvim_buf_set_text(0, start_row, start_col, end_row, end_col, { markdown_link })
+      end
+    end
+  end
+end
+
+local function markdown_title()
+  -- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/lua/nvim-treesitter/ts_utils.lua
+  local ts_utils = require "nvim-treesitter.ts_utils"
+  local list = get_parent(ts_utils.get_node_at_cursor())
+
+  if #list >= 1 and list[1]:type() == "inline" then
+    if #list == 1 then
+      local lines = ts_utils.get_node_text(list[1])
+      -- replace
+      if #lines >= 1 then
+        local m = lines[1]:match(http_pattern)
+        if m then
+          make_markdown_link(list[1], m)
+        end
+      end
+    elseif list[2]:type() == "inline_link" then
+      -- update
+      local url = list[2]:named_child(1)
+      local lines = ts_utils.get_node_text(url)
+      -- print(url, lines[1])
+      local m = lines[1]:match(http_pattern)
+      if m then
+        make_markdown_link(list[2], m)
+      end
+    end
+  end
+end
+
 local function setup()
   vim.keymap.set("n", "<C-/>", "gcc", { remap = true })
   vim.keymap.set("x", "<C-/>", "gc", { remap = true })
@@ -113,6 +189,8 @@ local function setup()
   end, {
     nargs = "*",
   })
+
+  vim.keymap.set("n", "<C-y>a", markdown_title, {})
 end
 
 local M = {

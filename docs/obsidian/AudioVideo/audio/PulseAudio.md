@@ -28,7 +28,7 @@ $ pactl info
 
 # user service
 
-https://zenn.dev/noraworld/articles/disable-pulseaudio-autospawn
+[PulseAudio の自動起動を完全に無効化する方法](https://zenn.dev/noraworld/articles/disable-pulseaudio-autospawn)
 
 # system service
 
@@ -44,5 +44,5 @@ sudo systemctl enable --now pulseaudio.service
 
 `stop pipewire-pulse`
 
-- https://askubuntu.com/questions/1407885/how-to-uninstall-pipewire-and-go-back-to-pulseaudio
+- [sound - How to uninstall pipewire and go back to pulseaudio - Ask Ubuntu](https://askubuntu.com/questions/1407885/how-to-uninstall-pipewire-and-go-back-to-pulseaudio)
 - [Red Hat Customer Portal - Access to 24x7 support and knowledge](https://access.redhat.com/ja/articles/7035126)

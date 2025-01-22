@@ -5,10 +5,16 @@ return {
       vim.keymap.set("n", "gf", function()
         local dir = vim.fn.expand "%:p:h"
         local file = vim.fn.expand "<cfile>"
+        if file:find("/$") then
+          file = file:sub(1, #file-1)
+        end
+        print(dir, file)
         local path = ("%s/docs/%s.md"):format(dir, file)
-        print(path)
+        local path_vitepress = ("%s/../docs/%s.md"):format(dir, file)
         if vim.loop.fs_stat(path) then
           vim.cmd("e " .. path)
+        elseif vim.loop.fs_stat(path_vitepress) then
+          vim.cmd("e " .. path_vitepress)
         else
           vim.cmd "normal! gF"
         end
