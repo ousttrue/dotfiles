@@ -46,16 +46,18 @@ build = {
     LUAJIT_DIR = "$(LUA_DIR)",
     LUA = "$(LUA)",
     -- install destination
-    -- CMAKE_INSTALL_PREFIX = "prefix",
-    CMAKE_INSTALL_PREFIX = "$(LIBDIR)",
+    CMAKE_INSTALL_PREFIX = "prefix",
+    -- CMAKE_INSTALL_PREFIX = "$(LIBDIR)",
   },
-  -- install = {
-  --   lib = {
-  --     "prefix/love.dll",
-  --     "prefix/OpenAL32.dll",
-  --     "prefix/SDL3.dll",
-  --   },
-  -- },
+  install = {
+    lib = {
+      "prefix/love.dll",
+    },
+    bin = {
+      "prefix/OpenAL32.dll",
+      "prefix/SDL3.dll",
+    },
+  },
 }```
 
 ## command

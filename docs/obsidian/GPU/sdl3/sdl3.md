@@ -18,3 +18,7 @@
 
 - `binder`, `LinkSystemLibrary` https://github.com/Gota7/zig-sdl3
 - `befor LazyPath?` https://github.com/HesamR/SDL3
+
+# mesh / shader
+
+- https://github.com/TheSpydog/SDL_gpu_examples/

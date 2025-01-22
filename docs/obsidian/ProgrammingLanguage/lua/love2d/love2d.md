@@ -18,6 +18,12 @@
 - https://love2d.org/forums/viewtopic.php?t=86145
 - [Loadable love in Lua · GitHub](https://gist.github.com/markandgo/dfa7d4c1fc7b81da2ed5)
 
+## love.run
+
+mainloop のオーバーライド
+
+- https://love2d.org/wiki/love.run_(%E6%97%A5%E6%9C%AC%E8%AA%9E)
+
 ## 3D
 
 - [GitHub - rozenmad/Menori: Library for 3D rendering with LÖVE.](https://github.com/rozenmad/Menori)

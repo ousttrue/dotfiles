@@ -100,4 +100,19 @@
     "[lua]": {
         "editor.defaultFormatter": "JohnnyMorganz.stylua"
     },
+    "gitlens.views.scm.grouped.views": {
+        "commits": true,
+        "branches": true,
+        "remotes": true,
+        "stashes": true,
+        "tags": true,
+        "worktrees": true,
+        "contributors": true,
+        "repositories": true,
+        "searchAndCompare": false,
+        "launchpad": false
+    },
+    "git.ignoreSubmodules": true,
+    "git.detectSubmodulesLimit": 0,
+    "git.detectSubmodules": false,
 }
