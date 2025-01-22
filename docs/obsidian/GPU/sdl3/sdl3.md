@@ -1,14 +1,21 @@
+- https://wiki.libsdl.org/SDL3/FrontPage
+- https://wiki.libsdl.org/SDL3/QuickReference
+
 # version
+
+## 3.2
+
+- https://github.com/libsdl-org/SDL/releases/tag/release-3.2.0
+
+## 3.1
+
+- https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.3
 
 ## 3.0
 
-- https://wiki.libsdl.org/SDL3/QuickReference
-
 > SDL3 is currently the "main" branch in git.
 
-- https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.3
 - https://discourse.libsdl.org/t/sdl-3-0/40374
-- https://wiki.libsdl.org/SDL3/FrontPage
 
 ## 2.x
 
@@ -21,6 +28,10 @@
 - `binder`, `LinkSystemLibrary` https://github.com/Gota7/zig-sdl3
 - `befor LazyPath?` https://github.com/HesamR/SDL3
 
-# mesh / shader
+# sample
 
 - https://github.com/TheSpydog/SDL_gpu_examples/
+
+# wasm
+
+- https://github.com/klukaszek/SDL3-WebGPU-Examples

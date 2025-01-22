@@ -5,12 +5,19 @@
 
 合体
 
+# zig-sokol
+
+- https://github.com/ousttrue/zigltf
+  - https://github.com/ousttrue/rowmath
+    - [x] https://github.com/ousttrue/emsdk-zig
+    - [ ] https://github.com/ousttrue/sokol-zig
+
 # memo
 
-| tool | content  |         |
-| ---- | -------- | ------- |
-| zig  | graphics | sokol   |
-| vite | ssg      | minista |
+| tool       | content  |         |
+| ---------- | -------- | ------- |
+| zig        | graphics | sokol   |
+| bun / vite | ssg      | minista |
 
 |             | **multi**         | Windows   | git bash       | msys     | wsl      | Linux    |
 | ----------- | ----------------- | --------- | -------------- | -------- | -------- | -------- |
