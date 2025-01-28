@@ -72,7 +72,7 @@ function M.setup()
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.black,
       -- null_ls.builtins.formatting.jq,
-      require "none-ls.formatting.jq",
+      -- require "none-ls.formatting.jq",
       null_ls.builtins.formatting.uncrustify.with {
         filetypes = { "vala" },
       },
@@ -80,7 +80,7 @@ function M.setup()
       null_ls.builtins.formatting.cmake_format,
 
       null_ls.builtins.formatting.prettierd.with {
-        filetypes = { "xml", "xml", "html", "markdown", "mdx", "css", "json" },
+        filetypes = { "xml", "xml", "html", "markdown", "mdx", "css", "json", "json5", "jsonc" },
       },
       -- null_ls.builtins.formatting.tidy,
       null_ls.builtins.formatting.shfmt.with {

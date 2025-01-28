@@ -160,11 +160,6 @@ function M.setup()
   vim.keymap.set("n", "ga", vim.diagnostic.open_float, { noremap = true })
   -- -- vim.keymap.set("n", "<Leader>e", vim.diagnostic.show_line_diagnostics, { noremap = true })
   -- vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { noremap = true })
-
-  vim.keymap.set("n", "K", function()
-    vim.lsp.buf_request_all(0, vim.lsp.protocol.Methods.textDocument_hover, client_positional_params(), on_request)
-  end, { noremap = true })
-  -- vim.keymap.set("n", "K", ":help <C-r><C-w><CR>", {})
 end
 
 return M

@@ -12,7 +12,7 @@ local function on_attach(event)
     end
 
     -- formatter
-    vim.keymap.set("n", "<Space><Space>", function()
+    vim.keymap.set("n", "<Space>f", function()
       vim.lsp.buf.format { timeout_ms = 2000 }
     end, { noremap = true })
 
@@ -51,6 +51,7 @@ function M.setup()
   -- vim.keymap.set("n", "<Leader>wl", function()
   --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   -- end)
+  -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
 end
 
 return M

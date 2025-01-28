@@ -1,9 +1,12 @@
 # todo
 
-- zig build: https://github.com/meta-quest/Meta-OpenXR-SDK
-- zig build: https://github.com/bjornbytes/lovr
+quest3 + [lovr](https://github.com/bjornbytes/lovr) で MixedReality + handtracking したい。
 
-合体
+quest3 向きに MR 部分を改造。
+
+素の OpenXR プロジェクトを調査。
+
+- zig build: https://github.com/meta-quest/Meta-OpenXR-SDK
 
 # zig-sokol
 

@@ -1,3 +1,5 @@
+- [古代中国箚記 漢字の古代音・中古音、現代方言の発音を知るには・・・](http://ancientchina.blog74.fc2.com/blog-entry-459.html)
+
 # 喉音
 
 # 牙音 カ

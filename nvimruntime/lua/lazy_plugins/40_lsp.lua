@@ -49,6 +49,7 @@ return {
     "williamboman/mason.nvim",
     config = require("config.mason").setup,
     dependencies = {
+      "folke/neodev.nvim",
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",
     },
@@ -65,14 +66,14 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- "hrsh7th/cmp-nvim-lsp",
       "folke/neodev.nvim",
-      -- "rcarriga/nvim-notify",
       "b0o/schemastore.nvim",
       "creativenull/efmls-configs-nvim",
       "SmiteshP/nvim-navbuddy",
-      -- "williamboman/mason-lspconfig.nvim",
     },
+    config = function()
+      require("lspconfig").zls.setup {}
+    end,
   },
   -- {
   --   "nvimdev/lspsaga.nvim",

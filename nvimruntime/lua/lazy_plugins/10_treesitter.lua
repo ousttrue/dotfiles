@@ -114,7 +114,7 @@ return {
       },
     },
     keys = {
-      { "<leader>a", "<cmd>AerialToggle float<CR>" },
+      { "<leader>a", "<cmd>AerialNavToggle <CR>" },
     },
   },
   {
