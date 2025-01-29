@@ -65,7 +65,6 @@ return {
         execute = function(opts, done)
           local neoskk = require "neoskk"
           if neoskk then
-            print(neoskk, neoskk.hover)
             local lines = neoskk.hover()
             done { lines = lines, filetype = "markdown" }
           else
