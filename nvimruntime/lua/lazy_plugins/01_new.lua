@@ -47,9 +47,9 @@ return {
         require("hover").hover_switch "next"
       end, { desc = "hover.nvim (next source)" })
 
-      -- -- Mouse support
-      -- vim.keymap.set("n", "<MouseMove>", require("hover").hover_mouse, { desc = "hover.nvim (mouse)" })
-      -- vim.o.mousemoveevent = true
+      -- Mouse support
+      vim.keymap.set("n", "<MouseMove>", require("hover").hover_mouse, { desc = "hover.nvim (mouse)" })
+      vim.o.mousemoveevent = true
 
       -- Simple
       require("hover").register {
@@ -66,7 +66,9 @@ return {
           local neoskk = require "neoskk"
           if neoskk then
             local lines = neoskk.hover()
-            done { lines = lines, filetype = "markdown" }
+            if lines then
+              done { lines = lines, filetype = "markdown" }
+            end
           else
             done { lines = { "no neoskk" }, filetype = "markdown" }
           end
