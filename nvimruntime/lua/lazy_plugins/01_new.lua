@@ -89,7 +89,8 @@ return {
         emoji = vim.fn.expand "~/.skk/emoji-data.txt",
         kangxi = vim.fn.expand "~/cjkvi-dict/kx2ucs.txt",
         chinadat = vim.fn.expand "~/.skk/chinadat.csv",
-        guangyun = vim.fn.expand "~/.skk/Kuankhiunn0704-semicolon.txt",
+        -- ghq get https://github.com/syimyuzya/guangyun0704
+        guangyun = os.getenv "GHQ_ROOT" .. "/github.com/syimyuzya/guangyun0704/Kuankhiunn0704-semicolon.txt",
         user = vim.fn.expand "~/dotfiles/user_dict.json",
       }
       local opts = {

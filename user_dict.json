@@ -31,5 +31,8 @@
   "舌音": { "kana": ["ぜつおん"], "annotation": "ただな" },
   "辺音": { "kana": ["へんおん"], "annotation": "ら" },
   "脣音": { "kana": ["しんおん"], "annotation": "はばま" },
-  "聲紐": { "kana": ["せいちゅう"], "annotation": "声母、 子音" }
+  "聲紐": { "kana": ["せいちゅう"], "annotation": "声母、 子音" },
+  "系聯法": { "kana": ["けいれんほう"], "annotation": "反切" },
+  "上字": { "kana": ["じょうじ"], "annotation": "反切" },
+  "下字": { "kana": ["かじ"], "annotation": "反切" }
 }
