@@ -65,7 +65,7 @@ local http_pattern = [[^https?://[%w%(%)@:%_%+-%.~#?&/=]+]]
 ---@param node TSNode
 ---@url string
 local function make_markdown_link(node, url)
-  print(node, url)
+  -- print(node, url)
   local h = io.popen("curl -s -L " .. url)
   if not h then
     return
@@ -83,7 +83,7 @@ local function make_markdown_link(node, url)
     if end_s then
       local title = rawdata:sub(begin_e + 1, end_s - 1)
       if title then
-        print(url, title)
+        -- print(url, title)
         -- TODO &quot; => "
 
         -- https://phelipetls.github.io/posts/template-string-converter-with-neovim-treesitter/#replace-the-string-surroundings-with-

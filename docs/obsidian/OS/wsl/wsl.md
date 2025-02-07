@@ -1,3 +1,5 @@
+- [WSLのWindowsのフォルダの色が見づらいのを直す - 新しいことにはウェルカム](https://www.kwbtblog.com/entry/2019/04/27/023411)
+
 # Version
 
 ## WSL2-2.0.9
