@@ -621,7 +621,7 @@ function Install-zig
   New-Item $HOME/local/src -ItemType Directory -ErrorAction SilentlyContinue
 
   Install-zigup
-  zigup 0.12.0
+  zigup master
   Install-zls
 }
 

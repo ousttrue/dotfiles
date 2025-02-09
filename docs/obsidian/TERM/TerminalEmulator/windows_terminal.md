@@ -1,3 +1,5 @@
+https://learn.microsoft.com/en-us/windows/terminal/
+
 [[conpty]] を使う新しい terminal
 
 - [GitHub - microsoft/terminal: The new Windows Terminal and the original Windows console host, all in the same place!](https://github.com/Microsoft/Terminal)
@@ -19,6 +21,10 @@
 ## v1.14 @2022
 
 - [ASCII.jp：地道な改良が進む、Windows Terminal Preview v1.13／1.14の改良点を見る (2/2)](https://ascii.jp/elem/000/004/096/4096536/2/)
+
+# settings
+
+https://learn.microsoft.com/en-us/windows/terminal/install#settings-json-file
 
 # sixel 動かん
 

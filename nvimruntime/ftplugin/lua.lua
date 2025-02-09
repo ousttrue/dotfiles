@@ -11,7 +11,6 @@ local function is_lazy_config()
 
   local m = relative_file_path:match "^/nvimruntime/lua/lazy_plugins/(%d+_[^/]*.lua)$"
   if m then
-    print(m)
     return true
   end
 end

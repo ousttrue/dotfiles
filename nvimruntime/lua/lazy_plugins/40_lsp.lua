@@ -30,6 +30,9 @@ return {
       require("lsp_signature").setup(opts)
     end,
   },
+  {
+    "matsui54/denops-popup-preview.vim",
+  },
   -- {
   --   "folke/noice.nvim",
   --   event = "VeryLazy",

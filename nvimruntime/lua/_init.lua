@@ -1,5 +1,12 @@
 -- https://neovim.io/doc/user/lua.html
 
+-- debug
+-- local g_print = print
+-- print = function(...)
+--   local caller = debug.getinfo(2)
+--   g_print(("%s:%d"):format(caller.source, caller.currentline), ...)
+-- end
+
 vim.g.editorconfig = false
 vim.cmd [[
 let g:zig_recommended_style = 0
@@ -54,6 +61,10 @@ local function setup()
   -- require("tools.indicator").setup()
   -- require("tools.skk").setup()
   require("tools.loghighlighter").setup()
+
+  if vim.fn.has "win64" ~= 0 then
+    require("windows_terminal").setup()
+  end
 end
 
 return {

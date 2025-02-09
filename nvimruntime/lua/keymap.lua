@@ -129,7 +129,8 @@ local function setup()
   vim.keymap.set("n", "<C-_>", "gcc", { remap = true })
   vim.keymap.set("x", "<C-_>", "gc", { remap = true })
 
-  vim.keymap.set("n", "<C-u>", "<Tab>", { remap = false })
+  -- jump list( c-o <-> c-i(tab) )
+  -- https://blog.atusy.net/2023/12/12/telescope-jump-list/
 
   vim.keymap.set("n", "<C-d>", ":qa<CR>", { noremap = true })
   vim.keymap.set("n", "<M-h>", "<C-w>h", { noremap = true })
