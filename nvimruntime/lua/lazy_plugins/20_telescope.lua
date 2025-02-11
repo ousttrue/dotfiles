@@ -1,4 +1,8 @@
 return {
+  -- {
+  --   "nvim-telescope/telescope-file-browser.nvim",
+  --   dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+  -- },
   {
     "nvim-telescope/telescope.nvim",
     -- tag = "0.1.6",
@@ -64,6 +68,8 @@ return {
               -- ["<C-h>"] = "which_key",
               ["<C-Down>"] = ts_actions.cycle_history_next,
               ["<C-Up>"] = ts_actions.cycle_history_prev,
+
+              ["<CR>"] = ts_actions.select_default + ts_actions.center,
             },
           },
           file_sorter = ts_sorters.get_generic_fuzzy_sorter,
@@ -110,7 +116,7 @@ return {
       else
         -- https://www.reddit.com/r/neovim/comments/p1xj92/make_telescope_git_files_revert_back_to_find/
         local function project_files(args)
-          local name = vim.fn.expand('%')
+          local name = vim.fn.expand "%"
 
           local _, ret, _ = ts_utils.get_os_command_output {
             "git",
@@ -191,6 +197,9 @@ return {
           },
         }
       end, {})
+
+      -- vim.keymap.set("n", "<space>e", ":Telescope file_browser<CR>")
+      -- vim.keymap.set("n", "<space>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
     end,
   },
 }

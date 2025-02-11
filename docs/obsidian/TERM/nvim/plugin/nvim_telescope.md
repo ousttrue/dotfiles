@@ -1,8 +1,14 @@
 [[nvim]]
 
+https://github.com/nvim-telescope/telescope.nvim/blob/master/developers.md
+
 - [Neovim for Beginners — Fuzzy File Search (Part 2) | by alpha2phi | Medium](https://alpha2phi.medium.com/neovim-for-beginners-fuzzy-file-search-part-2-2aab95fe8cfe)
 
 - [How to paste current word under the cursor to telescope](https://www.reddit.com/r/neovim/comments/ook0o6/how_to_paste_current_word_under_the_cursor_to/)
+
+# mappings
+
+- https://www.reddit.com/r/neovim/comments/116fuf9/how_to_vertically_center_cursor_in_buffer_window/
 
 # builtin
 

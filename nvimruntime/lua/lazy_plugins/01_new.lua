@@ -1,4 +1,23 @@
 return {
+  {
+    "EthanJWright/vs-tasks.nvim",
+    dependencies = {
+      "nvim-lua/popup.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      vim.cmd [[
+nnoremap <Leader>ta :lua require("telescope").extensions.vstask.tasks()<CR>
+nnoremap <Leader>ti :lua require("telescope").extensions.vstask.inputs()<CR>
+nnoremap <Leader>ti :lua require("telescope").extensions.vstask.clear_inputs()<CR>
+nnoremap <Leader>th :lua require("telescope").extensions.vstask.history()<CR>
+nnoremap <Leader>tl :lua require('telescope').extensions.vstask.launch()<cr>
+nnoremap <Leader>tj :lua require("telescope").extensions.vstask.jobs()<CR>
+nnoremap <Leader>t; :lua require("telescope").extensions.vstask.jobhistory()<CR>
+      ]]
+    end,
+  },
   { "uga-rosa/utf8.nvim" },
   { "simeji/winresizer" },
   -- { "mistweaverco/kulala.nvim", opts = {} },
