@@ -22,7 +22,7 @@
 
 | key | custom                  | default                        |
 | --- | ----------------------- | ------------------------------ |
-| ga  |                         | message: charcode under cursor |
+| ga  | diagnostics ?           | message: charcode under cursor |
 | gb  |                         |
 | gc  |                         | comment                        |
 | gd  |                         | goto local definition          |

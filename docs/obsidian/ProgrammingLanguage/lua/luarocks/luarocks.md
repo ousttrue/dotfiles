@@ -52,15 +52,6 @@ https://github.com/luarocks/luarocks/wiki/luarocks-admin
 
 https://github.com/luarocks/luarocks/wiki/make-manifest
 
-# windows
-
-```sh
-> pip install hererocks
-> hererocks -l 5.1 -r latest "$env:APPDATA\lua"
-> $env:APPDATA\lua\bin\activate.ps1
-> luarocks install vusted
-```
-
 # articles
 
 - https://leafo.net/guides/customizing-the-luarocks-tree.html#the-install-locations/using-a-custom-directory

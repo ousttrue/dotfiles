@@ -83,8 +83,6 @@ return {
     -- "ousttrue/neoskk",
     config = function()
       require("neoskk").setup {
-        jisyo = vim.fn.expand "~/.skk/SKK-JISYO.L",
-        unihan_dir = vim.fn.expand "~/unihan",
         xszd = vim.fn.expand "~/.skk/xszd.txt",
         emoji = vim.fn.expand "~/.skk/emoji-data.txt",
         kangxi = vim.fn.expand "~/cjkvi-dict/kx2ucs.txt",
