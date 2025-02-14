@@ -4,6 +4,7 @@ https://github.com/ValveSoftware/openvr
 https://github.com/ValveSoftware/openvr/wiki/API-Documentation
 https://github.com/OpenVR-Advanced-Settings/OpenVR-AdvancedSettings
 https://github.com/gpsnmeajp/EasyOpenVRUtil/wiki/接続デバイス管理
+https://github.com/elvissteinjr/DesktopPlus
 
 # repos
 

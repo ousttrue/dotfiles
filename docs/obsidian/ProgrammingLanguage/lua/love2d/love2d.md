@@ -2,6 +2,11 @@
 
   - [LOVE](https://love2d.org/wiki/Main_Page)
 
+- https://github.com/brigid-jp/love2d-excersises/tree/master/01
+- https://medium.com/zabu
+- https://github.com/brigid-jp/brigid/wiki
+- https://github.com/JosefAlbers/TerrainZigger
+
 # articles
 
 - [LÖVE(Love2D) プログラミング入門](https://love2d-programming.com/)

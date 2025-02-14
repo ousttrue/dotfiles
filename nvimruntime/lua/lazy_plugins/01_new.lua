@@ -19,7 +19,14 @@ nnoremap <Leader>t; :lua require("telescope").extensions.vstask.jobhistory()<CR>
     end,
   },
   { "uga-rosa/utf8.nvim" },
-  { "simeji/winresizer" },
+  {
+    "simeji/winresizer",
+    init = function()
+      vim.cmd [[
+let g:winresizer_start_key = '<Space>e'
+      ]]
+    end,
+  },
   -- { "mistweaverco/kulala.nvim", opts = {} },
   {
     "norcalli/nvim-colorizer.lua",

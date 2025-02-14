@@ -1,18 +1,15 @@
 return {
-  -- {
-  --   "nvim-telescope/telescope-file-browser.nvim",
-  --   dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-  -- },
   {
     "nvim-telescope/telescope.nvim",
     -- tag = "0.1.6",
     dependencies = {
       "danielfalk/smart-open.nvim",
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-frecency.nvim",
-      "xiyaowong/telescope-emoji.nvim",
       "rcarriga/nvim-notify",
       "nvim-telescope/telescope-live-grep-args.nvim",
+      -- ex
+      "nvim-telescope/telescope-frecency.nvim",
+      "xiyaowong/telescope-emoji.nvim",
     },
     config = function()
       local ts_actions = require "telescope.actions"
@@ -22,7 +19,7 @@ return {
       local ts_actions_layout = require "telescope.actions.layout"
 
       local ts = require "telescope"
-      -- ts.load_extension "frecency"
+      local emoji = ts.load_extension "emoji"
       if vim.fn.has "win32" == 1 then
         vim.g.sqlite_clib_path = "D:/msys64/mingw64/bin/libsqlite3-0.dll"
       end
@@ -35,14 +32,6 @@ return {
       }
       -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-u-to-clear-prompt
       ts.setup {
-        extensions = {
-          -- frecency = {
-          --   auto_validate = true,
-          --   db_safe_mode = false,
-          --   matcher = "fuzzy",
-          --   path_display = { "filename_first" },
-          -- },
-        },
         defaults = {
           vimgrep_arguments = {
             "rg",
@@ -156,7 +145,6 @@ return {
         end
       end
       vim.keymap.set("n", "<Leader>g", grep_under_cursor, { noremap = true })
-      -- vim.keymap.set("n", "<Leader> ", ":Telescope frecency<CR>", { silent = true, noremap = true })
 
       local function help_under_cursor()
         local word = vim.fn.expand "<cword>"
@@ -197,9 +185,6 @@ return {
           },
         }
       end, {})
-
-      -- vim.keymap.set("n", "<space>e", ":Telescope file_browser<CR>")
-      -- vim.keymap.set("n", "<space>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
     end,
   },
 }
