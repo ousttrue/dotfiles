@@ -101,7 +101,7 @@ return {
 
       if vim.startswith(vim.loop.cwd() or "", OBS_DIR) then
         print "OBS_DIR"
-        vim.keymap.set("n", "<C-p>", ts_builtin.find_files, { noremap = true })
+        vim.keymap.set("n", "<C-u>", ts_builtin.find_files, { noremap = true })
       else
         -- https://www.reddit.com/r/neovim/comments/p1xj92/make_telescope_git_files_revert_back_to_find/
         local function project_files(args)
@@ -131,7 +131,7 @@ return {
             vim.cmd("normal! i" .. word)
           end
         end
-        vim.keymap.set("n", "<C-p>", project_files, { noremap = true })
+        vim.keymap.set("n", "<C-u>", project_files, { noremap = true })
       end
 
       local function grep_under_cursor()
@@ -171,20 +171,21 @@ return {
       end
       vim.keymap.set("n", "<space>j", jump, { noremap = true })
 
-      vim.keymap.set("n", "<C-o>", function()
-        local jumplist = vim.fn.getjumplist()
-        require("telescope.builtin").jumplist {
-          on_complete = {
-            function(self)
-              -- select current
-              local n = #jumplist[1]
-              if n ~= jumplist[2] then
-                self:move_selection(jumplist[2] - #jumplist[1] + 1)
-              end
-            end,
-          },
-        }
-      end, {})
+      -- vim.keymap.set("n", "<C-u>", function()
+      --   local jumplist = vim.fn.getjumplist()
+      --   require("telescope.builtin").jumplist {
+      --     select_last_used = true,
+      --     -- on_complete = {
+      --     --   function(self)
+      --     --     -- select current
+      --     --     local n = #jumplist[1]
+      --     --     if n ~= jumplist[2] then
+      --     --       self:move_selection(jumplist[2] - #jumplist[1] + 1)
+      --     --     end
+      --     --   end,
+      --     -- },
+      --   }
+      -- end, {})
     end,
   },
 }

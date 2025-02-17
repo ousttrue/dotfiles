@@ -83,4 +83,22 @@ function Get-Path([string]$type)
   }
 }
 
+function Right-Menu()
+{
+  # レジストリキーの定義
+  $key = "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"
+
+  # レジストリキーが存在しなければ再帰的に作成
+  if (! (Test-Path ${key}) )
+  {
+    New-Item ${key} -Force
+  }
+
+  # 既定プロパティにブランクを設定
+  Set-ItemProperty ${key} -Name "(default)" -Value ""
+
+  # Explorerの再起動
+  Stop-Process -Name explorer -Force
+}
+
 Export-ModuleMember -Function * -Alias *

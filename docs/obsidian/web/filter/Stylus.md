@@ -43,14 +43,27 @@ x {
 # X
 
 ```css
-div[aria-label="トレンド"]{
+div[aria-label="トレンド"] {
     display: none;
 }
 header[role="banner"] {
     display: none;
 }
-div[aria-label="ホームタイムライン"]{
+div[aria-label="ホームタイムライン"] {
     width: 100vw;
-    background: white;
+    max-width: 700px;
+    margin-left: calc(100vw * 1 / 2 - 700px * 1 / 2);
+    margin-right: calc(100vw * 1 / 2 - 700px * 1 / 2);
+    background: black;
 }
 ```
+
+# GoogleAI
+
+```css
+div :has(> div> div > div > div > div > div > strong) {
+/*     AI による概要 */
+    display: none;
+}
+```
+

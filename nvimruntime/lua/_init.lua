@@ -65,6 +65,8 @@ local function setup()
   if vim.fn.has "win64" ~= 0 then
     require("windows_terminal").setup()
   end
+
+  vim.api.nvim_create_user_command("Here", ":!start %:p:h", {});
 end
 
 return {

@@ -66,11 +66,11 @@ let g:winresizer_start_key = '<Space>e'
       -- Setup keymaps
       vim.keymap.set("n", "K", require("hover").hover, { desc = "hover.nvim" })
       vim.keymap.set("n", "gK", require("hover").hover_select, { desc = "hover.nvim (select)" })
-      -- vim.keymap.set("n", "<C-p>", function()
-      --   require("hover").hover_switch "previous"
-      -- end, { desc = "hover.nvim (previous source)" })
-      vim.keymap.set("n", "<C-n>", function()
-        require("hover").hover_switch "next"
+      vim.keymap.set("n", "[k", function()
+        require("hover").hover_switch("previous", {})
+      end, { desc = "hover.nvim (previous source)" })
+      vim.keymap.set("n", "]k", function()
+        require("hover").hover_switch("next", {})
       end, { desc = "hover.nvim (next source)" })
 
       -- Mouse support
@@ -80,6 +80,7 @@ let g:winresizer_start_key = '<Space>e'
       -- Simple
       require("hover").register {
         name = "neoskk",
+        priority = 1,
 
         --- @param bufnr integer
         enabled = function(bufnr)

@@ -4,6 +4,10 @@
 - [x] [Use unified - unified](https://unifiedjs.com/learn/guide/using-unified/)
 - [x] [Syntax trees in TypeScript - unified](https://unifiedjs.com/learn/guide/syntax-trees-typescript/)
 
+# awit in visit
+
+- [MarkdownをHTMLに変換するunifiedインターフェースについての解説 #JavaScript - Qiita](https://qiita.com/masato_makino/items/ef35e6687a71ded7b35a#)
+
 # article
 
 - @2021 [unified を使う前準備](https://zenn.dev/januswel/articles/e4f979b875298e372070)
