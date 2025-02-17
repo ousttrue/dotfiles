@@ -65,5 +65,10 @@ div :has(> div> div > div > div > div > div > strong) {
 /*     AI による概要 */
     display: none;
 }
+div :has(> srpx-bugfix) {
+/*     関連する質問 */
+    display: none;
+
+}
 ```
 
