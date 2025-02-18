@@ -99,9 +99,12 @@ return {
         end
       end
 
+      vim.keymap.set("n", "<C-u>", "<Cmd>Telescope<CR>", { noremap = true })
+
+      local project_files_key = "<C-o>"
       if vim.startswith(vim.loop.cwd() or "", OBS_DIR) then
         print "OBS_DIR"
-        vim.keymap.set("n", "<C-u>", ts_builtin.find_files, { noremap = true })
+        vim.keymap.set("n", project_files_key, ts_builtin.find_files, { noremap = true })
       else
         -- https://www.reddit.com/r/neovim/comments/p1xj92/make_telescope_git_files_revert_back_to_find/
         local function project_files(args)
@@ -131,7 +134,7 @@ return {
             vim.cmd("normal! i" .. word)
           end
         end
-        vim.keymap.set("n", "<C-u>", project_files, { noremap = true })
+        vim.keymap.set("n", project_files_key, project_files, { noremap = true })
       end
 
       local function grep_under_cursor()

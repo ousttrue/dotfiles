@@ -14,9 +14,11 @@
 
 # ctrl
 
-| key    |         |
-| ------ | ------- |
-| ctrl-d | `:quit` |
+| key                  | note                                   |
+| -------------------- | -------------------------------------- |
+| ctrl-d               | `:quit`                                |
+| ctrl-n/p             | hover の next/prev                     |
+| ctrl-o / ctrl-i(Tab) | `Tab / Shift-Tab` と `ctrl-o` に分けた |
 
 # g
 
