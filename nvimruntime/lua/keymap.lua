@@ -62,6 +62,10 @@ end
 
 local http_pattern = [[^https?://[%w%(%)@:%_%+-%.~#?&/=]+]]
 
+local CharMap = {
+  ["&amp;"] = "&",
+}
+
 ---@param node TSNode
 ---@url string
 local function make_markdown_link(node, url)
@@ -85,6 +89,14 @@ local function make_markdown_link(node, url)
       if title then
         -- print(url, title)
         -- TODO &quot; => "
+        title = string.gsub(title, "&%w+;", function(m)
+          local ref = CharMap[m]
+          if ref then
+            return ref
+          else
+            return m
+          end
+        end)
 
         -- https://phelipetls.github.io/posts/template-string-converter-with-neovim-treesitter/#replace-the-string-surroundings-with-
         local start_row, start_col, end_row, end_col = node:range()
@@ -159,7 +171,7 @@ local function setup()
   vim.keymap.set("n", "]q", ":cnewer<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "[q", ":colder<CR>", { noremap = true, silent = true })
 
-  vim.keymap.set("n", "<S-Tab>", "<C-o>", { remap = true })
+  vim.keymap.set("n", "<S-Tab>", "<C-o>", { noremap = true })
 
   vim.keymap.set("n", "<C-q>", close_buffer_or_window, { noremap = true })
   vim.keymap.set("n", "Q", close_buffer_or_window, { noremap = true })

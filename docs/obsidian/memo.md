@@ -1,5 +1,7 @@
 # todo
 
+- imgviewer(single binary. go?)
+
 quest3 + [lovr](https://github.com/bjornbytes/lovr) で MixedReality + handtracking したい。
 
 quest3 向きに MR 部分を改造。

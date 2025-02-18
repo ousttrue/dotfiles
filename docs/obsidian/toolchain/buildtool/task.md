@@ -1,6 +1,16 @@
 https://taskfile.dev/ja-JP/
 
-- @2023 [タスクランナーをgo-taskにする - エキサイト TechBlog.](https://tech.excite.co.jp/entry/2023/11/16/153754)
-- @2023 [Makefile警察「ぐぬぬぬ…」 #Makefile - Qiita](https://qiita.com/schrosis/items/12b4361c528819d13901)
-- @2023 [Zenn](https://zenn.dev/gsy0911/articles/0a8e0e2156579d)
-- @2023 [MakefileをやめてTaskに移行しました - M&amp;Aクラウド開発者ブログ](https://tech.macloud.jp/entry/2023/07/28/185145)
+- [go-task のデフォルトタスク](https://zenn.dev/raki/articles/2024-12-20_raki)
+
+```yaml
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+# https://taskfile.dev/
+
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task --list --sort alphanumeric -t {{.TASKFILE}}
+    silent: true
+```
