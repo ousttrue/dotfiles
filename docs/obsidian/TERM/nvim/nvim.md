@@ -1,5 +1,7 @@
 # TODO
 
+- @2025 [爆速Fuzzy FinderプラグインSnacks.pickerの使い方 | eiji.page](https://eiji.page/blog/neovim-snacks-picker-intro/)
+
 - cursor 下の情報を message 表示: ga
 - spelling English
 

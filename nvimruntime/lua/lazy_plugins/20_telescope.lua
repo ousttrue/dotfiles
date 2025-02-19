@@ -99,9 +99,9 @@ return {
         end
       end
 
-      vim.keymap.set("n", "<C-u>", "<Cmd>Telescope<CR>", { noremap = true })
+      -- vim.keymap.set("n", "<C-u>", "<Cmd>Telescope<CR>", { noremap = true })
 
-      local project_files_key = "<C-o>"
+      local project_files_key = "<C-u>"
       if vim.startswith(vim.loop.cwd() or "", OBS_DIR) then
         print "OBS_DIR"
         vim.keymap.set("n", project_files_key, ts_builtin.find_files, { noremap = true })
