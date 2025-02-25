@@ -1,49 +1,7 @@
-local always_show = { -- remains visible even if other settings would normally hide it
-  --".gitignored",
-  "Makefile",
-  ".Xresources",
-  ".bashrc",
-  ".config",
-  ".conkyrc",
-  ".devcontainer",
-  ".elinks",
-  ".emacs.d",
-  ".eslintrc.json",
-  ".gitattributes",
-  ".gitconfig",
-  ".github",
-  ".gitignore",
-  ".gitmodules",
-  ".inputrc",
-  ".ladle",
-  ".local",
-  ".markdownlint-cli2.yaml",
-  ".marksman.toml",
-  ".mlterm",
-  ".npmrc",
-  ".nyagos",
-  ".omnisharp",
-  ".prettierrc",
-  ".prettierrc.mjs",
-  ".profile",
-  ".remarkrc",
-  ".storybook",
-  ".textlintrc",
-  ".tigrc",
-  ".tmux.conf",
-  ".uim",
-  ".vimrc",
-  ".vitepress",
-  ".vscode",
-  ".w3m",
-  ".xinitrc",
-  ".xsession",
-  ".zshrc",
-  "zig-out",
-  ".vitepress",
-}
+-- https://github.com/nvim-neo-tree/neo-tree.nvim
+local conf = {}
 
-return {
+local M = {
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -51,7 +9,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+      -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
       vim.keymap.set("n", "<C-e>", function()
@@ -87,8 +45,8 @@ return {
         --   },
         -- },
         open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-        sort_case_insensitive = false, -- used when sorting files and directories in the tree
-        sort_function = nil, -- use a custom function for sorting files and directories in the tree
+        sort_case_insensitive = false,                                     -- used when sorting files and directories in the tree
+        sort_function = nil,                                               -- use a custom function for sorting files and directories in the tree
         -- sort_function = function (a,b)
         --       if a.type == b.type then
         --           return a.path > b.path
@@ -107,8 +65,8 @@ return {
             nowait = true,
           },
           mappings = {
-            ["<c-b>"] = "nil",
-            ["<c-f>"] = "nil",
+            -- ["<c-b>"] = "nil",
+            -- ["<c-f>"] = "nil",
             ["<space>"] = {
               "toggle_node",
               nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
@@ -192,7 +150,7 @@ return {
               --"*.meta",
               --"*/src/*/tsconfig.json",
             },
-            always_show = always_show,
+            always_show = conf.always_show,
             never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
               --".DS_Store",
               --"thumbs.db"
@@ -202,11 +160,11 @@ return {
             },
           },
           follow_current_file = {
-            enabled = true, -- This will find and focus the file in the active buffer every time
+            enabled = true,                       -- This will find and focus the file in the active buffer every time
             --               -- the current file is changed while the tree is open.
-            leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+            leave_dirs_open = true,               -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
           },
-          group_empty_dirs = false, -- when true, empty folders will be grouped together
+          group_empty_dirs = false,               -- when true, empty folders will be grouped together
           hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
           -- in whatever position is specified in window.position
           -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -219,7 +177,7 @@ return {
               ["<bs>"] = "navigate_up",
               ["."] = "set_root",
               ["H"] = "toggle_hidden",
-              ["/"] = "noop", --"fuzzy_finder",
+              ["/"] = "noop",         --"fuzzy_finder",
               ["D"] = "fuzzy_finder_directory",
               ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
               -- ["D"] = "fuzzy_sorter_directory",
@@ -268,25 +226,51 @@ return {
       vim.cmd [[nnoremap \ :Neotree reveal<cr>]]
     end,
   },
-  {
-    "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("nvim-web-devicons").setup {
-        override = {
-          fs = {
-            icon = "󰯙 ",
-            -- color = "#3178C6", -- TypeScriptの色
-          },
-          vs = {
-            icon = "󰯙 ",
-            -- color = "#3178C6", -- TypeScriptの色
-          },
-          gs = {
-            icon = "󰯙 ",
-            -- color = "#3178C6", -- TypeScriptの色
-          },
-        },
-      }
-    end,
-  },
 }
+
+conf.always_show = { -- remains visible even if other settings would normally hide it
+  --".gitignored",
+  "Makefile",
+  ".Xresources",
+  ".bashrc",
+  ".config",
+  ".conkyrc",
+  ".devcontainer",
+  ".elinks",
+  ".emacs.d",
+  ".eslintrc.json",
+  ".gitattributes",
+  ".gitconfig",
+  ".github",
+  ".gitignore",
+  ".gitmodules",
+  ".inputrc",
+  ".ladle",
+  ".local",
+  ".markdownlint-cli2.yaml",
+  ".marksman.toml",
+  ".mlterm",
+  ".npmrc",
+  ".nyagos",
+  ".omnisharp",
+  ".prettierrc",
+  ".prettierrc.mjs",
+  ".profile",
+  ".remarkrc",
+  ".storybook",
+  ".textlintrc",
+  ".tigrc",
+  ".tmux.conf",
+  ".uim",
+  ".vimrc",
+  ".vitepress",
+  ".vscode",
+  ".w3m",
+  ".xinitrc",
+  ".xsession",
+  ".zshrc",
+  "zig-out",
+  ".vitepress",
+}
+
+return M

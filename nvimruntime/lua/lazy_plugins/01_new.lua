@@ -1,5 +1,26 @@
 return {
   {
+    "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("nvim-web-devicons").setup {
+        override = {
+          fs = {
+            icon = "󰯙 ",
+            -- color = "#3178C6", -- TypeScriptの色
+          },
+          vs = {
+            icon = "󰯙 ",
+            -- color = "#3178C6", -- TypeScriptの色
+          },
+          gs = {
+            icon = "󰯙 ",
+            -- color = "#3178C6", -- TypeScriptの色
+          },
+        },
+      }
+    end,
+  },
+  {
     "EthanJWright/vs-tasks.nvim",
     dependencies = {
       "nvim-lua/popup.nvim",
@@ -110,12 +131,15 @@ let g:winresizer_start_key = '<Space>e'
     -- "ousttrue/neoskk",
     config = function()
       require("neoskk").setup {
-        xszd = vim.fn.expand "~/.skk/xszd.txt",
+        -- xszd = vim.fn.expand "~/.skk/xszd.txt",
         emoji = vim.fn.expand "~/.skk/emoji-data.txt",
         kangxi = vim.fn.expand "~/cjkvi-dict/kx2ucs.txt",
-        chinadat = vim.fn.expand "~/.skk/chinadat.csv",
+        -- chinadat = vim.fn.expand "~/.skk/chinadat.csv",
         -- ghq get https://github.com/syimyuzya/guangyun0704
-        guangyun = os.getenv "GHQ_ROOT" .. "/github.com/syimyuzya/guangyun0704/Kuankhiunn0704-semicolon.txt",
+        guangyun = vim.fs.joinpath(
+          os.getenv "GHQ_ROOT",
+          "/github.com/syimyuzya/guangyun0704/Kuankhiunn0704-semicolon.txt"
+        ),
         user = vim.fn.expand "~/dotfiles/user_dict.json",
       }
       local opts = {

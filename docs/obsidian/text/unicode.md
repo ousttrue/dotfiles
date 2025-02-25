@@ -1,5 +1,7 @@
 # Version
 
+https://github.com/ridiculousfish/widecharwidth/tree/master
+
 ## 15.0.0
 
 ## 2.0

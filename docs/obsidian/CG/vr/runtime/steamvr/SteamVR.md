@@ -1,5 +1,7 @@
 [[vr]] [[openxr_runtime]]
 
+- [【SteamVRの代替, FOSS VRでVRChatをプレイ。】 Linux(EndeavourOS)をインストールして最速でQuest2でVRChatにログインする方法(WiVRn経由)(Nvidi｜YuePlush](https://note.com/yueplushgame/n/n0a1b02424fcc)
+
 # Version
 
 ## 2.9

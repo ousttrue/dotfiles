@@ -2,8 +2,6 @@
 
 ## nvim
 
-[[nvim]]
-
 - [Luvref - Neovim docs](https://neovim.io/doc/user/luvref.html)
 - [🔁 Using LibUV in Neovim](https://teukka.tech/vimloop.html)
 

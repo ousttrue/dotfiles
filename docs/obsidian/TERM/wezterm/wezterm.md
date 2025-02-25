@@ -18,6 +18,7 @@
 
 # articles
 
+- @2024 [WezTermでターミナルを自分なりのデザインにしよう![Mac向け] #初心者 - Qiita](https://qiita.com/maooz4426/items/cd1b15a38f4bf166b8f8)
 - @2022 [alacritty+tmuxもいいけど、weztermがすごい件](https://zenn.dev/yutakatay/articles/wezterm-intro)
   `emit-event`
 
