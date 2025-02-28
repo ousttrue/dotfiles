@@ -8,4 +8,3 @@ https://www.w3.org/TR/WGSL/
 # WESL
 
 - [WESL (WGSL の拡張) と Slang あたりの動向について調べてメモる](https://zenn.dev/yutannihilation/articles/4b5eefca3de5ef)
-

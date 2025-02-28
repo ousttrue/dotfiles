@@ -60,15 +60,16 @@ local function get_parent(node, list)
   return list
 end
 
-local http_pattern = [[^https?://[%w%(%)@:%_%+-%.~#?&/=]+]]
+local http_pattern = [[^(.*)(https?://[%w%(%)@:%_%+-%.~#?&/=]+)]]
 
 local CharMap = {
   ["&amp;"] = "&",
+  ["&#8211;"] = "–",
 }
 
 ---@param node TSNode
 ---@url string
-local function make_markdown_link(node, url)
+local function make_markdown_link(node, prefix, url)
   -- print(node, url)
   local h = io.popen("curl -s -L " .. url)
   if not h then
@@ -89,7 +90,7 @@ local function make_markdown_link(node, url)
       if title then
         -- print(url, title)
         -- TODO &quot; => "
-        title = string.gsub(title, "&%w+;", function(m)
+        title = string.gsub(title, "&#?%w+;", function(m)
           local ref = CharMap[m]
           if ref then
             return ref
@@ -101,7 +102,7 @@ local function make_markdown_link(node, url)
         -- https://phelipetls.github.io/posts/template-string-converter-with-neovim-treesitter/#replace-the-string-surroundings-with-
         local start_row, start_col, end_row, end_col = node:range()
         local markdown_link = ("[%s](%s)"):format(title, url)
-        vim.api.nvim_buf_set_text(0, start_row, start_col, end_row, end_col, { markdown_link })
+        vim.api.nvim_buf_set_text(0, start_row, start_col, end_row, end_col, { prefix .. markdown_link })
       end
     end
   end
@@ -117,9 +118,9 @@ local function markdown_title()
       local lines = ts_utils.get_node_text(list[1])
       -- replace
       if #lines >= 1 then
-        local m = lines[1]:match(http_pattern)
+        local prefix, m = lines[1]:match(http_pattern)
         if m then
-          make_markdown_link(list[1], m)
+          make_markdown_link(list[1], prefix, m)
         end
       end
     elseif list[2]:type() == "inline_link" then
@@ -127,9 +128,11 @@ local function markdown_title()
       local url = list[2]:named_child(1)
       local lines = ts_utils.get_node_text(url)
       -- print(url, lines[1])
-      local m = lines[1]:match(http_pattern)
+      local prefix, m = lines[1]:match(http_pattern)
       if m then
-        make_markdown_link(list[2], m)
+        make_markdown_link(list[2], prefix, m)
+      else
+        print("not match", lines1[2])
       end
     end
   end

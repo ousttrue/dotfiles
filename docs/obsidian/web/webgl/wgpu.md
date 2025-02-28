@@ -1,6 +1,7 @@
 [[WebGPU]]
 
 [wgpu: portable graphics library for Rust](https://wgpu.rs/)
+
 - [GitHub - gfx-rs/wgpu: Cross-platform, safe, pure-rust graphics api.](https://github.com/gfx-rs/wgpu)
 
 [[rust]] 実装。

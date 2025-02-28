@@ -34,7 +34,27 @@ function M.setup()
       capabilities = client_capabilities,
     }
 
-    if server_name == "clangd" then
+    if server_name == "json-lsp" or server_name == "jsonls" then
+      print(require("schemastore").json.schemas())
+      config.settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
+        },
+        -- json = {
+        --   schemas = {
+        --     {
+        --       fileMatch = { "package.json" },
+        --       url = "https://json.schemastore.org/package.json",
+        --     },
+        --     {
+        --       fileMatch = { "tsconfig.json", "tsconfig.*.json" },
+        --       url = "http://json.schemastore.org/tsconfig",
+        --     },
+        --   },
+        -- },
+      }
+    elseif server_name == "clangd" then
       vim.keymap.set("n", ",,", function()
         vim.cmd "ClangdSwitchSourceHeader"
       end, { noremap = true })
@@ -92,44 +112,44 @@ function M.setup()
       -- if vim.fn.has "win32" == 1 then
       --   config.cmd = { vim.env.HOME .. "/ghq/github.com/zigtools/zls/zig-out/bin/zls.exe" }
       -- end
-    -- elseif server_name == "lua_ls" then
-    --   -- or pull in all of 'runtimepath'. NOTE: this is a lot slower and will cause issues when working on your own configuration (see https://github.com/neovim/nvim-lspconfig/issues/3189)
-    --   local lua_libs = vim.api.nvim_get_runtime_file("lua", true)
-    --
-    --   config.on_init = function(client)
-    --     if client.workspace_folders then
-    --       local path = client.workspace_folders[1].name
-    --       if
-    --         path ~= vim.fn.stdpath "config"
-    --         and (vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc"))
-    --       then
-    --         -- .luarc.json
-    --         return
-    --       end
-    --     end
-    --
-    --     client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-    --       runtime = {
-    --         -- Tell the language server which version of Lua you're using
-    --         -- (most likely LuaJIT in the case of Neovim)
-    --         version = "LuaJIT",
-    --       },
-    --       -- Make the server aware of Neovim runtime files
-    --       workspace = {
-    --         checkThirdParty = false,
-    --         library = vim.list_extend(lua_libs, {
-    --           "${3rd}/luv/library",
-    --           "${3rd}/busted/library",
-    --         }),
-    --       },
-    --       diagnostics = {
-    --         globals = { "vim" },
-    --       },
-    --     })
-    --   end
-    --   config.settings = {
-    --     Lua = {},
-    --   }
+      -- elseif server_name == "lua_ls" then
+      --   -- or pull in all of 'runtimepath'. NOTE: this is a lot slower and will cause issues when working on your own configuration (see https://github.com/neovim/nvim-lspconfig/issues/3189)
+      --   local lua_libs = vim.api.nvim_get_runtime_file("lua", true)
+      --
+      --   config.on_init = function(client)
+      --     if client.workspace_folders then
+      --       local path = client.workspace_folders[1].name
+      --       if
+      --         path ~= vim.fn.stdpath "config"
+      --         and (vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc"))
+      --       then
+      --         -- .luarc.json
+      --         return
+      --       end
+      --     end
+      --
+      --     client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+      --       runtime = {
+      --         -- Tell the language server which version of Lua you're using
+      --         -- (most likely LuaJIT in the case of Neovim)
+      --         version = "LuaJIT",
+      --       },
+      --       -- Make the server aware of Neovim runtime files
+      --       workspace = {
+      --         checkThirdParty = false,
+      --         library = vim.list_extend(lua_libs, {
+      --           "${3rd}/luv/library",
+      --           "${3rd}/busted/library",
+      --         }),
+      --       },
+      --       diagnostics = {
+      --         globals = { "vim" },
+      --       },
+      --     })
+      --   end
+      --   config.settings = {
+      --     Lua = {},
+      --   }
     end
     -- if vim.fn.executable "vala-language-server" == 1 then
     --   require("lspconfig").vala_ls.setup {}

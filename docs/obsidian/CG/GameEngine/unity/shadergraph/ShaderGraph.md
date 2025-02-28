@@ -1,6 +1,10 @@
-[Shader Graph とは | Shader Graph | 10.0.0-preview.27 ](https://docs.unity3d.com/ja/Packages/com.unity.shadergraph@10.0/manual/index.html)
-
 - [Making a Toon Shader with Unity! (Shader Graph tutorial) - YouTube](https://www.youtube.com/watch?v=_jTXd3x6gOY)
+- @2023 [ShaderGraphのシステムを使ってShaderGeneraterを作る #C# - Qiita](https://qiita.com/up-hash/items/dc9c9c19bebefbe869cd)
+
+# Source
+
+- https://github.com/Unity-Technologies/ShaderGraph
+- https://github.com/Unity-Technologies/Graphics
 
 # Version
 
@@ -9,31 +13,24 @@
 > 事前に構築された SRP パッケージと別に Shader Graph のインストールや更新を行うことは避けてください
 > ビルトインのレンダラーには対応していません。
 
+## 17(Unity-6000)
+
+## 16(Unity-2023.2)
+
+## 15(Unity-2023.1)
+
+## 14(Unity 2022.3)
+
 ## 10.0.0-preview.27
 
-# Detail
-
-## API
-
-- https://qiita.com/up-hash/items/dc9c9c19bebefbe869cd
-
-## Source
-
-- https://github.com/Unity-Technologies/ShaderGraph
-- https://github.com/Unity-Technologies/Graphics
+[Shader Graph とは | Shader Graph | 10.0.0-preview.27 ](https://docs.unity3d.com/ja/Packages/com.unity.shadergraph@10.0/manual/index.html)
 
 # 構成
 
-### Target
+## Target
 
 - https://docs.unity3d.com/ja/Packages/com.unity.shadergraph@10.0/manual/Graph-Target.html
-- https://github.com/haw2fregel/CustomShaderGraphTarget
-
-## input: Properties / ブラックボード
-
-- https://docs.unity3d.com/ja/Packages/com.unity.shadergraph@10.0/manual/Blackboard.html
-
-### MainTex
+- [GitHub - haw2fregel/CustomShaderGraphTarget](https://github.com/haw2fregel/CustomShaderGraphTarget)
 
 ## output: MasterStack / MasterNode(旧)
 
@@ -46,7 +43,7 @@
 
 ### MasterNode
 
-- [MasterNode解説 &#8211; Unity Shader Graph まとめ](https://shadergraph.sanukin.net/masternode)
+- [MasterNode解説 – Unity Shader Graph まとめ](https://shadergraph.sanukin.net/masternode)
 
 ## SubGraph
 
@@ -64,15 +61,6 @@
 # MaterialOverride
 
 - [【Unity】ShaderGraph で Material 側で Surface Options を編集する - うにてぃブログ](https://hacchi-man.hatenablog.com/entry/2022/10/02/220000)
-
-# Lighting
-
-## main light direction
-
-`unlit` に対して時前 `Lighting`
-
-- [ShaderGraphでLightを使用する。 - 夜風のMixedReality](https://redhologerbera.hatenablog.com/entry/2021/08/15/194638)
-- [Creating Custom Lighting in Unity’s Shader Graph with Universal Render Pipeline](https://nedmakesgames.medium.com/creating-custom-lighting-in-unitys-shader-graph-with-universal-render-pipeline-5ad442c27276)
 
 - https://x.com/ost_51/status/1602535883055697920?lang=ar
 

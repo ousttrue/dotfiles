@@ -49,6 +49,7 @@ return {
     "williamboman/mason.nvim",
     config = require("config.mason").setup,
     dependencies = {
+      "b0o/schemastore.nvim",
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",
     },

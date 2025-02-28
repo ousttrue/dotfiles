@@ -74,7 +74,6 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "outline.collapseItems": "alwaysCollapse",
     "outline.showArrays": false,
     "outline.showBooleans": false,
     "outline.showEnumMembers": false,

@@ -1,5 +1,9 @@
 # todo
 
+- sdl3 + wgsl
+
+# todo.bak
+
 - imgviewer(single binary. go?)
 
 quest3 + [lovr](https://github.com/bjornbytes/lovr) で MixedReality + handtracking したい。
