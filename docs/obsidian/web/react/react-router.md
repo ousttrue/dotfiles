@@ -6,6 +6,15 @@ npm i react-router-dom
 
 # Version
 
+## 7 @202412
+
+- [React Router v7 がついに Remix と合流したので情報整理 #react-router - Qiita](https://qiita.com/t-kurasawa/items/50efb052f991334877d4)
+- [RouterProvider からのフレームワーク採用 - React Router v7 ドキュメント 日本語版](https://react-router-docs-ja.techtalk.jp/upgrading/router-provider)
+- [React Router v7 でお手軽ドキュメントサイトジェネレータ #Markdown - Qiita](https://qiita.com/_ytori/items/6479e5263ec167e0957b)
+
+- https://react-router-docs-ja.techtalk.jp/start/framework/route-module
+- https://react-router-docs-ja.techtalk.jp/how-to/route-module-type-safety
+
 ## 6.4
 
 ## 6.26 @2024

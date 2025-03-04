@@ -209,7 +209,8 @@ function prompt()
   # https://learn.microsoft.com/en-us/windows/terminal/tutorials/new-tab-same-directory
   $loc = $executionContext.SessionState.Path.CurrentLocation;
   $out = "";
-  if ($loc.Provider.Name -eq "FileSystem") {
+  if ($loc.Provider.Name -eq "FileSystem")
+  {
     $out += "`e]9;9;`"$($loc.ProviderPath)`"`e$([char]0x5c)"
   }
 
@@ -221,8 +222,8 @@ function prompt()
 
 function Edit-Docs
 {
-  $docs = Join-Path $dot_dir "docs/obsidian"
-  Set-Location $docs
+  $dir = Join-Path $dot_dir "docs/obsidian"
+  Set-Location $dir
   if ($env:TERM -eq "tmux-256color")
   {
     tmux rename-window "📚"
@@ -240,6 +241,18 @@ function Edit-Dotfiles
   } 
   Write-Host "`e]2; $([char]0x07)"
   v
+}
+
+function Edit-Log
+{
+  $dir = Join-Path $HOME "Desktop"
+  Set-Location $dir
+  if ($env:TERM -eq "tmux-256color")
+  {
+    tmux rename-window "📝"
+  } 
+  Write-Host "`e]2;📝$([char]0x07)"
+  v log.md
 }
 
 # https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81
