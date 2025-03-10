@@ -1,4 +1,3 @@
-vim.opt.makeprg = "make"
 -- examples\raygizmo.zig:45:21: error:
 vim.bo.errorformat = "%f:%l:%c: %t%*[^:]: %m"
 vim.bo.expandtab = true

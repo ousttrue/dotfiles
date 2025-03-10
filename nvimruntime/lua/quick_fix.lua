@@ -2,7 +2,6 @@
 --   meson = function()
 --     -- qf
 --     if vim.fn.has "win32" == 1 then
---       -- vim.opt.makeprg = "meson install -C builddir"
 --     else
 --       vim.opt.shellpipe = "2>&1| tee"
 --     end
@@ -46,10 +45,7 @@ local ninja_vc_fmt = zig .. "%Dninja: Entering directory `%f',%f(%l): %t%*[^ ] %
 local gcc_fmt = zig .. "%f:%l:%c: %t%*[^:]: %m"
 
 local function setup()
-  -- vim.opt.makeprg = "meson install -C builddir --tags runtime"
-  -- vim.opt.makeprg = "zig build 2>&1"
   if vim.fn.has "win32" == 1 then
-    -- vim.opt.makeprg = "meson install -C builddir"
   else
     vim.opt.shellpipe = "2>&1| tee"
   end

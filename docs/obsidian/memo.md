@@ -1,6 +1,6 @@
 # todo
 
-- sdl3 + wgsl
+- sdl3 + vrulakn + wgsl
 
 # todo.bak
 
