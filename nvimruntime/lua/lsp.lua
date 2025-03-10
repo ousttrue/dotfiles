@@ -4,12 +4,12 @@ local function on_attach(event)
     -- Disable semantic highlights
     client.server_capabilities.semanticTokensProvider = nil
 
-    if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, event.buf) then
-      -- lsp completion
-      vim.lsp.completion.enable(true, client.id, event.buf, {
-        autotrigger = false,
-      })
-    end
+    -- if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, event.buf) then
+    --   -- lsp completion
+    --   vim.lsp.completion.enable(true, client.id, event.buf, {
+    --     autotrigger = false,
+    --   })
+    -- end
 
     -- formatter
     vim.keymap.set("n", "<Space>f", function()
@@ -31,13 +31,13 @@ function M.setup()
   })
 
   -- Enable completion and configure keybindings.
-  vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
+  -- vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
   -- vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
   -- vim.keymap.set("n", "<f12>", vim.lsp.buf.references, { noremap = true })
   -- -- vim.keymap.set("n", "<C-m>", vim.lsp.buf.definition, { noremap = true })
   -- -- conflict quickfix
   -- -- vim.keymap.set("n", "<C-m>", "<C-]>", { noremap = true })
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
+  -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
   -- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
   -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
   -- vim.keymap.set("n", "gn", vim.lsp.buf.rename, { noremap = true })

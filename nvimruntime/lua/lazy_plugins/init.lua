@@ -22,27 +22,28 @@ local M = {
     --
     -- plugins
     --
+    local dir = "lazy_plugins."
     local plugins = {}
-    table.insert(plugins, { import = "lazy_plugins.01_new" })
-    table.insert(plugins, { import = "lazy_plugins.10_treesitter" })
-    table.insert(plugins, { import = "lazy_plugins.20_telescope" })
-    table.insert(plugins, { import = "lazy_plugins.30_neotree" })
-    -- table.insert(plugins, { import = "lazy_plugins.31_snacks" })
-    -- table.insert(plugins, { import = "lazy_plugins.32_nvimtree" })
-    table.insert(plugins, { import = "lazy_plugins.40_lsp" })
-    -- table.insert(plugins, { import = "lazy_plugins.41_diagnostics" })
-    -- table.insert(plugins, { import = "lazy_plugins.50_cmp" })
-    -- table.insert(plugins, { import = "lazy_plugins.51_sekme" })
+    table.insert(plugins, { import = dir .. "01_new" })
+    table.insert(plugins, { import = dir .. "10_treesitter" })
+    table.insert(plugins, { import = dir .. "20_telescope" })
+    table.insert(plugins, { import = dir .. "30_neotree" })
+    -- table.insert(plugins, { import = dir .."31_snacks" })
+    -- table.insert(plugins, { import = dir .."32_nvimtree" })
+    table.insert(plugins, { import = dir .. "40_lsp" })
+    -- table.insert(plugins, { import = dir .."41_diagnostics" })
+    table.insert(plugins, { import = dir .. "50_cmp" })
+    -- table.insert(plugins, { import = dir .."51_sekme" })
     -- if vim.fn.has "win64" ~= 0 then
-    -- table.insert(plugins, { import = "lazy_plugins.90_denops" })
+    -- table.insert(plugins, { import = dir .."90_denops" })
     -- else
     --   -- use fcitx
     -- end
-    table.insert(plugins, { import = "lazy_plugins.60_edit" })
-    table.insert(plugins, { import = "lazy_plugins.70_git" })
-    table.insert(plugins, { import = "lazy_plugins.71_markdown" })
+    table.insert(plugins, { import = dir .. "60_edit" })
+    table.insert(plugins, { import = dir .. "70_git" })
+    table.insert(plugins, { import = dir .. "71_markdown" })
 
-    table.insert(plugins, { import = "lazy_plugins.80_ui" })
+    table.insert(plugins, { import = dir .. "80_ui" })
 
     local opts = {
       change_detection = {
