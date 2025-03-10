@@ -6,6 +6,8 @@ https://github.com/ayaka14732/awesome-rime
 
 [《広東語》 Windowsで広東語入力ができるIME「RIME」をインストールしよう | Hong Kong Vision Cantonese](https://hongkongvision.com/archives/19151)
 
+`WINDOWS + space` 切り替え
+
 [カスタマイズ自由な最強の中国語入力法であるrime - huixingの日記](https://huixing.hatenadiary.org/entry/20130104/chinese_ime)
 
 - https://github.com/xrq-phys/rime-hifumi
