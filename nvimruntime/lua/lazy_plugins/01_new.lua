@@ -131,6 +131,7 @@ let g:winresizer_start_key = '<Space>e'
   -- },
   {
     name = "ousttrue/neoskk",
+    -- enabled = false,
     dir = vim.env["GHQ_ROOT"] .. "/github.com/ousttrue/neoskk",
     dev = true,
     -- "ousttrue/neoskk",

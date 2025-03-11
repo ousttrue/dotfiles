@@ -67,6 +67,9 @@ local function setup()
   end
 
   vim.api.nvim_create_user_command("Here", ":!start %:p:h", {})
+
+  local cmp_neoskk = require "cmp_neoskk"
+  require("cmp").register_source("neoskk", cmp_neoskk.new())
 end
 
 return {
