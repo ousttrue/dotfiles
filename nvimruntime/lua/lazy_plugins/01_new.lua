@@ -1,5 +1,10 @@
 return {
   {
+    "mvllow/modes.nvim",
+    tag = "v0.2.1",
+    opts = {},
+  },
+  {
     "nvim-tree/nvim-web-devicons",
     config = function()
       require("nvim-web-devicons").setup {

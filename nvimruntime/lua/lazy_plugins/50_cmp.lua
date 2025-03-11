@@ -120,15 +120,6 @@ local function config()
       }
     ),
   }
-  --   sources = make_sources(
-  --   -- "nvim_lsp_signature_help",
-  --     "nvim_lsp",
-  --     "buffer",
-  --     "IM",
-  --     "unihan",
-  --     "emoji"
-  --   -- "skkeleton"
-  --   ),
 
   -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline({ "/", "?" }, {
@@ -146,6 +137,7 @@ local function config()
     }, {
       { name = "cmdline" },
     }),
+    ---@diagnostic disable-next-line
     matching = { disallow_symbol_nonprefix_matching = false },
   })
 

@@ -39,7 +39,7 @@ function GET_SYSTEM()
 end
 
 function PATH_EXISTS(path)
-  if vim.loop.fs_stat(path) then
+  if vim.uv.fs_stat(path) then
     return true
   end
 end
@@ -66,7 +66,7 @@ local function setup()
     require("windows_terminal").setup()
   end
 
-  vim.api.nvim_create_user_command("Here", ":!start %:p:h", {});
+  vim.api.nvim_create_user_command("Here", ":!start %:p:h", {})
 end
 
 return {
