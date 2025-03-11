@@ -23,3 +23,17 @@ https://neovim.io/doc/user/ui.html
 # cmdhight
 
 https://zenn.dev/shougo/articles/set-cmdheight-0
+
+
+```lua
+local WINDOW = {
+  documentation = {
+    border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+    winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
+  },
+  completion = {
+    border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+    winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
+  },
+}
+```

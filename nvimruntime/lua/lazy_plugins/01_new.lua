@@ -124,42 +124,42 @@ let g:winresizer_start_key = '<Space>e'
   --     }
   --   end,
   -- },
-  -- {
-  --   name = "ousttrue/neoskk",
-  --   dir = vim.env["GHQ_ROOT"] .. "/github.com/ousttrue/neoskk",
-  --   dev = true,
-  --   -- "ousttrue/neoskk",
-  --   config = function()
-  --     require("neoskk").setup {
-  --       -- xszd = vim.fn.expand "~/.skk/xszd.txt",
-  --       emoji = vim.fn.expand "~/.skk/emoji-data.txt",
-  --       kangxi = vim.fn.expand "~/cjkvi-dict/kx2ucs.txt",
-  --       -- chinadat = vim.fn.expand "~/.skk/chinadat.csv",
-  --       -- ghq get https://github.com/syimyuzya/guangyun0704
-  --       guangyun = vim.fs.joinpath(
-  --         os.getenv "GHQ_ROOT",
-  --         "/github.com/syimyuzya/guangyun0704/Kuankhiunn0704-semicolon.txt"
-  --       ),
-  --       user = vim.fn.expand "~/dotfiles/user_dict.json",
-  --     }
-  --     local opts = {
-  --       remap = false,
-  --       expr = true,
-  --     }
-  --     vim.keymap.set("i", "<C-j>", function()
-  --       local neoskk = require "neoskk"
-  --       return neoskk.toggle()
-  --     end, opts)
-  --     vim.keymap.set("i", "<C-b>", function()
-  --       local neoskk = require "neoskk"
-  --       return neoskk.toggle "zhuyin"
-  --     end, opts)
-  --
-  --     vim.api.nvim_create_user_command("NeoSkkReload", function()
-  --       require("neoskk").reload_dict()
-  --     end, {})
-  --   end,
-  -- },
+  {
+    name = "ousttrue/neoskk",
+    dir = vim.env["GHQ_ROOT"] .. "/github.com/ousttrue/neoskk",
+    dev = true,
+    -- "ousttrue/neoskk",
+    config = function()
+      require("neoskk").setup {
+        -- xszd = vim.fn.expand "~/.skk/xszd.txt",
+        emoji = vim.fn.expand "~/.skk/emoji-data.txt",
+        kangxi = vim.fn.expand "~/cjkvi-dict/kx2ucs.txt",
+        -- chinadat = vim.fn.expand "~/.skk/chinadat.csv",
+        -- ghq get https://github.com/syimyuzya/guangyun0704
+        guangyun = vim.fs.joinpath(
+          os.getenv "GHQ_ROOT",
+          "/github.com/syimyuzya/guangyun0704/Kuankhiunn0704-semicolon.txt"
+        ),
+        user = vim.fn.expand "~/dotfiles/user_dict.json",
+      }
+      local opts = {
+        remap = false,
+        expr = true,
+      }
+      vim.keymap.set("i", "<C-j>", function()
+        local neoskk = require "neoskk"
+        return neoskk.toggle()
+      end, opts)
+      vim.keymap.set("i", "<C-b>", function()
+        local neoskk = require "neoskk"
+        return neoskk.toggle "zhuyin"
+      end, opts)
+
+      vim.api.nvim_create_user_command("NeoSkkReload", function()
+        require("neoskk").reload_dict()
+      end, {})
+    end,
+  },
   -- {
   --   "folke/which-key.nvim",
   --   event = "VeryLazy",

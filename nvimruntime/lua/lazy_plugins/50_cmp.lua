@@ -1,14 +1,4 @@
 -- https://github.com/hrsh7th/nvim-cmp
-local WINDOW = {
-  documentation = {
-    border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-    winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
-  },
-  completion = {
-    border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-    winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
-  },
-}
 
 local function make_sources(...)
   local sources = {}
@@ -19,27 +9,27 @@ local function make_sources(...)
   return sources
 end
 
-local function cmp_im_setup()
-  local cmp_im = require "cmp_im"
-  cmp_im.setup {
-    -- Enable/Disable IM
-    enable = false,
-    -- IM keyword pattern
-    keyword = [[\l\+]],
-    -- IM tables path array
-    tables = require("cmp_im_zh").tables {
-      -- "wubi",
-      "pinyin",
-    },
-    -- Function to format IM-key and IM-tex for completion display
-    format = function(key, text)
-      ---@diagnostic disable-next-line: redundant-parameter
-      return vim.fn.printf("%-15S %s", text, key)
-    end,
-    -- Max number entries to show for completion of each table
-    maxn = 8,
-  }
-end
+-- local function cmp_im_setup()
+--   local cmp_im = require "cmp_im"
+--   cmp_im.setup {
+--     -- Enable/Disable IM
+--     enable = false,
+--     -- IM keyword pattern
+--     keyword = [[\l\+]],
+--     -- IM tables path array
+--     tables = require("cmp_im_zh").tables {
+--       -- "wubi",
+--       "pinyin",
+--     },
+--     -- Function to format IM-key and IM-tex for completion display
+--     format = function(key, text)
+--       ---@diagnostic disable-next-line: redundant-parameter
+--       return vim.fn.printf("%-15S %s", text, key)
+--     end,
+--     -- Max number entries to show for completion of each table
+--     maxn = 8,
+--   }
+-- end
 
 -- cmp.register_source(
 --   "unihan",
@@ -84,44 +74,61 @@ end
 local function config()
   local cmp = require "cmp"
 
-  cmp.setup {
-    snippet = {
-      -- REQUIRED - you must specify a snippet engine
-      expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-        -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+  local select_map = {
+    -- c-n/c-p で insert しない
+    ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
+    ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
+    ["<ESC>"] = cmp.mapping.close(),
+    -- 選択(抜けない)
+    ["<C-e>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert, count = 0 },
+    -- 選択(抜ける)
+    ["<CR>"] = cmp.mapping.confirm { select = false, behavior = cmp.ConfirmBehavior.Replace },
+    -- insertする
+    ["<Tab>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+    ["<Space>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+    ["<C-c>"] = cmp.mapping.abort(),
+    --
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+  }
 
-        -- For `mini.snippets` users:
-        -- local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
-        -- insert({ body = args.body }) -- Insert at cursor
-        -- cmp.resubscribe({ "TextChangedI", "TextChangedP" })
-        -- require("cmp.config").set_onetime({ sources = {} })
+  cmp.setup {
+    --   completion = {
+    --     completeopt = "menu,menuone,noinsert,noselect",
+    --   },
+    --   formatting = formatting,
+    --   matching = { disallow_partial_matching = false },
+    preselect = cmp.PreselectMode.None,
+    snippet = {
+      expand = function(args)
+        vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
       end,
     },
     window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
     },
-    mapping = cmp.mapping.preset.insert {
-      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-Space>"] = cmp.mapping.complete(),
-      ["<C-e>"] = cmp.mapping.abort(),
-      ["<CR>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    },
-    sources = cmp.config.sources({
-      { name = "nvim_lsp" },
-      { name = "vsnip" }, -- For vsnip users.
-      -- { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
-    }, {
-      { name = "buffer" },
-    }),
+    mapping = cmp.mapping.preset.insert(select_map),
+    sources = cmp.config.sources(
+      --
+      {
+        { name = "nvim_lsp" },
+      },
+      --
+      {
+        { name = "buffer" },
+      }
+    ),
   }
+  --   sources = make_sources(
+  --   -- "nvim_lsp_signature_help",
+  --     "nvim_lsp",
+  --     "buffer",
+  --     "IM",
+  --     "unihan",
+  --     "emoji"
+  --   -- "skkeleton"
+  --   ),
 
   -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline({ "/", "?" }, {
@@ -142,59 +149,10 @@ local function config()
     matching = { disallow_symbol_nonprefix_matching = false },
   })
 
-  -- cmp.setup {
-  --   completion = {
-  --     completeopt = "menu,menuone,noinsert,noselect",
-  --   },
-  --   mapping = cmp.mapping.preset.insert {
-  --     ["<C-p>"] = cmp.mapping.select_prev_item(),
-  --     ["<C-n>"] = cmp.mapping.select_next_item(),
-  --     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-  --     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-  --     ["<C-Space>"] = cmp.mapping.complete(),
-  --     ["<C-e>"] = cmp.mapping.abort(),
-  --     ["<CR>"] = cmp.mapping.confirm { select = false },
-  --   },
-  --   sources = make_sources(
-  --   -- "nvim_lsp_signature_help",
-  --     "nvim_lsp",
-  --     "buffer",
-  --     "IM",
-  --     "unihan",
-  --     "emoji"
-  --   -- "skkeleton"
-  --   ),
-  --   window = WINDOW,
-  --   formatting = formatting,
-  --   snippet = {
-  --     -- REQUIRED - you must specify a snippet engine
-  --     expand = function(args)
-  --       -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-  --       -- require("luasnip").lsp_expand(args.body)
-  --       vim.snippet.expand(args.body)
-  --     end,
-  --   },
-  --   matching = { disallow_partial_matching = false },
-  -- }
-  --
-  -- -- Set configuration for specific filetype.
-  -- cmp.setup.filetype("gitcommit", {
-  --   sources = make_sources("git", "buffer", "path"),
-  -- })
-  --
-  -- -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-  -- cmp.setup.cmdline({ "/", "?" }, {
-  --   mapping = cmp.mapping.preset.cmdline(),
-  --   sources = make_sources "buffer",
-  -- })
-  --
-  -- -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  -- cmp.setup.cmdline(":", {
-  --   mapping = cmp.mapping.preset.cmdline(),
-  --   sources = make_sources("path", "cmdline"),
-  --   window = WINDOW,
-  --   formatting = formatting,
-  -- })
+  -- Set configuration for specific filetype.
+  cmp.setup.filetype("gitcommit", {
+    sources = make_sources("git", "buffer", "path"),
+  })
 end
 
 return {
