@@ -71,13 +71,13 @@ local function setup()
   local cmp_neoskk = require "cmp_neoskk"
   local cmp = require "cmp"
   cmp.register_source("neoskk", cmp_neoskk.new())
-  cmp.event:on("complete_done", function()
-    local neoskk = require "neoskk"
-    local state = neoskk.instance.state
-    if state then
-      state:clear_conv()
-    end
-  end)
+  -- cmp.event:on("complete_done", function()
+  --   local neoskk = require "neoskk"
+  --   local state = neoskk.instance.state
+  --   if state then
+  --     state:clear_conv()
+  --   end
+  -- end)
 end
 
 return {

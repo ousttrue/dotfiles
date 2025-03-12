@@ -54,21 +54,22 @@ function source:complete(params, callback)
   local items = {}
   local dict = neoskk.instance.dict
   if dict then
-    local preedit = neoskk.instance.preedit
-    local words = dict:filter_jisyo(preedit, nil)
+    local key = params.context.cursor_line
+    local words = dict:filter_jisyo(key, nil)
     for i, word in ipairs(words) do
       --   word = ":66661:",
       --   label = "噐 :66661:",
       --   insertText = "噐",
       --   filterText = ":66661:",
       table.insert(items, {
-        -- word = word.word,
+        word = word.word,
         label = word.word,
-        -- insertText = word.word,
-        filterText = preedit,
+        insertText = word.word,
+        filterText = key,
       })
     end
   end
+  -- print(params.context.cursor_line, vim.inspect(items))
   callback(items)
 end
 
