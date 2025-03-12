@@ -59,32 +59,30 @@ local function config()
     },
   }
 
-  local select_map = {
-    -- c-n/c-p で insert しない
-    ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
-    ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
-    ["<ESC>"] = cmp.mapping.close(),
+  local common_map = {
     -- 選択(抜けない)
     ["<C-e>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert, count = 0 },
     -- 選択(抜ける)
-    ["<CR>"] = cmp.mapping.confirm { select = false, behavior = cmp.ConfirmBehavior.Replace },
-    -- insertする
-    -- ["<Tab>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-    -- ["<Space>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+    ["<CR>"] = cmp.mapping.confirm { select = true, behavior = cmp.ConfirmBehavior.Replace },
+    --
+    ["<ESC>"] = cmp.mapping.close(),
     ["<C-c>"] = cmp.mapping.abort(),
     --
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    --
-    -- ["<F4>"] = cmp.mapping.complete {
-    --   config = {
-    --     sources = {
-    --       { name = "neoskk" },
-    --     },
-    --     formatting = formatting,
-    --   },
-    -- },
   }
+
+  -- c-n/c-p で insert しない
+  local select_map = vim.tbl_extend("force", common_map, {
+    ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
+    ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
+  })
+
+  -- c-n/c-p で insert する
+  local insert_map = vim.tbl_extend("force", common_map, {
+    ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+    ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+  })
 
   cmp.setup {
     --   completion = {
@@ -102,7 +100,7 @@ local function config()
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
     },
-    mapping = cmp.mapping.preset.insert(select_map),
+    mapping = cmp.mapping.preset.insert(insert_map),
     sources = cmp.config.sources(
     --
       {
@@ -111,10 +109,6 @@ local function config()
       --
       {
         { name = "buffer" },
-      },
-      --
-      {
-        { name = "neoskk" },
       }
     ),
   }

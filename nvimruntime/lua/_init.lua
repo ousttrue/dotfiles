@@ -78,6 +78,20 @@ local function setup()
   --     state:clear_conv()
   --   end
   -- end)
+  vim.api.nvim_create_autocmd("TextChangedI", {
+    callback = function()
+      local line = vim.api.nvim_get_current_line()
+      if line:match "▽" then
+        cmp.complete {
+          config = {
+            sources = {
+              { name = "neoskk" },
+            },
+          },
+        }
+      end
+    end,
+  })
 end
 
 return {

@@ -22,13 +22,16 @@ function source:get_debug_name()
   return "neoskk"
 end
 
+-- function source:get_trigger_characters()
+--   return { "▽" }
+-- end
+
 ---Return the keyword pattern for triggering completion (optional).
 ---If this is omitted, nvim-cmp will use a default keyword pattern. See |cmp-config.completion.keyword_pattern|.
 ---@return string
 function source:get_keyword_pattern()
-  -- U+3041-U+3094 & U+30A1-U+30F4 & U+FF66-U+FF9F
-  -- ひらがな & 全角カタカナ & 半角カタカナ
-  return [=[\V\[ぁ-ゔァ-ヴ]]=]
+  -- ▽
+  return [=[▽.\+]=]
 end
 
 ---Invoke completion (required).
@@ -54,19 +57,26 @@ function source:complete(params, callback)
   local items = {}
   local dict = neoskk.instance.dict
   if dict then
-    local key = params.context.cursor_line
-    local words = dict:filter_jisyo(key, nil)
-    for i, word in ipairs(words) do
-      --   word = ":66661:",
-      --   label = "噐 :66661:",
-      --   insertText = "噐",
-      --   filterText = ":66661:",
-      table.insert(items, {
-        word = word.word,
-        label = word.word,
-        insertText = word.word,
-        filterText = key,
-      })
+    -- local key = params.context.cursor_line
+    local key = params.context.cursor_line:match [=[▽(.+)]=]
+    if key and #key > 0 then
+      print("key", key, #key)
+      local words = dict:filter_jisyo(key, nil)
+      for i, word in ipairs(words) do
+        --   word = ":66661:",
+        --   label = "噐 :66661:",
+        --   insertText = "噐",
+        --   filterText = ":66661:",
+        table.insert(items, {
+          word = word.word,
+          label = word.abbr,
+          -- insertText = word.word,
+          filterText = "▽" .. key,
+          documentation = word.info,
+        })
+      end
+    else
+      print("not", params.context.cursor_line)
     end
   end
   -- print(params.context.cursor_line, vim.inspect(items))

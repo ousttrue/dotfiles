@@ -103,7 +103,7 @@ return {
 
       local project_files_key = "<C-u>"
       if vim.startswith(vim.loop.cwd() or "", OBS_DIR) then
-        print "OBS_DIR"
+        -- print "OBS_DIR"
         vim.keymap.set("n", project_files_key, ts_builtin.find_files, { noremap = true })
       else
         -- https://www.reddit.com/r/neovim/comments/p1xj92/make_telescope_git_files_revert_back_to_find/
