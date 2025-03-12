@@ -76,14 +76,14 @@ local function config()
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     --
-    ["<F4>"] = cmp.mapping.complete {
-      config = {
-        sources = {
-          { name = "neoskk" },
-        },
-        formatting = formatting,
-      },
-    },
+    -- ["<F4>"] = cmp.mapping.complete {
+    --   config = {
+    --     sources = {
+    --       { name = "neoskk" },
+    --     },
+    --     formatting = formatting,
+    --   },
+    -- },
   }
 
   cmp.setup {
@@ -111,6 +111,10 @@ local function config()
       --
       {
         { name = "buffer" },
+      },
+      --
+      {
+        { name = "neoskk" },
       }
     ),
   }
