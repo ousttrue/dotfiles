@@ -1,5 +1,7 @@
 https://www.python.org/
 
+- https://github.com/pschanely/CrossHair
+
 - https://gihyo.jp/list/group/Python-Monthly-Topics#rt:/article/2023/03/monthly-python-2303
 
 # version

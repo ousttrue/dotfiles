@@ -67,31 +67,6 @@ local function setup()
   end
 
   vim.api.nvim_create_user_command("Here", ":!start %:p:h", {})
-
-  local cmp = require "cmp"
-  local cmp_neoskk = require "neoskk.cmp_neoskk"
-  cmp.register_source("neoskk", cmp_neoskk.new())
-  -- cmp.event:on("complete_done", function()
-  --   local neoskk = require "neoskk"
-  --   local state = neoskk.instance.state
-  --   if state then
-  --     state:clear_conv()
-  --   end
-  -- end)
-  vim.api.nvim_create_autocmd("TextChangedI", {
-    callback = function()
-      local line = vim.api.nvim_get_current_line()
-      if line:match "▽" then
-        cmp.complete {
-          config = {
-            sources = {
-              { name = "neoskk" },
-            },
-          },
-        }
-      end
-    end,
-  })
 end
 
 return {

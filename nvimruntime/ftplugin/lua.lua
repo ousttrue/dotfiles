@@ -16,6 +16,7 @@ local function is_lazy_config()
 end
 
 if is_lazy_config() then
+  local opts = { buffer = 0, noremap = true, silent = true }
   vim.keymap.set("n", "gx", function()
     local cfile = vim.fn.expand "<cfile>"
     if cfile:match "^[^/]*/[^/]*$" then
@@ -25,7 +26,18 @@ if is_lazy_config() then
     else
       vim.ui.open(cfile)
     end
-  end, { buffer = 0, noremap = true, silent = true })
+  end, opts)
+
+  vim.keymap.set("n", "gf", function()
+    local cfile = vim.fn.expand "<cfile>"
+    local name = cfile:match "^[^/]*/([^/]*)$"
+    if name then
+      local path = os.getenv "LOCALAPPDATA" .. "/nvim-data/lazy/" .. name
+      vim.cmd(("Neotree float %s"):format(path))
+    else
+      print("not match", cfile)
+    end
+  end, opts)
 end
 
 vim.opt.errorformat = vim.fn.join({

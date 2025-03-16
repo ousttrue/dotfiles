@@ -10,6 +10,7 @@ return {
       -- ex
       "nvim-telescope/telescope-frecency.nvim",
       "xiyaowong/telescope-emoji.nvim",
+      "atusy/qfscope.nvim",
     },
     config = function()
       local ts_actions = require "telescope.actions"
@@ -17,6 +18,7 @@ return {
       local ts_builtin = require "telescope.builtin"
       local ts_utils = require "telescope.utils"
       local ts_actions_layout = require "telescope.actions.layout"
+      local qfs_actions = require "qfscope.actions"
 
       local ts = require "telescope"
       local emoji = ts.load_extension "emoji"
@@ -50,6 +52,10 @@ return {
               ["<Tab>"] = ts_actions_layout.toggle_preview,
               -- clear. not preview scroll
               ["<C-u>"] = false,
+              --
+              ["<C-a>"] = { "<home>", type = "command" },
+              ["<C-e>"] = { "<end>", type = "command" },
+              --
               ["<C-f>"] = { "<Right>", type = "command" },
               ["<C-b>"] = { "<Left>", type = "command" },
               -- clear input to eol
@@ -59,6 +65,11 @@ return {
               ["<C-Up>"] = ts_actions.cycle_history_prev,
 
               ["<CR>"] = ts_actions.select_default + ts_actions.center,
+              -- qfs
+              ["<C-G><C-G>"] = qfs_actions.qfscope_search_filename,
+              ["<C-G><C-F>"] = qfs_actions.qfscope_grep_filename,
+              ["<C-G><C-L>"] = qfs_actions.qfscope_grep_line,
+              ["<C-G><C-T>"] = qfs_actions.qfscope_grep_text,
             },
           },
           file_sorter = ts_sorters.get_generic_fuzzy_sorter,
@@ -98,8 +109,6 @@ return {
           OBS_DIR = OBS_DIR[1]:upper() .. ":" .. OBS_DIR:sub(3)
         end
       end
-
-      -- vim.keymap.set("n", "<C-u>", "<Cmd>Telescope<CR>", { noremap = true })
 
       local project_files_key = "<C-u>"
       if vim.startswith(vim.loop.cwd() or "", OBS_DIR) then
@@ -173,22 +182,6 @@ return {
         }
       end
       vim.keymap.set("n", "<space>j", jump, { noremap = true })
-
-      -- vim.keymap.set("n", "<C-u>", function()
-      --   local jumplist = vim.fn.getjumplist()
-      --   require("telescope.builtin").jumplist {
-      --     select_last_used = true,
-      --     -- on_complete = {
-      --     --   function(self)
-      --     --     -- select current
-      --     --     local n = #jumplist[1]
-      --     --     if n ~= jumplist[2] then
-      --     --       self:move_selection(jumplist[2] - #jumplist[1] + 1)
-      --     --     end
-      --     --   end,
-      --     -- },
-      --   }
-      -- end, {})
     end,
   },
 }

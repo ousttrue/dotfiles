@@ -1,5 +1,7 @@
 [[dotNET]]
 
+[自作の.NET製CLIツールにタブ補完機能を付ける（その２）～入力候補を動的に取得する #C# - Qiita](https://qiita.com/pierusan2010/items/e820ab9faf57aba0f2bd)
+
 ```
 dotnet tool install --global PowerShell
 ```

@@ -22,22 +22,22 @@
 
 # g
 
-| key | custom                  | default                        |
-| --- | ----------------------- | ------------------------------ |
-| ga  | diagnostics ?           | message: charcode under cursor |
-| gb  |                         |
-| gc  |                         | comment                        |
-| gd  |                         | goto local definition          |
-| gD  |                         | goto global declaration        |
-| ge  |                         |
-| gf  | gF                      | edit under cursor              |
-| gF  |                         | edit line under cursor         |
-| gg  |                         | home                           |
-| gh  | TODO: help under cursor | select highlight               |
-| gH  |                         | select highlight line          |
-| gq  |                         | lsp format ?                   |
-| gr  | lsp ref                 |
-| gx  |                         | jump under cursor              |
+| key | custom                  | default                        | note                |
+| --- | ----------------------- | ------------------------------ | ------------------- |
+| ga  | diagnostics ?           | message: charcode under cursor |                     |
+| gb  |                         |                                |                     |
+| gc  |                         | comment                        |                     |
+| gd  |                         | goto local definition          | open internal(edit) |
+| gD  |                         | goto global declaration        |                     |
+| ge  |                         |                                |                     |
+| gf  | gF                      | edit under cursor              | open internal(edit) |
+| gF  |                         | edit line under cursor         |                     |
+| gg  |                         | home                           |                     |
+| gh  | TODO: help under cursor | select highlight               |                     |
+| gH  |                         | select highlight line          |                     |
+| gq  |                         | lsp format ?                   |                     |
+| gr  | lsp ref                 |                                |                     |
+| gx  |                         | `vim.ui.open`                  | open external       |
 
 # <SPACE> (leader)
 

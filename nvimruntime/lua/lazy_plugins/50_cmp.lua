@@ -60,6 +60,8 @@ local function config()
   }
 
   local common_map = {
+    -- trigger
+    ["<S-Space>"] = cmp.mapping.complete(),
     -- 選択(抜けない)
     ["<C-e>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert, count = 0 },
     -- 選択(抜ける)
@@ -84,12 +86,26 @@ local function config()
     ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
   })
 
+  vim.keymap.set("i", "<C-n>", function()
+    if not cmp.visible() then
+      require("cmp").complete()
+    end
+  end, {})
+
   cmp.setup {
-    --   completion = {
-    --     completeopt = "menu,menuone,noinsert,noselect",
-    --   },
+    completion = {
+      --completeopt = "menu,menuone,noinsert,noselect",
+      autocomplete = false,
+    },
     formatting = formatting,
-    --   matching = { disallow_partial_matching = false },
+    -- nvim-cmp/lua/cmp/entry.lua:443
+    --   commen out if accept then
+    -- matching = {
+    --   disallow_partial_matching = false,
+    --   disallow_fuzzy_matching = false,
+    --   disallow_prefix_unmatching = false,
+    --   disallow_partial_fuzzy_matching = false,
+    -- },
     preselect = cmp.PreselectMode.None,
     snippet = {
       expand = function(args)
@@ -102,7 +118,7 @@ local function config()
     },
     mapping = cmp.mapping.preset.insert(insert_map),
     sources = cmp.config.sources(
-    --
+      --
       {
         { name = "nvim_lsp" },
       },

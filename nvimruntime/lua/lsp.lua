@@ -37,7 +37,7 @@ function M.setup()
   -- -- vim.keymap.set("n", "<C-m>", vim.lsp.buf.definition, { noremap = true })
   -- -- conflict quickfix
   -- -- vim.keymap.set("n", "<C-m>", "<C-]>", { noremap = true })
-  -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
   -- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
   -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
   -- vim.keymap.set("n", "gn", vim.lsp.buf.rename, { noremap = true })
@@ -51,7 +51,8 @@ function M.setup()
   -- vim.keymap.set("n", "<Leader>wl", function()
   --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   -- end)
-  -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
+
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
 end
 
 return M
