@@ -52,7 +52,7 @@ function M.setup()
   --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   -- end)
 
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
+  -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
 end
 
 return M

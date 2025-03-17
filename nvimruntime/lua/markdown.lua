@@ -70,6 +70,9 @@ end
 --@param root_dir string
 function LanguageServer.launch()
   local root_dir, root_type = get_root_dir()
+  if root_type == "docusaurus" then
+    root_dir = vim.fs.joinpath(root_dir, "docs")
+  end
   local logger = LanguageServerLogger.new()
   local config = {
     name = NAME,
@@ -77,8 +80,8 @@ function LanguageServer.launch()
     ---@param dispatchers vim.lsp.rpc.Dispatchers
     ---@return vim.lsp.rpc.PublicClient
     cmd = function(dispatchers)
-      local request_map = request_map.make_request_map(root_dir, root_type)
-      local server = LanguageServer.new(logger, dispatchers, request_map)
+      local map = request_map.make_request_map(root_dir, root_type)
+      local server = LanguageServer.new(logger, dispatchers, map)
       return {
         request = function(...)
           server:request(...)

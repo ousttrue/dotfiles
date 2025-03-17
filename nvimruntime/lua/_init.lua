@@ -56,6 +56,7 @@ local function setup()
   require("diagnostics").setup()
   require("markdown").setup()
   require "inspector"
+  require("hoversplit").setup()
   --
   require("tools.myplugin").setup()
   -- require("tools.indicator").setup()

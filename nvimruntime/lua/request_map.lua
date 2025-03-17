@@ -9,8 +9,10 @@ local function get_link_destination(bufnr, pos)
   local node = vim.treesitter.get_node {
     bufnr = bufnr,
     pos = pos,
-    lang = "markdown_inline",
+    ignore_injections = false,
+    -- lang = "markdown_inline",
   }
+  print("node", node)
   if node and node:type() == "link_destination" then
     return node
   end
@@ -49,7 +51,7 @@ WorkSpace.__index = WorkSpace
 
 ---@return lls.WorkSpace
 function WorkSpace.new(root_dir)
-  -- print("WorkSpace.new =>", root_dir)
+  print("WorkSpace.new =>", root_dir)
   local self = setmetatable({
     root_dir = root_dir,
   }, WorkSpace)
@@ -60,6 +62,7 @@ end
 ---@return lsp.ResponseError?
 ---@return lsp.Location?
 function WorkSpace:lsp_definition(params)
+  -- print(vim.inspect(params))
   local bufnr = vim.uri_to_bufnr(params.textDocument.uri)
   local row = params.position.line
   local line = vim.api.nvim_buf_get_lines(bufnr, row, row + 1, true)[1]
@@ -72,16 +75,17 @@ function WorkSpace:lsp_definition(params)
     end
     char = char + 1
   end
-  local node = get_link_destination(bufnr, {
+  local pos = {
     params.position.line,
     col,
-  })
+  }
+  local node = get_link_destination(bufnr, pos)
 
   if node then
-    -- local ts_utils = require "nvim-treesitter.ts_utils"
     local dir = vim.fs.dirname(params.textDocument.uri)
-    -- local dst = ts_utils.get_node_text(node)[1]
-    local dst = vim.treesitter.get_node_text(node, bufnr)
+    local ts_utils = require "nvim-treesitter.ts_utils"
+    local dst = ts_utils.get_node_text(node)[1]
+    -- local dst = vim.treesitter.get_node_text(node, bufnr)
     if dst:find "/$" then
       dst = dst:sub(1, #dst - 1)
     end
@@ -96,7 +100,11 @@ function WorkSpace:lsp_definition(params)
               ["end"] = pos,
             },
           }
+    else
+      print("no found", dir, dst)
     end
+  else
+    print("no node", vim.inspect(pos))
   end
 end
 
@@ -107,11 +115,11 @@ end
 ---@return table<string, lls.Method> request_map
 function RequestMap.make_request_map(root_dir, root_type)
   local ws
-  if root_type == "docusaurus" then
-    ws = WorkSpace.new(vim.fs.joinpath(root_dir, "docs"))
-  else
-    ws = WorkSpace.new(root_dir)
-  end
+  -- if root_type == "docusaurus" then
+  --   ws = WorkSpace.new(vim.fs.joinpath(root_dir, "docs"))
+  -- else
+  ws = WorkSpace.new(root_dir)
+  -- end
 
   local request_map = {}
 
