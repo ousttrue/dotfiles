@@ -72,6 +72,9 @@ local function config()
     --
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    --
+    ["<Tab>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+    ["<S-Tab>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
   }
 
   -- c-n/c-p で insert しない
@@ -87,6 +90,11 @@ local function config()
   })
 
   vim.keymap.set("i", "<C-n>", function()
+    if not cmp.visible() then
+      require("cmp").complete()
+    end
+  end, {})
+  vim.keymap.set("i", "<F4>", function()
     if not cmp.visible() then
       require("cmp").complete()
     end
@@ -118,7 +126,7 @@ local function config()
     },
     mapping = cmp.mapping.preset.insert(insert_map),
     sources = cmp.config.sources(
-      --
+    --
       {
         { name = "nvim_lsp" },
       },

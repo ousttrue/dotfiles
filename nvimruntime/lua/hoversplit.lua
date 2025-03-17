@@ -1,3 +1,4 @@
+-- https://github.com/roobert/hoversplit.nvim
 local M = {}
 
 ---@class HoverSplit
@@ -27,22 +28,23 @@ end
 
 ---@param remain_focused boolean
 function HoverSplit:split(remain_focused)
+  local orig_winid
   if not self.hover_winid or not vim.api.nvim_win_is_valid(self.hover_winid) then
-    local orig_winid = vim.api.nvim_get_current_win()
+    orig_winid = vim.api.nvim_get_current_win()
     vim.api.nvim_command(self.command)
     self.hover_winid = vim.api.nvim_get_current_win()
-    if not self.hover_bufnr or not vim.api.nvim_buf_is_valid(self.hover_bufnr) then
-      self.hover_bufnr = vim.api.nvim_create_buf(false, true)
-      vim.api.nvim_set_current_buf(self.hover_bufnr)
-      vim.api.nvim_buf_set_name(self.hover_bufnr, "hoversplit")
-      vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = self.hover_bufnr })
-      vim.api.nvim_set_option_value("modifiable", false, { buf = self.hover_bufnr })
-      vim.api.nvim_set_option_value("filetype", "markdown", { buf = self.hover_bufnr })
-      vim.api.nvim_buf_set_var(self.hover_bufnr, "is_lsp_hover_split", true)
-    end
-    if remain_focused then
-      vim.api.nvim_set_current_win(orig_winid)
-    end
+  end
+  if not self.hover_bufnr or not vim.api.nvim_buf_is_valid(self.hover_bufnr) then
+    self.hover_bufnr = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_set_current_buf(self.hover_bufnr)
+    vim.api.nvim_buf_set_name(self.hover_bufnr, "hoversplit")
+    vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = self.hover_bufnr })
+    vim.api.nvim_set_option_value("modifiable", false, { buf = self.hover_bufnr })
+    vim.api.nvim_set_option_value("filetype", "markdown", { buf = self.hover_bufnr })
+    vim.api.nvim_buf_set_var(self.hover_bufnr, "is_lsp_hover_split", true)
+  end
+  if orig_winid and remain_focused then
+    vim.api.nvim_set_current_win(orig_winid)
   end
 end
 
@@ -97,6 +99,8 @@ function M.setup()
     noremap = true,
     silent = true,
   })
+
+  vim.keymap.set("n", "q", "<CMD>:q<CR>", {})
 end
 
 return M

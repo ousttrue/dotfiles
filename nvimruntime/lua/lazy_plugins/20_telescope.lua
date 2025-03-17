@@ -49,7 +49,9 @@ return {
           mappings = {
             i = {
               -- ["<c-[>"] = actions.close,
-              ["<Tab>"] = ts_actions_layout.toggle_preview,
+              -- ["<Tab>"] = ts_actions_layout.toggle_preview,
+              ["<Tab>"] = false,
+              ["<S-Tab>"] = false,
               -- clear. not preview scroll
               ["<C-u>"] = false,
               --

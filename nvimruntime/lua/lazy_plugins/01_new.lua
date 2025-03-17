@@ -174,6 +174,8 @@ let g:winresizer_start_key = '<Space>e'
         return neoskk.toggle "zhuyin"
       end, opts)
 
+      vim.keymap.set("v", "~", require("neoskk").kana_toggle, { noremap = true })
+
       vim.api.nvim_create_user_command("NeoSkkReload", function()
         require("neoskk").reload_dict()
       end, {})

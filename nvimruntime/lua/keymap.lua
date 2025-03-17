@@ -207,6 +207,7 @@ local function setup()
   })
 
   vim.keymap.set("n", "<C-y>a", markdown_title, {})
+
 end
 
 local M = {
