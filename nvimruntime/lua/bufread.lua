@@ -1,23 +1,74 @@
 local M = {}
 
+local function push(path, node)
+  local list = {}
+  for _, p in ipairs(path) do
+    table.insert(list, p)
+  end
+  table.insert(list, node)
+  return list
+end
+
+local function get_level(path)
+  local level = 0
+  for _, node in ipairs(path) do
+    if node:type() == "<" then
+      level = level + 1
+    end
+  end
+  return level
+end
+
+local function get_indent(path)
+  local indent = ""
+  for i = 1, get_level(path) do
+    indent = indent .. "  "
+  end
+  return indent
+end
+
+---@param src string
 ---@param lines string[]
----@param node TSNode
----@param field string
-local function traverse(lines, node, field, indent)
-  table.insert(lines, ("%s%s"):format(indent, node:type()))
-  for child, child_field in node:iter_children() do
-    traverse(lines, child, child_field, indent .. "  ")
+---@param path TSNode[]
+local function traverse(src, lines, path)
+  local node = path[#path]
+  local node_type = node:type()
+  print(node_type)
+  local text
+
+  if node_type == "tag_name" and path[#path - 1]:type() == "start_tag" then
+    print(vim.inspect(path))
+    text = ("<%s>%d"):format(vim.treesitter.get_node_text(node, src), get_level(path))
+  elseif node_type == "text" then
+    text = ("%s#%d"):format(vim.treesitter.get_node_text(node, src), get_level(path))
+  end
+  if text then
+    table.insert(lines, ("%s%s"):format(get_indent(path), text))
+  end
+  -- for child, _ in node:iter_children() do
+  --   traverse(src, lines, push(path, child))
+  -- end
+  for i = 0, node:named_child_count() - 1 do
+    local child = node:named_child(i)
+    traverse(src, lines, push(path, child))
   end
 end
 
 ---@param lines string[]
 ---@param body string
 local function add_lines(lines, body)
+  body = [[
+<html>
+  <body>
+    <p>hello</p>
+  </body>
+</html>
+]]
   local parser = vim.treesitter.get_string_parser(body, "html")
   local tree = parser:parse()
   if tree then
     local root = tree[1]:root()
-    traverse(lines, root, "__root__", "")
+    traverse(body, lines, { root })
   end
 end
 
