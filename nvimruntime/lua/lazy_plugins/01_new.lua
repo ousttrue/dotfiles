@@ -1,13 +1,13 @@
 return {
-  {
-    "oysandvik94/curl.nvim",
-    -- cmd = { "CurlOpen" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    opts = {},
-    -- config = true,
-  },
+  -- {
+  --   "oysandvik94/curl.nvim",
+  --   -- cmd = { "CurlOpen" },
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  --   opts = {},
+  --   -- config = true,
+  -- },
   {
     "mvllow/modes.nvim",
     tag = "v0.2.1",

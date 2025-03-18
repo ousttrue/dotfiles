@@ -1,6 +1,7 @@
 local function setup()
   vim.opt.belloff = "all"
   vim.opt.hidden = true
+  vim.opt.swapfile = false
 
   -- visual
   vim.opt.visualbell = false

@@ -10,6 +10,9 @@
 vim.g.editorconfig = false
 vim.cmd [[
 let g:zig_recommended_style = 0
+
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
 ]]
 
 -- Remap leader and local leader to <Space>
@@ -66,6 +69,8 @@ local function setup()
   if vim.fn.has "win64" ~= 0 then
     require("windows_terminal").setup()
   end
+
+  require("bufread").setup()
 
   vim.api.nvim_create_user_command("Here", ":!start %:p:h", {})
 end
