@@ -1,5 +1,48 @@
 local M = {}
 
+---@class TSNodePath
+---@field src string
+---@field nodes TSNode[]
+local TSNodePath = {}
+TSNodePath.__index = TSNodePath
+
+---@param ... TSNode[]
+---@return TSNodePath
+function TSNodePath.new(src, ...)
+  local self = setmetatable({
+    src = src,
+    nodes = { ... },
+  }, TSNodePath)
+  return self
+end
+
+---@return string
+function TSNodePath:__tostring()
+  local str
+  for i, node in ipairs(self.nodes) do
+    if str then
+      str = str .. "/" .. node:type()
+    else
+      str = node:type()
+    end
+
+    if i == #self.nodes then
+      if node:type() ~= "document" and node:type() ~= "element" then
+        str = str .. " => " .. vim.treesitter.get_node_text(node, self.src):gsub("\n", "<br>")
+      end
+    end
+  end
+  return str
+end
+
+---@param node TSNode
+---@return TSNodePath
+function TSNodePath:push(node)
+  local list = { unpack(self.nodes) }
+  table.insert(list, node)
+  return TSNodePath.new(self.src, unpack(list))
+end
+
 local function push(path, node)
   local list = {}
   for _, p in ipairs(path) do
@@ -27,48 +70,34 @@ local function get_indent(path)
   return indent
 end
 
----@param src string
 ---@param lines string[]
----@param path TSNode[]
-local function traverse(src, lines, path)
-  local node = path[#path]
-  local node_type = node:type()
-  print(node_type)
-  local text
-
-  if node_type == "tag_name" and path[#path - 1]:type() == "start_tag" then
-    print(vim.inspect(path))
-    text = ("<%s>%d"):format(vim.treesitter.get_node_text(node, src), get_level(path))
-  elseif node_type == "text" then
-    text = ("%s#%d"):format(vim.treesitter.get_node_text(node, src), get_level(path))
-  end
-  if text then
-    table.insert(lines, ("%s%s"):format(get_indent(path), text))
-  end
-  -- for child, _ in node:iter_children() do
-  --   traverse(src, lines, push(path, child))
-  -- end
+---@param path TSNodePath
+local function traverse(lines, path)
+  local node = path.nodes[#path.nodes]
+  table.insert(lines, tostring(path))
   for i = 0, node:named_child_count() - 1 do
     local child = node:named_child(i)
-    traverse(src, lines, push(path, child))
+    if child then
+      traverse(lines, path:push(child))
+    end
   end
 end
 
 ---@param lines string[]
 ---@param body string
 local function add_lines(lines, body)
-  body = [[
-<html>
-  <body>
-    <p>hello</p>
-  </body>
-</html>
-]]
+--   body = [[
+-- <html>
+--   <body>
+--     <p>hello</p>
+--   </body>
+-- </html>
+-- ]]
   local parser = vim.treesitter.get_string_parser(body, "html")
   local tree = parser:parse()
   if tree then
     local root = tree[1]:root()
-    traverse(body, lines, { root })
+    traverse(lines, TSNodePath.new(body, root))
   end
 end
 
