@@ -56,7 +56,7 @@ function LanguageServer:stop()
 end
 
 ---@return string? root_dir
----@return string? project_type
+---@return RootType?
 local function get_root_dir()
   local root_dir = vim.fs.root(0, "sidebars.ts")
   if root_dir then
@@ -69,11 +69,16 @@ end
 
 --@param root_dir string
 function LanguageServer.launch()
+  local logger = LanguageServerLogger.new()
   local root_dir, root_type = get_root_dir()
+  if not root_dir or not root_type then
+    logger:error "no root_dir"
+    return
+  end
+
   if root_type == "docusaurus" then
     root_dir = vim.fs.joinpath(root_dir, "docs")
   end
-  local logger = LanguageServerLogger.new()
   local config = {
     name = NAME,
     root_dir = root_dir,

@@ -31,7 +31,10 @@ function HoverSplit:split(remain_focused)
   local orig_winid
   if not self.hover_winid or not vim.api.nvim_win_is_valid(self.hover_winid) then
     orig_winid = vim.api.nvim_get_current_win()
-    vim.api.nvim_command(self.command)
+    vim.api.nvim_cmd({
+      cmd = "split",
+      range = { 10 },
+    }, {})
     self.hover_winid = vim.api.nvim_get_current_win()
   end
   if not self.hover_bufnr or not vim.api.nvim_buf_is_valid(self.hover_bufnr) then
@@ -91,7 +94,7 @@ local function create_hover_split(command, remain_focused)
 end
 
 M.split_remain_focused = function()
-  create_hover_split("sp", true)
+  create_hover_split("20sp", true)
 end
 
 function M.setup()

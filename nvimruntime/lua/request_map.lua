@@ -21,6 +21,11 @@ end
 ---@param uri string
 ---@return string?
 local function if_exists(uri)
+  -- print("uri:", uri)
+  if uri:find "^file:/" then
+    uri = uri:sub(7)
+  end
+
   local path = uri .. ".md"
   if vim.uv.fs_stat(path) then
     return path
@@ -29,14 +34,23 @@ local function if_exists(uri)
   if vim.uv.fs_stat(path) then
     return path
   end
+
+  print(("not exits: '%s'"):format(uri))
 end
 
 ---@param root_dir string
 ---@param dir string
 ---@param dst string
 local function make_uri(root_dir, dir, dst)
+  if dst:find "^https?://" then
+    return dst
+  end
+
   if dst:find "^/" then
     local uri = vim.fs.joinpath(root_dir, dst)
+    return if_exists(uri)
+  elseif dst:find "^%./" then
+    local uri = vim.fs.joinpath(dir, dst:sub(3))
     return if_exists(uri)
   else
     local uri = vim.fs.joinpath(dir, dst)
@@ -91,15 +105,14 @@ function WorkSpace:lsp_definition(params)
     end
     local uri = make_uri(self.root_dir, dir, dst)
     if uri then
-      local pos = { line = 0, character = 0 }
       return nil,
-          {
-            uri = uri,
-            range = {
-              start = pos,
-              ["end"] = pos,
-            },
-          }
+        {
+          uri = uri,
+          range = {
+            start = { line = 0, character = 0 },
+            ["end"] = { line = 0, character = 0 },
+          },
+        }
     else
       print("no found", dir, dst)
     end
