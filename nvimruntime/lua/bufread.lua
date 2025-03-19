@@ -47,10 +47,14 @@ local function make_link(src, node)
       if child_type == "start_tag" then
         local a_text = vim.treesitter.get_node_text(child, src)
         url = a_text:match "%shref%s*=%s*(%S+)"
-        url = url:gsub("&amp;", "&")
-        local m = url:match '^"([^"]*)">?$'
-        if m then
-          url = m
+        if url then
+          url = url:gsub("&amp;", "&")
+          local m = url:match '^"([^"]*)">?$'
+          if m then
+            url = m
+          end
+        else
+          print("no href", a_text)
         end
       else
         get_text(src, texts, child)
@@ -58,16 +62,18 @@ local function make_link(src, node)
     end
   end
 
-  local url2 = url:match "^/url%?q=([^&]*)"
-  -- print(url2, url)
-  if url2 then
+  if url then
+    local g_redirect = url:match "^/url%?q=([^&]*)"
+    if g_redirect then
+      url = g_redirect
+    end
+
     local title = table.concat(texts, " ")
-    assert(#title > 0)
-    -- if #title == 0 then
-    --   title = "notext"
-    -- end
-    return ("[%s](%s)"):format(title, vim.uri_decode(url2))
-  else
+    if title:match "^%s*$" then
+      -- title = "no_text"
+    else
+      return ("[%s](%s)"):format(title, vim.uri_decode(url))
+    end
   end
 end
 
@@ -77,12 +83,14 @@ local function add_lines(lines, body)
   local parser = vim.treesitter.get_string_parser(body, "html")
   local tree = parser:parse()
   if tree then
-    -- local PushLine = require "PushLine"
-    -- local push_line = PushLine.new(lines, body)
+    local PushLine = require "PushLine"
+    local push_line = PushLine.new(lines, body)
 
     local root = tree[1]:root()
     traverse(root, function(node)
-      if node:type() == "document" then
+      local node_type = node:type()
+      local text = vim.treesitter.get_node_text(node, body)
+      if node_type == "document" then
         return true
       end
 
@@ -91,19 +99,28 @@ local function add_lines(lines, body)
         if tag:match "^<a%s" then
           local link = make_link(body, node)
           if link then
-            table.insert(lines, link)
+            push_line:push_text(link)
           end
         else
           return true
         end
-      elseif node:type() == "text" then
-        local text = vim.treesitter.get_node_text(node, body)
+      elseif node_type == "text" then
         text = text:gsub("\n", " ")
-        table.insert(lines, text)
+        push_line:push_text(text)
+      elseif node_type == "start_tag" then
+        push_line:start_tag(text)
+      elseif node_type == "end_tag" then
+        local parent = node:parent()
+        assert(parent)
+        local end_tag = ts_util.html_get_tag_from_element(body, parent)
+        assert(end_tag)
+        push_line:end_tag(end_tag)
       end
 
       return false
     end)
+
+    push_line:flush_texts()
 
     -- local document = HtmlElement.build(body, root)
     -- local push_line = PushLine.new()
