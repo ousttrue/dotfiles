@@ -33,7 +33,11 @@ end
 
 function PushLine:push_text(text)
   assert(type(text) == "string")
-  text = text:gsub("\n", " ")
+  text = text:gsub("%s", " ")
+  text = text:match "^%s*(.-)%s*$"
+  if #text == 0 then
+    return
+  end
   table.insert(self.texts, text)
 end
 

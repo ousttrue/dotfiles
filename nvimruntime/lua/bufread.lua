@@ -54,7 +54,7 @@ local function make_link(src, node)
             url = m
           end
         else
-          print("no href", a_text)
+          -- print("no href", a_text)
         end
       else
         get_text(src, texts, child)
@@ -136,10 +136,12 @@ end
 ---@param lines string[]
 ---@param status string
 ---@param header string
+---@param show_header boolean
 ---@return MsgMap
-local function add_http_header(lines, status, header)
+local function add_http_header(lines, status, header, show_header)
   ---@type MsgMap
   local map = {}
+
   for _, line in ipairs {
     "---",
     "# vim: ft=markdown",
@@ -149,11 +151,14 @@ local function add_http_header(lines, status, header)
     table.insert(lines, line)
   end
   for k, v in header:gmatch "([^:]+):%s*(.-)\r\n" do
-    table.insert(lines, '  "' .. k .. '": "' .. v .. '"')
     map[k] = v
+    if show_header then
+      table.insert(lines, '  "' .. k .. '": "' .. v .. '"')
+    end
   end
   table.insert(lines, "}")
   table.insert(lines, "---")
+
   return map
 end
 
@@ -188,7 +193,7 @@ local function on_bufreadcmd(ev)
   local status, header, body = res:match "^(HTTP.-)\r\n(.-)\r\n\r\n(.*)"
   ---@type string[]
   local lines = {}
-  local map = add_http_header(lines, status, header)
+  local map = add_http_header(lines, status, header, false)
   if map["Content-Type"] == "text/html; charset=Shift_JIS" then
     body = vim.iconv(body, "shift_jis", "utf-8", {})
   end
@@ -206,6 +211,9 @@ local function on_bufreadcmd(ev)
   vim.api.nvim_buf_set_lines(ev.buf, -2, -1, true, lines)
   -- vim.api.nvim_buf_set_lines(ev.buf, -2, -1, true, vim.split(body, "\n"))
   vim.api.nvim_set_option_value("modifiable", false, { buf = ev.buf })
+
+  vim.keymap.set("n", "j", "gj", { buffer = ev.buf, noremap = true })
+  vim.keymap.set("n", "k", "gk", { buffer = ev.buf, noremap = true })
 end
 
 function M.setup()

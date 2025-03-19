@@ -10,10 +10,29 @@ local function get_link_destination(bufnr, pos)
     ignore_injections = false,
     -- lang = "markdown_inline",
   }
-  print("node", node)
-  if node and node:type() == "link_destination" then
+  if not node then
+    return
+  end
+
+  if node:type() == "link_destination" then
     return node
   end
+
+  if node:type() == "link_text" then
+    local parent = node:parent()
+    if parent then
+      for i = 0, parent:named_child_count() - 1 do
+        local child = parent:named_child(i)
+        if child then
+          if child:type() == "link_destination" then
+            return child
+          end
+        end
+      end
+    end
+  end
+
+  print("node", node:type())
 end
 
 ---@param uri string
@@ -45,8 +64,13 @@ local function make_uri(root_dir, dir, dst)
   end
 
   if dst:find "^/" then
-    local uri = vim.fs.joinpath(root_dir, dst)
-    return if_exists(uri)
+    local host = dir:match "^(https?://[^/]+)"
+    if host then
+      return host .. dst
+    else
+      local uri = vim.fs.joinpath(root_dir, dst)
+      return if_exists(uri)
+    end
   elseif dst:find "^%./" then
     local uri = vim.fs.joinpath(dir, dst:sub(3))
     return if_exists(uri)
@@ -111,7 +135,7 @@ function Workspace:lsp_definition(params)
           },
         }
     else
-      print("no found", dir, dst)
+      print("not found", dir, dst)
     end
   else
     print("no node", vim.inspect(pos))

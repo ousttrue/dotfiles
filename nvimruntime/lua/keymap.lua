@@ -180,6 +180,8 @@ local function setup()
   vim.keymap.set("n", "Q", close_buffer_or_window, { noremap = true })
   vim.keymap.set("n", "q", close_floating_window, { noremap = true })
 
+  vim.keymap.set("n", "<Down>", "gj", { noremap = true })
+  vim.keymap.set("n", "<Up>", "gk", { noremap = true })
   vim.keymap.set("n", "gf", "gF", { noremap = true })
   vim.keymap.set("n", "gi", function()
     vim.o.ic = not vim.o.ic
@@ -207,7 +209,6 @@ local function setup()
   })
 
   vim.keymap.set("n", "<C-y>a", markdown_title, {})
-
 end
 
 local M = {
