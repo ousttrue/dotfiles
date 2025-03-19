@@ -3,7 +3,6 @@ local M = {}
 ---@param node TSNode
 ---@param callback fun(node: TSNode):boolean
 local function traverse(node, callback)
-  assert(node)
   if callback(node) then
     for i = 0, node:named_child_count() - 1 do
       local child = node:named_child(i)
@@ -17,24 +16,23 @@ end
 ---@param lines string[]
 ---@param body string
 local function add_lines(lines, body)
-  -- body = [[
-  -- <html>
-  --   <body>
-  --     <p>hello</p>
-  --   </body>
-  -- </html>
-  -- ]]
   local parser = vim.treesitter.get_string_parser(body, "html")
   local tree = parser:parse()
   if tree then
-    local PushLine = require "PushLine"
-    local push_line = PushLine.new(lines, body)
+    -- local PushLine = require "PushLine"
+    -- local push_line = PushLine.new(lines, body)
 
     local root = tree[1]:root()
-    assert(root)
     traverse(root, function(node)
-      assert(node)
-      return push_line:push_node(node)
+      local tag, text = tag_from_element(node)
+      if tag then
+        if tag == "a" then
+          table.insert(linesk, make_link(text))
+        else
+          return true
+        end
+      else
+      end
     end)
 
     -- local document = HtmlElement.build(body, root)
@@ -77,16 +75,16 @@ local function on_bufreadcmd(ev)
   vim.api.nvim_set_option_value("modifiable", true, { buf = ev.buf })
 
   local dl_job = vim
-    .system({
-      "curl",
-      "-0",
-      "-L",
-      "-i",
-      "-H",
-      "USER-AGENT: w3m/0.5.3+git20230121",
-      ev.file,
-    }, { text = false })
-    :wait()
+      .system({
+        "curl",
+        "-0",
+        "-L",
+        "-i",
+        "-H",
+        "USER-AGENT: w3m/0.5.3+git20230121",
+        ev.file,
+      }, { text = false })
+      :wait()
   -- vim.notify_once(("get %dbytes"):format(#dl_job.stdout), vim.log.levels.INFO, { title = ev.file })
   local res = dl_job.stdout
   assert(res)
@@ -107,7 +105,17 @@ local function on_bufreadcmd(ev)
   if map["Content-Type"] == "text/html; charset=Shift_JIS" then
     body = vim.iconv(body, "shift_jis", "utf-8", {})
   end
+
+  -- main
+  -- body = [[
+  -- <html>
+  --   <body>
+  --     <p>hello</p>
+  --   </body>
+  -- </html>
+  -- ]]
   add_lines(lines, body)
+
   vim.api.nvim_buf_set_lines(ev.buf, -2, -1, true, lines)
   -- vim.api.nvim_buf_set_lines(ev.buf, -2, -1, true, vim.split(body, "\n"))
   vim.api.nvim_set_option_value("modifiable", false, { buf = ev.buf })

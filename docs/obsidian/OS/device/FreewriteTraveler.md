@@ -1,0 +1,1 @@
+- [Freewrite Travelerで日本語入力が可能になったのでレビュー｜しおにく/塩肉](https://note.com/sionic4029/n/n955bf53f4620)
