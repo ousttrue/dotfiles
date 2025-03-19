@@ -8,6 +8,7 @@ local BLOCK_PREFIX_MAP = {
   h6 = { prefix = "######", newline = true },
   p = {},
   div = {},
+  br = { newline = true },
 }
 
 ---@class PushLine
@@ -43,7 +44,7 @@ end
 
 ---@return boolean
 function PushLine:flush_texts()
-  local text = table.concat(self.texts, " ")
+  local text = table.concat(self.texts, "")
   self.texts = {}
 
   if text:match "^%s*$" then
@@ -60,7 +61,7 @@ function PushLine:newline()
   end
 end
 
-function PushLine:start_tag(text)
+function PushLine:start_tag(text, closing)
   assert(type(text) == "string")
   local tag = text:match "^<(%w+)"
   local block = BLOCK_PREFIX_MAP[tag]

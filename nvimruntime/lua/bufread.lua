@@ -14,25 +14,6 @@ local function traverse(node, callback)
   end
 end
 
----@param lines string[]
----@param node TSNode
-local function get_text(src, lines, node)
-  if node:type() == "text" then
-    local text = vim.treesitter.get_node_text(node, src)
-    if #text > 0 then
-      text = text:gsub("\n", " ")
-      table.insert(lines, text)
-    end
-  end
-
-  for i = 0, node:named_child_count() - 1 do
-    local child = node:named_child(i)
-    if child then
-      get_text(src, lines, child)
-    end
-  end
-end
-
 ---@param src string
 ---@param node TSNode
 ---@return string?
@@ -57,7 +38,7 @@ local function make_link(src, node)
           -- print("no href", a_text)
         end
       else
-        get_text(src, texts, child)
+        ts_util.get_text(src, child, texts)
       end
     end
   end
@@ -68,7 +49,7 @@ local function make_link(src, node)
       url = g_redirect
     end
 
-    local title = table.concat(texts, " ")
+    local title = table.concat(texts, "")
     if title:match "^%s*$" then
       -- title = "no_text"
     else
@@ -101,20 +82,25 @@ local function add_lines(lines, body)
           if link then
             push_line:push_text(link)
           end
-        else
-          return true
         end
-      elseif node_type == "text" then
-        text = text:gsub("\n", " ")
-        push_line:push_text(text)
+      end
+
+      if node_type == "element" then
+        return true
+      elseif node_type == "text" or node_type == "entity" then
+        push_line:push_text(ts_util.decode_entity(text))
       elseif node_type == "start_tag" then
         push_line:start_tag(text)
+      elseif node_type == "self_closing_tag" then
+        push_line:start_tag(text, true)
       elseif node_type == "end_tag" then
         local parent = node:parent()
         assert(parent)
         local end_tag = ts_util.html_get_tag_from_element(body, parent)
         assert(end_tag)
         push_line:end_tag(end_tag)
+      else
+        print(node_type)
       end
 
       return false
