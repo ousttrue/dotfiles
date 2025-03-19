@@ -99,57 +99,13 @@ end
 function HtmlElement:__tostring()
   for i = 0, self.node:named_child_count() - 1 do
     local child = self.node:named_child(i)
-    if child and child:type() == "start_tag" then
-      for j = 0, self.node:named_child_count() - 1 do
-        local childchild = child:named_child(j)
-        if childchild and childchild:type() == "tag_name" then
-          return vim.treesitter.get_node_text(child, self.src):gsub("\n", " ")
-        end
-      end
+    local tag_name = self:tag_name()
+    if tag_name then
+      return "<" .. tag_name .. ">"
     end
   end
 
-  return "<no_tag>"
-end
-
-local function push(path, node)
-  local list = {}
-  for _, p in ipairs(path) do
-    table.insert(list, p)
-  end
-  table.insert(list, node)
-  return list
-end
-
-local function get_level(path)
-  local level = 0
-  for _, node in ipairs(path) do
-    if node:type() == "<" then
-      level = level + 1
-    end
-  end
-  return level
-end
-
-local function get_indent(path)
-  local indent = ""
-  for i = 1, get_level(path) do
-    indent = indent .. "  "
-  end
-  return indent
-end
-
----@param lines string[]
----@param path TSNodePath
-local function traverse(lines, path)
-  local node = path.nodes[#path.nodes]
-  table.insert(lines, tostring(path))
-  for i = 0, node:named_child_count() - 1 do
-    local child = node:named_child(i)
-    if child then
-      traverse(lines, path:push(child))
-    end
-  end
+  return "[" .. self.node:type() .. "]"
 end
 
 ---@class HtmlElementIterator
@@ -172,6 +128,21 @@ function HtmlElement:text()
     local child = self.node:named_child(i)
     if child and child:type() == "text" then
       return vim.treesitter.get_node_text(child, self.src)
+    end
+  end
+end
+
+---@return string?
+function HtmlElement:tag_name()
+  for i = 0, self.node:named_child_count() - 1 do
+    local child = self.node:named_child(i)
+    if child and child:type() == "start_tag" then
+      for j = 0, child:named_child_count() - 1 do
+        local childchild = child:named_child(j)
+        if childchild and childchild:type() == "tag_name" then
+          return vim.treesitter.get_node_text(childchild, self.src)
+        end
+      end
     end
   end
 end
@@ -202,6 +173,72 @@ function HtmlElement:iterator()
   return f, HtmlElementIterator.new(self)
 end
 
+---@class PushLine
+---@field texts string[]
+---@field elements HtmlElement[]
+local PushLine = {}
+PushLine.__index = PushLine
+
+---@return PushLine
+function PushLine.new()
+  local self = setmetatable({
+    texts = {},
+    elements = {},
+  }, PushLine)
+  return self
+end
+
+local BLOCK_TAGS = { "h1", "h2", "h3", "h4", "h5", "h6", "p", "div" }
+
+---@param tag_name string?
+---@return boolean
+local function is_block(tag_name)
+  for _, b in ipairs(BLOCK_TAGS) do
+    if b == tag_name then
+      return true
+    end
+  end
+  return true
+end
+
+---@return boolean
+function PushLine:has_block()
+  for _, e in ipairs(self.elements) do
+    if is_block(e:tag_name()) then
+      return true
+    end
+  end
+  return false
+end
+
+---@param lines string[]
+---@param element HtmlElement?
+function PushLine:push_element(lines, element)
+  local text
+  if element then
+    table.insert(self.elements, element)
+    text = element:text()
+  end
+
+  if text and #text > 0 then
+    if self:has_block() and #self.texts > 0 then
+      local line = table.concat(self.texts, " ")
+      table.insert(lines, line)
+      self.texts = {}
+      self.elements = {}
+    end
+    local text = text:gsub("\n", " ")
+    table.insert(self.texts, text)
+  end
+
+  if #self.texts > 0 then
+    local line = table.concat(self.texts, " ")
+    table.insert(lines, line)
+    self.texts = {}
+    self.elements = {}
+  end
+end
+
 ---@param lines string[]
 ---@param body string
 local function add_lines(lines, body)
@@ -216,28 +253,25 @@ local function add_lines(lines, body)
   local tree = parser:parse()
   if tree then
     local root = tree[1]:root()
-    -- traverse(lines, TSNodePath.new(body, root))
-    local element = HtmlElement.build(body, root)
-    -- element:traverse(lines, "")
-    for current in element:iterator() do
-      local text = current:text()
-      if text then
-        for _, l in ipairs(vim.split(text, "\n")) do
-          table.insert(lines, l)
-        end
-      end
-    end
-  end
+    local document = HtmlElement.build(body, root)
 
-  -- for _, l in ipairs(vim.split(body, "\n")) do
-  --   table.insert(lines, l)
-  -- end
+    local push_line = PushLine.new()
+    for current in document:iterator() do
+      push_line:push_element(lines, current)
+    end
+    push_line:push_element(lines)
+  end
 end
+
+---@alias MsgMap table<string, string>
 
 ---@param lines string[]
 ---@param status string
 ---@param header string
+---@return MsgMap
 local function add_http_header(lines, status, header)
+  ---@type MsgMap
+  local map = {}
   for _, line in ipairs {
     "---",
     "# vim: ft=markdown",
@@ -248,41 +282,71 @@ local function add_http_header(lines, status, header)
   end
   for k, v in header:gmatch "([^:]+):%s*(.-)\r\n" do
     table.insert(lines, '  "' .. k .. '": "' .. v .. '"')
+    map[k] = v
   end
   table.insert(lines, "}")
   table.insert(lines, "---")
+  return map
+end
+
+---@param ev vim.api.keyset.create_autocmd.callback_args
+local function on_bufreadcmd(ev)
+  vim.api.nvim_set_option_value("modifiable", true, { buf = ev.buf })
+
+  -- print(string.format("event fired: %s", vim.inspect(ev)))
+  local dl_job = vim
+    .system({
+      "curl",
+      "-0",
+      "-L",
+      "-i",
+      "-H",
+      "USER-AGENT: w3m/0.5.3+git20230121",
+      ev.file,
+    }, { text = false })
+    :wait()
+  -- vim.notify_once(("get %dbytes"):format(#dl_job.stdout), vim.log.levels.INFO, { title = ev.file })
+  local res = dl_job.stdout
+  assert(res)
+
+  -- debug
+  do
+    local fd = vim.uv.fs_open("tmp.html", "w", tonumber("666", 8))
+    if fd then
+      vim.uv.fs_write(fd, res)
+      vim.uv.fs_close(fd)
+    end
+  end
+
+  local status, header, body = res:match "^(HTTP.-)\r\n(.-)\r\n\r\n(.*)"
+  ---@type string[]
+  local lines = {}
+  local map = add_http_header(lines, status, header)
+  -- print(vim.inspect(map))
+  if map["Content-Type"] == "text/html; charset=Shift_JIS" then
+    body = vim.iconv(body, "shift_jis", "utf-8", {})
+  end
+  add_lines(lines, body)
+  vim.api.nvim_buf_set_lines(ev.buf, -2, -1, true, lines)
+  -- vim.api.nvim_buf_set_lines(ev.buf, -2, -1, true, vim.split(body, "\n"))
+  vim.api.nvim_set_option_value("modifiable", false, { buf = ev.buf })
 end
 
 function M.setup()
   vim.api.nvim_create_autocmd("BufReadCmd", {
     pattern = { "http://*", "https://*" },
-    callback = function(ev)
-      vim.api.nvim_set_option_value("modifiable", true, { buf = ev.buf })
+    callback = on_bufreadcmd,
+  })
 
-      -- print(string.format("event fired: %s", vim.inspect(ev)))
-      local dl_job = vim
-        .system({
-          "curl",
-          "-0",
-          "-L",
-          "-i",
-          "-H",
-          "USER-AGENT: w3m/0.5.3+git20230121",
-          ev.file,
-        }, { text = false })
-        :wait()
-      -- vim.notify_once(("get %dbytes"):format(#dl_job.stdout), vim.log.levels.INFO, { title = ev.file })
-      local res = dl_job.stdout
-      assert(res)
-      local status, header, body = res:match "^(HTTP.-)\r\n(.-)\r\n\r\n(.*)"
-      ---@type string[]
-      local lines = {}
-      add_http_header(lines, status, header)
-      add_lines(lines, body)
-      vim.api.nvim_buf_set_lines(ev.buf, -2, -1, true, lines)
-      -- vim.api.nvim_buf_set_lines(ev.buf, -2, -1, true, vim.split(body, "\n"))
-      vim.api.nvim_set_option_value("modifiable", false, { buf = ev.buf })
-    end,
+  vim.api.nvim_create_user_command("Q", function(ev)
+    local url = ("https://www.google.com/search?hl=ja&ie=UTF-8&q=%s"):format(vim.uri_encode(ev.fargs[1]))
+    print(url)
+    -- vim.cmd(("edit %s"):format(url))
+    local w = vim.api.nvim_get_current_win()
+    local b = vim.fn.bufadd(url)
+    vim.api.nvim_win_set_buf(w, b)
+  end, {
+    nargs = 1,
   })
 end
 

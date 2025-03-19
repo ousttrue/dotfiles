@@ -63,7 +63,6 @@ Workspace.__index = Workspace
 
 ---@return lls.Workspace
 function Workspace.new(root_dir)
-  print("Workspace.new =>", root_dir)
   local self = setmetatable({
     root_dir = root_dir,
   }, Workspace)
