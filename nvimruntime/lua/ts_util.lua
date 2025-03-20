@@ -159,23 +159,28 @@ end
 
 ---@param src string
 ---@param node TSNode
----@param lines string[]
-function M.get_text(src, node, lines)
+---@return string
+function M.get_text(src, node)
   local node_type = node:type()
+  local out = ""
   if node_type == "text" or node_type == "entity" then
     local text = vim.treesitter.get_node_text(node, src)
     if #text > 0 then
       text = M.decode_entity(text)
-      table.insert(lines, text)
+      out = out .. text
+    end
+  else
+    -- print(node_type)
+  end
+
+  for i = 0, node:child_count() - 1 do
+    local child = node:child(i)
+    if child then
+      out = out .. M.get_text(src, child)
     end
   end
 
-  for i = 0, node:named_child_count() - 1 do
-    local child = node:named_child(i)
-    if child then
-      M.get_text(src, child, lines)
-    end
-  end
+  return out
 end
 
 return M

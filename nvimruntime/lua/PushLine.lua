@@ -39,6 +39,7 @@ local INLINE_PREFIX_MAP = {
   section = {},
   aside = {},
   footer = {},
+  cite = {},
   time = { prefix = " `", suffix = "` " },
   code = { prefix = " `", suffix = "` " },
   strong = { prefix = " `", suffix = "` " },
@@ -74,6 +75,11 @@ function PushLine:push_text(text)
     return
   end
   table.insert(self.texts, text)
+end
+
+function PushLine:push_line(text)
+  assert(type(text) == "string")
+  table.insert(self.lines, text)
 end
 
 ---@return boolean

@@ -20,7 +20,7 @@ end
 local function make_link(src, node)
   assert(node:type() == "element")
   local url
-  local texts = {}
+  local text = ""
   for i = 0, node:named_child_count() - 1 do
     local child = node:named_child(i)
     if child then
@@ -38,7 +38,7 @@ local function make_link(src, node)
           -- print("no href", a_text)
         end
       else
-        ts_util.get_text(src, child, texts)
+        text = text .. ts_util.get_text(src, child)
       end
     end
   end
@@ -49,13 +49,33 @@ local function make_link(src, node)
       url = g_redirect
     end
 
-    local title = table.concat(texts, "")
+    local title = text:gsub("\n", " ")
     if title:match "^%s*$" then
       -- title = "no_text"
     else
       return ("[%s](%s)"):format(title, vim.uri_decode(url))
     end
   end
+end
+
+---@param src string
+---@return string
+local function remove_html_tag(src)
+  local dst = ""
+  local pos = 1
+  while pos <= #src do
+    local s, e = src:find("<[^>]+>", pos)
+    if not s then
+      dst = dst .. src:sub(pos)
+      break
+    end
+    dst = dst .. src:sub(pos, s - 1)
+    pos = e + 1
+  end
+  dst = ts_util.decode_entity(dst)
+  dst = dst:match("(.-)%s*$")
+
+  return dst
 end
 
 ---@param lines string[]
@@ -91,6 +111,22 @@ local function add_lines(lines, body)
         if link then
           push_line:push_text(link)
         end
+      elseif tag == "pre" then
+        local pre = vim.treesitter.get_node_text(node, body, {})
+        pre = remove_html_tag(pre)
+        local lang
+        if start_tag_text then
+          lang = start_tag_text:match '%sdata%-lang="(%w+)"' or ""
+        end
+        push_line:flush_texts()
+        push_line:newline()
+        push_line:push_line("```" .. lang)
+        local pre_lines = vim.split(pre, "\n")
+        for _, l in ipairs(pre_lines) do
+          push_line:push_line(l)
+        end
+        push_line:push_line "```"
+        push_line:newline()
       elseif tag == "head" then
       elseif tag == "form" then
       elseif tag == "svg" then
@@ -165,16 +201,16 @@ local function on_bufreadcmd(ev)
   vim.api.nvim_set_option_value("modifiable", true, { buf = ev.buf })
 
   local dl_job = vim
-      .system({
-        "curl",
-        "-0",
-        "-L",
-        "-i",
-        "-H",
-        "USER-AGENT: w3m/0.5.3+git20230121",
-        ev.file,
-      }, { text = false })
-      :wait()
+    .system({
+      "curl",
+      "-0",
+      "-L",
+      "-i",
+      "-H",
+      "USER-AGENT: w3m/0.5.3+git20230121",
+      ev.file,
+    }, { text = false })
+    :wait()
   -- vim.notify_once(("get %dbytes"):format(#dl_job.stdout), vim.log.levels.INFO, { title = ev.file })
   local res = dl_job.stdout
   assert(res)
