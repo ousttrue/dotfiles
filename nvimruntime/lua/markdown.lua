@@ -64,7 +64,12 @@ local function get_root_dir()
   end
 
   -- fallback git
-  return vim.fs.root(0, ".git"), "git"
+  root_dir = vim.fs.root(0, ".git")
+  if root_dir then
+    return root_dir, "git"
+  end
+
+  return "/", "fallback"
 end
 
 --@param root_dir string
@@ -176,6 +181,9 @@ return {
         LanguageServer.launch()
       end,
     })
+    vim.api.nvim_create_user_command("MdlsLaunch", function()
+      LanguageServer.launch()
+    end, {})
 
     vim.api.nvim_create_user_command("LlsLog", function()
       vim.cmd(string.format("edit %s", LanguageServer.get_log_path()))

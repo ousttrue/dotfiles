@@ -2,7 +2,7 @@ local utf8 = require "neoskk.utf8"
 local RequestMap = {}
 RequestMap.__index = RequestMap
 
----@alias RootType 'docusaurus'|'git'
+---@alias RootType 'docusaurus'|'git'|'fallback'
 
 ---@param root_dir string
 ---@param root_type RootType

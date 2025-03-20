@@ -1,14 +1,48 @@
----@type table<string, {prefix:string?, newline:boolean?}>
+---@type table<string, {prefix:string?, start_newline: boolean?, end_newline:boolean?}>
 local BLOCK_PREFIX_MAP = {
-  h1 = { prefix = "#", newline = true },
-  h2 = { prefix = "##", newline = true },
-  h3 = { prefix = "###", newline = true },
-  h4 = { prefix = "####", newline = true },
-  h5 = { prefix = "#####", newline = true },
-  h6 = { prefix = "######", newline = true },
+  title = { prefix = "# ", start_newline = true, end_newline = true },
+  h1 = { prefix = "# ", start_newline = true, end_newline = true },
+  h2 = { prefix = "## ", start_newline = true, end_newline = true },
+  h3 = { prefix = "### ", start_newline = true, end_newline = true },
+  h4 = { prefix = "#### ", start_newline = true, end_newline = true },
+  h5 = { prefix = "##### ", start_newline = true, end_newline = true },
+  h6 = { prefix = "###### ", start_newline = true, end_newline = true },
   p = {},
   div = {},
-  br = { newline = true },
+  tr = {},
+  table = {},
+  tbody = {},
+  br = { end_newline = true },
+  from = {},
+  ul = {},
+  ol = {},
+  li = { prefix = "- " },
+  article = { end_newline = true },
+  hr = { prefix = "---", end_newline = true },
+}
+
+local INLINE_PREFIX_MAP = {
+  td = { prefix = "|" },
+  html = {},
+  head = {},
+  meta = {},
+  body = {},
+  header = {},
+  link = {},
+  noscript = {},
+  img = {},
+  span = {},
+  input = {},
+  button = {},
+  nav = {},
+  main = {},
+  section = {},
+  aside = {},
+  footer = {},
+  time = { prefix = " `", suffix = "` " },
+  code = { prefix = " `", suffix = "` " },
+  strong = { prefix = " `", suffix = "` " },
+  small = { prefix = " `", suffix = "` " },
 }
 
 ---@class PushLine
@@ -65,11 +99,25 @@ function PushLine:start_tag(text, closing)
   assert(type(text) == "string")
   local tag = text:match "^<(%w+)"
   local block = BLOCK_PREFIX_MAP[tag]
+  local inline = INLINE_PREFIX_MAP[tag]
+
   if block then
     self:flush_texts()
-    self:newline()
+    if block.start_newline then
+      self:newline()
+    end
     if block.prefix and #block.prefix > 0 then
       table.insert(self.texts, block.prefix)
+    end
+  elseif inline then
+    if inline.prefix and #inline.prefix > 0 then
+      table.insert(self.texts, inline.prefix)
+    end
+  else
+    if closing then
+      table.insert(self.texts, "<" .. tag .. "/>")
+    else
+      table.insert(self.texts, "<" .. tag .. ">")
     end
   end
 end
@@ -78,11 +126,21 @@ function PushLine:end_tag(text)
   assert(type(text) == "string")
   local tag = text:match "^<(%w+)"
   local block = BLOCK_PREFIX_MAP[tag]
+  local inline = INLINE_PREFIX_MAP[tag]
   if block then
     self:flush_texts()
-    if block.newline then
+    if block.end_newline then
       self:newline()
     end
+  elseif inline then
+    if inline.suffix and #inline.suffix > 0 then
+      table.insert(self.texts, inline.suffix)
+    end
+  else
+    -- if text:match("^<nosc") then
+    --   print(text)
+    -- end
+    table.insert(self.texts, "</" .. tag .. ">")
   end
 end
 

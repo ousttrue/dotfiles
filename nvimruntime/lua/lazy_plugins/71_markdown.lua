@@ -1,8 +1,8 @@
 return {
-  {
-    -- treesitter required
-    "jghauser/follow-md-links.nvim",
-  },
+  -- {
+  --   -- treesitter required
+  --   "jghauser/follow-md-links.nvim",
+  -- },
   -- { "mattn/emmet-vim" },
   -- {"ixru/nvim-markdown"},
   -- {

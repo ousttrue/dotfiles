@@ -209,6 +209,14 @@ local function setup()
   })
 
   vim.keymap.set("n", "<C-y>a", markdown_title, {})
+
+  vim.api.nvim_create_user_command("GX", function()
+    local url = vim.api.nvim_buf_get_name(0)
+    print(url)
+    if url then
+      vim.ui.open(url)
+    end
+  end, {})
 end
 
 local M = {

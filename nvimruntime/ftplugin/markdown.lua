@@ -6,3 +6,4 @@ vim.opt_local.iskeyword:append "-"
 
 -- vim.o.spell = true
 -- vim.o.spelllang = "en_us"
+vim.keymap.set("n", "<CR>", "gd", { remap = true })

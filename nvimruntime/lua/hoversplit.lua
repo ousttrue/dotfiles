@@ -36,6 +36,7 @@ function HoverSplit:split(remain_focused)
       range = { 10 },
     }, {})
     self.hover_winid = vim.api.nvim_get_current_win()
+    vim.api.nvim_set_option_value("conceallevel", 2, { win = self.hover_winid })
   end
   if not self.hover_bufnr or not vim.api.nvim_buf_is_valid(self.hover_bufnr) then
     self.hover_bufnr = vim.api.nvim_create_buf(false, true)

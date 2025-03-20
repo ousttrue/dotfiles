@@ -75,17 +75,29 @@ local function add_lines(lines, body)
         return true
       end
 
-      local tag = ts_util.html_get_tag_from_element(body, node)
-      if tag then
-        if tag:match "^<a%s" then
-          local link = make_link(body, node)
-          if link then
-            push_line:push_text(link)
-          end
-        end
+      local start_tag_text = ts_util.html_get_tag_from_element(body, node)
+      local tag
+      if start_tag_text then
+        tag = start_tag_text:match "^<(%w+)"
       end
+      --   if tag then
+      --     if start_tag_text:match "^<a%s" then
+      --     end
+      --   end
+      -- end
 
-      if node_type == "element" then
+      if tag == "a" then
+        local link = make_link(body, node)
+        if link then
+          push_line:push_text(link)
+        end
+      elseif tag == "head" then
+      elseif tag == "form" then
+      elseif tag == "svg" then
+      elseif tag == "dialog" then
+      elseif tag == "script" then
+      elseif tag == "iframe" then
+      elseif node_type == "element" then
         return true
       elseif node_type == "text" or node_type == "entity" then
         push_line:push_text(ts_util.decode_entity(text))
@@ -153,16 +165,16 @@ local function on_bufreadcmd(ev)
   vim.api.nvim_set_option_value("modifiable", true, { buf = ev.buf })
 
   local dl_job = vim
-    .system({
-      "curl",
-      "-0",
-      "-L",
-      "-i",
-      "-H",
-      "USER-AGENT: w3m/0.5.3+git20230121",
-      ev.file,
-    }, { text = false })
-    :wait()
+      .system({
+        "curl",
+        "-0",
+        "-L",
+        "-i",
+        "-H",
+        "USER-AGENT: w3m/0.5.3+git20230121",
+        ev.file,
+      }, { text = false })
+      :wait()
   -- vim.notify_once(("get %dbytes"):format(#dl_job.stdout), vim.log.levels.INFO, { title = ev.file })
   local res = dl_job.stdout
   assert(res)
