@@ -94,11 +94,6 @@ local function config()
       require("cmp").complete()
     end
   end, {})
-  vim.keymap.set("i", "<F4>", function()
-    if not cmp.visible() then
-      require("cmp").complete()
-    end
-  end, {})
 
   cmp.setup {
     completion = {

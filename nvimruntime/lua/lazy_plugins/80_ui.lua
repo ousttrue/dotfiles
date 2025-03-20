@@ -1,12 +1,12 @@
 return {
-  {
-    "liangxianzhe/floating-input.nvim",
-    config = function()
-      vim.ui.input = function(opts, on_confirm)
-        require("floating-input").input(opts, on_confirm, { border = "double" })
-      end
-    end,
-  },
+  -- {
+  --   "liangxianzhe/floating-input.nvim",
+  --   config = function()
+  --     vim.ui.input = function(opts, on_confirm)
+  --       require("floating-input").input(opts, on_confirm, { border = "double" })
+  --     end
+  --   end,
+  -- },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = {
