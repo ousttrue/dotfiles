@@ -32,7 +32,7 @@ local function get_link_destination(bufnr, pos)
     end
   end
 
-  print("node", node:type())
+  print("get_link_destination: link_destination not found", node:type())
 end
 
 ---@param uri string
@@ -63,6 +63,7 @@ local function make_uri(root_dir, dir, dst)
     return dst
   end
 
+  print("make_uri", dir, dst)
   if dst:find "^/" then
     local host = dir:match "^(https?://[^/]+)"
     if host then
@@ -71,10 +72,10 @@ local function make_uri(root_dir, dir, dst)
       local uri = vim.fs.joinpath(root_dir, dst)
       return if_exists(uri)
     end
-  elseif dst:find "^%./" then
-    local uri = vim.fs.joinpath(dir, dst:sub(3))
-    return if_exists(uri)
   else
+    if dst:find "^%./" then
+      dst = dst:sub(3)
+    end
     local uri = vim.fs.joinpath(dir, dst)
     return if_exists(uri)
   end
@@ -87,6 +88,7 @@ Workspace.__index = Workspace
 
 ---@return lls.Workspace
 function Workspace.new(root_dir)
+  print("Workspace: ", root_dir)
   local self = setmetatable({
     root_dir = root_dir,
   }, Workspace)
@@ -120,20 +122,19 @@ function Workspace:lsp_definition(params)
     local dir = vim.fs.dirname(params.textDocument.uri)
     local ts_utils = require "nvim-treesitter.ts_utils"
     local dst = ts_utils.get_node_text(node)[1]
-    -- local dst = vim.treesitter.get_node_text(node, bufnr)
-    if dst:find "/$" then
+    if dst ~= "/" and dst:find "/$" then
       dst = dst:sub(1, #dst - 1)
     end
     local uri = make_uri(self.root_dir, dir, dst)
     if uri then
       return nil,
-        {
-          uri = uri,
-          range = {
-            start = { line = 0, character = 0 },
-            ["end"] = { line = 0, character = 0 },
-          },
-        }
+          {
+            uri = uri,
+            range = {
+              start = { line = 0, character = 0 },
+              ["end"] = { line = 0, character = 0 },
+            },
+          }
     else
       print("not found", dir, dst)
     end

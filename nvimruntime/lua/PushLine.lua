@@ -44,6 +44,10 @@ local INLINE_PREFIX_MAP = {
   code = { prefix = " `", suffix = "` " },
   strong = { prefix = " `", suffix = "` " },
   small = { prefix = " `", suffix = "` " },
+  address = {},
+  template = {},
+  i = {},
+  u = {},
 }
 
 ---@class PushLine
@@ -79,11 +83,15 @@ end
 
 function PushLine:push_line(text)
   assert(type(text) == "string")
+  self:flush_texts()
   table.insert(self.lines, text)
 end
 
 ---@return boolean
 function PushLine:flush_texts()
+  if self.texts[#self.texts] == "- " then
+    table.remove(self.texts)
+  end
   local text = table.concat(self.texts, "")
   self.texts = {}
 
@@ -143,9 +151,6 @@ function PushLine:end_tag(text)
       table.insert(self.texts, inline.suffix)
     end
   else
-    -- if text:match("^<nosc") then
-    --   print(text)
-    -- end
     table.insert(self.texts, "</" .. tag .. ">")
   end
 end
