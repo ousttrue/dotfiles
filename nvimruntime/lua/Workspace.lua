@@ -14,11 +14,12 @@ local function get_link_destination(bufnr, pos)
     return
   end
 
-  if node:type() == "link_destination" then
+  local node_type = node:type()
+  if node_type == "link_destination" then
     return node
   end
 
-  if node:type() == "link_text" then
+  if node_type == "link_text" then
     local parent = node:parent()
     if parent then
       for i = 0, parent:named_child_count() - 1 do
@@ -27,6 +28,18 @@ local function get_link_destination(bufnr, pos)
           if child:type() == "link_destination" then
             return child
           end
+        end
+      end
+    end
+  end
+
+  if node_type == "inline_link" then
+    local parent = node
+    for i = 0, parent:named_child_count() - 1 do
+      local child = parent:named_child(i)
+      if child then
+        if child:type() == "link_destination" then
+          return child
         end
       end
     end

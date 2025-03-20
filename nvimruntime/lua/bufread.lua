@@ -73,9 +73,36 @@ local function remove_html_tag(src)
     pos = e + 1
   end
   dst = ts_util.decode_entity(dst)
-  dst = dst:match("(.-)%s*$")
+  dst = dst:match "(.-)%s*$"
 
   return dst
+end
+
+---@param src string?
+---@return string?
+local function get_pre_lang(src)
+  if not src then
+    print('no src')
+    return
+  end
+
+  local m = src:match '%sdata%-lang="(%w+)"' or ""
+  if m and #m>0 then
+    return m
+  end
+
+  m = src:match '%sdata%-language="(%w+)"' or ""
+  if m and #m>0 then
+    return m
+  end
+
+  m = src:match '%sclass="language%-([^"]+)"' or ""
+  if m and #m>0 then
+    return m
+  end
+
+  -- print('no lang', src)
+  return ''
 end
 
 ---@param lines string[]
@@ -114,10 +141,7 @@ local function add_lines(lines, body)
       elseif tag == "pre" then
         local pre = vim.treesitter.get_node_text(node, body, {})
         pre = remove_html_tag(pre)
-        local lang
-        if start_tag_text then
-          lang = start_tag_text:match '%sdata%-lang="(%w+)"' or ""
-        end
+        local lang = get_pre_lang(start_tag_text)
         push_line:flush_texts()
         push_line:newline()
         push_line:push_line("```" .. lang)
@@ -201,16 +225,16 @@ local function on_bufreadcmd(ev)
   vim.api.nvim_set_option_value("modifiable", true, { buf = ev.buf })
 
   local dl_job = vim
-    .system({
-      "curl",
-      "-0",
-      "-L",
-      "-i",
-      "-H",
-      "USER-AGENT: w3m/0.5.3+git20230121",
-      ev.file,
-    }, { text = false })
-    :wait()
+      .system({
+        "curl",
+        "-0",
+        "-L",
+        "-i",
+        "-H",
+        "USER-AGENT: w3m/0.5.3+git20230121",
+        ev.file,
+      }, { text = false })
+      :wait()
   -- vim.notify_once(("get %dbytes"):format(#dl_job.stdout), vim.log.levels.INFO, { title = ev.file })
   local res = dl_job.stdout
   assert(res)

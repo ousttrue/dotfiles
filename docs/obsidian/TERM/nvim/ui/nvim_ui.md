@@ -6,6 +6,8 @@ https://neovim.io/doc/user/ui.html
 
 ## vim.ui.input
 
+- @2023 [vim.ui.inputを自作floating windowにした (Vim駅伝)](https://ryota2357.com/blog/2023/neovim-custom-vim-ui-input/)
+
 ## vim.ui.open
 
 ## vim.ui.select
