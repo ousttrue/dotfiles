@@ -1,15 +1,9 @@
 local utf8 = require "neoskk.utf8"
+local ts_utils = require "nvim-treesitter.ts_utils"
 
----@param bufnr integer
----@param pos [integer, integer] row, col
+---@param node TSNode?
 ---@return TSNode?
-local function get_link_destination(bufnr, pos)
-  local node = vim.treesitter.get_node {
-    bufnr = bufnr,
-    pos = pos,
-    ignore_injections = false,
-    -- lang = "markdown_inline",
-  }
+local function get_link_destination(node)
   if not node then
     return
   end
@@ -76,22 +70,45 @@ local function make_uri(root_dir, dir, dst)
     return dst
   end
 
-  print("make_uri", dir, dst)
-  if dst:find "^/" then
-    local host = dir:match "^(https?://[^/]+)"
-    if host then
+  print("make_uri", root_dir, dir, dst)
+  local host = dir:match "^(https?://[^/]+)"
+  if host then
+    -- http
+    if dst:find "^/" then
+      -- absolute path
+      print("http + abs", host, dst)
       return host .. dst
     else
-      local uri = vim.fs.joinpath(root_dir, dst)
-      return if_exists(uri)
+      -- relative
+      if dst:find "^%./" then
+        dst = dst:sub(3)
+      end
+      print("http + rel", dir, dst)
+      return dir .. "/" .. dst
     end
   else
-    if dst:find "^%./" then
-      dst = dst:sub(3)
+    -- local filesysem
+    if dst:find "^/" then
+      -- absolute path
+      local uri = vim.fs.joinpath(root_dir, dst)
+      print("local + abs", uri)
+      return if_exists(uri)
+    else
+      -- relative
+      if dst:find "^%./" then
+        dst = dst:sub(3)
+      end
+      local uri = vim.fs.joinpath(dir, dst)
+      print("local + rel", uri)
+      return if_exists(uri)
     end
-    local uri = vim.fs.joinpath(dir, dst)
-    return if_exists(uri)
   end
+
+  -- else
+  --   if host then
+  --   else
+  --   end
+  -- end
 end
 
 ---@class lls.Workspace
@@ -106,6 +123,19 @@ function Workspace.new(root_dir)
     root_dir = root_dir,
   }, Workspace)
   return self
+end
+
+local function get_base(uri)
+  if uri:sub(#uri) == "/" then
+    return uri
+  end
+
+  local host, path = uri:match "^(https?://[^/]+)(.*)"
+  if host then
+    return host .. vim.fs.dirname(path)
+  else
+    return vim.fs.dirname(uri)
+  end
 end
 
 ---@param params lsp.DefinitionParams
@@ -129,12 +159,31 @@ function Workspace:lsp_definition(params)
     params.position.line,
     col,
   }
-  local node = get_link_destination(bufnr, pos)
 
+  local node = vim.treesitter.get_node {
+    bufnr = bufnr,
+    pos = pos,
+    ignore_injections = false,
+    -- lang = "markdown_inline",
+  }
+  local dst
   if node then
-    local dir = vim.fs.dirname(params.textDocument.uri)
-    local ts_utils = require "nvim-treesitter.ts_utils"
-    local dst = ts_utils.get_node_text(node)[1]
+    local link_dst = get_link_destination(node)
+    if link_dst then
+      dst = ts_utils.get_node_text(link_dst)[1]
+    elseif node:type() == "inline" then
+      local text = ts_utils.get_node_text(node)[1]
+      local m = text:match "^https?://[%w%%%-%+%./#&=]+"
+      print(text, m)
+      if m then
+        dst = m
+      end
+    end
+  end
+
+  if dst then
+    local dir = get_base(params.textDocument.uri)
+    print("base", params.textDocument.uri, dir)
     if dst ~= "/" and dst:find "/$" then
       dst = dst:sub(1, #dst - 1)
     end

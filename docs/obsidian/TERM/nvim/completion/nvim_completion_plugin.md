@@ -1,9 +1,26 @@
-# mini.completion
+# popupmenu-completion
 
-- [GitHub - echasnovski/mini.nvim: Library of 30+ independent Lua modules improving overall Neovim (version 0.7 and higher) experience with minimal effort](https://github.com/echasnovski/mini.nvim)
+## mini.completion
 
-- @2023 [Neovim向け機能山盛りプラグインmini.nvimの概要と設定の紹介](https://zenn.dev/kawarimidoll/articles/56d61ecbab9755)
+https://github.com/echasnovski/mini.completion
+
 - @2022 [Neovimの補完にmini.completionを使用する検討](https://zenn.dev/kawarimidoll/scraps/22e2658015caab)
+
+## compl.nvim
+
+https://github.com/brianaung/compl.nvim
+
+# floating
+
+## nvim-cmp
+
+## blink
+
+https://github.com/Saghen/blink.cmp
+
+## care
+
+https://github.com/max397574/care.nvim
 
 # which
 

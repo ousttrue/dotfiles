@@ -1,5 +1,5 @@
 local M = {}
-local ts_util = require "ts_util"
+local text_util = require "text_util"
 
 ---@param node TSNode
 ---@param callback fun(node: TSNode):boolean
@@ -28,6 +28,9 @@ local function make_link(src, node)
       if child_type == "start_tag" then
         local a_text = vim.treesitter.get_node_text(child, src)
         url = a_text:match "%shref%s*=%s*(%S+)"
+        if not url then
+          url = a_text:match "%sHREF%s*=%s*(%S+)"
+        end
         if url then
           url = url:gsub("&amp;", "&")
           local m = url:match '^"([^"]*)">?$'
@@ -38,7 +41,7 @@ local function make_link(src, node)
           -- print("no href", a_text)
         end
       else
-        text = text .. ts_util.get_text(src, child)
+        text = text .. text_util.get_text(src, child)
       end
     end
   end
@@ -49,7 +52,7 @@ local function make_link(src, node)
       url = g_redirect
     end
 
-    local title = text:gsub("\n", " ")
+    local title = text_util.decode_entity(text:gsub("\n", " "))
     if title:match "^%s*$" then
       -- title = "no_text"
     else
@@ -72,7 +75,7 @@ local function remove_html_tag(src)
     dst = dst .. src:sub(pos, s - 1)
     pos = e + 1
   end
-  dst = ts_util.decode_entity(dst)
+  dst = text_util.decode_entity(dst)
   dst = dst:match "(.-)%s*$"
 
   return dst
@@ -82,27 +85,27 @@ end
 ---@return string?
 local function get_pre_lang(src)
   if not src then
-    print('no src')
+    print "no src"
     return
   end
 
   local m = src:match '%sdata%-lang="(%w+)"' or ""
-  if m and #m>0 then
+  if m and #m > 0 then
     return m
   end
 
   m = src:match '%sdata%-language="(%w+)"' or ""
-  if m and #m>0 then
+  if m and #m > 0 then
     return m
   end
 
   m = src:match '%sclass="language%-([^"]+)"' or ""
-  if m and #m>0 then
+  if m and #m > 0 then
     return m
   end
 
   -- print('no lang', src)
-  return ''
+  return ""
 end
 
 ---@param lines string[]
@@ -122,10 +125,12 @@ local function add_lines(lines, body)
         return true
       end
 
-      local start_tag_text = ts_util.html_get_tag_from_element(body, node)
+      local start_tag_text = text_util.html_get_tag_from_element(body, node)
       local tag
       if start_tag_text then
         tag = start_tag_text:match "^<(%w+)"
+        assert(tag)
+        tag = tag:lower()
       end
       --   if tag then
       --     if start_tag_text:match "^<a%s" then
@@ -155,12 +160,15 @@ local function add_lines(lines, body)
       elseif tag == "form" then
       elseif tag == "svg" then
       elseif tag == "dialog" then
-      elseif tag == "script" then
+      elseif tag == "script_element" then
+      elseif tag == "style_element" then
+      elseif tag == "doctype" then
+      elseif tag == "comment" then
       elseif tag == "iframe" then
       elseif node_type == "element" then
         return true
       elseif node_type == "text" or node_type == "entity" then
-        push_line:push_text(ts_util.decode_entity(text))
+        push_line:push_text(text_util.decode_entity(text))
       elseif node_type == "start_tag" then
         push_line:start_tag(text)
       elseif node_type == "self_closing_tag" then
@@ -168,7 +176,7 @@ local function add_lines(lines, body)
       elseif node_type == "end_tag" then
         local parent = node:parent()
         assert(parent)
-        local end_tag = ts_util.html_get_tag_from_element(body, parent)
+        local end_tag = text_util.html_get_tag_from_element(body, parent)
         assert(end_tag)
         push_line:end_tag(end_tag)
       else
@@ -192,29 +200,34 @@ end
 ---@alias MsgMap table<string, string>
 
 ---@param lines string[]
----@param status string
----@param header string
+---@param responses [string, string][]
 ---@param show_header boolean
 ---@return MsgMap
-local function add_http_header(lines, status, header, show_header)
+local function add_http_header(lines, responses, show_header)
+  table.insert(lines, "---")
+  table.insert(lines, "# vim: ft=markdown")
+  table.insert(lines, "responses: [")
+
   ---@type MsgMap
   local map = {}
 
-  for _, line in ipairs {
-    "---",
-    "# vim: ft=markdown",
-    '"status": "' .. status .. '"',
-    '"http-header": {',
-  } do
-    table.insert(lines, line)
-  end
-  for k, v in header:gmatch "([^:]+):%s*(.-)\r\n" do
-    map[k] = v
-    if show_header then
-      table.insert(lines, '  "' .. k .. '": "' .. v .. '"')
+  for i, res in ipairs(responses) do
+    local status, header = unpack(res)
+    table.insert(lines, "  {")
+    table.insert(lines, '    "status": "' .. status .. '"')
+    table.insert(lines, '    "http-header": {')
+    for k, v in header:gmatch "([^:]+):%s*(.-)\r\n" do
+      if i == #responses then
+        map[k] = v
+      end
+      if show_header then
+        table.insert(lines, '      "' .. k .. '": "' .. v .. '"')
+      end
     end
+    table.insert(lines, "    },")
+    table.insert(lines, "  },")
   end
-  table.insert(lines, "}")
+  table.insert(lines, "]")
   table.insert(lines, "---")
 
   return map
@@ -248,10 +261,24 @@ local function on_bufreadcmd(ev)
   --   end
   -- end
 
-  local status, header, body = res:match "^(HTTP.-)\r\n(.-)\r\n\r\n(.*)"
+  local responses = {}
+
+  while #res > 0 do
+    local status, header, body = res:match "^(HTTP.-)\r\n(.-)\r\n\r\n(.*)$"
+    if status then
+      print(status)
+      table.insert(responses, { status, header })
+      res = body
+    else
+      break
+    end
+  end
+  body = res
+  assert(#body > 0)
+
   ---@type string[]
   local lines = {}
-  local map = add_http_header(lines, status, header, false)
+  local map = add_http_header(lines, responses, false)
   if map["Content-Type"] == "text/html; charset=Shift_JIS" then
     body = vim.iconv(body, "shift_jis", "utf-8", {})
   end

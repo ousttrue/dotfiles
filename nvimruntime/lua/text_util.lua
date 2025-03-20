@@ -142,8 +142,8 @@ function M.decode_entity(src)
       if x and #x > 0 then
         return utf8.char(tonumber(w, 16))
       else
-        -- return utf8.char(tonumber(w))
-        return all
+        return utf8.char(tonumber(w))
+        -- return all
       end
     else
       local ch = ENTITY_MAP[w]

@@ -10,6 +10,7 @@ local BLOCK_PREFIX_MAP = {
   p = {},
   div = {},
   tr = {},
+  thead = {},
   table = {},
   tbody = {},
   br = { end_newline = true },
@@ -23,6 +24,7 @@ local BLOCK_PREFIX_MAP = {
 
 local INLINE_PREFIX_MAP = {
   td = { prefix = "|" },
+  th = { prefix = "|" },
   html = {},
   head = {},
   meta = {},
@@ -44,10 +46,17 @@ local INLINE_PREFIX_MAP = {
   code = { prefix = " `", suffix = "` " },
   strong = { prefix = " `", suffix = "` " },
   small = { prefix = " `", suffix = "` " },
+  b = { prefix = " `", suffix = "` " },
+  figcaption = { prefix = " `", suffix = "` " },
   address = {},
   template = {},
   i = {},
   u = {},
+  font = {},
+  center = {},
+  ins = {},
+  figure = {},
+  label = {},
 }
 
 ---@class PushLine
@@ -112,6 +121,8 @@ end
 function PushLine:start_tag(text, closing)
   assert(type(text) == "string")
   local tag = text:match "^<(%w+)"
+  assert(tag)
+  tag = tag:lower()
   local block = BLOCK_PREFIX_MAP[tag]
   local inline = INLINE_PREFIX_MAP[tag]
 
@@ -139,6 +150,8 @@ end
 function PushLine:end_tag(text)
   assert(type(text) == "string")
   local tag = text:match "^<(%w+)"
+  assert(tag)
+  tag = tag:lower()
   local block = BLOCK_PREFIX_MAP[tag]
   local inline = INLINE_PREFIX_MAP[tag]
   if block then
