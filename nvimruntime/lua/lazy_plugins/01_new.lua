@@ -1,4 +1,51 @@
 return {
+  {
+    name = "ousttrue/neomarkdown.nvim",
+    -- enabled = false,
+    dir = vim.env["GHQ_ROOT"] .. "/github.com/ousttrue/neomarkdown.nvim",
+    dev = true,
+    -- "ousttrue/neoskk",
+    opts = {},
+  },
+  {
+    name = "ousttrue/neoskk",
+    -- enabled = false,
+    dir = vim.env["GHQ_ROOT"] .. "/github.com/ousttrue/neoskk",
+    dev = true,
+    -- "ousttrue/neoskk",
+    config = function()
+      require("neoskk").setup {
+        -- xszd = vim.fn.expand "~/.skk/xszd.txt",
+        emoji = vim.fn.expand "~/.skk/emoji-data.txt",
+        kangxi = vim.fn.expand "~/cjkvi-dict/kx2ucs.txt",
+        -- chinadat = vim.fn.expand "~/.skk/chinadat.csv",
+        -- ghq get https://github.com/syimyuzya/guangyun0704
+        guangyun = vim.fs.joinpath(
+          os.getenv "GHQ_ROOT",
+          "/github.com/syimyuzya/guangyun0704/Kuankhiunn0704-semicolon.txt"
+        ),
+        user = vim.fn.expand "~/dotfiles/user_dict.json",
+      }
+      local opts = {
+        remap = false,
+        expr = true,
+      }
+      vim.keymap.set("i", "<C-j>", function()
+        local neoskk = require "neoskk"
+        return neoskk.toggle()
+      end, opts)
+      vim.keymap.set("i", "<C-b>", function()
+        local neoskk = require "neoskk"
+        return neoskk.toggle "zhuyin"
+      end, opts)
+
+      vim.keymap.set("v", "~", require("neoskk").kana_toggle, { noremap = true })
+
+      vim.api.nvim_create_user_command("NeoSkkReload", function()
+        require("neoskk").reload_dict()
+      end, {})
+    end,
+  },
   -- {
   --   "oysandvik94/curl.nvim",
   --   -- cmd = { "CurlOpen" },
@@ -73,114 +120,7 @@ let g:winresizer_start_key = '<Space>e'
       require("colorizer").setup()
     end,
   },
-  -- {
-  --   "lewis6991/hover.nvim",
-  --   config = function()
-  --     require("hover").setup {
-  --       init = function()
-  --         -- Require providers
-  --         require "hover.providers.lsp"
-  --         require "hover.providers.gh"
-  --         -- require('hover.providers.gh_user')
-  --         -- require('hover.providers.jira')
-  --         -- require('hover.providers.dap')
-  --         -- require('hover.providers.fold_preview')
-  --         require "hover.providers.diagnostic"
-  --         require "hover.providers.man"
-  --         require "hover.providers.dictionary"
-  --       end,
-  --       preview_opts = {
-  --         border = "single",
-  --       },
-  --       -- Whether the contents of a currently open hover window should be moved
-  --       -- to a :h preview-window when pressing the hover keymap.
-  --       preview_window = false,
-  --       title = true,
-  --       mouse_providers = {
-  --         "LSP",
-  --       },
-  --       mouse_delay = 1000,
-  --     }
-  --
-  --     -- Setup keymaps
-  --     vim.keymap.set("n", "K", require("hover").hover, { desc = "hover.nvim" })
-  --     vim.keymap.set("n", "gK", require("hover").hover_select, { desc = "hover.nvim (select)" })
-  --     vim.keymap.set("n", "[k", function()
-  --       require("hover").hover_switch("previous", {})
-  --     end, { desc = "hover.nvim (previous source)" })
-  --     vim.keymap.set("n", "]k", function()
-  --       require("hover").hover_switch("next", {})
-  --     end, { desc = "hover.nvim (next source)" })
-  --
-  --     -- Mouse support
-  --     vim.keymap.set("n", "<MouseMove>", require("hover").hover_mouse, { desc = "hover.nvim (mouse)" })
-  --     vim.o.mousemoveevent = true
-  --
-  --     -- Simple
-  --     require("hover").register {
-  --       name = "neoskk",
-  --       priority = 1,
-  --
-  --       --- @param bufnr integer
-  --       enabled = function(bufnr)
-  --         return true
-  --       end,
-  --
-  --       --- @param opts Hover.Options
-  --       --- @param done fun(result: any)
-  --       execute = function(opts, done)
-  --         local neoskk = require "neoskk"
-  --         if neoskk then
-  --           local lines = neoskk.hover()
-  --           if lines then
-  --             done { lines = lines, filetype = "markdown" }
-  --           end
-  --         else
-  --           done { lines = { "no neoskk" }, filetype = "markdown" }
-  --         end
-  --       end,
-  --     }
-  --   end,
-  -- },
-  {
-    name = "ousttrue/neoskk",
-    -- enabled = false,
-    dir = vim.env["GHQ_ROOT"] .. "/github.com/ousttrue/neoskk",
-    dev = true,
-    -- "ousttrue/neoskk",
-    config = function()
-      require("neoskk").setup {
-        -- xszd = vim.fn.expand "~/.skk/xszd.txt",
-        emoji = vim.fn.expand "~/.skk/emoji-data.txt",
-        kangxi = vim.fn.expand "~/cjkvi-dict/kx2ucs.txt",
-        -- chinadat = vim.fn.expand "~/.skk/chinadat.csv",
-        -- ghq get https://github.com/syimyuzya/guangyun0704
-        guangyun = vim.fs.joinpath(
-          os.getenv "GHQ_ROOT",
-          "/github.com/syimyuzya/guangyun0704/Kuankhiunn0704-semicolon.txt"
-        ),
-        user = vim.fn.expand "~/dotfiles/user_dict.json",
-      }
-      local opts = {
-        remap = false,
-        expr = true,
-      }
-      vim.keymap.set("i", "<C-j>", function()
-        local neoskk = require "neoskk"
-        return neoskk.toggle()
-      end, opts)
-      vim.keymap.set("i", "<C-b>", function()
-        local neoskk = require "neoskk"
-        return neoskk.toggle "zhuyin"
-      end, opts)
 
-      vim.keymap.set("v", "~", require("neoskk").kana_toggle, { noremap = true })
-
-      vim.api.nvim_create_user_command("NeoSkkReload", function()
-        require("neoskk").reload_dict()
-      end, {})
-    end,
-  },
   -- {
   --   "folke/which-key.nvim",
   --   event = "VeryLazy",
