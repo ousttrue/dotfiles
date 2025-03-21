@@ -201,9 +201,8 @@ end
 
 ---@param lines string[]
 ---@param responses [string, string][]
----@param show_header boolean
 ---@return MsgMap
-local function add_http_header(lines, responses, show_header)
+local function add_http_header(lines, responses)
   table.insert(lines, "---")
   table.insert(lines, "# vim: ft=markdown")
   table.insert(lines, "responses: [")
@@ -220,9 +219,7 @@ local function add_http_header(lines, responses, show_header)
       if i == #responses then
         map[k] = v
       end
-      if show_header then
-        table.insert(lines, '      "' .. k .. '": "' .. v .. '"')
-      end
+      table.insert(lines, '      "' .. k .. '": "' .. v .. '"')
     end
     table.insert(lines, "    },")
     table.insert(lines, "  },")
@@ -278,7 +275,8 @@ local function on_bufreadcmd(ev)
 
   ---@type string[]
   local lines = {}
-  local map = add_http_header(lines, responses, false)
+  local map = add_http_header(lines, responses)
+  local fold_end = #lines
   if map["Content-Type"] == "text/html; charset=Shift_JIS" then
     body = vim.iconv(body, "shift_jis", "utf-8", {})
   end
@@ -299,6 +297,9 @@ local function on_bufreadcmd(ev)
 
   vim.keymap.set("n", "j", "gj", { buffer = ev.buf, noremap = true })
   vim.keymap.set("n", "k", "gk", { buffer = ev.buf, noremap = true })
+  vim.cmd "norm! gg"
+  vim.cmd("norm! " .. (fold_end + 1) .. "j")
+  vim.cmd "norm! zt"
 end
 
 function M.setup()

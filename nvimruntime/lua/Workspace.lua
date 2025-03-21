@@ -183,7 +183,6 @@ function Workspace:lsp_definition(params)
 
   if dst then
     local dir = get_base(params.textDocument.uri)
-    print("base", params.textDocument.uri, dir)
     if dst ~= "/" and dst:find "/$" then
       dst = dst:sub(1, #dst - 1)
     end

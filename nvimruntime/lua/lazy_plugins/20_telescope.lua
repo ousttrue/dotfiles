@@ -158,7 +158,7 @@ return {
           vim.cmd("normal! i\\b" .. word .. "\\b")
         end
       end
-      vim.keymap.set("n", "<Leader>g", grep_under_cursor, { noremap = true })
+      vim.keymap.set("n", "<C-g>", grep_under_cursor, { noremap = true })
 
       vim.keymap.set("n", "<Leader>b", ts_builtin.buffers, { noremap = true })
 
