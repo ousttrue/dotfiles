@@ -63,7 +63,14 @@ local function on_enter(args)
     expr = true,
   })
   vim.keymap.set("i", "<ESC>", function()
-    return pumvisible() and "<C-e>" or "<ESC>"
+    return pumvisible() and "<C-y>" or "<ESC>"
+  end, {
+    buffer = args.buf,
+    expr = true,
+  })
+  -- cancel
+  vim.keymap.set("i", "<C-c>", function()
+    return pumvisible() and "<C-e>" or "<C-c>"
   end, {
     buffer = args.buf,
     expr = true,
@@ -113,7 +120,7 @@ end
 function M.setup()
   -- https://vim-jp.org/vim-users-jp/2009/05/11/Hack-9.html
   -- vim.opt.completeopt = { "menuone", "noinsert", "preview", "noselect" }
-  vim.opt.completeopt = { "menuone", "noinsert", "popup", "fuzzy" }
+  vim.opt.completeopt = { "menuone", "popup", "fuzzy", "preview" }
   vim.api.nvim_create_autocmd("BufEnter", {
     -- group = group,
     callback = on_enter,

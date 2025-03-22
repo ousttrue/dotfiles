@@ -64,8 +64,8 @@ local function setup()
   -- vim.keymap.set("n", "<C-l>", ":nohlsearch<CR><C-l>", { noremap = true })
 
   -- vim.keymap.set("n", "t", "zt", { noremap = true, silent = true })
-  vim.keymap.set({ "i", "c" }, "<C-e>", "<END>")
-  vim.keymap.set({ "i", "c" }, "<C-a>", "<HOME>")
+  vim.keymap.set("c", "<C-e>", "<END>")
+  vim.keymap.set("c", "<C-a>", "<HOME>")
 
   local function write_buffer()
     if vim.startswith(vim.fn.mode(), "i") then
