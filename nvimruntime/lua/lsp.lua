@@ -3,13 +3,16 @@ local function on_attach(event)
   if client then
     -- Disable semantic highlights
     client.server_capabilities.semanticTokensProvider = nil
+    if client.server_capabilities.signatureHelpProvider then
+      client.server_capabilities.signatureHelpProvider = nil
+    end
 
-    -- if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, event.buf) then
-    --   -- lsp completion
-    --   vim.lsp.completion.enable(true, client.id, event.buf, {
-    --     autotrigger = false,
-    --   })
-    -- end
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, event.buf) then
+      -- lsp completion
+      vim.lsp.completion.enable(true, client.id, event.buf, {
+        autotrigger = false,
+      })
+    end
 
     -- formatter
     vim.keymap.set("n", "<Space>f", function()

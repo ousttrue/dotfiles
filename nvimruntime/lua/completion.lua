@@ -27,7 +27,7 @@ local function on_enter(args)
   -- <C-l> マッチするものから一文字追加し、補完を絞り込みます。
   -- <Space>または<Tab> 候補選択を終了し、タイプした文字を挿入します。
   -- <Enter>だけは少々特殊です。候補を選択している場合はその候補を挿入し、それ以外の場合は改行します。
-  vim.keymap.set("i", "<C-n>", function()
+  local function comp()
     if pumvisible() then
       feedkeys "<C-n>"
     else
@@ -35,7 +35,7 @@ local function on_enter(args)
         -- lsp で候補を取得して
         -- vim.fn.complete(start_col, matches)
         -- とする
-        vim.lsp.completion.trigger()
+        vim.lsp.completion.get()
       else
         if #vim.o.completefunc > 0 or #vim.bo.completefunc > 0 then
           feedkeys "<C-x><C-u>"
@@ -46,7 +46,11 @@ local function on_enter(args)
         end
       end
     end
-  end, {
+  end
+  vim.keymap.set("i", "<C-n>", comp, {
+    buffer = args.buf,
+  })
+  vim.keymap.set("i", "<C-x><C-j>", comp, {
     buffer = args.buf,
   })
 
