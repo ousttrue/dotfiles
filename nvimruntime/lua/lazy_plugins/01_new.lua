@@ -4,28 +4,43 @@ return {
     -- enabled = false,
     dir = vim.env["GHQ_ROOT"] .. "/github.com/ousttrue/neomarkdown.nvim",
     dev = true,
-    -- "ousttrue/neoskk",
     opts = {},
   },
   {
+    name = "ousttrue/unihan.nvim",
+    dependencies = { "uga-rosa/utf8.nvim" },
+    -- enabled = false,
+    dir = vim.env["GHQ_ROOT"] .. "/github.com/ousttrue/unihan.nvim",
+    dev = true,
+    config = function()
+      local function github_dir(path)
+        return vim.fs.joinpath(os.getenv "GHQ_ROOT", "github.com", path)
+      end
+      require("unihan").setup {
+        xszd = github_dir "cjkvi/cjkvi-dict/xszd.txt",
+        emoji = vim.fn.expand "~/.skk/emoji-data.txt",
+        kangxi = github_dir "cjkvi/cjkvi-dict/kx2ucs.txt",
+        sbgy = github_dir "cjkvi/cjkvi-dict/sbgy.xml",
+        -- chinadat = vim.fn.expand "~/.skk/chinadat.csv",
+        -- ghq get https://github.com/syimyuzya/guangyun0704
+        kuankhiunn = github_dir "syimyuzya/guangyun0704/Kuankhiunn0704-semicolon.txt",
+        user = vim.fn.expand "~/dotfiles/user_dict.json",
+      }
+
+      vim.api.nvim_create_user_command("NeoSkkReload", function()
+        require("neoskk").reload_dict()
+      end, {})
+    end,
+  },
+  {
     name = "ousttrue/neoskk",
+    -- dependencies = { "ousttrue/unihan.nvim" },
     -- enabled = false,
     dir = vim.env["GHQ_ROOT"] .. "/github.com/ousttrue/neoskk",
     dev = true,
     -- "ousttrue/neoskk",
     config = function()
-      require("neoskk").setup {
-        -- xszd = vim.fn.expand "~/.skk/xszd.txt",
-        emoji = vim.fn.expand "~/.skk/emoji-data.txt",
-        kangxi = vim.fn.expand "~/cjkvi-dict/kx2ucs.txt",
-        -- chinadat = vim.fn.expand "~/.skk/chinadat.csv",
-        -- ghq get https://github.com/syimyuzya/guangyun0704
-        guangyun = vim.fs.joinpath(
-          os.getenv "GHQ_ROOT",
-          "/github.com/syimyuzya/guangyun0704/Kuankhiunn0704-semicolon.txt"
-        ),
-        user = vim.fn.expand "~/dotfiles/user_dict.json",
-      }
+      require("neoskk").setup {}
       local opts = {
         remap = false,
         expr = true,
@@ -40,21 +55,8 @@ return {
       end, opts)
 
       vim.keymap.set("v", "~", require("neoskk").kana_toggle, { noremap = true })
-
-      vim.api.nvim_create_user_command("NeoSkkReload", function()
-        require("neoskk").reload_dict()
-      end, {})
     end,
   },
-  -- {
-  --   "oysandvik94/curl.nvim",
-  --   -- cmd = { "CurlOpen" },
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --   },
-  --   opts = {},
-  --   -- config = true,
-  -- },
   {
     "mvllow/modes.nvim",
     tag = "v0.2.1",
@@ -120,25 +122,4 @@ let g:winresizer_start_key = '<Space>e'
       require("colorizer").setup()
     end,
   },
-
-  -- {
-  --   "folke/which-key.nvim",
-  --   event = "VeryLazy",
-  --   opts = {
-  --     -- your configuration comes here
-  --     -- or leave it empty to use the default settings
-  --     -- refer to the configuration section below
-  --   },
-  --   keys = {
-  --     {
-  --       "<leader>?",
-  --       function()
-  --         require("which-key").show {
-  --           -- global = false,
-  --         }
-  --       end,
-  --       desc = "Buffer Local Keymaps (which-key)",
-  --     },
-  --   },
-  -- },
 }

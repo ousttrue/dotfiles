@@ -22,6 +22,8 @@ return {
         -- See the configuration section for more details
         -- Load luvit types when the `vim.uv` word is found
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        "${3rd}/busted/library",
+        "${3rd}/luassert/library",
       },
     },
   },

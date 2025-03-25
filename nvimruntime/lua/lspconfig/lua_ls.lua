@@ -35,12 +35,12 @@ local function get_dir()
     return ""
   end
   for i, e in
-    ipairs(scandir.scan_dir(dir, {
-      depth = 1,
-      add_dirs = true,
-      only_dirs = true,
-      search_pattern = "sumneko",
-    }))
+  ipairs(scandir.scan_dir(dir, {
+    depth = 1,
+    add_dirs = true,
+    only_dirs = true,
+    search_pattern = "sumneko",
+  }))
   do
     return e .. ""
   end
@@ -98,7 +98,7 @@ function M.setup(lspconfig, capabilities, on_attach)
     -- cmd = { get_lua_ls() },
     on_init = function(client)
       local path = client.workspace_folders[1].name
-      if not vim.loop.fs_stat(path .. "/.luarc.json") and not vim.loop.fs_stat(path .. "/.luarc.jsonc") then
+      if not vim.uv.fs_stat(path .. "/.luarc.json") and not vim.uv.fs_stat(path .. "/.luarc.jsonc") then
         print "luals: use default config"
         client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
           Lua = {
@@ -110,7 +110,10 @@ function M.setup(lspconfig, capabilities, on_attach)
             -- Make the server aware of Neovim runtime files
             workspace = {
               checkThirdParty = false,
-              library = vim.api.nvim_get_runtime_file("", true),
+              library = vim.list_extend(vim.api.nvim_get_runtime_file("", true), {
+                "${3rd}/busted/library",
+                "${3rd}/luassert/library",
+              }),
             },
             format = {
               defaultConfig = {
