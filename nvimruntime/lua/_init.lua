@@ -1,11 +1,13 @@
 -- https://neovim.io/doc/user/lua.html
 
+local g_print = print
+local function debug_print(...)
+  local caller = debug.getinfo(2)
+  g_print(("%s:%d"):format(caller.source, caller.currentline), ...)
+end
+
 -- debug
--- local g_print = print
--- print = function(...)
---   local caller = debug.getinfo(2)
---   g_print(("%s:%d"):format(caller.source, caller.currentline), ...)
--- end
+-- print = debug_print
 
 vim.g.editorconfig = false
 vim.cmd [[

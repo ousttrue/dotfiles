@@ -4,7 +4,10 @@ return {
     -- enabled = false,
     dir = vim.env["GHQ_ROOT"] .. "/github.com/ousttrue/neomarkdown.nvim",
     dev = true,
-    opts = {},
+    config = function()
+      require 'neomarkdown'.setup{
+      }
+    end,
   },
   {
     name = "ousttrue/unihan.nvim",

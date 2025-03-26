@@ -21,7 +21,6 @@ function M.setup()
     }
 
     if server_name == "json-lsp" or server_name == "jsonls" then
-      print(require("schemastore").json.schemas())
       config.settings = {
         json = {
           schemas = require("schemastore").json.schemas(),
