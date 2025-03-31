@@ -31,6 +31,12 @@ local function setup_windows(config)
   config.font_size = 13.0 -- 4k monitor with DPI scaling
   config.default_prog = { "pwsh", "-nologo" }
   -- config.allow_win32_input_mode = false
+  config.font = wezterm.font_with_fallback({
+    "JetBrains Mono",
+    {family="Noto Serif CJK TC", --"Noto Sans Mono CJK TC",
+     scale=1.0},
+  })
+  -- wezterm.font("Noto Serif CJK TC", {weight="DemiBold", stretch="Normal", style="Normal"}) -- C:\USERS\OUSTTRUE\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\NOTOSERIFCJK.TTC index=23 variation=0, DirectWrite
 
   -- wsl
   local wsl_domains = wezterm.default_wsl_domains()

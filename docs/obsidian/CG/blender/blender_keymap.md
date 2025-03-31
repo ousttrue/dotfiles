@@ -6,10 +6,12 @@ search ?
 
 - [x] emulate numpad
 
-`1` => `f1`
-`2` => `f2`
-`3` => `f3`
-`f2` => `f4`
+| src  | dst  | note                     |
+| ---- | ---- | ------------------------ |
+| `1`  | `f1` | Mesh, SelectMode, vertex |
+| `2`  | `f2` | Mesh, SelectMode, edge   |
+| `3`  | `f3` | Mesh, selectMode, face   |
+| `f2` | `f4` | rename active item       |
 
 # navigation
 
