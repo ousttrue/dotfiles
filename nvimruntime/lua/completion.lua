@@ -31,11 +31,15 @@ local function on_enter(args)
     if pumvisible() then
       feedkeys "<C-n>"
     else
-      if next(vim.lsp.get_clients { bufnr = 0 }) then
+      if next(vim.lsp.get_clients { bufnr = 0 }) and vim.lsp.completion then
         -- lsp で候補を取得して
         -- vim.fn.complete(start_col, matches)
         -- とする
-        vim.lsp.completion.get()
+        if vim.lsp.completion.get then
+          vim.lsp.completion.get()
+        else
+          vim.lsp.completion.trigger()
+        end
       else
         if #vim.o.completefunc > 0 or #vim.bo.completefunc > 0 then
           feedkeys "<C-x><C-u>"

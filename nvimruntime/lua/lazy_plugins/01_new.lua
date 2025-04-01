@@ -94,10 +94,7 @@ return {
         return vim.fs.joinpath(os.getenv "GHQ_ROOT", "github.com", path)
       end
       require("unihan").setup {
-        xszd = github_dir "cjkvi/cjkvi-dict/xszd.txt",
         emoji = vim.fn.expand "~/.skk/emoji-data.txt",
-        kangxi = github_dir "cjkvi/cjkvi-dict/kx2ucs.txt",
-        sbgy = github_dir "cjkvi/cjkvi-dict/sbgy.xml",
         -- chinadat = vim.fn.expand "~/.skk/chinadat.csv",
         -- ghq get https://github.com/syimyuzya/guangyun0704
         kuankhiunn = github_dir "syimyuzya/guangyun0704/Kuankhiunn0704-semicolon.txt",
