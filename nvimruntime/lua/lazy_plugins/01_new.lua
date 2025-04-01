@@ -98,7 +98,7 @@ return {
         -- chinadat = vim.fn.expand "~/.skk/chinadat.csv",
         -- ghq get https://github.com/syimyuzya/guangyun0704
         kuankhiunn = github_dir "syimyuzya/guangyun0704/Kuankhiunn0704-semicolon.txt",
-        user = vim.fn.expand "~/dotfiles/user_dict.json",
+        user_dict = vim.fn.expand "~/dotfiles/user_dict.json",
       }
 
       vim.api.nvim_create_user_command("NeoSkkReload", function()
