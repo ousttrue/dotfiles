@@ -14,4 +14,24 @@ http://www.unicode.org/reports/tr38/
 
 # Unihan_DictionaryLikeData.txt
 
-- kFourCornerCode
+## kFourCornerCode
+
+四角号碼
+
+## kKangXi
+
+康煕字典
+
+# Unihn_IRGSources.txt
+
+## kRSUnicode
+
+各字の康熙字典214部首と画数
+
+```
+U+3400	kRSUnicode	1.4
+```
+
+# Unihan_RadicalStrokeCounts.txt
+
+## kRSAdobe_Japan1_6

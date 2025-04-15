@@ -72,3 +72,10 @@ div :has(> srpx-bugfix) {
 }
 ```
 
+# iframe
+
+```css
+div:has(> div > iframe) {
+    display: none;
+}
+```

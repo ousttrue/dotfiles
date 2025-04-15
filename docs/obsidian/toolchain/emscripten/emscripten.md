@@ -1,9 +1,13 @@
-[[wasm]]
-
 - [C/C++ から WebAssembly へのコンパイル - WebAssembly | MDN](https://developer.mozilla.org/ja/docs/WebAssembly/C_to_Wasm)
 - [WebAssemblyとEmscriptenに入門した | フューチャー技術ブログ](https://future-architect.github.io/articles/20230517a/)
 
 # version
+
+- https://github.com/emscripten-core/emscripten/blob/main/ChangeLog.md
+
+## 4.0.4 @20250225
+
+- An initial port of SDL3 was added. Use it with -sUSE_SDL=3
 
 ## 3.1.64
 

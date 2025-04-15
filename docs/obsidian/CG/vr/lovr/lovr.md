@@ -7,9 +7,13 @@
 
 # Version
 
+## 0.18 
+
+- @2025 https://github.com/bjornbytes/lovr/releases
+
 ## 0.17
 
-@2023 https://lovr.org/docs/PassthroughMode
+- @2023 https://lovr.org/docs/PassthroughMode
 
 ## 0.16
 
@@ -19,77 +23,6 @@ standard 未実装？
 ## 0.15
 
 スタンドアロンの lua から動くようにして lua のデバッガをアタッチできないか？
-
-# build 構成
-
-# non VR
-
-カメラ？
-
-## default
-
-- left drag
-- wasd
-
-# init
-
-`main.lua`
-
-````lua
-local model
-
-local customVertex = [[
-    vec4 lovrmain()
-    {
-        return Projection * View * Transform * VertexPosition;
-    }
-]]
-
-local defaultFragment = [[
-    Constants {
-        vec4 ambience;
-        vec4 lightColor;
-        vec3 lightPos;
-    };
-
-    vec4 lovrmain()
-    {
-        //diffuse
-        vec3 norm = normalize(Normal);
-        vec3 lightDir = normalize(lightPos - PositionWorld);
-        float diff = max(dot(norm, lightDir), 0.0);
-        vec4 diffuse = diff * lightColor;
-
-        vec4 baseColor = Color * getPixel(ColorTexture, UV);
-        return baseColor * (ambience + diffuse);
-    }
-]]
-
-local shader = lovr.graphics.newShader(customVertex, defaultFragment, {})
-
-function lovr.load()
-  -- Load a 3D model
-  model = lovr.graphics.newModel "monkey.obj"
-
-  -- Use a dark grey background
-  lovr.graphics.setBackgroundColor(0.2, 0.2, 0.2)
-end
-
-function lovr.draw(pass)
-  -- Draw the model
-  pass:setColor(1, 1, 1)
-  pass:setShader(shader)
-  pass:send("ambience", { 0.2, 0.2, 0.2, 1.0 })
-  pass:send("lightColor", { 1.0, 1.0, 1.0, 1.0 })
-  pass:send("lightPos", { 2.0, 5.0, 0.0 })
-  pass:draw(model, -0.5, 1, -3)
-
-  -- Draw a red cube using the "cube" primitive
-  pass:setColor(1, 0, 0)
-  pass:cube(0.5, 1, -3, 0.5, lovr.timer.getTime())
-
-  return false
-end```
 
 `.luarc.json`
 ```json
@@ -157,44 +90,6 @@ static double desktop_update(void) {
 
 - [lovr.graphics LÖVR](https://lovr.org/docs/lovr.graphics)
 - [Pass LÖVR](https://lovr.org/docs/Pass)
-
-# build
-
-## Desktop
-
-```sh
-# -G Ninja にすると何故か --build で失敗する
-cmake -S . -B build
-```
-
-## Android
-
-`-U_FORTIFY_SOURCE`
-
-- [Android Developers Blog: FORTIFY in Android](https://android-developers.googleblog.com/2017/04/fortify-in-android.html)
-- [[question] What's the correct way to disable FORTIFY_SOURCE? · Issue #1371 · android/ndk · GitHub](https://github.com/android/ndk/issues/1371)
-
-`.vscode/settings.json`
-
-```json
-{
-  "cmake.configureSettings": {
-    "CMAKE_TOOLCHAIN_FILE": "${env:ANDROID_HOME}/ndk/21.4.7075529/build/cmake/android.toolchain.cmake",
-    "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-    "ANDROID": "ON",
-    "ANDROID_SDK": "${env:ANDROID_HOME}",
-    "ANDROID_BUILD_TOOLS_VERSION": "30.0.3",
-    "ANDROID_PLATFORM": "android-26",
-    "ANDROID_NATIVE_API_LEVEL": "26",
-    "ANDROID_ABI": "arm64-v8a",
-    "CMAKE_ANDROID_ARCH_ABI": "arm64-v8a",
-    "LOVR_USE_LUAJIT": "OFF",
-    "ANDROID_KEYSTORE": "${env:USERPROFILE}/.android/debug.keystore",
-    "ANDROID_KEYSTORE_PASS": "pass:android",
-    "ANDROID_KEY_PASS": "pass:android"
-  }
-}
-```
 
 # lodr
 

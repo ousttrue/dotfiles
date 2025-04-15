@@ -38,6 +38,7 @@ $dot_dir = Join-Path $HOME "dotfiles"
 $dot_sync_dir = Join-Path $dot_dir "sync/HOME"
 $dot_sync_app_dir = Join-Path $dot_dir "sync/APPDATA"
 $module_dir = Join-Path $dot_dir "psmodule\mymodule" 
+$unity_gitignore_url = "https://raw.githubusercontent.com/github/gitignore/refs/heads/main/Unity.gitignore"
 
 $dll_path = Join-Path $module_dir "bin\Debug\net8.0\mymodule.dll"
 if (!(Test-Path $dll_path))

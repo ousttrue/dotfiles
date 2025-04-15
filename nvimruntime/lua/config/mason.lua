@@ -6,6 +6,7 @@ function M.setup()
   local function on_attach(client, bufnr)
     --- lsp highlight の抑止
     client.server_capabilities.semanticTokensProvider = nil
+    vim.lsp.inlay_hint.enable(false)
   end
 
   -- from mason-lspconfig
@@ -83,7 +84,8 @@ function M.setup()
   ---@diagnostic disable-next-line
   require("mason-lspconfig").setup {}
 
-  require("lspconfig").zls.setup {}
+  require("lspconfig").zls.setup {
+  }
 end
 
 return M
