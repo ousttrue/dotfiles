@@ -113,4 +113,5 @@
     "git.ignoreSubmodules": true,
     "git.detectSubmodulesLimit": 0,
     "git.detectSubmodules": false,
+    "git.blame.editorDecoration.enabled": true,
 }
