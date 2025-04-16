@@ -18,3 +18,14 @@ glslangValidator -G -l -o shaderVS.spv vertexShader.vert
 # library
 
 ## glslang::TShader
+
+# gn
+
+- https://github.com/KhronosGroup/glslang/blob/main/BUILD.gn
+
+# zig
+
+- https://github.com/tiawl/glslang.zig
+- https://github.com/tiawl/shaderc.zig
+
+- https://github.com/Games-by-Mason/glslang-zig?tab=readme-ov-file
