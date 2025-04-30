@@ -1,5 +1,6 @@
 return {
   { "tpope/vim-fugitive" },
+  { "rhysd/conflict-marker.vim" },
   {
     "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
     opts = {

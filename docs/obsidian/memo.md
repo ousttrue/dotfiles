@@ -1,6 +1,7 @@
 # todo
 
-- sdl3 + vrulakn + wgsl
+- hono ssg
+- apk dawn
 
 # todo.bak
 

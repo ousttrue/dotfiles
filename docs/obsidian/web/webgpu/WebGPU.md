@@ -1,34 +1,38 @@
 [WebGPU](https://www.w3.org/TR/webgpu/)
-[[WGSL]]
 
-- [[忙しい人向け] 100行から始めるWebGPU（WGSL対応版） #JavaScript - Qiita](https://qiita.com/cx20/items/1f2dcfe0e7ac60fc8ce9)
+# Version
+
+# impl
+
+## web
+
+- @2023 [忙しい人向け 100行から始めるWebGPU（WGSL対応版） #JavaScript - Qiita](https://qiita.com/cx20/items/1f2dcfe0e7ac60fc8ce9)
+- @2023 [WebGPUとC++でブラウザ上に三角ポリゴン描画してみる](https://zenn.dev/kd_gamegikenblg/articles/a5a8effe43bf3c)
 - [初めての WebGPU アプリ](https://codelabs.developers.google.com/your-first-webgpu-app?hl=ja#0)
 - https://webgpu.github.io/webgpu-samples/
 - @2022 [WebGPUを使ってみる](https://zenn.dev/bellbind/scraps/eb114b4f51322a)
 - @2022 [WebGPUの現状 – ギャップロ](https://gaprot.jp/2022/02/14/webgpu2022/)
 
-# chrome
+# C++
 
-[WebGPU API - Web API | MDN](https://developer.mozilla.org/ja/docs/Web/API/WebGPU_API#%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%83%BC%E3%81%AE%E4%BA%92%E6%8F%9B%E6%80%A7)
+https://github.com/webgpu-native/webgpu-headers
 
-## 113
+- https://eliemichel.github.io/LearnWebGPU/introduction.html
 
-- @2023 [WebGPUとC++でブラウザ上に三角ポリゴン描画してみる](https://zenn.dev/kd_gamegikenblg/articles/a5a8effe43bf3c)
+## dawn `chrome`
 
-## 102以降: chrome://flags/#enable-unsafe-webgpu を`Enabled`に切り替える
+https://dawn.googlesource.com/dawn
 
-## Chrome-101以前
+- https://github.com/google/dawn
 
-Origin Trialによって使用可能
+- https://developer.chrome.com/docs/web-platform/webgpu/build-app?hl=ja
 
-- [Google Developers Japan: Chrome 94 ベータ版: WebCodecs、WebGPU、スケジューリングなど](https://developers-jp.googleblog.com/2021/09/chrome-94-webcodecswebgpu.html)
+- @2025 [WebGPU (Dawn) でバックバッファを画像に保存する #WebGPU - Qiita](https://qiita.com/lriki/items/1ecdf377a6b2b57ba331)
 
-- @2019 [[忙しい人向け] 100行から始めるWebGPU（GLSL版） - Qiita](https://qiita.com/cx20/items/67f4e70b36e06ef77900)
+- https://learn.arm.com/learning-paths/mobile-graphics-and-gaming/android_webgpu_dawn/3-integrate-dawn/
 
-## 2017
+- https://github.com/blitz-research/dawn
 
-- [Apple、WebGPUという新しい3Dグラフィックス標準を提案](https://www.infoq.com/jp/news/2017/02/webgpu/)
+## wgpu-native `firefox` `rust`
 
-# firefox
-
-`Firefox: firefox-nightly`
+https://github.com/gfx-rs/wgpu-native

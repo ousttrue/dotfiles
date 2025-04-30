@@ -8,6 +8,8 @@ https://github.com/silbinarywolf/zig-android-sdk
 
 # ANDROID_HOME
 
+`%LOCALAPPDATA%\Local\Android\Sdk`
+
 # JAVA_HOME
 
 `D:/Program Files/Android/Android Studio/jbr`
@@ -33,6 +35,6 @@ https://github.com/silbinarywolf/zig-android-sdk
         // - 2nd: $ANDROID_HOME/tools/bin
         const cmdline_tools_path = cmdlineblk: {
             const cmdline_tools = b.pathResolve(
-              // add latest                                      👇 
+              // add latest                                      👇
               &[_][]const u8{ android_sdk_path, "cmdline-tools", "latest", "bin" });
 ```
