@@ -8,6 +8,10 @@
 
 - [Clang - C++ Programming Language Status](https://clang.llvm.org/cxx_status.html)
 
+## 19
+
+
+
 ## 18
 
 - [Clang 18.0.0git (In-Progress) Release Notes — Clang 18.0.0git documentation](https://clang.llvm.org/docs/ReleaseNotes.html)

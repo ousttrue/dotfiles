@@ -113,7 +113,5 @@
     "git.ignoreSubmodules": true,
     "git.detectSubmodulesLimit": 0,
     "git.detectSubmodules": false,
-    "workbench.editorAssociations": {
-        "*.xml": "default"
-    },
+    "git.blame.editorDecoration.enabled": true,
 }
