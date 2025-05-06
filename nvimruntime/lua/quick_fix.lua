@@ -44,6 +44,9 @@ local ninja_vc_fmt = zig .. "%Dninja: Entering directory `%f',%f(%l): %t%*[^ ] %
 
 local gcc_fmt = zig .. "%f:%l:%c: %t%*[^:]: %m"
 
+-- vc
+-- set errorformat=\ %#%f(%l\\\,%c):\ %m
+
 local function setup()
   if vim.fn.has "win32" == 1 then
   else

@@ -33,6 +33,13 @@ function M.setup()
         vim.cmd "ClangdSwitchSourceHeader"
       end, { noremap = true })
       -- require("lspconfig").clangd.setup()
+      -- config.cmd = {
+      --   vim.fn.expand "~" .. "/.local/share/nvim/mason/bin/clangd",
+      --   "--compile-commands-dir=build",
+      --   "--header-insertion=never",
+      --   "--clang-tidy",
+      --   "--enable-config",
+      -- }
       require("lspconfig.clangd").override(config, on_attach)
     elseif server_name == "csharp_ls" then
       config.on_attach = function(client, bufnr)
@@ -84,8 +91,7 @@ function M.setup()
   ---@diagnostic disable-next-line
   require("mason-lspconfig").setup {}
 
-  require("lspconfig").zls.setup {
-  }
+  require("lspconfig").zls.setup {}
 end
 
 return M

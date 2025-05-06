@@ -47,7 +47,7 @@ return {
   {
     "matsui54/denops-popup-preview.vim",
   },
-  {
+ {
     "williamboman/mason.nvim",
     config = require("config.mason").setup,
     dependencies = {
