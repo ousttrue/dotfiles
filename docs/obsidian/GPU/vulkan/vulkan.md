@@ -1,10 +1,18 @@
-[[spir-v]] [[ktx2]] [[VkInstance]] [[VkSwapchainKHR]] [[VkPipeLine]] [[VkCommandList]]
-
 - [LunarXchange](https://vulkan.lunarg.com/)
+- https://vulkan-tutorial.com/
+- https://github.com/KhronosGroup/Vulkan-Guide
 
-- @2019 [Vulkanの道も一歩から【カウントダウンカレンダー2019冬13日目】 - MIS.W 公式ブログ](https://blog.misw.jp/entry/2019/12/24/000000)
+# articles
+
+- @2020 [Vulkan入門で参考になる資料](https://zenn.dev/nishiki/articles/6237fcd3177def)
 
 # Version
+
+## 1.4
+
+https://docs.vulkan.org/features/latest/features/proposals/VK_VERSION_1_4.html
+
+- @2024 [ストリーミング転送や従来のオプション拡張を含んだ「Vulkan 1.4」 - PC Watch](https://pc.watch.impress.co.jp/docs/news/1644713.html)
 
 ## 1.3
 
@@ -16,6 +24,7 @@
 
 ## 1.1
 
+- https://source.android.com/docs/core/graphics/implement-vulkan?hl=ja#vulkan-1.1-functionality-overview
 - @2018 [グラフィックスAPI「Vulkan」バージョン1.1公開 - PC Watch](https://pc.watch.impress.co.jp/docs/news/1110461.html)
 - @2018 [グラフィックスAPI「Vulkan」がmacOS/iOSで利用可能に - PC Watch](https://pc.watch.impress.co.jp/docs/news/1108626.html)
 
@@ -35,6 +44,15 @@
 find_package(Vulkan)
 ```
 
+## Failed to open JSON file
+
+```
+validation layer: loader_get_json: Failed to open JSON file C:\Program Files (x86)\Epic Games\Launcher\Portal\Extras\Overlay\EOSOverlayVkLayer-Win32.json
+validation layer: loader_get_json: Failed to open JSON file C:\Program Files (x86)\Epic Games\Launcher\Portal\Extras\Overlay\EOSOverlayVkLayer-Win64.json
+```
+
+[Vulkan: Spurious "Failed to open JSON file" printed due to invalid Vulkan ICD files · Issue #56089 · godotengine/godot · GitHub](https://github.com/godotengine/godot/issues/56089)
+
 # vulkan.hpp
 
 - [GitHub - KhronosGroup/Vulkan-Hpp: Open-Source Vulkan C++ API](https://github.com/KhronosGroup/Vulkan-Hpp)
@@ -53,51 +71,3 @@ find_package(Vulkan)
 - [Vulkan-Guide/README-jp.adoc at master · KhronosGroup/Vulkan-Guide · GitHub](https://github.com/KhronosGroup/Vulkan-Guide/blob/master/lang/jp/README-jp.adoc)
 - @2022 [Vulkan入門で参考になる資料](https://zenn.dev/nishiki/articles/6237fcd3177def)
 - [Site Unreachable](https://vulkan-tutorial.com/)
-
-# GLFW
-
-- [GLFW: Vulkan guide](https://www.glfw.org/docs/3.3/vulkan_guide.html)
-
-# Linux
-
-## Gentoo
-
-[[gentoo]]
-
-- @2021 [Gaming on Gentoo Linux - joker1007’s diary](https://joker1007.hatenablog.com/entry/2021/04/10/223111)
-- [GitHub - SaschaWillems/Vulkan: Examples and demos for the new Vulkan API](https://github.com/SaschaWillems/Vulkan)
-
-## Ubuntu
-
-- @2016 [Ubuntu 16.04 で Vulkan を使う – すらりん日記](https://blog.techlab-xe.net/post-4506/)
-
-## ArchLinux
-
-- [Vulkan - ArchWiki](https://wiki.archlinux.jp/index.php/Vulkan)
-
-# direct display
-
-- [VulkanダイレクトディスプレイにレンダリングするOpenGLサンプル - wenyanet](https://www.wenyanet.com/opensource/ja/60d63a296dc47e20d012d9ed.html)
-  [[VK_KHR_display]]
-- [「Linuxでアプリから直接画面を表示したい」　インスタンス拡張「VK_KHR_display」を使った、画面占有方法 - ログミーTech](https://logmi.jp/tech/articles/328183)
-
-# Android
-
-[[Android]]
-
-- [Vulkan の実装  |  Android オープンソース プロジェクト  |  Android Open Source Project](https://source.android.com/docs/core/graphics/implement-vulkan?hl=ja)
-
-# error
-
-## Failed to open JSON file
-
-```
-validation layer: loader_get_json: Failed to open JSON file C:\Program Files (x86)\Epic Games\Launcher\Portal\Extras\Overlay\EOSOverlayVkLayer-Win32.json
-validation layer: loader_get_json: Failed to open JSON file C:\Program Files (x86)\Epic Games\Launcher\Portal\Extras\Overlay\EOSOverlayVkLayer-Win64.json
-```
-
-[Vulkan: Spurious "Failed to open JSON file" printed due to invalid Vulkan ICD files · Issue #56089 · godotengine/godot · GitHub](https://github.com/godotengine/godot/issues/56089)
-
-# app
-
-- [GitHub - liblava/liblava: Modern and easy-to-use library for Vulkan](https://github.com/liblava/liblava)
