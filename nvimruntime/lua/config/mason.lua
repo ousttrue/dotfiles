@@ -83,15 +83,15 @@ function M.setup()
     },
   }
 
-  require("mason-lspconfig").setup_handlers {
-    function(server_name)
-      require("lspconfig")[server_name].setup(get_config(server_name))
-    end,
-  }
-  ---@diagnostic disable-next-line
-  require("mason-lspconfig").setup {}
-
-  require("lspconfig").zls.setup {}
+  -- require("mason-lspconfig").setup_handlers {
+  --   function(server_name)
+  --     require("lspconfig")[server_name].setup(get_config(server_name))
+  --   end,
+  -- }
+  -- ---@diagnostic disable-next-line
+  -- require("mason-lspconfig").setup {}
+  --
+  -- require("lspconfig").zls.setup {}
 end
 
 return M

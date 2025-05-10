@@ -18,6 +18,8 @@ https://github.com/brianaung/compl.nvim
 
 https://github.com/Saghen/blink.cmp
 
+- @2025 [Neovim補完プラグインblink.cmpの使い方とカスタマイズ | eiji.page](https://eiji.page/blog/neovim-blink-cmp-intro/)
+
 ## care
 
 https://github.com/max397574/care.nvim
