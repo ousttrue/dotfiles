@@ -26,7 +26,7 @@ file search
 
 - tbl_xxx の deprecated
 
-## 0.11 `202503`
+## 0.11 `202503` lsp 周り
 
 https://neovim.io/doc/user/news-0.11.html
 

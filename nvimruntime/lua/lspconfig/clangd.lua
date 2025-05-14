@@ -66,7 +66,11 @@ M.options = {
     clangdFileStatus = true,
     fallbackFlags = fallbackFlags,
   },
-  root_dir = util.root_pattern("builddir/compile_commands.json", "build/compile_commands.json", ".git"),
+  root_dir = util.root_pattern(
+    (os.getenv "BUILDDIR" or "buildir") .. "/compile_commands.json",
+    "build/compile_commands.json",
+    ".git"
+  ),
   -- on_attach = function(client, bufnr)
   --   print "clangd:on_attach"
   --   vim.keymap.set("n", ",,", function()
@@ -106,7 +110,7 @@ function M.override(config, on_attach)
 
   config.on_attach = function(client, bufnr)
     vim.keymap.set("n", "gh", function()
-      vim.cmd "ClangdSwitchSourceHeader"
+      vim.cmd "LspClangdSwitchSourceHeader"
     end, { noremap = true })
 
     on_attach(client, bufnr)

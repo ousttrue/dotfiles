@@ -44,8 +44,6 @@ function get_tidy()
         return ret
       end
     end
-  else
-    return "clang-format"
   end
 end
 
@@ -79,10 +77,19 @@ function M.setup()
       -- null_ls.builtins.formatting.xmlformat,
       null_ls.builtins.formatting.cmake_format,
 
+      null_ls.builtins.formatting.xq,
       null_ls.builtins.formatting.prettierd.with {
-        filetypes = { "xml", "xml", "html", "markdown", "mdx", "css", "json", "json5", "jsonc" },
+        filetypes = {
+          -- "xml",
+          "html",
+          "markdown",
+          "mdx",
+          "css",
+          "json",
+          "json5",
+          "jsonc",
+        },
       },
-      -- null_ls.builtins.formatting.tidy,
       null_ls.builtins.formatting.shfmt.with {
         filetypes = { "sh", "zsh" },
       },
@@ -192,6 +199,36 @@ function M.setup()
       to_stdin = false,
       to_temp_file = true,
       from_temp_file = true,
+    },
+  }
+
+  --
+  -- tidy
+  -- https://stackoverflow.com/questions/16090869/how-can-i-pretty-print-xml-content-from-the-command-line
+  --
+  null_ls.register {
+    method = null_ls.methods.FORMATTING,
+    name = "tidy",
+    filetypes = { "xml" },
+    generator = null_ls.formatter {
+      command = { get_tidy() or "tidy" },
+      args = {
+        "--indent",
+        "yes",
+        "--indent-spaces",
+        "4",
+        "--indent-attributes",
+        "yes",
+        "--wrap-attributes",
+        "yes",
+        "--input-xml",
+        "yes",
+        "--output-xml",
+        "yes",
+      },
+      to_stdin = true,
+      to_temp_file = false,
+      from_temp_file = false,
     },
   }
 

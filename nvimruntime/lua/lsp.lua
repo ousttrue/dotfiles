@@ -10,33 +10,18 @@ function M.setup()
     callback = M.on_attach,
   })
 
-  -- print("lua-language-server => ", vim.fn.exepath "lua-language-server")
+  -- vim.lsp.config("*", {
+  --   capabilities = {
+  --     textDocument = {
+  --       semanticTokens = {
+  --         multilineTokenSupport = true,
+  --       },
+  --     },
+  --   },
+  --   root_markers = { ".git" },
+  -- })
 
-  vim.lsp.config["luals"] = {
-    cmd = { vim.fn.exepath "lua-language-server" },
-    filetypes = { "lua" },
-    root_markers = { { ".luarc.json", ".luarc.jsonc" }, ".git" },
-    settings = {
-      -- https://zenn.dev/uga_rosa/articles/afe384341fc2e1
-      Lua = {
-        runtime = {
-          version = "LuaJIT",
-          pathStrict = true,
-          path = { "?.lua", "?/init.lua" },
-        },
-        workspace = {
-          library = vim.list_extend(vim.api.nvim_get_runtime_file("lua", true), {
-            "${3rd}/luv/library",
-            "${3rd}/busted/library",
-            "${3rd}/luassert/library",
-          }),
-          checkThirdParty = "Disable",
-        },
-      },
-    },
-  }
-
-  vim.lsp.enable "luals"
+  vim.lsp.enable { "luals", "clangd", "zls" }
 
   -- Enable completion and configure keybindings.
   -- vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
@@ -64,7 +49,7 @@ function M.setup()
 end
 
 function M.on_attach(event)
-  local client = vim.lsp.get_client_by_id(event.data.client_id)
+  local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
   if client then
     -- Disable semantic highlights
     client.server_capabilities.semanticTokensProvider = nil
@@ -84,10 +69,16 @@ function M.on_attach(event)
       vim.lsp.buf.format { timeout_ms = 2000 }
     end, { noremap = true })
 
-    -- inlay
-    if client:supports_method "textDocument/inlayHint" then
-      vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+    if client.name == "clangd" then
+      vim.keymap.set("n", "gh", function()
+        vim.cmd "LspClangdSwitchSourceHeader"
+      end, { noremap = true })
     end
+
+    -- inlay
+    -- if client:supports_method "textDocument/inlayHint" then
+    --   vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+    -- end
   end
 end
 
