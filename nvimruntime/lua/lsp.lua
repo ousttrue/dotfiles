@@ -21,7 +21,7 @@ function M.setup()
   --   root_markers = { ".git" },
   -- })
 
-  vim.lsp.enable { "luals", "clangd", "zls" }
+  vim.lsp.enable { "luals", "clangd", "zls", "ts_ls" }
 
   -- Enable completion and configure keybindings.
   -- vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })

@@ -34,19 +34,6 @@ local function enum_dir(dir)
   return t
 end
 
--- return "C:/Program Files/tidy 5.8.0/bin/tidy.exe"
-function get_tidy()
-  if vim.fn.has "win32" == 1 then
-    local where = "C:/Program Files"
-    for i, e in ipairs(enum_dir(where)) do
-      if string.find(e, "^tidy") then
-        local ret = where .. "/" .. e .. "/bin/tidy.exe"
-        return ret
-      end
-    end
-  end
-end
-
 function M.setup()
   local null_ls = require "null-ls"
   local helpers = require "null-ls.helpers"
@@ -78,18 +65,18 @@ function M.setup()
       null_ls.builtins.formatting.cmake_format,
 
       null_ls.builtins.formatting.xq,
-      null_ls.builtins.formatting.prettierd.with {
-        filetypes = {
-          -- "xml",
-          "html",
-          "markdown",
-          "mdx",
-          "css",
-          "json",
-          "json5",
-          "jsonc",
-        },
-      },
+      -- null_ls.builtins.formatting.prettierd.with {
+      --   filetypes = {
+      --     -- "xml",
+      --     "html",
+      --     "markdown",
+      --     "mdx",
+      --     "css",
+      --     "json",
+      --     "json5",
+      --     "jsonc",
+      --   },
+      -- },
       null_ls.builtins.formatting.shfmt.with {
         filetypes = { "sh", "zsh" },
       },
@@ -206,6 +193,19 @@ function M.setup()
   -- tidy
   -- https://stackoverflow.com/questions/16090869/how-can-i-pretty-print-xml-content-from-the-command-line
   --
+  -- return "C:/Program Files/tidy 5.8.0/bin/tidy.exe"
+  function get_tidy()
+    if vim.fn.has "win32" == 1 then
+      local where = "C:/Program Files"
+      for i, e in ipairs(enum_dir(where)) do
+        if string.find(e, "^tidy") then
+          local ret = where .. "/" .. e .. "/bin/tidy.exe"
+          return ret
+        end
+      end
+    end
+  end
+
   null_ls.register {
     method = null_ls.methods.FORMATTING,
     name = "tidy",

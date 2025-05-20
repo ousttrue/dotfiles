@@ -9,7 +9,7 @@ local function get_builddir()
   if dir then
     return dir
   end
-  return "buiddir"
+  return "builddir"
 end
 
 -- vim.o.errorformat = " %#%f(%l\\,%c): %m"

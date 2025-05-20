@@ -1,7 +1,20 @@
 # todo
 
-- hono ssg
-- apk dawn
+## OpenXR + Vulkan
+
+- https://github.com/ousttrue/hello_vulkan
+
+Windows, Android, OpenXR まで vulkan の動確できた。
+
+hello_xr の refactoring
+
+LOVR では
+
+- https://github.com/ousttrue/openxr_samples
+- https://github.com/ousttrue/xrdesk
+- https://github.com/ousttrue/XRStreamer
+- https://github.com/ousttrue/hello_openxr
+- `x` https://github.com/ousttrue/xrfw
 
 # todo.bak
 
