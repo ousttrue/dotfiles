@@ -16,6 +16,7 @@ file search
 - include
 - exclude
 ```
+
 # version
 
 - [News - Neovim](https://neovim.io/news/)
@@ -25,11 +26,17 @@ file search
 
 - tbl_xxx の deprecated
 
-## 0.11 dev
+## 0.11 `202503` lsp 周り
 
-## 0.10
+https://neovim.io/doc/user/news-0.11.html
 
-`202405`
+- [Neovim 0.11アップデートの個人的に嬉しいことまとめ | eiji.page](https://eiji.page/blog/neovim-update-2025-03/)
+- `mason` [Neovim 0.11時代のMasonを使ったLSP設定](https://zenn.dev/lonsagisawa/articles/nvim11-and-mason)
+- `workspace_required` [忙しい人向け nvim-lspconfigのnvim v0.11対応](https://zenn.dev/vim_jp/articles/migrate-nvim-lspconfig-v0_11)
+- [neovim 0.11からはLSPをほぼネイティブAPIだけで扱える](https://zenn.dev/pandanoir/articles/4736924f5ecc72)
+- [Neovim0.11用のLSP設定](https://zenn.dev/kawarimidoll/articles/b202e546bca344)
+
+## 0.10 `202405`
 
 - [0.10 時代の Neovim Lua #neovim - Qiita](https://qiita.com/delphinus/items/2c993527df40c9ebaea7)
 - https://gihyo.jp/article/2024/05/neovim-0.10

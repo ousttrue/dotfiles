@@ -1,37 +1,27 @@
-local function on_attach(event)
-  local client = vim.lsp.get_client_by_id(event.data.client_id)
-  if client then
-    -- Disable semantic highlights
-    client.server_capabilities.semanticTokensProvider = nil
-    if client.server_capabilities.signatureHelpProvider then
-      client.server_capabilities.signatureHelpProvider = nil
-    end
-
-    if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, event.buf) then
-      -- lsp completion
-      vim.lsp.completion.enable(true, client.id, event.buf, {
-        autotrigger = false,
-      })
-    end
-
-    -- formatter
-    vim.keymap.set("n", "<Space>f", function()
-      vim.lsp.buf.format { timeout_ms = 2000 }
-    end, { noremap = true })
-
-    -- inlay
-    if client:supports_method "textDocument/inlayHint" then
-      vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
-    end
-  end
-end
-
 local M = {}
 
+-- https://neovim.io/doc/user/lsp.html
+-- https://github.com/mason-org/mason.nvim/blob/7c7318e8bae7e3536ef6b9e86b9e38e74f2e125e/CHANGELOG.md?plain=1#L65
 function M.setup()
+  vim.lsp.set_log_level "off"
+  -- vim.lsp.set_log_level "debug"
+
   vim.api.nvim_create_autocmd("LspAttach", {
-    callback = on_attach,
+    callback = M.on_attach,
   })
+
+  -- vim.lsp.config("*", {
+  --   capabilities = {
+  --     textDocument = {
+  --       semanticTokens = {
+  --         multilineTokenSupport = true,
+  --       },
+  --     },
+  --   },
+  --   root_markers = { ".git" },
+  -- })
+
+  vim.lsp.enable { "luals", "clangd", "zls", "ts_ls" }
 
   -- Enable completion and configure keybindings.
   -- vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
@@ -56,6 +46,40 @@ function M.setup()
   -- end)
 
   -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
+end
+
+function M.on_attach(event)
+  local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
+  if client then
+    -- Disable semantic highlights
+    client.server_capabilities.semanticTokensProvider = nil
+    if client.server_capabilities.signatureHelpProvider then
+      client.server_capabilities.signatureHelpProvider = nil
+    end
+
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, event.buf) then
+      -- lsp completion
+      vim.lsp.completion.enable(true, client.id, event.buf, {
+        autotrigger = false,
+      })
+    end
+
+    -- formatter
+    vim.keymap.set("n", "<Space>f", function()
+      vim.lsp.buf.format { timeout_ms = 2000 }
+    end, { noremap = true })
+
+    if client.name == "clangd" then
+      vim.keymap.set("n", "gh", function()
+        vim.cmd "LspClangdSwitchSourceHeader"
+      end, { noremap = true })
+    end
+
+    -- inlay
+    -- if client:supports_method "textDocument/inlayHint" then
+    --   vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+    -- end
+  end
 end
 
 return M

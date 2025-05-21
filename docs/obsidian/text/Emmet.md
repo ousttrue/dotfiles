@@ -18,3 +18,7 @@ https://github.com/mattn/emmet-vim
 
 - @2021 [Vim による markdown の執筆環境 | ハカセノオト](https://hakasenote.hnishi.com/2021/20210101-vim-markdown/)
 
+# nvim
+
+- https://github.com/olrtg/nvim-emmet
+- https://blog.atusy.net/2023/09/01/mini-surround-emmet/

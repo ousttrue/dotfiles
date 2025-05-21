@@ -1,3 +1,9 @@
+[[spir-v]] [[ktx2]] [[VkInstance]] [[VkSwapchainKHR]] [[VkPipeLine]] [[VkCommandList]]
+
+- https://github.com/silbinarywolf/zig-android-sdk/blob/main/examples/sdl2/android/src/ZigSDLActivity.java
+- https://github.com/ARM-software/vulkan-sdk/tree/master/samples/hellotriangle
+- https://github.com/nvpro-samples/vk_minimal_latest
+
 - [LunarXchange](https://vulkan.lunarg.com/)
 - https://vulkan-tutorial.com/
 - https://github.com/KhronosGroup/Vulkan-Guide

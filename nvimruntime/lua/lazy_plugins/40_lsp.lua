@@ -1,32 +1,25 @@
--- * none-ls(null-ls)
---   * formatter(stylua)
---   * linter(muon)
---
--- * mason
---   * mason-lspconfig
---   * nvim-lspconfig
---
--- mason 設定時に mason-lspconfig が nvim-lspconfig を登録する？
--- filetype 確定時に、nvim-lspconfig の設定を起動する？
--- * 起動条件を変更？
---
--- おそらく MasonInstall 済みのものが列挙される。
---
-
 return {
+  { "neovim/nvim-lspconfig" },
   {
-    "folke/lazydev.nvim",
-    ft = "lua", -- only load on lua files
-    opts = {
-      library = {
-        -- See the configuration section for more details
-        -- Load luvit types when the `vim.uv` word is found
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        "${3rd}/busted/library",
-        "${3rd}/luassert/library",
-      },
+    "williamboman/mason.nvim",
+    config = require("config.mason").setup,
+    dependencies = {
+      "b0o/schemastore.nvim",
     },
   },
+  -- {
+  --   "folke/lazydev.nvim",
+  --   ft = "lua", -- only load on lua files
+  --   opts = {
+  --     library = {
+  --       -- See the configuration section for more details
+  --       -- Load luvit types when the `vim.uv` word is found
+  --       { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+  --       "${3rd}/busted/library",
+  --       "${3rd}/luassert/library",
+  --     },
+  --   },
+  -- },
   {
     "nvimtools/none-ls.nvim",
     dependencies = {
@@ -44,16 +37,5 @@ return {
       require("lsp_signature").setup(opts)
     end,
   },
-  {
-    "matsui54/denops-popup-preview.vim",
-  },
- {
-    "williamboman/mason.nvim",
-    config = require("config.mason").setup,
-    dependencies = {
-      "b0o/schemastore.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
-    },
-  },
+  { "matsui54/denops-popup-preview.vim" },
 }

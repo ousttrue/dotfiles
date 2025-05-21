@@ -1,5 +1,7 @@
 [PSReadLine について - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/psreadline/about/about_psreadline?view=powershell-7.4)
 
+- [PSReadLineで提供される入力履歴の削除について #PowerShell - Qiita](https://qiita.com/SAITO_Keita/items/ff654b2e50ed7358c185)
+
 - [GitHub - PowerShell/PSReadLine: A bash inspired readline implementation for PowerShell](https://github.com/PowerShell/PSReadLine)
 
 - `color` @2021 [PowerShellのプロファイルをカスタマイズしてCLIの操作を快適にする - sheepla-note](https://sheepla.github.io/sheepla-note/posts/powershell-customization/)

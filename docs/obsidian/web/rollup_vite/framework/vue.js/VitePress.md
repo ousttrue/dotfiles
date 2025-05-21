@@ -38,3 +38,32 @@ https://vitepress.dev/guide/data-loading
 - https://vitepress.dev/guide/custom-theme
 
 - https://vitepress.dev/guide/extending-default-theme
+
+# default home
+
+```yaml
+---
+# https://vitepress.dev/reference/default-theme-home-page
+layout: home
+
+hero:
+  name: "hello_vulkan"
+  text: "vulan on windows and android"
+  tagline: My great project tagline
+  actions:
+    - theme: brand
+      text: Markdown Examples
+      link: /markdown-examples
+    - theme: alt
+      text: API Examples
+      link: /api-examples
+
+features:
+  - title: Feature A
+    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Feature B
+    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Feature C
+    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+---
+```
