@@ -30,6 +30,29 @@ local function g_match(src, pattern)
 end
 
 return {
+  -- { "echasnovski/mini.ai", version = false, opts={} },
+  {
+    "samsze0/jumplist.nvim",
+    config = function()
+      local jumplist = require "jumplist"
+      jumplist.setup {}
+      vim.keymap.set("n", "<leader>o", jumplist.jump_forward)
+      vim.keymap.set("n", "<leader>i", jumplist.jump_back)
+    end,
+  },
+  -- {
+  --   "cbochs/portal.nvim",
+  --   -- Optional dependencies
+  --   dependencies = {
+  --     "cbochs/grapple.nvim",
+  --     "ThePrimeagen/harpoon",
+  --   },
+  --   config = function()
+  --     -- require("portal").setup()
+  --     vim.keymap.set("n", "<leader>o", "<cmd>Portal jumplist backward<cr>")
+  --     vim.keymap.set("n", "<leader>i", "<cmd>Portal jumplist forward<cr>")
+  --   end,
+  -- },
   {
     name = "ousttrue/neomarkdown.nvim",
     -- enabled = false,

@@ -75,6 +75,12 @@ local function setup()
   require("bufread").setup()
 
   vim.api.nvim_create_user_command("Here", ":!start %:p:h", {})
+
+  vim.filetype.add {
+    pattern = {
+      [".*/pkgconfig/.*%.pc"] = "pkg-config",
+    },
+  }
 end
 
 return {

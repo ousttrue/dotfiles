@@ -14,6 +14,27 @@ return {
     opts = {
       highlight = { enable = true },
       indent = { enable = true },
+      -- https://qiita.com/ysmb-wtsg/items/2c9eaf444c60ca172588
+      textobjects = {
+        select = {
+          enable = true,
+
+          -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true,
+
+          keymaps = {
+            -- You can use the capture groups defined in textobjects.scm
+            ["af"] = {
+              query = "@function.outer",
+              desc = "Select outer part of a method/function definition",
+            },
+            ["if"] = {
+              query = "@function.inner",
+              desc = "Select inner part of a method/function definition",
+            },
+          },
+        },
+      },
     },
   },
   -- {
@@ -53,7 +74,7 @@ return {
     },
     config = function()
       vim.o.foldcolumn = "0" -- '0' is not bad
-      vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
 
@@ -160,7 +181,7 @@ return {
         callback = function(ctx)
           require("tsnode-marker").set_automark(ctx.buf, {
             target = { "code_fence_content" }, -- list of target node types
-            hl_group = "CursorLine",           -- highlight group
+            hl_group = "CursorLine", -- highlight group
           })
         end,
       })

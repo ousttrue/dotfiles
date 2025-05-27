@@ -20,10 +20,21 @@ return {
   --     },
   --   },
   -- },
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   dependencies = {
+  --     "nvimtools/none-ls-extras.nvim",
+  --   },
+  --   config = function()
+  --     require("config.null-ls").setup()
+  --   end,
+  -- },
   {
-    "nvimtools/none-ls.nvim",
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      "nvimtools/none-ls-extras.nvim",
+      "williamboman/mason.nvim",
+      "nvimtools/none-ls.nvim",
     },
     config = function()
       require("config.null-ls").setup()

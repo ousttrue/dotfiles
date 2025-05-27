@@ -26,6 +26,12 @@ if($IsWindows)
   Set-Alias nu (Join-Path $env:LOCALAPPDATA "Programs\nu\bin\nu.exe")
 }
 
+if(Test-Path C:/gnome)
+{
+  $env:PATH += ";C:\gnome\bin"
+  $env:PKG_CONFIG_PATH = "C:\gnome\lib\pkgconfig"
+}
+
 # dirs
 if ($IsWindows)
 {
@@ -191,8 +197,11 @@ addPath(join-Path $HOME '/Downloads/Visual Studio Code.app/Contents/Resources/ap
 # if (has py)
 # {
 $PY_PREFIX = Get-Python
+if ($PY_PREFIX) 
+{
 insertPath($PY_PREFIX)
 insertPath(Join-Path $PY_PREFIX "Scripts")
+}
 # }
 
 if ($IsMacOS)

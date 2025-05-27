@@ -94,6 +94,11 @@ function vcenv()
         "VSCMD_VER=> $($kv[1])"
         $env:VSCMD_VER = $kv[1]
       }
+      "VCTOOLSINSTALLDIR"
+      {
+        "VCTOOLSINSTALLDIR=> $($kv[1])"
+        $env:VCTOOLSINSTALLDIR = $kv[1]
+      }
     }
   }
   # Write-Output $v.stdout

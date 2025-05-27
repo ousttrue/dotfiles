@@ -1,3 +1,9 @@
+- [Build and run GTK 4 applications with Visual Studio](https://www.collabora.com/news-and-blog/blog/2021/03/18/build-and-run-gtk-4-applications-with-visual-studio/)
+
+# 干渉
+
+- C:\Strawberry\perl\bin\pkg-config.bat
+
 # order
 
 - glib `introspection=disabled`

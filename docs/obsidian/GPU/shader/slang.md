@@ -15,4 +15,3 @@ https://shader-slang.org/
 
 - https://github.com/tracefree/vulkan-triangle-sdl-slang
 - https://github.com/tracefree/prosper
-

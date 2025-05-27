@@ -35,6 +35,11 @@ local function enum_dir(dir)
 end
 
 function M.setup()
+  require("mason").setup()
+  require("mason-null-ls").setup {
+    handlers = {},
+  }
+
   local null_ls = require "null-ls"
   local helpers = require "null-ls.helpers"
 
@@ -65,18 +70,19 @@ function M.setup()
       null_ls.builtins.formatting.cmake_format,
 
       null_ls.builtins.formatting.xq,
-      -- null_ls.builtins.formatting.prettierd.with {
-      --   filetypes = {
-      --     -- "xml",
-      --     "html",
-      --     "markdown",
-      --     "mdx",
-      --     "css",
-      --     "json",
-      --     "json5",
-      --     "jsonc",
-      --   },
-      -- },
+      null_ls.builtins.formatting.prettierd.with {
+        filetypes = {
+          -- "xml",
+          -- "html",
+          "markdown",
+          "md",
+          -- "mdx",
+          -- "css",
+          -- "json",
+          -- "json5",
+          -- "jsonc",
+        },
+      },
       null_ls.builtins.formatting.shfmt.with {
         filetypes = { "sh", "zsh" },
       },

@@ -1,5 +1,46 @@
 local M = {}
 
+---@alias ToolType 'cmake' | 'meson' | 'zig'
+
+-- */CMakeCache.txt: cmake
+-- */meson-info/: meson
+-- build.zig: zig build
+---@return ToolType?
+local function get_build_tool(dir)
+  local stat = vim.uv.fs_stat(dir)
+  if stat then
+    if vim.uv.fs_stat(vim.fs.joinpath(dir, "CMakeCache.txt")) then
+      return "cmake"
+    end
+    if vim.uv.fs_stat(vim.fs.joinpath(dir, "meson-info")) then
+      return "meson"
+    end
+  end
+end
+
+-- c か c++ の buildir(cmake or meson)を探す
+---@return string?
+---@return ToolType?
+local function get_c_builddir()
+  local list = {
+    -- !: if nil exit loop
+    os.getenv "BUILDDIR" or false,
+    --
+    "build",
+    "builddir",
+    "build_android",
+  }
+  for i, dir in ipairs(list) do
+    if dir then
+      local tool = get_build_tool(dir)
+      if tool then
+        return dir, tool
+      end
+    end
+  end
+  -- return "builddir", "cmake"
+end
+
 -- https://neovim.io/doc/user/lsp.html
 -- https://github.com/mason-org/mason.nvim/blob/7c7318e8bae7e3536ef6b9e86b9e38e74f2e125e/CHANGELOG.md?plain=1#L65
 function M.setup()
@@ -21,7 +62,7 @@ function M.setup()
   --   root_markers = { ".git" },
   -- })
 
-  vim.lsp.enable { "luals", "clangd", "zls", "ts_ls" }
+  vim.lsp.enable { "luals", "clangd", "zls", "ts_ls", "slangd" }
 
   -- Enable completion and configure keybindings.
   -- vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
@@ -46,6 +87,24 @@ function M.setup()
   -- end)
 
   -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
+
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "cpp" },
+    callback = function(ev)
+      if ev.match == "c" or ev.match == "cpp" then
+        local dir, tool = get_c_builddir()
+        print("get_c_builddir => ", dir, tool)
+        -- vim.o.errorformat = " %#%f(%l\\,%c): %m"
+        if tool == "cmake" then
+          vim.o.makeprg = "cmake --build " .. dir
+        elseif tool == "meson" then
+          vim.o.makeprg = "meson compile -C " .. dir
+        else
+          --
+        end
+      end
+    end,
+  })
 end
 
 function M.on_attach(event)

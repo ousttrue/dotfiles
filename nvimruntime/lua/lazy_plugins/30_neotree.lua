@@ -1,6 +1,10 @@
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 local conf = {}
 
+local function is_child(dir, path)
+  return vim.startswith(path, dir)
+end
+
 local M = {
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -14,7 +18,7 @@ local M = {
     config = function()
       vim.keymap.set("n", "<C-e>", function()
         local path = vim.fn.expand "%:p"
-        if #path > 0 then
+        if #path > 0 and vim.startswith(path, vim.fn.getcwd()) then
           vim.cmd([[Neotree toggle float reveal_file=%s]]):format(path)
         else
           vim.cmd [[Neotree toggle float]]
@@ -45,8 +49,8 @@ local M = {
         --   },
         -- },
         open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-        sort_case_insensitive = false,                                     -- used when sorting files and directories in the tree
-        sort_function = nil,                                               -- use a custom function for sorting files and directories in the tree
+        sort_case_insensitive = false, -- used when sorting files and directories in the tree
+        sort_function = nil, -- use a custom function for sorting files and directories in the tree
         -- sort_function = function (a,b)
         --       if a.type == b.type then
         --           return a.path > b.path
@@ -160,11 +164,11 @@ local M = {
             },
           },
           follow_current_file = {
-            enabled = true,                       -- This will find and focus the file in the active buffer every time
+            enabled = true, -- This will find and focus the file in the active buffer every time
             --               -- the current file is changed while the tree is open.
-            leave_dirs_open = true,               -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+            leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
           },
-          group_empty_dirs = false,               -- when true, empty folders will be grouped together
+          group_empty_dirs = false, -- when true, empty folders will be grouped together
           hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
           -- in whatever position is specified in window.position
           -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -177,7 +181,7 @@ local M = {
               ["<bs>"] = "navigate_up",
               ["."] = "set_root",
               ["H"] = "toggle_hidden",
-              ["/"] = "noop",         --"fuzzy_finder",
+              ["/"] = "noop", --"fuzzy_finder",
               ["D"] = "fuzzy_finder_directory",
               ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
               -- ["D"] = "fuzzy_sorter_directory",

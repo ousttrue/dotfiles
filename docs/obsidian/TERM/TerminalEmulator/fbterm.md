@@ -1,8 +1,3 @@
-[[TerminalEmulator]]
-
-[[yaft]]
-[[uim]]
-
 ```
 # apt intall fbterm
 ```

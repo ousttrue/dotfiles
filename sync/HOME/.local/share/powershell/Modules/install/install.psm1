@@ -320,7 +320,7 @@ function Install-gobjecgtintrospection
   # G_ALWAYS_INLINE
   $env:LIB+=";$prefix\lib"
   
-  meson setup builddir --prefix $prefix -Dbuildtype=release
+  meson setup builddir -Dtests=false --prefix $prefix -Dbuildtype=release
   meson install -C builddir
   Pop-Location
 }
@@ -357,7 +357,8 @@ function Install-gst
     Remove-Item -Recurse -Force builddir
   }
   # meson setup builddir --prefix $prefix -Dbuildtype=release -Dbad=disabled
-  meson setup builddir --prefix $prefix -Dbuildtype=release -Dbad=enabled -Dgst-plugins-bad:vulkan=disabled
+  # meson setup builddir --prefix $prefix -Dbuildtype=release -Dbad=enabled -Dgst-plugins-bad:vulkan=disabled
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dbad=enabled -Dgst-plugins-bad:d3d12=disabled
   meson install -C builddir
   Pop-Location
 }
@@ -382,8 +383,8 @@ function Install-gtk
   {
     Remove-Item -Recurse -Force builddir
   }
-  # meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false -Dintrospection=enabled
-  meson setup builddir --prefix $prefix -Dbuildtype=release -Dbuild-tests=false -Dintrospection=enabled
+  meson setup builddir --prefix $prefix -Dbuildtype=release -Dmedia-gstreamer=disabled -Dbuild-tests=false -Dbuild-testsuite=false -Dintrospection=enabled
+  # meson setup builddir --prefix $prefix -Dbuildtype=release -Dbuild-tests=false -Dbuild-testsuite=false -Dintrospection=enabled
   meson install -C builddir
   Pop-Location
 }
@@ -415,7 +416,7 @@ function Install-pygobject
   {
     Remove-Item -Recurse -Force builddir
   }
-  meson setup builddir --prefix $prefix -Dbuildtype=release
+  meson setup builddir -Dtests=false -Dpycairo=disabled --prefix $prefix -Dbuildtype=release
   meson install -C builddir
   Pop-Location
 }

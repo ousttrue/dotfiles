@@ -4,13 +4,11 @@
 
   - [Gtk – 4.0: Overview of the drawing model](https://docs.gtk.org/gtk4/drawing-model.html)
 
-- @2022 [GTK4 for Graphical User Interfaces](https://ssalewski.de/gtkprogramming.html)
-- @2020 [「GTK 4」が公開、メディア再生サポートなどが加わる | OSDN Magazine](https://mag.osdn.jp/20/12/18/132200)
-- @2020 [bitWalk's: GTK4 を触ってみた (2) ～ Meson でビルド ～](https://bitwalk.blogspot.com/2020/12/gtk4-2-meson.html)
-
 # Version
 
 偶数が `stable`
+
+## 4.18
 
 ## 4.12
 
@@ -36,20 +34,20 @@
 
 - [GTK 4 NGL Renderer – Happenings in GNOME](https://blogs.gnome.org/chergert/2021/02/24/gtk-4-ngl-renderer/)
 
+## 4.0
+
+- @2020 [bitWalk's: GTK4 を触ってみた (2) ～ Meson でビルド ～](https://bitwalk.blogspot.com/2020/12/gtk4-2-meson.html)
+- @2020 [「GTK 4」が公開、メディア再生サポートなどが加わる | OSDN Magazine](https://mag.osdn.jp/20/12/18/132200)
+
 # nodeview
 
 - https://github.com/aluntzer/gtknodes
 
 # tutorial
 
+- @2022 `nim` [GTK4 for Graphical User Interfaces](https://ssalewski.de/gtkprogramming.html)
 - [ ] [Site Unreachable](https://toshiocp.com/entry/2022/07/07/095955)
 - [ ] [GTK 4 tutorial](https://toshiocp.github.io/Gtk4-tutorial/)
-
-# Build
-
-[[meson]]
-
-- [Build and run GTK 4 applications with Visual Studio](https://www.collabora.com/news-and-blog/blog/2021/03/18/build-and-run-gtk-4-applications-with-visual-studio/)
 
 # vala
 
