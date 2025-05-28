@@ -28,6 +28,10 @@ https://github.com/google-ar/arcore-android-sdk
 
 - @2020 [ARCore 1.20のクラウドアンカーによる共有AR体験の改善｜npaka](https://note.com/npaka/n/n7d16e7b2fef1)
 
+## v1.9
+
+- @2019 [ARCore v1.9で強化されたAugmented Imageについて - じゅころぐAR](https://www.jyuko49.com/entry/2019/05/09/083833)
+
 ## v?
 
 - @2018 [ARCore 取扱説明書 #Android - Qiita](https://qiita.com/taptappun/items/a5337d29a43d5d673c7f)

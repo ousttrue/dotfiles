@@ -1,5 +1,14 @@
 - [OpenXR - Mixed Reality | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/mixed-reality/develop/native/openxr)
 
+- https://developers.meta.com/horizon/documentation/native/native-media-projection/
+- https://github.com/android/media-samples/tree/main/ScreenCapture
+
+- https://developers.meta.com/horizon/blog/new-era-mixed-reality-passthrough-camera-api-machine-learning-computer-vision/
+- https://github.com/SuspenseExplore/audace_engine
+- https://github.com/openxrlab/xrslam
+- https://github.com/LRLVEC/glframework
+- https://gitlab.freedesktop.org/monado/demos/openxr-simple-example
+
 https://www.openxr-tutorial.com/
 
 # version
