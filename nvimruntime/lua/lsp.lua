@@ -1,5 +1,7 @@
 local M = {}
 
+local servers = { "luals", "clangd", "zls", "ts_ls", "slangd", "jdtls", "pyright" }
+
 ---@alias ToolType 'cmake' | 'meson' | 'zig'
 
 -- */CMakeCache.txt: cmake
@@ -62,7 +64,7 @@ function M.setup()
   --   root_markers = { ".git" },
   -- })
 
-  vim.lsp.enable { "luals", "clangd", "zls", "ts_ls", "slangd" }
+  vim.lsp.enable(servers)
 
   -- Enable completion and configure keybindings.
   -- vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
@@ -129,7 +131,7 @@ function M.on_attach(event)
     end, { noremap = true })
 
     if client.name == "clangd" then
-      vim.keymap.set("n", "gh", function()
+      vim.keymap.set("n", "<C-g>", function()
         vim.cmd "LspClangdSwitchSourceHeader"
       end, { noremap = true })
     end

@@ -60,7 +60,7 @@ function M.setup()
       -- null_ls.builtins.formatting.csharpier,
       null_ls.builtins.formatting.rufo,
       null_ls.builtins.formatting.stylua,
-      null_ls.builtins.formatting.black,
+      -- null_ls.builtins.formatting.black,
       -- null_ls.builtins.formatting.jq,
       -- require "none-ls.formatting.jq",
       null_ls.builtins.formatting.uncrustify.with {
@@ -114,6 +114,24 @@ function M.setup()
       -- },
     },
     on_attach = on_attach,
+  }
+
+  --
+  -- ruff
+  --
+  null_ls.register {
+    method = null_ls.methods.FORMATTING,
+    name = "ruff_fmt",
+    filetypes = { "python" },
+    generator = null_ls.formatter {
+      command = { "uv", "run", "ruff", "format" },
+      args = {
+        "$FILENAME",
+      },
+      to_stdin = false,
+      to_temp_file = true,
+      from_temp_file = true,
+    },
   }
 
   --

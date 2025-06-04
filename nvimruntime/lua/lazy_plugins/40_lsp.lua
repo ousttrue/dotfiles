@@ -1,4 +1,5 @@
 return {
+  -- { "nvim-java/nvim-java", opts = {} },
   { "neovim/nvim-lspconfig" },
   {
     "williamboman/mason.nvim",
