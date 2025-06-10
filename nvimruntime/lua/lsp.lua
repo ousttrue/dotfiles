@@ -53,16 +53,21 @@ function M.setup()
     callback = M.on_attach,
   })
 
-  -- vim.lsp.config("*", {
-  --   capabilities = {
-  --     textDocument = {
-  --       semanticTokens = {
-  --         multilineTokenSupport = true,
-  --       },
-  --     },
-  --   },
-  --   root_markers = { ".git" },
-  -- })
+  vim.lsp.config("*", {
+    capabilities = {
+      textDocument = {
+        --       semanticTokens = {
+        --         multilineTokenSupport = true,
+        --       },
+        completion = {
+          completionItem = {
+            snippetSupport = false,
+          },
+        },
+      },
+    },
+    --   root_markers = { ".git" },
+  })
 
   vim.lsp.enable(servers)
 
