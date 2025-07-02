@@ -7,7 +7,7 @@ local function debug_print(...)
 end
 
 -- debug
--- print = debug_print
+print = debug_print
 
 vim.g.editorconfig = false
 vim.cmd [[

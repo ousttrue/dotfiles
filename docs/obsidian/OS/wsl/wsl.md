@@ -2,7 +2,11 @@
 
 # Version
 
-## WSL2-2.0.9
+## 2.4.4
+
+- @2025 [ArchLinuxをWSLにインストール(2025)](https://zenn.dev/dozo/articles/a0ef464bfd77f0)
+
+## 2.0.9
 
 - @2023 [WSL2 2.0.x正式版がこっそリリース](https://zenn.dev/dozo/articles/82e24c52e0ccdc)
 

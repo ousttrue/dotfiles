@@ -1,6 +1,6 @@
 local M = {}
 
-function get_muon()
+local function get_muon()
   -- if vim.fn.has "win32" == 1 then
   --   return "D:\\msys64\\usr\\bin\\muon.exe"
   -- else
@@ -8,7 +8,7 @@ function get_muon()
   -- end
 end
 
-function get_clang_format()
+local function get_clang_format()
   if vim.fn.has "win32" == 1 then
     return "C:/Program Files/LLVM/bin/clang-format.exe"
   else
@@ -34,23 +34,25 @@ local function enum_dir(dir)
   return t
 end
 
+---@param client table
+---@param bufnr number
+local function on_attach(client, bufnr)
+  local filetype = vim.api.nvim_get_option_value("filetype", {
+    buf = bufnr,
+  })
+  if filetype == "meson" then
+    vim.keymap.set({ "n", "v" }, "F", vim.lsp.buf.format, { buffer = bufnr, noremap = true })
+  end
+end
+
 function M.setup()
   require("mason").setup()
-  require("mason-null-ls").setup {
-    handlers = {},
-  }
+  require("mason-null-ls").setup()
+  --   handlers = {},
+  -- }
 
   local null_ls = require "null-ls"
   local helpers = require "null-ls.helpers"
-
-  ---@param client table
-  ---@param bufnr number
-  local function on_attach(client, bufnr)
-    local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-    if filetype == "meson" then
-      vim.keymap.set({ "n", "v" }, "F", vim.lsp.buf.format, { buffer = bufnr, noremap = true })
-    end
-  end
 
   null_ls.setup {
     diagnostics_format = "[#{s}] #{c}\n#{m}",
@@ -69,7 +71,7 @@ function M.setup()
       -- null_ls.builtins.formatting.xmlformat,
       null_ls.builtins.formatting.cmake_format,
 
-      null_ls.builtins.formatting.xq,
+      -- null_ls.builtins.formatting.xq,
       null_ls.builtins.formatting.prettierd.with {
         filetypes = {
           -- "xml",
@@ -87,10 +89,10 @@ function M.setup()
         filetypes = { "sh", "zsh" },
       },
 
-      -- null_ls.builtins.formatting.clang_format.with {
-      --   command = get_clang_format(),
-      --   filetypes = { "glsl" },
-      -- },
+      null_ls.builtins.formatting.clang_format.with {
+        command = { get_clang_format() },
+        filetypes = { "glsl" },
+      },
       -- null_ls.builtins.diagnostics.glslc.with {
       --   -- use opengl instead of vulkan1.0
       --   extra_args = { "--target-env=opengl" },

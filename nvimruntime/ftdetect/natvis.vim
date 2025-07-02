@@ -1,1 +1,1 @@
-autocmd! BufNewFile,BufRead ,*.natvis setf xml
+autocmd! BufNewFile,BufRead *.natvis setf xml

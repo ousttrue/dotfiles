@@ -100,7 +100,7 @@ function M.setup()
     callback = function(ev)
       if ev.match == "c" or ev.match == "cpp" then
         local dir, tool = get_c_builddir()
-        print("get_c_builddir => ", dir, tool)
+        -- print("get_c_builddir => ", dir, tool)
         -- vim.o.errorformat = " %#%f(%l\\,%c): %m"
         if tool == "cmake" then
           vim.o.makeprg = "cmake --build " .. dir

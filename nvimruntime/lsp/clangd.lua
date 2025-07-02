@@ -10,6 +10,7 @@ end
 return {
   cmd = {
     vim.fn.exepath "clangd",
+    "--header-insertion=never",
     "--clang-tidy",
     "--background-index",
     "--offset-encoding=utf-8",
