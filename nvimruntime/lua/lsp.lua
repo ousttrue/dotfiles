@@ -7,15 +7,38 @@ local servers = { "luals", "clangd", "zls", "ts_ls", "slangd", "jdtls", "pyright
 -- */CMakeCache.txt: cmake
 -- */meson-info/: meson
 -- build.zig: zig build
+---@return string?
 ---@return ToolType?
-local function get_build_tool(dir)
+local function get_build_tool(dir, level)
+  -- build/windows/debug
+  if level > 3 then
+    return
+  end
   local stat = vim.uv.fs_stat(dir)
-  if stat then
-    if vim.uv.fs_stat(vim.fs.joinpath(dir, "CMakeCache.txt")) then
-      return "cmake"
-    end
-    if vim.uv.fs_stat(vim.fs.joinpath(dir, "meson-info")) then
-      return "meson"
+  if stat and stat.type == "directory" then
+    local dir_t = vim.uv.fs_opendir(dir, nil, 99)
+    assert(dir_t)
+    local items = vim.uv.fs_readdir(dir_t)
+    assert(items)
+    -- print(dir, level, #items)
+    -- print("fs_stat", vim.inspect(items))
+    vim.uv.fs_closedir(dir_t)
+    for i, item in ipairs(items) do
+      if item.type == "file" and item.name == "CMakeCache.txt" then
+        return dir, "cmake"
+      end
+      if item.type == "file" and item.name == "meson-info" then
+        return dir, "meson"
+      end
+
+      if item.type == "directory" then
+        -- recursive
+        local nest = vim.fs.joinpath(dir, item.name)
+        local nest_dir, tool = get_build_tool(nest, level + 1)
+        if nest_dir then
+          return nest_dir, tool
+        end
+      end
     end
   end
 end
@@ -23,7 +46,7 @@ end
 -- c か c++ の buildir(cmake or meson)を探す
 ---@return string?
 ---@return ToolType?
-local function get_c_builddir()
+function M.get_c_builddir()
   local list = {
     -- !: if nil exit loop
     os.getenv "BUILDDIR" or false,
@@ -32,9 +55,10 @@ local function get_c_builddir()
     "builddir",
     "build_android",
   }
-  for i, dir in ipairs(list) do
-    if dir then
-      local tool = get_build_tool(dir)
+  local cwd = vim.fn.getcwd()
+  for i, root in ipairs(list) do
+    if root then
+      local dir, tool = get_build_tool(vim.fs.joinpath(cwd, root), 0)
       if tool then
         return dir, tool
       end
@@ -99,8 +123,7 @@ function M.setup()
     pattern = { "c", "cpp" },
     callback = function(ev)
       if ev.match == "c" or ev.match == "cpp" then
-        local dir, tool = get_c_builddir()
-        -- print("get_c_builddir => ", dir, tool)
+        local dir, tool = M.get_c_builddir()
         -- vim.o.errorformat = " %#%f(%l\\,%c): %m"
         if tool == "cmake" then
           vim.o.makeprg = "cmake --build " .. dir
