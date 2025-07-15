@@ -1,0 +1,7 @@
+# -eq
+
+# -match
+
+# -like
+
+# ::StartsWith()

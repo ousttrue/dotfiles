@@ -5,11 +5,39 @@ https://www.ros.org/
 
 # Version
 
-Foxy, Jazzy
-
 ## 2
 
 - @2024 [ROS 2の初学者向け資料まとめ #ROS2 - Qiita](https://qiita.com/koichi_baseball/items/b15783ced5df8d5e56a6)
+
+### Kilted Kaiju @2025
+
+https://docs.ros.org/en/kilted/index.html
+
+- https://pixi.sh/dev/tutorials/ros2/
+
+### Iron Irwini (iron)
+
+### Galactic Geochelone (galactic)
+
+### Foxy Fitzroy (foxy)
+
+### Eloquent Elusor (eloquent)
+
+### Dashing Diademata (dashing)
+
+### Crystal Clemmys (crystal)
+
+### Bouncy Bolson (bouncy)
+
+### Ardent Apalone (ardent)
+
+### Beta 3 (r2b3)
+
+### Beta 2 (r2b2)
+
+### Beta 1 (Asphalt)
+
+### Alphas
 
 ## 1 @2007
 

@@ -80,7 +80,7 @@ function M.setup()
           "md",
           -- "mdx",
           -- "css",
-          -- "json",
+          "json",
           -- "json5",
           -- "jsonc",
         },

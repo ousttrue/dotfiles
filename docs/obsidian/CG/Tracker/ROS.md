@@ -13,3 +13,7 @@
 # openxr
 
 - https://github.com/adnanmunawar/ros-openxr-example
+
+# qt
+
+- [ROS講座117 QtQuick(qml)を使う #C++ - Qiita](https://qiita.com/srs/items/33195ff2a8db1edee779)

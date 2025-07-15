@@ -19,7 +19,10 @@ local function get_build_tool(dir, level)
     local dir_t = vim.uv.fs_opendir(dir, nil, 99)
     assert(dir_t)
     local items = vim.uv.fs_readdir(dir_t)
-    assert(items)
+    if not items then
+      return
+    end
+    -- assert(items)
     -- print(dir, level, #items)
     -- print("fs_stat", vim.inspect(items))
     vim.uv.fs_closedir(dir_t)
@@ -51,6 +54,7 @@ function M.get_c_builddir()
     -- !: if nil exit loop
     os.getenv "BUILDDIR" or false,
     --
+    ".build",
     "build",
     "builddir",
     "build_android",
