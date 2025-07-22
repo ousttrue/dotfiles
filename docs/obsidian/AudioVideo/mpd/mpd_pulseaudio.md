@@ -1,0 +1,2 @@
+- @2021 [Music Player Daemon の出力を PulseAudio にする方法](https://zenn.dev/toru3/articles/dcafb713689eed)
+- @2021 [MPD on Raspberry Pi でリモート音楽再生環境を作る💪](https://zenn.dev/aruneko/articles/9b4555b6dd3897)

@@ -12,7 +12,7 @@ M.list = {
   "Operator Mono Dark",
   "Relaxed",
   "Seafoam Pastel",
-  "SeaShells",
+  -- "SeaShells",
 }
 
 ---@return string

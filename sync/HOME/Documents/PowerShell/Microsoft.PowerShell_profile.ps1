@@ -24,6 +24,7 @@ if($IsWindows)
   $env:PSModulePath = "$HOME\.local\share\powershell\Modules;${env:PSModulePath}" 
   Set-Alias winget (Join-Path $env:LOCALAPPDATA "Microsoft\WindowsApps\winget.exe")
   Set-Alias nu (Join-Path $env:LOCALAPPDATA "Programs\nu\bin\nu.exe")
+  $env:YAZI_FILE_ONE="C:\Program Files\Git\usr\bin\file.exe"
 }
 
 if(Test-Path C:/gnome)

@@ -32,6 +32,9 @@ end
 return {
   -- { "echasnovski/mini.ai", version = false, opts={} },
   {
+    "https://gitlab.com/itaranto/id3.nvim",
+  },
+  {
     "samsze0/jumplist.nvim",
     config = function()
       local jumplist = require "jumplist"

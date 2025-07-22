@@ -41,5 +41,9 @@ https://kid3.sourceforge.io/kid3_en.html#frame-list
 
 - [EasyTAG：Linuxで使える音楽ファイルのタグ編集ソフト | クロの思考ノート](http://note.kurodigi.com/linux-easytag/)
 
-
 - https://www.mp3tag.de/en/
+
+## nvim
+
+https://gitlab.com/itaranto/id3.nvim
+
