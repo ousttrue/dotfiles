@@ -1,27 +1,31 @@
-# Install
+# install
 
 ```sh
 $ lsblk -o name,label
 $ mkfs.ext4 /dev/xxx
-$ mount /dev/xxx /mn
+$ mount /dev/xxx /mnt
 
 $ pacstrap /mnt base linux linux-firmware
 $ genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-## chroot
+## chroot, passwd, useradd
 
 ```sh
-$ pacman -S vim dhcpcd
+$ arch-chroot /mnt
+[chroot]$ passwd
+[chroot]$ useradd -m USER_NAME
+[chroot]$ passwd USER_NAME
+[chroot]$ usermod -aG wheel USER_NAME
+[chroot]$ pacman -S vim sudo
+[chroot]$ EDITOR=vim visudo
 ```
 
-- passwd
-- boot loader [[boot]]
-- user
+`/etc/inputrc` `~/.inputrc`
 
-```
-# useradd -m USER_NAME
-# passwd USER_NAME
+```sh
+"\C-n":history-search-forward
+"\C-p":history-search-backward
 ```
 
 ## bootloader
@@ -29,39 +33,57 @@ $ pacman -S vim dhcpcd
 とりえあず grub2 を入れる。
 grub2 のコマンドラインから起動できればなんとかなる。
 
+```sh
+$ pacman -S efibootmgr
+$ efibootmgr
 ```
-# pacman -S grub efibootmgr
-# grub-install --efi-directory=/boot
-# grub-mkconfig -o /boot/grub/grub.cfg
+
+- [Unified Extensible Firmware Interface - ArchWiki](https://wiki.archlinux.jp/index.php/EFI_)%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3
+
+```sh
+$ pacman -S grub
+$ mount /dev/ESP /efi # ESP を /efi に mount する
+$ grub-install --efi-directory=/efi
+
+# /dev/sda3 が /mnt に mount
+# /mnt/boot/grub/grub.cfg に作る
+# boot パーティション不用。
+$ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ```
-grub> set root=(hd0,0) # UEFI partision
-grub> linux /vmlinuz root=/dev/nvme0n1p2 # kernel
-grub> initrd /initrd.img # initrd
+grub> set root=(hd0,gpt3) # UEFI partision
+grub> linux /boot/vmlinuz root=/dev/sda3 # kernel
+grub> initrd /boot/initrd.img # initrd
 grub> boot
 ```
 
 ## dhcpcd
 
-```
-# pacman -S dhcpcd
-# systemctl start dhcpcd@enp3s0.service
-# systemctl enable dhcpcd@enp3s0.service
+```sh
+$ pacman -S dhcpcd
+# $ systemctl start dhcpcd@enp3s0.service
+$ systemctl enable --now dhcpcd@enp3s0.service
 ```
 
 ## openssh
 
-```
-pacman -S openssh
-systemctl start sshd.service
-systemctl enable sshd.service
+```sh
+$ pacman -S openssh
+# $ systemctl start sshd.service
+$ systemctl enable --now sshd.service
 ```
 
 ## reboot
 
 ```
 # dhcpcd enp3s0
+```
+
+## neovim build
+
+```sh
+$ sudo pacman -S base-devel cmake ninja curl
 ```
 
 # wayland

@@ -1,6 +1,7 @@
 local M = {}
 
-local servers = { "luals", "clangd", "zls", "ts_ls", "slangd", "jdtls", "pyright" }
+--
+local servers = { "luals", "clangd", "zls", "ts_ls", "slangd", "jdtls", "pyright", "powershell_es" }
 
 ---@alias ToolType 'cmake' | 'meson' | 'zig'
 
@@ -74,8 +75,9 @@ end
 -- https://neovim.io/doc/user/lsp.html
 -- https://github.com/mason-org/mason.nvim/blob/7c7318e8bae7e3536ef6b9e86b9e38e74f2e125e/CHANGELOG.md?plain=1#L65
 function M.setup()
-  vim.lsp.set_log_level "off"
+  -- vim.lsp.set_log_level "off"
   -- vim.lsp.set_log_level "debug"
+  vim.lsp.set_log_level "error"
 
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = M.on_attach,

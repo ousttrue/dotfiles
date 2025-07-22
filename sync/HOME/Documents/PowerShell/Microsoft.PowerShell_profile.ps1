@@ -199,8 +199,8 @@ addPath(join-Path $HOME '/Downloads/Visual Studio Code.app/Contents/Resources/ap
 $PY_PREFIX = Get-Python
 if ($PY_PREFIX) 
 {
-insertPath($PY_PREFIX)
-insertPath(Join-Path $PY_PREFIX "Scripts")
+  insertPath($PY_PREFIX)
+  insertPath(Join-Path $PY_PREFIX "Scripts")
 }
 # }
 
@@ -231,7 +231,7 @@ if (has zoxide)
       {
         'pwd' 
       }
-    (zoxide init --hook $hook powershell | Out-String)
+      (zoxide init --hook $hook powershell | Out-String)
     })
 }
 
@@ -617,3 +617,18 @@ Import-Module prompt -ErrorAction SilentlyContinue
 Import-Module util -ErrorAction SilentlyContinue
 Import-Module install -ErrorAction SilentlyContinue
 
+function y
+{
+  $tmp = (New-TemporaryFile).FullName
+  yazi $args --cwd-file="$tmp"
+  $cwd = Get-Content -Path $tmp -Encoding UTF8
+  if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path)
+  {
+    Set-Location -LiteralPath (Resolve-Path -LiteralPath $cwd).Path
+    if(has lsd)
+    {
+      lsd
+    }
+  }
+  Remove-Item -Path $tmp
+}
