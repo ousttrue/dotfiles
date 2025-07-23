@@ -1,37 +1,34 @@
 [opener]
 play = [
-	{ run = 'mpv "$@"', orphan = true, for = "unix" },
-	{ run = '"C:\Program Files\mpv.exe" %*', orphan = true, for = "windows" }
+  { run = 'mpv "$@"', orphan = true, for = "unix" },
+  { run = '"C:\Program Files\mpv.exe" %*', orphan = true, for = "windows" },
 ]
 edit = [
-	{ run = '$EDITOR "$@"', block = true, for = "unix" },
-	{ run = "%EDITOR% %*",  block = true, for = "windows" },
+  { run = '$EDITOR "$@"', block = true, for = "unix" },
+  { run = "%EDITOR% %*", block = true, for = "windows" },
 ]
 open = [
-	{ run = 'xdg-open "$@"', desc = "Open" },
+  { run = 'xdg-open "$@"', desc = "Open" },
 ]
 
 [open]
 rules = [
-	{ mime = "text/*", use = "edit" },
-	{ mime = "video/*", use = "play" },
-
-	# { mime = "application/json", use = "edit" },
-	{ name = "*.json", use = "edit" },
-
-	# Multiple openers for a single rule
-	{ name = "*.html", use = [ "open", "edit" ] },
+  { mime = "text/*", use = "edit" },
+  { mime = "video/*", use = "play" },
+  # { mime = "application/json", use = "edit" },
+  { name = "*.json", use = "edit" },
+  # Multiple openers for a single rule
+  { name = "*.html", use = ["open", "edit"] },
 ]
 
 [plugin]
 prepend_previewers = [
-	# HEIC previewer
-	{ mime = "image/heic", run = "heic" },
-	# RAF previewer
-	{ name = "*.raf", run = "raf" },
+  # HEIC previewer
+  { mime = "image/heic", run = "heic" },
+  # RAF previewer
+  { name = "*.raf", run = "raf" },
 ]
-
 append_previewers = [
-	# My fallback previewer
-	{ name = "*", run = "binary" },
+  # My fallback previewer
+  { name = "*", run = "binary" },
 ]

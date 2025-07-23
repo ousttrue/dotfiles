@@ -1,7 +1,17 @@
 local M = {}
 
 --
-local servers = { "luals", "clangd", "zls", "ts_ls", "slangd", "jdtls", "pyright", "powershell_es" }
+local servers = {
+  "luals",
+  "clangd",
+  "zls",
+  "ts_ls",
+  "slangd",
+  "jdtls",
+  "pyright",
+  "powershell_es",
+  "tombi",
+}
 
 ---@alias ToolType 'cmake' | 'meson' | 'zig'
 
