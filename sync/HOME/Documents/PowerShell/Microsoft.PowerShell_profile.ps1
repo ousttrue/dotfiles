@@ -183,6 +183,7 @@ if ($IsWindows)
 {
   addPath("C:\Program Files\qemu")
   addPath('C:\Program Files\Erlang OTP\bin')
+  addPath('C:\Program Files\7-Zip')
 } else
 {
   addPath("/usr/local/go/bin")

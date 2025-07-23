@@ -9,7 +9,7 @@ edit = [
 ]
 open = [
   { run = 'xdg-open "$@"', desc = "Open", for = "unix" },
-  { run = 'pwsh -noprofile -c Invoke-Item "$@"', desc = "Open", for="windows"},
+  { run = 'pwsh -noprofile -c Invoke-Item %*', desc = "Open", for="windows"},
 ]
 
 [open]

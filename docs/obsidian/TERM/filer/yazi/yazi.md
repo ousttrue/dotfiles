@@ -13,13 +13,12 @@ https://yazi-rs.github.io/
 
 - @2025 [プラグインの引っ越し地獄から脱却！令和のVimファイラーはこれで決まり！](https://zenn.dev/1227yukimura/articles/introduce-vim-yazi)
 
-# plugins
+# config
 
-- https://github.com/AnirudhG07/awesome-yazi
+- https://github.com/sxyazi/yazi/tree/shipped/yazi-config/preset
 
-- https://github.com/mgumz/yazi-plugin-bat
-- https://github.com/sharklasers996/eza-preview.yazi
+# env
 
-## mp3
-
-- https://github.com/Sonico98/exifaudio.yazi
+```sh
+$env:YAZI_LOG = "debug"
+```
