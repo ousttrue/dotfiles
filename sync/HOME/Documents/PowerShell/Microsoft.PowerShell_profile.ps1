@@ -14,17 +14,39 @@ Set-Alias ? Where-Object
 
 Set-alias vswhere "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe"
 
-$NVIM_PREFIX = Join-Path $HOME "neovim"
-Set-Alias v (Join-Path $NVIM_PREFIX "\bin\nvim")
-
+#
+# platform
+#
+$EXE = ""
 $env:_CL_ = "/utf-8"
 $env:XDG_CONFIG_HOME = "$HOME/.config"
-if($IsWindows)
+$shada_dir = (Join-Path ${env:HOME} ".local/state/nvim/shada") 
+if ($IsWindows)
 {
+  chcp 65001
+  $env:HOME = $env:USERPROFILE
+  $EXE = ".exe"
+  # $defs = @(
+  #   [mymodule.Dependency]::new(
+  #     "nvim", 
+  #     "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip",
+  #     "nvim-win64/bin/nvim.exe")
+  # )
+  $shada_dir = (Join-Path ${env:LOCALAPPDATA} "\nvim-data\shada") 
   $env:PSModulePath = "$HOME\.local\share\powershell\Modules;${env:PSModulePath}" 
   Set-Alias winget (Join-Path $env:LOCALAPPDATA "Microsoft\WindowsApps\winget.exe")
   Set-Alias nu (Join-Path $env:LOCALAPPDATA "Programs\nu\bin\nu.exe")
   $env:YAZI_FILE_ONE="C:\Program Files\Git\usr\bin\file.exe"
+} 
+$NVIM_PREFIX = Join-Path $HOME "neovim"
+$NVIM_PATH =(Join-Path $NVIM_PREFIX "/bin/nvim${EXE}")
+Set-Alias v $NVIM_PATH
+if (Test-Path $NVIM_PATH)
+{
+  $env:EDITOR = $NVIM_PATH
+} else
+{
+  $env:EDITOR = "vim"
 }
 
 if(Test-Path C:/gnome)
@@ -34,13 +56,6 @@ if(Test-Path C:/gnome)
 }
 
 # dirs
-if ($IsWindows)
-{
-  $shada_dir = (Join-Path ${env:LOCALAPPDATA} "\nvim-data\shada") 
-} else
-{
-  $shada_dir = (Join-Path ${env:HOME} ".local/state/nvim/shada") 
-}
 $dot_dir = Join-Path $HOME "dotfiles"
 $dot_sync_dir = Join-Path $dot_dir "sync/HOME"
 $dot_sync_app_dir = Join-Path $dot_dir "sync/APPDATA"
@@ -56,26 +71,6 @@ if (!(Test-Path $dll_path))
 }
 Add-Type -Path $dll_path
 # Get-TYpes mymodule.Dependency
-
-#
-# platform
-#
-if ($IsWindows)
-{
-  chcp 65001
-  $env:HOME = $env:USERPROFILE
-
-  $EXE = ".exe"
-  $defs = @(
-    [mymodule.Dependency]::new(
-      "nvim", 
-      "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip",
-      "nvim-win64/bin/nvim.exe")
-  )
-} else
-{
-  $EXE = ""
-}
 
 $SEP = [System.IO.Path]::DirectorySeparatorChar
 $env:FZF_DEFAULT_OPTS = "--layout=reverse --preview-window down:70%"
@@ -486,14 +481,6 @@ function ofzf()
   {
     $map[[int]$res.Split()[0]]
   }
-}
-
-if (Test-Path "nvim")
-{
-  $env:EDITOR = "nvim"
-} else
-{
-  $env:EDITOR = "vim"
 }
 
 function lk
