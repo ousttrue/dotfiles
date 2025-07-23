@@ -8,7 +8,8 @@ edit = [
   { run = "%EDITOR% %*", block = true, for = "windows" },
 ]
 open = [
-  { run = 'xdg-open "$@"', desc = "Open" },
+  { run = 'xdg-open "$@"', desc = "Open", for = "unix" },
+  { run = 'pwsh -noprofile -c Invoke-Item "$@"', desc = "Open", for="windows"},
 ]
 
 [open]

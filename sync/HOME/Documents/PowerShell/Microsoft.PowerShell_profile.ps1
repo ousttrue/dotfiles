@@ -20,7 +20,6 @@ Set-alias vswhere "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswh
 $EXE = ""
 $env:_CL_ = "/utf-8"
 $env:XDG_CONFIG_HOME = "$HOME/.config"
-$shada_dir = (Join-Path ${env:HOME} ".local/state/nvim/shada") 
 if ($IsWindows)
 {
   chcp 65001
@@ -32,7 +31,6 @@ if ($IsWindows)
   #     "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip",
   #     "nvim-win64/bin/nvim.exe")
   # )
-  $shada_dir = (Join-Path ${env:LOCALAPPDATA} "\nvim-data\shada") 
   $env:PSModulePath = "$HOME\.local\share\powershell\Modules;${env:PSModulePath}" 
   Set-Alias winget (Join-Path $env:LOCALAPPDATA "Microsoft\WindowsApps\winget.exe")
   Set-Alias nu (Join-Path $env:LOCALAPPDATA "Programs\nu\bin\nu.exe")
@@ -47,6 +45,11 @@ if (Test-Path $NVIM_PATH)
 } else
 {
   $env:EDITOR = "vim"
+}
+$shada_dir = (Join-Path ${env:HOME} ".local/state/nvim/shada") 
+if ($IsWindows)
+{
+  $shada_dir = (Join-Path ${env:LOCALAPPDATA} "\nvim-data\shada") 
 }
 
 if(Test-Path C:/gnome)
